@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Admin API (analyticsadmin/v1alpha)
+//   Google Analytics Admin API (analyticsadmin/v1beta)
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -28,18 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/analytics.edit"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit;
-/**
- *  Authorization scope: Manage Google Analytics Account users by email address
- *
- *  Value "https://www.googleapis.com/auth/analytics.manage.users"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers;
-/**
- *  Authorization scope: View Google Analytics user permissions
- *
- *  Value "https://www.googleapis.com/auth/analytics.manage.users.readonly"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly;
 /**
  *  Authorization scope: See and download your Google Analytics data
  *

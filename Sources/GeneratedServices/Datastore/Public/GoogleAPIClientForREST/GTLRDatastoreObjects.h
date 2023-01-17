@@ -1190,6 +1190,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_EntityResult : GTLRObject
 
 /**
+ *  The time at which the entity was created. This field is set for `FULL`
+ *  entity results. If this entity is missing, this field will not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
  *  A cursor that points to the position after the result entity. Set only when
  *  the `EntityResult` is part of a `QueryResultBatch` message.
  *
@@ -2392,6 +2398,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *conflictDetected;
+
+/**
+ *  The create time of the entity. This field will not be set after a 'delete'.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  The automatically allocated key. Set only when the mutation allocated a key.

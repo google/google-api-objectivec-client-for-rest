@@ -43,6 +43,11 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetDiscoveryStatus_St
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetDiscoveryStatus_State_Scheduled = @"SCHEDULED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetDiscoveryStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec.readAccessMode
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_AccessModeUnspecified = @"ACCESS_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_Direct = @"DIRECT";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_Managed = @"MANAGED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_Type_BigqueryDataset = @"BIGQUERY_DATASET";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_Type_StorageBucket = @"STORAGE_BUCKET";
@@ -67,6 +72,24 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelT
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_QueryEngineUnspecified = @"QUERY_ENGINE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark = @"SPARK";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation.statistic
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Max = @"MAX";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Mean = @"MEAN";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Min = @"MIN";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_StatisticUndefined = @"STATISTIC_UNDEFINED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_ActionRequired = @"ACTION_REQUIRED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Creating = @"CREATING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.type
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile = @"DATA_PROFILE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality = @"DATA_QUALITY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.scope
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Full = @"FULL";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Incremental = @"INCREMENTAL";
@@ -88,6 +111,20 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_T
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataProfile = @"DATA_PROFILE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataQuality = @"DATA_QUALITY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_ScanTypeUnspecified = @"SCAN_TYPE_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Canceling = @"CANCELING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Failed = @"FAILED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Pending = @"PENDING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Running = @"RUNNING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Succeeded = @"SUCCEEDED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.type
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile = @"DATA_PROFILE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality = @"DATA_QUALITY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_Config = @"CONFIG";
@@ -233,6 +270,11 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Stop 
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail_Engine_Bigquery = @"BIGQUERY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail_Engine_EngineUnspecified = @"ENGINE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail_Engine_SparkSql = @"SPARK_SQL";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess.read
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_AccessModeUnspecified = @"ACCESS_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_Direct = @"DIRECT";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_Managed = @"MANAGED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat.compressionFormat
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat_CompressionFormat_Bzip2 = @"BZIP2";
@@ -512,7 +554,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec
-@dynamic name, type;
+@dynamic name, readAccessMode, type;
 @end
 
 
@@ -607,6 +649,317 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult
+@dynamic profile, rowCount, scannedData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile
+@dynamic fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField
+@dynamic mode, name, profile, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo
+@dynamic distinctRatio, doubleProfile, integerProfile, nullRatio, stringProfile,
+         topNValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topNValues" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoDoubleFieldInfo
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoDoubleFieldInfo
+@dynamic average, max, min, quartiles, standardDeviation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quartiles" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo
+@dynamic average, max, min, quartiles, standardDeviation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quartiles" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo
+@dynamic averageLength, maxLength, minLength;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue
+@dynamic count, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult
+@dynamic passed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult
+@dynamic dimensions, passed, rowCount, rules, scannedData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult class],
+    @"rules" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule
+@dynamic column, dimension, ignoreNull, nonNullExpectation, rangeExpectation,
+         regexExpectation, rowConditionExpectation, setExpectation,
+         statisticRangeExpectation, tableConditionExpectation, threshold,
+         uniquenessExpectation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation
+@dynamic maxValue, minValue, strictMaxEnabled, strictMinEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation
+@dynamic regex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult
+@dynamic evaluatedCount, failingRowsQuery, nullCount, passed, passedCount,
+         passRatio, rule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation
+@dynamic sqlExpression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation
+@dynamic maxValue, minValue, statistic, strictMaxEnabled, strictMinEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation
+@dynamic sqlExpression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec
+@dynamic rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScan
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScan
+@dynamic createTime, data, dataProfileResult, dataProfileSpec,
+         dataQualityResult, dataQualitySpec, descriptionProperty, displayName,
+         executionSpec, executionStatus, labels, name, state, type, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent
 //
 
@@ -647,6 +1000,47 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return [NSNumber class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec
+@dynamic field, trigger;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus
+@dynamic latestJobEndTime, latestJobStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob
+@dynamic dataProfileResult, dataProfileSpec, dataQualityResult, dataQualitySpec,
+         endTime, message, name, startTime, state, type, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataSource
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataSource
+@dynamic entity;
 @end
 
 
@@ -729,9 +1123,9 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1Entity
-@dynamic asset, catalogEntry, compatibility, createTime, dataPath,
+@dynamic access, asset, catalogEntry, compatibility, createTime, dataPath,
          dataPathPattern, descriptionProperty, displayName, ETag, format,
-         identifier, name, schema, system, type, updateTime;
+         identifier, name, schema, system, type, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1020,6 +1414,51 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScanJobsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScanJobsResponse
+@dynamic dataScanJobs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataScanJobs" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataScanJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScansResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScansResponse
+@dynamic dataScans, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataScans" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataScan class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataScans";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1ListEntitiesResponse
 //
 
@@ -1231,6 +1670,64 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanResponse
+@dynamic job;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskResponse
+@dynamic job;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData
+@dynamic incrementalField;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField
+@dynamic end, field, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1Schema
 //
 
@@ -1314,11 +1811,21 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess
+@dynamic read;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat
-@dynamic compressionFormat, csv, format, json, mimeType;
+@dynamic compressionFormat, csv, format, iceberg, json, mimeType;
 @end
 
 
@@ -1329,6 +1836,16 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatCsvOptions
 @dynamic delimiter, encoding, headerRows, quote;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatIcebergOptions
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatIcebergOptions
+@dynamic metadataLocation;
 @end
 
 
@@ -1524,6 +2041,35 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1TaskTriggerSpec
 @dynamic disabled, maxRetries, schedule, startTime, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1Trigger
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1Trigger
+@dynamic onDemand, schedule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule
+@dynamic cron;
 @end
 
 

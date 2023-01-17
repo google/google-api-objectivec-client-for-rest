@@ -974,3 +974,28 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 }
 
 @end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsGet
+
+@dynamic applicationsId, locationsId, projectsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_Application class];
+  query.loggingName = @"appengine.projects.locations.applications.get";
+  return query;
+}
+
+@end

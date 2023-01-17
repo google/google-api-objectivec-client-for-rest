@@ -30,11 +30,6 @@ NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFo
 NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric = @"NUMERIC";
 NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration = @"TIME_DURATION";
 
-// GTLRGamesConfiguration_ImageConfiguration.imageType
-NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon = @"ACHIEVEMENT_ICON";
-NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified = @"IMAGE_TYPE_UNSPECIFIED";
-NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon = @"LEADERBOARD_ICON";
-
 // GTLRGamesConfiguration_LeaderboardConfiguration.scoreOrder
 NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_LargerIsBetter = @"LARGER_IS_BETTER";
 NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_ScoreOrderUnspecified = @"SCORE_ORDER_UNSPECIFIED";
@@ -124,23 +119,6 @@ NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_Sma
 
 @implementation GTLRGamesConfiguration_GamesNumberFormatConfiguration
 @dynamic currencyCode, numberFormatType, numDecimalPlaces, suffix;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGamesConfiguration_ImageConfiguration
-//
-
-@implementation GTLRGamesConfiguration_ImageConfiguration
-@dynamic imageType, kind, resourceId, url;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
 @end
 
 

@@ -121,6 +121,38 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenRequest
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenRequest
+@dynamic clientId, code, codeVerifier, grantType, redirectUri, refreshToken,
+         scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenResponse
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenResponse
+@dynamic accessToken, expiresIn, refreshToken, scope, tokenType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"accessToken" : @"access_token",
+    @"expiresIn" : @"expires_in",
+    @"refreshToken" : @"refresh_token",
+    @"tokenType" : @"token_type"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest
 //
 

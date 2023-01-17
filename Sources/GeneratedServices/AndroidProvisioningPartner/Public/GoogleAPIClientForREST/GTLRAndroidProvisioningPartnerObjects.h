@@ -815,7 +815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, copy, nullable) NSString *googleWorkspaceCustomerId;
 
 /**
- *  The ID of the Customer that purchased the Android device.
+ *  The ID of the Customer that purchased the device.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -898,7 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /**
  *  The device model's name. Allowed values are listed in [Android
  *  models](/zero-touch/resources/manufacturer-names#model-names) and [Chrome OS
- *  models](https://support.google.com/chrome/a/answer/10130175?hl=en#identify_compatible).
+ *  models](https://support.google.com/chrome/a/answer/10130175#identify_compatible).
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -1508,7 +1508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch : GTLRObject
 
 /**
- *  If processing succeeds, the device ID of the Android device.
+ *  If processing succeeds, the device ID of the device.
  *
  *  Uses NSNumber of longLongValue.
  */

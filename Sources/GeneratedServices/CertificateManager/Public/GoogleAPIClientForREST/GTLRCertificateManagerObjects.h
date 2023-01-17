@@ -487,7 +487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. A list of GCLB targets which use this Certificate Map. A Target
+ *  Output only. A list of GCLB targets that use this Certificate Map. A Target
  *  Proxy is only present on this list if it's attached to a Forwarding Rule.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_GclbTarget *> *gclbTargets;
@@ -626,7 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRCertificateManager_DnsResourceRecord *dnsResourceRecord;
 
 /**
- *  Required. Immutable. A domain which is being authorized. A DnsAuthorization
+ *  Required. Immutable. A domain that is being authorized. A DnsAuthorization
  *  resource covers a single domain and its wildcard, e.g. authorization for
  *  `example.com` can be used to issue certificates for `example.com` and
  *  `*.example.com`.
@@ -696,7 +696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Describes a Target Proxy which uses this Certificate Map.
+ *  Describes a Target Proxy that uses this Certificate Map.
  */
 @interface GTLRCertificateManager_GclbTarget : GTLRObject
 

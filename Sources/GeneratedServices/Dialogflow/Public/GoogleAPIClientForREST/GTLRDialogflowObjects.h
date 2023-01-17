@@ -78,6 +78,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TransitionRoute;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders;
@@ -195,6 +196,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Version;
@@ -361,6 +363,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals;
 @class GTLRDialogflow_GoogleCloudLocationLocation;
 @class GTLRDialogflow_GoogleCloudLocationLocation_Labels;
 @class GTLRDialogflow_GoogleCloudLocationLocation_Metadata;
@@ -627,6 +630,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "UTTERANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Utterance;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals.failureReasons
+
+/**
+ *  Whether NLU failed to recognize user intent.
+ *
+ *  Value: "FAILED_INTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailedIntent;
+/**
+ *  Whether webhook failed during the turn.
+ *
+ *  Value: "FAILED_WEBHOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailedWebhook;
+/**
+ *  Failure reason is not assigned.
+ *
+ *  Value: "FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailureReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse.mergeBehavior
@@ -1430,6 +1455,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Test
  *  Value: "UTTERANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Utterance;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals.failureReasons
+
+/**
+ *  Whether NLU failed to recognize user intent.
+ *
+ *  Value: "FAILED_INTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailedIntent;
+/**
+ *  Whether webhook failed during the turn.
+ *
+ *  Value: "FAILED_WEBHOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailedWebhook;
+/**
+ *  Failure reason is not assigned.
+ *
+ *  Value: "FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailureReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage.resourceType
@@ -3156,6 +3203,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_StateUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
+
+/**
+ *  Whether NLU failed to recognize user intent.
+ *
+ *  Value: "FAILED_INTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailedIntent;
+/**
+ *  Whether webhook failed during the turn.
+ *
+ *  Value: "FAILED_WEBHOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailedWebhook;
+/**
+ *  Failure reason is not assigned.
+ *
+ *  Value: "FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailureReasonUnspecified;
+
 /**
  *  Hierarchical advanced settings for agent/flow/page/fulfillment/parameter.
  *  Settings exposed at lower level overrides the settings exposed at higher
@@ -3494,6 +3563,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  A list of individual test case results names in this continuous test run.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testCaseResults;
+
+@end
+
+
+/**
+ *  This message is used to hold all the Conversation Signals data, which will
+ *  be converted to JSON and exported to BigQuery.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationSignals : GTLRObject
+
+/** Required. Turn signals for the current turn. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals *turnSignals;
 
 @end
 
@@ -4823,6 +4904,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage : GTLRObject
 
+/**
+ *  The channel which the response is associated with. Clients can specify the
+ *  channel via QueryParameters.channel, and only associated channel response
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
 /** Indicates that the conversation succeeded. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess *conversationSuccess;
 
@@ -5426,6 +5514,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Collection of all signals that were extracted for a single turn of the
+ *  conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals : GTLRObject
+
+/**
+ *  Whether agent responded with LiveAgentHandoff fulfillment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *agentEscalated;
+
+/**
+ *  Whether user was using DTMF input.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dtmfUsed;
+
+/** Failure reasons of the turn. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failureReasons;
+
+/**
+ *  Whether NLU predicted NO_MATCH.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noMatch;
+
+/**
+ *  Whether user provided no input.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noUserInput;
+
+/**
+ *  Whether turn resulted in End Session page.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reachedEndPage;
+
+/**
+ *  Whether user was specifically asking for a live agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userEscalated;
+
+/** Human-readable statuses of the webhooks triggered during this turn. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
+
+@end
+
+
+/**
  *  Metadata for UpdateDocument operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1UpdateDocumentOperationMetadata : GTLRObject
@@ -5955,6 +6100,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  A list of individual test case results names in this continuous test run.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testCaseResults;
+
+@end
+
+
+/**
+ *  This message is used to hold all the Conversation Signals data, which will
+ *  be converted to JSON and exported to BigQuery.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationSignals : GTLRObject
+
+/** Required. Turn signals for the current turn. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals *turnSignals;
 
 @end
 
@@ -8968,6 +9125,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *analyzeQueryTextSentiment;
 
 /**
+ *  The channel which this query is for. If specified, only the ResponseMessage
+ *  associated with the channel will be returned. If no ResponseMessage is
+ *  associated with the channel, it falls back to the ResponseMessage with
+ *  unspecified channel. If unspecified, the ResponseMessage with unspecified
+ *  channel will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/**
  *  The unique identifier of the page to override the current page in the
  *  session. Format: `projects//locations//agents//flows//pages/`. If
  *  `current_page` is specified, the previous state of the session will be
@@ -9330,6 +9496,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the text displayed to the user may differ from what is heard.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage : GTLRObject
+
+/**
+ *  The channel which the response is associated with. Clients can specify the
+ *  channel via QueryParameters.channel, and only associated channel response
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
 
 /** Indicates that the conversation succeeded. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess *conversationSuccess;
@@ -9877,11 +10050,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *redactionStrategy;
 
 /**
- *  Retains data in interaction logging for the specified number of days. This
- *  does not apply to Cloud logging, which is owned by the user - not
- *  Dialogflow. User must set a value lower than Dialogflow's default 365d TTL
- *  (time to live). Setting a value higher than that has no effect. A missing
- *  value or setting to 0 also means we use Dialogflow's default TTL.
+ *  Retains the data for the specified number of days. User must set a value
+ *  lower than Dialogflow's default 365d TTL (30 days for Agent Assist traffic),
+ *  higher value will be ignored and use default. Setting a value higher than
+ *  that has no effect. A missing value or setting to 0 also means we use
+ *  default TTL.
  *
  *  Uses NSNumber of intValue.
  */
@@ -10570,6 +10743,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Intent route or condition route. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRoute *transitionRoute;
+
+@end
+
+
+/**
+ *  Collection of all signals that were extracted for a single turn of the
+ *  conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals : GTLRObject
+
+/**
+ *  Whether agent responded with LiveAgentHandoff fulfillment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *agentEscalated;
+
+/**
+ *  Whether user was using DTMF input.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dtmfUsed;
+
+/** Failure reasons of the turn. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failureReasons;
+
+/**
+ *  Whether NLU predicted NO_MATCH.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noMatch;
+
+/**
+ *  Whether user provided no input.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noUserInput;
+
+/**
+ *  Whether turn resulted in End Session page.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reachedEndPage;
+
+/**
+ *  Whether user was specifically asking for a live agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userEscalated;
+
+/** Human-readable statuses of the webhooks triggered during this turn. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
 
 @end
 
@@ -13674,7 +13904,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The sentiment, such as positive/negative feeling or association, for a unit
- *  of analysis, such as the query text.
+ *  of analysis, such as the query text. See:
+ *  https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values
+ *  for how to interpret the result.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment : GTLRObject
 
@@ -16191,7 +16423,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The sentiment, such as positive/negative feeling or association, for a unit
- *  of analysis, such as the query text.
+ *  of analysis, such as the query text. See:
+ *  https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values
+ *  for how to interpret the result.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Sentiment : GTLRObject
 
@@ -16641,6 +16875,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  This message is used to hold all the Conversation Signals data, which will
+ *  be converted to JSON and exported to BigQuery.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ConversationSignals : GTLRObject
+
+/** Required. Turn signals for the current turn. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals *turnSignals;
+
+@end
+
+
+/**
  *  Metadata for CreateDocument operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateDocumentOperationMetadata : GTLRObject
@@ -16714,6 +16960,71 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The generic information of the operation. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Collection of all signals that were extracted for a single turn of the
+ *  conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals : GTLRObject
+
+/**
+ *  Whether agent responded with LiveAgentHandoff fulfillment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *agentEscalated;
+
+/**
+ *  Whether user was using DTMF input.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dtmfUsed;
+
+/** Failure reasons of the turn. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failureReasons;
+
+/**
+ *  Whether NLU predicted NO_MATCH.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noMatch;
+
+/**
+ *  Whether user provided no input.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noUserInput;
+
+/**
+ *  Whether turn resulted in End Session page.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reachedEndPage;
+
+/**
+ *  Whether agent has triggered the event corresponding to user abandoning the
+ *  conversation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *triggeredAbandonmentEvent;
+
+/**
+ *  Whether user was specifically asking for a live agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userEscalated;
+
+/** Human-readable statuses of the webhooks triggered during this turn. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
 
 @end
 

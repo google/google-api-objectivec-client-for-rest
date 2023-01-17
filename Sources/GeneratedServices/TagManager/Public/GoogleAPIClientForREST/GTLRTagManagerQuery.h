@@ -290,6 +290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoTitle;
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoUrl;
 /** Value: "videoVisible" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
+/** Value: "visitorRegion" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1426,6 +1428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        "serverPageLocationPath"
  *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
  *        "serverPageLocationHostname"
+ *    @arg @c kGTLRTagManagerTypeVisitorRegion Value "visitorRegion"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1616,6 +1619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        "serverPageLocationPath"
  *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
  *        "serverPageLocationHostname"
+ *    @arg @c kGTLRTagManagerTypeVisitorRegion Value "visitorRegion"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1845,6 +1849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        "serverPageLocationPath"
  *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
  *        "serverPageLocationHostname"
+ *    @arg @c kGTLRTagManagerTypeVisitorRegion Value "visitorRegion"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

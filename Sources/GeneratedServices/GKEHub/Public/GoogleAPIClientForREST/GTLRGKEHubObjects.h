@@ -1195,7 +1195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /**
  *  Set to true to allow the vertical scaling. Defaults to false which disallows
- *  vertical scaling.
+ *  vertical scaling. This field is deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3021,6 +3021,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Config Management-specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *configmanagement;
+
+/**
+ *  True if value of `feature_spec` was inherited from a fleet-level default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fleetInherited;
 
 /** Fleet observability membership spec */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityMembershipSpec *fleetobservability;

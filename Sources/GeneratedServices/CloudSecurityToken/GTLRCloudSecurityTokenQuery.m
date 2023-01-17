@@ -39,6 +39,28 @@
 
 @end
 
+@implementation GTLRCloudSecurityTokenQuery_V1Oauthtoken
+
++ (instancetype)queryWithObject:(GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/oauthtoken";
+  GTLRCloudSecurityTokenQuery_V1Oauthtoken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenResponse class];
+  query.loggingName = @"sts.oauthtoken";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSecurityTokenQuery_V1Token
 
 + (instancetype)queryWithObject:(GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest *)object {

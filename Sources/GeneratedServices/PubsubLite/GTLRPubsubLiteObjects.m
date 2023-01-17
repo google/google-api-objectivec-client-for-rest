@@ -16,6 +16,20 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliverAfter
 NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliverImmediately = @"DELIVER_IMMEDIATELY";
 NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequirementUnspecified = @"DELIVERY_REQUIREMENT_UNSPECIFIED";
 
+// GTLRPubsubLite_ExportConfig.currentState
+NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_Active = @"ACTIVE";
+NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_NotFound = @"NOT_FOUND";
+NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_Paused = @"PAUSED";
+NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRPubsubLite_ExportConfig.desiredState
+NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_Active = @"ACTIVE";
+NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_NotFound = @"NOT_FOUND";
+NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_Paused = @"PAUSED";
+NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRPubsubLite_SeekSubscriptionRequest.namedTarget
 NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Head = @"HEAD";
 NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_NamedTargetUnspecified = @"NAMED_TARGET_UNSPECIFIED";
@@ -145,6 +159,16 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 //
 
 @implementation GTLRPubsubLite_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ExportConfig
+//
+
+@implementation GTLRPubsubLite_ExportConfig
+@dynamic currentState, deadLetterTopic, desiredState, pubsubConfig;
 @end
 
 
@@ -364,6 +388,16 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_PubSubConfig
+//
+
+@implementation GTLRPubsubLite_PubSubConfig
+@dynamic topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_Reservation
 //
 
@@ -449,7 +483,7 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 //
 
 @implementation GTLRPubsubLite_Subscription
-@dynamic deliveryConfig, name, topic;
+@dynamic deliveryConfig, exportConfig, name, topic;
 @end
 
 

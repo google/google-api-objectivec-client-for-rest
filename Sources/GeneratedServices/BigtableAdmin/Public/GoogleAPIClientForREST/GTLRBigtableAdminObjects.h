@@ -1513,9 +1513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_Instance : GTLRObject
 
 /**
- *  Output only. A server-assigned timestamp representing when this Instance was
- *  created. For instances created before this field was added (August 2021),
- *  this value is `seconds: 0, nanos: 1`.
+ *  Output only. A commit timestamp representing when this Instance was created.
+ *  For instances created before this field was added (August 2021), this value
+ *  is `seconds: 0, nanos: 1`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2469,8 +2469,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Set to true to make the table protected against data loss. i.e. deleting the
- *  following resources through Admin APIs are prohibited: - The table. - The
- *  column families in the table. - The instance containing the table. Note one
+ *  following resources through Admin APIs are prohibited: * The table. * The
+ *  column families in the table. * The instance containing the table. Note one
  *  can still delete the data stored in the table through Data APIs.
  *
  *  Uses NSNumber of boolValue.

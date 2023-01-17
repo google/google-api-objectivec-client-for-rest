@@ -1976,6 +1976,130 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
+ *  Creates a node group in a cluster. The returned Operation.metadata is
+ *  NodeGroupOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
+ *
+ *  Method: dataproc.projects.regions.clusters.nodeGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsCreate : GTLRDataprocQuery
+
+/**
+ *  Optional. An optional node group ID. Generated if not specified.The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). Cannot begin or end with underscore or hyphen. Must consist of from 3
+ *  to 33 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeGroupId;
+
+/**
+ *  Required. The parent resource where this node group will be created. Format:
+ *  projects/{project}/regions/{region}/clusters/{cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two CreateNodeGroupRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateNodeGroupRequests)
+ *  with the same ID, the second request is ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Creates a node group in a cluster. The returned Operation.metadata is
+ *  NodeGroupOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
+ *
+ *  @param object The @c GTLRDataproc_NodeGroup to include in the query.
+ *  @param parent Required. The parent resource where this node group will be
+ *    created. Format: projects/{project}/regions/{region}/clusters/{cluster}
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_NodeGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the resource representation for a node group in a cluster.
+ *
+ *  Method: dataproc.projects.regions.clusters.nodeGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsGet : GTLRDataprocQuery
+
+/**
+ *  Required. The name of the node group to retrieve. Format:
+ *  projects/{project}/regions/{region}/clusters/{cluster}/nodeGroups/{nodeGroup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_NodeGroup.
+ *
+ *  Gets the resource representation for a node group in a cluster.
+ *
+ *  @param name Required. The name of the node group to retrieve. Format:
+ *    projects/{project}/regions/{region}/clusters/{cluster}/nodeGroups/{nodeGroup}
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Resizes a node group in a cluster. The returned Operation.metadata is
+ *  NodeGroupOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
+ *
+ *  Method: dataproc.projects.regions.clusters.nodeGroups.resize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsResize : GTLRDataprocQuery
+
+/**
+ *  Required. The name of the node group to resize. Format:
+ *  projects/{project}/regions/{region}/clusters/{cluster}/nodeGroups/{nodeGroup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Resizes a node group in a cluster. The returned Operation.metadata is
+ *  NodeGroupOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
+ *
+ *  @param object The @c GTLRDataproc_ResizeNodeGroupRequest to include in the
+ *    query.
+ *  @param name Required. The name of the node group to resize. Format:
+ *    projects/{project}/regions/{region}/clusters/{cluster}/nodeGroups/{nodeGroup}
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsResize
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_ResizeNodeGroupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates a cluster in a project. The returned Operation.metadata will be
  *  ClusterOperationMetadata
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).

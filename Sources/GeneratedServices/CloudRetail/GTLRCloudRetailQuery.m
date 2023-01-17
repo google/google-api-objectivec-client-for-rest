@@ -1153,7 +1153,7 @@
 
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsWrite
 
-@dynamic parent;
+@dynamic parent, writeAsync;
 
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2UserEvent *)object
                          parent:(NSString *)parent {

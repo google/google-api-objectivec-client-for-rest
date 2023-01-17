@@ -4120,7 +4120,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  delete the assigned targeting options provided in
  *  BulkEditAssignedTargetingOptionsRequest.delete_requests and then create the
  *  assigned targeting options provided in
- *  BulkEditAssignedTargetingOptionsRequest.create_requests .
+ *  BulkEditAssignedTargetingOptionsRequest.create_requests. Requests to this
+ *  endpoint cannot be made concurrently with the following requests updating
+ *  the same line item: * BulkUpdate * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.bulkEditAssignedTargetingOptions
  *
@@ -4139,7 +4143,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  delete the assigned targeting options provided in
  *  BulkEditAssignedTargetingOptionsRequest.delete_requests and then create the
  *  assigned targeting options provided in
- *  BulkEditAssignedTargetingOptionsRequest.create_requests .
+ *  BulkEditAssignedTargetingOptionsRequest.create_requests. Requests to this
+ *  endpoint cannot be made concurrently with the following requests updating
+ *  the same line item: * BulkUpdate * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditAssignedTargetingOptionsRequest to include in the
@@ -4234,7 +4242,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Updates multiple line items.
+ *  Updates multiple line items. Requests to this endpoint cannot be made
+ *  concurrently with the following requests updating the same line item: *
+ *  BulkEditAssignedTargetingOptions * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.bulkUpdate
  *
@@ -4243,21 +4255,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  */
 @interface GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate : GTLRDisplayVideoQuery
 
-@property(nonatomic, copy, nullable) NSString *advertisersId;
+/** Required. The ID of the advertiser this line item belongs to. */
+@property(nonatomic, assign) long long advertiserId;
 
 /**
  *  Fetches a @c GTLRDisplayVideo_BulkUpdateLineItemsResponse.
  *
- *  Updates multiple line items.
+ *  Updates multiple line items. Requests to this endpoint cannot be made
+ *  concurrently with the following requests updating the same line item: *
+ *  BulkEditAssignedTargetingOptions * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c GTLRDisplayVideo_BulkUpdateLineItemsRequest to include
  *    in the query.
- *  @param advertisersId NSString
+ *  @param advertiserId Required. The ID of the advertiser this line item
+ *    belongs to.
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate
  */
 + (instancetype)queryWithObject:(GTLRDisplayVideo_BulkUpdateLineItemsRequest *)object
-                  advertisersId:(NSString *)advertisersId;
+                   advertiserId:(long long)advertiserId;
 
 @end
 
@@ -4527,9 +4545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Updates an existing line item. Returns the updated line item if successful.
  *  Requests to this endpoint cannot be made concurrently with the following
- *  requests updating the same line item: *
- *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
- *  CreateLineItemAssignedTargetingOption *
+ *  requests updating the same line item: * BulkEditAssignedTargetingOptions *
+ *  BulkUpdateLineItems * CreateLineItemAssignedTargetingOption *
  *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.patch
@@ -4557,9 +4574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  Updates an existing line item. Returns the updated line item if successful.
  *  Requests to this endpoint cannot be made concurrently with the following
- *  requests updating the same line item: *
- *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
- *  CreateLineItemAssignedTargetingOption *
+ *  requests updating the same line item: * BulkEditAssignedTargetingOptions *
+ *  BulkUpdateLineItems * CreateLineItemAssignedTargetingOption *
  *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c GTLRDisplayVideo_LineItem to include in the query.
@@ -4580,8 +4596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Assigns a targeting option to a line item. Returns the assigned targeting
  *  option if successful. Requests to this endpoint cannot be made concurrently
  *  with the following requests updating the same line item: *
- *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
- *  CreateLineItemAssignedTargetingOption *
+ *  BulkEditAssignedTargetingOptions * BulkUpdate * UpdateLineItem *
  *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.create
@@ -4752,8 +4767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Assigns a targeting option to a line item. Returns the assigned targeting
  *  option if successful. Requests to this endpoint cannot be made concurrently
  *  with the following requests updating the same line item: *
- *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
- *  CreateLineItemAssignedTargetingOption *
+ *  BulkEditAssignedTargetingOptions * BulkUpdate * UpdateLineItem *
  *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
@@ -4918,9 +4932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Deletes an assigned targeting option from a line item. Requests to this
  *  endpoint cannot be made concurrently with the following requests updating
- *  the same line item: * BulkEditLineItemAssignedTargetingOptions *
- *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
- *  DeleteLineItemAssignedTargetingOption
+ *  the same line item: * BulkEditAssignedTargetingOptions * BulkUpdate *
+ *  UpdateLineItem * CreateLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.delete
  *
@@ -5091,9 +5104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  Deletes an assigned targeting option from a line item. Requests to this
  *  endpoint cannot be made concurrently with the following requests updating
- *  the same line item: * BulkEditLineItemAssignedTargetingOptions *
- *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
- *  DeleteLineItemAssignedTargetingOption
+ *  the same line item: * BulkEditAssignedTargetingOptions * BulkUpdate *
+ *  UpdateLineItem * CreateLineItemAssignedTargetingOption
  *
  *  @param advertiserId Required. The ID of the advertiser the line item belongs
  *    to.

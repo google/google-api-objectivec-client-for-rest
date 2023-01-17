@@ -5,7 +5,8 @@
 //   My Business Lodging API (mybusinesslodging/v1)
 // Description:
 //   The My Business Lodging API enables managing lodging business information
-//   on Google.
+//   on Google. Note - If you have a quota of 0 after enabling the API, please
+//   request for GBP API access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -313,6 +314,12 @@ NSString * const kGTLRMyBusinessLodging_Families_KidsClubException_DependentOnDa
 NSString * const kGTLRMyBusinessLodging_Families_KidsClubException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
 NSString * const kGTLRMyBusinessLodging_Families_KidsClubException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
 NSString * const kGTLRMyBusinessLodging_Families_KidsClubException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_Families.kidsFriendlyException
+NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_UnderConstruction = @"UNDER_CONSTRUCTION";
 
 // GTLRMyBusinessLodging_FoodAndDrink.barException
 NSString * const kGTLRMyBusinessLodging_FoodAndDrink_BarException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
@@ -1777,7 +1784,8 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderCon
 
 @implementation GTLRMyBusinessLodging_Families
 @dynamic babysitting, babysittingException, kidsActivities,
-         kidsActivitiesException, kidsClub, kidsClubException;
+         kidsActivitiesException, kidsClub, kidsClubException, kidsFriendly,
+         kidsFriendlyException;
 @end
 
 

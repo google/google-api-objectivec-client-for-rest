@@ -193,6 +193,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Clo
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter = @"COMMAND_AND_SCRIPTING_INTERPRETER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataDestruction = @"DATA_DESTRUCTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DefaultAccounts = @"DEFAULT_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DomainPolicyModification = @"DOMAIN_POLICY_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
@@ -247,6 +248,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CloudG
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter = @"COMMAND_AND_SCRIPTING_INTERPRETER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataDestruction = @"DATA_DESTRUCTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DefaultAccounts = @"DEFAULT_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DomainPolicyModification = @"DOMAIN_POLICY_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
@@ -376,7 +378,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_AssociatedFinding
-@dynamic canonicalFindingName, findingCategory;
+@dynamic canonicalFindingName, findingCategory, name;
 @end
 
 
@@ -679,11 +681,11 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 @implementation GTLRSecurityCommandCenter_Finding
 @dynamic access, canonicalName, category, compliances, connections, contacts,
          containers, createTime, database, descriptionProperty, eventTime,
-         exfiltration, externalSystems, externalUri, findingClass, iamBindings,
-         indicator, kubernetes, mitreAttack, mute, muteInitiator,
-         muteUpdateTime, name, nextSteps, parent, parentDisplayName, processes,
-         resourceName, securityMarks, severity, sourceProperties, state,
-         vulnerability;
+         exfiltration, externalSystems, externalUri, files, findingClass,
+         iamBindings, indicator, kernelRootkit, kubernetes, mitreAttack, mute,
+         muteInitiator, muteUpdateTime, name, nextSteps, parent,
+         parentDisplayName, processes, resourceName, securityMarks, severity,
+         sourceProperties, state, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -694,6 +696,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
     @"compliances" : [GTLRSecurityCommandCenter_Compliance class],
     @"connections" : [GTLRSecurityCommandCenter_Connection class],
     @"containers" : [GTLRSecurityCommandCenter_Container class],
+    @"files" : [GTLRSecurityCommandCenter_File class],
     @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class],
     @"processes" : [GTLRSecurityCommandCenter_Process class]
   };
@@ -1189,6 +1192,19 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_KernelRootkit
+//
+
+@implementation GTLRSecurityCommandCenter_KernelRootkit
+@dynamic name, unexpectedCodeModification, unexpectedFtraceHandler,
+         unexpectedInterruptHandler, unexpectedKernelCodePages,
+         unexpectedKprobeHandler, unexpectedProcessesInRunqueue,
+         unexpectedReadOnlyDataModification, unexpectedSystemCallHandler;
 @end
 
 

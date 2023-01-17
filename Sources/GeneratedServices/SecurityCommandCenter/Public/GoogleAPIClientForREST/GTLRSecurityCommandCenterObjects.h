@@ -63,6 +63,7 @@
 @class GTLRSecurityCommandCenter_IamBinding;
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
+@class GTLRSecurityCommandCenter_KernelRootkit;
 @class GTLRSecurityCommandCenter_Kubernetes;
 @class GTLRSecurityCommandCenter_Label;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
@@ -1032,6 +1033,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataDestruction;
 /**
+ *  T1078.001
+ *
+ *  Value: "DEFAULT_ACCOUNTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DefaultAccounts;
+/**
  *  T1484
  *
  *  Value: "DOMAIN_POLICY_MODIFICATION"
@@ -1339,6 +1346,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataDestruction;
+/**
+ *  T1078.001
+ *
+ *  Value: "DEFAULT_ACCOUNTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DefaultAccounts;
 /**
  *  T1484
  *
@@ -1830,6 +1843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 /** The additional taxonomy group within findings from a given source. */
 @property(nonatomic, copy, nullable) NSString *findingCategory;
 
+/** Full resource name of the finding. */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -2066,11 +2082,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Representa a single contact's email address
+ *  The email address of a contact.
  */
 @interface GTLRSecurityCommandCenter_Contact : GTLRObject
 
-/** An email address e.g. "person123\@company.com" */
+/** An email address. For example, "`person123\@company.com`". */
 @property(nonatomic, copy, nullable) NSString *email;
 
 @end
@@ -2653,6 +2669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
 
+/** File associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_File *> *files;
+
 /**
  *  The class of the finding.
  *
@@ -2685,6 +2704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
+
+/** Kernel Rootkit signature. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_KernelRootkit *kernelRootkit;
 
 /** Kubernetes resources associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Kubernetes *kubernetes;
@@ -2841,7 +2863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Represents vulnerability specific fields like cve, cvss scores etc. CVE
+ *  Represents vulnerability-specific fields like CVE and CVSS scores. CVE
  *  stands for Common Vulnerabilities and Exposures
  *  (https://cve.mitre.org/about/)
  */
@@ -2999,7 +3021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport : GTLRObject
 
 /**
- *  Output only. The time at which the big query export was created. This field
+ *  Output only. The time at which the BigQuery export was created. This field
  *  is set by the server and will be ignored if provided on export on creation.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3034,7 +3056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Output only. Email address of the user who last edited the big query export.
+ *  Output only. Email address of the user who last edited the BigQuery export.
  *  This field is set by the server and will be ignored if provided on export
  *  creation or update.
  */
@@ -3052,14 +3074,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The service account that needs permission to create table,
- *  upload data to the big query dataset.
+ *  Output only. The service account that needs permission to create table and
+ *  upload data to the BigQuery dataset.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
 
 /**
- *  Output only. The most recent time at which the big export was updated. This
- *  field is set by the server and will be ignored if provided on export
+ *  Output only. The most recent time at which the BigQuery export was updated.
+ *  This field is set by the server and will be ignored if provided on export
  *  creation or update.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -3082,8 +3104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Role *role;
 
 /**
- *  Represents the subjects(s) bound to the role. Not always available for PATCH
- *  requests.
+ *  Represents one or more subjects that are bound to the role. Not always
+ *  available for PATCH requests.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Subject *> *subjects;
 
@@ -3188,10 +3210,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *externalUid;
 
 /**
- *  External System Name e.g. jira, demisto, etc. e.g.:
- *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  Full resource name of the external system, for example:
+ *  "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4058,17 +4080,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Represents what's commonly known as an Indicator of compromise (IoC) in
+ *  Represents what's commonly known as an _indicator of compromise_ (IoC) in
  *  computer forensics. This is an artifact observed on a network or in an
  *  operating system that, with high confidence, indicates a computer intrusion.
- *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
+ *  For more information, see [Indicator of
+ *  compromise](https://en.wikipedia.org/wiki/Indicator_of_compromise).
  */
 @interface GTLRSecurityCommandCenter_Indicator : GTLRObject
 
 /** List of domains associated to the Finding. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
-/** List of ip addresses associated to the Finding. */
+/** The list of IP addresses that are associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
 /**
@@ -4084,7 +4107,81 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Kubernetes related attributes.
+ *  Kernel mode rootkit signatures.
+ */
+@interface GTLRSecurityCommandCenter_KernelRootkit : GTLRObject
+
+/** Rootkit name when available. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  True when unexpected modifications of kernel code memory are present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedCodeModification;
+
+/**
+ *  True when `ftrace` points are present with callbacks pointing to regions
+ *  that are not in the expected kernel or module code range.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedFtraceHandler;
+
+/**
+ *  True when interrupt handlers that are are not in the expected kernel or
+ *  module code regions are present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedInterruptHandler;
+
+/**
+ *  True when kernel code pages that are not in the expected kernel or module
+ *  code regions are present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedKernelCodePages;
+
+/**
+ *  True when `kprobe` points are present with callbacks pointing to regions
+ *  that are not in the expected kernel or module code range.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedKprobeHandler;
+
+/**
+ *  True when unexpected processes in the scheduler run queue are present. Such
+ *  processes are in the run queue, but not in the process task list.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedProcessesInRunqueue;
+
+/**
+ *  True when unexpected modifications of kernel read-only data memory are
+ *  present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedReadOnlyDataModification;
+
+/**
+ *  True when system call handlers that are are not in the expected kernel or
+ *  module code regions are present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unexpectedSystemCallHandler;
+
+@end
+
+
+/**
+ *  Kubernetes-related attributes.
  */
 @interface GTLRSecurityCommandCenter_Kubernetes : GTLRObject
 
@@ -4534,7 +4631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  The relative resource name of this notification config. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *  "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *  "projects/{project_id}/notificationConfigs/notify_public_bucket".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -16,11 +16,15 @@
 #endif
 
 @class GTLRNetworkManagement_AbortInfo;
+@class GTLRNetworkManagement_AppEngineVersionEndpoint;
+@class GTLRNetworkManagement_AppEngineVersionInfo;
 @class GTLRNetworkManagement_AuditConfig;
 @class GTLRNetworkManagement_AuditLogConfig;
 @class GTLRNetworkManagement_Binding;
 @class GTLRNetworkManagement_CloudFunctionEndpoint;
 @class GTLRNetworkManagement_CloudFunctionInfo;
+@class GTLRNetworkManagement_CloudRunRevisionEndpoint;
+@class GTLRNetworkManagement_CloudRunRevisionInfo;
 @class GTLRNetworkManagement_CloudSQLInstanceInfo;
 @class GTLRNetworkManagement_ConnectivityTest;
 @class GTLRNetworkManagement_ConnectivityTest_Labels;
@@ -298,6 +302,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUn
  *  Value: "CLOUD_FUNCTION_NOT_ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive;
+/**
+ *  Packet sent from a Cloud Run revision that is not ready.
+ *
+ *  Value: "CLOUD_RUN_REVISION_NOT_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady;
 /**
  *  Packet was dropped because the Cloud SQL instance has neither a private nor
  *  a public IP address.
@@ -1037,12 +1047,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnec
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
 /**
+ *  Initial state: packet originating from an App Engine service version. An
+ *  AppEngineVersionInfo is populated with starting version information.
+ *
+ *  Value: "START_FROM_APP_ENGINE_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromAppEngineVersion;
+/**
  *  Initial state: packet originating from a Cloud Function. A CloudFunctionInfo
  *  is populated with starting function information.
  *
  *  Value: "START_FROM_CLOUD_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction;
+/**
+ *  Initial state: packet originating from a Cloud Run revision. A
+ *  CloudRunRevisionInfo is populated with starting revision information.
+ *
+ *  Value: "START_FROM_CLOUD_RUN_REVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudRunRevision;
 /**
  *  Initial state: packet originating from a Cloud SQL instance. A
  *  CloudSQLInstanceInfo is populated with starting instance information.
@@ -1201,6 +1225,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of the resource that caused the abort. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
+
+@end
+
+
+/**
+ *  Wrapper for app engine service version attributes.
+ */
+@interface GTLRNetworkManagement_AppEngineVersionEndpoint : GTLRObject
+
+/**
+ *  An [App Engine](https://cloud.google.com/appengine) [service
+ *  version](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions)
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with an App Engine version.
+ */
+@interface GTLRNetworkManagement_AppEngineVersionInfo : GTLRObject
+
+/** Name of an App Engine version. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** App Engine execution environment for a version. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/** Runtime of the App Engine version. */
+@property(nonatomic, copy, nullable) NSString *runtime;
+
+/** URI of an App Engine version. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1372,6 +1431,42 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *versionId;
+
+@end
+
+
+/**
+ *  Wrapper for Cloud Run revision attributes.
+ */
+@interface GTLRNetworkManagement_CloudRunRevisionEndpoint : GTLRObject
+
+/**
+ *  A [Cloud Run](https://cloud.google.com/run)
+ *  [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get)
+ *  URI. The format is:
+ *  projects/{project}/locations/{location}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with a Cloud Run revision.
+ */
+@interface GTLRNetworkManagement_CloudRunRevisionInfo : GTLRObject
+
+/** Name of a Cloud Run revision. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Location in which this revision is deployed. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** URI of Cloud Run service this revision belongs to. */
+@property(nonatomic, copy, nullable) NSString *serviceUri;
+
+/** URI of a Cloud Run revision. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1556,6 +1651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive
  *        Packet could be dropped because the Cloud Function is not in an active
  *        status. (Value: "CLOUD_FUNCTION_NOT_ACTIVE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady
+ *        Packet sent from a Cloud Run revision that is not ready. (Value:
+ *        "CLOUD_RUN_REVISION_NOT_READY")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress
  *        Packet was dropped because the Cloud SQL instance has neither a
  *        private nor a public IP address. (Value:
@@ -1703,8 +1801,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_Endpoint : GTLRObject
 
+/**
+ *  An [App Engine](https://cloud.google.com/appengine) [service
+ *  version](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_AppEngineVersionEndpoint *appEngineVersion;
+
 /** A [Cloud Function](https://cloud.google.com/functions). */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionEndpoint *cloudFunction;
+
+/**
+ *  A [Cloud Run](https://cloud.google.com/run)
+ *  [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get)
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudRunRevisionEndpoint *cloudRunRevision;
 
 /** A [Cloud SQL](https://cloud.google.com/sql) instance URI. */
 @property(nonatomic, copy, nullable) NSString *cloudSqlInstance;
@@ -2769,6 +2879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of the final state "abort" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_AbortInfo *abort;
 
+/** Display information of an App Engine service version. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_AppEngineVersionInfo *appEngineVersion;
+
 /**
  *  This is a step that leads to the final state Drop.
  *
@@ -2778,6 +2891,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** Display information of a Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionInfo *cloudFunction;
+
+/** Display information of a Cloud Run revision. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudRunRevisionInfo *cloudRunRevision;
 
 /** Display information of a Cloud SQL instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudSQLInstanceInfo *cloudSqlInstance;
@@ -2877,10 +2993,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_SpoofingApproved Config checking
  *        state: packet sent or received under foreign IP address and allowed.
  *        (Value: "SPOOFING_APPROVED")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromAppEngineVersion
+ *        Initial state: packet originating from an App Engine service version.
+ *        An AppEngineVersionInfo is populated with starting version
+ *        information. (Value: "START_FROM_APP_ENGINE_VERSION")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudFunction Initial
  *        state: packet originating from a Cloud Function. A CloudFunctionInfo
  *        is populated with starting function information. (Value:
  *        "START_FROM_CLOUD_FUNCTION")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudRunRevision
+ *        Initial state: packet originating from a Cloud Run revision. A
+ *        CloudRunRevisionInfo is populated with starting revision information.
+ *        (Value: "START_FROM_CLOUD_RUN_REVISION")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance
  *        Initial state: packet originating from a Cloud SQL instance. A
  *        CloudSQLInstanceInfo is populated with starting instance information.

@@ -24,35 +24,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// imageType
-
-/**
- *  The icon image for an achievement resource.
- *
- *  Value: "ACHIEVEMENT_ICON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "IMAGE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified;
-/**
- *  The icon image for a leaderboard resource.
- *
- *  Value: "LEADERBOARD_ICON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 /**
  *  Parent class for other Games Configuration query classes.
  */
@@ -213,58 +184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  */
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
                   achievementId:(NSString *)achievementId;
-
-@end
-
-/**
- *  Uploads an image for a resource with the given ID and image type.
- *
- *  Method: gamesConfiguration.imageConfigurations.upload
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
- */
-@interface GTLRGamesConfigurationQuery_ImageConfigurationsUpload : GTLRGamesConfigurationQuery
-
-/**
- *  Selects which image in a resource for this method.
- *
- *  Likely values:
- *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Default
- *        value. This value is unused. (Value: "IMAGE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon The icon image for
- *        an achievement resource. (Value: "ACHIEVEMENT_ICON")
- *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
- *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
- */
-@property(nonatomic, copy, nullable) NSString *imageType;
-
-/** The ID of the resource used by this method. */
-@property(nonatomic, copy, nullable) NSString *resourceId;
-
-/**
- *  Fetches a @c GTLRGamesConfiguration_ImageConfiguration.
- *
- *  Uploads an image for a resource with the given ID and image type.
- *
- *  @param resourceId The ID of the resource used by this method.
- *  @param imageType Selects which image in a resource for this method.
- *
- *  Likely values for @c imageType:
- *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Default
- *        value. This value is unused. (Value: "IMAGE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon The icon image for
- *        an achievement resource. (Value: "ACHIEVEMENT_ICON")
- *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
- *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
- *  @param uploadParameters The media to include in this query. Maximum size
- *    15728640. Accepted MIME type: image/ *
- *
- *  @return GTLRGamesConfigurationQuery_ImageConfigurationsUpload
- */
-+ (instancetype)queryWithResourceId:(NSString *)resourceId
-                          imageType:(NSString *)imageType
-                   uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 

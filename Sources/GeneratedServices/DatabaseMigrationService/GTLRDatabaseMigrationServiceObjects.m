@@ -19,10 +19,27 @@ NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_DataRead =
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRDatabaseMigrationService_BackgroundJobLogEntry.completionState
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_Failed = @"FAILED";
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_JobCompletionStateUnspecified = @"JOB_COMPLETION_STATE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_Succeeded = @"SUCCEEDED";
+
+// GTLRDatabaseMigrationService_BackgroundJobLogEntry.jobType
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeApplyDestination = @"BACKGROUND_JOB_TYPE_APPLY_DESTINATION";
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeConvert = @"BACKGROUND_JOB_TYPE_CONVERT";
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeImportRulesFile = @"BACKGROUND_JOB_TYPE_IMPORT_RULES_FILE";
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeSourceSeed = @"BACKGROUND_JOB_TYPE_SOURCE_SEED";
+NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeUnspecified = @"BACKGROUND_JOB_TYPE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_CloudSqlSettings.activationPolicy
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_ActivationPolicy_Always = @"ALWAYS";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_ActivationPolicy_Never = @"NEVER";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_ActivationPolicy_SqlActivationPolicyUnspecified = @"SQL_ACTIVATION_POLICY_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_CloudSqlSettings.availabilityType
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_AvailabilityType_Regional = @"REGIONAL";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_AvailabilityType_SqlAvailabilityTypeUnspecified = @"SQL_AVAILABILITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_AvailabilityType_Zonal = @"ZONAL";
 
 // GTLRDatabaseMigrationService_CloudSqlSettings.databaseVersion
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
@@ -58,9 +75,38 @@ NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Ready = @
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Updating = @"UPDATING";
 
+// GTLRDatabaseMigrationService_DatabaseEngineInfo.engine
+NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_DatabaseEngineUnspecified = @"DATABASE_ENGINE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Mysql = @"MYSQL";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Oracle = @"ORACLE";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Postgresql = @"POSTGRESQL";
+
+// GTLRDatabaseMigrationService_DatabaseEntity.entityType
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_DatabaseEntity.tree
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_Tree_Destination = @"DESTINATION";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_Tree_Draft = @"DRAFT";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_Tree_Source = @"SOURCE";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_Tree_TreeTypeUnspecified = @"TREE_TYPE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_DatabaseType.engine
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_DatabaseEngineUnspecified = @"DATABASE_ENGINE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql = @"MYSQL";
+NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Oracle = @"ORACLE";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql = @"POSTGRESQL";
 
 // GTLRDatabaseMigrationService_DatabaseType.provider
@@ -69,6 +115,16 @@ NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora = @"
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds = @"RDS";
+
+// GTLRDatabaseMigrationService_ImportMappingRulesRequest.rulesFormat
+NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatHarbourBridgeSessionFile = @"IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE";
+NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatOratopgConfigFile = @"IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE";
+NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatUnspecified = @"IMPORT_RULES_FILE_FORMAT_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_ImportRulesJobDetails.fileFormat
+NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatHarbourBridgeSessionFile = @"IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE";
+NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatOratopgConfigFile = @"IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE";
+NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatUnspecified = @"IMPORT_RULES_FILE_FORMAT_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_MigrationJob.phase
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc = @"CDC";
@@ -129,10 +185,35 @@ NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_Netwo
 NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureOldCsqlProducer = @"NETWORK_ARCHITECTURE_OLD_CSQL_PRODUCER";
 NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureUnspecified = @"NETWORK_ARCHITECTURE_UNSPECIFIED";
 
+// GTLRDatabaseMigrationService_PrivateConnection.state
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Created = @"CREATED";
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Creating = @"CREATING";
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Deleted = @"DELETED";
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Deleting = @"DELETING";
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Failed = @"FAILED";
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_FailedToDelete = @"FAILED_TO_DELETE";
+NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_SslConfig.type
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerClient = @"SERVER_CLIENT";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerOnly = @"SERVER_ONLY";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified = @"SSL_TYPE_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_SynonymEntity.sourceType
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
 
 // ----------------------------------------------------------------------------
 //
@@ -165,6 +246,16 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ApplyConversionWorkspaceRequest
+//
+
+@implementation GTLRDatabaseMigrationService_ApplyConversionWorkspaceRequest
+@dynamic connectionProfile, filter;
 @end
 
 
@@ -206,6 +297,23 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_BackgroundJobLogEntry
+//
+
+@implementation GTLRDatabaseMigrationService_BackgroundJobLogEntry
+@dynamic completionComment, completionState, finishTime, identifier,
+         importRulesJobDetails, jobType, requestAutocommit, seedJobDetails,
+         startTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Binding
 //
 
@@ -237,7 +345,7 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_CloudSqlConnectionProfile
-@dynamic cloudSqlId, privateIp, publicIp, settings;
+@dynamic additionalPublicIp, cloudSqlId, privateIp, publicIp, settings;
 @end
 
 
@@ -247,10 +355,10 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_CloudSqlSettings
-@dynamic activationPolicy, autoStorageIncrease, cmekKeyName, collation,
-         databaseFlags, databaseVersion, dataDiskSizeGb, dataDiskType, ipConfig,
-         rootPassword, rootPasswordSet, sourceId, storageAutoResizeLimit, tier,
-         userLabels, zoneProperty;
+@dynamic activationPolicy, autoStorageIncrease, availabilityType, cmekKeyName,
+         collation, databaseFlags, databaseVersion, dataDiskSizeGb,
+         dataDiskType, ipConfig, rootPassword, rootPasswordSet, secondaryZone,
+         sourceId, storageAutoResizeLimit, tier, userLabels, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -289,12 +397,57 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ColumnEntity
+//
+
+@implementation GTLRDatabaseMigrationService_ColumnEntity
+@dynamic array, arrayLength, autoGenerated, charset, collation, comment,
+         customFeatures, dataType, defaultValue, fractionalSecondsPrecision,
+         length, name, nullable, ordinalPosition, precision, scale, setValues,
+         udt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"setValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ColumnEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_ColumnEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_CommitConversionWorkspaceRequest
+//
+
+@implementation GTLRDatabaseMigrationService_CommitConversionWorkspaceRequest
+@dynamic commitName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ConnectionProfile
 //
 
 @implementation GTLRDatabaseMigrationService_ConnectionProfile
 @dynamic alloydb, cloudsql, createTime, displayName, error, labels, mysql, name,
-         postgresql, provider, state, updateTime;
+         oracle, postgresql, provider, state, updateTime;
 @end
 
 
@@ -314,11 +467,161 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ConstraintEntity
+//
+
+@implementation GTLRDatabaseMigrationService_ConstraintEntity
+@dynamic customFeatures, name, referenceColumns, referenceTable, tableColumns,
+         tableName, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceColumns" : [NSString class],
+    @"tableColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConstraintEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_ConstraintEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConversionWorkspace
+//
+
+@implementation GTLRDatabaseMigrationService_ConversionWorkspace
+@dynamic createTime, destination, displayName, globalSettings,
+         hasUncommittedChanges, latestCommitId, latestCommitTime, name, source,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConversionWorkspace_GlobalSettings
+//
+
+@implementation GTLRDatabaseMigrationService_ConversionWorkspace_GlobalSettings
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConversionWorkspaceInfo
+//
+
+@implementation GTLRDatabaseMigrationService_ConversionWorkspaceInfo
+@dynamic commitId, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConvertConversionWorkspaceRequest
+//
+
+@implementation GTLRDatabaseMigrationService_ConvertConversionWorkspaceRequest
+@dynamic autoCommit, filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DatabaseEngineInfo
+//
+
+@implementation GTLRDatabaseMigrationService_DatabaseEngineInfo
+@dynamic engine, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DatabaseEntity
+//
+
+@implementation GTLRDatabaseMigrationService_DatabaseEntity
+@dynamic databaseFunction, databasePackage, entityType, mappings, parentEntity,
+         schema, sequence, shortName, storedProcedure, synonym, table, tree,
+         view;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mappings" : [GTLRDatabaseMigrationService_EntityMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_DatabaseType
 //
 
 @implementation GTLRDatabaseMigrationService_DatabaseType
 @dynamic engine, provider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DescribeConversionWorkspaceRevisionsResponse
+//
+
+@implementation GTLRDatabaseMigrationService_DescribeConversionWorkspaceRevisionsResponse
+@dynamic revisions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"revisions" : [GTLRDatabaseMigrationService_ConversionWorkspace class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DescribeDatabaseEntitiesResponse
+//
+
+@implementation GTLRDatabaseMigrationService_DescribeDatabaseEntitiesResponse
+@dynamic databaseEntities, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseEntities" : [GTLRDatabaseMigrationService_DatabaseEntity class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"databaseEntities";
+}
+
 @end
 
 
@@ -361,6 +664,34 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_EntityMapping
+//
+
+@implementation GTLRDatabaseMigrationService_EntityMapping
+@dynamic draftEntity, mappingLog, sourceEntity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mappingLog" : [GTLRDatabaseMigrationService_EntityMappingLogEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_EntityMappingLogEntry
+//
+
+@implementation GTLRDatabaseMigrationService_EntityMappingLogEntry
+@dynamic mappingComment, ruleId, ruleRevisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Expr
 //
 
@@ -369,6 +700,40 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity
+//
+
+@implementation GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity
+@dynamic hostname, password, port, privateKey, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FunctionEntity
+//
+
+@implementation GTLRDatabaseMigrationService_FunctionEntity
+@dynamic customFeatures, sqlCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -397,6 +762,74 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ImportMappingRulesRequest
+//
+
+@implementation GTLRDatabaseMigrationService_ImportMappingRulesRequest
+@dynamic autoCommit, rulesFiles, rulesFormat;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rulesFiles" : [GTLRDatabaseMigrationService_RulesFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ImportRulesJobDetails
+//
+
+@implementation GTLRDatabaseMigrationService_ImportRulesJobDetails
+@dynamic fileFormat, files;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_IndexEntity
+//
+
+@implementation GTLRDatabaseMigrationService_IndexEntity
+@dynamic customFeatures, name, tableColumns, type, unique;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tableColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_IndexEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_IndexEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ListConnectionProfilesResponse
 //
 
@@ -413,6 +846,29 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 + (NSString *)collectionItemsKey {
   return @"connectionProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ListConversionWorkspacesResponse
+//
+
+@implementation GTLRDatabaseMigrationService_ListConversionWorkspacesResponse
+@dynamic conversionWorkspaces, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversionWorkspaces" : [GTLRDatabaseMigrationService_ConversionWorkspace class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"conversionWorkspaces";
 }
 
 @end
@@ -487,6 +943,29 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ListPrivateConnectionsResponse
+//
+
+@implementation GTLRDatabaseMigrationService_ListPrivateConnectionsResponse
+@dynamic nextPageToken, privateConnections, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"privateConnections" : [GTLRDatabaseMigrationService_PrivateConnection class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"privateConnections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Location
 //
 
@@ -539,10 +1018,10 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_MigrationJob
-@dynamic createTime, destination, destinationDatabase, displayName, dumpFlags,
-         dumpPath, duration, endTime, error, labels, name, phase,
-         reverseSshConnectivity, source, sourceDatabase, state,
-         staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
+@dynamic conversionWorkspace, createTime, destination, destinationDatabase,
+         displayName, dumpFlags, dumpPath, duration, endTime, error, filter,
+         labels, name, phase, reverseSshConnectivity, source, sourceDatabase,
+         state, staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
 @end
 
 
@@ -620,6 +1099,41 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_OracleConnectionProfile
+//
+
+@implementation GTLRDatabaseMigrationService_OracleConnectionProfile
+@dynamic databaseService, forwardSshConnectivity, host, password, passwordSet,
+         port, privateConnectivity, staticServiceIpConnectivity, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PackageEntity
+//
+
+@implementation GTLRDatabaseMigrationService_PackageEntity
+@dynamic customFeatures, packageBody, packageSqlCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PackageEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_PackageEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Policy
 //
 
@@ -648,7 +1162,7 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 @implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
 @dynamic cloudSqlId, host, networkArchitecture, password, passwordSet, port,
-         ssl, username;
+         privateServiceConnectConnectivity, ssl, staticIpConnectivity, username;
 @end
 
 
@@ -697,6 +1211,51 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_PrivateConnection
+//
+
+@implementation GTLRDatabaseMigrationService_PrivateConnection
+@dynamic createTime, displayName, error, labels, name, state, updateTime,
+         vpcPeeringConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PrivateConnection_Labels
+//
+
+@implementation GTLRDatabaseMigrationService_PrivateConnection_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PrivateConnectivity
+//
+
+@implementation GTLRDatabaseMigrationService_PrivateConnectivity
+@dynamic privateConnection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity
+//
+
+@implementation GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity
+@dynamic serviceAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_PromoteMigrationJobRequest
 //
 
@@ -729,6 +1288,112 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 @implementation GTLRDatabaseMigrationService_ReverseSshConnectivity
 @dynamic vm, vmIp, vmPort, vpc;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_RollbackConversionWorkspaceRequest
+//
+
+@implementation GTLRDatabaseMigrationService_RollbackConversionWorkspaceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_RulesFile
+//
+
+@implementation GTLRDatabaseMigrationService_RulesFile
+@dynamic rulesContent, rulesSourceFilename;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SchemaEntity
+//
+
+@implementation GTLRDatabaseMigrationService_SchemaEntity
+@dynamic customFeatures;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SchemaEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_SchemaEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SearchBackgroundJobsResponse
+//
+
+@implementation GTLRDatabaseMigrationService_SearchBackgroundJobsResponse
+@dynamic jobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [GTLRDatabaseMigrationService_BackgroundJobLogEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SeedConversionWorkspaceRequest
+//
+
+@implementation GTLRDatabaseMigrationService_SeedConversionWorkspaceRequest
+@dynamic autoCommit, destinationConnectionProfile, sourceConnectionProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SeedJobDetails
+//
+
+@implementation GTLRDatabaseMigrationService_SeedJobDetails
+@dynamic connectionProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SequenceEntity
+//
+
+@implementation GTLRDatabaseMigrationService_SequenceEntity
+@dynamic cache, customFeatures, cycle, increment, maxValue, minValue,
+         startValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SequenceEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_SequenceEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -810,6 +1475,15 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_StaticServiceIpConnectivity
+//
+
+@implementation GTLRDatabaseMigrationService_StaticServiceIpConnectivity
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Status
 //
 
@@ -851,6 +1525,89 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_StoredProcedureEntity
+//
+
+@implementation GTLRDatabaseMigrationService_StoredProcedureEntity
+@dynamic customFeatures, sqlCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_StoredProcedureEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_StoredProcedureEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SynonymEntity
+//
+
+@implementation GTLRDatabaseMigrationService_SynonymEntity
+@dynamic customFeatures, sourceEntity, sourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SynonymEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_SynonymEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_TableEntity
+//
+
+@implementation GTLRDatabaseMigrationService_TableEntity
+@dynamic columns, comment, constraints, customFeatures, indices, triggers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRDatabaseMigrationService_ColumnEntity class],
+    @"constraints" : [GTLRDatabaseMigrationService_ConstraintEntity class],
+    @"indices" : [GTLRDatabaseMigrationService_IndexEntity class],
+    @"triggers" : [GTLRDatabaseMigrationService_TriggerEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_TableEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_TableEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_TestIamPermissionsRequest
 //
 
@@ -887,6 +1644,38 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_TriggerEntity
+//
+
+@implementation GTLRDatabaseMigrationService_TriggerEntity
+@dynamic customFeatures, name, sqlCode, triggeringEvents, triggerType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"triggeringEvents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_TriggerEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_TriggerEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_UserPassword
 //
 
@@ -901,6 +1690,38 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_VerifyMigrationJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ViewEntity
+//
+
+@implementation GTLRDatabaseMigrationService_ViewEntity
+@dynamic constraints, customFeatures, sqlCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"constraints" : [GTLRDatabaseMigrationService_ConstraintEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ViewEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_ViewEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -921,6 +1742,16 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 @implementation GTLRDatabaseMigrationService_VmSelectionConfig
 @dynamic vmZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_VpcPeeringConfig
+//
+
+@implementation GTLRDatabaseMigrationService_VpcPeeringConfig
+@dynamic subnet, vpcName;
 @end
 
 

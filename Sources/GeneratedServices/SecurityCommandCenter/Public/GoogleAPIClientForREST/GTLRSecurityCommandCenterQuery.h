@@ -46,9 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsGroup : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the organization to groupBy. Its format is
- *  "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  Required. The name of the parent to group the assets by. Its format is
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -60,9 +60,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
- *  @param parent Required. Name of the organization to groupBy. Its format is
- *    "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *  @param parent Required. The name of the parent to group the assets by. Its
+ *    format is "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersAssetsGroup
  */
@@ -179,9 +179,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization assets should belong to. Its format is
- *  "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  Required. The name of the parent that the listed assets belong to. Its
+ *  format is "organizations/[organization_id], "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -198,9 +198,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Required. Name of the organization assets should belong to.
- *    Its format is "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *  @param parent Required. The name of the parent that the listed assets belong
+ *    to. Its format is "organizations/[organization_id], "folders/[folder_id]",
+ *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersAssetsList
  *
@@ -268,7 +268,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a big query export.
+ *  Creates a BigQuery export.
  *
  *  Method: securitycenter.folders.bigQueryExports.create
  *
@@ -286,8 +286,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *bigQueryExportId;
 
 /**
- *  Required. Resource name of the new big query export's parent. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  Required. The name of the parent resource of the new BigQuery export. Its
+ *  format is "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -296,14 +296,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport.
  *
- *  Creates a big query export.
+ *  Creates a BigQuery export.
  *
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport to
  *    include in the query.
- *  @param parent Required. Resource name of the new big query export's parent.
- *    Its format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *  @param parent Required. The name of the parent resource of the new BigQuery
+ *    export. Its format is "organizations/[organization_id]",
+ *    "folders/[folder_id]", or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsCreate
  */
@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an existing big query export.
+ *  Deletes an existing BigQuery export.
  *
  *  Method: securitycenter.folders.bigQueryExports.delete
  *
@@ -323,7 +323,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsDelete : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the big query export to delete. Its format is
+ *  Required. The name of the BigQuery export to delete. Its format is
  *  organizations/{organization}/bigQueryExports/{export_id},
  *  folders/{folder}/bigQueryExports/{export_id}, or
  *  projects/{project}/bigQueryExports/{export_id}
@@ -333,10 +333,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_Empty.
  *
- *  Deletes an existing big query export.
+ *  Deletes an existing BigQuery export.
  *
- *  @param name Required. Name of the big query export to delete. Its format is
- *    organizations/{organization}/bigQueryExports/{export_id},
+ *  @param name Required. The name of the BigQuery export to delete. Its format
+ *    is organizations/{organization}/bigQueryExports/{export_id},
  *    folders/{folder}/bigQueryExports/{export_id}, or
  *    projects/{project}/bigQueryExports/{export_id}
  *
@@ -347,7 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a big query export.
+ *  Gets a BigQuery export.
  *
  *  Method: securitycenter.folders.bigQueryExports.get
  *
@@ -357,7 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsGet : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the big query export to retrieve. Its format is
+ *  Required. Name of the BigQuery export to retrieve. Its format is
  *  organizations/{organization}/bigQueryExports/{export_id},
  *  folders/{folder}/bigQueryExports/{export_id}, or
  *  projects/{project}/bigQueryExports/{export_id}
@@ -368,10 +368,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport.
  *
- *  Gets a big query export.
+ *  Gets a BigQuery export.
  *
- *  @param name Required. Name of the big query export to retrieve. Its format
- *    is organizations/{organization}/bigQueryExports/{export_id},
+ *  @param name Required. Name of the BigQuery export to retrieve. Its format is
+ *    organizations/{organization}/bigQueryExports/{export_id},
  *    folders/{folder}/bigQueryExports/{export_id}, or
  *    projects/{project}/bigQueryExports/{export_id}
  *
@@ -756,8 +756,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must be between 1 and 128 characters, and contains alphanumeric
- *  characters, underscores or hyphens only.
+ *  It must be between 1 and 128 characters and contain alphanumeric characters,
+ *  underscores, or hyphens only.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
 
@@ -798,7 +798,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the notification config to delete. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *  "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *  "projects/[project_id]/notificationConfigs/[config_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -808,7 +810,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    is "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *    "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *    "projects/[project_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsDelete
  */
@@ -828,7 +832,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the notification config to get. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *  "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *  "projects/[project_id]/notificationConfigs/[config_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -838,7 +844,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a notification config.
  *
  *  @param name Required. Name of the notification config to get. Its format is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *    "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *    "projects/[project_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsGet
  */
@@ -870,9 +878,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization to list notification configs. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  Required. The name of the parent in which to list the notification
+ *  configurations. Its format is "organizations/[organization_id]",
+ *  "folders/[folder_id]", or "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -881,9 +889,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists notification configs.
  *
- *  @param parent Required. Name of the organization to list notification
- *    configs. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *  @param parent Required. The name of the parent in which to list the
+ *    notification configurations. Its format is
+ *    "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsList
  *
@@ -910,7 +919,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of this notification config. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *  "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *  "projects/{project_id}/notificationConfigs/notify_public_bucket".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -933,7 +944,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of this notification config. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *    "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *    "projects/{project_id}/notificationConfigs/notify_public_bucket".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsPatch
  */
@@ -953,10 +966,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch : GTLRSecurityCommandCenterQuery
 
 /**
- *  External System Name e.g. jira, demisto, etc. e.g.:
- *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  Full resource name of the external system, for example:
+ *  "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -977,10 +990,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem to
  *    include in the query.
- *  @param name External System Name e.g. jira, demisto, etc. e.g.:
- *    `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *    `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *    `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  @param name Full resource name of the external system, for example:
+ *    "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *    "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *    "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch
  */
@@ -1247,12 +1260,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetMute : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. The relative resource name of the finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/finding/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/finding/{finding_id}".
+ *  Required. The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1263,12 +1276,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetMuteRequest to include in
  *    the query.
- *  @param name Required. The relative resource name of the finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/finding/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/finding/{finding_id}".
+ *  @param name Required. The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetMute
  */
@@ -1288,10 +1301,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. The relative resource name of the finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+ *  Required. The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1302,10 +1317,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetFindingStateRequest to
  *    include in the query.
- *  @param name Required. The relative resource name of the finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+ *  @param name Required. The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetState
  */
@@ -1394,8 +1411,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  be "organizations/[organization_id], "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1405,8 +1422,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *    format should be "organizations/[organization_id], "folders/[folder_id]",
+ *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesList
  *
@@ -1430,9 +1447,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsGroup : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the organization to groupBy. Its format is
- *  "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  Required. The name of the parent to group the assets by. Its format is
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1444,9 +1461,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
- *  @param parent Required. Name of the organization to groupBy. Its format is
- *    "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *  @param parent Required. The name of the parent to group the assets by. Its
+ *    format is "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsGroup
  */
@@ -1563,9 +1580,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization assets should belong to. Its format is
- *  "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  Required. The name of the parent that the listed assets belong to. Its
+ *  format is "organizations/[organization_id], "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1582,9 +1599,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Required. Name of the organization assets should belong to.
- *    Its format is "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *  @param parent Required. The name of the parent that the listed assets belong
+ *    to. Its format is "organizations/[organization_id], "folders/[folder_id]",
+ *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsList
  *
@@ -1691,7 +1708,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a big query export.
+ *  Creates a BigQuery export.
  *
  *  Method: securitycenter.organizations.bigQueryExports.create
  *
@@ -1709,8 +1726,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *bigQueryExportId;
 
 /**
- *  Required. Resource name of the new big query export's parent. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  Required. The name of the parent resource of the new BigQuery export. Its
+ *  format is "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1719,14 +1736,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport.
  *
- *  Creates a big query export.
+ *  Creates a BigQuery export.
  *
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport to
  *    include in the query.
- *  @param parent Required. Resource name of the new big query export's parent.
- *    Its format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *  @param parent Required. The name of the parent resource of the new BigQuery
+ *    export. Its format is "organizations/[organization_id]",
+ *    "folders/[folder_id]", or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsCreate
  */
@@ -1736,7 +1753,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an existing big query export.
+ *  Deletes an existing BigQuery export.
  *
  *  Method: securitycenter.organizations.bigQueryExports.delete
  *
@@ -1746,7 +1763,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsDelete : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the big query export to delete. Its format is
+ *  Required. The name of the BigQuery export to delete. Its format is
  *  organizations/{organization}/bigQueryExports/{export_id},
  *  folders/{folder}/bigQueryExports/{export_id}, or
  *  projects/{project}/bigQueryExports/{export_id}
@@ -1756,10 +1773,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_Empty.
  *
- *  Deletes an existing big query export.
+ *  Deletes an existing BigQuery export.
  *
- *  @param name Required. Name of the big query export to delete. Its format is
- *    organizations/{organization}/bigQueryExports/{export_id},
+ *  @param name Required. The name of the BigQuery export to delete. Its format
+ *    is organizations/{organization}/bigQueryExports/{export_id},
  *    folders/{folder}/bigQueryExports/{export_id}, or
  *    projects/{project}/bigQueryExports/{export_id}
  *
@@ -1770,7 +1787,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a big query export.
+ *  Gets a BigQuery export.
  *
  *  Method: securitycenter.organizations.bigQueryExports.get
  *
@@ -1780,7 +1797,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsGet : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the big query export to retrieve. Its format is
+ *  Required. Name of the BigQuery export to retrieve. Its format is
  *  organizations/{organization}/bigQueryExports/{export_id},
  *  folders/{folder}/bigQueryExports/{export_id}, or
  *  projects/{project}/bigQueryExports/{export_id}
@@ -1791,10 +1808,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport.
  *
- *  Gets a big query export.
+ *  Gets a BigQuery export.
  *
- *  @param name Required. Name of the big query export to retrieve. Its format
- *    is organizations/{organization}/bigQueryExports/{export_id},
+ *  @param name Required. Name of the BigQuery export to retrieve. Its format is
+ *    organizations/{organization}/bigQueryExports/{export_id},
  *    folders/{folder}/bigQueryExports/{export_id}, or
  *    projects/{project}/bigQueryExports/{export_id}
  *
@@ -2209,8 +2226,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must be between 1 and 128 characters, and contains alphanumeric
- *  characters, underscores or hyphens only.
+ *  It must be between 1 and 128 characters and contain alphanumeric characters,
+ *  underscores, or hyphens only.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
 
@@ -2251,7 +2268,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the notification config to delete. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *  "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *  "projects/[project_id]/notificationConfigs/[config_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2261,7 +2280,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    is "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *    "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *    "projects/[project_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete
  */
@@ -2281,7 +2302,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the notification config to get. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *  "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *  "projects/[project_id]/notificationConfigs/[config_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2291,7 +2314,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a notification config.
  *
  *  @param name Required. Name of the notification config to get. Its format is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *    "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *    "projects/[project_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet
  */
@@ -2323,9 +2348,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization to list notification configs. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  Required. The name of the parent in which to list the notification
+ *  configurations. Its format is "organizations/[organization_id]",
+ *  "folders/[folder_id]", or "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2334,9 +2359,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists notification configs.
  *
- *  @param parent Required. Name of the organization to list notification
- *    configs. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *  @param parent Required. The name of the parent in which to list the
+ *    notification configurations. Its format is
+ *    "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList
  *
@@ -2363,7 +2389,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of this notification config. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *  "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *  "projects/{project_id}/notificationConfigs/notify_public_bucket".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2386,7 +2414,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of this notification config. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *    "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *    "projects/{project_id}/notificationConfigs/notify_public_bucket".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch
  */
@@ -2640,10 +2670,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsExternalSystemsPatch : GTLRSecurityCommandCenterQuery
 
 /**
- *  External System Name e.g. jira, demisto, etc. e.g.:
- *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  Full resource name of the external system, for example:
+ *  "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2664,10 +2694,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem to
  *    include in the query.
- *  @param name External System Name e.g. jira, demisto, etc. e.g.:
- *    `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *    `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *    `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  @param name Full resource name of the external system, for example:
+ *    "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *    "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *    "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsExternalSystemsPatch
  */
@@ -2934,12 +2964,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetMute : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. The relative resource name of the finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/finding/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/finding/{finding_id}".
+ *  Required. The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2950,12 +2980,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetMuteRequest to include in
  *    the query.
- *  @param name Required. The relative resource name of the finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/finding/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/finding/{finding_id}".
+ *  @param name Required. The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetMute
  */
@@ -2975,10 +3005,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. The relative resource name of the finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+ *  Required. The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2989,10 +3021,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetFindingStateRequest to
  *    include in the query.
- *  @param name Required. The relative resource name of the finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+ *  @param name Required. The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetState
  */
@@ -3147,8 +3181,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  be "organizations/[organization_id], "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3158,8 +3192,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *    format should be "organizations/[organization_id], "folders/[folder_id]",
+ *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesList
  *
@@ -3341,9 +3375,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsGroup : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the organization to groupBy. Its format is
- *  "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  Required. The name of the parent to group the assets by. Its format is
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3355,9 +3389,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
- *  @param parent Required. Name of the organization to groupBy. Its format is
- *    "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *  @param parent Required. The name of the parent to group the assets by. Its
+ *    format is "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsAssetsGroup
  */
@@ -3474,9 +3508,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization assets should belong to. Its format is
- *  "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  Required. The name of the parent that the listed assets belong to. Its
+ *  format is "organizations/[organization_id], "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3493,9 +3527,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Required. Name of the organization assets should belong to.
- *    Its format is "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *  @param parent Required. The name of the parent that the listed assets belong
+ *    to. Its format is "organizations/[organization_id], "folders/[folder_id]",
+ *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsAssetsList
  *
@@ -3563,7 +3597,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a big query export.
+ *  Creates a BigQuery export.
  *
  *  Method: securitycenter.projects.bigQueryExports.create
  *
@@ -3581,8 +3615,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *bigQueryExportId;
 
 /**
- *  Required. Resource name of the new big query export's parent. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  Required. The name of the parent resource of the new BigQuery export. Its
+ *  format is "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3591,14 +3625,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport.
  *
- *  Creates a big query export.
+ *  Creates a BigQuery export.
  *
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport to
  *    include in the query.
- *  @param parent Required. Resource name of the new big query export's parent.
- *    Its format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *  @param parent Required. The name of the parent resource of the new BigQuery
+ *    export. Its format is "organizations/[organization_id]",
+ *    "folders/[folder_id]", or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsCreate
  */
@@ -3608,7 +3642,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an existing big query export.
+ *  Deletes an existing BigQuery export.
  *
  *  Method: securitycenter.projects.bigQueryExports.delete
  *
@@ -3618,7 +3652,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsDelete : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the big query export to delete. Its format is
+ *  Required. The name of the BigQuery export to delete. Its format is
  *  organizations/{organization}/bigQueryExports/{export_id},
  *  folders/{folder}/bigQueryExports/{export_id}, or
  *  projects/{project}/bigQueryExports/{export_id}
@@ -3628,10 +3662,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_Empty.
  *
- *  Deletes an existing big query export.
+ *  Deletes an existing BigQuery export.
  *
- *  @param name Required. Name of the big query export to delete. Its format is
- *    organizations/{organization}/bigQueryExports/{export_id},
+ *  @param name Required. The name of the BigQuery export to delete. Its format
+ *    is organizations/{organization}/bigQueryExports/{export_id},
  *    folders/{folder}/bigQueryExports/{export_id}, or
  *    projects/{project}/bigQueryExports/{export_id}
  *
@@ -3642,7 +3676,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a big query export.
+ *  Gets a BigQuery export.
  *
  *  Method: securitycenter.projects.bigQueryExports.get
  *
@@ -3652,7 +3686,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsGet : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. Name of the big query export to retrieve. Its format is
+ *  Required. Name of the BigQuery export to retrieve. Its format is
  *  organizations/{organization}/bigQueryExports/{export_id},
  *  folders/{folder}/bigQueryExports/{export_id}, or
  *  projects/{project}/bigQueryExports/{export_id}
@@ -3663,10 +3697,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport.
  *
- *  Gets a big query export.
+ *  Gets a BigQuery export.
  *
- *  @param name Required. Name of the big query export to retrieve. Its format
- *    is organizations/{organization}/bigQueryExports/{export_id},
+ *  @param name Required. Name of the BigQuery export to retrieve. Its format is
+ *    organizations/{organization}/bigQueryExports/{export_id},
  *    folders/{folder}/bigQueryExports/{export_id}, or
  *    projects/{project}/bigQueryExports/{export_id}
  *
@@ -4051,8 +4085,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must be between 1 and 128 characters, and contains alphanumeric
- *  characters, underscores or hyphens only.
+ *  It must be between 1 and 128 characters and contain alphanumeric characters,
+ *  underscores, or hyphens only.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
 
@@ -4093,7 +4127,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the notification config to delete. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *  "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *  "projects/[project_id]/notificationConfigs/[config_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4103,7 +4139,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    is "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *    "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *    "projects/[project_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsDelete
  */
@@ -4123,7 +4161,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the notification config to get. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *  "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *  "projects/[project_id]/notificationConfigs/[config_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4133,7 +4173,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a notification config.
  *
  *  @param name Required. Name of the notification config to get. Its format is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    "organizations/[organization_id]/notificationConfigs/[config_id]",
+ *    "folders/[folder_id]/notificationConfigs/[config_id]", or
+ *    "projects/[project_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsGet
  */
@@ -4165,9 +4207,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization to list notification configs. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  Required. The name of the parent in which to list the notification
+ *  configurations. Its format is "organizations/[organization_id]",
+ *  "folders/[folder_id]", or "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4176,9 +4218,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists notification configs.
  *
- *  @param parent Required. Name of the organization to list notification
- *    configs. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *  @param parent Required. The name of the parent in which to list the
+ *    notification configurations. Its format is
+ *    "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsList
  *
@@ -4205,7 +4248,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of this notification config. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *  "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *  "projects/{project_id}/notificationConfigs/notify_public_bucket".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4228,7 +4273,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of this notification config. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+ *    "folders/{folder_id}/notificationConfigs/notify_public_bucket", or
+ *    "projects/{project_id}/notificationConfigs/notify_public_bucket".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsPatch
  */
@@ -4248,10 +4295,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsExternalSystemsPatch : GTLRSecurityCommandCenterQuery
 
 /**
- *  External System Name e.g. jira, demisto, etc. e.g.:
- *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *  `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  Full resource name of the external system, for example:
+ *  "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *  "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4272,10 +4319,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem to
  *    include in the query.
- *  @param name External System Name e.g. jira, demisto, etc. e.g.:
- *    `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
- *    `folders/1234/sources/5678/findings/123456/externalSystems/jira`
- *    `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  @param name Full resource name of the external system, for example:
+ *    "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+ *    "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+ *    "projects/1234/sources/5678/findings/123456/externalSystems/jira"
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsExternalSystemsPatch
  */
@@ -4542,12 +4589,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetMute : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. The relative resource name of the finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/finding/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/finding/{finding_id}".
+ *  Required. The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4558,12 +4605,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetMuteRequest to include in
  *    the query.
- *  @param name Required. The relative resource name of the finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/finding/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/finding/{finding_id}".
+ *  @param name Required. The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetMute
  */
@@ -4583,10 +4630,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
 
 /**
- *  Required. The relative resource name of the finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+ *  Required. The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4597,10 +4646,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetFindingStateRequest to
  *    include in the query.
- *  @param name Required. The relative resource name of the finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+ *  @param name Required. The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetState
  */
@@ -4689,8 +4740,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id], folders/[folder_id], or
- *  projects/[project_id]".
+ *  be "organizations/[organization_id], "folders/[folder_id]", or
+ *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4700,8 +4751,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id], folders/[folder_id], or
- *    projects/[project_id]".
+ *    format should be "organizations/[organization_id], "folders/[folder_id]",
+ *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesList
  *

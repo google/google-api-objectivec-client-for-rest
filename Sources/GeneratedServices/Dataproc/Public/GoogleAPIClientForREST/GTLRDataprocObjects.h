@@ -18,6 +18,7 @@
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
+@class GTLRDataproc_AuxiliaryNodeGroup;
 @class GTLRDataproc_AuxiliaryServicesConfig;
 @class GTLRDataproc_BasicAutoscalingAlgorithm;
 @class GTLRDataproc_BasicYarnAutoscalingConfig;
@@ -39,6 +40,7 @@
 @class GTLRDataproc_ClusterStatus;
 @class GTLRDataproc_ConfidentialInstanceConfig;
 @class GTLRDataproc_DiskConfig;
+@class GTLRDataproc_DriverSchedulingConfig;
 @class GTLRDataproc_EncryptionConfig;
 @class GTLRDataproc_EndpointConfig;
 @class GTLRDataproc_EndpointConfig_HttpPorts;
@@ -87,6 +89,8 @@
 @class GTLRDataproc_Metric;
 @class GTLRDataproc_MetricConfig;
 @class GTLRDataproc_NamespacedGkeDeploymentTarget;
+@class GTLRDataproc_NodeGroup;
+@class GTLRDataproc_NodeGroup_Labels;
 @class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeGroupOperationMetadata_Labels;
 @class GTLRDataproc_NodeInitializationAction;
@@ -139,6 +143,7 @@
 @class GTLRDataproc_TrinoJob;
 @class GTLRDataproc_TrinoJob_Properties;
 @class GTLRDataproc_UsageMetrics;
+@class GTLRDataproc_UsageSnapshot;
 @class GTLRDataproc_ValueValidation;
 @class GTLRDataproc_VirtualClusterConfig;
 @class GTLRDataproc_WorkflowGraph;
@@ -666,6 +671,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistor
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Yarn;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_NodeGroup.roles
+
+/**
+ *  Job drivers run on the node pool.
+ *
+ *  Value: "DRIVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroup_Roles_Driver;
+/**
+ *  Required unspecified role.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroup_Roles_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_NodeGroupOperationMetadata.operationType
 
 /**
@@ -838,6 +859,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  *  Value: "SOLR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr;
+/**
+ *  The Trino query engine.
+ *
+ *  Value: "TRINO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Trino;
 /**
  *  The Zeppelin notebook.
  *
@@ -1137,6 +1164,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_AutoscalingPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Node group identification and configuration information.
+ */
+@interface GTLRDataproc_AuxiliaryNodeGroup : GTLRObject
+
+/** Required. Node group configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_NodeGroup *nodeGroup;
+
+/**
+ *  Optional. A node group ID. Generated if not specified.The ID must contain
+ *  only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-).
+ *  Cannot begin or end with underscore or hyphen. Must consist of from 3 to 33
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeGroupId;
+
 @end
 
 
@@ -1573,6 +1619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_AutoscalingConfig *autoscalingConfig;
 
+/** Optional. The node group settings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AuxiliaryNodeGroup *> *auxiliaryNodeGroups;
+
 /**
  *  Optional. A Cloud Storage bucket used to stage job dependencies, config
  *  files, and job driver console output. If you do not specify a staging
@@ -1999,6 +2048,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Driver scheduling configuration.
+ */
+@interface GTLRDataproc_DriverSchedulingConfig : GTLRObject
+
+/**
+ *  Required. The amount of memory in MB the driver is requesting.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryMb;
+
+/**
+ *  Required. The number of vCPUs the driver is requesting.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vcores;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -2078,9 +2149,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. The duration to keep the session alive while it's idling. Passing
- *  this threshold will cause the session to be terminated. Minimum value is 30
+ *  this threshold will cause the session to be terminated. Minimum value is 10
  *  minutes; maximum value is 14 days (see JSON representation of Duration
- *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). Defaults
+ *  to 4 hours if not set.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleTtl;
 
@@ -2992,6 +3064,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *driverOutputResourceUri;
 
+/** Optional. Driver scheduling configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_DriverSchedulingConfig *driverSchedulingConfig;
+
 /** Optional. Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
 
@@ -3173,23 +3248,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Maximum number of times per hour a driver may be restarted as a
  *  result of driver exiting with non-zero code before job is reported failed.A
- *  job may be reported as thrashing if driver exits with non-zero code 4 times
- *  within 10 minute window.Maximum value is 10.Note: Currently, this
- *  restartable job option is not supported in Dataproc workflow template
- *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
- *  jobs.
+ *  job may be reported as thrashing if the driver exits with a non-zero code
+ *  four times within a 10-minute window.Maximum value is 10.Note: This
+ *  restartable job option is not supported in Dataproc workflow templates
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFailuresPerHour;
 
 /**
- *  Optional. Maximum number of times in total a driver may be restarted as a
- *  result of driver exiting with non-zero code before job is reported failed.
- *  Maximum value is 240.Note: Currently, this restartable job option is not
- *  supported in Dataproc workflow template
- *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
- *  jobs.
+ *  Optional. Maximum total number of times a driver may be restarted as a
+ *  result of the driver exiting with a non-zero code. After the maximum number
+ *  is reached, the job will be reported as failed.Maximum value is 240.Note:
+ *  Currently, this restartable job option is not supported in Dataproc workflow
+ *  templates
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
  *
  *  Uses NSNumber of intValue.
  */
@@ -3847,7 +3921,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Node Group Affinity for clusters using sole-tenant node groups.
+ *  Dataproc Node Group. The Dataproc NodeGroup resource is not related to the
+ *  Dataproc NodeGroupAffinity resource.
+ */
+@interface GTLRDataproc_NodeGroup : GTLRObject
+
+/**
+ *  Optional. Node group labels. Label keys must consist of from 1 to 63
+ *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
+ *  Label values can be empty. If specified, they must consist of from 1 to 63
+ *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
+ *  The node group must have no more than 32 labelsn.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_NodeGroup_Labels *labels;
+
+/** The Node group resource name (https://aip.dev/122). */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The node group instance group configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *nodeGroupConfig;
+
+/** Required. Node group roles. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
+
+@end
+
+
+/**
+ *  Optional. Node group labels. Label keys must consist of from 1 to 63
+ *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
+ *  Label values can be empty. If specified, they must consist of from 1 to 63
+ *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
+ *  The node group must have no more than 32 labelsn.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_NodeGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  Node Group Affinity for clusters using sole-tenant node groups. The Dataproc
+ *  NodeGroupAffinity resource is not related to the Dataproc NodeGroup
+ *  resource.
  */
 @interface GTLRDataproc_NodeGroupAffinity : GTLRObject
 
@@ -4630,6 +4749,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to resize a node group.
+ */
+@interface GTLRDataproc_ResizeNodeGroupRequest : GTLRObject
+
+/**
+ *  Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters#graceful_decommissioning)
+ *  allows the removal of nodes from the Compute Engine node group without
+ *  interrupting jobs in progress. This timeout specifies how long to wait for
+ *  jobs in progress to finish before forcefully removing nodes (and potentially
+ *  interrupting jobs). Default timeout is 0 (for forceful decommission), and
+ *  the maximum allowed timeout is 1 day. (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only
+ *  supported on Dataproc image versions 1.2 and higher.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two ResizeNodeGroupRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.ResizeNodeGroupRequests)
+ *  with the same ID, the second request is ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The number of running instances for the node group to maintain.
+ *  The group adds or removes instances to maintain the number of instances
+ *  specified by this parameter.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
  *  Runtime configuration for a workload.
  */
 @interface GTLRDataproc_RuntimeConfig : GTLRObject
@@ -4672,9 +4834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. Approximate workload resource usage calculated after workload
- *  finishes.
+ *  finishes (see Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing)).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_UsageMetrics *approximateUsage;
+
+/** Output only. Snapshot of current workload resource usage. */
+@property(nonatomic, strong, nullable) GTLRDataproc_UsageSnapshot *currentUsage;
 
 /** Output only. A URI pointing to the location of the diagnostics tarball. */
 @property(nonatomic, copy, nullable) NSString *diagnosticOutputUri;
@@ -5566,23 +5732,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Usage metrics represent total resources consumed by a workload.
+ *  Usage metrics represent approximate total resources consumed by a workload.
  */
 @interface GTLRDataproc_UsageMetrics : GTLRObject
 
 /**
- *  Optional. DCU usage in milliDCU*seconds.
+ *  Optional. DCU (Dataproc Compute Units) usage in (milliDCU x seconds) (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing)).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *milliDcuSeconds;
 
 /**
- *  Optional. Shuffle storage usage in GB*Seconds
+ *  Optional. Shuffle storage usage in (GB x seconds) (see Dataproc Serverless
+ *  pricing (https://cloud.google.com/dataproc-serverless/pricing)).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shuffleStorageGbSeconds;
+
+@end
+
+
+/**
+ *  The usage snaphot represents the resources consumed by a workload at a
+ *  specified time.
+ */
+@interface GTLRDataproc_UsageSnapshot : GTLRObject
+
+/**
+ *  Optional. Milli (one-thousandth) Dataproc Compute Units (DCUs) (see Dataproc
+ *  Serverless pricing (https://cloud.google.com/dataproc-serverless/pricing)).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliDcu;
+
+/**
+ *  Optional. Shuffle Storage in gigabytes (GB). (see Dataproc Serverless
+ *  pricing (https://cloud.google.com/dataproc-serverless/pricing))
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleStorageGb;
+
+/** Optional. The timestamp of the usage snapshot. */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
 

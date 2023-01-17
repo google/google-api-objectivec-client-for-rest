@@ -14,10 +14,13 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeHangoutsChatMemberships      = @"https://www.googleapis.com/auth/chat.memberships";
-NSString * const kGTLRAuthScopeHangoutsChatMessages         = @"https://www.googleapis.com/auth/chat.messages";
-NSString * const kGTLRAuthScopeHangoutsChatMessagesCreate   = @"https://www.googleapis.com/auth/chat.messages.create";
-NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly = @"https://www.googleapis.com/auth/chat.messages.readonly";
+NSString * const kGTLRAuthScopeHangoutsChatMemberships         = @"https://www.googleapis.com/auth/chat.memberships";
+NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly = @"https://www.googleapis.com/auth/chat.memberships.readonly";
+NSString * const kGTLRAuthScopeHangoutsChatMessages            = @"https://www.googleapis.com/auth/chat.messages";
+NSString * const kGTLRAuthScopeHangoutsChatMessagesCreate      = @"https://www.googleapis.com/auth/chat.messages.create";
+NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly    = @"https://www.googleapis.com/auth/chat.messages.readonly";
+NSString * const kGTLRAuthScopeHangoutsChatSpaces              = @"https://www.googleapis.com/auth/chat.spaces";
+NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly      = @"https://www.googleapis.com/auth/chat.spaces.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService

@@ -20,11 +20,13 @@
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1AdditionalTargetKeyName;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1CertificateReference;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1DeleteGroupPolicyRequest;
+@class GTLRChromePolicy_GoogleChromePolicyVersionsV1FieldConstraints;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1InheritOrgUnitPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1ModifyGroupPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1ModifyOrgUnitPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1NetworkSetting;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1NetworkSetting_Value;
+@class GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDependencies;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDescription;
@@ -474,6 +476,17 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
+ *  Information about any range constraints.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1FieldConstraints : GTLRObject
+
+/** The allowed range for numeric fields. */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint *numericRangeConstraint;
+
+@end
+
+
+/**
  *  Request parameters for inheriting policy value of a specific org unit target
  *  from the policy value of its parent org unit.
  */
@@ -632,6 +645,28 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
+ *  A constraint on upper and/or lower bounds, with at least one being set.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint : GTLRObject
+
+/**
+ *  Maximum value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximum;
+
+/**
+ *  Minimum value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimum;
+
+@end
+
+
+/**
  *  Error information for a modification request of a specific field on a
  *  specific policy.
  */
@@ -753,6 +788,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  Output only. The name of the field for associated with this description.
  */
 @property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Output only. Information on any input constraints associated on the values
+ *  for the field.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1FieldConstraints *fieldConstraints;
 
 /**
  *  Output only. Provides a list of fields and values. At least one of the
@@ -1063,7 +1104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 /**
  *  Required. The key of the target resource on which the policies should be
- *  resolved. The target resource must point to an Org Unit.
+ *  resolved.
  */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyTargetKey *policyTargetKey;
 

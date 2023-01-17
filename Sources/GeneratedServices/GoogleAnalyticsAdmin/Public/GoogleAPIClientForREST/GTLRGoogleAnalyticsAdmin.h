@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Admin API (analyticsadmin/v1alpha)
+//   Google Analytics Admin API (analyticsadmin/v1beta)
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 

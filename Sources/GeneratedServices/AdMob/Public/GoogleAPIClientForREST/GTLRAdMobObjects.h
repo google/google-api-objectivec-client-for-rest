@@ -50,6 +50,35 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRAdMob_App.appApprovalState
+
+/**
+ *  The app requires additional user action to be approved. Please refer to
+ *  https://support.google.com/admob/answer/10564477 for details and next steps.
+ *
+ *  Value: "ACTION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_App_AppApprovalState_ActionRequired;
+/**
+ *  Default value for an unset field. Do not use.
+ *
+ *  Value: "APP_APPROVAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_App_AppApprovalState_AppApprovalStateUnspecified;
+/**
+ *  The app is approved and can serve ads.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_App_AppApprovalState_Approved;
+/**
+ *  The app is pending review.
+ *
+ *  Value: "IN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_App_AppApprovalState_InReview;
+
+// ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpec.dimensions
 
 /**
@@ -1165,6 +1194,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  iOS).
  */
 @interface GTLRAdMob_App : GTLRObject
+
+/**
+ *  Output only. The approval state for the app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdMob_App_AppApprovalState_ActionRequired The app requires
+ *        additional user action to be approved. Please refer to
+ *        https://support.google.com/admob/answer/10564477 for details and next
+ *        steps. (Value: "ACTION_REQUIRED")
+ *    @arg @c kGTLRAdMob_App_AppApprovalState_AppApprovalStateUnspecified
+ *        Default value for an unset field. Do not use. (Value:
+ *        "APP_APPROVAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAdMob_App_AppApprovalState_Approved The app is approved and
+ *        can serve ads. (Value: "APPROVED")
+ *    @arg @c kGTLRAdMob_App_AppApprovalState_InReview The app is pending
+ *        review. (Value: "IN_REVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *appApprovalState;
 
 /**
  *  The externally visible ID of the app which can be used to integrate with the

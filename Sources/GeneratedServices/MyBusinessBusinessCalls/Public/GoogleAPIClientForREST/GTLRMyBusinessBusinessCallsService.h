@@ -15,7 +15,8 @@
 //   conversions are used in the optimization strategy, there could be a change
 //   in ad spend. Learn more about smart bidding. To view and perform actions on
 //   a location's calls, you need to be a `OWNER`, `CO_OWNER` or `MANAGER` of
-//   the location.
+//   the location. Note - If you have a quota of 0 after enabling the API,
+//   please request for GBP API access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -46,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  are used in the optimization strategy, there could be a change in ad spend.
  *  Learn more about smart bidding. To view and perform actions on a location's
  *  calls, you need to be a `OWNER`, `CO_OWNER` or `MANAGER` of the location.
+ *  Note - If you have a quota of 0 after enabling the API, please request for
+ *  GBP API access.
  */
 @interface GTLRMyBusinessBusinessCallsService : GTLRService
 

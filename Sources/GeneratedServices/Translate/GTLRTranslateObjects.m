@@ -36,8 +36,8 @@
 //
 
 @implementation GTLRTranslate_BatchTranslateDocumentRequest
-@dynamic formatConversions, glossaries, inputConfigs, models, outputConfig,
-         sourceLanguageCode, targetLanguageCodes;
+@dynamic customizedAttribution, formatConversions, glossaries, inputConfigs,
+         models, outputConfig, sourceLanguageCode, targetLanguageCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -165,6 +165,46 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_Dataset
+//
+
+@implementation GTLRTranslate_Dataset
+@dynamic createTime, displayName, exampleCount, name, sourceLanguageCode,
+         targetLanguageCode, testExampleCount, trainExampleCount, updateTime,
+         validateExampleCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DatasetInputConfig
+//
+
+@implementation GTLRTranslate_DatasetInputConfig
+@dynamic inputFiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inputFiles" : [GTLRTranslate_InputFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DatasetOutputConfig
+//
+
+@implementation GTLRTranslate_DatasetOutputConfig
+@dynamic gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_DetectedLanguage
 //
 
@@ -242,8 +282,8 @@
 
 @implementation GTLRTranslate_DocumentRequest
 @dynamic customizedAttribution, documentInputConfig, documentOutputConfig,
-         glossaryConfig, isTranslateNativePdfOnly, labels, model,
-         sourceLanguageCode, targetLanguageCode;
+         enableShadowRemovalNativePdf, glossaryConfig, isTranslateNativePdfOnly,
+         labels, model, sourceLanguageCode, targetLanguageCode;
 @end
 
 
@@ -301,10 +341,50 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_Example
+//
+
+@implementation GTLRTranslate_Example
+@dynamic name, sourceText, targetText, usage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ExportDataRequest
+//
+
+@implementation GTLRTranslate_ExportDataRequest
+@dynamic outputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_GcsDestination
 //
 
 @implementation GTLRTranslate_GcsDestination
+@dynamic outputUriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GcsInputSource
+//
+
+@implementation GTLRTranslate_GcsInputSource
+@dynamic inputUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GcsOutputDestination
+//
+
+@implementation GTLRTranslate_GcsOutputDestination
 @dynamic outputUriPrefix;
 @end
 
@@ -395,11 +475,31 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_ImportDataRequest
+//
+
+@implementation GTLRTranslate_ImportDataRequest
+@dynamic inputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_InputConfig
 //
 
 @implementation GTLRTranslate_InputConfig
 @dynamic gcsSource, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_InputFile
+//
+
+@implementation GTLRTranslate_InputFile
+@dynamic gcsSource, usage;
 @end
 
 
@@ -426,6 +526,50 @@
     @"languageCodes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListDatasetsResponse
+//
+
+@implementation GTLRTranslate_ListDatasetsResponse
+@dynamic datasets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datasets" : [GTLRTranslate_Dataset class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"datasets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListExamplesResponse
+//
+
+@implementation GTLRTranslate_ListExamplesResponse
+@dynamic examples, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"examples" : [GTLRTranslate_Example class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"examples";
 }
 
 @end
@@ -499,6 +643,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_ListModelsResponse
+//
+
+@implementation GTLRTranslate_ListModelsResponse
+@dynamic models, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"models" : [GTLRTranslate_Model class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"models";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_ListOperationsResponse
 //
 
@@ -554,6 +720,18 @@
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Model
+//
+
+@implementation GTLRTranslate_Model
+@dynamic createTime, dataset, deployTime, displayName, name, sourceLanguageCode,
+         targetLanguageCode, testExampleCount, trainExampleCount, updateTime,
+         validateExampleCount;
 @end
 
 

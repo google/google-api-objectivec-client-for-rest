@@ -168,6 +168,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Loads a snapshot of a Cloud Composer environment. As a result of this
+ *  operation, a snapshot of environment's specified in LoadSnapshotRequest is
+ *  loaded into the environment.
+ *
+ *  Method: composer.projects.locations.environments.loadSnapshot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsLoadSnapshot : GTLRCloudComposerQuery
+
+/**
+ *  The resource name of the target environment in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Loads a snapshot of a Cloud Composer environment. As a result of this
+ *  operation, a snapshot of environment's specified in LoadSnapshotRequest is
+ *  loaded into the environment.
+ *
+ *  @param object The @c GTLRCloudComposer_LoadSnapshotRequest to include in the
+ *    query.
+ *  @param environment The resource name of the target environment in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsLoadSnapshot
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_LoadSnapshotRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
  *  Update an environment.
  *
  *  Method: composer.projects.locations.environments.patch
@@ -278,6 +315,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudComposer_Environment *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a snapshots of a Cloud Composer environment. As a result of this
+ *  operation, snapshot of environment's state is stored in a location specified
+ *  in the SaveSnapshotRequest.
+ *
+ *  Method: composer.projects.locations.environments.saveSnapshot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsSaveSnapshot : GTLRCloudComposerQuery
+
+/**
+ *  The resource name of the source environment in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Creates a snapshots of a Cloud Composer environment. As a result of this
+ *  operation, snapshot of environment's state is stored in a location specified
+ *  in the SaveSnapshotRequest.
+ *
+ *  @param object The @c GTLRCloudComposer_SaveSnapshotRequest to include in the
+ *    query.
+ *  @param environment The resource name of the source environment in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsSaveSnapshot
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_SaveSnapshotRequest *)object
+                    environment:(NSString *)environment;
 
 @end
 

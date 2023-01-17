@@ -28,6 +28,33 @@ NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_CarrierCo
 NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Fedex = @"FEDEX";
 NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups = @"UPS";
 
+// GTLRShoppingContent_BestSellers.previousRelativeDemand
+NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_High = @"HIGH";
+NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Low = @"LOW";
+NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Medium = @"MEDIUM";
+NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_RelativeDemandUnspecified = @"RELATIVE_DEMAND_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_VeryHigh = @"VERY_HIGH";
+NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_VeryLow = @"VERY_LOW";
+
+// GTLRShoppingContent_BestSellers.relativeDemand
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_High = @"HIGH";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_Low = @"LOW";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_Medium = @"MEDIUM";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_RelativeDemandUnspecified = @"RELATIVE_DEMAND_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_VeryHigh = @"VERY_HIGH";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_VeryLow = @"VERY_LOW";
+
+// GTLRShoppingContent_BestSellers.relativeDemandChange
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_Flat = @"FLAT";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_RelativeDemandChangeTypeUnspecified = @"RELATIVE_DEMAND_CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_Riser = @"RISER";
+NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_Sinker = @"SINKER";
+
+// GTLRShoppingContent_BestSellers.reportGranularity
+NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Monthly = @"MONTHLY";
+NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_ReportGranularityUnspecified = @"REPORT_GRANULARITY_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Weekly = @"WEEKLY";
+
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_BusinessModelUnspecified = @"BUSINESS_MODEL_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Importer = @"IMPORTER";
@@ -103,6 +130,18 @@ NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingSt
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Shipped = @"SHIPPED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified = @"SHIPPING_STATE_UNSPECIFIED";
 
+// GTLRShoppingContent_ProductCluster.brandInventoryStatus
+NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InStock = @"IN_STOCK";
+NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InventoryStatusUnspecified = @"INVENTORY_STATUS_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_NotInInventory = @"NOT_IN_INVENTORY";
+NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_OutOfStock = @"OUT_OF_STOCK";
+
+// GTLRShoppingContent_ProductCluster.inventoryStatus
+NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_InStock = @"IN_STOCK";
+NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_InventoryStatusUnspecified = @"INVENTORY_STATUS_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_NotInInventory = @"NOT_IN_INVENTORY";
+NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_OutOfStock = @"OUT_OF_STOCK";
+
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified = @"AGGREGATED_STATUS_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Eligible = @"ELIGIBLE";
@@ -160,6 +199,15 @@ NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChan
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_AllStores = @"ALL_STORES";
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_SpecificStores = @"SPECIFIC_STORES";
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_StoreApplicabilityUnspecified = @"STORE_APPLICABILITY_UNSPECIFIED";
+
+// GTLRShoppingContent_PromotionPromotionStatusDestinationStatus.status
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Expired = @"EXPIRED";
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_InReview = @"IN_REVIEW";
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Live = @"LIVE";
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Pending = @"PENDING";
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Rejected = @"REJECTED";
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Stopped = @"STOPPED";
 
 // GTLRShoppingContent_RepricingProductReport.type
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
@@ -1091,6 +1139,27 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Amount
 @dynamic priceAmount, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_BestSellers
+//
+
+@implementation GTLRShoppingContent_BestSellers
+@dynamic categoryId, countryCode, previousRank, previousRelativeDemand, rank,
+         relativeDemand, relativeDemandChange, reportDate, reportGranularity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_Brand
+//
+
+@implementation GTLRShoppingContent_Brand
+@dynamic name;
 @end
 
 
@@ -4489,6 +4558,30 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_PriceCompetitiveness
+//
+
+@implementation GTLRShoppingContent_PriceCompetitiveness
+@dynamic benchmarkPriceCurrencyCode, benchmarkPriceMicros, countryCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PriceInsights
+//
+
+@implementation GTLRShoppingContent_PriceInsights
+@dynamic predictedClicksChangeFraction, predictedConversionsChangeFraction,
+         predictedGrossProfitChangeFraction, predictedImpressionsChangeFraction,
+         predictedMonthlyGrossProfitChangeCurrencyCode,
+         predictedMonthlyGrossProfitChangeMicros, suggestedPriceCurrencyCode,
+         suggestedPriceMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Product
 //
 
@@ -4502,15 +4595,15 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          displayAdsValue, energyEfficiencyClass, excludedDestinations,
          expirationDate, externalSellerId, feedLabel, gender,
          googleProductCategory, gtin, identifier, identifierExists, imageLink,
-         includedDestinations, installment, isBundle, itemGroupId, kind, link,
-         linkTemplate, loyaltyPoints, material, maxEnergyEfficiencyClass,
-         maxHandlingTime, minEnergyEfficiencyClass, minHandlingTime, mobileLink,
-         mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
-         pickupMethod, pickupSla, price, productDetails, productHeight,
-         productHighlights, productLength, productTypes, productWeight,
-         productWidth, promotionIds, salePrice, salePriceEffectiveDate,
-         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
-         shippingLength, shippingWeight, shippingWidth,
+         includedDestinations, installment, isBundle, itemGroupId, kind,
+         lifestyleImageLinks, link, linkTemplate, loyaltyPoints, material,
+         maxEnergyEfficiencyClass, maxHandlingTime, minEnergyEfficiencyClass,
+         minHandlingTime, mobileLink, mobileLinkTemplate, mpn, multipack,
+         offerId, pattern, pause, pickupMethod, pickupSla, price,
+         productDetails, productHeight, productHighlights, productLength,
+         productTypes, productWeight, productWidth, promotionIds, salePrice,
+         salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
+         shippingLabel, shippingLength, shippingWeight, shippingWidth,
          shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
          subscriptionCost, targetCountry, taxCategory, taxes, title,
          transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
@@ -4531,6 +4624,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"displayAdsSimilarIds" : [NSString class],
     @"excludedDestinations" : [NSString class],
     @"includedDestinations" : [NSString class],
+    @"lifestyleImageLinks" : [NSString class],
     @"productDetails" : [GTLRShoppingContent_ProductProductDetail class],
     @"productHighlights" : [NSString class],
     @"productTypes" : [NSString class],
@@ -4559,6 +4653,25 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ProductAmount
 @dynamic priceAmount, remittedTaxAmount, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductCluster
+//
+
+@implementation GTLRShoppingContent_ProductCluster
+@dynamic brand, brandInventoryStatus, categoryL1, categoryL2, categoryL3,
+         categoryL4, categoryL5, inventoryStatus, title, variantGtins;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"variantGtins" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -4982,10 +5095,12 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ProductView
-@dynamic aggregatedDestinationStatus, availability, brand, channel, condition,
+@dynamic aggregatedDestinationStatus, availability, brand, categoryL1,
+         categoryL2, categoryL3, categoryL4, categoryL5, channel, condition,
          creationTime, currencyCode, expirationDate, gtin, identifier,
          itemGroupId, itemIssues, languageCode, offerId, priceMicros,
-         shippingLabel, title;
+         productTypeL1, productTypeL2, productTypeL3, productTypeL4,
+         productTypeL5, shippingLabel, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5084,9 +5199,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          orderLimit, percentOff, productApplicability, productType,
          productTypeExclusion, promotionDestinationIds, promotionDisplayDates,
          promotionDisplayTimePeriod, promotionEffectiveDates,
-         promotionEffectiveTimePeriod, promotionId, promotionUrl,
-         redemptionChannel, shippingServiceNames, storeApplicability, storeCode,
-         storeCodeExclusion, targetCountry;
+         promotionEffectiveTimePeriod, promotionId, promotionStatus,
+         promotionUrl, redemptionChannel, shippingServiceNames,
+         storeApplicability, storeCode, storeCodeExclusion, targetCountry;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5111,6 +5226,45 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PromotionPromotionStatus
+//
+
+@implementation GTLRShoppingContent_PromotionPromotionStatus
+@dynamic creationDate, destinationStatuses, lastUpdateDate, promotionIssue;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinationStatuses" : [GTLRShoppingContent_PromotionPromotionStatusDestinationStatus class],
+    @"promotionIssue" : [GTLRShoppingContent_PromotionPromotionStatusPromotionIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PromotionPromotionStatusDestinationStatus
+//
+
+@implementation GTLRShoppingContent_PromotionPromotionStatusDestinationStatus
+@dynamic destination, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PromotionPromotionStatusPromotionIssue
+//
+
+@implementation GTLRShoppingContent_PromotionPromotionStatusPromotionIssue
+@dynamic code, detail;
 @end
 
 
@@ -5331,7 +5485,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ReportRow
-@dynamic metrics, productView, segments;
+@dynamic bestSellers, brand, metrics, priceCompetitiveness, priceInsights,
+         productCluster, productView, segments;
 @end
 
 

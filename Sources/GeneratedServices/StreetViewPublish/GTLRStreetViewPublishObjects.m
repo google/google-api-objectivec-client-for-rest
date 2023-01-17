@@ -311,6 +311,16 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStreetViewPublish_NoOverlapGpsFailureDetails
+//
+
+@implementation GTLRStreetViewPublish_NoOverlapGpsFailureDetails
+@dynamic gpsEndTime, gpsStartTime, videoEndTime, videoStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStreetViewPublish_NotOutdoorsFailureDetails
 //
 
@@ -456,7 +466,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
 
 @implementation GTLRStreetViewPublish_ProcessingFailureDetails
 @dynamic gpsDataGapDetails, imuDataGapDetails, insufficientGpsDetails,
-         notOutdoorsDetails;
+         noOverlapGpsDetails, notOutdoorsDetails;
 @end
 
 

@@ -110,6 +110,33 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsBulkAnalyze
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/conversations:bulkAnalyze";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsBulkAnalyze *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.conversations.bulkAnalyze";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsCalculateStats
 
 @dynamic filter, location;
@@ -189,6 +216,33 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation class];
   query.loggingName = @"contactcenterinsights.projects.locations.conversations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsIngest
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/conversations:ingest";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsIngest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.conversations.ingest";
   return query;
 }
 
@@ -392,6 +446,25 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel class];
   query.loggingName = @"contactcenterinsights.projects.locations.issueModels.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleProtobufEmpty class];
+  query.loggingName = @"contactcenterinsights.projects.locations.issueModels.issues.delete";
   return query;
 }
 

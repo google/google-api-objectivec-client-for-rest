@@ -43,6 +43,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1Column;
 @class GTLRCloudchannel_GoogleCloudChannelV1CommitmentSettings;
+@class GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride;
 @class GTLRCloudchannel_GoogleCloudChannelV1Constraints;
 @class GTLRCloudchannel_GoogleCloudChannelV1ContactInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1Customer;
@@ -76,11 +77,13 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1ReportStatus;
 @class GTLRCloudchannel_GoogleCloudChannelV1ReportValue;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment;
+@class GTLRCloudchannel_GoogleCloudChannelV1RepricingCondition;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity;
 @class GTLRCloudchannel_GoogleCloudChannelV1Row;
 @class GTLRCloudchannel_GoogleCloudChannelV1Sku;
+@class GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableOffer;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableSku;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferEligibility;
@@ -693,6 +696,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_
  *  Value: "STRING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_String;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride.rebillingBasis
+
+/**
+ *  Use the list cost, also known as the MSRP.
+ *
+ *  Value: "COST_AT_LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_CostAtList;
+/**
+ *  Pass through all discounts except the Reseller Program Discount. If this is
+ *  the default cost base and no adjustments are specified, the output cost will
+ *  be exactly what the customer would see if they viewed the bill in the Google
+ *  Cloud Console.
+ *
+ *  Value: "DIRECT_CUSTOMER_COST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_DirectCustomerCost;
+/**
+ *  Not used.
+ *
+ *  Value: "REBILLING_BASIS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
@@ -2618,6 +2646,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Specifies the override to conditionally apply.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride : GTLRObject
+
+/** Required. Information about the applied override's adjustment. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment *adjustment;
+
+/**
+ *  Required. The RebillingBasis to use for the applied override. Shows the
+ *  relative cost based on your repricing costs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_CostAtList
+ *        Use the list cost, also known as the MSRP. (Value: "COST_AT_LIST")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_DirectCustomerCost
+ *        Pass through all discounts except the Reseller Program Discount. If
+ *        this is the default cost base and no adjustments are specified, the
+ *        output cost will be exactly what the customer would see if they viewed
+ *        the bill in the Google Cloud Console. (Value: "DIRECT_CUSTOMER_COST")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified
+ *        Not used. (Value: "REBILLING_BASIS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rebillingBasis;
+
+/**
+ *  Required. Specifies the condition which, if met, will apply the override.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingCondition *repricingCondition;
+
+@end
+
+
+/**
  *  Represents the constraints for buying the Offer.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1Constraints : GTLRObject
@@ -4390,6 +4451,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Represents the various repricing conditions you can use for a conditional
+ *  override.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RepricingCondition : GTLRObject
+
+/** SKU Group condition for override. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition *skuGroupCondition;
+
+@end
+
+
+/**
  *  Configuration for repricing a Google bill over a period of time.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig : GTLRObject
@@ -4402,6 +4475,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  the only supported value for ChannelPartnerRepricingConfig.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity *channelPartnerGranularity;
+
+/**
+ *  The conditional overrides to apply for this configuration. If you list
+ *  multiple overrides, only the first valid override is used. If you don't list
+ *  any overrides, the API uses the normal adjustment and rebilling basis.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride *> *conditionalOverrides;
 
 /**
  *  Required. The YearMonth when these adjustments activate. The Day field needs
@@ -4534,6 +4614,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /** Product the SKU is associated with. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Product *product;
+
+@end
+
+
+/**
+ *  A condition that applies the override if a line item SKU is found in the SKU
+ *  group.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition : GTLRObject
+
+/**
+ *  Specifies a SKU group (https://cloud.google.com/skus/sku-groups). Resource
+ *  name of SKU group. Format: accounts/{account}/skuGroups/{sku_group}.
+ *  Example: "accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041".
+ */
+@property(nonatomic, copy, nullable) NSString *skuGroup;
 
 @end
 

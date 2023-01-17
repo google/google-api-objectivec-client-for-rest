@@ -888,6 +888,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a processor type detail.
+ *
+ *  Method: documentai.projects.locations.processorTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorTypesGet : GTLRDocumentQuery
+
+/** Required. The processor type resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ProcessorType.
+ *
+ *  Gets a processor type detail.
+ *
+ *  @param name Required. The processor type resource name.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the processor types that exist.
  *
  *  Method: documentai.projects.locations.processorTypes.list
@@ -960,208 +986,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the operation resource.
  *
  *  @return GTLRDocumentQuery_ProjectsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets information about a location.
- *
- *  Method: documentai.uiv1beta3.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDocumentCloudPlatform
- */
-@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsGet : GTLRDocumentQuery
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDocument_GoogleCloudLocationLocation.
- *
- *  Gets information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service.
- *
- *  Method: documentai.uiv1beta3.projects.locations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDocumentCloudPlatform
- */
-@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsList : GTLRDocumentQuery
-
-/**
- *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like `"displayName=tokyo"`, and is documented in
- *  more detail in [AIP-160](https://google.aip.dev/160).
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The resource that owns the locations collection, if applicable. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The maximum number of results to return. If not set, the service selects a
- *  default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token received from the `next_page_token` field in the response. Send
- *  that page token to receive the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRDocument_GoogleCloudLocationListLocationsResponse.
- *
- *  Lists information about the supported locations for this service.
- *
- *  @param name The resource that owns the locations collection, if applicable.
- *
- *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Method: documentai.uiv1beta3.projects.locations.operations.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDocumentCloudPlatform
- */
-@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancel : GTLRDocumentQuery
-
-/** The name of the operation resource to be cancelled. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDocument_GoogleProtobufEmpty.
- *
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  @param name The name of the operation resource to be cancelled.
- *
- *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancel
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: documentai.uiv1beta3.projects.locations.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDocumentCloudPlatform
- */
-@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsGet : GTLRDocumentQuery
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  Method: documentai.uiv1beta3.projects.locations.operations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDocumentCloudPlatform
- */
-@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsList : GTLRDocumentQuery
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRDocument_GoogleLongrunningListOperationsResponse.
- *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  @param name The name of the operation's parent resource.
- *
- *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 

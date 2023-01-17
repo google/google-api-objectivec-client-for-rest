@@ -52,6 +52,95 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext
+@dynamic httpRequest, reportLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog
+@dynamic context, importPayload, message, requestPayload, responsePayload,
+         serviceContext, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext
+@dynamic responseStatusCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext
+@dynamic document, gcsPath, lineNumber, operation, userEvent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation
+@dynamic functionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportDocumentsMetadata
 //
 

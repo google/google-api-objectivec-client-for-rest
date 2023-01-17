@@ -263,10 +263,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Required. Resource name for the Access Level. The `short_name` component
- *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
- *  length of the `access_level` component is 50 characters.
+ *  Resource name for the `AccessLevel`. Format:
+ *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
+ *  `access_level` component must begin with a letter, followed by alphanumeric
+ *  characters or `_`. Its maximum length is 50 characters. After you create an
+ *  `AccessLevel`, you cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -287,10 +288,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
- *  @param name Required. Resource name for the Access Level. The `short_name`
- *    component must begin with a letter and only include alphanumeric and '_'.
- *    Format: `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
- *    maximum length of the `access_level` component is 50 characters.
+ *  @param name Resource name for the `AccessLevel`. Format:
+ *    `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
+ *    `access_level` component must begin with a letter, followed by
+ *    alphanumeric characters or `_`. Its maximum length is 50 characters. After
+ *    you create an `AccessLevel`, you cannot change its `name`.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch
  */
@@ -383,6 +385,210 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  */
 + (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a authorized orgs desc. The long-running operation from this RPC has
+ *  a successful status after the authorized orgs desc propagates to
+ *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  response is returned for the first error encountered. The name of this
+ *  `AuthorizedOrgsDesc` will be assigned during creation.
+ *
+ *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsCreate : GTLRAccessContextManagerQuery
+
+/**
+ *  Required. Resource name for the access policy which owns this Authorized
+ *  Orgs Desc. Format: `accessPolicies/{policy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Creates a authorized orgs desc. The long-running operation from this RPC has
+ *  a successful status after the authorized orgs desc propagates to
+ *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  response is returned for the first error encountered. The name of this
+ *  `AuthorizedOrgsDesc` will be assigned during creation.
+ *
+ *  @param object The @c GTLRAccessContextManager_AuthorizedOrgsDesc to include
+ *    in the query.
+ *  @param parent Required. Resource name for the access policy which owns this
+ *    Authorized Orgs Desc. Format: `accessPolicies/{policy_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_AuthorizedOrgsDesc *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a authorized orgs desc based on the resource name. The long-running
+ *  operation from this RPC has a successful status after the authorized orgs
+ *  desc is removed from long-lasting storage.
+ *
+ *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsDelete : GTLRAccessContextManagerQuery
+
+/**
+ *  Required. Resource name for the Authorized Orgs Desc. Format:
+ *  `accessPolicies/{policy_id}/authorizedOrgsDesc/{authorized_orgs_desc_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Deletes a authorized orgs desc based on the resource name. The long-running
+ *  operation from this RPC has a successful status after the authorized orgs
+ *  desc is removed from long-lasting storage.
+ *
+ *  @param name Required. Resource name for the Authorized Orgs Desc. Format:
+ *    `accessPolicies/{policy_id}/authorizedOrgsDesc/{authorized_orgs_desc_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a authorized orgs desc based on the resource name.
+ *
+ *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsGet : GTLRAccessContextManagerQuery
+
+/**
+ *  Required. Resource name for the Authorized Orgs Desc. Format:
+ *  `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_descs_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_AuthorizedOrgsDesc.
+ *
+ *  Gets a authorized orgs desc based on the resource name.
+ *
+ *  @param name Required. Resource name for the Authorized Orgs Desc. Format:
+ *    `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_descs_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all authorized orgs descs for an access policy.
+ *
+ *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsList : GTLRAccessContextManagerQuery
+
+/** Number of Authorized Orgs Descs to include in the list. Default 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Next page token for the next batch of Authorized Orgs Desc instances.
+ *  Defaults to the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name for the access policy to list Authorized Orgs Desc
+ *  from. Format: `accessPolicies/{policy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_ListAuthorizedOrgsDescsResponse.
+ *
+ *  Lists all authorized orgs descs for an access policy.
+ *
+ *  @param parent Required. Resource name for the access policy to list
+ *    Authorized Orgs Desc from. Format: `accessPolicies/{policy_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a authorized orgs desc. The long-running operation from this RPC has
+ *  a successful status after the authorized orgs desc propagates to
+ *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  response is returned for the first error encountered. Only the organization
+ *  list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type,
+ *  asset_type and authorization_direction cannot be updated.
+ *
+ *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch : GTLRAccessContextManagerQuery
+
+/**
+ *  Assigned by the server during creation. The last segment has an arbitrary
+ *  length and has only URI unreserved characters (as defined by [RFC 3986
+ *  Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should not
+ *  be specified by the client during creation. Example:
+ *  "accessPolicies/122256/authorizedOrgs/b3-BhcX_Ud5N"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask to control which fields get updated. Must be non-empty.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Updates a authorized orgs desc. The long-running operation from this RPC has
+ *  a successful status after the authorized orgs desc propagates to
+ *  long-lasting storage. If a authorized orgs desc contains errors, an error
+ *  response is returned for the first error encountered. Only the organization
+ *  list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type,
+ *  asset_type and authorization_direction cannot be updated.
+ *
+ *  @param object The @c GTLRAccessContextManager_AuthorizedOrgsDesc to include
+ *    in the query.
+ *  @param name Assigned by the server during creation. The last segment has an
+ *    arbitrary length and has only URI unreserved characters (as defined by
+ *    [RFC 3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)).
+ *    Should not be specified by the client during creation. Example:
+ *    "accessPolicies/122256/authorizedOrgs/b3-BhcX_Ud5N"
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_AuthorizedOrgsDesc *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -815,9 +1021,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Required. Resource name for the ServicePerimeter. The `short_name` component
- *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
+ *  Resource name for the `ServicePerimeter`. Format:
+ *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
+ *  `service_perimeter` component must begin with a letter, followed by
+ *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
+ *  cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -838,10 +1046,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
- *  @param name Required. Resource name for the ServicePerimeter. The
- *    `short_name` component must begin with a letter and only include
- *    alphanumeric and '_'. Format:
- *    `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
+ *  @param name Resource name for the `ServicePerimeter`. Format:
+ *    `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`.
+ *    The `service_perimeter` component must begin with a letter, followed by
+ *    alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
+ *    cannot change its `name`.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch
  */

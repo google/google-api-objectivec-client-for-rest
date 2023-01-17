@@ -1533,17 +1533,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_DateShiftConfig : GTLRObject
 
 /**
- *  An AES 128/192/256 bit key. Causes the shift to be computed based on this
- *  key and the patient ID. A default key is generated for each
- *  de-identification operation and is used when neither `crypto_key` nor
- *  `kms_wrapped` is specified. Must not be set if `kms_wrapped` is set.
+ *  An AES 128/192/256 bit key. The date shift is computed based on this key and
+ *  the patient ID. If the patient ID is empty for a DICOM resource, the date
+ *  shift is computed based on this key and the study instance UID. If
+ *  `crypto_key` is not set, then `kms_wrapped` is used to calculate the date
+ *  shift. If neither is set, a default key is generated for each de-identify
+ *  operation. Must not be set if `kms_wrapped` is set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKey;
 
-/** KMS wrapped key. Must not be set if `crypto_key` is set. */
+/**
+ *  KMS wrapped key. If `kms_wrapped` is not set, then `crypto_key` is used to
+ *  calculate the date shift. If neither is set, a default key is generated for
+ *  each de-identify operation. Must not be set if `crypto_key` is set.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_KmsWrappedCryptoKey *kmsWrapped;
 
 @end
@@ -1908,7 +1914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  linked_entities are candidate ontological concepts that this entity mention
- *  may refer to. They are sorted by decreasing confidence.it
+ *  may refer to. They are sorted by decreasing confidence.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_LinkedEntity *> *linkedEntities;
 

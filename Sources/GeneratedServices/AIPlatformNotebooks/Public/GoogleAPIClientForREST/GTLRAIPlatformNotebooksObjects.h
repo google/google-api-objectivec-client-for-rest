@@ -1372,13 +1372,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSNumber *copyHomeFilesFlagEnabled NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Required. User Cloud Storage bucket location (REQUIRED) ## Must be formatted
- *  with path prefix (gs://$GCS_BUCKET) Permissions: User Managed Notebooks: -
- *  storage.buckets.writer: Must be given to the project's service account
+ *  Required. User Cloud Storage bucket location (REQUIRED). Must be formatted
+ *  with path prefix (`gs://$GCS_BUCKET`). Permissions: User Managed Notebooks:
+ *  - storage.buckets.writer: Must be given to the project's service account
  *  attached to VM. Google Managed Notebooks: - storage.buckets.writer: Must be
- *  given to the project's service account or ## user credentials attached to VM
+ *  given to the project's service account or user credentials attached to VM
  *  depending on authentication mode. Cloud Storage bucket Log file will be
- *  written to gs://$GCS_BUCKET/$RELATIVE_PATH/$VM_DATE_$TIME.tar.gz
+ *  written to `gs://$GCS_BUCKET/$RELATIVE_PATH/$VM_DATE_$TIME.tar.gz`
  */
 @property(nonatomic, copy, nullable) NSString *gcsBucket;
 
@@ -1392,9 +1392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  Optional. Defines the relative storage path in the Cloud Storage bucket
  *  where the diagnostic logs will be written: Default path will be the root
- *  directory of the Cloud Storage bucket (gs://$GCS_BUCKET/$DATE_$TIME.tar.gz)
- *  Example of full path where Log file will be written:
- *  gs://$GCS_BUCKET/$RELATIVE_PATH/
+ *  directory of the Cloud Storage bucket
+ *  (`gs://$GCS_BUCKET/$DATE_$TIME.tar.gz`) Example of full path where Log file
+ *  will be written: `gs://$GCS_BUCKET/$RELATIVE_PATH/`
  */
 @property(nonatomic, copy, nullable) NSString *relativePath;
 
@@ -3507,6 +3507,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *upgradeable;
+
+/**
+ *  Output only. version of boot image such as M100, from release label of the
+ *  image.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

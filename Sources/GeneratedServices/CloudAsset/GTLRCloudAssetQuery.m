@@ -4,7 +4,8 @@
 // API:
 //   Cloud Asset API (cloudasset/v1)
 // Description:
-//   The cloud asset API manages the history and inventory of cloud resources.
+//   The Cloud Asset API manages the history and inventory of Google Cloud
+//   resources.
 // Documentation:
 //   https://cloud.google.com/asset-inventory/docs/quickstart
 
@@ -431,6 +432,63 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 @end
 
+@implementation GTLRCloudAssetQuery_V1AnalyzeOrgPolicies
+
+@dynamic constraint, filter, pageSize, pageToken, scope;
+
++ (instancetype)queryWithScope:(NSString *)scope {
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}:analyzeOrgPolicies";
+  GTLRCloudAssetQuery_V1AnalyzeOrgPolicies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRCloudAsset_AnalyzeOrgPoliciesResponse class];
+  query.loggingName = @"cloudasset.analyzeOrgPolicies";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_V1AnalyzeOrgPolicyGovernedAssets
+
+@dynamic constraint, filter, pageSize, pageToken, scope;
+
++ (instancetype)queryWithScope:(NSString *)scope {
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}:analyzeOrgPolicyGovernedAssets";
+  GTLRCloudAssetQuery_V1AnalyzeOrgPolicyGovernedAssets *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRCloudAsset_AnalyzeOrgPolicyGovernedAssetsResponse class];
+  query.loggingName = @"cloudasset.analyzeOrgPolicyGovernedAssets";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_V1AnalyzeOrgPolicyGovernedContainers
+
+@dynamic constraint, filter, pageSize, pageToken, scope;
+
++ (instancetype)queryWithScope:(NSString *)scope {
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}:analyzeOrgPolicyGovernedContainers";
+  GTLRCloudAssetQuery_V1AnalyzeOrgPolicyGovernedContainers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRCloudAsset_AnalyzeOrgPolicyGovernedContainersResponse class];
+  query.loggingName = @"cloudasset.analyzeOrgPolicyGovernedContainers";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_V1BatchGetAssetsHistory
 
 @dynamic assetNames, contentType, parent, readTimeWindowEndTime,
@@ -489,6 +547,33 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudAsset_Operation class];
   query.loggingName = @"cloudasset.exportAssets";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_V1QueryAssets
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_QueryAssetsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:queryAssets";
+  GTLRCloudAssetQuery_V1QueryAssets *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_QueryAssetsResponse class];
+  query.loggingName = @"cloudasset.queryAssets";
   return query;
 }
 

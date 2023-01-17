@@ -292,7 +292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshot
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwelveHours;
 /**
- *  Snapshot every 24 horus.
+ *  Snapshot every 24 hours.
  *
  *  Value: "TWENTY_FOUR_HOURS"
  */
@@ -1287,7 +1287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *    @arg @c kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwelveHours
  *        Snapshot every 12 hours. (Value: "TWELVE_HOURS")
  *    @arg @c kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwentyFourHours
- *        Snapshot every 24 horus. (Value: "TWENTY_FOUR_HOURS")
+ *        Snapshot every 24 hours. (Value: "TWENTY_FOUR_HOURS")
  */
 @property(nonatomic, copy, nullable) NSString *rdbSnapshotPeriod;
 

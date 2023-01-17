@@ -1081,7 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Describe whether the function is gen1 or gen2.
+ *  Describe whether the function is 1st Gen or 2nd Gen.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_Function_Environment_EnvironmentUnspecified
@@ -2227,6 +2227,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSNumber *allTrafficOnLatestRevision;
 
 /**
+ *  The number of CPUs used in a single container instance. Default value is
+ *  calculated from available memory. Supports the same values as Cloud Run, see
+ *  https://cloud.google.com/run/docs/reference/rest/v1/Container#resourcerequirements
+ *  Example: "1" indicates 1 vCPU
+ */
+@property(nonatomic, copy, nullable) NSString *availableCpu;
+
+/**
  *  The amount of memory available for a function. Defaults to 256M. Supported
  *  units are k, M, G, Mi, Gi. If no unit is supplied the value is interpreted
  *  as bytes. See
@@ -2273,6 +2281,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
 
 /**
+ *  Sets the maximum number of concurrent requests that each instance can
+ *  receive. Defaults to 1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceRequestConcurrency;
+
+/**
  *  The limit on the minimum number of function instances that may coexist at a
  *  given time. Function instances are kept in idle state for a short period
  *  after they finished executing the request to reduce cold start time for
@@ -2295,10 +2311,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVolume *> *secretVolumes;
 
 /**
- *  Optional. Security level configure whether the function only accepts https.
- *  This configuration is only applicable to 1st Gen functions with Http
- *  trigger. By default https is optional for 1st Gen functions; 2nd Gen
- *  functions are https ONLY.
+ *  Security level configure whether the function only accepts https. This
+ *  configuration is only applicable to 1st Gen functions with Http trigger. By
+ *  default https is optional for 1st Gen functions; 2nd Gen functions are https
+ *  ONLY.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureAlways

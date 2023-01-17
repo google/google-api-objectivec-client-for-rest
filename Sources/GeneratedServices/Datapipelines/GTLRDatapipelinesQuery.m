@@ -17,25 +17,6 @@
 
 @end
 
-@implementation GTLRDatapipelinesQuery_ProjectsLocationsListPipelines
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}";
-  GTLRDatapipelinesQuery_ProjectsLocationsListPipelines *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRDatapipelines_GoogleCloudDatapipelinesV1ListPipelinesResponse class];
-  query.loggingName = @"datapipelines.projects.locations.listPipelines";
-  return query;
-}
-
-@end
-
 @implementation GTLRDatapipelinesQuery_ProjectsLocationsPipelinesCreate
 
 @dynamic parent;
@@ -115,6 +96,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDatapipelines_GoogleCloudDatapipelinesV1ListJobsResponse class];
   query.loggingName = @"datapipelines.projects.locations.pipelines.jobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatapipelinesQuery_ProjectsLocationsPipelinesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pipelines";
+  GTLRDatapipelinesQuery_ProjectsLocationsPipelinesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatapipelines_GoogleCloudDatapipelinesV1ListPipelinesResponse class];
+  query.loggingName = @"datapipelines.projects.locations.pipelines.list";
   return query;
 }
 

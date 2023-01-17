@@ -108,28 +108,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConf
 FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration;
 
 // ----------------------------------------------------------------------------
-// GTLRGamesConfiguration_ImageConfiguration.imageType
-
-/**
- *  The icon image for an achievement resource.
- *
- *  Value: "ACHIEVEMENT_ICON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "IMAGE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified;
-/**
- *  The icon image for a leaderboard resource.
- *
- *  Value: "LEADERBOARD_ICON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon;
-
-// ----------------------------------------------------------------------------
 // GTLRGamesConfiguration_LeaderboardConfiguration.scoreOrder
 
 /**
@@ -372,40 +350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfigurat
  *  same plural rules as all Android string resources.
  */
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_GamesNumberAffixConfiguration *suffix;
-
-@end
-
-
-/**
- *  An image configuration resource.
- */
-@interface GTLRGamesConfiguration_ImageConfiguration : GTLRObject
-
-/**
- *  The image type for the image.
- *
- *  Likely values:
- *    @arg @c kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon
- *        The icon image for an achievement resource. (Value:
- *        "ACHIEVEMENT_ICON")
- *    @arg @c kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified
- *        Default value. This value is unused. (Value: "IMAGE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon
- *        The icon image for a leaderboard resource. (Value: "LEADERBOARD_ICON")
- */
-@property(nonatomic, copy, nullable) NSString *imageType;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string `gamesConfiguration#imageConfiguration`.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The resource ID of resource which the image belongs to. */
-@property(nonatomic, copy, nullable) NSString *resourceId;
-
-/** The url for this image. */
-@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

@@ -221,11 +221,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Exte
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA1 signing with a 160 bit key.
+ *
+ *  Value: "HMAC_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha1;
+/**
+ *  HMAC-SHA224 signing with a 224 bit key.
+ *
+ *  Value: "HMAC_SHA224"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha224;
+/**
  *  HMAC-SHA256 signing with a 256 bit key.
  *
  *  Value: "HMAC_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256;
+/**
+ *  HMAC-SHA384 signing with a 384 bit key.
+ *
+ *  Value: "HMAC_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha384;
+/**
+ *  HMAC-SHA512 signing with a 512 bit key.
+ *
+ *  Value: "HMAC_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -473,11 +497,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA1 signing with a 160 bit key.
+ *
+ *  Value: "HMAC_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha1;
+/**
+ *  HMAC-SHA224 signing with a 224 bit key.
+ *
+ *  Value: "HMAC_SHA224"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha224;
+/**
  *  HMAC-SHA256 signing with a 256 bit key.
  *
  *  Value: "HMAC_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256;
+/**
+ *  HMAC-SHA384 signing with a 384 bit key.
+ *
+ *  Value: "HMAC_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha384;
+/**
+ *  HMAC-SHA512 signing with a 512 bit key.
+ *
+ *  Value: "HMAC_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -764,11 +812,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA1 signing with a 160 bit key.
+ *
+ *  Value: "HMAC_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha1;
+/**
+ *  HMAC-SHA224 signing with a 224 bit key.
+ *
+ *  Value: "HMAC_SHA224"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha224;
+/**
  *  HMAC-SHA256 signing with a 256 bit key.
  *
  *  Value: "HMAC_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256;
+/**
+ *  HMAC-SHA384 signing with a 384 bit key.
+ *
+ *  Value: "HMAC_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha384;
+/**
+ *  HMAC-SHA512 signing with a 512 bit key.
+ *
+ *  Value: "HMAC_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1144,11 +1216,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_ExternalSym
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA1 signing with a 160 bit key.
+ *
+ *  Value: "HMAC_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha1;
+/**
+ *  HMAC-SHA224 signing with a 224 bit key.
+ *
+ *  Value: "HMAC_SHA224"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha224;
+/**
  *  HMAC-SHA256 signing with a 256 bit key.
  *
  *  Value: "HMAC_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256;
+/**
+ *  HMAC-SHA384 signing with a 384 bit key.
+ *
+ *  Value: "HMAC_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha384;
+/**
+ *  HMAC-SHA512 signing with a 512 bit key.
+ *
+ *  Value: "HMAC_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1899,8 +1995,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha1 HMAC-SHA1
+ *        signing with a 160 bit key. (Value: "HMAC_SHA1")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha224 HMAC-SHA224
+ *        signing with a 224 bit key. (Value: "HMAC_SHA224")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256 HMAC-SHA256
  *        signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha384 HMAC-SHA384
+ *        signing with a 384 bit key. (Value: "HMAC_SHA384")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512 HMAC-SHA512
+ *        signing with a 512 bit key. (Value: "HMAC_SHA512")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -2119,8 +2223,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha1
+ *        HMAC-SHA1 signing with a 160 bit key. (Value: "HMAC_SHA1")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha224
+ *        HMAC-SHA224 signing with a 224 bit key. (Value: "HMAC_SHA224")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256
  *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha384
+ *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512
+ *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -2712,8 +2824,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha1
+ *        HMAC-SHA1 signing with a 160 bit key. (Value: "HMAC_SHA1")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha224
+ *        HMAC-SHA224 signing with a 224 bit key. (Value: "HMAC_SHA224")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256
  *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha384
+ *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512
+ *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -3663,8 +3783,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha1 HMAC-SHA1 signing with
+ *        a 160 bit key. (Value: "HMAC_SHA1")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha224 HMAC-SHA224 signing
+ *        with a 224 bit key. (Value: "HMAC_SHA224")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256 HMAC-SHA256 signing
  *        with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha384 HMAC-SHA384 signing
+ *        with a 384 bit key. (Value: "HMAC_SHA384")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512 HMAC-SHA512 signing
+ *        with a 512 bit key. (Value: "HMAC_SHA512")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")

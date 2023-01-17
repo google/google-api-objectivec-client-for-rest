@@ -540,7 +540,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new InternalRange in a given project and location.
+ *  Creates a new internal range in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.internalRanges.create
  *
@@ -556,7 +556,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *internalRangeId;
 
-/** Required. The parent resource's name of the InternalRange. */
+/** Required. The parent resource's name of the internal range. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -577,11 +577,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Creates a new InternalRange in a given project and location.
+ *  Creates a new internal range in a given project and location.
  *
  *  @param object The @c GTLRNetworkconnectivity_InternalRange to include in the
  *    query.
- *  @param parent Required. The parent resource's name of the InternalRange.
+ *  @param parent Required. The parent resource's name of the internal range.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesCreate
  */
@@ -591,7 +591,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single InternalRange.
+ *  Deletes a single internal range.
  *
  *  Method: networkconnectivity.projects.locations.internalRanges.delete
  *
@@ -600,7 +600,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesDelete : GTLRNetworkconnectivityQuery
 
-/** Required. The name of the InternalRange to delete. */
+/** Required. The name of the internal range to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -621,9 +621,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Deletes a single InternalRange.
+ *  Deletes a single internal range.
  *
- *  @param name Required. The name of the InternalRange to delete.
+ *  @param name Required. The name of the internal range to delete.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesDelete
  */
@@ -632,7 +632,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single InternalRange.
+ *  Gets details of a single internal range.
  *
  *  Method: networkconnectivity.projects.locations.internalRanges.get
  *
@@ -647,7 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_InternalRange.
  *
- *  Gets details of a single InternalRange.
+ *  Gets details of a single internal range.
  *
  *  @param name Required. Name of the InternalRange to get.
  *
@@ -658,7 +658,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists InternalRanges in a given project and location.
+ *  Lists internal ranges in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.internalRanges.list
  *
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListInternalRangesResponse.
  *
- *  Lists InternalRanges in a given project and location.
+ *  Lists internal ranges in a given project and location.
  *
  *  @param parent Required. The parent resource's name.
  *
@@ -700,7 +700,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single InternalRange.
+ *  Updates the parameters of a single internal range.
  *
  *  Method: networkconnectivity.projects.locations.internalRanges.patch
  *
@@ -710,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesPatch : GTLRNetworkconnectivityQuery
 
 /**
- *  Immutable. The name of a InternalRange. Format:
+ *  Immutable. The name of an internal range. Format:
  *  projects/{project}/locations/{location}/internalRanges/{internal_range} See:
  *  https://google.aip.dev/122#fields-representing-resource-names
  */
@@ -745,11 +745,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Updates the parameters of a single InternalRange.
+ *  Updates the parameters of a single internal range.
  *
  *  @param object The @c GTLRNetworkconnectivity_InternalRange to include in the
  *    query.
- *  @param name Immutable. The name of a InternalRange. Format:
+ *  @param name Immutable. The name of an internal range. Format:
  *    projects/{project}/locations/{location}/internalRanges/{internal_range}
  *    See: https://google.aip.dev/122#fields-representing-resource-names
  *

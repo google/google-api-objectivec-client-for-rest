@@ -4,7 +4,8 @@
 // API:
 //   Cloud Asset API (cloudasset/v1)
 // Description:
-//   The cloud asset API manages the history and inventory of cloud resources.
+//   The Cloud Asset API manages the history and inventory of Google Cloud
+//   resources.
 // Documentation:
 //   https://cloud.google.com/asset-inventory/docs/quickstart
 
@@ -15,6 +16,8 @@
 #endif
 
 @class GTLRCloudAsset_AccessSelector;
+@class GTLRCloudAsset_AnalyzerOrgPolicy;
+@class GTLRCloudAsset_AnalyzerOrgPolicyConstraint;
 @class GTLRCloudAsset_Asset;
 @class GTLRCloudAsset_AttachedResource;
 @class GTLRCloudAsset_AuditConfig;
@@ -33,17 +36,28 @@
 @class GTLRCloudAsset_GcsDestination;
 @class GTLRCloudAsset_GoogleCloudAssetV1Access;
 @class GTLRCloudAsset_GoogleCloudAssetV1AccessControlList;
+@class GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedAsset;
+@class GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy;
+@class GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource;
 @class GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination;
+@class GTLRCloudAsset_GoogleCloudAssetV1BooleanConstraint;
+@class GTLRCloudAsset_GoogleCloudAssetV1Constraint;
+@class GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint;
 @class GTLRCloudAsset_GoogleCloudAssetV1Edge;
 @class GTLRCloudAsset_GoogleCloudAssetV1GcsDestination;
+@class GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer;
 @class GTLRCloudAsset_GoogleCloudAssetV1Identity;
 @class GTLRCloudAsset_GoogleCloudAssetV1IdentityList;
+@class GTLRCloudAsset_GoogleCloudAssetV1ListConstraint;
 @class GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset;
 @class GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAssets;
 @class GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelationshipAttributes;
 @class GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource;
 @class GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource_Data;
+@class GTLRCloudAsset_GoogleCloudAssetV1QueryAssetsOutputConfigBigQueryDestination;
 @class GTLRCloudAsset_GoogleCloudAssetV1Resource;
+@class GTLRCloudAsset_GoogleCloudAssetV1Rule;
+@class GTLRCloudAsset_GoogleCloudAssetV1StringValues;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy;
@@ -83,6 +97,7 @@
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_Options;
+@class GTLRCloudAsset_OrgPolicyResult;
 @class GTLRCloudAsset_OsInfo;
 @class GTLRCloudAsset_OutputConfig;
 @class GTLRCloudAsset_PartitionSpec;
@@ -90,7 +105,10 @@
 @class GTLRCloudAsset_Policy;
 @class GTLRCloudAsset_PolicyInfo;
 @class GTLRCloudAsset_PubsubDestination;
+@class GTLRCloudAsset_QueryAssetsOutputConfig;
 @class GTLRCloudAsset_QueryContent;
+@class GTLRCloudAsset_QueryResult;
+@class GTLRCloudAsset_QueryResult_Rows_Item;
 @class GTLRCloudAsset_RelatedAsset;
 @class GTLRCloudAsset_RelatedAssets;
 @class GTLRCloudAsset_RelatedResource;
@@ -108,6 +126,8 @@
 @class GTLRCloudAsset_SoftwarePackage;
 @class GTLRCloudAsset_Status;
 @class GTLRCloudAsset_Status_Details_Item;
+@class GTLRCloudAsset_TableFieldSchema;
+@class GTLRCloudAsset_TableSchema;
 @class GTLRCloudAsset_TemporalAsset;
 @class GTLRCloudAsset_TimeWindow;
 @class GTLRCloudAsset_VersionedPackage;
@@ -191,7 +211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ConditionEvaluation_Evaluatio
 // GTLRCloudAsset_ExportAssetsRequest.contentType
 
 /**
- *  The Cloud Access context manager Policy set on an asset.
+ *  The Access Context Manager policy set on an asset.
  *
  *  Value: "ACCESS_POLICY"
  */
@@ -209,7 +229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy;
 /**
- *  The Cloud Organization Policy set on an asset.
+ *  The organization policy set on an asset.
  *
  *  Value: "ORG_POLICY"
  */
@@ -237,7 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentTy
 // GTLRCloudAsset_Feed.contentType
 
 /**
- *  The Cloud Access context manager Policy set on an asset.
+ *  The Access Context Manager policy set on an asset.
  *
  *  Value: "ACCESS_POLICY"
  */
@@ -255,7 +275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeU
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy;
 /**
- *  The Cloud Organization Policy set on an asset.
+ *  The organization policy set on an asset.
  *
  *  Value: "ORG_POLICY"
  */
@@ -296,6 +316,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDes
  *  Value: "REQUEST_TIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_RequestTime;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleCloudAssetV1Constraint.constraintDefault
+
+/**
+ *  Indicate that all values are allowed for list constraints. Indicate that
+ *  enforcement is off for boolean constraints.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Allow;
+/**
+ *  This is only used for distinguishing unset values and should never be used.
+ *
+ *  Value: "CONSTRAINT_DEFAULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_ConstraintDefaultUnspecified;
+/**
+ *  Indicate that all values are denied for list constraints. Indicate that
+ *  enforcement is on for boolean constraints.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint.actionType
+
+/**
+ *  Unspecified. Will results in user error.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_ActionTypeUnspecified;
+/**
+ *  Allowed action type.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_Allow;
+/**
+ *  Deny action type.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint.methodTypes
+
+/**
+ *  Constraint applied when creating the resource.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Create;
+/**
+ *  Constraint applied when deleting the resource.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Delete;
+/**
+ *  Unspecified. Will results in user error.
+ *
+ *  Value: "METHOD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when updating the resource.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
@@ -506,7 +600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge;
 /**
- *  Regular Perimeter.
+ *  Regular Perimeter. When no value is specified, the perimeter uses this type.
  *
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
@@ -798,7 +892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Represents the metadata of the longrunning operation for the
- *  AnalyzeIamPolicyLongrunning rpc.
+ *  AnalyzeIamPolicyLongrunning RPC.
  */
 @interface GTLRCloudAsset_AnalyzeIamPolicyLongrunningMetadata : GTLRObject
 
@@ -881,9 +975,167 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The list of analyses returned from performing the intended resource move
- *  analysis. The analysis is grouped by different Cloud services.
+ *  analysis. The analysis is grouped by different Google Cloud services.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_MoveAnalysis *> *moveAnalysis;
+
+@end
+
+
+/**
+ *  The response message for AssetService.AnalyzeOrgPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "orgPolicyResults" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudAsset_AnalyzeOrgPoliciesResponse : GTLRCollectionObject
+
+/** The definition of the constraint in the request. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicyConstraint *constraint;
+
+/**
+ *  The page token to fetch the next page for
+ *  AnalyzeOrgPoliciesResponse.org_policy_results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The organization policies under the AnalyzeOrgPoliciesRequest.scope with the
+ *  AnalyzeOrgPoliciesRequest.constraint.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_OrgPolicyResult *> *orgPolicyResults;
+
+@end
+
+
+/**
+ *  The response message for AssetService.AnalyzeOrgPolicyGovernedAssets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "governedAssets" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudAsset_AnalyzeOrgPolicyGovernedAssetsResponse : GTLRCollectionObject
+
+/** The definition of the constraint in the request. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicyConstraint *constraint;
+
+/**
+ *  The list of the analyzed governed assets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedAsset *> *governedAssets;
+
+/**
+ *  The page token to fetch the next page for
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for AssetService.AnalyzeOrgPolicyGovernedContainers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "governedContainers" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudAsset_AnalyzeOrgPolicyGovernedContainersResponse : GTLRCollectionObject
+
+/** The definition of the constraint in the request. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicyConstraint *constraint;
+
+/**
+ *  The list of the analyzed governed containers.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer *> *governedContainers;
+
+/**
+ *  The page token to fetch the next page for
+ *  AnalyzeOrgPolicyGovernedContainersResponse.governed_containers.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  This organization policy message is a modified version of the one defined in
+ *  the Organization Policy system. This message contains several fields defined
+ *  in the original organization policy with some new fields for analysis
+ *  purpose.
+ */
+@interface GTLRCloudAsset_AnalyzerOrgPolicy : GTLRObject
+
+/**
+ *  The [full resource name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of an
+ *  organization/folder/project resource where this organization policy applies
+ *  to. For any user defined org policies, this field has the same value as the
+ *  [attached_resource] field. Only for default policy, this field has the
+ *  different value.
+ */
+@property(nonatomic, copy, nullable) NSString *appliedResource;
+
+/**
+ *  The [full resource name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of an
+ *  organization/folder/project resource where this organization policy is set.
+ *  Notice that some type of constraints are defined with default policy. This
+ *  field will be empty for them.
+ */
+@property(nonatomic, copy, nullable) NSString *attachedResource;
+
+/**
+ *  If `inherit_from_parent` is true, Rules set higher up in the hierarchy (up
+ *  to the closest root) are inherited and present in the effective policy. If
+ *  it is false, then no rules are inherited, and this policy becomes the
+ *  effective root for evaluation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritFromParent;
+
+/**
+ *  Ignores policies set above this resource and restores the default behavior
+ *  of the constraint at this resource. This field can be set in policies for
+ *  either list or boolean constraints. If set, `rules` must be empty and
+ *  `inherit_from_parent` must be set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reset;
+
+/** List of rules for this organization policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1Rule *> *rules;
+
+@end
+
+
+/**
+ *  The organization policy constraint definition.
+ */
+@interface GTLRCloudAsset_AnalyzerOrgPolicyConstraint : GTLRObject
+
+/** The definition of the custom constraint. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint *customConstraint;
+
+/** The definition of the canned constraint defined by Google. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1Constraint *googleDefinedConstraint;
 
 @end
 
@@ -893,9 +1145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
- *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy), or a relationship (e.g. an INSTANCE_TO_INSTANCEGROUP relationship).
- *  See [Supported asset
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. IAM policy), or a
+ *  relationship (e.g. an INSTANCE_TO_INSTANCEGROUP relationship). See
+ *  [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -933,13 +1185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
- *  A representation of the Cloud IAM policy set on a Google Cloud resource.
- *  There can be a maximum of one Cloud IAM policy set on any given resource. In
- *  addition, Cloud IAM policies inherit their granted access scope from any
- *  policies set on parent resources in the resource hierarchy. Therefore, the
- *  effectively policy is the union of both the policy set on this resource and
- *  each policy set on all of the resource's ancestry resource levels in the
- *  hierarchy. See [this
+ *  A representation of the IAM policy set on a Google Cloud resource. There can
+ *  be a maximum of one IAM policy set on any given resource. In addition, IAM
+ *  policies inherit their granted access scope from any policies set on parent
+ *  resources in the resource hierarchy. Therefore, the effectively policy is
+ *  the union of both the policy set on this resource and each policy set on all
+ *  of the resource's ancestry resource levels in the hierarchy. See [this
  *  topic](https://cloud.google.com/iam/help/allow-policies/inheritance) for
  *  more information.
  */
@@ -1469,14 +1720,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy The
- *        Cloud Access context manager Policy set on an asset. (Value:
+ *        Access Context Manager policy set on an asset. (Value:
  *        "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified
  *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy The
  *        actual IAM policy set on a resource. (Value: "IAM_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy The
- *        Cloud Organization Policy set on an asset. (Value: "ORG_POLICY")
+ *        organization policy set on an asset. (Value: "ORG_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_OsInventory The
  *        runtime OS Inventory information. (Value: "OS_INVENTORY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_Relationship The
@@ -1614,14 +1865,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  will be returned.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAsset_Feed_ContentType_AccessPolicy The Cloud Access
- *        context manager Policy set on an asset. (Value: "ACCESS_POLICY")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_AccessPolicy The Access Context
+ *        Manager policy set on an asset. (Value: "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified
  *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_IamPolicy The actual IAM policy
  *        set on a resource. (Value: "IAM_POLICY")
- *    @arg @c kGTLRCloudAsset_Feed_ContentType_OrgPolicy The Cloud Organization
- *        Policy set on an asset. (Value: "ORG_POLICY")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_OrgPolicy The organization policy
+ *        set on an asset. (Value: "ORG_POLICY")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_OsInventory The runtime OS
  *        Inventory information. (Value: "OS_INVENTORY")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_Relationship The related
@@ -1684,7 +1935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GcsDestination : GTLRObject
 
 /**
- *  The uri of the Cloud Storage object. It's the same uri that is used by
+ *  The URI of the Cloud Storage object. It's the same URI that is used by
  *  gsutil. Example: "gs://bucket_name/object_name". See [Viewing and Editing
  *  Object
  *  Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
@@ -1695,8 +1946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /**
- *  The uri prefix of all generated Cloud Storage objects. Example:
- *  "gs://bucket_name/object_name_prefix". Each object uri is in format:
+ *  The URI prefix of all generated Cloud Storage objects. Example:
+ *  "gs://bucket_name/object_name_prefix". Each object URI is in format:
  *  "gs://bucket_name/object_name_prefix// and only contains assets for that
  *  type. starts from 0. Example:
  *  "gs://bucket_name/object_name_prefix/compute.googleapis.com/Disk/0" is the
@@ -1773,6 +2024,133 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  Represents a Google Cloud asset(resource or IAM policy) governed by the
+ *  organization policies of the
+ *  AnalyzeOrgPolicyGovernedAssetsRequest.constraint.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedAsset : GTLRObject
+
+/**
+ *  The consolidated policy for the analyzed asset. The consolidated policy is
+ *  computed by merging and evaluating
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.policy_bundle. The
+ *  evaluation will respect the organization policy [hierarchy
+ *  rules](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
+
+/**
+ *  An IAM policy governed by the organization policies of the
+ *  AnalyzeOrgPolicyGovernedAssetsRequest.constraint.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy *governedIamPolicy;
+
+/**
+ *  A Google Cloud resource governed by the organization policies of the
+ *  AnalyzeOrgPolicyGovernedAssetsRequest.constraint.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource *governedResource;
+
+/**
+ *  The ordered list of all organization policies from the
+ *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource
+ *  to the scope specified in the request. If the constraint is defined with
+ *  default policy, it will also appear in the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
+
+@end
+
+
+/**
+ *  The IAM policies governed by the organization policies of the
+ *  AnalyzeOrgPolicyGovernedAssetsRequest.constraint.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy : GTLRObject
+
+/**
+ *  The full resource name of the resource associated with this IAM policy.
+ *  Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
+ *  See [Cloud Asset Inventory Resource Name
+ *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *attachedResource;
+
+/**
+ *  The folder(s) that this IAM policy belongs to, in the form of
+ *  folders/{FOLDER_NUMBER}. This field is available when the IAM policy
+ *  belongs(directly or cascadingly) to one or more folders.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
+
+/**
+ *  The organization that this IAM policy belongs to, in the form of
+ *  organizations/{ORGANIZATION_NUMBER}. This field is available when the IAM
+ *  policy belongs(directly or cascadingly) to an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/** The IAM policy directly set on the given resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
+
+/**
+ *  The project that this IAM policy belongs to, in the form of
+ *  projects/{PROJECT_NUMBER}. This field is available when the IAM policy
+ *  belongs to a project.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+@end
+
+
+/**
+ *  The Google Cloud resources governed by the organization policies of the
+ *  AnalyzeOrgPolicyGovernedAssetsRequest.constraint.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource : GTLRObject
+
+/**
+ *  The folder(s) that this resource belongs to, in the form of
+ *  folders/{FOLDER_NUMBER}. This field is available when the resource
+ *  belongs(directly or cascadingly) to one or more folders.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
+
+/**
+ *  The [full resource name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of the
+ *  Google Cloud resource.
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  The organization that this resource belongs to, in the form of
+ *  organizations/{ORGANIZATION_NUMBER}. This field is available when the
+ *  resource belongs(directly or cascadingly) to an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  The [full resource name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of the
+ *  parent of
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The project that this resource belongs to, in the form of
+ *  projects/{PROJECT_NUMBER}. This field is available when the resource belongs
+ *  to a project.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+@end
+
+
+/**
  *  A BigQuery destination.
  */
 @interface GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination : GTLRObject
@@ -1828,6 +2206,119 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  A `Constraint` that is either enforced or not. For example a constraint
+ *  `constraints/compute.disableSerialPortAccess`. If it is enforced on a VM
+ *  instance, serial port connections will not be opened to that instance.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1BooleanConstraint : GTLRObject
+@end
+
+
+/**
+ *  The definition of a constraint.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1Constraint : GTLRObject
+
+/** Defines this constraint as being a BooleanConstraint. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1BooleanConstraint *booleanConstraint;
+
+/**
+ *  The evaluation behavior of this constraint in the absence of 'Policy'.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Allow
+ *        Indicate that all values are allowed for list constraints. Indicate
+ *        that enforcement is off for boolean constraints. (Value: "ALLOW")
+ *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_ConstraintDefaultUnspecified
+ *        This is only used for distinguishing unset values and should never be
+ *        used. (Value: "CONSTRAINT_DEFAULT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Deny
+ *        Indicate that all values are denied for list constraints. Indicate
+ *        that enforcement is on for boolean constraints. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *constraintDefault;
+
+/**
+ *  Detailed description of what this `Constraint` controls as well as how and
+ *  where it is enforced.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The human readable name of the constraint. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Defines this constraint as being a ListConstraint. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1ListConstraint *listConstraint;
+
+/**
+ *  The unique name of the constraint. Format of the name should be *
+ *  `constraints/{constraint_name}` For example,
+ *  `constraints/compute.disableSerialPortAccess`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The definition of a custom constraint.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint : GTLRObject
+
+/**
+ *  Allow or deny type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_ActionTypeUnspecified
+ *        Unspecified. Will results in user error. (Value:
+ *        "ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_Allow
+ *        Allowed action type. (Value: "ALLOW")
+ *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_Deny
+ *        Deny action type. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *actionType;
+
+/**
+ *  Organization Policy condition/expression. For example:
+ *  `resource.instanceName.matches("[production|test]_.*_(\\d)+")'` or,
+ *  `resource.management.auto_upgrade == true`
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  Detailed information about this custom policy constraint.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** One line display name for the UI. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** All the operations being applied for this constraint. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methodTypes;
+
+/**
+ *  Name of the constraint. This is unique within the organization. Format of
+ *  the name should be *
+ *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
+ *  Example : "organizations/123/customConstraints/custom.createOnlyE2TypeVms"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Resource Instance type on which this policy applies to. Format will be
+ *  of the form : "/" Example: * `compute.googleapis.com/Instance`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+@end
+
+
+/**
  *  A directional edge.
  */
 @interface GTLRCloudAsset_GoogleCloudAssetV1Edge : GTLRObject
@@ -1853,7 +2344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleCloudAssetV1GcsDestination : GTLRObject
 
 /**
- *  Required. The uri of the Cloud Storage object. It's the same uri that is
+ *  Required. The URI of the Cloud Storage object. It's the same URI that is
  *  used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
  *  Editing Object
  *  Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
@@ -1862,6 +2353,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  it will be overwritten with the analysis result.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The organization/folder/project resource governed by organization policies
+ *  of AnalyzeOrgPolicyGovernedContainersRequest.constraint.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer : GTLRObject
+
+/**
+ *  The consolidated organization policy for the analyzed resource. The
+ *  consolidated organization policy is computed by merging and evaluating
+ *  AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.policy_bundle.
+ *  The evaluation will respect the organization policy [hierarchy
+ *  rules](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
+
+/**
+ *  The [full resource name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of an
+ *  organization/folder/project resource.
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  The [full resource name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of the
+ *  parent of
+ *  AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.full_resource_name.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The ordered list of all organization policies from the
+ *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
+ *  to the scope specified in the request. If the constraint is defined with
+ *  default policy, it will also appear in the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
 @end
 
@@ -1912,12 +2444,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  A `Constraint` that allows or disallows a list of string values, which are
+ *  configured by an organization's policy administrator with a `Policy`.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1ListConstraint : GTLRObject
+
+/**
+ *  Indicates whether values grouped into categories can be used in
+ *  `Policy.allowed_values` and `Policy.denied_values`. For example,
+ *  `"in:Python"` would match any value in the 'Python' group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsIn;
+
+/**
+ *  Indicates whether subtrees of Cloud Resource Manager resource hierarchy can
+ *  be used in `Policy.allowed_values` and `Policy.denied_values`. For example,
+ *  `"under:folders/123"` would match any resource under the 'folders/123'
+ *  folder.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsUnder;
+
+@end
+
+
+/**
  *  An asset in Google Cloud. An asset can be any resource in the Google Cloud
  *  [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
- *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy). See [Supported asset
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. IAM policy). See
+ *  [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -1955,13 +2515,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
- *  A representation of the Cloud IAM policy set on a Google Cloud resource.
- *  There can be a maximum of one Cloud IAM policy set on any given resource. In
- *  addition, Cloud IAM policies inherit their granted access scope from any
- *  policies set on parent resources in the resource hierarchy. Therefore, the
- *  effectively policy is the union of both the policy set on this resource and
- *  each policy set on all of the resource's ancestry resource levels in the
- *  hierarchy. See [this
+ *  A representation of the IAM policy set on a Google Cloud resource. There can
+ *  be a maximum of one IAM policy set on any given resource. In addition, IAM
+ *  policies inherit their granted access scope from any policies set on parent
+ *  resources in the resource hierarchy. Therefore, the effectively policy is
+ *  the union of both the policy set on this resource and each policy set on all
+ *  of the resource's ancestry resource levels in the hierarchy. See [this
  *  topic](https://cloud.google.com/iam/help/allow-policies/inheritance) for
  *  more information.
  */
@@ -2013,8 +2572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  ancestors. An asset can be any resource in the Google Cloud [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
- *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy). See [Supported asset
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. IAM policy). See
+ *  [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -2123,7 +2682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The full name of the immediate parent of this resource. See [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
  *  for more information. For Google Cloud assets, this value is the parent
- *  resource defined in the [Cloud IAM policy
+ *  resource defined in the [IAM policy
  *  hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy).
  *  Example: `//cloudresourcemanager.googleapis.com/projects/my_project_123` For
  *  third-party assets, this field may be set differently.
@@ -2158,6 +2717,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  BigQuery destination.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1QueryAssetsOutputConfigBigQueryDestination : GTLRObject
+
+/**
+ *  Required. The BigQuery dataset where the query results will be saved. It has
+ *  the format of "projects/{projectId}/datasets/{datasetId}".
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Required. The BigQuery table where the query results will be saved. If this
+ *  table does not exist, a new table with the given name will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *table;
+
+/**
+ *  Specifies the action that occurs if the destination table or partition
+ *  already exists. The following values are supported: * WRITE_TRUNCATE: If the
+ *  table or partition already exists, BigQuery overwrites the entire table or
+ *  all the partitions data. * WRITE_APPEND: If the table or partition already
+ *  exists, BigQuery appends the data to the table or the latest partition. *
+ *  WRITE_EMPTY: If the table already exists and contains data, a 'duplicate'
+ *  error is returned in the job result. The default value is WRITE_EMPTY.
+ */
+@property(nonatomic, copy, nullable) NSString *writeDisposition;
+
+@end
+
+
+/**
  *  A Google Cloud resource under analysis.
  */
 @interface GTLRCloudAsset_GoogleCloudAssetV1Resource : GTLRObject
@@ -2170,6 +2760,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format)
  */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+@end
+
+
+/**
+ *  Represents a rule defined in an organization policy
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1Rule : GTLRObject
+
+/**
+ *  Setting this to true means that all values are allowed. This field can be
+ *  set only in Policies for list constraints.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAll;
+
+/** The evaluating condition for this rule. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
+
+/**
+ *  Setting this to true means that all values are denied. This field can be set
+ *  only in Policies for list constraints.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *denyAll;
+
+/**
+ *  If `true`, then the `Policy` is enforced. If `false`, then any configuration
+ *  is acceptable. This field can be set only in Policies for boolean
+ *  constraints.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
+
+/**
+ *  List of values to be used for this PolicyRule. This field can be set only in
+ *  Policies for list constraints.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1StringValues *values;
+
+@end
+
+
+/**
+ *  The string values for the list constraints.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1StringValues : GTLRObject
+
+/** List of values allowed at this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/** List of values denied at this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedValues;
 
 @end
 
@@ -2435,10 +3081,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Resource name for the Access Level. The `short_name` component
- *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
- *  length of the `access_level` component is 50 characters.
+ *  Resource name for the `AccessLevel`. Format:
+ *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
+ *  `access_level` component must begin with a letter, followed by alphanumeric
+ *  characters or `_`. Its maximum length is 50 characters. After you create an
+ *  `AccessLevel`, you cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2876,10 +3523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
- *  only projects are allowed. Format: `projects/{project_number}` The project
- *  may be in any Google Cloud organization, not just the organization that the
- *  perimeter is defined in. `*` is not allowed, the case of allowing all Google
- *  Cloud resources only is not supported.
+ *  only projects and VPCs are allowed. Project format:
+ *  `projects/{project_number}` VPC format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The
+ *  project may be in any Google Cloud organization, not just the organization
+ *  that the perimeter is defined in. `*` is not allowed, the case of allowing
+ *  all Google Cloud resources only is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3001,9 +3650,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Resource name for the ServicePerimeter. The `short_name` component
- *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
+ *  Resource name for the `ServicePerimeter`. Format:
+ *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
+ *  `service_perimeter` component must begin with a letter, followed by
+ *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
+ *  cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3018,7 +3669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge
  *        Perimeter Bridge. (Value: "PERIMETER_TYPE_BRIDGE")
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular
- *        Regular Perimeter. (Value: "PERIMETER_TYPE_REGULAR")
+ *        Regular Perimeter. When no value is specified, the perimeter uses this
+ *        type. (Value: "PERIMETER_TYPE_REGULAR")
  */
 @property(nonatomic, copy, nullable) NSString *perimeterType;
 
@@ -3094,7 +3746,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.
- *  Currently only projects are allowed. Format: `projects/{project_number}`
+ *  Currently only projects and VPCs are allowed. Project format:
+ *  `projects/{project_number}` VPC format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -3243,7 +3897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) NSNumber *fullyExplored;
 
-/** The Cloud IAM policy binding under analysis. */
+/** The IAM policy binding under analysis. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Binding *iamBinding;
 
 /**
@@ -3429,11 +4083,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
 
 /**
- *  The project that the associated GCP resource belongs to, in the form of
- *  projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource (like VM
- *  instance, Cloud Storage bucket), the project field will indicate the project
- *  that contains the resource. If an IAM policy is set on a folder or
- *  orgnization, this field will be empty. To search against the `project`: *
+ *  The project that the associated Google Cloud resource belongs to, in the
+ *  form of projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource
+ *  (like VM instance, Cloud Storage bucket), the project field will indicate
+ *  the project that contains the resource. If an IAM policy is set on a folder
+ *  or orgnization, this field will be empty. To search against the `project`: *
  *  specify the `scope` field as this project in your search request.
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3650,8 +4304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_MoveAnalysisResult *analysis;
 
 /**
- *  The user friendly display name of the analysis. E.g. IAM, Organization
- *  Policy etc.
+ *  The user friendly display name of the analysis. E.g. IAM, organization
+ *  policy etc.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3782,20 +4436,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Optional. If true, the response will include access analysis from identities
  *  to resources via service account impersonation. This is a very expensive
  *  operation, because many derived queries will be executed. We highly
- *  recommend you use AssetService.AnalyzeIamPolicyLongrunning rpc instead. For
+ *  recommend you use AssetService.AnalyzeIamPolicyLongrunning RPC instead. For
  *  example, if the request analyzes for which resources user A has permission
  *  P, and there's an IAM policy states user A has
  *  iam.serviceAccounts.getAccessToken permission to a service account SA, and
  *  there's another IAM policy states service account SA has permission P to a
- *  GCP folder F, then user A potentially has access to the GCP folder F. And
- *  those advanced analysis results will be included in
+ *  Google Cloud folder F, then user A potentially has access to the Google
+ *  Cloud folder F. And those advanced analysis results will be included in
  *  AnalyzeIamPolicyResponse.service_account_impersonation_analysis. Another
- *  example, if the request analyzes for who has permission P to a GCP folder F,
- *  and there's an IAM policy states user A has iam.serviceAccounts.actAs
- *  permission to a service account SA, and there's another IAM policy states
- *  service account SA has permission P to the GCP folder F, then user A
- *  potentially has access to the GCP folder F. And those advanced analysis
- *  results will be included in
+ *  example, if the request analyzes for who has permission P to a Google Cloud
+ *  folder F, and there's an IAM policy states user A has
+ *  iam.serviceAccounts.actAs permission to a service account SA, and there's
+ *  another IAM policy states service account SA has permission P to the Google
+ *  Cloud folder F, then user A potentially has access to the Google Cloud
+ *  folder F. And those advanced analysis results will be included in
  *  AnalyzeIamPolicyResponse.service_account_impersonation_analysis. Only the
  *  following permissions are considered in this analysis: *
  *  `iam.serviceAccounts.actAs` * `iam.serviceAccounts.signBlob` *
@@ -3824,17 +4478,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  specified, the resource section of the result will expand any resource
  *  attached to an IAM policy to include resources lower in the resource
  *  hierarchy. For example, if the request analyzes for which resources user A
- *  has permission P, and the results include an IAM policy with P on a GCP
- *  folder, the results will also include resources in that folder with
+ *  has permission P, and the results include an IAM policy with P on a Google
+ *  Cloud folder, the results will also include resources in that folder with
  *  permission P. If true and IamPolicyAnalysisQuery.resource_selector is
  *  specified, the resource section of the result will expand the specified
  *  resource to include resources lower in the resource hierarchy. Only project
- *  or lower resources are supported. Folder and organization resource cannot be
- *  used together with this option. For example, if the request analyzes for
- *  which users have permission P on a GCP project with this option enabled, the
- *  results will include all users who have permission P on that project or any
- *  lower resource. If true, the default max expansion per resource is 1000 for
- *  AssetService.AnalyzeIamPolicy][] and 100000 for
+ *  or lower resources are supported. Folder and organization resources cannot
+ *  be used together with this option. For example, if the request analyzes for
+ *  which users have permission P on a Google Cloud project with this option
+ *  enabled, the results will include all users who have permission P on that
+ *  project or any lower resource. If true, the default max expansion per
+ *  resource is 1000 for AssetService.AnalyzeIamPolicy][] and 100000 for
  *  AssetService.AnalyzeIamPolicyLongrunning][]. Default is false.
  *
  *  Uses NSNumber of boolValue.
@@ -3868,6 +4522,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *outputResourceEdges;
+
+@end
+
+
+/**
+ *  The organization policy result to the query.
+ */
+@interface GTLRCloudAsset_OrgPolicyResult : GTLRObject
+
+/**
+ *  The consolidated organization policy for the analyzed resource. The
+ *  consolidated organization policy is computed by merging and evaluating
+ *  AnalyzeOrgPoliciesResponse.policy_bundle. The evaluation will respect the
+ *  organization policy [hierarchy
+ *  rules](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
+
+/**
+ *  The ordered list of all organization policies from the
+ *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
+ *  to the scope specified in the request. If the constraint is defined with
+ *  default policy, it will also appear in the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
 @end
 
@@ -4084,17 +4763,183 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  Output configuration query assets.
+ */
+@interface GTLRCloudAsset_QueryAssetsOutputConfig : GTLRObject
+
+/** BigQuery destination where the query results will be saved. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1QueryAssetsOutputConfigBigQueryDestination *bigqueryDestination;
+
+@end
+
+
+/**
+ *  QueryAssets request.
+ */
+@interface GTLRCloudAsset_QueryAssetsRequest : GTLRObject
+
+/**
+ *  Optional. Reference to the query job, which is from the
+ *  `QueryAssetsResponse` of previous `QueryAssets` call.
+ */
+@property(nonatomic, copy, nullable) NSString *jobReference;
+
+/**
+ *  Optional. Destination where the query results will be saved. When this field
+ *  is specified, the query results won't be saved in the
+ *  [QueryAssetsResponse.query_result]. Instead
+ *  [QueryAssetsResponse.output_config] will be set. Meanwhile,
+ *  [QueryAssetsResponse.job_reference] will be set and can be used to check the
+ *  status of the query job when passed to a following [QueryAssets] API call.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_QueryAssetsOutputConfig *outputConfig;
+
+/**
+ *  Optional. The maximum number of rows to return in the results. Responses are
+ *  limited to 10 MB and 1000 rows. By default, the maximum row count is 1000.
+ *  When the byte or row count limit is reached, the rest of the query results
+ *  will be paginated. The field will be ignored when [output_config] is
+ *  specified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token received from previous `QueryAssets`. The field will
+ *  be ignored when [output_config] is specified.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Queries cloud assets as they appeared at the specified point in
+ *  time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
+ *  Optional. [start_time] is required. [start_time] must be less than
+ *  [end_time] Defaults [end_time] to now if [start_time] is set and [end_time]
+ *  isn't. Maximum permitted time range is 7 days.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_TimeWindow *readTimeWindow;
+
+/**
+ *  Optional. A SQL statement that's compatible with [BigQuery Standard
+ *  SQL](http://cloud/bigquery/docs/reference/standard-sql/enabling-standard-sql).
+ */
+@property(nonatomic, copy, nullable) NSString *statement;
+
+/**
+ *  Optional. Specifies the maximum amount of time that the client is willing to
+ *  wait for the query to complete. By default, this limit is 5 min for the
+ *  first query, and 1 minute for the following queries. If the query is
+ *  complete, the `done` field in the `QueryAssetsResponse` is true, otherwise
+ *  false. Like BigQuery [jobs.query
+ *  API](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query#queryrequest)
+ *  The call is not guaranteed to wait for the specified timeout; it typically
+ *  returns after around 200 seconds (200,000 milliseconds), even if the query
+ *  is not complete. The field will be ignored when [output_config] is
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  QueryAssets response.
+ */
+@interface GTLRCloudAsset_QueryAssetsResponse : GTLRObject
+
+/**
+ *  The query response, which can be either an `error` or a valid `response`. If
+ *  `done` == `false` and the query result is being saved in a output, the
+ *  output_config field will be set. If `done` == `true`, exactly one of
+ *  `error`, `query_result` or `output_config` will be set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** Error status. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Status *error;
+
+/** Reference to a query job. */
+@property(nonatomic, copy, nullable) NSString *jobReference;
+
+/**
+ *  Output configuration which indicates instead of being returned in API
+ *  response on the fly, the query result will be saved in a specific output.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_QueryAssetsOutputConfig *outputConfig;
+
+/** Result of the query. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_QueryResult *queryResult;
+
+@end
+
+
+/**
  *  The query content.
  */
 @interface GTLRCloudAsset_QueryContent : GTLRObject
 
 /**
  *  An IAM Policy Analysis query, which could be used in the
- *  AssetService.AnalyzeIamPolicy rpc or the
- *  AssetService.AnalyzeIamPolicyLongrunning rpc.
+ *  AssetService.AnalyzeIamPolicy RPC or the
+ *  AssetService.AnalyzeIamPolicyLongrunning RPC.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_IamPolicyAnalysisQuery *iamPolicyAnalysisQuery;
 
+@end
+
+
+/**
+ *  Execution results of the query. The result is formatted as rows represented
+ *  by BigQuery compatible [schema]. When pagination is necessary, it will
+ *  contains the page token to retrieve the results of following pages.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rows" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudAsset_QueryResult : GTLRCollectionObject
+
+/** Token to retrieve the next page of the results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Each row hold a query result in the format of `Struct`.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_QueryResult_Rows_Item *> *rows;
+
+/** Describes the format of the [rows]. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_TableSchema *schema;
+
+/**
+ *  Total rows of the whole query results.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalRows;
+
+@end
+
+
+/**
+ *  GTLRCloudAsset_QueryResult_Rows_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAsset_QueryResult_Rows_Item : GTLRObject
 @end
 
 
@@ -4103,8 +4948,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  ancestors. An asset can be any resource in the Google Cloud [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
- *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy). See [Supported asset
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. IAM policy). See
+ *  [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -4251,7 +5096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The full name of the immediate parent of this resource. See [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
  *  for more information. For Google Cloud assets, this value is the parent
- *  resource defined in the [Cloud IAM policy
+ *  resource defined in the [IAM policy
  *  hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy).
  *  Example: `//cloudresourcemanager.googleapis.com/projects/my_project_123` For
  *  third-party assets, this field may be set differently.
@@ -4296,13 +5141,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  vary from one resource type to another. Examples: `projectId` for Project,
  *  `dnsName` for DNS ManagedZone. This field contains a subset of the resource
  *  metadata fields that are returned by the List or Get APIs provided by the
- *  corresponding GCP service (e.g., Compute Engine). see [API references and
- *  supported searchable
+ *  corresponding Google Cloud service (e.g., Compute Engine). see [API
+ *  references and supported searchable
  *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types)
  *  to see which fields are included. You can search values of these fields
  *  through free text search. However, you should not consume the field
- *  programically as the field names and values may change as the GCP service
- *  updates to a new incompatible API version. To search against the
+ *  programically as the field names and values may change as the Google Cloud
+ *  service updates to a new incompatible API version. To search against the
  *  `additional_attributes`: * Use a free text query to match the attributes
  *  values. Example: to search `additional_attributes = { dnsName: "foobar" }`,
  *  you can issue a query `foobar`.
@@ -4371,9 +5216,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  name or
  *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
  *  name. This field only presents for the purpose of backward compatibility.
- *  Please use the `kms_keys` field to retrieve KMS key information. This field
- *  is available only when the resource's Protobuf contains it and will only be
- *  populated for [these resource
+ *  Please use the `kms_keys` field to retrieve Cloud KMS key information. This
+ *  field is available only when the resource's Protobuf contains it and will
+ *  only be populated for [these resource
  *  types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
  *  for backward compatible purposes. To search against the `kms_key`: * Use a
  *  field query. Example: `kmsKey:key` * Use a free text query. Example: `key`
@@ -4392,7 +5237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeys;
 
 /**
- *  Labels associated with this resource. See [Labelling and grouping GCP
+ *  Labels associated with this resource. See [Labelling and grouping Google
+ *  Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `labels`: * Use a field query: -
@@ -4422,7 +5268,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Network tags associated with this resource. Like labels, network tags are a
- *  type of annotations used to group GCP resources. See [Labelling GCP
+ *  type of annotations used to group Google Cloud resources. See [Labelling
+ *  Google Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `network_tags`: * Use a field
@@ -4483,8 +5330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  state will include PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING,
  *  SUSPENDED, REPAIRING, and TERMINATED. See `status` definition in [API
  *  Reference](https://cloud.google.com/compute/docs/reference/rest/v1/instances).
- *  If the resource is a project provided by Cloud Resource Manager, its state
- *  will include LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED and
+ *  If the resource is a project provided by Resource Manager, its state will
+ *  include LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED and
  *  DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
  *  Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
  *  To search against the `state`: * Use a field query. Example: `state:RUNNING`
@@ -4544,13 +5391,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  vary from one resource type to another. Examples: `projectId` for Project,
  *  `dnsName` for DNS ManagedZone. This field contains a subset of the resource
  *  metadata fields that are returned by the List or Get APIs provided by the
- *  corresponding GCP service (e.g., Compute Engine). see [API references and
- *  supported searchable
+ *  corresponding Google Cloud service (e.g., Compute Engine). see [API
+ *  references and supported searchable
  *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types)
  *  to see which fields are included. You can search values of these fields
  *  through free text search. However, you should not consume the field
- *  programically as the field names and values may change as the GCP service
- *  updates to a new incompatible API version. To search against the
+ *  programically as the field names and values may change as the Google Cloud
+ *  service updates to a new incompatible API version. To search against the
  *  `additional_attributes`: * Use a free text query to match the attributes
  *  values. Example: to search `additional_attributes = { dnsName: "foobar" }`,
  *  you can issue a query `foobar`.
@@ -4565,7 +5412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Labels associated with this resource. See [Labelling and grouping GCP
+ *  Labels associated with this resource. See [Labelling and grouping Google
+ *  Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `labels`: * Use a field query: -
@@ -4699,8 +5547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  A list of IamPolicy that match the search query. Related information such as
- *  the associated resource is returned along with the policy.
+ *  A list of IAM policies that match the search query. Related information such
+ *  as the associated resource is returned along with the policy.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4839,6 +5687,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAsset_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A field in TableSchema.
+ */
+@interface GTLRCloudAsset_TableFieldSchema : GTLRObject
+
+/**
+ *  The field name. The name must contain only letters (a-z, A-Z), numbers
+ *  (0-9), or underscores (_), and must start with a letter or underscore. The
+ *  maximum length is 128 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Describes the nested schema fields if the type property is set to RECORD.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_TableFieldSchema *> *fields;
+
+/**
+ *  The field mode. Possible values include NULLABLE, REQUIRED and REPEATED. The
+ *  default value is NULLABLE.
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  The field data type. Possible values include * STRING * BYTES * INTEGER *
+ *  FLOAT * BOOLEAN * TIMESTAMP * DATE * TIME * DATETIME * GEOGRAPHY, * NUMERIC,
+ *  * BIGNUMERIC, * RECORD (where RECORD indicates that the field contains a
+ *  nested schema).
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  BigQuery Compatible table schema.
+ */
+@interface GTLRCloudAsset_TableSchema : GTLRObject
+
+/** Describes the fields in a table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_TableFieldSchema *> *fields;
+
 @end
 
 

@@ -133,6 +133,7 @@ NSString * const kGTLRTagManagerTypeVideoStatus                = @"videoStatus";
 NSString * const kGTLRTagManagerTypeVideoTitle                 = @"videoTitle";
 NSString * const kGTLRTagManagerTypeVideoUrl                   = @"videoUrl";
 NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible";
+NSString * const kGTLRTagManagerTypeVisitorRegion              = @"visitorRegion";
 
 // ----------------------------------------------------------------------------
 // Query Classes

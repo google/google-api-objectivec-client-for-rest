@@ -363,6 +363,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIDS_Endpoint_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** List of threat IDs to be excepted from generating alerts. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *threatExceptions;
+
 /**
  *  Whether the endpoint should report traffic logs in addition to threat logs.
  *

@@ -60,11 +60,61 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTexttospeech_CancelOperationRequest
+//
+
+@implementation GTLRTexttospeech_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTexttospeech_CustomVoiceParams
 //
 
 @implementation GTLRTexttospeech_CustomVoiceParams
 @dynamic model, reportedUsage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_Empty
+//
+
+@implementation GTLRTexttospeech_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_GoogleCloudTexttospeechV1SynthesizeLongAudioMetadata
+//
+
+@implementation GTLRTexttospeech_GoogleCloudTexttospeechV1SynthesizeLongAudioMetadata
+@dynamic progressPercentage, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_ListOperationsResponse
+//
+
+@implementation GTLRTexttospeech_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRTexttospeech_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
 @end
 
 
@@ -88,11 +138,101 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTexttospeech_Operation
+//
+
+@implementation GTLRTexttospeech_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_Operation_Metadata
+//
+
+@implementation GTLRTexttospeech_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_Operation_Response
+//
+
+@implementation GTLRTexttospeech_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_Status
+//
+
+@implementation GTLRTexttospeech_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRTexttospeech_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_Status_Details_Item
+//
+
+@implementation GTLRTexttospeech_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTexttospeech_SynthesisInput
 //
 
 @implementation GTLRTexttospeech_SynthesisInput
 @dynamic ssml, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_SynthesizeLongAudioMetadata
+//
+
+@implementation GTLRTexttospeech_SynthesizeLongAudioMetadata
+@dynamic progressPercentage, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_SynthesizeLongAudioRequest
+//
+
+@implementation GTLRTexttospeech_SynthesizeLongAudioRequest
+@dynamic audioConfig, input, outputGcsUri, voice;
 @end
 
 

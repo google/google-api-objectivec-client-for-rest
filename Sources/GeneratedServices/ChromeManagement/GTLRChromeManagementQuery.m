@@ -263,3 +263,22 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 }
 
 @end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryEventsList
+
+@dynamic filter, pageSize, pageToken, parent, readMask;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/telemetry/events";
+  GTLRChromeManagementQuery_CustomersTelemetryEventsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryEventsResponse class];
+  query.loggingName = @"chromemanagement.customers.telemetry.events.list";
+  return query;
+}
+
+@end

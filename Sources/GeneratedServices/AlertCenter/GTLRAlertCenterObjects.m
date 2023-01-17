@@ -64,6 +64,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive = @"DRIVE";
 // GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert = @"ALERT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DeleteWebprotectEvidence = @"DELETE_WEBPROTECT_EVIDENCE";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleActivate = @"RULE_ACTIVATE";
@@ -76,10 +77,34 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified =
 // GTLRAlertCenter_RuleViolationInfo.triggeredActionTypes
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert = @"ALERT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DeleteWebprotectEvidence = @"DELETE_WEBPROTECT_EVIDENCE";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleActivate = @"RULE_ACTIVATE";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
+
+// GTLRAlertCenter_TransferError.entityType
+NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferAutoAttendant = @"TRANSFER_AUTO_ATTENDANT";
+NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferEntityTypeUnspecified = @"TRANSFER_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferRingGroup = @"TRANSFER_RING_GROUP";
+NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferUser = @"TRANSFER_USER";
+
+// GTLRAlertCenter_TransferError.invalidReason
+NSString * const kGTLRAlertCenter_TransferError_InvalidReason_NoPhoneNumber = @"NO_PHONE_NUMBER";
+NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Suspended = @"SUSPENDED";
+NSString * const kGTLRAlertCenter_TransferError_InvalidReason_TransferInvalidReasonUnspecified = @"TRANSFER_INVALID_REASON_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_TransferError_InvalidReason_TransferTargetDeleted = @"TRANSFER_TARGET_DELETED";
+NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Unlicensed = @"UNLICENSED";
+
+// GTLRAlertCenter_VoicemailRecipientError.invalidReason
+NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_EmailInvalidReasonUnspecified = @"EMAIL_INVALID_REASON_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_OutOfQuota = @"OUT_OF_QUOTA";
+NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_RecipientDeleted = @"RECIPIENT_DELETED";
+
+// GTLRAlertCenter_VoiceMisconfiguration.entityType
+NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_AutoAttendant = @"AUTO_ATTENDANT";
+NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_EntityTypeUnspecified = @"ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @"RING_GROUP";
 
 // ----------------------------------------------------------------------------
 //
@@ -975,6 +1000,39 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_TransferError
+//
+
+@implementation GTLRAlertCenter_TransferError
+@dynamic email, entityType, identifier, invalidReason, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_TransferMisconfiguration
+//
+
+@implementation GTLRAlertCenter_TransferMisconfiguration
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRAlertCenter_TransferError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_UndeleteAlertRequest
 //
 
@@ -1010,4 +1068,48 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_UserDefinedDetectorInfo
 @dynamic displayName, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_VoicemailMisconfiguration
+//
+
+@implementation GTLRAlertCenter_VoicemailMisconfiguration
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRAlertCenter_VoicemailRecipientError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_VoicemailRecipientError
+//
+
+@implementation GTLRAlertCenter_VoicemailRecipientError
+@dynamic email, invalidReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_VoiceMisconfiguration
+//
+
+@implementation GTLRAlertCenter_VoiceMisconfiguration
+@dynamic entityNameProperty, entityType, fixUri, membersMisconfiguration,
+         transferMisconfiguration, voicemailMisconfiguration;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"entityNameProperty" : @"entityName" };
+}
+
 @end

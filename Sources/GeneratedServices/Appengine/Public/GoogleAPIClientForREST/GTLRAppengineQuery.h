@@ -1879,6 +1879,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 @end
 
+/**
+ *  Gets information about an application.
+ *
+ *  Method: appengine.projects.locations.applications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsGet : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Name of the Application resource to get. Example:
+ *  apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Application.
+ *
+ *  Gets information about an application.
+ *
+ *  @param projectsId Part of `name`. Name of the Application resource to get.
+ *    Example: apps/myapp.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsGet
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

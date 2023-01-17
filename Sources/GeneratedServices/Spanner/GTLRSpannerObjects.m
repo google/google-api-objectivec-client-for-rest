@@ -148,10 +148,12 @@ NSString * const kGTLRSpanner_Type_Code_Array               = @"ARRAY";
 NSString * const kGTLRSpanner_Type_Code_Bool                = @"BOOL";
 NSString * const kGTLRSpanner_Type_Code_Bytes               = @"BYTES";
 NSString * const kGTLRSpanner_Type_Code_Date                = @"DATE";
+NSString * const kGTLRSpanner_Type_Code_Enum                = @"ENUM";
 NSString * const kGTLRSpanner_Type_Code_Float64             = @"FLOAT64";
 NSString * const kGTLRSpanner_Type_Code_Int64               = @"INT64";
 NSString * const kGTLRSpanner_Type_Code_Json                = @"JSON";
 NSString * const kGTLRSpanner_Type_Code_Numeric             = @"NUMERIC";
+NSString * const kGTLRSpanner_Type_Code_Proto               = @"PROTO";
 NSString * const kGTLRSpanner_Type_Code_String              = @"STRING";
 NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
@@ -369,7 +371,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CreateDatabaseRequest
-@dynamic createStatement, databaseDialect, encryptionConfig, extraStatements;
+@dynamic createStatement, databaseDialect, encryptionConfig, extraStatements,
+         protoDescriptors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -636,7 +639,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_GetDatabaseDdlResponse
-@dynamic statements;
+@dynamic protoDescriptors, statements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1956,7 +1959,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Type
-@dynamic arrayElementType, code, structType, typeAnnotation;
+@dynamic arrayElementType, code, protoTypeFqn, structType, typeAnnotation;
 @end
 
 
@@ -1986,7 +1989,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_UpdateDatabaseDdlRequest
-@dynamic operationId, statements;
+@dynamic operationId, protoDescriptors, statements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

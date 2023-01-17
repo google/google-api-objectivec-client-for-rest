@@ -287,6 +287,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Update the permissions settings for an existing partner workload. For force
+ *  updates don't set etag field in the Workload. Only one update operation per
+ *  workload can be in progress.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.mutatePartnerPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsMutatePartnerPermissions : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The `name` field is used to identify the workload. Format:
+ *  organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.
+ *
+ *  Update the permissions settings for an existing partner workload. For force
+ *  updates don't set etag field in the Workload. Only one update operation per
+ *  workload can be in progress.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest
+ *    to include in the query.
+ *  @param name Required. The `name` field is used to identify the workload.
+ *    Format:
+ *    organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsMutatePartnerPermissions
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates an existing workload. Currently allows updating of workload
  *  display_name and labels. For force updates don't set etag field in the
  *  Workload. Only one update operation per workload can be in progress.

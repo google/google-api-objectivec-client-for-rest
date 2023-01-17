@@ -2237,7 +2237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
  *  are specified in the update mask or if no update mask is supplied. *
  *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable * InactiveCourseOwner
+ *  CourseNotModifiable * InactiveCourseOwner * IneligibleOwner
  *
  *  Method: classroom.courses.patch
  *
@@ -2277,7 +2277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
  *  are specified in the update mask or if no update mask is supplied. *
  *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable * InactiveCourseOwner
+ *  CourseNotModifiable * InactiveCourseOwner * IneligibleOwner
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *  @param identifier Identifier of the course to update. This identifier can be
@@ -3066,10 +3066,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
  *  user is not permitted to create invitations for this course or for access
  *  errors. * `NOT_FOUND` if the course or the user does not exist. *
- *  `FAILED_PRECONDITION` if the requested user's account is disabled or if the
- *  user already has this role or a role with greater permissions. *
- *  `ALREADY_EXISTS` if an invitation for the specified user and course already
- *  exists.
+ *  `FAILED_PRECONDITION`: * if the requested user's account is disabled. * if
+ *  the user already has this role or a role with greater permissions. * for the
+ *  following request errors: * IneligibleOwner * `ALREADY_EXISTS` if an
+ *  invitation for the specified user and course already exists.
  *
  *  Method: classroom.invitations.create
  *
@@ -3086,10 +3086,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
  *  user is not permitted to create invitations for this course or for access
  *  errors. * `NOT_FOUND` if the course or the user does not exist. *
- *  `FAILED_PRECONDITION` if the requested user's account is disabled or if the
- *  user already has this role or a role with greater permissions. *
- *  `ALREADY_EXISTS` if an invitation for the specified user and course already
- *  exists.
+ *  `FAILED_PRECONDITION`: * if the requested user's account is disabled. * if
+ *  the user already has this role or a role with greater permissions. * for the
+ *  following request errors: * IneligibleOwner * `ALREADY_EXISTS` if an
+ *  invitation for the specified user and course already exists.
  *
  *  @param object The @c GTLRClassroom_Invitation to include in the query.
  *

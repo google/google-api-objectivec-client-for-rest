@@ -67,6 +67,7 @@ NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRBigquery_DatasetAccessEntry.targetTypes
+NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Routines = @"ROUTINES";
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_TargetTypeUnspecified = @"TARGET_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views = @"VIEWS";
 
@@ -97,6 +98,8 @@ NSString * const kGTLRBigquery_Model_ModelType_LogisticRegression = @"LOGISTIC_R
 NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization = @"MATRIX_FACTORIZATION";
 NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Model_ModelType_Pca             = @"PCA";
+NSString * const kGTLRBigquery_Model_ModelType_RandomForestClassifier = @"RANDOM_FOREST_CLASSIFIER";
+NSString * const kGTLRBigquery_Model_ModelType_RandomForestRegressor = @"RANDOM_FOREST_REGRESSOR";
 NSString * const kGTLRBigquery_Model_ModelType_Tensorflow      = @"TENSORFLOW";
 
 // GTLRBigquery_Routine.determinismLevel
@@ -1906,7 +1909,13 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_MaterializedViewDefinition
-@dynamic enableRefresh, lastRefreshTime, maxStaleness, query, refreshIntervalMs;
+@dynamic allowNonIncrementalDefinition, enableRefresh, lastRefreshTime,
+         maxStaleness, query, refreshIntervalMs;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"allowNonIncrementalDefinition" : @"allow_non_incremental_definition" };
+}
+
 @end
 
 

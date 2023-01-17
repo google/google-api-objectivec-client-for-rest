@@ -65,7 +65,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_Active;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_NotFound;
 /**
- *  Cannot write to the BigQuery table because of permission denied errors.
+ *  Cannot write to the BigQuery table because of permission denied errors. This
+ *  can happen if - Pub/Sub SA has not been granted the [appropriate BigQuery
+ *  IAM
+ *  permissions](https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account)
+ *  - bigquery.googleapis.com API is not enabled for the project
+ *  ([instructions](https://cloud.google.com/service-usage/docs/enable-disable))
  *
  *  Value: "PERMISSION_DENIED"
  */
@@ -215,8 +220,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_NotFound Cannot write to the
  *        BigQuery table because it does not exist. (Value: "NOT_FOUND")
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_PermissionDenied Cannot write to
- *        the BigQuery table because of permission denied errors. (Value:
- *        "PERMISSION_DENIED")
+ *        the BigQuery table because of permission denied errors. This can
+ *        happen if - Pub/Sub SA has not been granted the [appropriate BigQuery
+ *        IAM
+ *        permissions](https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account)
+ *        - bigquery.googleapis.com API is not enabled for the project
+ *        ([instructions](https://cloud.google.com/service-usage/docs/enable-disable))
+ *        (Value: "PERMISSION_DENIED")
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_SchemaMismatch Cannot write to
  *        the BigQuery table due to a schema mismatch. (Value:
  *        "SCHEMA_MISMATCH")

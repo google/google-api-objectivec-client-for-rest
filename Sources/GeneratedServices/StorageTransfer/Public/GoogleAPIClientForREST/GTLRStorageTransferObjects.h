@@ -25,6 +25,7 @@
 @class GTLRStorageTransfer_Date;
 @class GTLRStorageTransfer_ErrorLogEntry;
 @class GTLRStorageTransfer_ErrorSummary;
+@class GTLRStorageTransfer_EventStream;
 @class GTLRStorageTransfer_GcsData;
 @class GTLRStorageTransfer_HttpData;
 @class GTLRStorageTransfer_LoggingConfig;
@@ -755,6 +756,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Value: "SUCCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success;
+/**
+ *  The operation is suspending and draining the ongoing work to completion.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Suspending;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferOptions.overwriteWhen
@@ -1188,6 +1195,36 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  code for a single transfer operation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorLogEntry *> *errorLogEntries;
+
+@end
+
+
+/**
+ *  Specifies the Event-driven transfer options. Event-driven transfers listen
+ *  to an event stream to transfer updated files.
+ */
+@interface GTLRStorageTransfer_EventStream : GTLRObject
+
+/**
+ *  Specifies the data and time at which Storage Transfer Service stops
+ *  listening for events from this stream. After this time, any transfers in
+ *  progress will complete, but no new transfers are initiated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventStreamExpirationTime;
+
+/**
+ *  Specifies the date and time that Storage Transfer Service starts listening
+ *  for events from this stream. If no start time is specified or start time is
+ *  in the past, Storage Transfer Service starts listening immediately.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventStreamStartTime;
+
+/**
+ *  Required. Specifies a unique name of the resource such as AWS SQS ARN in the
+ *  form 'arn:aws:sqs:region:account_id:queue_name', or Pub/Sub subscription
+ *  resource name in the form 'projects/{project}/subscriptions/{sub}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2218,6 +2255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Specifies the event stream for the transfer job for event-driven transfers.
+ *  When EventStream is specified, the Schedule fields are ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_EventStream *eventStream;
+
 /** Output only. The time that the transfer job was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModificationTime;
 
@@ -2351,6 +2394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *        Zero is an illegal value. (Value: "STATUS_UNSPECIFIED")
  *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Success Completed
  *        successfully. (Value: "SUCCESS")
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Suspending The
+ *        operation is suspending and draining the ongoing work to completion.
+ *        (Value: "SUSPENDING")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 

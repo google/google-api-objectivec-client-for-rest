@@ -1523,8 +1523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  The resource name for the person, assigned by the server. An ASCII string
- *  with a max length of 27 characters, in the form of `people/{person_id}`.
+ *  The resource name for the person, assigned by the server. An ASCII string in
+ *  the form of `people/{person_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -1579,8 +1579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *  @param resourceName The resource name for the person, assigned by the
- *    server. An ASCII string with a max length of 27 characters, in the form of
- *    `people/{person_id}`.
+ *    server. An ASCII string in the form of `people/{person_id}`.
  *
  *  @return GTLRPeopleServiceQuery_PeopleUpdateContact
  */

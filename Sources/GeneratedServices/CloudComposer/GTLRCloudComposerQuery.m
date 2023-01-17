@@ -100,6 +100,33 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsLoadSnapshot
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_LoadSnapshotRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:loadSnapshot";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsLoadSnapshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_Operation class];
+  query.loggingName = @"composer.projects.locations.environments.loadSnapshot";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPatch
 
 @dynamic name, updateMask;
@@ -122,6 +149,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudComposer_Operation class];
   query.loggingName = @"composer.projects.locations.environments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsSaveSnapshot
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_SaveSnapshotRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:saveSnapshot";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsSaveSnapshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_Operation class];
+  query.loggingName = @"composer.projects.locations.environments.saveSnapshot";
   return query;
 }
 

@@ -442,6 +442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeU
 // GTLRBigquery_DatasetAccessEntry.targetTypes
 
 /**
+ *  This entry applies to routines in the dataset.
+ *
+ *  Value: "ROUTINES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Routines;
+/**
  *  Do not use. You must set a target type explicitly.
  *
  *  Value: "TARGET_TYPE_UNSPECIFIED"
@@ -597,6 +603,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspec
  *  Value: "PCA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Pca;
+/**
+ *  Random Forest classifier model.
+ *
+ *  Value: "RANDOM_FOREST_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_RandomForestClassifier;
+/**
+ *  Random Forest regressor model.
+ *
+ *  Value: "RANDOM_FOREST_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_RandomForestRegressor;
 /**
  *  An imported TensorFlow model.
  *
@@ -6000,7 +6018,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /**
  *  Routines in the requested dataset. Unless read_mask is set in the request,
  *  only the following fields are populated: etag, project_id, dataset_id,
- *  routine_id, routine_type, creation_time, last_modified_time, and language.
+ *  routine_id, routine_type, creation_time, last_modified_time, language, and
+ *  remote_function_options.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -6053,6 +6072,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  GTLRBigquery_MaterializedViewDefinition
  */
 @interface GTLRBigquery_MaterializedViewDefinition : GTLRObject
+
+/**
+ *  [Optional] Allow non incremental materialized view definition. The default
+ *  value is "false".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowNonIncrementalDefinition;
 
 /**
  *  [Optional] [TrustedTester] Enable automatic refresh of the materialized view
@@ -6262,6 +6289,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        "MODEL_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRBigquery_Model_ModelType_Pca Prinpical Component Analysis
  *        model. (Value: "PCA")
+ *    @arg @c kGTLRBigquery_Model_ModelType_RandomForestClassifier Random Forest
+ *        classifier model. (Value: "RANDOM_FOREST_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_RandomForestRegressor Random Forest
+ *        regressor model. (Value: "RANDOM_FOREST_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_Tensorflow An imported TensorFlow
  *        model. (Value: "TENSORFLOW")
  */
@@ -7299,7 +7330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<NSString *> *importedLibraries;
 
 /**
- *  Optional. Defaults to "SQL".
+ *  Optional. Defaults to "SQL" if remote_function_options field is absent, not
+ *  set otherwise.
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Routine_Language_Javascript JavaScript language.
@@ -7327,7 +7359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Optional. Can be set only if routine_type = "TABLE_VALUED_FUNCTION". If
  *  absent, the return table type is inferred from definition_body at query time
  *  in each query that references this routine. If present, then the columns in
- *  the evaluated table result will be cast to match the column types specificed
+ *  the evaluated table result will be cast to match the column types specified
  *  in return table type, at query time.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlTableType *returnTableType;
@@ -7680,8 +7712,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jarUris;
 
 /**
- *  The main file URI of the Spark application. Exactly one of the
- *  definition_body field and the main_file_uri field must be set.
+ *  The main file/jar URI of the Spark application. Exactly one of the
+ *  definition_body field and the main_file_uri field must be set for Python.
+ *  Exactly one of main_class and main_file_uri field should be set for
+ *  Java/Scala language type.
  */
 @property(nonatomic, copy, nullable) NSString *mainFileUri;
 

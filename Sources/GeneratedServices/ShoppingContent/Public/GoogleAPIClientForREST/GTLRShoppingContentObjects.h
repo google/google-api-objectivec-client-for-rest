@@ -47,6 +47,8 @@
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
 @class GTLRShoppingContent_Address;
 @class GTLRShoppingContent_Amount;
+@class GTLRShoppingContent_BestSellers;
+@class GTLRShoppingContent_Brand;
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
@@ -169,8 +171,11 @@
 @class GTLRShoppingContent_PostalCodeRange;
 @class GTLRShoppingContent_Price;
 @class GTLRShoppingContent_PriceAmount;
+@class GTLRShoppingContent_PriceCompetitiveness;
+@class GTLRShoppingContent_PriceInsights;
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductAmount;
+@class GTLRShoppingContent_ProductCluster;
 @class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime;
 @class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime;
 @class GTLRShoppingContent_ProductDimension;
@@ -196,6 +201,9 @@
 @class GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity;
 @class GTLRShoppingContent_ProductViewItemIssueItemIssueType;
 @class GTLRShoppingContent_ProductWeight;
+@class GTLRShoppingContent_PromotionPromotionStatus;
+@class GTLRShoppingContent_PromotionPromotionStatusDestinationStatus;
+@class GTLRShoppingContent_PromotionPromotionStatusPromotionIssue;
 @class GTLRShoppingContent_RateGroup;
 @class GTLRShoppingContent_RefundReason;
 @class GTLRShoppingContent_Region;
@@ -351,6 +359,146 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_Car
  *  Value: "UPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BestSellers.previousRelativeDemand
+
+/**
+ *  Demand is 21-50% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_High;
+/**
+ *  Demand is 6-10% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Low;
+/**
+ *  Demand is 11-20% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Medium;
+/**
+ *  Relative demand is unknown.
+ *
+ *  Value: "RELATIVE_DEMAND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_RelativeDemandUnspecified;
+/**
+ *  Demand is 51-100% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "VERY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_VeryHigh;
+/**
+ *  Demand is 0-5% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "VERY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_VeryLow;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BestSellers.relativeDemand
+
+/**
+ *  Demand is 21-50% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_High;
+/**
+ *  Demand is 6-10% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_Low;
+/**
+ *  Demand is 11-20% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_Medium;
+/**
+ *  Relative demand is unknown.
+ *
+ *  Value: "RELATIVE_DEMAND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_RelativeDemandUnspecified;
+/**
+ *  Demand is 51-100% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "VERY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_VeryHigh;
+/**
+ *  Demand is 0-5% of the demand of the highest ranked product clusters or
+ *  brands.
+ *
+ *  Value: "VERY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemand_VeryLow;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BestSellers.relativeDemandChange
+
+/**
+ *  Relative demand is equal to previous time period.
+ *
+ *  Value: "FLAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_Flat;
+/**
+ *  Relative demand change is unknown.
+ *
+ *  Value: "RELATIVE_DEMAND_CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_RelativeDemandChangeTypeUnspecified;
+/**
+ *  Relative demand is higher than the previous time period.
+ *
+ *  Value: "RISER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_Riser;
+/**
+ *  Relative demand is lower than previous time period.
+ *
+ *  Value: "SINKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_RelativeDemandChange_Sinker;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BestSellers.reportGranularity
+
+/**
+ *  Ranking is done over a month timeframe.
+ *
+ *  Value: "MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Monthly;
+/**
+ *  Report granularity is unknown.
+ *
+ *  Value: "REPORT_GRANULARITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_ReportGranularityUnspecified;
+/**
+ *  Ranking is done over a week timeframe.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Weekly;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
@@ -734,6 +882,66 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductCluster.brandInventoryStatus
+
+/**
+ *  Merchant has a product for this product cluster or brand in stock.
+ *
+ *  Value: "IN_STOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InStock;
+/**
+ *  Inventory status is unknown.
+ *
+ *  Value: "INVENTORY_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InventoryStatusUnspecified;
+/**
+ *  Merchant does not have a product for this product cluster or brand in
+ *  inventory.
+ *
+ *  Value: "NOT_IN_INVENTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_NotInInventory;
+/**
+ *  Merchant has a product for this product cluster or brand in inventory but it
+ *  is currently out of stock.
+ *
+ *  Value: "OUT_OF_STOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_OutOfStock;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductCluster.inventoryStatus
+
+/**
+ *  Merchant has a product for this product cluster or brand in stock.
+ *
+ *  Value: "IN_STOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_InStock;
+/**
+ *  Inventory status is unknown.
+ *
+ *  Value: "INVENTORY_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_InventoryStatusUnspecified;
+/**
+ *  Merchant does not have a product for this product cluster or brand in
+ *  inventory.
+ *
+ *  Value: "NOT_IN_INVENTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_NotInInventory;
+/**
+ *  Merchant has a product for this product cluster or brand in inventory but it
+ *  is currently out of stock.
+ *
+ *  Value: "OUT_OF_STOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_OutOfStock;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
 
 /**
@@ -1016,6 +1224,53 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_StoreApplicabi
  *  Value: "STORE_APPLICABILITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_StoreApplicabilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_PromotionPromotionStatusDestinationStatus.status
+
+/**
+ *  The promotion is no longer active.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Expired;
+/**
+ *  The promotion is under review.
+ *
+ *  Value: "IN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_InReview;
+/**
+ *  The promotion is approved and active.
+ *
+ *  Value: "LIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Live;
+/**
+ *  The promotion is not stopped, and all reviews are approved, but the active
+ *  date is in the future.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Pending;
+/**
+ *  The promotion is disapproved
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Rejected;
+/**
+ *  Unknown promotion state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_StateUnspecified;
+/**
+ *  The promotion is stopped by merchant.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Stopped;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_RepricingProductReport.type
@@ -1570,8 +1825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Linked Ads accounts that are active or pending approval. To create a new
  *  link request, add a new link with status `active` to the list. It will
  *  remain in a `pending` state until approved or rejected either in the Ads
- *  interface or through the AdWords API. To delete an active link, or to cancel
- *  a link request, remove it from the list.
+ *  interface or through the Google Ads API. To delete an active link, or to
+ *  cancel a link request, remove it from the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountAdsLink *> *adsLinks;
 
@@ -3134,6 +3389,151 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Fields related to the [Best Sellers
+ *  reports](https://support.google.com/merchants/answer/9488679).
+ */
+@interface GTLRShoppingContent_BestSellers : GTLRObject
+
+/**
+ *  Google product category ID to calculate the ranking for, represented in
+ *  [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436). If a `WHERE`
+ *  condition on `best_sellers.category_id` is not specified in the query,
+ *  rankings for all top-level categories are returned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *categoryId;
+
+/**
+ *  Country where the ranking is calculated. A `WHERE` condition on
+ *  `best_sellers.country_code` is required in the query.
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  Popularity rank in the previous week or month.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *previousRank;
+
+/**
+ *  Estimated demand in relation to the item with the highest popularity rank in
+ *  the same category and country in the previous week or month.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_High
+ *        Demand is 21-50% of the demand of the highest ranked product clusters
+ *        or brands. (Value: "HIGH")
+ *    @arg @c kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Low Demand
+ *        is 6-10% of the demand of the highest ranked product clusters or
+ *        brands. (Value: "LOW")
+ *    @arg @c kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Medium
+ *        Demand is 11-20% of the demand of the highest ranked product clusters
+ *        or brands. (Value: "MEDIUM")
+ *    @arg @c kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_RelativeDemandUnspecified
+ *        Relative demand is unknown. (Value: "RELATIVE_DEMAND_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_VeryHigh
+ *        Demand is 51-100% of the demand of the highest ranked product clusters
+ *        or brands. (Value: "VERY_HIGH")
+ *    @arg @c kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_VeryLow
+ *        Demand is 0-5% of the demand of the highest ranked product clusters or
+ *        brands. (Value: "VERY_LOW")
+ */
+@property(nonatomic, copy, nullable) NSString *previousRelativeDemand;
+
+/**
+ *  Popularity on Shopping ads and free listings, in the selected category and
+ *  country, based on the estimated number of units sold.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rank;
+
+/**
+ *  Estimated demand in relation to the item with the highest popularity rank in
+ *  the same category and country.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemand_High Demand is
+ *        21-50% of the demand of the highest ranked product clusters or brands.
+ *        (Value: "HIGH")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemand_Low Demand is
+ *        6-10% of the demand of the highest ranked product clusters or brands.
+ *        (Value: "LOW")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemand_Medium Demand is
+ *        11-20% of the demand of the highest ranked product clusters or brands.
+ *        (Value: "MEDIUM")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemand_RelativeDemandUnspecified
+ *        Relative demand is unknown. (Value: "RELATIVE_DEMAND_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemand_VeryHigh Demand is
+ *        51-100% of the demand of the highest ranked product clusters or
+ *        brands. (Value: "VERY_HIGH")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemand_VeryLow Demand is
+ *        0-5% of the demand of the highest ranked product clusters or brands.
+ *        (Value: "VERY_LOW")
+ */
+@property(nonatomic, copy, nullable) NSString *relativeDemand;
+
+/**
+ *  Change in the estimated demand. Whether it rose, sank or remained flat.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemandChange_Flat
+ *        Relative demand is equal to previous time period. (Value: "FLAT")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemandChange_RelativeDemandChangeTypeUnspecified
+ *        Relative demand change is unknown. (Value:
+ *        "RELATIVE_DEMAND_CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemandChange_Riser
+ *        Relative demand is higher than the previous time period. (Value:
+ *        "RISER")
+ *    @arg @c kGTLRShoppingContent_BestSellers_RelativeDemandChange_Sinker
+ *        Relative demand is lower than previous time period. (Value: "SINKER")
+ */
+@property(nonatomic, copy, nullable) NSString *relativeDemandChange;
+
+/**
+ *  Report date. The value of this field can only be one of the following: * The
+ *  first day of the week (Monday) for weekly reports. * The first day of the
+ *  month for monthly reports. If a `WHERE` condition on
+ *  `best_sellers.report_date` is not specified in the query, the latest
+ *  available weekly or monthly report is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *reportDate;
+
+/**
+ *  Granularity of the report. The ranking can be done over a week or a month
+ *  timeframe. A `WHERE` condition on `best_sellers.report_granularity` is
+ *  required in the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BestSellers_ReportGranularity_Monthly Ranking
+ *        is done over a month timeframe. (Value: "MONTHLY")
+ *    @arg @c kGTLRShoppingContent_BestSellers_ReportGranularity_ReportGranularityUnspecified
+ *        Report granularity is unknown. (Value:
+ *        "REPORT_GRANULARITY_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BestSellers_ReportGranularity_Weekly Ranking
+ *        is done over a week timeframe. (Value: "WEEKLY")
+ */
+@property(nonatomic, copy, nullable) NSString *reportGranularity;
+
+@end
+
+
+/**
+ *  Brand fields. Values are only set for fields requested explicitly in the
+ *  request's search query.
+ */
+@interface GTLRShoppingContent_Brand : GTLRObject
+
+/** Name of the brand. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_BusinessDayConfig
  */
 @interface GTLRShoppingContent_BusinessDayConfig : GTLRObject
@@ -4241,7 +4641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The list of destinations to exclude for this target (corresponds to cleared
- *  check boxes in Merchant Center).
+ *  check boxes in Merchant Center). Products that are excluded from all
+ *  destinations for more than 7 days are automatically deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
 
@@ -6059,19 +6460,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The quota information per method in the Content API.
+ *  The quota information per method in the Content API. Includes only methods
+ *  with current usage greater than zero for your account.
  */
 @interface GTLRShoppingContent_MethodQuota : GTLRObject
 
 /**
- *  The method name, for example “products.list”. Method name does not contain
+ *  The method name, for example `products.list`. Method name does not contain
  *  version because quota can be shared between different API versions of the
  *  same method.
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  The current quota limit, for example the maximum number of calls for the
+ *  The current quota limit per day, meaning the maximum number of calls for the
  *  method.
  *
  *  Uses NSNumber of longLongValue.
@@ -6079,7 +6481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *quotaLimit;
 
 /**
- *  The current quota usage, for example the number of calls for the method.
+ *  The current quota usage, meaning the number of calls already made to the
+ *  method.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6103,7 +6506,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *aos;
 
 /**
- *  Average order value - the average value (total price of items) of all placed
+ *  Average order value in micros (1 millionth of a standard unit, 1 USD =
+ *  1000000 micros) - the average value (total price of items) of all placed
  *  orders. The currency of the returned value is stored in the currency_code
  *  segment. If this metric is selected, 'segments.currency_code' is
  *  automatically added to the SELECT clause in the search query (unless it is
@@ -6143,13 +6547,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *conversions;
 
 /**
- *  Value of conversions in micros attributed to the product, reported on the
- *  conversion date. The metric is currently available only for the
- *  FREE_PRODUCT_LISTING program. The currency of the returned value is stored
- *  in the currency_code segment. If this metric is selected,
- *  'segments.currency_code' is automatically added to the SELECT clause in the
- *  search query (unless it is explicitly selected by the user) and the
- *  currency_code segment is populated in the response.
+ *  Value of conversions in micros (1 millionth of a standard unit, 1 USD =
+ *  1000000 micros) attributed to the product, reported on the conversion date.
+ *  The metric is currently available only for the FREE_PRODUCT_LISTING program.
+ *  The currency of the returned value is stored in the currency_code segment.
+ *  If this metric is selected, 'segments.currency_code' is automatically added
+ *  to the SELECT clause in the search query (unless it is explicitly selected
+ *  by the user) and the currency_code segment is populated in the response.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6208,13 +6612,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *orderedItems;
 
 /**
- *  Total price of ordered items. Excludes shipping, taxes (US only), and
- *  customer cancellations that happened within 30 minutes of placing the order.
- *  The currency of the returned value is stored in the currency_code segment.
- *  If this metric is selected, 'segments.currency_code' is automatically added
- *  to the SELECT clause in the search query (unless it is explicitly selected
- *  by the user) and the currency_code segment is populated in the response.
- *  **This metric cannot be segmented by customer_country_code.**
+ *  Total price of ordered items in micros (1 millionth of a standard unit, 1
+ *  USD = 1000000 micros). Excludes shipping, taxes (US only), and customer
+ *  cancellations that happened within 30 minutes of placing the order. The
+ *  currency of the returned value is stored in the currency_code segment. If
+ *  this metric is selected, 'segments.currency_code' is automatically added to
+ *  the SELECT clause in the search query (unless it is explicitly selected by
+ *  the user) and the currency_code segment is populated in the response. **This
+ *  metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6259,9 +6664,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *returnRate;
 
 /**
- *  Total price of ordered items sent back for return, reported on the date when
- *  the merchant accepted the return. The currency of the returned value is
- *  stored in the currency_code segment. If this metric is selected,
+ *  Total price of ordered items sent back for return in micros (1 millionth of
+ *  a standard unit, 1 USD = 1000000 micros), reported on the date when the
+ *  merchant accepted the return. The currency of the returned value is stored
+ *  in the currency_code segment. If this metric is selected,
  *  'segments.currency_code' is automatically added to the SELECT clause in the
  *  search query (unless it is explicitly selected by the user) and the
  *  currency_code segment is populated in the response. **This metric cannot be
@@ -6280,8 +6686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *shippedItems;
 
 /**
- *  Total price of shipped items, reported on the order date. Excludes shipping
- *  and taxes (US only). The currency of the returned value is stored in the
+ *  Total price of shipped items in micros (1 millionth of a standard unit, 1
+ *  USD = 1000000 micros), reported on the order date. Excludes shipping and
+ *  taxes (US only). The currency of the returned value is stored in the
  *  currency_code segment. If this metric is selected, 'segments.currency_code'
  *  is automatically added to the SELECT clause in the search query (unless it
  *  is explicitly selected by the user) and the currency_code segment is
@@ -9868,8 +10275,103 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Required product attributes are primarily defined by the products data
- *  specification. See the Products Data Specification Help Center article for
+ *  Price Competitiveness fields requested by the merchant in the query. Field
+ *  values are only set if the merchant queries
+ *  `PriceCompetitivenessProductView`.
+ *  https://support.google.com/merchants/answer/9626903
+ */
+@interface GTLRShoppingContent_PriceCompetitiveness : GTLRObject
+
+/** The price benchmark currency (ISO 4217 code). */
+@property(nonatomic, copy, nullable) NSString *benchmarkPriceCurrencyCode;
+
+/**
+ *  The latest available price benchmark in micros (1 millionth of a standard
+ *  unit, 1 USD = 1000000 micros) for the product's catalog in the benchmark
+ *  country.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *benchmarkPriceMicros;
+
+/** The country of the price benchmark (ISO 3166 code). */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+@end
+
+
+/**
+ *  Price Insights fields requested by the merchant in the query. Field values
+ *  are only set if the merchant queries `PriceInsightsProductView`.
+ *  https://support.google.com/merchants/answer/11916926
+ */
+@interface GTLRShoppingContent_PriceInsights : GTLRObject
+
+/**
+ *  The predicted change in clicks as a fraction after introducing the suggested
+ *  price compared to current active price. For example, 0.05 is a 5% predicted
+ *  increase in clicks.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedClicksChangeFraction;
+
+/**
+ *  The predicted change in conversions as a fraction after introducing the
+ *  suggested price compared to current active price. For example, 0.05 is a 5%
+ *  predicted increase in conversions).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedConversionsChangeFraction;
+
+/**
+ *  The predicted change in gross profit as a fraction after introducing the
+ *  suggested price compared to current active price. For example, 0.05 is a 5%
+ *  predicted increase in gross profit.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedGrossProfitChangeFraction;
+
+/**
+ *  The predicted change in impressions as a fraction after introducing the
+ *  suggested price compared to current active price. For example, 0.05 is a 5%
+ *  predicted increase in impressions.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedImpressionsChangeFraction;
+
+/** The predicted monthly gross profit change currency (ISO 4217 code). */
+@property(nonatomic, copy, nullable) NSString *predictedMonthlyGrossProfitChangeCurrencyCode;
+
+/**
+ *  The predicted change in gross profit in micros (1 millionth of a standard
+ *  unit, 1 USD = 1000000 micros) after introducing the suggested price for a
+ *  month compared to current active price.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedMonthlyGrossProfitChangeMicros;
+
+/** The suggested price currency (ISO 4217 code). */
+@property(nonatomic, copy, nullable) NSString *suggestedPriceCurrencyCode;
+
+/**
+ *  The latest suggested price in micros (1 millionth of a standard unit, 1 USD
+ *  = 1000000 micros) for the product.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestedPriceMicros;
+
+@end
+
+
+/**
+ *  Required product attributes are primarily defined by the product data
+ *  specification. See the Product Data Specification Help Center article for
  *  information. Product data. After inserting, updating, or deleting a product,
  *  it may take several minutes before changes take effect.
  */
@@ -9999,7 +10501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The list of destinations to exclude for this target (corresponds to cleared
- *  check boxes in Merchant Center).
+ *  check boxes in Merchant Center). Products that are excluded from all
+ *  destinations for more than 7 days are automatically deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
 
@@ -10085,6 +10588,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`content#product`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Additional URLs of lifestyle images of the item, used to explicitly identify
+ *  images that showcase your item in a real-world context. See the Help Center
+ *  article for more information.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *lifestyleImageLinks;
 
 /** URL directly linking to your item's page on your website. */
 @property(nonatomic, copy, nullable) NSString *link;
@@ -10191,7 +10701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductDimension *productLength;
 
-/** Categories of the item (formatted as in products data specification). */
+/** Categories of the item (formatted as in product data specification). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productTypes;
 
 /**
@@ -10213,7 +10723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *salePrice;
 
 /**
- *  Date range during which the item is on sale (see products data specification
+ *  Date range during which the item is on sale (see product data specification
  *  ).
  */
 @property(nonatomic, copy, nullable) NSString *salePriceEffectiveDate;
@@ -10279,7 +10789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductSubscriptionCost *subscriptionCost;
 
-/** Required. The CLDR territory code for the item. */
+/** Required. The CLDR territory code for the item's country of sale. */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
 /**
@@ -10322,6 +10832,97 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Tax value. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
+
+@end
+
+
+/**
+ *  Product cluster fields. A product cluster is a grouping for different offers
+ *  that represent the same product. Values are only set for fields requested
+ *  explicitly in the request's search query.
+ */
+@interface GTLRShoppingContent_ProductCluster : GTLRObject
+
+/** Brand of the product cluster. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/**
+ *  Tells if there is at least one product of the brand currently `IN_STOCK` in
+ *  your product feed across multiple countries, all products are `OUT_OF_STOCK`
+ *  in your product feed, or `NOT_IN_INVENTORY`. The field doesn't take the Best
+ *  Sellers report country filter into account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InStock
+ *        Merchant has a product for this product cluster or brand in stock.
+ *        (Value: "IN_STOCK")
+ *    @arg @c kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InventoryStatusUnspecified
+ *        Inventory status is unknown. (Value: "INVENTORY_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_NotInInventory
+ *        Merchant does not have a product for this product cluster or brand in
+ *        inventory. (Value: "NOT_IN_INVENTORY")
+ *    @arg @c kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_OutOfStock
+ *        Merchant has a product for this product cluster or brand in inventory
+ *        but it is currently out of stock. (Value: "OUT_OF_STOCK")
+ */
+@property(nonatomic, copy, nullable) NSString *brandInventoryStatus;
+
+/**
+ *  Product category (1st level) of the product cluster, represented in Google's
+ *  product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL1;
+
+/**
+ *  Product category (2nd level) of the product cluster, represented in Google's
+ *  product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL2;
+
+/**
+ *  Product category (3rd level) of the product cluster, represented in Google's
+ *  product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL3;
+
+/**
+ *  Product category (4th level) of the product cluster, represented in Google's
+ *  product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL4;
+
+/**
+ *  Product category (5th level) of the product cluster, represented in Google's
+ *  product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL5;
+
+/**
+ *  Tells whether the product cluster is `IN_STOCK` in your product feed across
+ *  multiple countries, `OUT_OF_STOCK` in your product feed, or
+ *  `NOT_IN_INVENTORY` at all. The field doesn't take the Best Sellers report
+ *  country filter into account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductCluster_InventoryStatus_InStock
+ *        Merchant has a product for this product cluster or brand in stock.
+ *        (Value: "IN_STOCK")
+ *    @arg @c kGTLRShoppingContent_ProductCluster_InventoryStatus_InventoryStatusUnspecified
+ *        Inventory status is unknown. (Value: "INVENTORY_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductCluster_InventoryStatus_NotInInventory
+ *        Merchant does not have a product for this product cluster or brand in
+ *        inventory. (Value: "NOT_IN_INVENTORY")
+ *    @arg @c kGTLRShoppingContent_ProductCluster_InventoryStatus_OutOfStock
+ *        Merchant has a product for this product cluster or brand in inventory
+ *        but it is currently out of stock. (Value: "OUT_OF_STOCK")
+ */
+@property(nonatomic, copy, nullable) NSString *inventoryStatus;
+
+/** Title of the product cluster. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** GTINs of example variants of the product cluster. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *variantGtins;
 
 @end
 
@@ -10599,7 +11200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The numeric ID of a location that the shipping rate applies to as defined in
- *  the AdWords API.
+ *  the Google Ads API.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -11006,7 +11607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The numeric ID of a location that the tax rate applies to as defined in the
- *  AdWords API.
+ *  Google Ads API.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -11109,6 +11710,36 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *brand;
 
 /**
+ *  First level of the product category in [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL1;
+
+/**
+ *  Second level of the product category in [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL2;
+
+/**
+ *  Third level of the product category in [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL3;
+
+/**
+ *  Fourth level of the product category in [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL4;
+
+/**
+ *  Fifth level of the product category in [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL5;
+
+/**
  *  Channel of the product (online versus local).
  *
  *  Likely values:
@@ -11163,12 +11794,43 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *offerId;
 
 /**
- *  Product price specified as micros in the product currency. Absent in case
- *  the information about the price of the product is not available.
+ *  Product price specified as micros (1 millionth of a standard unit, 1 USD =
+ *  1000000 micros) in the product currency. Absent in case the information
+ *  about the price of the product is not available.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *priceMicros;
+
+/**
+ *  First level of the product type in merchant's own [product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL1;
+
+/**
+ *  Second level of the product type in merchant's own [product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL2;
+
+/**
+ *  Third level of the product type in merchant's own [product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL3;
+
+/**
+ *  Fourth level of the product type in merchant's own [product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL4;
+
+/**
+ *  Fifth level of the product type in merchant's own [product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436).
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL5;
 
 /** The normalized shipping label specified in the feed */
 @property(nonatomic, copy, nullable) NSString *shippingLabel;
@@ -11511,6 +12173,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *promotionId;
 
+/** Output only. The current status of the promotion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PromotionPromotionStatus *promotionStatus;
+
 /**
  *  URL to the page on the merchant's site where the promotion shows. Local
  *  Inventory ads promotions throw an error if no promo url is included. URL is
@@ -11556,6 +12221,81 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  `AU`, `CA`, `DE`, `FR`, `GB`, `IN` or `US`.
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
+
+@end
+
+
+/**
+ *  The status of the promotion.
+ */
+@interface GTLRShoppingContent_PromotionPromotionStatus : GTLRObject
+
+/**
+ *  Date on which the promotion has been created in [ISO
+ *  8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset,
+ *  for example "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
+ */
+@property(nonatomic, copy, nullable) NSString *creationDate;
+
+/** The intended destinations for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PromotionPromotionStatusDestinationStatus *> *destinationStatuses;
+
+/**
+ *  Date on which the promotion status has been last updated in [ISO
+ *  8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset,
+ *  for example "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
+ */
+@property(nonatomic, copy, nullable) NSString *lastUpdateDate;
+
+/** A list of issues associated with the promotion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PromotionPromotionStatusPromotionIssue *> *promotionIssue;
+
+@end
+
+
+/**
+ *  The destination status of the promotion.
+ */
+@interface GTLRShoppingContent_PromotionPromotionStatusDestinationStatus : GTLRObject
+
+/** The name of the destination. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  The status for the specified destination.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Expired
+ *        The promotion is no longer active. (Value: "EXPIRED")
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_InReview
+ *        The promotion is under review. (Value: "IN_REVIEW")
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Live
+ *        The promotion is approved and active. (Value: "LIVE")
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Pending
+ *        The promotion is not stopped, and all reviews are approved, but the
+ *        active date is in the future. (Value: "PENDING")
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Rejected
+ *        The promotion is disapproved (Value: "REJECTED")
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_StateUnspecified
+ *        Unknown promotion state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Stopped
+ *        The promotion is stopped by merchant. (Value: "STOPPED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  The issue associated with the promotion.
+ */
+@interface GTLRShoppingContent_PromotionPromotionStatusPromotionIssue : GTLRObject
+
+/** Code of the issue. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** Explanation of the issue. */
+@property(nonatomic, copy, nullable) NSString *detail;
 
 @end
 
@@ -11910,10 +12650,42 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_ReportRow : GTLRObject
 
 /**
+ *  Best Sellers fields requested by the merchant in the query. Field values are
+ *  only set if the merchant queries `BestSellersProductClusterView` or
+ *  `BestSellersBrandView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BestSellers *bestSellers;
+
+/**
+ *  Brand fields requested by the merchant in the query. Field values are only
+ *  set if the merchant queries `BestSellersBrandView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Brand *brand;
+
+/**
  *  Metrics requested by the merchant in the query. Metric values are only set
  *  for metrics requested explicitly in the query.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Metrics *metrics;
+
+/**
+ *  Price Competitiveness fields requested by the merchant in the query. Field
+ *  values are only set if the merchant queries
+ *  `PriceCompetitivenessProductView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceCompetitiveness *priceCompetitiveness;
+
+/**
+ *  Price Insights fields requested by the merchant in the query. Field values
+ *  are only set if the merchant queries `PriceInsightsProductView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceInsights *priceInsights;
+
+/**
+ *  Product cluster fields requested by the merchant in the query. Field values
+ *  are only set if the merchant queries `BestSellersProductClusterView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductCluster *productCluster;
 
 /**
  *  Product fields requested by the merchant in the query. Field values are only
@@ -12040,7 +12812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Represents a repricing rule. A repricing rule is used by shopping serving to
- *  adjust transactable offer prices if conditions are met. Next ID: 24
+ *  adjust transactable offer prices if conditions are met.
  */
 @interface GTLRShoppingContent_RepricingRule : GTLRObject
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Admin API (analyticsadmin/v1alpha)
+//   Google Analytics Admin API (analyticsadmin/v1beta)
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -12,8 +12,6 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit = @"https://www.googleapis.com/auth/analytics.edit";
-NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers = @"https://www.googleapis.com/auth/analytics.manage.users";
-NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly = @"https://www.googleapis.com/auth/analytics.manage.users.readonly";
 NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly = @"https://www.googleapis.com/auth/analytics.readonly";
 
 // ----------------------------------------------------------------------------

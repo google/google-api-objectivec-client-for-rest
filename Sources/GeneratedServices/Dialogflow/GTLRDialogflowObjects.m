@@ -59,6 +59,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Parameters = @"PARAMETERS";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Utterance = @"UTTERANCE";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals.failureReasons
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailedIntent = @"FAILED_INTENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailedWebhook = @"FAILED_WEBHOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailureReasonUnspecified = @"FAILURE_REASON_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse.mergeBehavior
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Append = @"APPEND";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
@@ -219,6 +224,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Page = @"PAGE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Parameters = @"PARAMETERS";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Utterance = @"UTTERANCE";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals.failureReasons
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailedIntent = @"FAILED_INTENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailedWebhook = @"FAILED_WEBHOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailureReasonUnspecified = @"FAILURE_REASON_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage.resourceType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_Agent = @"AGENT";
@@ -564,6 +574,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailedIntent = @"FAILED_INTENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailedWebhook = @"FAILED_WEBHOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailureReasonUnspecified = @"FAILURE_REASON_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings
@@ -770,6 +785,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationSignals
+@dynamic turnSignals;
 @end
 
 
@@ -1458,8 +1483,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
-@dynamic conversationSuccess, endInteraction, liveAgentHandoff, mixedAudio,
-         outputAudioText, payload, playAudio, telephonyTransferCall, text;
+@dynamic channel, conversationSuccess, endInteraction, liveAgentHandoff,
+         mixedAudio, outputAudioText, payload, playAudio, telephonyTransferCall,
+         text;
 @end
 
 
@@ -1794,6 +1820,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals
+@dynamic agentEscalated, dtmfUsed, failureReasons, noMatch, noUserInput,
+         reachedEndPage, userEscalated, webhookStatuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failureReasons" : [NSString class],
+    @"webhookStatuses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1UpdateDocumentOperationMetadata
 //
 
@@ -2041,6 +2087,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationSignals
+@dynamic turnSignals;
 @end
 
 
@@ -3541,9 +3597,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters
-@dynamic analyzeQueryTextSentiment, currentPage, disableWebhook, flowVersions,
-         geoLocation, parameters, payload, sessionEntityTypes, timeZone,
-         webhookHeaders;
+@dynamic analyzeQueryTextSentiment, channel, currentPage, disableWebhook,
+         flowVersions, geoLocation, parameters, payload, sessionEntityTypes,
+         timeZone, webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3689,8 +3745,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage
-@dynamic conversationSuccess, endInteraction, liveAgentHandoff, mixedAudio,
-         outputAudioText, payload, playAudio, telephonyTransferCall, text;
+@dynamic channel, conversationSuccess, endInteraction, liveAgentHandoff,
+         mixedAudio, outputAudioText, payload, playAudio, telephonyTransferCall,
+         text;
 @end
 
 
@@ -4312,6 +4369,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition
 @dynamic covered, transitionRoute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals
+@dynamic agentEscalated, dtmfUsed, failureReasons, noMatch, noUserInput,
+         reachedEndPage, userEscalated, webhookStatuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failureReasons" : [NSString class],
+    @"webhookStatuses" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -7136,6 +7213,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ConversationSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ConversationSignals
+@dynamic turnSignals;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateDocumentOperationMetadata
 //
 
@@ -7199,6 +7286,27 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ReloadDocumentOperationMetadata
 @dynamic genericMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals
+@dynamic agentEscalated, dtmfUsed, failureReasons, noMatch, noUserInput,
+         reachedEndPage, triggeredAbandonmentEvent, userEscalated,
+         webhookStatuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failureReasons" : [NSString class],
+    @"webhookStatuses" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

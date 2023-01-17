@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v1beta)
+//   Dataproc Metastore API (metastore/v1)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.
@@ -21,7 +21,6 @@ NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataWrite = @"DAT
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
-NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified = @"METASTORE_TYPE_UNSPECIFIED";
 
@@ -54,11 +53,6 @@ NSString * const kGTLRDataprocMetastore_Federation_State_Deleting = @"DELETING";
 NSString * const kGTLRDataprocMetastore_Federation_State_Error = @"ERROR";
 NSString * const kGTLRDataprocMetastore_Federation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_Federation_State_Updating = @"UPDATING";
-
-// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
-NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified = @"ENDPOINT_PROTOCOL_UNSPECIFIED";
-NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc = @"GRPC";
-NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift = @"THRIFT";
 
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -174,30 +168,6 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_AuxiliaryVersionConfig
-//
-
-@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig
-@dynamic configOverrides, networkConfig, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
-//
-
-@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataprocMetastore_BackendMetastore
 //
 
@@ -249,6 +219,15 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_CancelOperationRequest
+//
+
+@implementation GTLRDataprocMetastore_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Consumer
 //
 
@@ -264,40 +243,6 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 @implementation GTLRDataprocMetastore_DatabaseDump
 @dynamic databaseType, gcsUri, sourceDatabase, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_DataCatalogConfig
-//
-
-@implementation GTLRDataprocMetastore_DataCatalogConfig
-@dynamic enabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_DataplexConfig
-//
-
-@implementation GTLRDataprocMetastore_DataplexConfig
-@dynamic lakeResources;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_DataplexConfig_LakeResources
-//
-
-@implementation GTLRDataprocMetastore_DataplexConfig_LakeResources
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRDataprocMetastore_Lake class];
-}
-
 @end
 
 
@@ -390,22 +335,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_HiveMetastoreConfig
-@dynamic auxiliaryVersions, configOverrides, endpointProtocol, kerberosConfig,
-         version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
-//
-
-@implementation GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRDataprocMetastore_AuxiliaryVersionConfig class];
-}
-
+@dynamic configOverrides, kerberosConfig, version;
 @end
 
 
@@ -440,16 +370,6 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 @implementation GTLRDataprocMetastore_KerberosConfig
 @dynamic keytab, krb5ConfigGcsUri, principal;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_Lake
-//
-
-@implementation GTLRDataprocMetastore_Lake
-@dynamic name;
 @end
 
 
@@ -683,16 +603,6 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_MetadataIntegration
-//
-
-@implementation GTLRDataprocMetastore_MetadataIntegration
-@dynamic dataCatalogConfig, dataplexConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataprocMetastore_MetadataManagementActivity
 //
 
@@ -802,25 +712,6 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_RemoveIamPolicyRequest
-//
-
-@implementation GTLRDataprocMetastore_RemoveIamPolicyRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_RemoveIamPolicyResponse
-//
-
-@implementation GTLRDataprocMetastore_RemoveIamPolicyResponse
-@dynamic success;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataprocMetastore_Restore
 //
 
@@ -857,9 +748,9 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 @implementation GTLRDataprocMetastore_Service
 @dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
          endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
-         metadataIntegration, metadataManagementActivity, name, network,
-         networkConfig, port, releaseChannel, state, stateMessage,
-         telemetryConfig, tier, uid, updateTime;
+         metadataManagementActivity, name, network, networkConfig, port,
+         releaseChannel, state, stateMessage, telemetryConfig, tier, uid,
+         updateTime;
 @end
 
 

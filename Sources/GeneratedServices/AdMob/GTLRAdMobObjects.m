@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAdMob_App.appApprovalState
+NSString * const kGTLRAdMob_App_AppApprovalState_ActionRequired = @"ACTION_REQUIRED";
+NSString * const kGTLRAdMob_App_AppApprovalState_AppApprovalStateUnspecified = @"APP_APPROVAL_STATE_UNSPECIFIED";
+NSString * const kGTLRAdMob_App_AppApprovalState_Approved      = @"APPROVED";
+NSString * const kGTLRAdMob_App_AppApprovalState_InReview      = @"IN_REVIEW";
+
 // GTLRAdMob_MediationReportSpec.dimensions
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSource = @"AD_SOURCE";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSourceInstance = @"AD_SOURCE_INSTANCE";
@@ -203,7 +209,7 @@ NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRAdMob_App
-@dynamic appId, linkedAppInfo, manualAppInfo, name, platform;
+@dynamic appApprovalState, appId, linkedAppInfo, manualAppInfo, name, platform;
 @end
 
 

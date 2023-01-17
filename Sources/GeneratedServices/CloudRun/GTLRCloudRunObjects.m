@@ -45,6 +45,7 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Customiz
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_HealthCheckContainerError = @"HEALTH_CHECK_CONTAINER_ERROR";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_HealthCheckSkipped = @"HEALTH_CHECK_SKIPPED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_MinInstancesNotProvisioned = @"MIN_INSTANCES_NOT_PROVISIONED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_MinInstancesWarming = @"MIN_INSTANCES_WARMING";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_NoDeployment = @"NO_DEPLOYMENT";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Pending = @"PENDING";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Recreating = @"RECREATING";
@@ -85,6 +86,11 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Ga = @"GA";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRCloudRun_GoogleCloudRunV2Revision.encryptionKeyRevocationAction
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified = @"ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_EncryptionKeyRevocationAction_PreventNew = @"PREVENT_NEW";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_EncryptionKeyRevocationAction_Shutdown = @"SHUTDOWN";
 
 // GTLRCloudRun_GoogleCloudRunV2Revision.executionEnvironment
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen1 = @"EXECUTION_ENVIRONMENT_GEN1";
@@ -251,10 +257,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Execution
-@dynamic annotations, completionTime, conditions, createTime, deleteTime, ETag,
-         expireTime, failedCount, generation, job, labels, launchStage, name,
-         observedGeneration, parallelism, reconciling, runningCount, startTime,
-         succeededCount, taskCount, templateProperty, uid, updateTime;
+@dynamic annotations, cancelledCount, completionTime, conditions, createTime,
+         deleteTime, ETag, expireTime, failedCount, generation, job, labels,
+         launchStage, logUri, name, observedGeneration, parallelism,
+         reconciling, retriedCount, runningCount, startTime, succeededCount,
+         taskCount, templateProperty, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -352,6 +359,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2GRPCAction
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2GRPCAction
+@dynamic port, service;
 @end
 
 
@@ -557,7 +574,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Probe
-@dynamic failureThreshold, httpGet, initialDelaySeconds, periodSeconds,
+@dynamic failureThreshold, grpc, httpGet, initialDelaySeconds, periodSeconds,
          tcpSocket, timeoutSeconds;
 @end
 
@@ -593,10 +610,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Revision
 @dynamic annotations, conditions, containers, createTime, deleteTime,
-         encryptionKey, ETag, executionEnvironment, expireTime, generation,
-         labels, launchStage, logUri, maxInstanceRequestConcurrency, name,
-         observedGeneration, reconciling, scaling, service, serviceAccount,
-         timeout, uid, updateTime, volumes, vpcAccess;
+         encryptionKey, encryptionKeyRevocationAction,
+         encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
+         generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
+         name, observedGeneration, reconciling, scaling, service,
+         serviceAccount, timeout, uid, updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -814,7 +832,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2Task
 @dynamic annotations, completionTime, conditions, containers, createTime,
          deleteTime, encryptionKey, ETag, execution, executionEnvironment,
-         expireTime, generation, index, job, labels, lastAttemptResult,
+         expireTime, generation, index, job, labels, lastAttemptResult, logUri,
          maxRetries, name, observedGeneration, reconciling, retried,
          serviceAccount, startTime, timeout, uid, updateTime, volumes,
          vpcAccess;

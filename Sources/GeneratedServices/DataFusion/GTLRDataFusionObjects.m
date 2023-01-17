@@ -206,10 +206,10 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
          cryptoKeyConfig, dataprocServiceAccount, descriptionProperty,
          disabledReason, displayName, enableRbac, enableStackdriverLogging,
-         enableStackdriverMonitoring, eventPublishConfig, gcsBucket, labels,
-         name, networkConfig, options, p4ServiceAccount, privateInstance,
-         serviceAccount, serviceEndpoint, state, stateMessage, tenantProjectId,
-         type, updateTime, version, zoneProperty;
+         enableStackdriverMonitoring, enableZoneSeparation, eventPublishConfig,
+         gcsBucket, labels, name, networkConfig, options, p4ServiceAccount,
+         privateInstance, serviceAccount, serviceEndpoint, state, stateMessage,
+         tenantProjectId, type, updateTime, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

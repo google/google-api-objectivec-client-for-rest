@@ -512,6 +512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_ScanConfigIssue;
 /**
+ *  Indicates that some of the starting web urls returned HTTP errors during the
+ *  scan.
+ *
+ *  Value: "STARTING_URLS_CRAWL_HTTP_ERRORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_StartingUrlsCrawlHttpErrors;
+/**
  *  Indicates a scan operation timeout, usually caused by a very large site.
  *
  *  Value: "TIMED_OUT_WHILE_SCANNING"
@@ -1517,6 +1524,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_L
  *        Indicates a scan configuration error, usually due to outdated
  *        ScanConfig settings, such as starting_urls or the DNS configuration.
  *        (Value: "SCAN_CONFIG_ISSUE")
+ *    @arg @c kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_StartingUrlsCrawlHttpErrors
+ *        Indicates that some of the starting web urls returned HTTP errors
+ *        during the scan. (Value: "STARTING_URLS_CRAWL_HTTP_ERRORS")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TimedOutWhileScanning
  *        Indicates a scan operation timeout, usually caused by a very large
  *        site. (Value: "TIMED_OUT_WHILE_SCANNING")

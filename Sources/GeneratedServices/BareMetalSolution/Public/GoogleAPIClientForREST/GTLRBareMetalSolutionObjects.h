@@ -164,6 +164,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Stoppin
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_Instance.workloadProfile
+
+/**
+ *  The workload profile is generic.
+ *
+ *  Value: "WORKLOAD_PROFILE_GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileGeneric;
+/**
+ *  The workload profile is hana.
+ *
+ *  Value: "WORKLOAD_PROFILE_HANA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileHana;
+/**
+ *  The workload profile is in an unknown state.
+ *
+ *  Value: "WORKLOAD_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_InstanceConfig.networkConfig
 
 /**
@@ -723,6 +745,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_StorageType_Ssd
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_StorageType_StorageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_Volume.workloadProfile
+
+/**
+ *  The workload profile is generic.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_Generic;
+/**
+ *  The workload profile is hana.
+ *
+ *  Value: "HANA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_Hana;
+/**
+ *  The workload profile is in an unknown state.
+ *
+ *  Value: "WORKLOAD_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_WorkloadProfileUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_VolumeConfig.performanceTier
 
 /**
@@ -1134,6 +1178,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  field won't be populated in Get/List responses.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_Volume *> *volumes;
+
+/**
+ *  The workload profile for the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileGeneric
+ *        The workload profile is generic. (Value: "WORKLOAD_PROFILE_GENERIC")
+ *    @arg @c kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileHana
+ *        The workload profile is hana. (Value: "WORKLOAD_PROFILE_HANA")
+ *    @arg @c kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileUnspecified
+ *        The workload profile is in an unknown state. (Value:
+ *        "WORKLOAD_PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workloadProfile;
 
 @end
 
@@ -2267,44 +2325,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  Represents the metadata from a long-running operation.
- */
-@interface GTLRBareMetalSolution_OperationMetadata : GTLRObject
-
-/** Output only. API version used with the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user requested the cancellation of the
- *  operation. Operations that have been successfully cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the action executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
  *  Operation System image.
  */
 @interface GTLRBareMetalSolution_OSImage : GTLRObject
@@ -2927,6 +2947,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        "STORAGE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *storageType;
+
+/**
+ *  The workload profile for the volume.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_Volume_WorkloadProfile_Generic The workload
+ *        profile is generic. (Value: "GENERIC")
+ *    @arg @c kGTLRBareMetalSolution_Volume_WorkloadProfile_Hana The workload
+ *        profile is hana. (Value: "HANA")
+ *    @arg @c kGTLRBareMetalSolution_Volume_WorkloadProfile_WorkloadProfileUnspecified
+ *        The workload profile is in an unknown state. (Value:
+ *        "WORKLOAD_PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workloadProfile;
 
 @end
 

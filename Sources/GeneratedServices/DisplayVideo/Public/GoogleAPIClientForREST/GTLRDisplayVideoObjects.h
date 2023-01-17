@@ -226,6 +226,8 @@
 @class GTLRDisplayVideo_User;
 @class GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_UserRewardedContentTargetingOptionDetails;
+@class GTLRDisplayVideo_VideoAdSequenceSettings;
+@class GTLRDisplayVideo_VideoAdSequenceStep;
 @class GTLRDisplayVideo_VideoPlayerSizeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_VideoPlayerSizeTargetingOptionDetails;
 @class GTLRDisplayVideo_ViewabilityAssignedTargetingOptionDetails;
@@ -4493,6 +4495,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAja;
 /**
+ *  AppLovin.
+ *
+ *  Value: "EXCHANGE_APPLOVIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovin;
+/**
  *  AppNexus.
  *
  *  Value: "EXCHANGE_APPNEXUS"
@@ -4522,6 +4530,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  *  Value: "EXCHANGE_CADREON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon;
+/**
+ *  Connatix.
+ *
+ *  Value: "EXCHANGE_CONNATIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix;
 /**
  *  Dailymotion.
  *
@@ -4607,6 +4621,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeInmobi;
 /**
+ *  JCD.
+ *
+ *  Value: "EXCHANGE_JCD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeJcd;
+/**
  *  Kargo.
  *
  *  Value: "EXCHANGE_KARGO"
@@ -4684,6 +4704,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  *  Value: "EXCHANGE_PERMODO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePermodo;
+/**
+ *  Place Exchange.
+ *
+ *  Value: "EXCHANGE_PLACE_EXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePlaceExchange;
 /**
  *  PlatformId.
  *
@@ -4911,6 +4937,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAja;
 /**
+ *  AppLovin.
+ *
+ *  Value: "EXCHANGE_APPLOVIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovin;
+/**
  *  AppNexus.
  *
  *  Value: "EXCHANGE_APPNEXUS"
@@ -4940,6 +4972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_CADREON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon;
+/**
+ *  Connatix.
+ *
+ *  Value: "EXCHANGE_CONNATIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix;
 /**
  *  Dailymotion.
  *
@@ -5025,6 +5063,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeInmobi;
 /**
+ *  JCD.
+ *
+ *  Value: "EXCHANGE_JCD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeJcd;
+/**
  *  Kargo.
  *
  *  Value: "EXCHANGE_KARGO"
@@ -5102,6 +5146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_PERMODO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePermodo;
+/**
+ *  Place Exchange.
+ *
+ *  Value: "EXCHANGE_PLACE_EXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePlaceExchange;
 /**
  *  PlatformId.
  *
@@ -5329,6 +5379,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAja;
 /**
+ *  AppLovin.
+ *
+ *  Value: "EXCHANGE_APPLOVIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovin;
+/**
  *  AppNexus.
  *
  *  Value: "EXCHANGE_APPNEXUS"
@@ -5358,6 +5414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_CADREON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon;
+/**
+ *  Connatix.
+ *
+ *  Value: "EXCHANGE_CONNATIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix;
 /**
  *  Dailymotion.
  *
@@ -5443,6 +5505,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeInmobi;
 /**
+ *  JCD.
+ *
+ *  Value: "EXCHANGE_JCD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeJcd;
+/**
  *  Kargo.
  *
  *  Value: "EXCHANGE_KARGO"
@@ -5520,6 +5588,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_PERMODO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePermodo;
+/**
+ *  Place Exchange.
+ *
+ *  Value: "EXCHANGE_PLACE_EXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePlaceExchange;
 /**
  *  PlatformId.
  *
@@ -5775,6 +5849,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAja;
 /**
+ *  AppLovin.
+ *
+ *  Value: "EXCHANGE_APPLOVIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovin;
+/**
  *  AppNexus.
  *
  *  Value: "EXCHANGE_APPNEXUS"
@@ -5804,6 +5884,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_CADREON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon;
+/**
+ *  Connatix.
+ *
+ *  Value: "EXCHANGE_CONNATIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix;
 /**
  *  Dailymotion.
  *
@@ -5889,6 +5975,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeInmobi;
 /**
+ *  JCD.
+ *
+ *  Value: "EXCHANGE_JCD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeJcd;
+/**
  *  Kargo.
  *
  *  Value: "EXCHANGE_KARGO"
@@ -5966,6 +6058,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_PERMODO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePermodo;
+/**
+ *  Place Exchange.
+ *
+ *  Value: "EXCHANGE_PLACE_EXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePlaceExchange;
 /**
  *  PlatformId.
  *
@@ -6706,6 +6804,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequ
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersNonSkippable;
 /**
+ *  Connected TV youTube video ads (up to 15 seconds) that cannot be skipped.
+ *  Line items of this type and their targeting cannot be created or updated
+ *  using the API.
+ *
+ *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersNonSkippableOverTheTop;
+/**
  *  YouTube video ads that optimize reaching more unique users at lower cost.
  *  May include bumper ads, skippable in-stream ads, or a mix of types. Line
  *  items of this type and their targeting cannot be created or updated using
@@ -6715,12 +6821,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequ
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersReach;
 /**
+ *  Connected TV youTube video ads that optimize reaching more unique users at
+ *  lower cost. May include bumper ads, skippable in-stream ads, or a mix of
+ *  types. Line items of this type and their targeting cannot be created or
+ *  updated using the API.
+ *
+ *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersReachOverTheTop;
+/**
  *  Default YouTube video ads. Line items of this type and their targeting
  *  cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersSimple;
+/**
+ *  Connected TV default YouTube video ads. Only include in-stream ad-format.
+ *  Line items of this type and their targeting cannot be created or updated
+ *  using the API.
+ *
+ *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersSimpleOverTheTop;
 /**
  *  YouTube video ads that show a story in a particular sequence using a mix of
  *  formats. Line items of this type and their targeting cannot be created or
@@ -7172,6 +7295,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAja;
 /**
+ *  AppLovin.
+ *
+ *  Value: "EXCHANGE_APPLOVIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovin;
+/**
  *  AppNexus.
  *
  *  Value: "EXCHANGE_APPNEXUS"
@@ -7201,6 +7330,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_CADREON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon;
+/**
+ *  Connatix.
+ *
+ *  Value: "EXCHANGE_CONNATIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix;
 /**
  *  Dailymotion.
  *
@@ -7286,6 +7421,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeInmobi;
 /**
+ *  JCD.
+ *
+ *  Value: "EXCHANGE_JCD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeJcd;
+/**
  *  Kargo.
  *
  *  Value: "EXCHANGE_KARGO"
@@ -7363,6 +7504,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_PERMODO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePermodo;
+/**
+ *  Place Exchange.
+ *
+ *  Value: "EXCHANGE_PLACE_EXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlaceExchange;
 /**
  *  PlatformId.
  *
@@ -8318,6 +8465,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAja;
 /**
+ *  AppLovin.
+ *
+ *  Value: "EXCHANGE_APPLOVIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovin;
+/**
  *  AppNexus.
  *
  *  Value: "EXCHANGE_APPNEXUS"
@@ -8347,6 +8500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_CADREON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon;
+/**
+ *  Connatix.
+ *
+ *  Value: "EXCHANGE_CONNATIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix;
 /**
  *  Dailymotion.
  *
@@ -8432,6 +8591,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeInmobi;
 /**
+ *  JCD.
+ *
+ *  Value: "EXCHANGE_JCD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeJcd;
+/**
  *  Kargo.
  *
  *  Value: "EXCHANGE_KARGO"
@@ -8509,6 +8674,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_PERMODO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangePermodo;
+/**
+ *  Place Exchange.
+ *
+ *  Value: "EXCHANGE_PLACE_EXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangePlaceExchange;
 /**
  *  PlatformId.
  *
@@ -9039,6 +9210,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersNonSkippable;
 /**
+ *  Connected TV youTube video ads (up to 15 seconds) that cannot be skipped.
+ *  Line items of this type and their targeting cannot be created or updated
+ *  using the API.
+ *
+ *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersNonSkippableOverTheTop;
+/**
  *  YouTube video ads that optimize reaching more unique users at lower cost.
  *  May include bumper ads, skippable in-stream ads, or a mix of types. Line
  *  items of this type and their targeting cannot be created or updated using
@@ -9048,12 +9227,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersReach;
 /**
+ *  Connected TV youTube video ads that optimize reaching more unique users at
+ *  lower cost. May include bumper ads, skippable in-stream ads, or a mix of
+ *  types. Line items of this type and their targeting cannot be created or
+ *  updated using the API.
+ *
+ *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersReachOverTheTop;
+/**
  *  Default YouTube video ads. Line items of this type and their targeting
  *  cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersSimple;
+/**
+ *  Connected TV default YouTube video ads. Only include in-stream ad-format.
+ *  Line items of this type and their targeting cannot be created or updated
+ *  using the API.
+ *
+ *  Value: "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersSimpleOverTheTop;
 /**
  *  YouTube video ads that show a story in a particular sequence using a mix of
  *  formats. Line items of this type and their targeting cannot be created or
@@ -11602,6 +11798,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UserRewardedContentTargetin
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UserRewardedContentTargetingOptionDetails_UserRewardedContent_UserRewardedContentUserRewarded;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_VideoAdSequenceSettings.minimumDuration
+
+/**
+ *  30 days.
+ *
+ *  Value: "VIDEO_AD_SEQUENCE_MINIMUM_DURATION_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceSettings_MinimumDuration_VideoAdSequenceMinimumDurationMonth;
+/**
+ *  Unspecified or unknown.
+ *
+ *  Value: "VIDEO_AD_SEQUENCE_MINIMUM_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceSettings_MinimumDuration_VideoAdSequenceMinimumDurationUnspecified;
+/**
+ *  7 days.
+ *
+ *  Value: "VIDEO_AD_SEQUENCE_MINIMUM_DURATION_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceSettings_MinimumDuration_VideoAdSequenceMinimumDurationWeek;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_VideoAdSequenceStep.interactionType
+
+/**
+ *  An ad impression that was not immediately skipped by the viewer, but didn't
+ *  reach the billable event either.
+ *
+ *  Value: "INTERACTION_TYPE_ENGAGED_IMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeEngagedImpression;
+/**
+ *  A (viewed) ad impression.
+ *
+ *  Value: "INTERACTION_TYPE_IMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeImpression;
+/**
+ *  A paid view.
+ *
+ *  Value: "INTERACTION_TYPE_PAID_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypePaidView;
+/**
+ *  Skipped by the viewer.
+ *
+ *  Value: "INTERACTION_TYPE_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeSkip;
+/**
+ *  Unspecified or unknown
+ *
+ *  Value: "INTERACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_VideoPlayerSizeAssignedTargetingOptionDetails.videoPlayerSize
 
 /**
@@ -12159,6 +12412,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *  Billing related settings of an advertiser.
  */
 @interface GTLRDisplayVideo_AdvertiserBillingConfig : GTLRObject
+
+/**
+ *  The ID of a billing profile assigned to the advertiser. This field will
+ *  default to the default billing profile ID of the advertiser's parent partner
+ *  if a value is not provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *billingProfileId;
+
 @end
 
 
@@ -12800,6 +13063,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *  contexts.
  */
 @property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
+
+/**
+ *  Output only. An alias for the assigned_targeting_option_id. This value can
+ *  be used in place of `assignedTargetingOptionId` when retrieving or deleting
+ *  existing targeting. This field will only be supported for all assigned
+ *  targeting options of the following targeting types: *
+ *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *  `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` This field
+ *  is also supported for line item assigned targeting options of the following
+ *  targeting types: * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION`
+ */
+@property(nonatomic, copy, nullable) NSString *assignedTargetingOptionIdAlias;
 
 /**
  *  Audience targeting details. This field will be populated when the
@@ -17783,6 +18065,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAja
  *        Aja. (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovin
+ *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBidswitch
@@ -17795,6 +18079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix
+ *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax
@@ -17823,6 +18109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        Index Exchange. (Value: "EXCHANGE_INDEX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeInmobi
  *        InMobi. (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeJcd
+ *        JCD. (Value: "EXCHANGE_JCD")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeMedianet
@@ -17850,6 +18138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePermodo
  *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePlaceExchange
+ *        Place Exchange. (Value: "EXCHANGE_PLACE_EXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePlatformid
  *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePlatformone
@@ -17954,6 +18244,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAja
  *        Aja. (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovin
+ *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBidswitch
@@ -17966,6 +18258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix
+ *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax
@@ -17994,6 +18288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        Index Exchange. (Value: "EXCHANGE_INDEX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeInmobi
  *        InMobi. (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeJcd
+ *        JCD. (Value: "EXCHANGE_JCD")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMedianet
@@ -18021,6 +18317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePermodo
  *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePlaceExchange
+ *        Place Exchange. (Value: "EXCHANGE_PLACE_EXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePlatformid
  *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePlatformone
@@ -18126,6 +18424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAja Aja.
  *        (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovin
+ *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBidswitch
@@ -18138,6 +18438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix
+ *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax DAX.
@@ -18166,6 +18468,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        Index Exchange. (Value: "EXCHANGE_INDEX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeInmobi
  *        InMobi. (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeJcd JCD.
+ *        (Value: "EXCHANGE_JCD")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMedianet
@@ -18193,6 +18497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePermodo
  *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePlaceExchange
+ *        Place Exchange. (Value: "EXCHANGE_PLACE_EXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePlatformid
  *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePlatformone
@@ -18301,6 +18607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAja
  *        Aja. (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovin
+ *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBidswitch
@@ -18313,6 +18621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix
+ *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax
@@ -18341,6 +18651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        Index Exchange. (Value: "EXCHANGE_INDEX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeInmobi
  *        InMobi. (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeJcd
+ *        JCD. (Value: "EXCHANGE_JCD")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMedianet
@@ -18368,6 +18680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePermodo
  *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePlaceExchange
+ *        Place Exchange. (Value: "EXCHANGE_PLACE_EXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePlatformid
  *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePlatformone
@@ -19100,16 +19414,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        items of this type and their targeting cannot be created or updated
  *        using the API. (Value:
  *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersNonSkippableOverTheTop
+ *        Connected TV youTube video ads (up to 15 seconds) that cannot be
+ *        skipped. Line items of this type and their targeting cannot be created
+ *        or updated using the API. (Value:
+ *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE_OVER_THE_TOP")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersReach
  *        YouTube video ads that optimize reaching more unique users at lower
  *        cost. May include bumper ads, skippable in-stream ads, or a mix of
  *        types. Line items of this type and their targeting cannot be created
  *        or updated using the API. (Value:
  *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersReachOverTheTop
+ *        Connected TV youTube video ads that optimize reaching more unique
+ *        users at lower cost. May include bumper ads, skippable in-stream ads,
+ *        or a mix of types. Line items of this type and their targeting cannot
+ *        be created or updated using the API. (Value:
+ *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH_OVER_THE_TOP")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersSimple
  *        Default YouTube video ads. Line items of this type and their targeting
  *        cannot be created or updated using the API. (Value:
  *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersSimpleOverTheTop
+ *        Connected TV default YouTube video ads. Only include in-stream
+ *        ad-format. Line items of this type and their targeting cannot be
+ *        created or updated using the API. (Value:
+ *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE_OVER_THE_TOP")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeYoutubeAndPartnersVideoSequence
  *        YouTube video ads that show a story in a particular sequence using a
  *        mix of formats. Line items of this type and their targeting cannot be
@@ -19494,6 +19824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAja Aja.
  *        (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovin
+ *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBidswitch
@@ -19506,6 +19838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix
+ *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax DAX.
@@ -19534,6 +19868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        Exchange. (Value: "EXCHANGE_INDEX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeInmobi InMobi.
  *        (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeJcd JCD.
+ *        (Value: "EXCHANGE_JCD")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeKargo Kargo.
  *        (Value: "EXCHANGE_KARGO")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMedianet
@@ -19561,6 +19897,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePermodo
  *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlaceExchange
+ *        Place Exchange. (Value: "EXCHANGE_PLACE_EXCHANGE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformid
  *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformone
@@ -20477,6 +20815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAja Aja.
  *        (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovin
+ *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBidswitch
@@ -20489,6 +20829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix
+ *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax DAX.
@@ -20517,6 +20859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        Exchange. (Value: "EXCHANGE_INDEX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeInmobi InMobi.
  *        (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeJcd JCD.
+ *        (Value: "EXCHANGE_JCD")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeKargo Kargo.
  *        (Value: "EXCHANGE_KARGO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMedianet
@@ -20544,6 +20888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangePermodo
  *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangePlaceExchange
+ *        Place Exchange. (Value: "EXCHANGE_PLACE_EXCHANGE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangePlatformid
  *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangePlatformone
@@ -21351,16 +21697,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *        items of this type and their targeting cannot be created or updated
  *        using the API. (Value:
  *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE")
+ *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersNonSkippableOverTheTop
+ *        Connected TV youTube video ads (up to 15 seconds) that cannot be
+ *        skipped. Line items of this type and their targeting cannot be created
+ *        or updated using the API. (Value:
+ *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE_OVER_THE_TOP")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersReach
  *        YouTube video ads that optimize reaching more unique users at lower
  *        cost. May include bumper ads, skippable in-stream ads, or a mix of
  *        types. Line items of this type and their targeting cannot be created
  *        or updated using the API. (Value:
  *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH")
+ *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersReachOverTheTop
+ *        Connected TV youTube video ads that optimize reaching more unique
+ *        users at lower cost. May include bumper ads, skippable in-stream ads,
+ *        or a mix of types. Line items of this type and their targeting cannot
+ *        be created or updated using the API. (Value:
+ *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH_OVER_THE_TOP")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersSimple
  *        Default YouTube video ads. Line items of this type and their targeting
  *        cannot be created or updated using the API. (Value:
  *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE")
+ *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersSimpleOverTheTop
+ *        Connected TV default YouTube video ads. Only include in-stream
+ *        ad-format. Line items of this type and their targeting cannot be
+ *        created or updated using the API. (Value:
+ *        "LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE_OVER_THE_TOP")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeYoutubeAndPartnersVideoSequence
  *        YouTube video ads that show a story in a particular sequence using a
  *        mix of formats. Line items of this type and their targeting cannot be
@@ -25648,6 +26010,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 
 
 /**
+ *  Settings related to VideoAdSequence.
+ */
+@interface GTLRDisplayVideo_VideoAdSequenceSettings : GTLRObject
+
+/**
+ *  The minimum time interval before the same user sees this sequence again.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceSettings_MinimumDuration_VideoAdSequenceMinimumDurationMonth
+ *        30 days. (Value: "VIDEO_AD_SEQUENCE_MINIMUM_DURATION_MONTH")
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceSettings_MinimumDuration_VideoAdSequenceMinimumDurationUnspecified
+ *        Unspecified or unknown. (Value:
+ *        "VIDEO_AD_SEQUENCE_MINIMUM_DURATION_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceSettings_MinimumDuration_VideoAdSequenceMinimumDurationWeek
+ *        7 days. (Value: "VIDEO_AD_SEQUENCE_MINIMUM_DURATION_WEEK")
+ */
+@property(nonatomic, copy, nullable) NSString *minimumDuration;
+
+/** The steps of which the sequence consists. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_VideoAdSequenceStep *> *steps;
+
+@end
+
+
+/**
+ *  The detail of a single step in a VideoAdSequence.
+ */
+@interface GTLRDisplayVideo_VideoAdSequenceStep : GTLRObject
+
+/**
+ *  The ID of the corresponding ad group of the step.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adGroupId;
+
+/**
+ *  The interaction on the previous step that will lead the viewer to this step.
+ *  The first step does not have interaction_type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeEngagedImpression
+ *        An ad impression that was not immediately skipped by the viewer, but
+ *        didn't reach the billable event either. (Value:
+ *        "INTERACTION_TYPE_ENGAGED_IMPRESSION")
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeImpression
+ *        A (viewed) ad impression. (Value: "INTERACTION_TYPE_IMPRESSION")
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypePaidView
+ *        A paid view. (Value: "INTERACTION_TYPE_PAID_VIEW")
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeSkip
+ *        Skipped by the viewer. (Value: "INTERACTION_TYPE_SKIP")
+ *    @arg @c kGTLRDisplayVideo_VideoAdSequenceStep_InteractionType_InteractionTypeUnspecified
+ *        Unspecified or unknown (Value: "INTERACTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *interactionType;
+
+/**
+ *  The ID of the previous step. The first step does not have previous step.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *previousStepId;
+
+/**
+ *  The ID of the step.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stepId;
+
+@end
+
+
+/**
  *  Video player size targeting option details. This will be populated in the
  *  video_player_size_details field when targeting_type is
  *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE`. Explicitly targeting all options is not
@@ -25945,6 +26381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 
 /** The third-party measurement settings of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAndPartnersThirdPartyMeasurementSettings *thirdPartyMeasurementSettings;
+
+/** The settings related to VideoAdSequence. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoAdSequenceSettings *videoAdSequenceSettings;
 
 /**
  *  The view frequency cap settings of the line item. The max_views field in

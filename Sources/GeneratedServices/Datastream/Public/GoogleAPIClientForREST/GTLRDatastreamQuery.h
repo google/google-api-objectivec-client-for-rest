@@ -600,6 +600,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsCreate : GTLRDatastreamQuery
 
+/** Optional. If set to true, will skip validations. */
+@property(nonatomic, assign) BOOL force;
+
 /** Required. The parent that owns the collection of PrivateConnections. */
 @property(nonatomic, copy, nullable) NSString *parent;
 

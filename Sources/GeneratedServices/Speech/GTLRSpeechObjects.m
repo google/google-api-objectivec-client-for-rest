@@ -57,11 +57,29 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpeech_ABNFGrammar
+//
+
+@implementation GTLRSpeech_ABNFGrammar
+@dynamic abnfStrings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"abnfStrings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpeech_Adaptation
 //
 
 @implementation GTLRSpeech_Adaptation
-@dynamic customClasses, phraseSetReferences, phraseSets;
+@dynamic abnfGrammar, customClasses, phraseSetReferences, phraseSets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

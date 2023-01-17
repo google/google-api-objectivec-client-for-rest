@@ -54,9 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_AndroidApp_State_Active;
 /**
- *  The App has been soft-deleted. Firebase permanantely deletes an App after it
- *  has been in the `DELETED` state for more than 30 days. Up until this time,
- *  you can restore the App by calling `Undelete`
+ *  The App has been soft-deleted. After an App has been in the `DELETED` state
+ *  for more than 30 days, it is considered expired and will be permanently
+ *  deleted. Up until this time, you can restore the App by calling `Undelete`
  *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
  *  | [web](projects.webApps/undelete)).
  *
@@ -108,9 +108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platf
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_Active;
 /**
- *  The App has been soft-deleted. Firebase permanantely deletes an App after it
- *  has been in the `DELETED` state for more than 30 days. Up until this time,
- *  you can restore the App by calling `Undelete`
+ *  The App has been soft-deleted. After an App has been in the `DELETED` state
+ *  for more than 30 days, it is considered expired and will be permanently
+ *  deleted. Up until this time, you can restore the App by calling `Undelete`
  *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
  *  | [web](projects.webApps/undelete)).
  *
@@ -156,9 +156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseProject_State
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_IosApp_State_Active;
 /**
- *  The App has been soft-deleted. Firebase permanantely deletes an App after it
- *  has been in the `DELETED` state for more than 30 days. Up until this time,
- *  you can restore the App by calling `Undelete`
+ *  The App has been soft-deleted. After an App has been in the `DELETED` state
+ *  for more than 30 days, it is considered expired and will be permanently
+ *  deleted. Up until this time, you can restore the App by calling `Undelete`
  *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
  *  | [web](projects.webApps/undelete)).
  *
@@ -263,9 +263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_Active;
 /**
- *  The App has been soft-deleted. Firebase permanantely deletes an App after it
- *  has been in the `DELETED` state for more than 30 days. Up until this time,
- *  you can restore the App by calling `Undelete`
+ *  The App has been soft-deleted. After an App has been in the `DELETED` state
+ *  for more than 30 days, it is considered expired and will be permanently
+ *  deleted. Up until this time, you can restore the App by calling `Undelete`
  *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
  *  | [web](projects.webApps/undelete)).
  *
@@ -445,6 +445,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and it may be sent with update requests to ensure the client has an
+ *  up-to-date value before proceeding. Learn more about `etag` in Google's
+ *  [AIP-154
+ *  standard](https://google.aip.dev/154#declarative-friendly-resources). This
+ *  etag is strongly validated.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  The resource name of the AndroidApp, in the format: projects/
  *  PROJECT_IDENTIFIER/androidApps/APP_ID * PROJECT_IDENTIFIER: the parent
  *  Project's
@@ -484,10 +494,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Active The App is active.
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Deleted The App has been
- *        soft-deleted. Firebase permanantely deletes an App after it has been
- *        in the `DELETED` state for more than 30 days. Up until this time, you
- *        can restore the App by calling `Undelete`
- *        ([Android](projects.androidApps/undelete) |
+ *        soft-deleted. After an App has been in the `DELETED` state for more
+ *        than 30 days, it is considered expired and will be permanently
+ *        deleted. Up until this time, you can restore the App by calling
+ *        `Undelete` ([Android](projects.androidApps/undelete) |
  *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
  *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_StateUnspecified
@@ -675,10 +685,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Active The App is
  *        active. (Value: "ACTIVE")
  *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Deleted The App has
- *        been soft-deleted. Firebase permanantely deletes an App after it has
- *        been in the `DELETED` state for more than 30 days. Up until this time,
- *        you can restore the App by calling `Undelete`
- *        ([Android](projects.androidApps/undelete) |
+ *        been soft-deleted. After an App has been in the `DELETED` state for
+ *        more than 30 days, it is considered expired and will be permanently
+ *        deleted. Up until this time, you can restore the App by calling
+ *        `Undelete` ([Android](projects.androidApps/undelete) |
  *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
  *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_StateUnspecified
@@ -704,10 +714,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_FirebaseProject : GTLRObject
 
 /**
- *  Set of user-defined annotations for the FirebaseProject as per
- *  [AIP-128](https://google.aip.dev/128#annotations). These annotations are
- *  intended solely for developers and client-side tools Firebase services will
- *  not mutate this annotation set.
+ *  A set of user-defined annotations for the FirebaseProject. Learn more about
+ *  annotations in Google's [AIP-128
+ *  standard](https://google.aip.dev/128#annotations). These annotations are
+ *  intended solely for developers and client-side tools. Firebase services will
+ *  not mutate this annotations set.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_FirebaseProject_Annotations *annotations;
 
@@ -716,9 +727,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 
 /**
  *  This checksum is computed by the server based on the value of other fields,
- *  and may be sent on update requests to ensure the client has an up-to-date
- *  value before proceeding.
- *  [AIP-154](https://google.aip.dev/154#declarative-friendly-resources). This
+ *  and it may be sent with update requests to ensure the client has an
+ *  up-to-date value before proceeding. Learn more about `etag` in Google's
+ *  [AIP-154
+ *  standard](https://google.aip.dev/154#declarative-friendly-resources). This
  *  etag is strongly validated.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -774,10 +786,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 
 
 /**
- *  Set of user-defined annotations for the FirebaseProject as per
- *  [AIP-128](https://google.aip.dev/128#annotations). These annotations are
- *  intended solely for developers and client-side tools Firebase services will
- *  not mutate this annotation set.
+ *  A set of user-defined annotations for the FirebaseProject. Learn more about
+ *  annotations in Google's [AIP-128
+ *  standard](https://google.aip.dev/128#annotations). These annotations are
+ *  intended solely for developers and client-side tools. Firebase services will
+ *  not mutate this annotations set.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -836,6 +849,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and it may be sent with update requests to ensure the client has an
+ *  up-to-date value before proceeding. Learn more about `etag` in Google's
+ *  [AIP-154
+ *  standard](https://google.aip.dev/154#declarative-friendly-resources). This
+ *  etag is strongly validated.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  The resource name of the IosApp, in the format: projects/PROJECT_IDENTIFIER
  *  /iosApps/APP_ID * PROJECT_IDENTIFIER: the parent Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
@@ -862,10 +885,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *    @arg @c kGTLRFirebaseManagement_IosApp_State_Active The App is active.
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRFirebaseManagement_IosApp_State_Deleted The App has been
- *        soft-deleted. Firebase permanantely deletes an App after it has been
- *        in the `DELETED` state for more than 30 days. Up until this time, you
- *        can restore the App by calling `Undelete`
- *        ([Android](projects.androidApps/undelete) |
+ *        soft-deleted. After an App has been in the `DELETED` state for more
+ *        than 30 days, it is considered expired and will be permanently
+ *        deleted. Up until this time, you can restore the App by calling
+ *        `Undelete` ([Android](projects.androidApps/undelete) |
  *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
  *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_IosApp_State_StateUnspecified Unspecified
@@ -1281,16 +1304,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, strong, nullable) NSNumber *allowMissing;
 
 /**
- *  Checksum provided in the AndroidApp entity, which if provided ensures the
- *  client has an up-to-date value before proceeding.
+ *  Checksum provided in the AndroidApp resource. If provided, this checksum
+ *  ensures that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Determines whether to _immediately_ delete the App. If set to true, the App
- *  is immediately deleted from the Project and cannot be restored to the
- *  Project. If not set, defaults to false, which means that the App may be
- *  restored to the Project within 30 days using UndeleteAndroidApp.
+ *  Determines whether to _immediately_ delete the AndroidApp. If set to true,
+ *  the App is immediately deleted from the Project and cannot be restored to
+ *  the Project. If not set, defaults to false, which means the App will be set
+ *  to expire in 30 days. Within the 30 days, the App may be restored to the
+ *  Project using UndeleteAndroidApp.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1321,16 +1345,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, strong, nullable) NSNumber *allowMissing;
 
 /**
- *  Checksum provided in the IosApp entity, which if provided ensures the client
- *  has an up-to-date value before proceeding.
+ *  Checksum provided in the IosApp resource. If provided, this checksum ensures
+ *  that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Determines whether to _immediately_ delete the App. If set to true, the App
- *  is immediately deleted from the Project and cannot be restored to the
- *  Project. If not set, defaults to false, which means that the App may be
- *  restored to the Project within 30 days using UndeleteIosApp
+ *  Determines whether to _immediately_ delete the IosApp. If set to true, the
+ *  App is immediately deleted from the Project and cannot be restored to the
+ *  Project. If not set, defaults to false, which means the App will be set to
+ *  expire in 30 days. Within the 30 days, the App may be restored to the
+ *  Project using UndeleteIosApp
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1361,16 +1386,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, strong, nullable) NSNumber *allowMissing;
 
 /**
- *  Checksum provided in the WebApp entity, which if provided ensures the client
- *  has an up-to-date value before proceeding.
+ *  Checksum provided in the WebApp resource. If provided, this checksum ensures
+ *  that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Determines whether to _immediately_ delete the App. If set to true, the App
- *  is immediately deleted from the Project and cannot be restored to the
- *  Project. If not set, defaults to false, which means that the App may be
- *  restored to the Project within 30 days using UndeleteWebApp
+ *  Determines whether to _immediately_ delete the WebApp. If set to true, the
+ *  App is immediately deleted from the Project and cannot be restored to the
+ *  Project. If not set, defaults to false, which means the App will be set to
+ *  expire in 30 days. Within the 30 days, the App may be restored to the
+ *  Project using UndeleteWebApp
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1582,8 +1608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_UndeleteAndroidAppRequest : GTLRObject
 
 /**
- *  Checksum provided in the AndroidApp entity, which if provided ensures the
- *  client has an up-to-date value before proceeding.
+ *  Checksum provided in the AndroidApp resource. If provided, this checksum
+ *  ensures that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1604,8 +1630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_UndeleteIosAppRequest : GTLRObject
 
 /**
- *  Checksum provided in the IosApp entity, which if provided ensures the client
- *  has an up-to-date value before proceeding.
+ *  Checksum provided in the IosApp resource. If provided, this checksum ensures
+ *  that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1626,8 +1652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_UndeleteWebAppRequest : GTLRObject
 
 /**
- *  Checksum provided in the WebApp entity, which if provided ensures the client
- *  has an up-to-date value before proceeding.
+ *  Checksum provided in the WebApp resource. If provided, this checksum ensures
+ *  that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1681,6 +1707,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and it may be sent with update requests to ensure the client has an
+ *  up-to-date value before proceeding. Learn more about `etag` in Google's
+ *  [AIP-154
+ *  standard](https://google.aip.dev/154#declarative-friendly-resources). This
+ *  etag is strongly validated.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  The resource name of the WebApp, in the format: projects/PROJECT_IDENTIFIER
  *  /webApps/APP_ID * PROJECT_IDENTIFIER: the parent Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
@@ -1707,10 +1743,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *    @arg @c kGTLRFirebaseManagement_WebApp_State_Active The App is active.
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRFirebaseManagement_WebApp_State_Deleted The App has been
- *        soft-deleted. Firebase permanantely deletes an App after it has been
- *        in the `DELETED` state for more than 30 days. Up until this time, you
- *        can restore the App by calling `Undelete`
- *        ([Android](projects.androidApps/undelete) |
+ *        soft-deleted. After an App has been in the `DELETED` state for more
+ *        than 30 days, it is considered expired and will be permanently
+ *        deleted. Up until this time, you can restore the App by calling
+ *        `Undelete` ([Android](projects.androidApps/undelete) |
  *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
  *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_WebApp_State_StateUnspecified Unspecified

@@ -194,6 +194,33 @@
 
 @end
 
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/entries:import";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataCatalog_Operation class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.import";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList
 
 @dynamic pageSize, pageToken, parent, readMask;
@@ -700,6 +727,82 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataCatalog_TestIamPermissionsResponse class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDataCatalogQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_Empty class];
+  query.loggingName = @"datacatalog.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataCatalogQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_Empty class];
+  query.loggingName = @"datacatalog.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataCatalogQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_Operation class];
+  query.loggingName = @"datacatalog.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRDataCatalogQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_ListOperationsResponse class];
+  query.loggingName = @"datacatalog.projects.locations.operations.list";
   return query;
 }
 

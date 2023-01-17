@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migrate to Virtual Machines API (vmmigration/v1)
+//   VM Migration API (vmmigration/v1)
 // Description:
 //   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.
@@ -19,6 +19,41 @@ NSString * const kGTLRVMMigrationService_AppliedLicense_Type_Byol = @"BYOL";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_None = @"NONE";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_Payg = @"PAYG";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AwsSourceDetails.state
+NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Active = @"ACTIVE";
+NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Pending = @"PENDING";
+NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AwsSourceVmDetails.firmware
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios = @"BIOS";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi = @"EFI";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AwsVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AwsVmDetails_Architecture_Arm64 = @"ARM64";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_Architecture_I386 = @"I386";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_Architecture_X8664 = @"X86_64";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_Architecture_X8664Mac = @"X86_64_MAC";
+
+// GTLRVMMigrationService_AwsVmDetails.bootOption
+NSString * const kGTLRVMMigrationService_AwsVmDetails_BootOption_Bios = @"BIOS";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_BootOption_BootOptionUnspecified = @"BOOT_OPTION_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_BootOption_Efi = @"EFI";
+
+// GTLRVMMigrationService_AwsVmDetails.powerState
+NSString * const kGTLRVMMigrationService_AwsVmDetails_PowerState_Off = @"OFF";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_PowerState_On = @"ON";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_PowerState_Pending = @"PENDING";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_PowerState_PowerStateUnspecified = @"POWER_STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_PowerState_Suspended = @"SUSPENDED";
+
+// GTLRVMMigrationService_AwsVmDetails.virtualizationType
+NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_Hvm = @"HVM";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_Paravirtual = @"PARAVIRTUAL";
+NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_VmVirtualizationTypeUnspecified = @"VM_VIRTUALIZATION_TYPE_UNSPECIFIED";
 
 // GTLRVMMigrationService_CloneJob.state
 NSString * const kGTLRVMMigrationService_CloneJob_State_Active = @"ACTIVE";
@@ -158,6 +193,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_AccessKeyCredentials
+//
+
+@implementation GTLRVMMigrationService_AccessKeyCredentials
+@dynamic accessKeyId, secretAccessKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_AdaptingOSStep
 //
 
@@ -202,6 +247,122 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_AvailableUpdates
 @dynamic inPlaceUpdate, newDeployableAppliance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSecurityGroup
+//
+
+@implementation GTLRVMMigrationService_AwsSecurityGroup
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSourceDetails
+//
+
+@implementation GTLRVMMigrationService_AwsSourceDetails
+@dynamic accessKeyCreds, awsRegion, error, inventorySecurityGroupNames,
+         inventoryTagList, migrationResourcesUserTags, publicIp, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inventorySecurityGroupNames" : [NSString class],
+    @"inventoryTagList" : [GTLRVMMigrationService_Tag class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSourceDetails_MigrationResourcesUserTags
+//
+
+@implementation GTLRVMMigrationService_AwsSourceDetails_MigrationResourcesUserTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSourceVmDetails
+//
+
+@implementation GTLRVMMigrationService_AwsSourceVmDetails
+@dynamic committedStorageBytes, firmware;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsVmDetails
+//
+
+@implementation GTLRVMMigrationService_AwsVmDetails
+@dynamic architecture, bootOption, committedStorageMb, cpuCount, diskCount,
+         displayName, instanceType, memoryMb, osDescription, powerState,
+         securityGroups, sourceDescription, sourceId, tags, virtualizationType,
+         vmId, vpcId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityGroups" : [GTLRVMMigrationService_AwsSecurityGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsVmDetails_Tags
+//
+
+@implementation GTLRVMMigrationService_AwsVmDetails_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsVmsDetails
+//
+
+@implementation GTLRVMMigrationService_AwsVmsDetails
+@dynamic details;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRVMMigrationService_AwsVmDetails class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -458,7 +619,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_FetchInventoryResponse
-@dynamic nextPageToken, updateTime, vmwareVms;
+@dynamic awsVms, nextPageToken, updateTime, vmwareVms;
 @end
 
 
@@ -824,10 +985,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_MigratingVm
-@dynamic computeEngineTargetDefaults, createTime, currentSyncInfo,
-         descriptionProperty, displayName, error, group, labels, lastSync, name,
-         policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
-         stateTime, updateTime;
+@dynamic awsSourceVmDetails, computeEngineTargetDefaults, createTime,
+         currentSyncInfo, descriptionProperty, displayName, error, group,
+         labels, lastSync, name, policy, recentCloneJobs, recentCutoverJobs,
+         sourceVmId, state, stateTime, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1068,7 +1229,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_Source
-@dynamic createTime, descriptionProperty, labels, name, updateTime, vmware;
+@dynamic aws, createTime, descriptionProperty, labels, name, updateTime, vmware;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1129,6 +1290,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_Tag
+//
+
+@implementation GTLRVMMigrationService_Tag
+@dynamic key, value;
 @end
 
 

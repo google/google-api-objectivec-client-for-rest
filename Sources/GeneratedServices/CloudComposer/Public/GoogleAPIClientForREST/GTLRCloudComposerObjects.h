@@ -34,6 +34,8 @@
 @class GTLRCloudComposer_Operation_Response;
 @class GTLRCloudComposer_PrivateClusterConfig;
 @class GTLRCloudComposer_PrivateEnvironmentConfig;
+@class GTLRCloudComposer_RecoveryConfig;
+@class GTLRCloudComposer_ScheduledSnapshotsConfig;
 @class GTLRCloudComposer_SchedulerResource;
 @class GTLRCloudComposer_SoftwareConfig;
 @class GTLRCloudComposer_SoftwareConfig_AirflowConfigOverrides;
@@ -603,6 +605,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /** The configuration used for the Private IP Cloud Composer environment. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_PrivateEnvironmentConfig *privateEnvironmentConfig;
 
+/**
+ *  Optional. The Recovery settings configuration of an environment. This field
+ *  is supported for Cloud Composer environments in versions
+ *  composer-2.*.*-airflow-*.*.* and newer.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_RecoveryConfig *recoveryConfig;
+
 /** The configuration settings for software inside the environment. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig *softwareConfig;
 
@@ -805,6 +814,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Request to load a snapshot into a Cloud Composer environment.
+ */
+@interface GTLRCloudComposer_LoadSnapshotRequest : GTLRObject
+
+/**
+ *  Whether or not to skip setting Airflow overrides when loading the
+ *  environment's state.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipAirflowOverridesSetting;
+
+/**
+ *  Whether or not to skip setting environment variables when loading the
+ *  environment's state.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipEnvironmentVariablesSetting;
+
+/**
+ *  Whether or not to skip copying Cloud Storage data when loading the
+ *  environment's state.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipGcsDataCopying;
+
+/**
+ *  Whether or not to skip installing Pypi packages when loading the
+ *  environment's state.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipPypiPackagesInstallation;
+
+/**
+ *  A Cloud Storage path to a snapshot to load, e.g.:
+ *  "gs://my-bucket/snapshots/project_location_environment_timestamp".
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotPath;
 
 @end
 
@@ -1284,6 +1339,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  The Recovery settings of an environment.
+ */
+@interface GTLRCloudComposer_RecoveryConfig : GTLRObject
+
+/** Optional. The configuration for scheduled snapshot creation mechanism. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_ScheduledSnapshotsConfig *scheduledSnapshotsConfig;
+
+@end
+
+
+/**
+ *  Request to create a snapshot of a Cloud Composer environment.
+ */
+@interface GTLRCloudComposer_SaveSnapshotRequest : GTLRObject
+
+/**
+ *  Location in a Cloud Storage where the snapshot is going to be stored, e.g.:
+ *  "gs://my-bucket/snapshots".
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotLocation;
+
+@end
+
+
+/**
  *  Response to SaveSnapshotRequest.
  */
 @interface GTLRCloudComposer_SaveSnapshotResponse : GTLRObject
@@ -1294,6 +1374,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  field is populated only if the snapshot creation was successful.
  */
 @property(nonatomic, copy, nullable) NSString *snapshotPath;
+
+@end
+
+
+/**
+ *  The configuration for scheduled snapshot creation mechanism.
+ */
+@interface GTLRCloudComposer_ScheduledSnapshotsConfig : GTLRObject
+
+/**
+ *  Optional. Whether scheduled snapshots creation is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. The cron expression representing the time when snapshots creation
+ *  mechanism runs. This field is subject to additional validation around
+ *  frequency of execution.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotCreationSchedule;
+
+/**
+ *  Optional. The Cloud Storage location for storing automatically created
+ *  snapshots.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotLocation;
+
+/**
+ *  Optional. Time zone that sets the context to interpret
+ *  snapshot_creation_schedule.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 

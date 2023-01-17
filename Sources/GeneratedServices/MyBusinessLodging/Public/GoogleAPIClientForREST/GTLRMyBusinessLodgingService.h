@@ -5,7 +5,8 @@
 //   My Business Lodging API (mybusinesslodging/v1)
 // Description:
 //   The My Business Lodging API enables managing lodging business information
-//   on Google.
+//   on Google. Note - If you have a quota of 0 after enabling the API, please
+//   request for GBP API access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -26,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Service for executing My Business Lodging API queries.
  *
  *  The My Business Lodging API enables managing lodging business information on
- *  Google.
+ *  Google. Note - If you have a quota of 0 after enabling the API, please
+ *  request for GBP API access.
  */
 @interface GTLRMyBusinessLodgingService : GTLRService
 

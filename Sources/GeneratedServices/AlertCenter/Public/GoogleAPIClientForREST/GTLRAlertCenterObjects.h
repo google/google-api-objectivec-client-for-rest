@@ -50,8 +50,12 @@
 @class GTLRAlertCenter_Status_Details_Item;
 @class GTLRAlertCenter_SuperAdminPasswordResetEvent;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
+@class GTLRAlertCenter_TransferError;
+@class GTLRAlertCenter_TransferMisconfiguration;
 @class GTLRAlertCenter_User;
 @class GTLRAlertCenter_UserDefinedDetectorInfo;
+@class GTLRAlertCenter_VoicemailMisconfiguration;
+@class GTLRAlertCenter_VoicemailRecipientError;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -306,6 +310,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
 /**
+ *  Chrome actions Delete web protect evidence file
+ *
+ *  Value: "DELETE_WEBPROTECT_EVIDENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DeleteWebprotectEvidence;
+/**
  *  Block sharing a file externally.
  *
  *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
@@ -362,6 +372,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
 /**
+ *  Chrome actions Delete web protect evidence file
+ *
+ *  Value: "DELETE_WEBPROTECT_EVIDENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DeleteWebprotectEvidence;
+/**
  *  Block sharing a file externally.
  *
  *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
@@ -385,6 +401,113 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Value: "RULE_DEACTIVATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDeactivate;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_TransferError.entityType
+
+/**
+ *  Transfer to auto attendant.
+ *
+ *  Value: "TRANSFER_AUTO_ATTENDANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferAutoAttendant;
+/**
+ *  Entity type wasn't set.
+ *
+ *  Value: "TRANSFER_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferEntityTypeUnspecified;
+/**
+ *  Transfer to ring group.
+ *
+ *  Value: "TRANSFER_RING_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferRingGroup;
+/**
+ *  Transfer to user.
+ *
+ *  Value: "TRANSFER_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_EntityType_TransferUser;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_TransferError.invalidReason
+
+/**
+ *  The transfer target no longer has a phone number. This reason should become
+ *  deprecated once we support numberless transfer.
+ *
+ *  Value: "NO_PHONE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_NoPhoneNumber;
+/**
+ *  The user's Google Workspace account was suspended.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Suspended;
+/**
+ *  Reason wasn't specified.
+ *
+ *  Value: "TRANSFER_INVALID_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_TransferInvalidReasonUnspecified;
+/**
+ *  The transfer target can't be found—most likely it was deleted.
+ *
+ *  Value: "TRANSFER_TARGET_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_TransferTargetDeleted;
+/**
+ *  The user's Google Voice license was removed.
+ *
+ *  Value: "UNLICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Unlicensed;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_VoicemailRecipientError.invalidReason
+
+/**
+ *  Reason wasn't specified.
+ *
+ *  Value: "EMAIL_INVALID_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_EmailInvalidReasonUnspecified;
+/**
+ *  User can't receive emails due to insufficient quota.
+ *
+ *  Value: "OUT_OF_QUOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_OutOfQuota;
+/**
+ *  All recipients were deleted.
+ *
+ *  Value: "RECIPIENT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_RecipientDeleted;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_VoiceMisconfiguration.entityType
+
+/**
+ *  Invalid auto attendant.
+ *
+ *  Value: "AUTO_ATTENDANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_AutoAttendant;
+/**
+ *  Entity type wasn't set.
+ *
+ *  Value: "ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_EntityTypeUnspecified;
+/**
+ *  Invalid ring group.
+ *
+ *  Value: "RING_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup;
 
 /**
  *  A generic alert for abusive user activity occurring with a customer.
@@ -788,7 +911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_ApnsCertificateExpirationInfo : GTLRObject
 
 /**
- *  The Apple ID used for the certificate, may be blank if admins did not enter
+ *  The Apple ID used for the certificate may be blank if admins didn't enter
  *  it.
  */
 @property(nonatomic, copy, nullable) NSString *appleId;
@@ -1875,6 +1998,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
+ *  Details for an invalid transfer or forward.
+ */
+@interface GTLRAlertCenter_TransferError : GTLRObject
+
+/**
+ *  User's email address. This may be unavailable if the entity was deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Type of entity being transferred to. For ring group members, this should
+ *  always be USER.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_TransferError_EntityType_TransferAutoAttendant
+ *        Transfer to auto attendant. (Value: "TRANSFER_AUTO_ATTENDANT")
+ *    @arg @c kGTLRAlertCenter_TransferError_EntityType_TransferEntityTypeUnspecified
+ *        Entity type wasn't set. (Value: "TRANSFER_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_TransferError_EntityType_TransferRingGroup
+ *        Transfer to ring group. (Value: "TRANSFER_RING_GROUP")
+ *    @arg @c kGTLRAlertCenter_TransferError_EntityType_TransferUser Transfer to
+ *        user. (Value: "TRANSFER_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  Ring group or auto attendant ID. Not set for users.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Reason for the error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_TransferError_InvalidReason_NoPhoneNumber The
+ *        transfer target no longer has a phone number. This reason should
+ *        become deprecated once we support numberless transfer. (Value:
+ *        "NO_PHONE_NUMBER")
+ *    @arg @c kGTLRAlertCenter_TransferError_InvalidReason_Suspended The user's
+ *        Google Workspace account was suspended. (Value: "SUSPENDED")
+ *    @arg @c kGTLRAlertCenter_TransferError_InvalidReason_TransferInvalidReasonUnspecified
+ *        Reason wasn't specified. (Value:
+ *        "TRANSFER_INVALID_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_TransferError_InvalidReason_TransferTargetDeleted
+ *        The transfer target can't be found—most likely it was deleted. (Value:
+ *        "TRANSFER_TARGET_DELETED")
+ *    @arg @c kGTLRAlertCenter_TransferError_InvalidReason_Unlicensed The user's
+ *        Google Voice license was removed. (Value: "UNLICENSED")
+ */
+@property(nonatomic, copy, nullable) NSString *invalidReason;
+
+/**
+ *  User's full name, or the ring group / auto attendant name. This may be
+ *  unavailable if the entity was deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Error related to transferring or forwarding a phone call.
+ */
+@interface GTLRAlertCenter_TransferMisconfiguration : GTLRObject
+
+/** Details for each invalid transfer or forward. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_TransferError *> *errors;
+
+@end
+
+
+/**
  *  A request to undelete a specific alert that was marked for deletion.
  */
 @interface GTLRAlertCenter_UndeleteAlertRequest : GTLRObject
@@ -1927,6 +2124,86 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /** Resource name that uniquely identifies the detector. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Issue(s) with sending to voicemail.
+ */
+@interface GTLRAlertCenter_VoicemailMisconfiguration : GTLRObject
+
+/** Issue(s) with voicemail recipients. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_VoicemailRecipientError *> *errors;
+
+@end
+
+
+/**
+ *  Issue(s) with a voicemail recipient.
+ */
+@interface GTLRAlertCenter_VoicemailRecipientError : GTLRObject
+
+/**
+ *  Email address of the invalid recipient. This may be unavailable if the
+ *  recipient was deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Reason for the error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_EmailInvalidReasonUnspecified
+ *        Reason wasn't specified. (Value: "EMAIL_INVALID_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_OutOfQuota
+ *        User can't receive emails due to insufficient quota. (Value:
+ *        "OUT_OF_QUOTA")
+ *    @arg @c kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_RecipientDeleted
+ *        All recipients were deleted. (Value: "RECIPIENT_DELETED")
+ */
+@property(nonatomic, copy, nullable) NSString *invalidReason;
+
+@end
+
+
+/**
+ *  An alert triggered when Google Voice configuration becomes invalid,
+ *  generally due to an external entity being modified or deleted.
+ */
+@interface GTLRAlertCenter_VoiceMisconfiguration : GTLRObject
+
+/**
+ *  Name of the entity whose configuration is now invalid.
+ *
+ *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
+ */
+@property(nonatomic, copy, nullable) NSString *entityNameProperty;
+
+/**
+ *  Type of the entity whose configuration is now invalid.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_VoiceMisconfiguration_EntityType_AutoAttendant
+ *        Invalid auto attendant. (Value: "AUTO_ATTENDANT")
+ *    @arg @c kGTLRAlertCenter_VoiceMisconfiguration_EntityType_EntityTypeUnspecified
+ *        Entity type wasn't set. (Value: "ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup
+ *        Invalid ring group. (Value: "RING_GROUP")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/** Link that the admin can follow to fix the issue. */
+@property(nonatomic, copy, nullable) NSString *fixUri;
+
+/** Issue(s) with members of a ring group. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_TransferMisconfiguration *membersMisconfiguration;
+
+/** Issue(s) with transferring or forwarding to an external entity. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_TransferMisconfiguration *transferMisconfiguration;
+
+/** Issue(s) with sending to voicemail. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_VoicemailMisconfiguration *voicemailMisconfiguration;
 
 @end
 

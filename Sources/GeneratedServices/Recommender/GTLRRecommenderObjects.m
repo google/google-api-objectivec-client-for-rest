@@ -319,6 +319,21 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
+@dynamic ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest
 //
 

@@ -57,6 +57,7 @@
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_ManualSharding;
+@class GTLRTesting_Metadata;
 @class GTLRTesting_NetworkConfiguration;
 @class GTLRTesting_NetworkConfigurationCatalog;
 @class GTLRTesting_ObbFile;
@@ -80,6 +81,7 @@
 @class GTLRTesting_ToolResultsStep;
 @class GTLRTesting_TrafficRule;
 @class GTLRTesting_UniformSharding;
+@class GTLRTesting_UsesFeature;
 @class GTLRTesting_XcodeVersion;
 
 // Generated comments include content from the discovery document; avoid them
@@ -649,6 +651,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared;
 /**
+ *  A required cloud service api is not activated. See:
+ *  https://firebase.google.com/docs/test-lab/android/continuous#requirements
+ *
+ *  Value: "SERVICE_NOT_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ServiceNotActivated;
+/**
  *  There is no test loop intent filter, or the one that is given is not
  *  formatted correctly.
  *
@@ -669,11 +678,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk;
 /**
+ *  Not enough test quota to run the executions in this matrix.
+ *
+ *  Value: "TEST_QUOTA_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestQuotaExceeded;
+/**
  *  The test package and app package are the same.
  *
  *  Value: "TEST_SAME_AS_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp;
+/**
+ *  There was an unknown permission issue running this test.
+ *
+ *  Value: "UNKNOWN_PERMISSION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UnknownPermissionError;
 /**
  *  One or more of the test targets defined in the .xctestrun file specifies
  *  "UseDestinationArtifacts", which is disallowed.
@@ -1322,6 +1343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
 
+/** Meta-data tags defined in the manifest. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_Metadata *> *metadata;
+
 /**
  *  Minimum API level required for the application to run.
  *
@@ -1340,6 +1364,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetSdkVersion;
+
+/** Feature usage tags defined in the manifest. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_UsesFeature *> *usesFeature;
 
 /** Permissions declared to be used by the application */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usesPermission;
@@ -2042,10 +2069,25 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  manually-created shard. You must specify at least one shard if this field is
  *  present. When you select one or more physical devices, the number of
  *  repeated test_targets_for_shard must be <= 50. When you select one or more
- *  ARM virtual devices, it must be <= 50. When you select only x86 virtual
+ *  ARM virtual devices, it must be <= 100. When you select only x86 virtual
  *  devices, it must be <= 500.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestTargetsForShard *> *testTargetsForShard;
+
+@end
+
+
+/**
+ *  A tag within a manifest.
+ *  https://developer.android.com/guide/topics/manifest/meta-data-element.html
+ */
+@interface GTLRTesting_Metadata : GTLRObject
+
+/** The android:name value */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The android:value value */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2591,6 +2633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared
  *        The request contains a scenario number that was not declared in the
  *        manifest. (Value: "SCENARIO_NOT_DECLARED")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_ServiceNotActivated A
+ *        required cloud service api is not activated. See:
+ *        https://firebase.google.com/docs/test-lab/android/continuous#requirements
+ *        (Value: "SERVICE_NOT_ACTIVATED")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound
  *        There is no test loop intent filter, or the one that is given is not
  *        formatted correctly. (Value: "TEST_LOOP_INTENT_FILTER_NOT_FOUND")
@@ -2600,8 +2646,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk The APK
  *        is marked as "testOnly". Deprecated and not currently used. (Value:
  *        "TEST_ONLY_APK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestQuotaExceeded Not
+ *        enough test quota to run the executions in this matrix. (Value:
+ *        "TEST_QUOTA_EXCEEDED")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp The
  *        test package and app package are the same. (Value: "TEST_SAME_AS_APP")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_UnknownPermissionError
+ *        There was an unknown permission issue running this test. (Value:
+ *        "UNKNOWN_PERMISSION_ERROR")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts
  *        One or more of the test targets defined in the .xctestrun file
  *        specifies "UseDestinationArtifacts", which is disallowed. (Value:
@@ -2936,12 +2988,31 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Required. The total number of shards to create. This must always be a
  *  positive number that is no greater than the total number of test cases. When
  *  you select one or more physical devices, the number of shards must be <= 50.
- *  When you select one or more ARM virtual devices, it must be <= 50. When you
+ *  When you select one or more ARM virtual devices, it must be <= 100. When you
  *  select only x86 virtual devices, it must be <= 500.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numShards;
+
+@end
+
+
+/**
+ *  A tag within a manifest.
+ *  https://developer.android.com/guide/topics/manifest/uses-feature-element.html
+ */
+@interface GTLRTesting_UsesFeature : GTLRObject
+
+/**
+ *  The android:required value
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRequired;
+
+/** The android:name value */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

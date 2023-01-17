@@ -254,6 +254,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Calendar/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Calendar/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CCAIPlatform' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CCAIPlatform/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CCAIPlatform/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CertificateAuthorityService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CertificateAuthorityService/**/*.{h,m}'
@@ -489,6 +494,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudVideoIntelligence/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudVideoIntelligence/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudWorkstations' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudWorkstations/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudWorkstations/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Compute' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Compute/**/*.{h,m}'
@@ -538,6 +548,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Dataflow/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Dataflow/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Dataform' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Dataform/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Dataform/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'DataFusion' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -853,6 +868,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Kgsearch/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Kgsearch/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Kmsinventory' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Kmsinventory/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Kmsinventory/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Libraryagent' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -1283,6 +1303,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Workflows/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Workflows/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'WorkloadManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/WorkloadManager/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/WorkloadManager/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'YouTube' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -176,8 +176,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 @dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig,
          environmentSize, gkeCluster, maintenanceWindow,
          masterAuthorizedNetworksConfig, nodeConfig, nodeCount,
-         privateEnvironmentConfig, softwareConfig, webServerConfig,
-         webServerNetworkAccessControl, workloadsConfig;
+         privateEnvironmentConfig, recoveryConfig, softwareConfig,
+         webServerConfig, webServerNetworkAccessControl, workloadsConfig;
 @end
 
 
@@ -274,6 +274,17 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_LoadSnapshotRequest
+//
+
+@implementation GTLRCloudComposer_LoadSnapshotRequest
+@dynamic skipAirflowOverridesSetting, skipEnvironmentVariablesSetting,
+         skipGcsDataCopying, skipPypiPackagesInstallation, snapshotPath;
 @end
 
 
@@ -418,11 +429,41 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_RecoveryConfig
+//
+
+@implementation GTLRCloudComposer_RecoveryConfig
+@dynamic scheduledSnapshotsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_SaveSnapshotRequest
+//
+
+@implementation GTLRCloudComposer_SaveSnapshotRequest
+@dynamic snapshotLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_SaveSnapshotResponse
 //
 
 @implementation GTLRCloudComposer_SaveSnapshotResponse
 @dynamic snapshotPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ScheduledSnapshotsConfig
+//
+
+@implementation GTLRCloudComposer_ScheduledSnapshotsConfig
+@dynamic enabled, snapshotCreationSchedule, snapshotLocation, timeZone;
 @end
 
 

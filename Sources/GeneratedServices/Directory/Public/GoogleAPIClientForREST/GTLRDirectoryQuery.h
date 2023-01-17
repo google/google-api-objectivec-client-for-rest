@@ -1565,7 +1565,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_DomainAliasesGet : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain alias to be retrieved. */
@@ -1576,7 +1583,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a domain alias of the customer.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *  @param domainAliasName Name of domain alias to be retrieved.
  *
  *  @return GTLRDirectoryQuery_DomainAliasesGet
@@ -1625,7 +1638,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_DomainAliasesList : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of the parent domain for which domain aliases are to be fetched. */
@@ -1636,7 +1656,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Lists the domain aliases of the customer.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *
  *  @return GTLRDirectoryQuery_DomainAliasesList
  */
@@ -1687,7 +1713,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_DomainsGet : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain to be retrieved */
@@ -1698,7 +1731,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a domain of the customer.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *  @param domainName Name of domain to be retrieved
  *
  *  @return GTLRDirectoryQuery_DomainsGet
@@ -1747,7 +1786,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_DomainsList : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -1755,7 +1801,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Lists the domains of the customer.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *
  *  @return GTLRDirectoryQuery_DomainsList
  */
@@ -1960,11 +2012,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  The unique ID for the customer's Google Workspace account. In case of a
- *  multi-domain account, to fetch all groups for a customer, fill in this field
+ *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. Either the
- *  `customer` or the `domain` parameter must be provided.
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -2274,7 +2326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieves a paginated list of all members in a group.
+ *  Retrieves a paginated list of all members in a group. This method times out
+ *  after 60 minutes. For more information, see [Troubleshoot error
+ *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
  *
  *  Method: directory.members.list
  *
@@ -2314,7 +2368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Members.
  *
- *  Retrieves a paginated list of all members in a group.
+ *  Retrieves a paginated list of all members in a group. This method times out
+ *  after 60 minutes. For more information, see [Troubleshoot error
+ *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
  *
  *  @param groupKey Identifies the group in the API request. The value can be
  *    the group's email address, group alias, or the unique group ID.
@@ -2568,7 +2624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  To retrieve a list that includes company-owned devices, use the Cloud
  *  Identity [Devices
  *  API](https://cloud.google.com/identity/docs/concepts/overview-devices)
- *  instead.
+ *  instead. This method times out after 60 minutes. For more information, see
+ *  [Troubleshoot error
+ *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
  *
  *  Method: directory.mobiledevices.list
  *
@@ -2657,7 +2715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  To retrieve a list that includes company-owned devices, use the Cloud
  *  Identity [Devices
  *  API](https://cloud.google.com/identity/docs/concepts/overview-devices)
- *  instead.
+ *  instead. This method times out after 60 minutes. For more information, see
+ *  [Troubleshoot error
+ *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
  *
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
@@ -2952,7 +3012,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_PrivilegesList : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -2960,7 +3027,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a paginated list of all privileges for a customer.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *
  *  @return GTLRDirectoryQuery_PrivilegesList
  */
@@ -3844,7 +3917,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_RoleAssignmentsGet : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role assignment. */
@@ -3855,7 +3935,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a role assignment.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *  @param roleAssignmentId Immutable ID of the role assignment.
  *
  *  @return GTLRDirectoryQuery_RoleAssignmentsGet
@@ -3904,7 +3990,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_RoleAssignmentsList : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -3934,7 +4027,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a paginated list of all roleAssignments.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *
  *  @return GTLRDirectoryQuery_RoleAssignmentsList
  *
@@ -3989,7 +4088,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_RolesGet : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
@@ -4000,7 +4106,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a role.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *  @param roleId Immutable ID of the role.
  *
  *  @return GTLRDirectoryQuery_RolesGet
@@ -4049,7 +4161,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_RolesList : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -4067,7 +4186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a paginated list of all the roles in a domain.
  *
- *  @param customer Immutable ID of the Google Workspace account.
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *
  *  @return GTLRDirectoryQuery_RolesList
  *
@@ -4188,7 +4313,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_SchemasGet : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -4199,7 +4331,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves a schema.
  *
- *  @param customerId Immutable ID of the Google Workspace account.
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasGet
@@ -4248,7 +4386,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_SchemasList : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account. */
+/**
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -4256,7 +4401,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Retrieves all schemas for a customer.
  *
- *  @param customerId Immutable ID of the Google Workspace account.
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    In case of a multi-domain account, to fetch all groups for a customer, use
+ *    this field instead of `domain`. You can also use the `my_customer` alias
+ *    to represent your account's `customerId`. The `customerId` is also
+ *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    resource. You must provide either the `customer` or the `domain`
+ *    parameter.
  *
  *  @return GTLRDirectoryQuery_SchemasList
  */
@@ -4755,11 +4906,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  The unique ID for the customer's Google Workspace account. In case of a
- *  multi-domain account, to fetch all groups for a customer, fill this field
- *  instead of domain. You can also use the `my_customer` alias to represent
+ *  multi-domain account, to fetch all groups for a customer, use this field
+ *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users resource](/admin-sdk/directory/v1/reference/users). Either the
- *  `customer` or the `domain` parameter must be provided.
+ *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
+ *  provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -5150,9 +5301,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a user. This method supports patch semantics, meaning you only need
- *  to include the fields you wish to update. Fields that are not present in the
- *  request will be preserved, and fields set to `null` will be cleared.
+ *  Updates a user. This method supports patch semantics, meaning that you only
+ *  need to include the fields you wish to update. Fields that are not present
+ *  in the request will be preserved, and fields set to `null` will be cleared.
+ *  For repeating fields that contain arrays, individual items in the array
+ *  can't be patched piecemeal; they must be supplied in the request body with
+ *  the desired values for all items. See the [user accounts
+ *  guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user)
+ *  for more information.
  *
  *  Method: directory.users.update
  *
@@ -5170,9 +5326,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_User.
  *
- *  Updates a user. This method supports patch semantics, meaning you only need
- *  to include the fields you wish to update. Fields that are not present in the
- *  request will be preserved, and fields set to `null` will be cleared.
+ *  Updates a user. This method supports patch semantics, meaning that you only
+ *  need to include the fields you wish to update. Fields that are not present
+ *  in the request will be preserved, and fields set to `null` will be cleared.
+ *  For repeating fields that contain arrays, individual items in the array
+ *  can't be patched piecemeal; they must be supplied in the request body with
+ *  the desired values for all items. See the [user accounts
+ *  guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user)
+ *  for more information.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
  *  @param userKey Identifies the user in the API request. The value can be the

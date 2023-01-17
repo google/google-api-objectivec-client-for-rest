@@ -66,6 +66,7 @@
 @class GTLRCloudDeploy_TargetArtifact;
 @class GTLRCloudDeploy_TargetRender;
 @class GTLRCloudDeploy_TargetsPresentCondition;
+@class GTLRCloudDeploy_TargetsTypeCondition;
 @class GTLRCloudDeploy_VerifyJob;
 @class GTLRCloudDeploy_VerifyJobRun;
 
@@ -132,6 +133,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_DeployJobRun.failureCause
 
+/**
+ *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *  failure_message for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildRequestFailed;
 /**
  *  Cloud Build is not available, either because it is not enabled or because
  *  Google Cloud Deploy has insufficient permissions. See [Required
@@ -411,6 +419,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_Reject
 // GTLRCloudDeploy_Rollout.deployFailureCause
 
 /**
+ *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *  failure_message for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildRequestFailed;
+/**
  *  Cloud Build is not available, either because it is not enabled or because
  *  Cloud Deploy has insufficient permissions. See [required
  *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
@@ -556,6 +571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
 // GTLRCloudDeploy_TargetRender.failureCause
 
 /**
+ *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *  failure_message for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildRequestFailed;
+/**
  *  Cloud Build is not available, either because it is not enabled or because
  *  Google Cloud Deploy has insufficient permissions. See [required
  *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
@@ -607,6 +629,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_VerifyJobRun.failureCause
 
+/**
+ *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *  failure_message for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildRequestFailed;
 /**
  *  Cloud Build is not available, either because it is not enabled or because
  *  Google Cloud Deploy has insufficient permissions. See [required
@@ -889,15 +918,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_Config : GTLRObject
 
 /**
- *  Output only. Default Skaffold version that is assigned when a Release is
- *  created without specifying a Skaffold version.
+ *  Default Skaffold version that is assigned when a Release is created without
+ *  specifying a Skaffold version.
  */
 @property(nonatomic, copy, nullable) NSString *defaultSkaffoldVersion;
 
 /** Name of the configuration. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. All supported versions of Skaffold. */
+/** All supported versions of Skaffold. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_SkaffoldVersion *> *supportedVersions;
 
 @end
@@ -1126,6 +1155,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  while the deploy is in progress or if it succeeded.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
  *        because Google Cloud Deploy has insufficient permissions. See
@@ -1908,8 +1941,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Details around the Pipeline's overall status. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_PipelineReadyCondition *pipelineReadyCondition;
 
-/** Detalis around targets enumerated in the pipeline. */
+/** Details around targets enumerated in the pipeline. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_TargetsPresentCondition *targetsPresentCondition;
+
+/**
+ *  Details on the whether the targets enumerated in the pipeline are of the
+ *  same type.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TargetsTypeCondition *targetsTypeCondition;
 
 @end
 
@@ -2358,6 +2397,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  while the rollout is in progress.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
  *        because Cloud Deploy has insufficient permissions. See [required
@@ -2886,6 +2929,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  while the render in progress.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
  *        because Google Cloud Deploy has insufficient permissions. See
@@ -2939,7 +2986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_TargetsPresentCondition : GTLRObject
 
 /**
- *  The list of Target names that are missing. For example,
+ *  The list of Target names that do not exist. For example,
  *  projects/{project_id}/locations/{location_name}/targets/{target_name}.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *missingTargets;
@@ -2953,6 +3000,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Last time the condition was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  TargetsTypeCondition contains information on whether the Targets defined in
+ *  the Delivery Pipeline are of the same type.
+ */
+@interface GTLRCloudDeploy_TargetsTypeCondition : GTLRObject
+
+/** Human readable error message. */
+@property(nonatomic, copy, nullable) NSString *errorDetails;
+
+/**
+ *  True if the targets are all a comparable type. For example this is true if
+ *  all targets are GKE clusters. This is false if some targets are Cloud Run
+ *  targets and others are GKE clusters.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *status;
 
 @end
 
@@ -3021,6 +3089,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  while the verify is in progress or if it succeeded.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
  *        because Google Cloud Deploy has insufficient permissions. See

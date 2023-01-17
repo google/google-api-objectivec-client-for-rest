@@ -5,7 +5,8 @@
 //   My Business Lodging API (mybusinesslodging/v1)
 // Description:
 //   The My Business Lodging API enables managing lodging business information
-//   on Google.
+//   on Google. Note - If you have a quota of 0 after enabling the API, please
+//   request for GBP API access.
 // Documentation:
 //   https://developers.google.com/my-business/
 
@@ -1544,6 +1545,35 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Families_KidsClubExcep
  *  Value: "UNDER_CONSTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Families_KidsClubException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_Families.kidsFriendlyException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Families_KidsFriendlyException_UnderConstruction;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessLodging_FoodAndDrink.barException
@@ -9513,6 +9543,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *        "UNDER_CONSTRUCTION")
  */
 @property(nonatomic, copy, nullable) NSString *kidsClubException;
+
+/**
+ *  Kids friendly. The hotel has one or more special features for families with
+ *  children, such as reduced rates, child-sized beds, kids' club, babysitting
+ *  service, or suitable place to play on premises.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kidsFriendly;
+
+/**
+ *  Kids friendly exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_Families_KidsFriendlyException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_Families_KidsFriendlyException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_Families_KidsFriendlyException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_Families_KidsFriendlyException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *kidsFriendlyException;
 
 @end
 

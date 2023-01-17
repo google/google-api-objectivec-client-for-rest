@@ -2100,8 +2100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Residence *> *residences;
 
 /**
- *  The resource name for the person, assigned by the server. An ASCII string
- *  with a max length of 27 characters, in the form of `people/{person_id}`.
+ *  The resource name for the person, assigned by the server. An ASCII string in
+ *  the form of `people/{person_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 

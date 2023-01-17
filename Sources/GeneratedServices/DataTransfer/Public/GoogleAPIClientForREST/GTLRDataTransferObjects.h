@@ -29,7 +29,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Applications resources represent applications installed on the domain that
+ *  Application resources represent applications installed on the domain that
  *  support transferring ownership of user data.
  */
 @interface GTLRDataTransfer_Application : GTLRObject
@@ -38,7 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The application's ID.
+ *  The application's ID. Retrievable by using the
+ *  [`applications.list()`](/admin-sdk/data-transfer/reference/rest/v1/applications/list)
+ *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -54,8 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of all possible transfer parameters for this application. These
- *  parameters can be used to select the data of the user in this application to
- *  be transferred.
+ *  parameters select which categories of the user's data to transfer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataTransfer_ApplicationTransferParam *> *transferParams;
 
@@ -77,10 +78,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The transfer parameters for the application. These parameters are used to
  *  select the data which will get transferred in context of this application.
+ *  For more information about the specific values available for each
+ *  application, see the [Transfer
+ *  parameters](/admin-sdk/data-transfer/v1/parameters) reference.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataTransfer_ApplicationTransferParam *> *applicationTransferParams;
 
-/** Current status of transfer for this application. (Read-only) */
+/** Read-only. Current status of transfer for this application. */
 @property(nonatomic, copy, nullable) NSString *applicationTransferStatus;
 
 @end
@@ -97,8 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataTransfer_ApplicationsListResponse : GTLRCollectionObject
 
 /**
- *  List of applications that support data transfer and are also installed for
- *  the customer.
+ *  The list of applications that support data transfer and are also installed
+ *  for the customer.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -111,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identifies the resource as a collection of Applications. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Continuation token which will be used to specify next page in list API. */
+/** Token to specify the next page in the list. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -122,12 +126,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataTransfer_ApplicationTransferParam : GTLRObject
 
-/** The type of the transfer parameter. eg: 'PRIVACY_LEVEL' */
+/** The type of the transfer parameter, such as `PRIVACY_LEVEL`. */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/**
- *  The value of the corresponding transfer parameter. eg: 'PRIVATE' or 'SHARED'
- */
+/** The value of the transfer parameter, such as `PRIVATE` or `SHARED`. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *value;
 
 @end
@@ -140,10 +142,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataTransfer_DataTransfer : GTLRObject
 
 /**
- *  List of per application data transfer resources. It contains data transfer
- *  details of the applications associated with this transfer resource. Note
- *  that this list is also used to specify the applications for which data
- *  transfer has to be done at the time of the transfer resource creation.
+ *  The list of per-application data transfer resources. It contains details of
+ *  the applications associated with this transfer resource, and also specifies
+ *  the applications for which data transfer has to be done at the time of the
+ *  transfer resource creation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataTransfer_ApplicationDataTransfer *> *applicationDataTransfers;
 
@@ -151,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The transfer's ID (Read-only).
+ *  Read-only. The transfer's ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -166,10 +168,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** ID of the user whose data is being transferred. */
 @property(nonatomic, copy, nullable) NSString *oldOwnerUserId;
 
-/** Overall transfer status (Read-only). */
+/** Read-only. Overall transfer status. */
 @property(nonatomic, copy, nullable) NSString *overallTransferStatusCode;
 
-/** The time at which the data transfer was requested (Read-only). */
+/** Read-only. The time at which the data transfer was requested. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
 
 @end
@@ -199,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identifies the resource as a collection of data transfer requests. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Continuation token which will be used to specify next page in list API. */
+/** Token to specify the next page in the list. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

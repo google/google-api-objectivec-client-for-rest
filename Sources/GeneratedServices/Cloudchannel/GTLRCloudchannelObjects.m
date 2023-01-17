@@ -129,6 +129,11 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Int = @"I
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Money = @"MONEY";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_String = @"STRING";
 
+// GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride.rebillingBasis
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_CostAtList = @"COST_AT_LIST";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_DirectCustomerCost = @"DIRECT_CUSTOMER_COST";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified = @"REBILLING_BASIS_UNSPECIFIED";
+
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_AllowedCustomerTypes_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_AllowedCustomerTypes_Domain = @"DOMAIN";
@@ -713,6 +718,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1CommitmentSettings
 @dynamic endTime, renewalSettings, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride
+@dynamic adjustment, rebillingBasis, repricingCondition;
 @end
 
 
@@ -1541,12 +1556,30 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1RepricingCondition
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingCondition
+@dynamic skuGroupCondition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig
-@dynamic adjustment, channelPartnerGranularity, effectiveInvoiceMonth,
-         entitlementGranularity, rebillingBasis;
+@dynamic adjustment, channelPartnerGranularity, conditionalOverrides,
+         effectiveInvoiceMonth, entitlementGranularity, rebillingBasis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditionalOverrides" : [GTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1614,6 +1647,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Sku
 @dynamic marketingInfo, name, product;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition
+@dynamic skuGroup;
 @end
 
 

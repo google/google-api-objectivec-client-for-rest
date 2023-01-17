@@ -1173,7 +1173,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_NetworkConfig
-@dynamic egressOption, peeredNetwork;
+@dynamic egressOption, peeredNetwork, peeredNetworkIpRange;
 @end
 
 

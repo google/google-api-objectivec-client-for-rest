@@ -4,8 +4,8 @@
 // API:
 //   Firebase Realtime Database API (firebasedatabase/v1beta)
 // Description:
-//   The Firebase Realtime Database Management API enables programmatic
-//   provisioning and management of Realtime Database instances.
+//   The Firebase Realtime Database API enables programmatic provisioning and
+//   management of Realtime Database instances.
 // Documentation:
 //   https://firebase.google.com/docs/reference/rest/database/database-management/rest/
 
@@ -54,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
- *  The parent project for which to create a database instance, in the form:
- *  `projects/{project-number}/locations/{location-id}`.
+ *  Required. The parent project for which to create a database instance, in the
+ *  form: `projects/{project-number}/locations/{location-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -74,8 +74,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirebaseRealtimeDatabase_DatabaseInstance to
  *    include in the query.
- *  @param parent The parent project for which to create a database instance, in
- *    the form: `projects/{project-number}/locations/{location-id}`.
+ *  @param parent Required. The parent project for which to create a database
+ *    instance, in the form:
+ *    `projects/{project-number}/locations/{location-id}`.
  *
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesCreate
  */
@@ -100,7 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesDelete : GTLRFirebaseRealtimeDatabaseQuery
 
 /**
- *  The fully qualified resource name of the database instance, in the form:
+ *  Required. The fully qualified resource name of the database instance, in the
+ *  form:
  *  `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -114,8 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  never be recovered or re-used. The Database may only be deleted if it is
  *  already in a DISABLED state.
  *
- *  @param name The fully qualified resource name of the database instance, in
- *    the form:
+ *  @param name Required. The fully qualified resource name of the database
+ *    instance, in the form:
  *    `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  *
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesDelete
@@ -138,7 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesDisable : GTLRFirebaseRealtimeDatabaseQuery
 
 /**
- *  The fully qualified resource name of the database instance, in the form:
+ *  Required. The fully qualified resource name of the database instance, in the
+ *  form:
  *  `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -153,8 +156,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRFirebaseRealtimeDatabase_DisableDatabaseInstanceRequest to include in
  *    the query.
- *  @param name The fully qualified resource name of the database instance, in
- *    the form:
+ *  @param name Required. The fully qualified resource name of the database
+ *    instance, in the form:
  *    `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  *
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesDisable
@@ -178,7 +181,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesGet : GTLRFirebaseRealtimeDatabaseQuery
 
 /**
- *  The fully qualified resource name of the database instance, in the form:
+ *  Required. The fully qualified resource name of the database instance, in the
+ *  form:
  *  `projects/{project-number}/locations/{location-id}/instances/{database-id}`.
  *  `database-id` is a globally unique identifier across all parent collections.
  *  For convenience, this method allows you to supply `-` as a wildcard
@@ -193,8 +197,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the DatabaseInstance identified by the specified resource name.
  *
- *  @param name The fully qualified resource name of the database instance, in
- *    the form:
+ *  @param name Required. The fully qualified resource name of the database
+ *    instance, in the form:
  *    `projects/{project-number}/locations/{location-id}/instances/{database-id}`.
  *    `database-id` is a globally unique identifier across all parent
  *    collections. For convenience, this method allows you to supply `-` as a
@@ -241,8 +245,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent project for which to list database instances, in the form:
- *  `projects/{project-number}/locations/{location-id}` To list across all
+ *  Required. The parent project for which to list database instances, in the
+ *  form: `projects/{project-number}/locations/{location-id}` To list across all
  *  locations, use a parent in the form: `projects/{project-number}/locations/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -263,9 +267,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  results may be stale by a few seconds. Use GetDatabaseInstance for
  *  consistent reads.
  *
- *  @param parent The parent project for which to list database instances, in
- *    the form: `projects/{project-number}/locations/{location-id}` To list
- *    across all locations, use a parent in the form:
+ *  @param parent Required. The parent project for which to list database
+ *    instances, in the form:
+ *    `projects/{project-number}/locations/{location-id}` To list across all
+ *    locations, use a parent in the form:
  *    `projects/{project-number}/locations/-`
  *
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesList
@@ -292,7 +297,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesReenable : GTLRFirebaseRealtimeDatabaseQuery
 
 /**
- *  The fully qualified resource name of the database instance, in the form:
+ *  Required. The fully qualified resource name of the database instance, in the
+ *  form:
  *  `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -307,8 +313,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRFirebaseRealtimeDatabase_ReenableDatabaseInstanceRequest to include in
  *    the query.
- *  @param name The fully qualified resource name of the database instance, in
- *    the form:
+ *  @param name Required. The fully qualified resource name of the database
+ *    instance, in the form:
  *    `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  *
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesReenable
@@ -335,7 +341,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesUndelete : GTLRFirebaseRealtimeDatabaseQuery
 
 /**
- *  The fully qualified resource name of the database instance, in the form:
+ *  Required. The fully qualified resource name of the database instance, in the
+ *  form:
  *  `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -353,8 +360,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest to include in
  *    the query.
- *  @param name The fully qualified resource name of the database instance, in
- *    the form:
+ *  @param name Required. The fully qualified resource name of the database
+ *    instance, in the form:
  *    `projects/{project-number}/locations/{location-id}/instances/{database-id}`
  *
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesUndelete

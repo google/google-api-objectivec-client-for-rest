@@ -336,6 +336,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8030;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8031;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -523,6 +529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_30"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8030;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8031;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -827,6 +839,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029;
  *  Value: "MYSQL_8_0_30"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8030;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8031;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -2232,6 +2250,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8030 The
  *        database major version is MySQL 8.0 and the minor version is 30.
  *        (Value: "MYSQL_8_0_30")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8031 The
+ *        database major version is MySQL 8.0 and the minor version is 31.
+ *        (Value: "MYSQL_8_0_31")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -2445,6 +2466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8030 The
  *        database major version is MySQL 8.0 and the minor version is 30.
  *        (Value: "MYSQL_8_0_30")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8031 The
+ *        database major version is MySQL 8.0 and the minor version is 31.
+ *        (Value: "MYSQL_8_0_31")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -2865,6 +2889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
+/** Options for exporting BAK files (SQL Server-only) */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_BakExportOptions *bakExportOptions;
 
 /**
@@ -2924,19 +2949,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  GTLRSQLAdmin_ExportContext_BakExportOptions
+ *  Options for exporting BAK files (SQL Server-only)
  */
 @interface GTLRSQLAdmin_ExportContext_BakExportOptions : GTLRObject
 
 /**
- *  stripeCount
+ *  Option for specifying how many stripes to use for the export. If blank, and
+ *  the value of the striped field is true, the number of stripes is
+ *  automatically chosen.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *stripeCount;
 
 /**
- *  striped
+ *  Whether or not the export should be striped.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3250,7 +3277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions *encryptionOptions;
 
 /**
- *  striped
+ *  Whether or not the backup set being restored is striped. Applies only to
+ *  Cloud SQL for SQL Server.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4116,7 +4144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Minimum interval after which the password can be changed. This flag is only
- *  supported for PostgresSQL.
+ *  supported for PostgreSQL.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *passwordChangeInterval;
 

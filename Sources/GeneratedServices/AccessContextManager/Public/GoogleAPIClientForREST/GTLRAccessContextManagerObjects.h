@@ -20,6 +20,7 @@
 @class GTLRAccessContextManager_ApiOperation;
 @class GTLRAccessContextManager_AuditConfig;
 @class GTLRAccessContextManager_AuditLogConfig;
+@class GTLRAccessContextManager_AuthorizedOrgsDesc;
 @class GTLRAccessContextManager_BasicLevel;
 @class GTLRAccessContextManager_Binding;
 @class GTLRAccessContextManager_Condition;
@@ -84,6 +85,66 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuditLogConfig_LogT
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_AuthorizedOrgsDesc.assetType
+
+/**
+ *  credential strength asset type.
+ *
+ *  Value: "ASSET_TYPE_CREDENTIAL_STRENGTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeCredentialStrength;
+/**
+ *  Device asset type.
+ *
+ *  Value: "ASSET_TYPE_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeDevice;
+/**
+ *  No asset type specified.
+ *
+ *  Value: "ASSET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_AuthorizedOrgsDesc.authorizationDirection
+
+/**
+ *  Specified orgs' traffic will be evaluated.
+ *
+ *  Value: "AUTHORIZATION_DIRECTION_FROM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionFrom;
+/**
+ *  Specified orgs will evaluate traffic.
+ *
+ *  Value: "AUTHORIZATION_DIRECTION_TO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionTo;
+/**
+ *  No direction specified.
+ *
+ *  Value: "AUTHORIZATION_DIRECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_AuthorizedOrgsDesc.authorizationType
+
+/**
+ *  This authorization relationship is "trust".
+ *
+ *  Value: "AUTHORIZATION_TYPE_TRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeTrust;
+/**
+ *  No authorization type specified.
+ *
+ *  Value: "AUTHORIZATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_BasicLevel.combiningFunction
@@ -272,7 +333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge;
 /**
- *  Regular Perimeter.
+ *  Regular Perimeter. When no value is specified, the perimeter uses this type.
  *
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
@@ -299,10 +360,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Resource name for the Access Level. The `short_name` component
- *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
- *  length of the `access_level` component is 50 characters.
+ *  Resource name for the `AccessLevel`. Format:
+ *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
+ *  `access_level` component must begin with a letter, followed by alphanumeric
+ *  characters or `_`. Its maximum length is 50 characters. After you create an
+ *  `AccessLevel`, you cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -448,6 +510,81 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  `AuthorizedOrgsDesc` is a resource that contains a list of organizations for
+ *  a authorization type and asset type and its authorization direction.
+ */
+@interface GTLRAccessContextManager_AuthorizedOrgsDesc : GTLRObject
+
+/**
+ *  The asset type of this authorized orgs desc. e.g. device, credential
+ *  strength.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeCredentialStrength
+ *        credential strength asset type. (Value:
+ *        "ASSET_TYPE_CREDENTIAL_STRENGTH")
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeDevice
+ *        Device asset type. (Value: "ASSET_TYPE_DEVICE")
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeUnspecified
+ *        No asset type specified. (Value: "ASSET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
+ *  Authorization direction of this authorization relationship. i.e. Whether to
+ *  allow specified orgs to evaluate this org's traffic, or allow specified
+ *  orgs' traffic to be evaluated by this org. Orgs specified as
+ *  `AUTHORIZATION_DIRECTION_TO` in this
+ *  AuthorizedOrgsDesc[com.google.identity.accesscontextmanager.v1.AuthorizedOrgsDesc]
+ *  must also specify this org as the `AUTHORIZATION_DIRECTION_FROM` in their
+ *  own AuthorizedOrgsDesc in order for this relationship to take effect. Orgs
+ *  specified as `AUTHORIZATION_DIRECTION_FROM` in this
+ *  AuthorizedOrgsDesc[com.google.identity.accesscontextmanager.v1.AuthorizedOrgsDesc]
+ *  must also specify this org as the `AUTHORIZATION_DIRECTION_TO` in their own
+ *  AuthorizedOrgsDesc in order for this relationship to take effect.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionFrom
+ *        Specified orgs' traffic will be evaluated. (Value:
+ *        "AUTHORIZATION_DIRECTION_FROM")
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionTo
+ *        Specified orgs will evaluate traffic. (Value:
+ *        "AUTHORIZATION_DIRECTION_TO")
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionUnspecified
+ *        No direction specified. (Value: "AUTHORIZATION_DIRECTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationDirection;
+
+/**
+ *  The authorization type of this authorized orgs desc. e.g.authorization,
+ *  troubleshooting or logging.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeTrust
+ *        This authorization relationship is "trust". (Value:
+ *        "AUTHORIZATION_TYPE_TRUST")
+ *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeUnspecified
+ *        No authorization type specified. (Value:
+ *        "AUTHORIZATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationType;
+
+/**
+ *  Assigned by the server during creation. The last segment has an arbitrary
+ *  length and has only URI unreserved characters (as defined by [RFC 3986
+ *  Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should not
+ *  be specified by the client during creation. Example:
+ *  "accessPolicies/122256/authorizedOrgs/b3-BhcX_Ud5N"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The list of organization ids in this AuthorizedOrgsDesc. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *orgs;
 
 @end
 
@@ -1050,10 +1187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
- *  only projects are allowed. Format: `projects/{project_number}` The project
- *  may be in any Google Cloud organization, not just the organization that the
- *  perimeter is defined in. `*` is not allowed, the case of allowing all Google
- *  Cloud resources only is not supported.
+ *  only projects and VPCs are allowed. Project format:
+ *  `projects/{project_number}` VPC format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The
+ *  project may be in any Google Cloud organization, not just the organization
+ *  that the perimeter is defined in. `*` is not allowed, the case of allowing
+ *  all Google Cloud resources only is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1129,6 +1268,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_AccessPolicy *> *accessPolicies;
+
+/**
+ *  The pagination token to retrieve the next page of results. If the value is
+ *  empty, no further results remain.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A response to `ListAuthorizedOrgsDescsRequest`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authorizedOrgsDescs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAccessContextManager_ListAuthorizedOrgsDescsResponse : GTLRCollectionObject
+
+/**
+ *  List of the Authorized Orgs Desc instances.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_AuthorizedOrgsDesc *> *authorizedOrgsDescs;
 
 /**
  *  The pagination token to retrieve the next page of results. If the value is
@@ -1555,9 +1721,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Resource name for the ServicePerimeter. The `short_name` component
- *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
+ *  Resource name for the `ServicePerimeter`. Format:
+ *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
+ *  `service_perimeter` component must begin with a letter, followed by
+ *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
+ *  cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1572,7 +1740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *    @arg @c kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge
  *        Perimeter Bridge. (Value: "PERIMETER_TYPE_BRIDGE")
  *    @arg @c kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular
- *        Regular Perimeter. (Value: "PERIMETER_TYPE_REGULAR")
+ *        Regular Perimeter. When no value is specified, the perimeter uses this
+ *        type. (Value: "PERIMETER_TYPE_REGULAR")
  */
 @property(nonatomic, copy, nullable) NSString *perimeterType;
 
@@ -1648,7 +1817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.
- *  Currently only projects are allowed. Format: `projects/{project_number}`
+ *  Currently only projects and VPCs are allowed. Project format:
+ *  `projects/{project_number}` VPC format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 

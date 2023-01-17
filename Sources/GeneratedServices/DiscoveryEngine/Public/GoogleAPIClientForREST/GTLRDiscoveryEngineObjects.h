@@ -15,6 +15,13 @@
 #endif
 
 @class GTLRDiscoveryEngine_GoogleApiHttpBody_Extensions_Item;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompletionInfo;
@@ -134,6 +141,172 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  A description of the context in which an error occurred.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext : GTLRObject
+
+/** The HTTP request which was processed when the error was triggered. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext *httpRequest;
+
+/**
+ *  The location in the source code where the decision was made to report the
+ *  error, usually the place where it was logged.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation *reportLocation;
+
+@end
+
+
+/**
+ *  An error log which is reported to the Error Reporting system.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog : GTLRObject
+
+/** A description of the context in which the error occurred. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext *context;
+
+/** The error payload that is populated on LRO import APIs. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext *importPayload;
+
+/** A message describing the error. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The API request payload, represented as a protocol buffer. Most API request
+ *  types are supported. For example:
+ *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.DocumentService.CreateDocumentRequest"
+ *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEventRequest"
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload *requestPayload;
+
+/**
+ *  The API response payload, represented as a protocol buffer. This is used to
+ *  log some "soft errors", where the response is valid but we consider there
+ *  are some quality issues like unjoined events. The following API responses
+ *  are supported and no PII is included:
+ *  "google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend"
+ *  "google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEvent"
+ *  "google.cloud.discoveryengine.v1alpha.UserEventService.CollectUserEvent"
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload *responsePayload;
+
+/** The service context in which this error has occurred. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext *serviceContext;
+
+/** The RPC status associated with the error log. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The API request payload, represented as a protocol buffer. Most API request
+ *  types are supported. For example:
+ *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.DocumentService.CreateDocumentRequest"
+ *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEventRequest"
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload : GTLRObject
+@end
+
+
+/**
+ *  The API response payload, represented as a protocol buffer. This is used to
+ *  log some "soft errors", where the response is valid but we consider there
+ *  are some quality issues like unjoined events. The following API responses
+ *  are supported and no PII is included:
+ *  "google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend"
+ *  "google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEvent"
+ *  "google.cloud.discoveryengine.v1alpha.UserEventService.CollectUserEvent"
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload : GTLRObject
+@end
+
+
+/**
+ *  HTTP request data that is related to a reported error.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext : GTLRObject
+
+/**
+ *  The HTTP response status code for the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responseStatusCode;
+
+@end
+
+
+/**
+ *  The error payload that is populated on LRO import APIs. Including:
+ *  "google.cloud.discoveryengine.v1alpha.DocumentService.ImportDocuments"
+ *  "google.cloud.discoveryengine.v1alpha.UserEventService.ImportUserEvents"
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext : GTLRObject
+
+/** The detailed content which caused the error on importing a document. */
+@property(nonatomic, copy, nullable) NSString *document;
+
+/**
+ *  Google Cloud Storage file path of the import source. Can be set for batch
+ *  operation error.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPath;
+
+/**
+ *  Line number of the content in file. Should be empty for permission or batch
+ *  operation error.
+ */
+@property(nonatomic, copy, nullable) NSString *lineNumber;
+
+/** The operation resource name of the LRO. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** The detailed content which caused the error on importing a user event. */
+@property(nonatomic, copy, nullable) NSString *userEvent;
+
+@end
+
+
+/**
+ *  Describes a running service that sends errors.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext : GTLRObject
+
+/**
+ *  An identifier of the service. For example, "discoveryengine.googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Indicates a location in the source code of the service for which errors are
+ *  reported.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation : GTLRObject
+
+/**
+ *  Human-readable name of a function or method. For example, "
+ *  google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend".
+ */
+@property(nonatomic, copy, nullable) NSString *functionName;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the ImportDocuments operation. This will
  *  be returned by the google.longrunning.Operation.metadata field.
  */
@@ -188,10 +361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig : GTLRObject
 
 /**
- *  Google Cloud Storage prefix for import errors. This must be an empty,
- *  existing Cloud Storage directory. Import errors will be written to sharded
- *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
- *  message.
+ *  Cloud Storage prefix for import errors. This must be an empty, existing
+ *  Cloud Storage directory. Import errors will be written to sharded files in
+ *  this directory, one per line, as a JSON-encoded `google.rpc.Status` message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
 
@@ -456,7 +628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
- *  Google Cloud Storage location for input content. format.
+ *  Cloud Storage location for input content.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaGcsSource : GTLRObject
 
@@ -469,7 +641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @property(nonatomic, copy, nullable) NSString *dataSchema;
 
 /**
- *  Required. Google Cloud Storage URIs to input files. URI can be up to 2000
+ *  Required. Cloud Storage URIs to input files. URI can be up to 2000
  *  characters long. URIs can match the full object path (for example,
  *  `gs://bucket/directory/object.json`) or a pattern matching one or more
  *  files, such as `gs://bucket/directory/ *.json`. A request can contain at
@@ -523,7 +695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /** The desired location of errors incurred during the Import. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportErrorConfig *errorConfig;
 
-/** Google Cloud Storage location for the input content. */
+/** Cloud Storage location for the input content. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaGcsSource *gcsSource;
 
 /** The Inline source for the input content for documents. */
@@ -586,10 +758,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportErrorConfig : GTLRObject
 
 /**
- *  Google Cloud Storage prefix for import errors. This must be an empty,
- *  existing Cloud Storage directory. Import errors will be written to sharded
- *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
- *  message.
+ *  Cloud Storage prefix for import errors. This must be an empty, existing
+ *  Cloud Storage directory. Import errors will be written to sharded files in
+ *  this directory, one per line, as a JSON-encoded `google.rpc.Status` message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
 
@@ -642,7 +813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportErrorConfig *errorConfig;
 
-/** Required. Google Cloud Storage location for the input content. */
+/** Required. Cloud Storage location for the input content. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaGcsSource *gcsSource;
 
 /** Required. The Inline source for the input content for UserEvents. */
@@ -898,8 +1069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  All characters must use UTF-8 encoding, and international characters are
  *  allowed. * The key portion of a label must be unique. However, you can use
  *  the same key with multiple resources. * Keys must start with a lowercase
- *  letter or international character. See [Google Cloud
- *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  letter or international character. See [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
  *  for more details.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_UserLabels *userLabels;
@@ -952,8 +1123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  All characters must use UTF-8 encoding, and international characters are
  *  allowed. * The key portion of a label must be unique. However, you can use
  *  the same key with multiple resources. * Keys must start with a lowercase
- *  letter or international character. See [Google Cloud
- *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  letter or international character. See [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
  *  for more details.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1133,7 +1304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
- *  UserEvent captures all metadata information DiscoveryEngine API needs to
+ *  UserEvent captures all metadata information Discovery Engine API needs to
  *  know about how end users interact with customers' website.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent : GTLRObject
@@ -1145,17 +1316,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  ingested user events, also include them in the user events that you
  *  associate with prediction requests. Custom attribute formatting must be
  *  consistent between imported events and events provided with prediction
- *  requests. This lets the DiscoveryEngine API use those custom attributes when
- *  training models and serving predictions, which helps improve recommendation
- *  quality. This field needs to pass all below criteria, otherwise an
- *  INVALID_ARGUMENT error is returned: * The key must be a UTF-8 encoded string
- *  with a length limit of 5,000 characters. * For text attributes, at most 400
- *  values are allowed. Empty values are not allowed. Each value must be a UTF-8
- *  encoded string with a length limit of 256 characters. * For number
- *  attributes, at most 400 values are allowed. For product recommendations, an
- *  example of extra user information is traffic_channel, which is how a user
- *  arrives at the site. Users can arrive at the site by coming to the site
- *  directly, coming through Google search, or in other ways.
+ *  requests. This lets the Discovery Engine API use those custom attributes
+ *  when training models and serving predictions, which helps improve
+ *  recommendation quality. This field needs to pass all below criteria,
+ *  otherwise an INVALID_ARGUMENT error is returned: * The key must be a UTF-8
+ *  encoded string with a length limit of 5,000 characters. * For text
+ *  attributes, at most 400 values are allowed. Empty values are not allowed.
+ *  Each value must be a UTF-8 encoded string with a length limit of 256
+ *  characters. * For number attributes, at most 400 values are allowed. For
+ *  product recommendations, an example of extra user information is
+ *  traffic_channel, which is how a user arrives at the site. Users can arrive
+ *  at the site by coming to the site directly, coming through Google search, or
+ *  in other ways.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent_Attributes *attributes;
 
@@ -1270,7 +1442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  A unique identifier for tracking a visitor session with a length limit of
  *  128 bytes. A session is an aggregation of an end user behavior in a time
- *  span. A general guideline to populate the sesion_id: 1. If user has no
+ *  span. A general guideline to populate the session_id: 1. If user has no
  *  activity for 30 min, a new session_id should be assigned. 2. The session_id
  *  should be unique across users, suggest use uuid or add
  *  UserEvent.user_pseudo_id as prefix.
@@ -1315,17 +1487,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  ingested user events, also include them in the user events that you
  *  associate with prediction requests. Custom attribute formatting must be
  *  consistent between imported events and events provided with prediction
- *  requests. This lets the DiscoveryEngine API use those custom attributes when
- *  training models and serving predictions, which helps improve recommendation
- *  quality. This field needs to pass all below criteria, otherwise an
- *  INVALID_ARGUMENT error is returned: * The key must be a UTF-8 encoded string
- *  with a length limit of 5,000 characters. * For text attributes, at most 400
- *  values are allowed. Empty values are not allowed. Each value must be a UTF-8
- *  encoded string with a length limit of 256 characters. * For number
- *  attributes, at most 400 values are allowed. For product recommendations, an
- *  example of extra user information is traffic_channel, which is how a user
- *  arrives at the site. Users can arrive at the site by coming to the site
- *  directly, coming through Google search, or in other ways.
+ *  requests. This lets the Discovery Engine API use those custom attributes
+ *  when training models and serving predictions, which helps improve
+ *  recommendation quality. This field needs to pass all below criteria,
+ *  otherwise an INVALID_ARGUMENT error is returned: * The key must be a UTF-8
+ *  encoded string with a length limit of 5,000 characters. * For text
+ *  attributes, at most 400 values are allowed. Empty values are not allowed.
+ *  Each value must be a UTF-8 encoded string with a length limit of 256
+ *  characters. * For number attributes, at most 400 values are allowed. For
+ *  product recommendations, an example of extra user information is
+ *  traffic_channel, which is how a user arrives at the site. Users can arrive
+ *  at the site by coming to the site directly, coming through Google search, or
+ *  in other ways.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomAttribute.

@@ -21,6 +21,7 @@
 @class GTLRCloudBatch_AgentMetadata_OsRelease;
 @class GTLRCloudBatch_AgentTask;
 @class GTLRCloudBatch_AgentTaskInfo;
+@class GTLRCloudBatch_AgentTimingInfo;
 @class GTLRCloudBatch_AllocationPolicy;
 @class GTLRCloudBatch_AllocationPolicy_Labels;
 @class GTLRCloudBatch_AttachedDisk;
@@ -32,6 +33,7 @@
 @class GTLRCloudBatch_Container;
 @class GTLRCloudBatch_Disk;
 @class GTLRCloudBatch_Environment;
+@class GTLRCloudBatch_Environment_SecretVariables;
 @class GTLRCloudBatch_Environment_Variables;
 @class GTLRCloudBatch_Expr;
 @class GTLRCloudBatch_GCS;
@@ -43,6 +45,7 @@
 @class GTLRCloudBatch_JobNotification;
 @class GTLRCloudBatch_JobStatus;
 @class GTLRCloudBatch_JobStatus_TaskGroups;
+@class GTLRCloudBatch_KMSEnvMap;
 @class GTLRCloudBatch_LifecyclePolicy;
 @class GTLRCloudBatch_Location;
 @class GTLRCloudBatch_Location_Labels;
@@ -551,11 +554,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 
 
 /**
- *  AgentMetadata never changes for a single instance of VM agent.
+ *  VM Agent Metadata.
  */
 @interface GTLRCloudBatch_AgentMetadata : GTLRObject
 
-/** When the VM agent started. */
+/** When the VM agent started. Use agent_startup_time instead. */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
@@ -564,6 +567,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  retrieved from the vm metadata key of "created-by".
  */
 @property(nonatomic, copy, nullable) NSString *creator;
+
+/** image version for the VM that this agent is installed on. */
+@property(nonatomic, copy, nullable) NSString *imageVersion;
 
 /** GCP instance name (go/instance-name). */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -574,6 +580,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *instanceId;
+
+/**
+ *  If the GCP instance has received preemption notice.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *instancePreemptionNoticeReceived;
 
 /** parsed contents of /etc/os-release */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AgentMetadata_OsRelease *osRelease;
@@ -664,6 +677,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  public TaskStatus into an agent specific one. Or add them below.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskStatus *taskStatus;
+
+@end
+
+
+/**
+ *  VM timing information
+ */
+@interface GTLRCloudBatch_AgentTimingInfo : GTLRObject
+
+/** Agent startup time */
+@property(nonatomic, strong, nullable) GTLRDateTime *agentStartupTime;
+
+/** Boot timestamp of the VM OS */
+@property(nonatomic, strong, nullable) GTLRDateTime *bootTime;
+
+/** Startup time of the Batch VM script. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scriptStartupTime;
 
 @end
 
@@ -953,14 +983,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 
 /**
  *  Optional password for logging in to a docker registry. If password matches
- *  "projects/ * /secrets/ * /versions/ *" then Batch will read the password
+ *  `projects/ * /secrets/ * /versions/ *` then Batch will read the password
  *  from the Secret Manager;
  */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  Optional username for logging in to a docker registry. If username matches
- *  "projects/ * /secrets/ * /versions/ *" then Batch will read the username
+ *  `projects/ * /secrets/ * /versions/ *` then Batch will read the username
  *  from the Secret Manager.
  */
 @property(nonatomic, copy, nullable) NSString *username;
@@ -990,13 +1020,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  */
 @property(nonatomic, copy, nullable) NSString *diskInterface;
 
-/** Name of a public or custom image used as the data source. */
+/**
+ *  Name of a public or custom image used as the data source. For example, the
+ *  following are all valid URLs: (1) Specify the image by its family name:
+ *  projects/{project}/global/images/family/{image_family} (2) Specify the image
+ *  version: projects/{project}/global/images/{image_version} You can also use
+ *  Batch customized image in short names. The following image values are
+ *  supported for a boot disk: "batch-debian": use Batch Debian images.
+ *  "batch-centos": use Batch CentOS images. "batch-cos": use Batch
+ *  Container-Optimized images.
+ */
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  Disk size in GB. This field is ignored if `data_source` is `disk` or
- *  `image`. If `type` is `local-ssd`, size_gb should be a multiple of 375GB,
- *  otherwise, the final size will be the next greater multiple of 375 GB.
+ *  Disk size in GB. For persistent disk, this field is ignored if `data_source`
+ *  is `image` or `snapshot`. For local SSD, size_gb should be a multiple of
+ *  375GB, otherwise, the final size will be the next greater multiple of 375
+ *  GB. For boot disk, Batch will calculate the boot disk size based on source
+ *  image and task requirements if you do not speicify the size. If both this
+ *  field and the boot_disk_mib field in task spec's compute_resource are
+ *  defined, Batch will only honor this field.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1006,8 +1049,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 @property(nonatomic, copy, nullable) NSString *snapshot;
 
 /**
- *  Disk type as shown in `gcloud compute disk-types list` For example,
- *  "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
+ *  Disk type as shown in `gcloud compute disk-types list`. For example, local
+ *  SSD uses type "local-ssd". Persistent disks and boot disks use
+ *  "pd-balanced", "pd-extreme", "pd-ssd" or "pd-standard".
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1030,9 +1074,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  */
 @interface GTLRCloudBatch_Environment : GTLRObject
 
+/**
+ *  An encrypted JSON dictionary where the key/value pairs correspond to
+ *  environment variable names and their values.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_KMSEnvMap *encryptedVariables;
+
+/**
+ *  A map of environment variable names to Secret Manager secret names. The VM
+ *  will access the named secrets to set the value of each environment variable.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_Environment_SecretVariables *secretVariables;
+
 /** A map of environment variable names to values. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Environment_Variables *variables;
 
+@end
+
+
+/**
+ *  A map of environment variable names to Secret Manager secret names. The VM
+ *  will access the named secrets to set the value of each environment variable.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBatch_Environment_SecretVariables : GTLRObject
 @end
 
 
@@ -1119,6 +1188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 
 /** The accelerators attached to each VM instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_Accelerator *> *accelerators;
+
+/**
+ *  Book disk to be created and attached to each VM by this InstancePolicy. Boot
+ *  disk will be deleted when the VM is deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_Disk *bootDisk;
 
 /**
  *  Non-boot disks to be attached for each VM created by this InstancePolicy.
@@ -1373,6 +1448,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudBatch_JobStatus_TaskGroups : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudBatch_KMSEnvMap
+ */
+@interface GTLRCloudBatch_KMSEnvMap : GTLRObject
+
+/** The value of the cipherText response from the `encrypt` method. */
+@property(nonatomic, copy, nullable) NSString *cipherText;
+
+/** The name of the KMS key that will be used to decrypt the cipher text. */
+@property(nonatomic, copy, nullable) NSString *keyName;
+
 @end
 
 
@@ -1688,7 +1777,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  */
 @interface GTLRCloudBatch_NetworkInterface : GTLRObject
 
-/** The URL of the network resource. */
+/**
+ *  The URL of an existing network resource. You can specify the network as a
+ *  full or partial URL. For example, the following are all valid URLs:
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ *  projects/{project}/global/networks/{network} global/networks/{network}
+ */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
@@ -1704,7 +1798,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  */
 @property(nonatomic, strong, nullable) NSNumber *noExternalIpAddress;
 
-/** The URL of the Subnetwork resource. */
+/**
+ *  The URL of an existing subnetwork resource in the network. You can specify
+ *  the subnetwork as a full or partial URL. For example, the following are all
+ *  valid URLs:
+ *  https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+ *  projects/{project}/regions/{region}/subnetworks/{subnetwork}
+ *  regions/{region}/subnetworks/{subnetwork}
+ */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 @end
@@ -1952,6 +2053,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 /** Agent info. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AgentInfo *agentInfo;
 
+/** Agent timing info. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTimingInfo *agentTimingInfo;
+
 /** Agent metadata. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AgentMetadata *metadata;
 
@@ -1962,6 +2066,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  Response to ReportAgentStateRequest.
  */
 @interface GTLRCloudBatch_ReportAgentStateResponse : GTLRObject
+
+/** Default report interval override */
+@property(nonatomic, strong, nullable) GTLRDuration *defaultReportInterval;
+
+/** Minimum report interval override */
+@property(nonatomic, strong, nullable) GTLRDuration *minReportInterval;
 
 /** Tasks assigned to the agent */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_AgentTask *> *tasks;
@@ -2296,10 +2406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 /** Environment variables to set before running the Task. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Environment *environment;
 
-/**
- *  Environment variables to set before running the Task. You can set up to 100
- *  environments.
- */
+/** Deprecated: please use environment(non-plural) instead. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskSpec_Environments *environments;
 
 /**
@@ -2347,8 +2454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 
 
 /**
- *  Environment variables to set before running the Task. You can set up to 100
- *  environments.
+ *  Deprecated: please use environment(non-plural) instead.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

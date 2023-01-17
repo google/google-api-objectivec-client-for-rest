@@ -861,11 +861,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 
 /**
  *  The full resource name of the policy this lint request is about. The name
- *  follows the Google Cloud Platform (GCP) resource format. For example, a GCP
- *  project with ID `my-project` will be named
+ *  follows the Google Cloud format for full resource names. For example, a
+ *  Cloud project with ID `my-project` will be named
  *  `//cloudresourcemanager.googleapis.com/projects/my-project`. The resource
- *  name is not used to read the policy instance from the Cloud IAM database.
- *  The candidate policy for lint has to be provided in the same request object.
+ *  name is not used to read a policy from IAM. Only the data in the request
+ *  object is linted.
  */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
@@ -1702,10 +1702,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
  *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
  *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
  *  wildcard character, because it can cause response messages to contain
- *  misleading error codes. For example, if you try to get the service account
- *  `projects/-/serviceAccounts/fake\@example.com`, which does not exist, the
- *  response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
- *  error.
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

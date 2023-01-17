@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Admin API (analyticsadmin/v1alpha)
+//   Google Analytics Admin API (analyticsadmin/v1beta)
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -11,250 +11,128 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter.operation
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter_Operation_Equal = @"EQUAL";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter_Operation_GreaterThan = @"GREATER_THAN";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter_Operation_GreaterThanOrEqual = @"GREATER_THAN_OR_EQUAL";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter_Operation_LessThan = @"LESS_THAN";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter_Operation_LessThanOrEqual = @"LESS_THAN_OR_EQUAL";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange.action
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange_Action_Created = @"CREATED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange_Action_Deleted = @"DELETED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange_Action_Updated = @"UPDATED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy.orderType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy_OrderType_Alphanumeric = @"ALPHANUMERIC";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy_OrderType_CaseInsensitiveAlphanumeric = @"CASE_INSENSITIVE_ALPHANUMERIC";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy_OrderType_Numeric = @"NUMERIC";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy_OrderType_OrderTypeUnspecified = @"ORDER_TYPE_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent.actorType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_ActorTypeUnspecified = @"ACTOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_Support = @"SUPPORT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_System = @"SYSTEM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_User = @"USER";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter.matchType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_BeginsWith = @"BEGINS_WITH";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_Contains = @"CONTAINS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_EndsWith = @"ENDS_WITH";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_Exact = @"EXACT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_FullRegexp = @"FULL_REGEXP";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter_MatchType_PartialRegexp = @"PARTIAL_REGEXP";
+// GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.scope
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomDimension_Scope_DimensionScopeUnspecified = @"DIMENSION_SCOPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomDimension_Scope_Event = @"EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomDimension_Scope_User = @"USER";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.acquisitionConversionEventLookbackWindow
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow30Days = @"ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow7Days = @"ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_7_DAYS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindowUnspecified = @"ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaCustomMetric.measurementUnit
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Currency = @"CURRENCY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Feet = @"FEET";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Hours = @"HOURS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Kilometers = @"KILOMETERS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified = @"MEASUREMENT_UNIT_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Meters = @"METERS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Miles = @"MILES";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Milliseconds = @"MILLISECONDS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Minutes = @"MINUTES";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Seconds = @"SECONDS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_MeasurementUnit_Standard = @"STANDARD";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.otherConversionEventLookbackWindow
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow30Days = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow60Days = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_60_DAYS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow90Days = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_90_DAYS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindowUnspecified = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaCustomMetric.restrictedMetricType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_RestrictedMetricType_CostData = @"COST_DATA";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_RestrictedMetricType_RestrictedMetricTypeUnspecified = @"RESTRICTED_METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_RestrictedMetricType_RevenueData = @"REVENUE_DATA";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.reportingAttributionModel
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_AdsPreferredLastClick = @"ADS_PREFERRED_LAST_CLICK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelDataDriven = @"CROSS_CHANNEL_DATA_DRIVEN";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelFirstClick = @"CROSS_CHANNEL_FIRST_CLICK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLastClick = @"CROSS_CHANNEL_LAST_CLICK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLinear = @"CROSS_CHANNEL_LINEAR";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelPositionBased = @"CROSS_CHANNEL_POSITION_BASED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelTimeDecay = @"CROSS_CHANNEL_TIME_DECAY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_ReportingAttributionModelUnspecified = @"REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaCustomMetric.scope
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_Scope_Event = @"EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_Scope_MetricScopeUnspecified = @"METRIC_SCOPE_UNSPECIFIED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudience.exclusionDurationMode
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudience_ExclusionDurationMode_AudienceExclusionDurationModeUnspecified = @"AUDIENCE_EXCLUSION_DURATION_MODE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudience_ExclusionDurationMode_ExcludePermanently = @"EXCLUDE_PERMANENTLY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudience_ExclusionDurationMode_ExcludeTemporarily = @"EXCLUDE_TEMPORARILY";
+// GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.eventDataRetention
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_FiftyMonths = @"FIFTY_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_FourteenMonths = @"FOURTEEN_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified = @"RETENTION_DURATION_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_ThirtyEightMonths = @"THIRTY_EIGHT_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths = @"TWO_MONTHS";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter.operation
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter_Operation_Equal = @"EQUAL";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter_Operation_GreaterThan = @"GREATER_THAN";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter_Operation_LessThan = @"LESS_THAN";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaDataStream.type
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_DataStreamTypeUnspecified = @"DATA_STREAM_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_IosAppDataStream = @"IOS_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_WebDataStream = @"WEB_DATA_STREAM";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter.matchType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter_MatchType_BeginsWith = @"BEGINS_WITH";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter_MatchType_Contains = @"CONTAINS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter_MatchType_EndsWith = @"ENDS_WITH";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter_MatchType_Exact = @"EXACT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter_MatchType_FullRegexp = @"FULL_REGEXP";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaProperty.industryCategory
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_ArtsAndEntertainment = @"ARTS_AND_ENTERTAINMENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Automotive = @"AUTOMOTIVE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_BeautyAndFitness = @"BEAUTY_AND_FITNESS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_BooksAndLiterature = @"BOOKS_AND_LITERATURE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_BusinessAndIndustrialMarkets = @"BUSINESS_AND_INDUSTRIAL_MARKETS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Finance = @"FINANCE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_FoodAndDrink = @"FOOD_AND_DRINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Games = @"GAMES";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Healthcare = @"HEALTHCARE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_HobbiesAndLeisure = @"HOBBIES_AND_LEISURE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_HomeAndGarden = @"HOME_AND_GARDEN";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_IndustryCategoryUnspecified = @"INDUSTRY_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_InternetAndTelecom = @"INTERNET_AND_TELECOM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_JobsAndEducation = @"JOBS_AND_EDUCATION";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_LawAndGovernment = @"LAW_AND_GOVERNMENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_News = @"NEWS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_OnlineCommunities = @"ONLINE_COMMUNITIES";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Other = @"OTHER";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_PeopleAndSociety = @"PEOPLE_AND_SOCIETY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_PetsAndAnimals = @"PETS_AND_ANIMALS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_RealEstate = @"REAL_ESTATE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Reference = @"REFERENCE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Science = @"SCIENCE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Shopping = @"SHOPPING";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Sports = @"SPORTS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Technology = @"TECHNOLOGY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Travel = @"TRAVEL";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceEventTrigger.logCondition
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceEventTrigger_LogCondition_AudienceJoined = @"AUDIENCE_JOINED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceEventTrigger_LogCondition_AudienceMembershipRenewed = @"AUDIENCE_MEMBERSHIP_RENEWED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceEventTrigger_LogCondition_LogConditionUnspecified = @"LOG_CONDITION_UNSPECIFIED";
+// GTLRGoogleAnalyticsAdmin_V1betaProperty.propertyType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary = @"PROPERTY_TYPE_ORDINARY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeRollup = @"PROPERTY_TYPE_ROLLUP";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeSubproperty = @"PROPERTY_TYPE_SUBPROPERTY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeUnspecified = @"PROPERTY_TYPE_UNSPECIFIED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause.clauseType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause_ClauseType_AudienceClauseTypeUnspecified = @"AUDIENCE_CLAUSE_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause_ClauseType_Exclude = @"EXCLUDE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause_ClauseType_Include = @"INCLUDE";
+// GTLRGoogleAnalyticsAdmin_V1betaProperty.serviceLevel
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_ServiceLevel_GoogleAnalytics360 = @"GOOGLE_ANALYTICS_360";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_ServiceLevel_GoogleAnalyticsStandard = @"GOOGLE_ANALYTICS_STANDARD";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_ServiceLevel_ServiceLevelUnspecified = @"SERVICE_LEVEL_UNSPECIFIED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter.scope
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter_Scope_AudienceFilterScopeAcrossAllSessions = @"AUDIENCE_FILTER_SCOPE_ACROSS_ALL_SESSIONS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter_Scope_AudienceFilterScopeUnspecified = @"AUDIENCE_FILTER_SCOPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter_Scope_AudienceFilterScopeWithinSameEvent = @"AUDIENCE_FILTER_SCOPE_WITHIN_SAME_EVENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter_Scope_AudienceFilterScopeWithinSameSession = @"AUDIENCE_FILTER_SCOPE_WITHIN_SAME_SESSION";
+// GTLRGoogleAnalyticsAdmin_V1betaPropertySummary.propertyType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeOrdinary = @"PROPERTY_TYPE_ORDINARY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeRollup = @"PROPERTY_TYPE_ROLLUP";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeSubproperty = @"PROPERTY_TYPE_SUBPROPERTY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeUnspecified = @"PROPERTY_TYPE_UNSPECIFIED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep.scope
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep_Scope_AudienceFilterScopeAcrossAllSessions = @"AUDIENCE_FILTER_SCOPE_ACROSS_ALL_SESSIONS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep_Scope_AudienceFilterScopeUnspecified = @"AUDIENCE_FILTER_SCOPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep_Scope_AudienceFilterScopeWithinSameEvent = @"AUDIENCE_FILTER_SCOPE_WITHIN_SAME_EVENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep_Scope_AudienceFilterScopeWithinSameSession = @"AUDIENCE_FILTER_SCOPE_WITHIN_SAME_SESSION";
+// GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest.action
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_Action_Created = @"CREATED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_Action_Deleted = @"DELETED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_Action_Updated = @"UPDATED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter.scope
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter_Scope_AudienceFilterScopeAcrossAllSessions = @"AUDIENCE_FILTER_SCOPE_ACROSS_ALL_SESSIONS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter_Scope_AudienceFilterScopeUnspecified = @"AUDIENCE_FILTER_SCOPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter_Scope_AudienceFilterScopeWithinSameEvent = @"AUDIENCE_FILTER_SCOPE_WITHIN_SAME_EVENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter_Scope_AudienceFilterScopeWithinSameSession = @"AUDIENCE_FILTER_SCOPE_WITHIN_SAME_SESSION";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange.action
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created = @"CREATED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Deleted = @"DELETED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Updated = @"UPDATED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent.actorType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_ActorTypeUnspecified = @"ACTOR_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_Support = @"SUPPORT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System = @"SYSTEM";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User = @"USER";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.scope
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_DimensionScopeUnspecified = @"DIMENSION_SCOPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_Event = @"EVENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_User = @"USER";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.measurementUnit
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency = @"CURRENCY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Feet = @"FEET";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Hours = @"HOURS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Kilometers = @"KILOMETERS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified = @"MEASUREMENT_UNIT_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Meters = @"METERS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Miles = @"MILES";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Milliseconds = @"MILLISECONDS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Minutes = @"MINUTES";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds = @"SECONDS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard = @"STANDARD";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.restrictedMetricType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_CostData = @"COST_DATA";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_RestrictedMetricTypeUnspecified = @"RESTRICTED_METRIC_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_RevenueData = @"REVENUE_DATA";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.scope
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event = @"EVENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified = @"METRIC_SCOPE_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.eventDataRetention
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FiftyMonths = @"FIFTY_MONTHS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FourteenMonths = @"FOURTEEN_MONTHS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified = @"RETENTION_DURATION_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_ThirtyEightMonths = @"THIRTY_EIGHT_MONTHS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths = @"TWO_MONTHS";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaDataStream.type
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_DataStreamTypeUnspecified = @"DATA_STREAM_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_IosAppDataStream = @"IOS_APP_DATA_STREAM";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_WebDataStream = @"WEB_DATA_STREAM";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter.matchType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Contains = @"CONTAINS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Exact = @"EXACT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented = @"GOOGLE_SIGNALS_CONSENT_CONSENTED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented = @"GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentUnspecified = @"GOOGLE_SIGNALS_CONSENT_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.state
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsDisabled = @"GOOGLE_SIGNALS_DISABLED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled = @"GOOGLE_SIGNALS_ENABLED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified = @"GOOGLE_SIGNALS_STATE_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalInitiatingProduct
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_GoogleAnalytics = @"GOOGLE_ANALYTICS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkedProduct = @"LINKED_PRODUCT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkProposalInitiatingProductUnspecified = @"LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalState
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromGoogleAnalytics = @"AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromLinkedProduct = @"AWAITING_REVIEW_FROM_LINKED_PRODUCT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Declined = @"DECLINED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Expired = @"EXPIRED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_LinkProposalStateUnspecified = @"LINK_PROPOSAL_STATE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Obsolete = @"OBSOLETE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Withdrawn = @"WITHDRAWN";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaProperty.industryCategory
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_ArtsAndEntertainment = @"ARTS_AND_ENTERTAINMENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Automotive = @"AUTOMOTIVE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_BeautyAndFitness = @"BEAUTY_AND_FITNESS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_BooksAndLiterature = @"BOOKS_AND_LITERATURE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_BusinessAndIndustrialMarkets = @"BUSINESS_AND_INDUSTRIAL_MARKETS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Finance = @"FINANCE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_FoodAndDrink = @"FOOD_AND_DRINK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Games = @"GAMES";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Healthcare = @"HEALTHCARE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_HobbiesAndLeisure = @"HOBBIES_AND_LEISURE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_HomeAndGarden = @"HOME_AND_GARDEN";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_IndustryCategoryUnspecified = @"INDUSTRY_CATEGORY_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_InternetAndTelecom = @"INTERNET_AND_TELECOM";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_JobsAndEducation = @"JOBS_AND_EDUCATION";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_LawAndGovernment = @"LAW_AND_GOVERNMENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_News = @"NEWS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_OnlineCommunities = @"ONLINE_COMMUNITIES";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Other = @"OTHER";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_PeopleAndSociety = @"PEOPLE_AND_SOCIETY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_PetsAndAnimals = @"PETS_AND_ANIMALS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_RealEstate = @"REAL_ESTATE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Reference = @"REFERENCE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Science = @"SCIENCE";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Shopping = @"SHOPPING";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Sports = @"SPORTS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Technology = @"TECHNOLOGY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel = @"TRAVEL";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaProperty.propertyType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeOrdinary = @"PROPERTY_TYPE_ORDINARY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeRollup = @"PROPERTY_TYPE_ROLLUP";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeSubproperty = @"PROPERTY_TYPE_SUBPROPERTY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeUnspecified = @"PROPERTY_TYPE_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaProperty.serviceLevel
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360 = @"GOOGLE_ANALYTICS_360";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard = @"GOOGLE_ANALYTICS_STANDARD";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified = @"SERVICE_LEVEL_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary.propertyType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeOrdinary = @"PROPERTY_TYPE_ORDINARY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeRollup = @"PROPERTY_TYPE_ROLLUP";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeSubproperty = @"PROPERTY_TYPE_SUBPROPERTY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeUnspecified = @"PROPERTY_TYPE_UNSPECIFIED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Created = @"CREATED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Deleted = @"DELETED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Updated = @"UPDATED";
-
-// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.resourceType
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account = @"ACCOUNT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AttributionSettings = @"ATTRIBUTION_SETTINGS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChannelGroup = @"CHANNEL_GROUP";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings = @"DATA_RETENTION_SETTINGS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataStream = @"DATA_STREAM";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLink = @"DISPLAY_VIDEO_360_ADVERTISER_LINK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLinkProposal = @"DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ExpandedDataSet = @"EXPANDED_DATA_SET";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings = @"GOOGLE_SIGNALS_SETTINGS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_MeasurementProtocolSecret = @"MEASUREMENT_PROTOCOL_SECRET";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Property = @"PROPERTY";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_SearchAds360Link = @"SEARCH_ADS_360_LINK";
+// GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest.resourceType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_Account = @"ACCOUNT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_AttributionSettings = @"ATTRIBUTION_SETTINGS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ChannelGroup = @"CHANNEL_GROUP";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings = @"DATA_RETENTION_SETTINGS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DataStream = @"DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLink = @"DISPLAY_VIDEO_360_ADVERTISER_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLinkProposal = @"DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ExpandedDataSet = @"EXPANDED_DATA_SET";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings = @"GOOGLE_SIGNALS_SETTINGS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_MeasurementProtocolSecret = @"MEASUREMENT_PROTOCOL_SECRET";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_Property = @"PROPERTY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_SearchAds360Link = @"SEARCH_ADS_360_LINK";
 
 // ----------------------------------------------------------------------------
 //
@@ -267,251 +145,25 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessBetweenFilter
+//   GTLRGoogleAnalyticsAdmin_V1betaAccount
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessBetweenFilter
-@dynamic fromValue, toValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessDateRange
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessDateRange
-@dynamic endDate, startDate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessDimension
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessDimension
-@dynamic dimensionName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessDimensionHeader
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessDimensionHeader
-@dynamic dimensionName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessDimensionValue
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessDimensionValue
-@dynamic value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessFilter
-@dynamic betweenFilter, fieldName, inListFilter, numericFilter, stringFilter;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessFilterExpression
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessFilterExpression
-@dynamic accessFilter, andGroup, notExpression, orGroup;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessFilterExpressionList
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessFilterExpressionList
-@dynamic expressions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"expressions" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessFilterExpression class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessInListFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessInListFilter
-@dynamic caseSensitive, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessMetric
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessMetric
-@dynamic metricName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessMetricHeader
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessMetricHeader
-@dynamic metricName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessMetricValue
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessMetricValue
-@dynamic value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessNumericFilter
-@dynamic operation, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderBy
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderBy
-@dynamic desc, dimension, metric;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByDimensionOrderBy
-@dynamic dimensionName, orderType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByMetricOrderBy
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderByMetricOrderBy
-@dynamic metricName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessQuota
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessQuota
-@dynamic concurrentRequests, serverErrorsPerProjectPerHour, tokensPerDay,
-         tokensPerHour, tokensPerProjectPerHour;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessQuotaStatus
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessQuotaStatus
-@dynamic consumed, remaining;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessRow
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessRow
-@dynamic dimensionValues, metricValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dimensionValues" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessDimensionValue class],
-    @"metricValues" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessMetricValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccessStringFilter
-@dynamic caseSensitive, matchType, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccount
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccount
+@implementation GTLRGoogleAnalyticsAdmin_V1betaAccount
 @dynamic createTime, deleted, displayName, name, regionCode, updateTime;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary
+//   GTLRGoogleAnalyticsAdmin_V1betaAccountSummary
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary
+@implementation GTLRGoogleAnalyticsAdmin_V1betaAccountSummary
 @dynamic account, displayName, name, propertySummaries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"propertySummaries" : [GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary class]
+    @"propertySummaries" : [GTLRGoogleAnalyticsAdmin_V1betaPropertySummary class]
   };
   return map;
 }
@@ -521,467 +173,68 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionRequest
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest
+@implementation GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionRequest
 @dynamic acknowledgement;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionResponse
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomDimensionRequest
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
+@implementation GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomDimensionRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomMetricRequest
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse
-@dynamic displayVideo360AdvertiserLink;
+@implementation GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomMetricRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings
-@dynamic acquisitionConversionEventLookbackWindow, name,
-         otherConversionEventLookbackWindow, reportingAttributionModel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudience
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudience
-@dynamic adsPersonalizationEnabled, descriptionProperty, displayName,
-         eventTrigger, exclusionDurationMode, filterClauses,
-         membershipDurationDays, name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"filterClauses" : [GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilter
-@dynamic atAnyPointInTime, betweenFilter, fieldName, inAnyNDayPeriod,
-         inListFilter, numericFilter, stringFilter;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterBetweenFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterBetweenFilter
-@dynamic fromValue, toValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterInListFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterInListFilter
-@dynamic caseSensitive, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericFilter
-@dynamic operation, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericValue
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterNumericValue
-@dynamic doubleValue, int64Value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceDimensionOrMetricFilterStringFilter
-@dynamic caseSensitive, matchType, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceEventFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceEventFilter
-@dynamic eventName, eventParameterFilterExpression;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceEventTrigger
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceEventTrigger
-@dynamic eventName, logCondition;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause
-@dynamic clauseType, sequenceFilter, simpleFilter;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterExpression
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterExpression
-@dynamic andGroup, dimensionOrMetricFilter, eventFilter, notExpression, orGroup;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterExpressionList
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterExpressionList
-@dynamic filterExpressions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"filterExpressions" : [GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterExpression class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilter
-@dynamic scope, sequenceMaximumDuration, sequenceSteps;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sequenceSteps" : [GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceSequenceFilterAudienceSequenceStep
-@dynamic constraintDuration, filterExpression, immediatelyFollows, scope;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAudienceSimpleFilter
-@dynamic filterExpression, scope;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink
-@dynamic directRoles, effectiveRoles, emailAddress, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"directRoles" : [NSString class],
-    @"effectiveRoles" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest
-@dynamic pageSize, pageToken;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksResponse
-@dynamic nextPageToken, userLinks;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"userLinks";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest
-@dynamic notifyNewUsers, requests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksResponse
-@dynamic userLinks;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest
-@dynamic requests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaBatchGetUserLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaBatchGetUserLinksResponse
-@dynamic userLinks;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest
-@dynamic requests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksResponse
-@dynamic userLinks;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange
+@implementation GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange
 @dynamic action, resource, resourceAfterChange, resourceBeforeChange;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
+//   GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChangeChangeHistoryResource
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
-@dynamic account, attributionSettings, conversionEvent, customDimension,
-         customMetric, dataRetentionSettings, dataStream,
-         displayVideo360AdvertiserLink, displayVideo360AdvertiserLinkProposal,
-         expandedDataSet, firebaseLink, googleAdsLink, googleSignalsSettings,
-         measurementProtocolSecret, property, searchAds360Link;
+@implementation GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChangeChangeHistoryResource
+@dynamic account, conversionEvent, dataRetentionSettings, dataStream,
+         firebaseLink, googleAdsLink, measurementProtocolSecret, property;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent
+//   GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent
+@implementation GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent
 @dynamic actorType, changes, changesFiltered, changeTime, identifier,
          userActorEmail;
 
@@ -991,7 +244,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"changes" : [GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange class]
+    @"changes" : [GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChange class]
   };
   return map;
 }
@@ -1001,30 +254,20 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent
+//   GTLRGoogleAnalyticsAdmin_V1betaConversionEvent
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent
+@implementation GTLRGoogleAnalyticsAdmin_V1betaConversionEvent
 @dynamic createTime, custom, deletable, eventName, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaCustomDimension
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest
-@dynamic notifyNewUser, parent, userLink;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension
+@implementation GTLRGoogleAnalyticsAdmin_V1betaCustomDimension
 @dynamic descriptionProperty, disallowAdsPersonalization, displayName, name,
          parameterName, scope;
 
@@ -1037,10 +280,10 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
+//   GTLRGoogleAnalyticsAdmin_V1betaCustomMetric
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
+@implementation GTLRGoogleAnalyticsAdmin_V1betaCustomMetric
 @dynamic descriptionProperty, displayName, measurementUnit, name, parameterName,
          restrictedMetricType, scope;
 
@@ -1060,20 +303,20 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings
+//   GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings
+@implementation GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings
 @dynamic eventDataRetention, name, resetUserDataOnNewActivity;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDataSharingSettings
+//   GTLRGoogleAnalyticsAdmin_V1betaDataSharingSettings
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataSharingSettings
+@implementation GTLRGoogleAnalyticsAdmin_V1betaDataSharingSettings
 @dynamic name, sharingWithGoogleAnySalesEnabled,
          sharingWithGoogleAssignedSalesEnabled,
          sharingWithGoogleProductsEnabled, sharingWithGoogleSupportEnabled,
@@ -1083,10 +326,10 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDataStream
+//   GTLRGoogleAnalyticsAdmin_V1betaDataStream
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStream
+@implementation GTLRGoogleAnalyticsAdmin_V1betaDataStream
 @dynamic androidAppStreamData, createTime, displayName, iosAppStreamData, name,
          type, updateTime, webStreamData;
 @end
@@ -1094,184 +337,50 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData
+//   GTLRGoogleAnalyticsAdmin_V1betaDataStreamAndroidAppStreamData
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData
+@implementation GTLRGoogleAnalyticsAdmin_V1betaDataStreamAndroidAppStreamData
 @dynamic firebaseAppId, packageName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData
+//   GTLRGoogleAnalyticsAdmin_V1betaDataStreamIosAppStreamData
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData
+@implementation GTLRGoogleAnalyticsAdmin_V1betaDataStreamIosAppStreamData
 @dynamic bundleId, firebaseAppId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData
+//   GTLRGoogleAnalyticsAdmin_V1betaDataStreamWebStreamData
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData
+@implementation GTLRGoogleAnalyticsAdmin_V1betaDataStreamWebStreamData
 @dynamic defaultUri, firebaseAppId, measurementId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink
-@dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
-         campaignDataSharingEnabled, costDataSharingEnabled, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal
-@dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
-         campaignDataSharingEnabled, costDataSharingEnabled,
-         linkProposalStatusDetails, name, validationEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet
-@dynamic dataCollectionStartTime, descriptionProperty,
-         dimensionFilterExpression, dimensionNames, displayName, metricNames,
-         name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dimensionNames" : [NSString class],
-    @"metricNames" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter
-@dynamic fieldName, inListFilter, stringFilter;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression
-@dynamic andGroup, filter, notExpression;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList
-@dynamic filterExpressions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"filterExpressions" : [GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter
-@dynamic caseSensitive, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter
-@dynamic caseSensitive, matchType, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink
+@implementation GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink
 @dynamic createTime, name, project;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag
+//   GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag
-@dynamic name, snippet;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink
+@implementation GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink
 @dynamic adsPersonalizationEnabled, canManageClients, createTime,
          creatorEmailAddress, customerId, name, updateTime;
 @end
@@ -1279,35 +388,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings
+//   GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings
-@dynamic consent, name, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails
-@dynamic linkProposalInitiatingProduct, linkProposalState, requestorEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaListAccountsResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListAccountsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse
 @dynamic accounts, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accounts" : [GTLRGoogleAnalyticsAdmin_V1alphaAccount class]
+    @"accounts" : [GTLRGoogleAnalyticsAdmin_V1betaAccount class]
   };
   return map;
 }
@@ -1321,15 +410,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListAccountSummariesResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListAccountSummariesResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListAccountSummariesResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListAccountSummariesResponse
 @dynamic accountSummaries, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accountSummaries" : [GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary class]
+    @"accountSummaries" : [GTLRGoogleAnalyticsAdmin_V1betaAccountSummary class]
   };
   return map;
 }
@@ -1343,37 +432,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListAudiencesResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListConversionEventsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListAudiencesResponse
-@dynamic audiences, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"audiences" : [GTLRGoogleAnalyticsAdmin_V1alphaAudience class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"audiences";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListConversionEventsResponse
 @dynamic conversionEvents, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conversionEvents" : [GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent class]
+    @"conversionEvents" : [GTLRGoogleAnalyticsAdmin_V1betaConversionEvent class]
   };
   return map;
 }
@@ -1387,15 +454,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListCustomDimensionsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListCustomDimensionsResponse
 @dynamic customDimensions, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customDimensions" : [GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension class]
+    @"customDimensions" : [GTLRGoogleAnalyticsAdmin_V1betaCustomDimension class]
   };
   return map;
 }
@@ -1409,15 +476,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListCustomMetricsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListCustomMetricsResponse
 @dynamic customMetrics, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customMetrics" : [GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric class]
+    @"customMetrics" : [GTLRGoogleAnalyticsAdmin_V1betaCustomMetric class]
   };
   return map;
 }
@@ -1431,15 +498,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListDataStreamsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListDataStreamsResponse
 @dynamic dataStreams, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"dataStreams" : [GTLRGoogleAnalyticsAdmin_V1alphaDataStream class]
+    @"dataStreams" : [GTLRGoogleAnalyticsAdmin_V1betaDataStream class]
   };
   return map;
 }
@@ -1453,59 +520,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListFirebaseLinksResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse
-@dynamic displayVideo360AdvertiserLinkProposals, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"displayVideo360AdvertiserLinkProposals" : [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"displayVideo360AdvertiserLinkProposals";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse
-@dynamic displayVideo360AdvertiserLinks, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"displayVideo360AdvertiserLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"displayVideo360AdvertiserLinks";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListFirebaseLinksResponse
 @dynamic firebaseLinks, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"firebaseLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink class]
+    @"firebaseLinks" : [GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink class]
   };
   return map;
 }
@@ -1519,15 +542,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListGoogleAdsLinksResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListGoogleAdsLinksResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListGoogleAdsLinksResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListGoogleAdsLinksResponse
 @dynamic googleAdsLinks, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"googleAdsLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink class]
+    @"googleAdsLinks" : [GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink class]
   };
   return map;
 }
@@ -1541,15 +564,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListMeasurementProtocolSecretsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListMeasurementProtocolSecretsResponse
 @dynamic measurementProtocolSecrets, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"measurementProtocolSecrets" : [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class]
+    @"measurementProtocolSecrets" : [GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret class]
   };
   return map;
 }
@@ -1563,15 +586,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListPropertiesResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaListPropertiesResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListPropertiesResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListPropertiesResponse
 @dynamic nextPageToken, properties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"properties" : [GTLRGoogleAnalyticsAdmin_V1alphaProperty class]
+    @"properties" : [GTLRGoogleAnalyticsAdmin_V1betaProperty class]
   };
   return map;
 }
@@ -1585,74 +608,20 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse
-@dynamic nextPageToken, searchAds360Links;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"searchAds360Links" : [GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"searchAds360Links";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse
-@dynamic nextPageToken, userLinks;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"userLinks";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret
+@implementation GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret
 @dynamic displayName, name, secretValue;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaNumericValue
+//   GTLRGoogleAnalyticsAdmin_V1betaProperty
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaNumericValue
-@dynamic doubleValue, int64Value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaProperty
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaProperty
+@implementation GTLRGoogleAnalyticsAdmin_V1betaProperty
 @dynamic account, createTime, currencyCode, deleteTime, displayName, expireTime,
          industryCategory, name, parent, propertyType, serviceLevel, timeZone,
          updateTime;
@@ -1661,94 +630,40 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary
+//   GTLRGoogleAnalyticsAdmin_V1betaPropertySummary
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary
+@implementation GTLRGoogleAnalyticsAdmin_V1betaPropertySummary
 @dynamic displayName, parent, property, propertyType;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketRequest
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest
+@implementation GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketRequest
 @dynamic account, redirectUri;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketResponse
 @dynamic accountTicketId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest
+//   GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest
-@dynamic dateRanges, dimensionFilter, dimensions, limit, metricFilter, metrics,
-         offset, orderBys, returnEntityQuota, timeZone;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dateRanges" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessDateRange class],
-    @"dimensions" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessDimension class],
-    @"metrics" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessMetric class],
-    @"orderBys" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessOrderBy class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportResponse
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportResponse
-@dynamic dimensionHeaders, metricHeaders, quota, rowCount, rows;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dimensionHeaders" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessDimensionHeader class],
-    @"metricHeaders" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessMetricHeader class],
-    @"rows" : [GTLRGoogleAnalyticsAdmin_V1alphaAccessRow class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link
-@dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
-         campaignDataSharingEnabled, costDataSharingEnabled, name,
-         siteStatsSharingEnabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest
+@implementation GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest
 @dynamic action, actorEmail, earliestChangeTime, latestChangeTime, pageSize,
          pageToken, property, resourceType;
 
@@ -1766,49 +681,21 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse
+//   GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsResponse
 //
 
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse
+@implementation GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsResponse
 @dynamic changeHistoryEvents, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"changeHistoryEvents" : [GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent class]
+    @"changeHistoryEvents" : [GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
   return @"changeHistoryEvents";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest
-@dynamic userLink;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaUserLink
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaUserLink
-@dynamic directRoles, emailAddress, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"directRoles" : [NSString class]
-  };
-  return map;
 }
 
 @end

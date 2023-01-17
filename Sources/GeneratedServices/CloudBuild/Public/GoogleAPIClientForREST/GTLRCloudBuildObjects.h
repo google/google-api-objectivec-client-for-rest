@@ -1545,7 +1545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  "disk free"; some of the space will be used by the operating system and
  *  build utilities. Also note that this is the minimum disk size that will be
  *  allocated for the build -- the build may run with a larger disk than
- *  requested. At present, the maximum disk size is 1000GB; builds that request
+ *  requested. At present, the maximum disk size is 2000GB; builds that request
  *  more than the maximum are rejected with an error.
  *
  *  Uses NSNumber of longLongValue.
@@ -2460,7 +2460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /**
  *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2540,7 +2540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 /**
  *  Optional. The resource name of the github enterprise config that should be
  *  applied to this installation. For example:
- *  "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseConfigResourceName;
 
@@ -3207,6 +3207,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  options](https://cloud.google.com/build/docs/private-pools/set-up-private-pool-environment)
  */
 @property(nonatomic, copy, nullable) NSString *peeredNetwork;
+
+/**
+ *  Immutable. Subnet IP range within the peered network. This is specified in
+ *  CIDR notation with a slash and the subnet prefix size. You can optionally
+ *  specify an IP address before the subnet prefix value. e.g. `192.168.0.0/29`
+ *  would specify an IP range starting at 192.168.0.0 with a prefix size of 29
+ *  bits. `/16` would specify a prefix size of 16 bits, with an automatically
+ *  determined IP within the peered VPC. If unspecified, a value of `/24` will
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *peeredNetworkIpRange;
 
 @end
 

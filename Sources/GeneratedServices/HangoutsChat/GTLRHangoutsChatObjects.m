@@ -120,12 +120,6 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_GridItemLayou
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextAbove = @"TEXT_ABOVE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextBelow = @"TEXT_BELOW";
 
-// GTLRHangoutsChat_GoogleAppsCardV1GridItem.textAlignment
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Center = @"CENTER";
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_End = @"END";
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Start = @"START";
-
 // GTLRHangoutsChat_GoogleAppsCardV1Icon.imageType
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Circle = @"CIRCLE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Square = @"SQUARE";
@@ -159,12 +153,6 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Swi
 // GTLRHangoutsChat_GoogleAppsCardV1TextInput.type
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_MultipleLine = @"MULTIPLE_LINE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine = @"SINGLE_LINE";
-
-// GTLRHangoutsChat_GoogleAppsCardV1Widget.horizontalAlignment
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center = @"CENTER";
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End = @"END";
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start = @"START";
 
 // GTLRHangoutsChat_ImageButton.icon
 NSString * const kGTLRHangoutsChat_ImageButton_Icon_Airplane   = @"AIRPLANE";
@@ -706,7 +694,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1GridItem
-@dynamic identifier, image, layout, subtitle, textAlignment, title;
+@dynamic identifier, image, layout, subtitle, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -886,8 +874,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Widget
-@dynamic buttonList, dateTimePicker, decoratedText, divider, grid,
-         horizontalAlignment, image, selectionInput, textInput, textParagraph;
+@dynamic buttonList, dateTimePicker, decoratedText, divider, grid, image,
+         selectionInput, textInput, textParagraph;
 @end
 
 

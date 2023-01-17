@@ -127,6 +127,33 @@
 
 @end
 
+@implementation GTLRIDSQuery_ProjectsLocationsEndpointsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRIDS_Endpoint *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIDSQuery_ProjectsLocationsEndpointsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIDS_Operation class];
+  query.loggingName = @"ids.projects.locations.endpoints.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRIDSQuery_ProjectsLocationsEndpointsSetIamPolicy
 
 @dynamic resource;

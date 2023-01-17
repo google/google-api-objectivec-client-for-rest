@@ -228,8 +228,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new workflow. If a workflow with the specified name already exists
- *  in the specified project and location, the long running operation will
- *  return ALREADY_EXISTS error.
+ *  in the specified project and location, the long running operation returns a
+ *  ALREADY_EXISTS error.
  *
  *  Method: workflows.projects.locations.workflows.create
  *
@@ -257,8 +257,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRWorkflows_Operation.
  *
  *  Creates a new workflow. If a workflow with the specified name already exists
- *  in the specified project and location, the long running operation will
- *  return ALREADY_EXISTS error.
+ *  in the specified project and location, the long running operation returns a
+ *  ALREADY_EXISTS error.
  *
  *  @param object The @c GTLRWorkflows_Workflow to include in the query.
  *  @param parent Required. Project and location in which the workflow should be
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single Workflow.
+ *  Gets details of a single workflow.
  *
  *  Method: workflows.projects.locations.workflows.get
  *
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsGet : GTLRWorkflowsQuery
 
 /**
- *  Required. Name of the workflow which information should be retrieved.
+ *  Required. Name of the workflow for which information should be retrieved.
  *  Format: projects/{project}/locations/{location}/workflows/{workflow}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -322,9 +322,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkflows_Workflow.
  *
- *  Gets details of a single Workflow.
+ *  Gets details of a single workflow.
  *
- *  @param name Required. Name of the workflow which information should be
+ *  @param name Required. Name of the workflow for which information should be
  *    retrieved. Format:
  *    projects/{project}/locations/{location}/workflows/{workflow}
  *
@@ -335,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Workflows in a given project and location. The default order is not
+ *  Lists workflows in a given project and location. The default order is not
  *  specified.
  *
  *  Method: workflows.projects.locations.workflows.list
@@ -349,18 +349,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Comma-separated list of fields that that specify the order of the results.
+ *  Comma-separated list of fields that specify the order of the results.
  *  Default sorting order for a field is ascending. To specify descending order
- *  for a field, append a " desc" suffix. If not specified, the results will be
+ *  for a field, append a "desc" suffix. If not specified, the results are
  *  returned in an unspecified order.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Maximum number of workflows to return per call. The service may return fewer
- *  than this value. If the value is not specified, a default value of 500 will
- *  be used. The maximum permitted value is 1000 and values greater than 1000
- *  will be coerced down to 1000.
+ *  Maximum number of workflows to return per call. The service might return
+ *  fewer than this value even if not at the end of the collection. If a value
+ *  is not specified, a default value of 500 is used. The maximum permitted
+ *  value is 1000 and values greater than 1000 are coerced down to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -380,7 +380,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkflows_ListWorkflowsResponse.
  *
- *  Lists Workflows in a given project and location. The default order is not
+ *  Lists workflows in a given project and location. The default order is not
  *  specified.
  *
  *  @param parent Required. Project and location from which the workflows should
@@ -398,9 +398,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an existing workflow. Running this method has no impact on already
- *  running executions of the workflow. A new revision of the workflow may be
- *  created as a result of a successful update operation. In that case, such
- *  revision will be used in new workflow executions.
+ *  running executions of the workflow. A new revision of the workflow might be
+ *  created as a result of a successful update operation. In that case, the new
+ *  revision is used in new workflow executions.
  *
  *  Method: workflows.projects.locations.workflows.patch
  *
@@ -427,9 +427,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRWorkflows_Operation.
  *
  *  Updates an existing workflow. Running this method has no impact on already
- *  running executions of the workflow. A new revision of the workflow may be
- *  created as a result of a successful update operation. In that case, such
- *  revision will be used in new workflow executions.
+ *  running executions of the workflow. A new revision of the workflow might be
+ *  created as a result of a successful update operation. In that case, the new
+ *  revision is used in new workflow executions.
  *
  *  @param object The @c GTLRWorkflows_Workflow to include in the query.
  *  @param name The resource name of the workflow. Format:

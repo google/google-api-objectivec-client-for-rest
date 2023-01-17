@@ -144,6 +144,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Paused = @"PAUSED
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_Queued = @"QUEUED";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCESS";
+NSString * const kGTLRStorageTransfer_TransferOperation_Status_Suspending = @"SUSPENDING";
 
 // GTLRStorageTransfer_TransferOptions.overwriteWhen
 NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Always = @"ALWAYS";
@@ -282,6 +283,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_EventStream
+//
+
+@implementation GTLRStorageTransfer_EventStream
+@dynamic eventStreamExpirationTime, eventStreamStartTime, name;
 @end
 
 
@@ -614,9 +625,9 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_TransferJob
-@dynamic creationTime, deletionTime, descriptionProperty, lastModificationTime,
-         latestOperationName, loggingConfig, name, notificationConfig,
-         projectId, schedule, status, transferSpec;
+@dynamic creationTime, deletionTime, descriptionProperty, eventStream,
+         lastModificationTime, latestOperationName, loggingConfig, name,
+         notificationConfig, projectId, schedule, status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

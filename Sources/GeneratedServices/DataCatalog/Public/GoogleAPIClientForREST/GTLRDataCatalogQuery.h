@@ -408,6 +408,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Imports entries from some source (e.g. dump in a Cloud Storage bucket) to
+ *  the Data Catalog. Dump here is a snapshot of the third-party system state,
+ *  that needs to be ingested in the Data Catalog. Import of entries is a sync
+ *  operation that reconciles state of the third-party system and Data Catalog.
+ *  ImportEntries is a long-running operation done in the background, so this
+ *  method returns long-running operation resource. The resource can be queried
+ *  with Operations.GetOperation which contains metadata and response.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesImport : GTLRDataCatalogQuery
+
+/** Required. Target entry group for ingested entries. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_Operation.
+ *
+ *  Imports entries from some source (e.g. dump in a Cloud Storage bucket) to
+ *  the Data Catalog. Dump here is a snapshot of the third-party system state,
+ *  that needs to be ingested in the Data Catalog. Import of entries is a sync
+ *  operation that reconciles state of the third-party system and Data Catalog.
+ *  ImportEntries is a long-running operation done in the background, so this
+ *  method returns long-running operation resource. The resource can be queried
+ *  with Operations.GetOperation which contains metadata and response.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest to include in
+ *    the query.
+ *  @param parent Required. Target entry group for ingested entries.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesImport
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists entries. Note: Currently, this method can list only custom entries. To
  *  get a list of both custom and automatically created entries, use
  *  SearchCatalog.
@@ -1315,6 +1357,165 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataCatalog_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: datacatalog.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsOperationsCancel : GTLRDataCatalogQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: datacatalog.projects.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsOperationsDelete : GTLRDataCatalogQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: datacatalog.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsOperationsGet : GTLRDataCatalogQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: datacatalog.projects.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsOperationsList : GTLRDataCatalogQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

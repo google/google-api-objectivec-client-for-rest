@@ -1020,6 +1020,79 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsCreate
+
+@dynamic nodeGroupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDataproc_NodeGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/nodeGroups";
+  GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.clusters.nodeGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_NodeGroup class];
+  query.loggingName = @"dataproc.projects.regions.clusters.nodeGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsResize
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_ResizeNodeGroupRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:resize";
+  GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsResize *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.clusters.nodeGroups.resize";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersPatch
 
 @dynamic clusterName, gracefulDecommissionTimeout, projectId, region, requestId,

@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists anomalies in any of the datasets.
  *
  *  Method: playdeveloperreporting.anomalies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_AnomaliesList : GTLRPlaydeveloperreportingQuery
 
@@ -96,6 +99,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Describes the properties of the metric set.
  *
  *  Method: playdeveloperreporting.vitals.anrrate.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsAnrrateGet : GTLRPlaydeveloperreportingQuery
 
@@ -120,6 +126,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Queries the metrics in the metric set.
  *
  *  Method: playdeveloperreporting.vitals.anrrate.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsAnrrateQuery : GTLRPlaydeveloperreportingQuery
 
@@ -148,6 +157,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Describes the properties of the metric set.
  *
  *  Method: playdeveloperreporting.vitals.crashrate.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsCrashrateGet : GTLRPlaydeveloperreportingQuery
 
@@ -173,6 +185,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Queries the metrics in the metric set.
  *
  *  Method: playdeveloperreporting.vitals.crashrate.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsCrashrateQuery : GTLRPlaydeveloperreportingQuery
 
@@ -202,6 +217,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Describes the properties of the metric set.
  *
  *  Method: playdeveloperreporting.vitals.excessivewakeuprate.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsExcessivewakeuprateGet : GTLRPlaydeveloperreportingQuery
 
@@ -229,6 +247,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Queries the metrics in the metric set.
  *
  *  Method: playdeveloperreporting.vitals.excessivewakeuprate.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsExcessivewakeuprateQuery : GTLRPlaydeveloperreportingQuery
 
@@ -260,6 +281,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Describes the properties of the metric set.
  *
  *  Method: playdeveloperreporting.vitals.stuckbackgroundwakelockrate.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsStuckbackgroundwakelockrateGet : GTLRPlaydeveloperreportingQuery
 
@@ -288,6 +312,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Queries the metrics in the metric set.
  *
  *  Method: playdeveloperreporting.vitals.stuckbackgroundwakelockrate.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
  */
 @interface GTLRPlaydeveloperreportingQuery_VitalsStuckbackgroundwakelockrateQuery : GTLRPlaydeveloperreportingQuery
 

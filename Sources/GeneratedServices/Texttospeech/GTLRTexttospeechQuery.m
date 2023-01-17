@@ -17,6 +17,117 @@
 
 @end
 
+@implementation GTLRTexttospeechQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTexttospeech_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRTexttospeechQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTexttospeech_Empty class];
+  query.loggingName = @"texttospeech.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRTexttospeechQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRTexttospeechQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTexttospeech_Empty class];
+  query.loggingName = @"texttospeech.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTexttospeechQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRTexttospeechQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTexttospeech_Operation class];
+  query.loggingName = @"texttospeech.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTexttospeechQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRTexttospeechQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTexttospeech_ListOperationsResponse class];
+  query.loggingName = @"texttospeech.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTexttospeechQuery_ProjectsLocationsSynthesizeLongAudio
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTexttospeech_SynthesizeLongAudioRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:synthesizeLongAudio";
+  GTLRTexttospeechQuery_ProjectsLocationsSynthesizeLongAudio *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTexttospeech_Operation class];
+  query.loggingName = @"texttospeech.projects.locations.synthesizeLongAudio";
+  return query;
+}
+
+@end
+
 @implementation GTLRTexttospeechQuery_TextSynthesize
 
 + (instancetype)queryWithObject:(GTLRTexttospeech_SynthesizeSpeechRequest *)object {

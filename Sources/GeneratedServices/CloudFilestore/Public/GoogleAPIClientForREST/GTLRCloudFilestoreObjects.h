@@ -1648,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Defines policies to service maintenance events.
+ *  LINT.IfChange Defines policies to service maintenance events.
  */
 @interface GTLRCloudFilestore_MaintenancePolicy : GTLRObject
 

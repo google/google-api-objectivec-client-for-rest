@@ -15,11 +15,13 @@
 @class GTLRPubsubLite_Capacity;
 @class GTLRPubsubLite_Cursor;
 @class GTLRPubsubLite_DeliveryConfig;
+@class GTLRPubsubLite_ExportConfig;
 @class GTLRPubsubLite_Operation;
 @class GTLRPubsubLite_Operation_Metadata;
 @class GTLRPubsubLite_Operation_Response;
 @class GTLRPubsubLite_PartitionConfig;
 @class GTLRPubsubLite_PartitionCursor;
+@class GTLRPubsubLite_PubSubConfig;
 @class GTLRPubsubLite_Reservation;
 @class GTLRPubsubLite_ReservationConfig;
 @class GTLRPubsubLite_RetentionConfig;
@@ -63,6 +65,74 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequir
  *  Value: "DELIVERY_REQUIREMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequirementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsubLite_ExportConfig.currentState
+
+/**
+ *  Messages are being exported.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_Active;
+/**
+ *  Messages cannot be exported due to missing resources. Output only.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_NotFound;
+/**
+ *  Exporting messages is suspended.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_Paused;
+/**
+ *  Messages cannot be exported due to permission denied errors. Output only.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_PermissionDenied;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_CurrentState_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsubLite_ExportConfig.desiredState
+
+/**
+ *  Messages are being exported.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_Active;
+/**
+ *  Messages cannot be exported due to missing resources. Output only.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_NotFound;
+/**
+ *  Exporting messages is suspended.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_Paused;
+/**
+ *  Messages cannot be exported due to permission denied errors. Output only.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_PermissionDenied;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_ExportConfig_DesiredState_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsubLite_SeekSubscriptionRequest.namedTarget
@@ -318,6 +388,73 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRPubsubLite_Empty : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a Pub/Sub Lite subscription that writes messages to a
+ *  destination. User subscriber clients must not connect to this subscription.
+ */
+@interface GTLRPubsubLite_ExportConfig : GTLRObject
+
+/**
+ *  Output only. The current state of the export, which may be different to the
+ *  desired state due to errors. This field is output only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubLite_ExportConfig_CurrentState_Active Messages are
+ *        being exported. (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_CurrentState_NotFound Messages cannot
+ *        be exported due to missing resources. Output only. (Value:
+ *        "NOT_FOUND")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_CurrentState_Paused Exporting
+ *        messages is suspended. (Value: "PAUSED")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_CurrentState_PermissionDenied
+ *        Messages cannot be exported due to permission denied errors. Output
+ *        only. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_CurrentState_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *currentState;
+
+/**
+ *  Optional. The name of an optional Pub/Sub Lite topic to publish messages
+ *  that can not be exported to the destination. For example, the message can
+ *  not be published to the Pub/Sub service because it does not satisfy the
+ *  constraints documented at https://cloud.google.com/pubsub/docs/publisher.
+ *  Structured like:
+ *  projects/{project_number}/locations/{location}/topics/{topic_id}. Must be
+ *  within the same project and location as the subscription. The topic may be
+ *  changed or removed.
+ */
+@property(nonatomic, copy, nullable) NSString *deadLetterTopic;
+
+/**
+ *  The desired state of this export. Setting this to values other than `ACTIVE`
+ *  and `PAUSED` will result in an error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubLite_ExportConfig_DesiredState_Active Messages are
+ *        being exported. (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_DesiredState_NotFound Messages cannot
+ *        be exported due to missing resources. Output only. (Value:
+ *        "NOT_FOUND")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_DesiredState_Paused Exporting
+ *        messages is suspended. (Value: "PAUSED")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_DesiredState_PermissionDenied
+ *        Messages cannot be exported due to permission denied errors. Output
+ *        only. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsubLite_ExportConfig_DesiredState_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredState;
+
+/**
+ *  Messages are automatically written from the Pub/Sub Lite topic associated
+ *  with this subscription to a Pub/Sub topic.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_PubSubConfig *pubsubConfig;
+
 @end
 
 
@@ -656,6 +793,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
 
 
 /**
+ *  Configuration for exporting to a Pub/Sub topic.
+ */
+@interface GTLRPubsubLite_PubSubConfig : GTLRObject
+
+/**
+ *  The name of the Pub/Sub topic. Structured like:
+ *  projects/{project_number}/topics/{topic_id}. The topic may be changed.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
  *  Metadata about a reservation resource.
  */
 @interface GTLRPubsubLite_Reservation : GTLRObject
@@ -809,6 +960,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
 
 /** The settings for this subscription's message delivery. */
 @property(nonatomic, strong, nullable) GTLRPubsubLite_DeliveryConfig *deliveryConfig;
+
+/**
+ *  If present, messages are automatically written from the Pub/Sub Lite topic
+ *  associated with this subscription to a destination.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_ExportConfig *exportConfig;
 
 /**
  *  The name of the subscription. Structured like:

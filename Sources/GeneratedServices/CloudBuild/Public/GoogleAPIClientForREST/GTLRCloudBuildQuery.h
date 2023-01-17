@@ -508,7 +508,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  example:
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -522,7 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete
  */
@@ -545,7 +546,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  example:
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -559,7 +561,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet
  */
@@ -612,7 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -633,7 +635,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
  *  @param name Optional. The full resource name for the GitHubEnterpriseConfig
- *    For example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *    For example:
+ *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsPatch
  */
@@ -1269,7 +1272,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  example:
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1283,7 +1287,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete
  */
@@ -1306,7 +1310,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  example:
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1320,7 +1325,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet
  */
@@ -1373,7 +1378,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1394,7 +1399,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
  *  @param name Optional. The full resource name for the GitHubEnterpriseConfig
- *    For example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
+ *    For example:
+ *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsPatch
  */
@@ -1963,8 +1969,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
  *  global trigger, use the POST request that includes the location endpoint in
- *  the path. The POST request that does not include the location endpoint in
- *  the path can only be used when running global triggers.
+ *  the path (ex.
+ *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
+ *  POST request that does not include the location endpoint in the path can
+ *  only be used when running global triggers.
  *
  *  Method: cloudbuild.projects.locations.triggers.run
  *
@@ -1984,8 +1992,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
  *  global trigger, use the POST request that includes the location endpoint in
- *  the path. The POST request that does not include the location endpoint in
- *  the path can only be used when running global triggers.
+ *  the path (ex.
+ *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
+ *  POST request that does not include the location endpoint in the path can
+ *  only be used when running global triggers.
  *
  *  @param object The @c GTLRCloudBuild_RunBuildTriggerRequest to include in the
  *    query.
@@ -2452,8 +2462,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
  *  global trigger, use the POST request that includes the location endpoint in
- *  the path. The POST request that does not include the location endpoint in
- *  the path can only be used when running global triggers.
+ *  the path (ex.
+ *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
+ *  POST request that does not include the location endpoint in the path can
+ *  only be used when running global triggers.
  *
  *  Method: cloudbuild.projects.triggers.run
  *
@@ -2479,8 +2491,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
  *  global trigger, use the POST request that includes the location endpoint in
- *  the path. The POST request that does not include the location endpoint in
- *  the path can only be used when running global triggers.
+ *  the path (ex.
+ *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
+ *  POST request that does not include the location endpoint in the path can
+ *  only be used when running global triggers.
  *
  *  @param object The @c GTLRCloudBuild_RepoSource to include in the query.
  *  @param projectId Required. ID of the project.

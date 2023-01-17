@@ -830,6 +830,98 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRMonitoringQuery_ProjectsSnoozesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_Snooze *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/snoozes";
+  GTLRMonitoringQuery_ProjectsSnoozesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_Snooze class];
+  query.loggingName = @"monitoring.projects.snoozes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsSnoozesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsSnoozesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Snooze class];
+  query.loggingName = @"monitoring.projects.snoozes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsSnoozesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/snoozes";
+  GTLRMonitoringQuery_ProjectsSnoozesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ListSnoozesResponse class];
+  query.loggingName = @"monitoring.projects.snoozes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsSnoozesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_Snooze *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsSnoozesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Snooze class];
+  query.loggingName = @"monitoring.projects.snoozes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_ProjectsTimeSeriesCreate
 
 @dynamic name;

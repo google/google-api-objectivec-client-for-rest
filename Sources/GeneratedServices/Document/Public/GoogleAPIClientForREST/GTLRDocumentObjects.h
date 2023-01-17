@@ -29,7 +29,6 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
-@class GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1Barcode;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus;
@@ -125,6 +124,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1Document;
@@ -133,6 +133,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityRelation;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfigShardingConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPage;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef;
@@ -170,20 +171,16 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange;
-@class GTLRDocument_GoogleCloudDocumentaiV1EntityTypeMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix;
-@class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewLabelingMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus;
-@class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewValidationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1Processor;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorType;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
-@class GTLRDocument_GoogleCloudDocumentaiV1PropertyMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1Vertex;
 @class GTLRDocument_GoogleCloudLocationLocation;
@@ -403,46 +400,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3R
  *  Value: "REVISION_CASE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_RevisionCaseUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata.state
-
-/**
- *  Operation is cancelled.
- *
- *  Value: "CANCELLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelled;
-/**
- *  Operation is being cancelled.
- *
- *  Value: "CANCELLING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelling;
-/**
- *  Operation failed.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Failed;
-/**
- *  Operation is still running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Running;
-/**
- *  Unspecified state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_StateUnspecified;
-/**
- *  Operation succeeded.
- *
- *  Value: "SUCCEEDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata.state
@@ -1377,9 +1334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 // GTLRDocument_GoogleCloudDocumentaiV1Processor.state
 
 /**
- *  The processor is being created, will become either ENABLED (for successful
- *  creation) or FAILED (for failed ones). Once a processor is in this state, it
- *  can then be used for document processing, but the feature dependencies of
+ *  The processor is being created, will become either `ENABLED` (for successful
+ *  creation) or `FAILED` (for failed ones). Once a processor is in this state,
+ *  it can then be used for document processing, but the feature dependencies of
  *  the processor might not be fully created yet.
  *
  *  Value: "CREATING"
@@ -1398,7 +1355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabled;
 /**
- *  The processor is being disabled, will become DISABLED if successful.
+ *  The processor is being disabled, will become `DISABLED` if successful.
  *
  *  Value: "DISABLING"
  */
@@ -1412,7 +1369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled;
 /**
- *  The processor is being enabled, will become ENABLED if successful.
+ *  The processor is being enabled, will become `ENABLED` if successful.
  *
  *  Value: "ENABLING"
  */
@@ -1860,12 +1817,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Identifies a document uniquely within the scope of a dataset in the
- *  GCS-based option.
+ *  Identifies a document uniquely within the scope of a dataset in the Cloud
+ *  Storage option.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
-/** Optional. Id of the document (indexed) managed by Content Warehouse. */
+/** Id of the document (indexed) managed by Content Warehouse. */
 @property(nonatomic, copy, nullable) NSString *cwDocId;
 
 /** Required. The Cloud Storage uri where the actual document is stored. */
@@ -2177,14 +2134,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference : GTLRObject
 
-/**
- *  Read the revision generated by the processor version, returns error if it
- *  does not exist.
- */
+/** Reads the revision generated by the processor version. */
 @property(nonatomic, copy, nullable) NSString *latestProcessorVersion;
 
 /**
- *  Read the revision by the predefined case.
+ *  Reads the revision by the predefined case.
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestHumanReview
@@ -2197,7 +2151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, copy, nullable) NSString *revisionCase;
 
-/** Read the revision given by the id, returns error if it does not exist. */
+/** Reads the revision given by the id. */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 @end
@@ -2340,83 +2294,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for AnalyzeHitlData.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1alpha1AnalyzeHitlDataMetadata : GTLRObject
-
-/** The basic metadata of the long running operation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata *commonMetadata;
-
-@end
-
-
-/**
- *  The common metadata for long running operations.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata : GTLRObject
-
-/** The creation time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** A related resource to this operation. */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  The state of the operation.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelled
- *        Operation is cancelled. (Value: "CANCELLED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelling
- *        Operation is being cancelled. (Value: "CANCELLING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Failed
- *        Operation failed. (Value: "FAILED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Running
- *        Operation is still running. (Value: "RUNNING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_StateUnspecified
- *        Unspecified state. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Succeeded
- *        Operation succeeded. (Value: "SUCCEEDED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** A message providing more details about the current state of processing. */
-@property(nonatomic, copy, nullable) NSString *stateMessage;
-
-/** The last update time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
  *  Encodes the detailed information of a barcode.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1Barcode : GTLRObject
 
 /**
- *  Format of a barcode. The supported formats are: CODE_128: Code 128 type.
- *  CODE_39: Code 39 type. CODE_93: Code 93 type. CODABAR: Codabar type.
- *  DATA_MATRIX: 2D Data Matrix type. ITF: ITF type. EAN_13: EAN-13 type. EAN_8:
- *  EAN-8 type. QR_CODE: 2D QR code type. UPC_A: UPC-A type. UPC_E: UPC-E type.
- *  PDF417: PDF417 type. AZTEC: 2D Aztec code type. DATABAR: GS1 DataBar code
- *  type.
+ *  Format of a barcode. The supported formats are: - `CODE_128`: Code 128 type.
+ *  - `CODE_39`: Code 39 type. - `CODE_93`: Code 93 type. - `CODABAR`: Codabar
+ *  type. - `DATA_MATRIX`: 2D Data Matrix type. - `ITF`: ITF type. - `EAN_13`:
+ *  EAN-13 type. - `EAN_8`: EAN-8 type. - `QR_CODE`: 2D QR code type. - `UPC_A`:
+ *  UPC-A type. - `UPC_E`: UPC-E type. - `PDF417`: PDF417 type. - `AZTEC`: 2D
+ *  Aztec code type. - `DATABAR`: GS1 DataBar code type.
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Raw value encoded in the barcode. For example,
- *  'MEBKM:TITLE:Google;URL:https://www.google.com;;'.
+ *  Raw value encoded in the barcode. For example:
+ *  `'MEBKM:TITLE:Google;URL:https://www.google.com;;'`.
  */
 @property(nonatomic, copy, nullable) NSString *rawValue;
 
 /**
  *  Value format describes the format of the value that a barcode encodes. The
- *  supported formats are: CONTACT_INFO: Contact information. EMAIL: Email
- *  address. ISBN: ISBN identifier. PHONE: Phone number. PRODUCT: Product. SMS:
- *  SMS message. TEXT: Text string. URL: URL address. WIFI: Wifi information.
- *  GEO: Geo-localization. CALENDAR_EVENT: Calendar event. DRIVER_LICENSE:
- *  Driver's license.
+ *  supported formats are: - `CONTACT_INFO`: Contact information. - `EMAIL`:
+ *  Email address. - `ISBN`: ISBN identifier. - `PHONE`: Phone number. -
+ *  `PRODUCT`: Product. - `SMS`: SMS message. - `TEXT`: Text string. - `URL`:
+ *  URL address. - `WIFI`: Wifi information. - `GEO`: Geo-localization. -
+ *  `CALENDAR_EVENT`: Calendar event. - `DRIVER_LICENSE`: Driver's license.
  */
 @property(nonatomic, copy, nullable) NSString *valueFormat;
 
@@ -2432,7 +2336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments *gcsDocuments;
 
 /**
- *  The set of documents that match the specified Cloud Storage [gcs_prefix].
+ *  The set of documents that match the specified Cloud Storage `gcs_prefix`.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix *gcsPrefix;
 
@@ -2547,28 +2451,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1Barcode : GTLRObject
 
 /**
- *  Format of a barcode. The supported formats are: CODE_128: Code 128 type.
- *  CODE_39: Code 39 type. CODE_93: Code 93 type. CODABAR: Codabar type.
- *  DATA_MATRIX: 2D Data Matrix type. ITF: ITF type. EAN_13: EAN-13 type. EAN_8:
- *  EAN-8 type. QR_CODE: 2D QR code type. UPC_A: UPC-A type. UPC_E: UPC-E type.
- *  PDF417: PDF417 type. AZTEC: 2D Aztec code type. DATABAR: GS1 DataBar code
- *  type.
+ *  Format of a barcode. The supported formats are: - `CODE_128`: Code 128 type.
+ *  - `CODE_39`: Code 39 type. - `CODE_93`: Code 93 type. - `CODABAR`: Codabar
+ *  type. - `DATA_MATRIX`: 2D Data Matrix type. - `ITF`: ITF type. - `EAN_13`:
+ *  EAN-13 type. - `EAN_8`: EAN-8 type. - `QR_CODE`: 2D QR code type. - `UPC_A`:
+ *  UPC-A type. - `UPC_E`: UPC-E type. - `PDF417`: PDF417 type. - `AZTEC`: 2D
+ *  Aztec code type. - `DATABAR`: GS1 DataBar code type.
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Raw value encoded in the barcode. For example,
- *  'MEBKM:TITLE:Google;URL:https://www.google.com;;'.
+ *  Raw value encoded in the barcode. For example:
+ *  `'MEBKM:TITLE:Google;URL:https://www.google.com;;'`.
  */
 @property(nonatomic, copy, nullable) NSString *rawValue;
 
 /**
  *  Value format describes the format of the value that a barcode encodes. The
- *  supported formats are: CONTACT_INFO: Contact information. EMAIL: Email
- *  address. ISBN: ISBN identifier. PHONE: Phone number. PRODUCT: Product. SMS:
- *  SMS message. TEXT: Text string. URL: URL address. WIFI: Wifi information.
- *  GEO: Geo-localization. CALENDAR_EVENT: Calendar event. DRIVER_LICENSE:
- *  Driver's license.
+ *  supported formats are: - `CONTACT_INFO`: Contact information. - `EMAIL`:
+ *  Email address. - `ISBN`: ISBN identifier. - `PHONE`: Phone number. -
+ *  `PRODUCT`: Product. - `SMS`: SMS message. - `TEXT`: Text string. - `URL`:
+ *  URL address. - `WIFI`: Wifi information. - `GEO`: Geo-localization. -
+ *  `CALENDAR_EVENT`: Calendar event. - `DRIVER_LICENSE`: Driver's license.
  */
 @property(nonatomic, copy, nullable) NSString *valueFormat;
 
@@ -2654,13 +2558,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Placeholder. A list of text corrections made to [Document.text]. This is
+ *  Placeholder. A list of text corrections made to Document.text. This is
  *  usually used for annotating corrections to OCR mistakes. Text changes for a
  *  given revision may not overlap with each other.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextChange *> *textChanges;
 
-/** Placeholder. Styles for the Document.text. */
+/** Styles for the Document.text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle *> *textStyles;
 
 /**
@@ -2682,7 +2586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity : GTLRObject
 
 /**
- *  Optional. Confidence of detected Schema entity. Range [0, 1].
+ *  Optional. Confidence of detected Schema entity. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2800,8 +2704,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Optional. An optional field to store a normalized string. For some entity
  *  types, one of respective `structured_value` fields may also be populated.
  *  Also not all the types of `structured_value` will be normalized. For
- *  example, some processors may not generate float or int normalized text by
- *  default. Below are sample formats mapped to structured values. -
+ *  example, some processors may not generate `float` or `integer` normalized
+ *  text by default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -2936,7 +2840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly *boundingPoly;
 
 /**
- *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *  Optional. Confidence of detected page element, if applicable. Range `[0,
+ *  1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2970,8 +2875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element. This field is skipped
- *  when its value is the default 0. See
+ *  `Document.pages` to locate the related page element. This field is skipped
+ *  when its value is the default `0`. See
  *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
@@ -3019,14 +2924,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage : GTLRObject
 
 /**
- *  Confidence of detected language. Range [0, 1].
+ *  Confidence of detected language. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
  *  information, see
  *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
@@ -3099,8 +3004,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  If the value is non-textual, this field represents the type. Current valid
- *  values are: - blank (this indicates the field_value is normal text) -
- *  "unfilled_checkbox" - "filled_checkbox"
+ *  values are: - blank (this indicates the `field_value` is normal text) -
+ *  `unfilled_checkbox` - `filled_checkbox`
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -3149,7 +3054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
 
 /**
- *  The overall quality score. Range [0, 1] where 1 is perfect quality.
+ *  The overall quality score. Range `[0, 1]` where 1 is perfect quality.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3164,7 +3069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect : GTLRObject
 
 /**
- *  Confidence of detected defect. Range [0, 1] where 1 indicates strong
+ *  Confidence of detected defect. Range `[0, 1]` where 1 indicates strong
  *  confidence of that the defect exists.
  *
  *  Uses NSNumber of floatValue.
@@ -3172,10 +3077,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Name of the defect type. Supported values are "quality/defect_blurry",
- *  "quality/defect_noisy", "quality/defect_dark", "quality/defect_faint",
- *  "quality/defect_text_too_small", "quality/defect_document_cutoff",
- *  "quality/defect_text_cutoff", "quality/defect_glare"
+ *  Name of the defect type. Supported values are: - `quality/defect_blurry` -
+ *  `quality/defect_noisy` - `quality/defect_dark` - `quality/defect_faint` -
+ *  `quality/defect_text_too_small` - `quality/defect_document_cutoff` -
+ *  `quality/defect_text_cutoff` - `quality/defect_glare`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3193,7 +3098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  Confidence of the current Layout within context of the object this layout is
  *  for. e.g. confidence can be for a single token, a table, a visual element,
- *  etc. depending on context. Range [0, 1].
+ *  etc. depending on context. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3634,7 +3539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
 
 /**
- *  Font family such as "Arial", "Times New Roman".
+ *  Font family such as `Arial`, `Times New Roman`.
  *  https://www.w3schools.com/cssref/pr_font_font-family.asp
  */
 @property(nonatomic, copy, nullable) NSString *fontFamily;
@@ -3926,28 +3831,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2Barcode : GTLRObject
 
 /**
- *  Format of a barcode. The supported formats are: CODE_128: Code 128 type.
- *  CODE_39: Code 39 type. CODE_93: Code 93 type. CODABAR: Codabar type.
- *  DATA_MATRIX: 2D Data Matrix type. ITF: ITF type. EAN_13: EAN-13 type. EAN_8:
- *  EAN-8 type. QR_CODE: 2D QR code type. UPC_A: UPC-A type. UPC_E: UPC-E type.
- *  PDF417: PDF417 type. AZTEC: 2D Aztec code type. DATABAR: GS1 DataBar code
- *  type.
+ *  Format of a barcode. The supported formats are: - `CODE_128`: Code 128 type.
+ *  - `CODE_39`: Code 39 type. - `CODE_93`: Code 93 type. - `CODABAR`: Codabar
+ *  type. - `DATA_MATRIX`: 2D Data Matrix type. - `ITF`: ITF type. - `EAN_13`:
+ *  EAN-13 type. - `EAN_8`: EAN-8 type. - `QR_CODE`: 2D QR code type. - `UPC_A`:
+ *  UPC-A type. - `UPC_E`: UPC-E type. - `PDF417`: PDF417 type. - `AZTEC`: 2D
+ *  Aztec code type. - `DATABAR`: GS1 DataBar code type.
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Raw value encoded in the barcode. For example,
- *  'MEBKM:TITLE:Google;URL:https://www.google.com;;'.
+ *  Raw value encoded in the barcode. For example:
+ *  `'MEBKM:TITLE:Google;URL:https://www.google.com;;'`.
  */
 @property(nonatomic, copy, nullable) NSString *rawValue;
 
 /**
  *  Value format describes the format of the value that a barcode encodes. The
- *  supported formats are: CONTACT_INFO: Contact information. EMAIL: Email
- *  address. ISBN: ISBN identifier. PHONE: Phone number. PRODUCT: Product. SMS:
- *  SMS message. TEXT: Text string. URL: URL address. WIFI: Wifi information.
- *  GEO: Geo-localization. CALENDAR_EVENT: Calendar event. DRIVER_LICENSE:
- *  Driver's license.
+ *  supported formats are: - `CONTACT_INFO`: Contact information. - `EMAIL`:
+ *  Email address. - `ISBN`: ISBN identifier. - `PHONE`: Phone number. -
+ *  `PRODUCT`: Product. - `SMS`: SMS message. - `TEXT`: Text string. - `URL`:
+ *  URL address. - `WIFI`: Wifi information. - `GEO`: Geo-localization. -
+ *  `CALENDAR_EVENT`: Calendar event. - `DRIVER_LICENSE`: Driver's license.
  */
 @property(nonatomic, copy, nullable) NSString *valueFormat;
 
@@ -4036,13 +3941,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Placeholder. A list of text corrections made to [Document.text]. This is
+ *  Placeholder. A list of text corrections made to Document.text. This is
  *  usually used for annotating corrections to OCR mistakes. Text changes for a
  *  given revision may not overlap with each other.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextChange *> *textChanges;
 
-/** Placeholder. Styles for the Document.text. */
+/** Styles for the Document.text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle *> *textStyles;
 
 /**
@@ -4064,7 +3969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity : GTLRObject
 
 /**
- *  Optional. Confidence of detected Schema entity. Range [0, 1].
+ *  Optional. Confidence of detected Schema entity. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4182,8 +4087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Optional. An optional field to store a normalized string. For some entity
  *  types, one of respective `structured_value` fields may also be populated.
  *  Also not all the types of `structured_value` will be normalized. For
- *  example, some processors may not generate float or int normalized text by
- *  default. Below are sample formats mapped to structured values. -
+ *  example, some processors may not generate `float` or `integer` normalized
+ *  text by default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -4349,7 +4254,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2BoundingPoly *boundingPoly;
 
 /**
- *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *  Optional. Confidence of detected page element, if applicable. Range `[0,
+ *  1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4383,8 +4289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element. This field is skipped
- *  when its value is the default 0. See
+ *  `Document.pages` to locate the related page element. This field is skipped
+ *  when its value is the default `0`. See
  *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
@@ -4432,14 +4338,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage : GTLRObject
 
 /**
- *  Confidence of detected language. Range [0, 1].
+ *  Confidence of detected language. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
  *  information, see
  *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
@@ -4512,8 +4418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  If the value is non-textual, this field represents the type. Current valid
- *  values are: - blank (this indicates the field_value is normal text) -
- *  "unfilled_checkbox" - "filled_checkbox"
+ *  values are: - blank (this indicates the `field_value` is normal text) -
+ *  `unfilled_checkbox` - `filled_checkbox`
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -4562,7 +4468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
 
 /**
- *  The overall quality score. Range [0, 1] where 1 is perfect quality.
+ *  The overall quality score. Range `[0, 1]` where 1 is perfect quality.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4577,7 +4483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect : GTLRObject
 
 /**
- *  Confidence of detected defect. Range [0, 1] where 1 indicates strong
+ *  Confidence of detected defect. Range `[0, 1]` where 1 indicates strong
  *  confidence of that the defect exists.
  *
  *  Uses NSNumber of floatValue.
@@ -4585,10 +4491,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Name of the defect type. Supported values are "quality/defect_blurry",
- *  "quality/defect_noisy", "quality/defect_dark", "quality/defect_faint",
- *  "quality/defect_text_too_small", "quality/defect_document_cutoff",
- *  "quality/defect_text_cutoff", "quality/defect_glare"
+ *  Name of the defect type. Supported values are: - `quality/defect_blurry` -
+ *  `quality/defect_noisy` - `quality/defect_dark` - `quality/defect_faint` -
+ *  `quality/defect_text_too_small` - `quality/defect_document_cutoff` -
+ *  `quality/defect_text_cutoff` - `quality/defect_glare`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4606,7 +4512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  Confidence of the current Layout within context of the object this layout is
  *  for. e.g. confidence can be for a single token, a table, a visual element,
- *  etc. depending on context. Range [0, 1].
+ *  etc. depending on context. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5047,7 +4953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
 
 /**
- *  Font family such as "Arial", "Times New Roman".
+ *  Font family such as `Arial`, `Times New Roman`.
  *  https://www.w3schools.com/cssref/pr_font_font-family.asp
  */
 @property(nonatomic, copy, nullable) NSString *fontFamily;
@@ -5550,6 +5456,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  Metadata of the EvaluateProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Metadata of the EvaluateProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionResponse : GTLRObject
+
+/** The resource name of the created evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
+
+@end
+
+
+/**
  *  The status of human review on a processed document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
@@ -5683,6 +5611,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Response message for set default processor version method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The metadata that represents a processor version being created.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+/** The test dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation *testDatasetValidation;
+
+/** The training dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation *trainingDatasetValidation;
+
+@end
+
+
+/**
+ *  The dataset validation information. This includes any and all errors with
+ *  documents and the dataset.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation : GTLRObject
+
+/**
+ *  The total number of dataset errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetErrorCount;
+
+/**
+ *  Error information for the dataset as a whole. A maximum of 10 dataset errors
+ *  will be returned. A single dataset error is terminal for training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *datasetErrors;
+
+/**
+ *  The total number of document errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentErrorCount;
+
+/**
+ *  Error information pertaining to specific documents. A maximum of 10 document
+ *  errors will be returned. Any document with errors will not be used
+ *  throughout training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *documentErrors;
+
+@end
+
+
+/**
+ *  The response for the TrainProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionResponse : GTLRObject
+
+/** The resource name of the processor version produced by training. */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
+
 @end
 
 
@@ -5884,13 +5876,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Placeholder. A list of text corrections made to [Document.text]. This is
+ *  Placeholder. A list of text corrections made to Document.text. This is
  *  usually used for annotating corrections to OCR mistakes. Text changes for a
  *  given revision may not overlap with each other.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange *> *textChanges;
 
-/** Placeholder. Styles for the Document.text. */
+/** Styles for the Document.text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle *> *textStyles;
 
 /**
@@ -5912,7 +5904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity : GTLRObject
 
 /**
- *  Optional. Confidence of detected Schema entity. Range [0, 1].
+ *  Optional. Confidence of detected Schema entity. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6030,8 +6022,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Optional. An optional field to store a normalized string. For some entity
  *  types, one of respective `structured_value` fields may also be populated.
  *  Also not all the types of `structured_value` will be normalized. For
- *  example, some processors may not generate float or int normalized text by
- *  default. Below are sample formats mapped to structured values. -
+ *  example, some processors may not generate `float` or `integer` normalized
+ *  text by default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -6086,6 +6078,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The Cloud Storage uri (a directory) of the output. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** Specifies the sharding config for the output document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfigShardingConfig *shardingConfig;
+
+@end
+
+
+/**
+ *  The sharding config for the output document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfigShardingConfig : GTLRObject
+
+/**
+ *  The number of overlapping pages between consecutive shards.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pagesOverlap;
+
+/**
+ *  The number of pages per shard.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pagesPerShard;
 
 @end
 
@@ -6198,7 +6215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingPoly;
 
 /**
- *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *  Optional. Confidence of detected page element, if applicable. Range `[0,
+ *  1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6232,8 +6250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element. This field is skipped
- *  when its value is the default 0. See
+ *  `Document.pages` to locate the related page element. This field is skipped
+ *  when its value is the default `0`. See
  *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
@@ -6281,14 +6299,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage : GTLRObject
 
 /**
- *  Confidence of detected language. Range [0, 1].
+ *  Confidence of detected language. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
  *  information, see
  *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
@@ -6361,8 +6379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  If the value is non-textual, this field represents the type. Current valid
- *  values are: - blank (this indicates the field_value is normal text) -
- *  "unfilled_checkbox" - "filled_checkbox"
+ *  values are: - blank (this indicates the `field_value` is normal text) -
+ *  `unfilled_checkbox` - `filled_checkbox`
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -6411,7 +6429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
 
 /**
- *  The overall quality score. Range [0, 1] where 1 is perfect quality.
+ *  The overall quality score. Range `[0, 1]` where 1 is perfect quality.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6426,7 +6444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect : GTLRObject
 
 /**
- *  Confidence of detected defect. Range [0, 1] where 1 indicates strong
+ *  Confidence of detected defect. Range `[0, 1]` where 1 indicates strong
  *  confidence of that the defect exists.
  *
  *  Uses NSNumber of floatValue.
@@ -6434,10 +6452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Name of the defect type. Supported values are "quality/defect_blurry",
- *  "quality/defect_noisy", "quality/defect_dark", "quality/defect_faint",
- *  "quality/defect_text_too_small", "quality/defect_document_cutoff",
- *  "quality/defect_text_cutoff", "quality/defect_glare"
+ *  Name of the defect type. Supported values are: - `quality/defect_blurry` -
+ *  `quality/defect_noisy` - `quality/defect_dark` - `quality/defect_faint` -
+ *  `quality/defect_text_too_small` - `quality/defect_document_cutoff` -
+ *  `quality/defect_text_cutoff` - `quality/defect_glare`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6455,7 +6473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  Confidence of the current Layout within context of the object this layout is
  *  for. e.g. confidence can be for a single token, a table, a visual element,
- *  etc. depending on context. Range [0, 1].
+ *  etc. depending on context. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6892,9 +6910,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** User defined name for the type. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Metadata for the entity type. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EntityTypeMetadata *entityTypeMetadata;
-
 /**
  *  If specified, lists all the possible values for this entity. This should not
  *  be more than a handful of values. If the number of values is >10 or could
@@ -6906,12 +6921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  Name of the type. It must be unique within the schema file and cannot be a
  *  'Common Type'. Besides that we use the following naming conventions: - *use
- *  snake_casing* - name matching is case-insensitive - Maximum 64 characters. -
+ *  `snake_casing`* - name matching is case-sensitive - Maximum 64 characters. -
  *  Must start with a letter. - Allowed characters: ASCII letters `[a-z0-9_-]`.
  *  (For backward compatibility internal infrastructure and tooling can handle
- *  any ascii character) - The '/' is sometimes used to denote a property of a
- *  type. For example line_item/amount. This convention is deprecated, but will
- *  still be honored for backward compatibility.
+ *  any ascii character) - The `/` is sometimes used to denote a property of a
+ *  type. For example `line_item/amount`. This convention is deprecated, but
+ *  will still be honored for backward compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6964,9 +6979,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        "REQUIRED_ONCE")
  */
 @property(nonatomic, copy, nullable) NSString *occurrenceType;
-
-/** Any additional metadata about the property can be added here. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1PropertyMetadata *propertyMetadata;
 
 /**
  *  A reference to the value type of the property. This type is subject to the
@@ -7062,7 +7074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
 
 /**
- *  Font family such as "Arial", "Times New Roman".
+ *  Font family such as `Arial`, `Times New Roman`.
  *  https://www.w3schools.com/cssref/pr_font_font-family.asp
  */
 @property(nonatomic, copy, nullable) NSString *fontFamily;
@@ -7202,27 +7214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Metadata about an entity type.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1EntityTypeMetadata : GTLRObject
-
-/** Human review labeling config on the property. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewLabelingMetadata *humanReviewLabelingMetadata;
-
-/** Human review config on the entity type. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewValidationMetadata *humanReviewMetadata;
-
-/**
- *  Whether the entity type should be considered as "inactive".
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inactive;
-
-@end
-
-
-/**
  *  Response message for fetch processor types.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse : GTLRObject
@@ -7270,21 +7261,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Metadata for human review labeling config.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1HumanReviewLabelingMetadata : GTLRObject
-
-/**
- *  Whether to enable normalization editing.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableNormalizationEditing;
-
-@end
-
-
-/**
  *  The status of human review on a processed document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus : GTLRObject
@@ -7322,28 +7298,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** A message providing more details about the human review state. */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
-
-@end
-
-
-/**
- *  Metadata for Human Review config.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1HumanReviewValidationMetadata : GTLRObject
-
-/**
- *  The confidence threshold if human review validation is enabled.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidenceThreshold;
-
-/**
- *  Whether to enable human review validation.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableValidation;
 
 @end
 
@@ -7481,26 +7435,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Creating The
- *        processor is being created, will become either ENABLED (for successful
- *        creation) or FAILED (for failed ones). Once a processor is in this
- *        state, it can then be used for document processing, but the feature
- *        dependencies of the processor might not be fully created yet. (Value:
- *        "CREATING")
+ *        processor is being created, will become either `ENABLED` (for
+ *        successful creation) or `FAILED` (for failed ones). Once a processor
+ *        is in this state, it can then be used for document processing, but the
+ *        feature dependencies of the processor might not be fully created yet.
+ *        (Value: "CREATING")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Deleting The
  *        processor is being deleted, will be removed if successful. (Value:
  *        "DELETING")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabled The
  *        processor is disabled. (Value: "DISABLED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabling The
- *        processor is being disabled, will become DISABLED if successful.
+ *        processor is being disabled, will become `DISABLED` if successful.
  *        (Value: "DISABLING")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled The
  *        processor is enabled, i.e., has an enabled version which can currently
  *        serve processing requests and all the feature dependencies have been
  *        successfully initialized. (Value: "ENABLED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling The
- *        processor is being enabled, will become ENABLED if successful. (Value:
- *        "ENABLING")
+ *        processor is being enabled, will become `ENABLED` if successful.
+ *        (Value: "ENABLING")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Failed The
  *        processor failed during creation or initialization of feature
  *        dependencies. The user should delete the processor and recreate one as
@@ -7512,8 +7466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The processor type, e.g., OCR_PROCESSOR, INVOICE_PROCESSOR, etc. To get a
- *  list of processors types, see FetchProcessorTypes.
+ *  The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc. To get
+ *  a list of processors types, see FetchProcessorTypes.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7589,11 +7543,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The resource name of the processor type. Format:
- *  projects/{project}/processorTypes/{processor_type}
+ *  `projects/{project}/processorTypes/{processor_type}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The type of the processor, e.g., "invoice_parsing". */
+/** A set of Cloud Storage URIs of sample documents for this processor. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sampleDocumentUris;
+
+/** The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -7627,6 +7584,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The display name of the processor version. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The schema of the processor version. Describes the output. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
 /**
  *  Denotes that this ProcessorVersion is managed by google.
@@ -7740,27 +7700,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Metadata about a property.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1PropertyMetadata : GTLRObject
-
-/** Human review labeling config on the property. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewLabelingMetadata *humanReviewLabelingMetadata;
-
-/** Human review validation config on the property. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewValidationMetadata *humanReviewMetadata;
-
-/**
- *  Whether the property should be considered as "inactive".
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inactive;
-
-@end
-
-
-/**
  *  Payload message of raw document content (bytes).
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1RawDocument : GTLRObject
@@ -7774,8 +7713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
- *  An IANA MIME type (RFC6838) indicating the nature and format of the
- *  [content].
+ *  An IANA MIME type (RFC6838) indicating the nature and format of the content.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 

@@ -140,6 +140,33 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsMutatePartnerPermissions
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:mutatePartnerPermissions";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsMutatePartnerPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.mutatePartnerPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsPatch
 
 @dynamic name, updateMask;

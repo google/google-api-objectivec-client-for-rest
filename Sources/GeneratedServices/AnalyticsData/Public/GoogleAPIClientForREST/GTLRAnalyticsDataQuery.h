@@ -148,9 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  learn more, see [where to find your Property
  *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *  `property` should be the same value as in your `runReport` request. Example:
- *  properties/1234 Set the Property ID to 0 for compatibility checking on
- *  dimensions and metrics common to all properties. In this special mode, this
- *  method will not return custom dimensions and metrics.
+ *  properties/1234
  */
 @property(nonatomic, copy, nullable) NSString *property;
 
@@ -172,9 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    tracked. To learn more, see [where to find your Property
  *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *    `property` should be the same value as in your `runReport` request.
- *    Example: properties/1234 Set the Property ID to 0 for compatibility
- *    checking on dimensions and metrics common to all properties. In this
- *    special mode, this method will not return custom dimensions and metrics.
+ *    Example: properties/1234
  *
  *  @return GTLRAnalyticsDataQuery_PropertiesCheckCompatibility
  */

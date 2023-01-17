@@ -107,6 +107,10 @@ NSString * const kGTLRDataproc_Metric_MetricSource_Spark       = @"SPARK";
 NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer = @"SPARK_HISTORY_SERVER";
 NSString * const kGTLRDataproc_Metric_MetricSource_Yarn        = @"YARN";
 
+// GTLRDataproc_NodeGroup.roles
+NSString * const kGTLRDataproc_NodeGroup_Roles_Driver          = @"DRIVER";
+NSString * const kGTLRDataproc_NodeGroup_Roles_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
 // GTLRDataproc_NodeGroupOperationMetadata.operationType
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Delete = @"DELETE";
@@ -142,6 +146,7 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUP
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger = @"RANGER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr = @"SOLR";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Trino = @"TRINO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
 
@@ -226,6 +231,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AuxiliaryNodeGroup
+//
+
+@implementation GTLRDataproc_AuxiliaryNodeGroup
+@dynamic nodeGroup, nodeGroupId;
 @end
 
 
@@ -397,14 +412,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic autoscalingConfig, configBucket, dataprocMetricConfig,
-         encryptionConfig, endpointConfig, gceClusterConfig, gkeClusterConfig,
-         initializationActions, lifecycleConfig, masterConfig, metastoreConfig,
-         secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
-         workerConfig;
+@dynamic autoscalingConfig, auxiliaryNodeGroups, configBucket,
+         dataprocMetricConfig, encryptionConfig, endpointConfig,
+         gceClusterConfig, gkeClusterConfig, initializationActions,
+         lifecycleConfig, masterConfig, metastoreConfig, secondaryWorkerConfig,
+         securityConfig, softwareConfig, tempBucket, workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"auxiliaryNodeGroups" : [GTLRDataproc_AuxiliaryNodeGroup class],
     @"initializationActions" : [GTLRDataproc_NodeInitializationAction class]
   };
   return map;
@@ -585,6 +601,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_DiskConfig
 @dynamic bootDiskSizeGb, bootDiskType, localSsdInterface, numLocalSsds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_DriverSchedulingConfig
+//
+
+@implementation GTLRDataproc_DriverSchedulingConfig
+@dynamic memoryMb, vcores;
 @end
 
 
@@ -1013,10 +1039,11 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_Job
-@dynamic done, driverControlFilesUri, driverOutputResourceUri, hadoopJob,
-         hiveJob, jobUuid, labels, pigJob, placement, prestoJob, pysparkJob,
-         reference, scheduling, sparkJob, sparkRJob, sparkSqlJob, status,
-         statusHistory, trinoJob, yarnApplications;
+@dynamic done, driverControlFilesUri, driverOutputResourceUri,
+         driverSchedulingConfig, hadoopJob, hiveJob, jobUuid, labels, pigJob,
+         placement, prestoJob, pysparkJob, reference, scheduling, sparkJob,
+         sparkRJob, sparkSqlJob, status, statusHistory, trinoJob,
+         yarnApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1422,6 +1449,38 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_NamespacedGkeDeploymentTarget
 @dynamic clusterNamespace, targetGkeCluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_NodeGroup
+//
+
+@implementation GTLRDataproc_NodeGroup
+@dynamic labels, name, nodeGroupConfig, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_NodeGroup_Labels
+//
+
+@implementation GTLRDataproc_NodeGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1834,6 +1893,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ResizeNodeGroupRequest
+//
+
+@implementation GTLRDataproc_ResizeNodeGroupRequest
+@dynamic gracefulDecommissionTimeout, requestId, size;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_RuntimeConfig
 //
 
@@ -1862,7 +1931,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeInfo
-@dynamic approximateUsage, diagnosticOutputUri, endpoints, outputUri;
+@dynamic approximateUsage, currentUsage, diagnosticOutputUri, endpoints,
+         outputUri;
 @end
 
 
@@ -2360,6 +2430,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_UsageMetrics
 @dynamic milliDcuSeconds, shuffleStorageGbSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_UsageSnapshot
+//
+
+@implementation GTLRDataproc_UsageSnapshot
+@dynamic milliDcu, shuffleStorageGb, snapshotTime;
 @end
 
 

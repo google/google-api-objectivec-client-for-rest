@@ -293,10 +293,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the organization or folder whose folders are
- *  being listed. Must be of the form `folders/{folder_id}` or
- *  `organizations/{org_id}`. Access to this method is controlled by checking
- *  the `resourcemanager.folders.list` permission on the `parent`.
+ *  Required. The name of the parent resource whose folders are being listed.
+ *  Only children of this parent resource are listed; descendants are not
+ *  listed. If the parent is a folder, use the value `folders/{folder_id}`. If
+ *  the parent is an organization, use the value `organizations/{org_id}`.
+ *  Access to this method is controlled by checking the
+ *  `resourcemanager.folders.list` permission on the `parent`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1230,9 +1232,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the parent resource to list projects under. For
- *  example, setting this field to 'folders/1234' would list all projects
- *  directly under that folder.
+ *  Required. The name of the parent resource whose projects are being listed.
+ *  Only children of this parent resource are listed; descendants are not
+ *  listed. If the parent is a folder, use the value `folders/{folder_id}`. If
+ *  the parent is an organization, use the value `organizations/{org_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1365,6 +1368,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
  */
 @interface GTLRCloudResourceManagerQuery_ProjectsSearch : GTLRCloudResourceManagerQuery
 
@@ -2226,10 +2230,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Required. Resource name for TagKey, parent of the TagValues to be listed, in
- *  the format `tagKeys/123`.
- */
+/** Required. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**

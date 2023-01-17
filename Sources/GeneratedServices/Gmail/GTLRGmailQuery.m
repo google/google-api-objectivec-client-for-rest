@@ -764,6 +764,289 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @end
 
+@implementation GTLRGmailQuery_UsersSettingsCseIdentitiesCreate
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_CseIdentity *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/identities";
+  GTLRGmailQuery_UsersSettingsCseIdentitiesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_CseIdentity class];
+  query.loggingName = @"gmail.users.settings.cse.identities.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseIdentitiesDelete
+
+@dynamic cseEmailAddress, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                cseEmailAddress:(NSString *)cseEmailAddress {
+  NSArray *pathParams = @[
+    @"cseEmailAddress", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}";
+  GTLRGmailQuery_UsersSettingsCseIdentitiesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.cseEmailAddress = cseEmailAddress;
+  query.loggingName = @"gmail.users.settings.cse.identities.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseIdentitiesGet
+
+@dynamic cseEmailAddress, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                cseEmailAddress:(NSString *)cseEmailAddress {
+  NSArray *pathParams = @[
+    @"cseEmailAddress", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}";
+  GTLRGmailQuery_UsersSettingsCseIdentitiesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.cseEmailAddress = cseEmailAddress;
+  query.expectedObjectClass = [GTLRGmail_CseIdentity class];
+  query.loggingName = @"gmail.users.settings.cse.identities.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseIdentitiesList
+
+@dynamic pageSize, pageToken, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/identities";
+  GTLRGmailQuery_UsersSettingsCseIdentitiesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ListCseIdentitiesResponse class];
+  query.loggingName = @"gmail.users.settings.cse.identities.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseIdentitiesPatch
+
+@dynamic emailAddress, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_CseIdentity *)object
+                         userId:(NSString *)userId
+                   emailAddress:(NSString *)emailAddress {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"emailAddress", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}";
+  GTLRGmailQuery_UsersSettingsCseIdentitiesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.emailAddress = emailAddress;
+  query.expectedObjectClass = [GTLRGmail_CseIdentity class];
+  query.loggingName = @"gmail.users.settings.cse.identities.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseKeypairsCreate
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_CseKeyPair *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/keypairs";
+  GTLRGmailQuery_UsersSettingsCseKeypairsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_CseKeyPair class];
+  query.loggingName = @"gmail.users.settings.cse.keypairs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseKeypairsDisable
+
+@dynamic keyPairId, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_DisableCseKeyPairRequest *)object
+                         userId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"keyPairId", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable";
+  GTLRGmailQuery_UsersSettingsCseKeypairsDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.keyPairId = keyPairId;
+  query.expectedObjectClass = [GTLRGmail_CseKeyPair class];
+  query.loggingName = @"gmail.users.settings.cse.keypairs.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseKeypairsEnable
+
+@dynamic keyPairId, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_EnableCseKeyPairRequest *)object
+                         userId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"keyPairId", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:enable";
+  GTLRGmailQuery_UsersSettingsCseKeypairsEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.keyPairId = keyPairId;
+  query.expectedObjectClass = [GTLRGmail_CseKeyPair class];
+  query.loggingName = @"gmail.users.settings.cse.keypairs.enable";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseKeypairsGet
+
+@dynamic keyPairId, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId {
+  NSArray *pathParams = @[
+    @"keyPairId", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}";
+  GTLRGmailQuery_UsersSettingsCseKeypairsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.keyPairId = keyPairId;
+  query.expectedObjectClass = [GTLRGmail_CseKeyPair class];
+  query.loggingName = @"gmail.users.settings.cse.keypairs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseKeypairsList
+
+@dynamic pageSize, pageToken, userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/keypairs";
+  GTLRGmailQuery_UsersSettingsCseKeypairsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_ListCseKeyPairsResponse class];
+  query.loggingName = @"gmail.users.settings.cse.keypairs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsCseKeypairsObliterate
+
+@dynamic keyPairId, userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_ObliterateCseKeyPairRequest *)object
+                         userId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"keyPairId", @"userId"
+  ];
+  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate";
+  GTLRGmailQuery_UsersSettingsCseKeypairsObliterate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.keyPairId = keyPairId;
+  query.loggingName = @"gmail.users.settings.cse.keypairs.obliterate";
+  return query;
+}
+
+@end
+
 @implementation GTLRGmailQuery_UsersSettingsDelegatesCreate
 
 @dynamic userId;

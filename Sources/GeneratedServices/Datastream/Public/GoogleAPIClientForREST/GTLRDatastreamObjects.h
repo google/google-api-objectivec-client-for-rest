@@ -1905,6 +1905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_SingleTargetDataset : GTLRObject
 
+/** The dataset ID of the target dataset. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 @end

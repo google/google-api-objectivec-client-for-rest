@@ -984,23 +984,6 @@ NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVers
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion_Status_Snapshot = @"SNAPSHOT";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion_Status_Unknown = @"UNKNOWN";
 
-// GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest.responseTemplate
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_AploseSeriesListConfig = @"APLOSE_SERIES_LIST_CONFIG";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_TableConfig = @"TABLE_CONFIG";
-
-// GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent.borgTaskMetric
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_BorgTaskMetricUnspecified = @"BORG_TASK_METRIC_UNSPECIFIED";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_EventCount = @"EVENT_COUNT";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_EventDuration = @"EVENT_DURATION";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_TaskIndividualCount = @"TASK_INDIVIDUAL_COUNT";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_TaskIndividualDuration = @"TASK_INDIVIDUAL_DURATION";
-
-// GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode.operationType
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_Join = @"JOIN";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
-NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_Union = @"UNION";
-
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode.requestType
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode_RequestType_EncodedHeader = @"ENCODED_HEADER";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode_RequestType_QueryParameters = @"QUERY_PARAMETERS";
@@ -1124,109 +1107,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_CrmlogErrorCode
 @dynamic commonErrorCode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsCellValue
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsCellValue
-@dynamic booleanValue, doubleValue, empty, longValue, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsRow
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsRow
-@dynamic cells;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cells" : [GTLRIntegrations_EnterpriseCrmCardsCellValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsTabularData
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsTabularData
-@dynamic headers, rows;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"headers" : [NSString class],
-    @"rows" : [GTLRIntegrations_EnterpriseCrmCardsRow class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesData
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesData
-@dynamic rows;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rows" : [GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesDataRow class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesDataRow
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesDataRow
-@dynamic x, y;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListData
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListData
-@dynamic series;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"series" : [GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries
-//
-
-@implementation GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries
-@dynamic data, name;
 @end
 
 
@@ -2241,7 +2121,7 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfoAudit
-@dynamic resolvedBy, timestamp;
+@dynamic resolvedBy, resolvedByCpi, timestamp;
 @end
 
 
@@ -4179,104 +4059,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest
-@dynamic duration, endTime, mashQuery, metricFieldTable, outputPeriod,
-         responseTemplate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestGroupBy
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestGroupBy
-@dynamic fields, reducer;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQuery
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQuery
-@dynamic firstQuery, operationMode, secondQuery;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent
-@dynamic borgTaskMetric, dataFilters, fetchFilters, groupBy, pointOperation,
-         timeDelta;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dataFilters" : [NSString class],
-    @"fetchFilters" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode
-@dynamic joinConfig, operationType, unionConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeJoinConfig
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeJoinConfig
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeUnionConfig
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeUnionConfig
-@dynamic reducer;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse
-@dynamic aplosSeriesListData, tableData;
 @end
 
 

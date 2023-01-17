@@ -60,6 +60,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerRoleReader;
 FOUNDATION_EXTERN NSString * const kGTLRBloggerRoleViewTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// sortOption
+
+/**
+ *  The option to sort posts in ascending order in time.
+ *
+ *  Value: "ASCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBloggerSortOptionAscending;
+/**
+ *  The option to sort posts in descending order in time.
+ *
+ *  Value: "DESCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBloggerSortOptionDescending;
+/**
+ *  The unspecified sort option.
+ *
+ *  Value: "SORT_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBloggerSortOptionSortOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // status
 
 /** Value: "DELETED" */
@@ -584,6 +606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 
 @property(nonatomic, copy, nullable) NSString *pageId;
 
+/** Move to Trash if possible */
+@property(nonatomic, assign) BOOL useTrash;
+
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
@@ -904,6 +929,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 
 @property(nonatomic, copy, nullable) NSString *postId;
 
+/** Move to Trash if possible */
+@property(nonatomic, assign) BOOL useTrash;
+
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
@@ -1095,6 +1123,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Sort direction applied to post list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBloggerSortOptionSortOptionUnspecified The unspecified sort
+ *        option. (Value: "SORT_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRBloggerSortOptionDescending The option to sort posts in
+ *        descending order in time. (Value: "DESCENDING")
+ *    @arg @c kGTLRBloggerSortOptionAscending The option to sort posts in
+ *        ascending order in time. (Value: "ASCENDING")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRBloggerSortOptionDescending.
+ */
+@property(nonatomic, copy, nullable) NSString *sortOption;
 
 @property(nonatomic, copy, nullable) NSString *startDate;
 

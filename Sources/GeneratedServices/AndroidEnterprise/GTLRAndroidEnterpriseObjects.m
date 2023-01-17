@@ -80,6 +80,16 @@ NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"free";
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"groupLicense";
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase = @"userPurchase";
 
+// GTLRAndroidEnterprise_GoogleAuthenticationSettings.dedicatedDevicesAllowed
+NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Allowed = @"allowed";
+NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_DedicatedDevicesAllowedUnspecified = @"dedicatedDevicesAllowedUnspecified";
+NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Disallowed = @"disallowed";
+
+// GTLRAndroidEnterprise_GoogleAuthenticationSettings.googleAuthenticationRequired
+NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified = @"googleAuthenticationRequiredUnspecified";
+NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired = @"notRequired";
+NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required = @"required";
+
 // GTLRAndroidEnterprise_GroupLicense.acquisitionKind
 NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase = @"bulkPurchase";
 NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free = @"free";
@@ -525,6 +535,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
+//
+
+@implementation GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
+@dynamic enrollmentToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_Device
 //
 
@@ -595,7 +615,8 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_Enterprise
-@dynamic administrator, identifier, name, primaryDomain;
+@dynamic administrator, googleAuthenticationSettings, identifier, name,
+         primaryDomain;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -684,6 +705,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_GoogleAuthenticationSettings
+//
+
+@implementation GTLRAndroidEnterprise_GoogleAuthenticationSettings
+@dynamic dedicatedDevicesAllowed, googleAuthenticationRequired;
 @end
 
 

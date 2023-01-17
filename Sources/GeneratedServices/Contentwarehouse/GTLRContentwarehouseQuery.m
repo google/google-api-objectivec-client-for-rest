@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   contentwarehouse API (contentwarehouse/v1)
+//   Document AI Warehouse API (contentwarehouse/v1)
 // Documentation:
 //   https://cloud.google.com/document-warehouse
 
@@ -552,6 +552,25 @@
   query.location = location;
   query.expectedObjectClass = [GTLRContentwarehouse_GoogleLongrunningOperation class];
   query.loggingName = @"contentwarehouse.projects.locations.initialize";
+  return query;
+}
+
+@end
+
+@implementation GTLRContentwarehouseQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContentwarehouseQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContentwarehouse_GoogleLongrunningOperation class];
+  query.loggingName = @"contentwarehouse.projects.locations.operations.get";
   return query;
 }
 

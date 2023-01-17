@@ -15,8 +15,10 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Extension;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails;
@@ -28,6 +30,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload;
 @class GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText;
 
 // Generated comments include content from the discovery document; avoid them
@@ -120,6 +123,79 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "UNIT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload.offering
+
+/**
+ *  Product purchased as part of a hard bundle where Google One was included
+ *  with the bundle. Google One pricing is included in the bundle.
+ *
+ *  Value: "OFFERING_HARD_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingHardBundle;
+/**
+ *  Purchased as part of a bundle where Google One was provided as an option.
+ *  Google One pricing is included in the bundle.
+ *
+ *  Value: "OFFERING_SOFT_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingSoftBundle;
+/**
+ *  The type of partner offering is unspecified.
+ *
+ *  Value: "OFFERING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingUnspecified;
+/**
+ *  Google One product purchased as a Value added service in addition to
+ *  existing partner's products. Customer pays additional amount for Google One
+ *  product.
+ *
+ *  Value: "OFFERING_VAS_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingVasBundle;
+/**
+ *  Google One product purchased by itself by customer as a value add service.
+ *  Customer pays additional amount for Google One product.
+ *
+ *  Value: "OFFERING_VAS_STANDALONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingVasStandalone;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload.salesChannel
+
+/**
+ *  Sold through partner android app.
+ *
+ *  Value: "CHANNEL_ONLINE_ANDROID_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineAndroidApp;
+/**
+ *  Sold through partner iOS app.
+ *
+ *  Value: "CHANNEL_ONLINE_IOS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineIosApp;
+/**
+ *  Sold through partner website.
+ *
+ *  Value: "CHANNEL_ONLINE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineWeb;
+/**
+ *  Sold at store.
+ *
+ *  Value: "CHANNEL_RETAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelRetail;
+/**
+ *  The channel type is unspecified.
+ *
+ *  Value: "CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion.promotionType
@@ -312,7 +388,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateActive;
 /**
- *  The line item is being deactivated.
+ *  The line item is being deactivated, and a prorated refund in being
+ *  processed.
  *
  *  Value: "LINE_ITEM_STATE_DEACTIVATING"
  */
@@ -335,6 +412,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "LINE_ITEM_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateUnspecified;
+/**
+ *  The line item is scheduled to be deactivated at the end of the current
+ *  cycle.
+ *
+ *  Value: "LINE_ITEM_STATE_WAITING_TO_DEACTIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateWaitingToDeactivate;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec.type
@@ -644,6 +728,64 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
+ *  Payload specific to Google One products.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload : GTLRObject
+
+/** Campaign attributed to sales of this subscription. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *campaigns;
+
+/**
+ *  The type of offering the subscription was sold by the partner. e.g. VAS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingHardBundle
+ *        Product purchased as part of a hard bundle where Google One was
+ *        included with the bundle. Google One pricing is included in the
+ *        bundle. (Value: "OFFERING_HARD_BUNDLE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingSoftBundle
+ *        Purchased as part of a bundle where Google One was provided as an
+ *        option. Google One pricing is included in the bundle. (Value:
+ *        "OFFERING_SOFT_BUNDLE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingUnspecified
+ *        The type of partner offering is unspecified. (Value:
+ *        "OFFERING_UNSPECIFIED")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingVasBundle
+ *        Google One product purchased as a Value added service in addition to
+ *        existing partner's products. Customer pays additional amount for
+ *        Google One product. (Value: "OFFERING_VAS_BUNDLE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingVasStandalone
+ *        Google One product purchased by itself by customer as a value add
+ *        service. Customer pays additional amount for Google One product.
+ *        (Value: "OFFERING_VAS_STANDALONE")
+ */
+@property(nonatomic, copy, nullable) NSString *offering;
+
+/**
+ *  The type of sales channel through which the subscription was sold.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineAndroidApp
+ *        Sold through partner android app. (Value:
+ *        "CHANNEL_ONLINE_ANDROID_APP")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineIosApp
+ *        Sold through partner iOS app. (Value: "CHANNEL_ONLINE_IOS_APP")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineWeb
+ *        Sold through partner website. (Value: "CHANNEL_ONLINE_WEB")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelRetail
+ *        Sold at store. (Value: "CHANNEL_RETAIL")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelUnspecified
+ *        The channel type is unspecified. (Value: "CHANNEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *salesChannel;
+
+/** The identifier for the partner store where the subscription was sold. */
+@property(nonatomic, copy, nullable) NSString *storeId;
+
+@end
+
+
+/**
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -741,6 +883,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 /** Output only. Localized human readable name of the product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText *> *titles;
+
+@end
+
+
+/**
+ *  Specifies product specific payload.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload : GTLRObject
+
+/** Payload specific to Google One products. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload *googleOnePayload;
+
+/** Payload specific to Youtube products. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload *youtubePayload;
 
 @end
 
@@ -1085,7 +1241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
- *  Individual line item definition of a subscription. Next id: 9
+ *  Individual line item definition of a subscription.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem : GTLRObject
 
@@ -1121,6 +1277,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @property(nonatomic, copy, nullable) NSString *product;
 
+/** Optional. Product specific payload for this line item. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload *productPayload;
+
 /**
  *  Output only. The recurrence type of the line item.
  *
@@ -1149,8 +1308,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateActive
  *        The line item is in ACTIVE state. (Value: "LINE_ITEM_STATE_ACTIVE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateDeactivating
- *        The line item is being deactivated. (Value:
- *        "LINE_ITEM_STATE_DEACTIVATING")
+ *        The line item is being deactivated, and a prorated refund in being
+ *        processed. (Value: "LINE_ITEM_STATE_DEACTIVATING")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateInactive
  *        The line item is in INACTIVE state. (Value:
  *        "LINE_ITEM_STATE_INACTIVE")
@@ -1159,6 +1318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        "LINE_ITEM_STATE_NEW")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateUnspecified
  *        Unspecified state. (Value: "LINE_ITEM_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateWaitingToDeactivate
+ *        The line item is scheduled to be deactivated at the end of the current
+ *        cycle. (Value: "LINE_ITEM_STATE_WAITING_TO_DEACTIVATE")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1264,6 +1426,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 /** The updated subscription resource. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *subscription;
+
+@end
+
+
+/**
+ *  Payload specific to Youtube products.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload : GTLRObject
+
+/** The list of eligibility_ids which are applicable for the line item. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *partnerEligibilityIds;
 
 @end
 

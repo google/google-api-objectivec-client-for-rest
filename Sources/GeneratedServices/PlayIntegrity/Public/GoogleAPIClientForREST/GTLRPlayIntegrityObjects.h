@@ -4,7 +4,10 @@
 // API:
 //   Google Play Integrity API (playintegrity/v1)
 // Description:
-//   Play Integrity
+//   The Play Integrity API helps you check that you're interacting with your
+//   genuine app on a genuine Android device powered by Google Play services.
+//   The Play Integrity API has replaced SafetyNet Attestation and Android
+//   Device Verification.
 // Documentation:
 //   https://developer.android.com/google/play/integrity
 
@@ -334,10 +337,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 @interface GTLRPlayIntegrity_RequestDetails : GTLRObject
 
 /**
- *  Required. Nonce that was provided in the request (which is base64 web-safe
- *  no-wrap).
+ *  Nonce that was provided in the request (which is base64 web-safe no-wrap).
  */
 @property(nonatomic, copy, nullable) NSString *nonce;
+
+/** Request hash that was provided in the request. */
+@property(nonatomic, copy, nullable) NSString *requestHash;
 
 /**
  *  Required. Application package name this attestation was requested for. Note:

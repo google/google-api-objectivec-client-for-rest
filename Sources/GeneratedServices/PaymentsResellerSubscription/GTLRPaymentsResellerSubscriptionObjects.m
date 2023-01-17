@@ -27,6 +27,20 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Month = @"MONTH";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload.offering
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingHardBundle = @"OFFERING_HARD_BUNDLE";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingSoftBundle = @"OFFERING_SOFT_BUNDLE";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingUnspecified = @"OFFERING_UNSPECIFIED";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingVasBundle = @"OFFERING_VAS_BUNDLE";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_Offering_OfferingVasStandalone = @"OFFERING_VAS_STANDALONE";
+
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload.salesChannel
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineAndroidApp = @"CHANNEL_ONLINE_ANDROID_APP";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineIosApp = @"CHANNEL_ONLINE_IOS_APP";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelOnlineWeb = @"CHANNEL_ONLINE_WEB";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelRetail = @"CHANNEL_RETAIL";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
+
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion.promotionType
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeFreeTrial = @"PROMOTION_TYPE_FREE_TRIAL";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeIntroductoryPricing = @"PROMOTION_TYPE_INTRODUCTORY_PRICING";
@@ -69,6 +83,7 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateInactive = @"LINE_ITEM_STATE_INACTIVE";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateNew = @"LINE_ITEM_STATE_NEW";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateUnspecified = @"LINE_ITEM_STATE_UNSPECIFIED";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateWaitingToDeactivate = @"LINE_ITEM_STATE_WAITING_TO_DEACTIVATE";
 
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec.type
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec_Type_PromotionTypeFreeTrial = @"PROMOTION_TYPE_FREE_TRIAL";
@@ -203,6 +218,24 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload
+@dynamic campaigns, offering, salesChannel, storeId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"campaigns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse
 //
 
@@ -273,6 +306,16 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload
+@dynamic googleOnePayload, youtubePayload;
 @end
 
 
@@ -387,7 +430,8 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem
 @dynamic descriptionProperty, lineItemFreeTrialEndTime, lineItemPromotionSpecs,
-         oneTimeRecurrenceDetails, product, recurrenceType, state;
+         oneTimeRecurrenceDetails, product, productPayload, recurrenceType,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -449,6 +493,24 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionResponse
 @dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload
+@dynamic partnerEligibilityIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partnerEligibilityIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

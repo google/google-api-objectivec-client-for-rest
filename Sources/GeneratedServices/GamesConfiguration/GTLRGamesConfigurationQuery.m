@@ -11,18 +11,6 @@
 
 #import <GoogleAPIClientForREST/GTLRGamesConfigurationQuery.h>
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// imageType
-NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon = @"ACHIEVEMENT_ICON";
-NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified = @"IMAGE_TYPE_UNSPECIFIED";
-NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD_ICON";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRGamesConfigurationQuery
 
 @dynamic fields;
@@ -134,31 +122,6 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
   query.achievementId = achievementId;
   query.expectedObjectClass = [GTLRGamesConfiguration_AchievementConfiguration class];
   query.loggingName = @"gamesConfiguration.achievementConfigurations.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesConfigurationQuery_ImageConfigurationsUpload
-
-@dynamic imageType, resourceId;
-
-+ (instancetype)queryWithResourceId:(NSString *)resourceId
-                          imageType:(NSString *)imageType
-                   uploadParameters:(GTLRUploadParameters *)uploadParameters {
-  NSArray *pathParams = @[
-    @"imageType", @"resourceId"
-  ];
-  NSString *pathURITemplate = @"games/v1configuration/images/{resourceId}/imageType/{imageType}";
-  GTLRGamesConfigurationQuery_ImageConfigurationsUpload *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.resourceId = resourceId;
-  query.imageType = imageType;
-  query.uploadParameters = uploadParameters;
-  query.expectedObjectClass = [GTLRGamesConfiguration_ImageConfiguration class];
-  query.loggingName = @"gamesConfiguration.imageConfigurations.upload";
   return query;
 }
 

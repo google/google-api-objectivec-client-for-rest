@@ -31,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Includes only basic metadata about the execution. Following fields are
- *  returned: name, start_time, end_time, state and workflow_revision_id.
+ *  returned: name, start_time, end_time, duration, state and
+ *  workflow_revision_id.
  *
  *  Value: "BASIC"
  */
@@ -157,7 +158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *        unset value. (Value: "EXECUTION_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutionsViewBasic Includes only basic metadata
  *        about the execution. Following fields are returned: name, start_time,
- *        end_time, state and workflow_revision_id. (Value: "BASIC")
+ *        end_time, duration, state and workflow_revision_id. (Value: "BASIC")
  *    @arg @c kGTLRWorkflowExecutionsViewFull Includes all data. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -219,7 +220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *        unset value. (Value: "EXECUTION_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutionsViewBasic Includes only basic metadata
  *        about the execution. Following fields are returned: name, start_time,
- *        end_time, state and workflow_revision_id. (Value: "BASIC")
+ *        end_time, duration, state and workflow_revision_id. (Value: "BASIC")
  *    @arg @c kGTLRWorkflowExecutionsViewFull Includes all data. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;

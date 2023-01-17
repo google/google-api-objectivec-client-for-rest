@@ -30,6 +30,21 @@ NSString * const kGTLRServiceManagement_BackendRule_PathTranslation_AppendPathTo
 NSString * const kGTLRServiceManagement_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceManagement_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceManagement_ClientLibrarySettings.launchStage
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceManagement_ClientLibrarySettings_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceManagement_CommonLanguageSettings.destinations
+NSString * const kGTLRServiceManagement_CommonLanguageSettings_Destinations_ClientLibraryDestinationUnspecified = @"CLIENT_LIBRARY_DESTINATION_UNSPECIFIED";
+NSString * const kGTLRServiceManagement_CommonLanguageSettings_Destinations_Github = @"GITHUB";
+NSString * const kGTLRServiceManagement_CommonLanguageSettings_Destinations_PackageManager = @"PACKAGE_MANAGER";
+
 // GTLRServiceManagement_ConfigChange.changeType
 NSString * const kGTLRServiceManagement_ConfigChange_ChangeType_Added = @"ADDED";
 NSString * const kGTLRServiceManagement_ConfigChange_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
@@ -132,6 +147,13 @@ NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceManagement_Publishing.organization
+NSString * const kGTLRServiceManagement_Publishing_Organization_Ads = @"ADS";
+NSString * const kGTLRServiceManagement_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
+NSString * const kGTLRServiceManagement_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceManagement_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceManagement_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceManagement_Rollout.status
 NSString * const kGTLRServiceManagement_Rollout_Status_Cancelled = @"CANCELLED";
@@ -318,8 +340,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
-         pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 
@@ -388,6 +410,36 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"configChanges" : [GTLRServiceManagement_ConfigChange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_ClientLibrarySettings
+//
+
+@implementation GTLRServiceManagement_ClientLibrarySettings
+@dynamic cppSettings, dotnetSettings, goSettings, javaSettings, launchStage,
+         nodeSettings, phpSettings, pythonSettings, restNumericEnums,
+         rubySettings, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_CommonLanguageSettings
+//
+
+@implementation GTLRServiceManagement_CommonLanguageSettings
+@dynamic destinations, referenceDocsUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
   };
   return map;
 }
@@ -507,6 +559,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_CppSettings
+//
+
+@implementation GTLRServiceManagement_CppSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_CustomError
 //
 
@@ -613,6 +675,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_DotnetSettings
+//
+
+@implementation GTLRServiceManagement_DotnetSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_EnableServiceResponse
 //
 
@@ -626,7 +698,15 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Endpoint
-@dynamic allowCors, name, target;
+@dynamic aliases, allowCors, name, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aliases" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -800,6 +880,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_GoSettings
+//
+
+@implementation GTLRServiceManagement_GoSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_Http
 //
 
@@ -834,6 +924,30 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
     @"additionalBindings" : [GTLRServiceManagement_HttpRule class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_JavaSettings
+//
+
+@implementation GTLRServiceManagement_JavaSettings
+@dynamic common, libraryPackage, serviceClassNames;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_JavaSettings_ServiceClassNames
+//
+
+@implementation GTLRServiceManagement_JavaSettings_ServiceClassNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1013,6 +1127,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_LongRunning
+//
+
+@implementation GTLRServiceManagement_LongRunning
+@dynamic initialPollDelay, maxPollDelay, pollDelayMultiplier, totalPollTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_ManagedService
 //
 
@@ -1037,6 +1161,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_MethodSettings
+//
+
+@implementation GTLRServiceManagement_MethodSettings
+@dynamic longRunning, selector;
 @end
 
 
@@ -1169,6 +1303,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_NodeSettings
+//
+
+@implementation GTLRServiceManagement_NodeSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_OAuthRequirements
 //
 
@@ -1288,6 +1432,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_PhpSettings
+//
+
+@implementation GTLRServiceManagement_PhpSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_Policy
 //
 
@@ -1306,6 +1460,38 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_Publishing
+//
+
+@implementation GTLRServiceManagement_Publishing
+@dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
+         githubLabel, librarySettings, methodSettings, newIssueUri,
+         organization;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"codeownerGithubTeams" : [NSString class],
+    @"librarySettings" : [GTLRServiceManagement_ClientLibrarySettings class],
+    @"methodSettings" : [GTLRServiceManagement_MethodSettings class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_PythonSettings
+//
+
+@implementation GTLRServiceManagement_PythonSettings
+@dynamic common;
 @end
 
 
@@ -1381,6 +1567,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_RubySettings
+//
+
+@implementation GTLRServiceManagement_RubySettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_Service
 //
 
@@ -1388,8 +1584,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 @dynamic apis, authentication, backend, billing, configVersion, context,
          control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, quota, sourceInfo, systemParameters,
-         systemTypes, title, types, usage;
+         name, producerProjectId, publishing, quota, sourceInfo,
+         systemParameters, systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

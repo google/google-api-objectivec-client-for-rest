@@ -25,7 +25,6 @@
     "Method 'dfareporting.creativeAssets.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'displayvideo.advertisers.assets.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'displayvideo.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
-    "Method 'gamesConfiguration.imageConfigurations.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'groupsmigration.archive.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Won't add the kind 'bigquery#dataset' to the kind registry: it is used on multiple schema: Dataset, DatasetList.datasets.item",
     "Won't add the kind 'bigquery#job' to the kind registry: it is used on multiple schema: Job, JobList.jobs.item",

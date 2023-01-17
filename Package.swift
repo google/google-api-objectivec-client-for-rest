@@ -182,6 +182,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Calendar"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CCAIPlatform",
+            targets: ["GoogleAPIClientForREST_CCAIPlatform"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CertificateAuthorityService",
             targets: ["GoogleAPIClientForREST_CertificateAuthorityService"]
         ),
@@ -370,6 +374,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudVideoIntelligence"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudWorkstations",
+            targets: ["GoogleAPIClientForREST_CloudWorkstations"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Compute",
             targets: ["GoogleAPIClientForREST_Compute"]
         ),
@@ -408,6 +416,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Dataflow",
             targets: ["GoogleAPIClientForREST_Dataflow"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Dataform",
+            targets: ["GoogleAPIClientForREST_Dataform"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DataFusion",
@@ -660,6 +672,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Kgsearch",
             targets: ["GoogleAPIClientForREST_Kgsearch"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Kmsinventory",
+            targets: ["GoogleAPIClientForREST_Kmsinventory"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Libraryagent",
@@ -1006,6 +1022,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Workflows"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_WorkloadManager",
+            targets: ["GoogleAPIClientForREST_WorkloadManager"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_YouTube",
             targets: ["GoogleAPIClientForREST_YouTube"]
         ),
@@ -1293,6 +1313,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_CCAIPlatform",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CCAIPlatform",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CertificateAuthorityService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CertificateAuthorityService",
@@ -1575,6 +1601,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_CloudWorkstations",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudWorkstations",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Compute",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Compute",
@@ -1632,6 +1664,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Dataflow",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Dataflow",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Dataform",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Dataform",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2010,6 +2048,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Kgsearch",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Kgsearch",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Kmsinventory",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Kmsinventory",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2526,6 +2570,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Workflows",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Workflows",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_WorkloadManager",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/WorkloadManager",
             publicHeadersPath: "Public"
         ),
         .target(

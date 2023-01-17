@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   reCAPTCHA Enterprise API (recaptchaenterprise/v1)
+// Description:
+//   Help protect your website from fraudulent activity, spam, and abuse without
+//   creating friction.
 // Documentation:
 //   https://cloud.google.com/recaptcha-enterprise/
 
@@ -17,6 +20,18 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Accoun
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_RelatedAccountsNumberHigh = @"RELATED_ACCOUNTS_NUMBER_HIGH";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousAccountCreation = @"SUSPICIOUS_ACCOUNT_CREATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity = @"SUSPICIOUS_LOGIN_ACTIVITY";
+
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo.latestVerificationResult
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCriticalInternal = @"ERROR_CRITICAL_INTERNAL";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCustomerQuotaExhausted = @"ERROR_CUSTOMER_QUOTA_EXHAUSTED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorRecipientAbuseLimitExhausted = @"ERROR_RECIPIENT_ABUSE_LIMIT_EXHAUSTED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorRecipientNotAllowed = @"ERROR_RECIPIENT_NOT_ALLOWED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorSiteOnboardingIncomplete = @"ERROR_SITE_ONBOARDING_INCOMPLETE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorUserNotVerified = @"ERROR_USER_NOT_VERIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorVerdictMismatch = @"ERROR_VERDICT_MISMATCH";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorVerificationBypassed = @"ERROR_VERIFICATION_BYPASSED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ResultUnspecified = @"RESULT_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_SuccessUserVerified = @"SUCCESS_USER_VERIFIED";
 
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.annotation
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Annotation_AnnotationUnspecified = @"ANNOTATION_UNSPECIFIED";
@@ -106,6 +121,24 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo
+@dynamic endpoints, languageCode, latestVerificationResult, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings
 //
 
@@ -155,7 +188,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment
-@dynamic accountDefenderAssessment, event, name,
+@dynamic accountDefenderAssessment, accountVerification, event, name,
          privatePasswordLeakVerification, riskAnalysis, tokenProperties;
 @end
 
@@ -167,6 +200,16 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics
 @dynamic failedCount, nocaptchaCount, pageloadCount, passedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo
+@dynamic emailAddress, lastVerificationTime, phoneNumber, requestToken;
 @end
 
 
@@ -315,6 +358,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest
+@dynamic skipBillingCheck;
 @end
 
 
@@ -481,7 +525,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties
-@dynamic action, createTime, hostname, invalidReason, valid;
+@dynamic action, androidPackageName, createTime, hostname, invalidReason,
+         iosBundleId, valid;
 @end
 
 

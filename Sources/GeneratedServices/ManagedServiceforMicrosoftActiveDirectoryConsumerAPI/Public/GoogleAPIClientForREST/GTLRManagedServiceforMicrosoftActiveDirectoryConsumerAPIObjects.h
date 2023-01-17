@@ -1888,7 +1888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  Defines policies to service maintenance events.
+ *  LINT.IfChange Defines policies to service maintenance events.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy : GTLRObject
 

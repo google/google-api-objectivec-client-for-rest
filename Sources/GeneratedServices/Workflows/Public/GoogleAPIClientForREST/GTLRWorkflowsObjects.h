@@ -130,7 +130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 /**
- *  The workflows which match the request.
+ *  The workflows that match the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -354,7 +354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
  */
 @interface GTLRWorkflows_Workflow : GTLRObject
 
-/** Output only. The timestamp of when the workflow was created. */
+/** Output only. The timestamp for when the workflow was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -368,7 +368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
 /**
  *  Labels associated with this workflow. Labels can contain at most 64 entries.
  *  Keys and values can be no longer than 63 characters and can only contain
- *  lowercase letters, numeric characters, underscores and dashes. Label keys
+ *  lowercase letters, numeric characters, underscores, and dashes. Label keys
  *  must start with a letter. International characters are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRWorkflows_Workflow_Labels *labels;
@@ -380,8 +380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The timestamp that the latest revision of the workflow was
- *  created.
+ *  Output only. The timestamp for the latest revision of the workflow's
+ *  creation.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
 
@@ -421,7 +421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. The last update timestamp of the workflow. */
+/** Output only. The timestamp for when the workflow was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -430,7 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
 /**
  *  Labels associated with this workflow. Labels can contain at most 64 entries.
  *  Keys and values can be no longer than 63 characters and can only contain
- *  lowercase letters, numeric characters, underscores and dashes. Label keys
+ *  lowercase letters, numeric characters, underscores, and dashes. Label keys
  *  must start with a letter. International characters are allowed.
  *
  *  @note This class is documented as having more properties of NSString. Use @c

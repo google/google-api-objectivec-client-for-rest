@@ -42,6 +42,8 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
+@class GTLRContainer_EphemeralStorageLocalSsdConfig;
+@class GTLRContainer_FastSocket;
 @class GTLRContainer_Filter;
 @class GTLRContainer_GatewayAPIConfig;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
@@ -61,6 +63,7 @@
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_LinuxNodeConfig;
 @class GTLRContainer_LinuxNodeConfig_Sysctls;
+@class GTLRContainer_LocalNvmeSsdBlockConfig;
 @class GTLRContainer_LoggingComponentConfig;
 @class GTLRContainer_LoggingConfig;
 @class GTLRContainer_LoggingVariantConfig;
@@ -101,6 +104,7 @@
 @class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
 @class GTLRContainer_OperationProgress;
+@class GTLRContainer_PlacementPolicy;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
 @class GTLRContainer_PubSub;
@@ -128,6 +132,7 @@
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
 @class GTLRContainer_VerticalPodAutoscaling;
 @class GTLRContainer_VirtualNIC;
+@class GTLRContainer_WindowsNodeConfig;
 @class GTLRContainer_WorkloadIdentityConfig;
 @class GTLRContainer_WorkloadMetadataConfig;
 
@@ -366,6 +371,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIp
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpdate.desiredStackType
+
+/**
+ *  Cluster is IPV4 only
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4;
+/**
+ *  Cluster can use both IPv4 and IPv6
+ *
+ *  Value: "IPV4_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4Ipv6;
+/**
+ *  Default value, will be defaulted as IPV4 only
+ *
+ *  Value: "STACK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.state
 
 /**
@@ -413,6 +440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderU
 // ----------------------------------------------------------------------------
 // GTLRContainer_DNSConfig.clusterDnsScope
 
+/**
+ *  DNS records are accessible from within the cluster.
+ *
+ *  Value: "CLUSTER_SCOPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_ClusterScope;
 /**
  *  Default value, will be inferred as cluster scope.
  *
@@ -1052,6 +1085,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Runni
 FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_PlacementPolicy.type
+
+/**
+ *  COMPACT specifies node placement in the same availability domain to ensure
+ *  low communication latency.
+ *
+ *  Value: "COMPACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PlacementPolicy_Type_Compact;
+/**
+ *  TYPE_UNSPECIFIED specifies no requirements on nodes placement.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PlacementPolicy_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ReleaseChannel.channel
 
 /**
@@ -1514,6 +1564,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_WindowsNodeConfig.osVersion
+
+/**
+ *  LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base Image
+ *
+ *  Value: "OS_VERSION_LTSC2019"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2019;
+/**
+ *  LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base Image
+ *
+ *  Value: "OS_VERSION_LTSC2022"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2022;
+/**
+ *  When OSVersion is not specified
+ *
+ *  Value: "OS_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_WorkloadMetadataConfig.mode
 
 /**
@@ -1799,8 +1871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Mode of operation for binauthz policy evaluation. Currently the only options
- *  are equivalent to enable/disable. If unspecified, defaults to DISABLED.
+ *  Mode of operation for binauthz policy evaluation. If unspecified, defaults
+ *  to DISABLED.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_Disabled Disable
@@ -2093,6 +2165,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  This checksum is computed by the server based on the value of cluster
+ *  fields, and may be sent on update requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  [Output only] The time the cluster will be automatically deleted in
@@ -2657,11 +2736,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for Shielded Nodes. */
 @property(nonatomic, strong, nullable) GTLRContainer_ShieldedNodes *desiredShieldedNodes;
 
+/**
+ *  The desired stack type of the cluster. If a stack type is provided and does
+ *  not match the current stack type of the cluster, update will attempt to
+ *  change the stack type to the new type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4 Cluster is IPV4
+ *        only (Value: "IPV4")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4Ipv6 Cluster can
+ *        use both IPv4 and IPv6 (Value: "IPV4_IPV6")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified
+ *        Default value, will be defaulted as IPV4 only (Value:
+ *        "STACK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredStackType;
+
 /** Cluster-level Vertical Pod Autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *desiredVerticalPodAutoscaling;
 
 /** Configuration for Workload Identity. */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadIdentityConfig *desiredWorkloadIdentityConfig;
+
+/**
+ *  The current etag of the cluster. If an etag is provided and does not match
+ *  the current etag of the cluster, update will be blocked and an ABORTED error
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 @end
 
@@ -2957,6 +3059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  cluster_dns_scope indicates the scope of access to cluster DNS records.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDnsScope_ClusterScope DNS records
+ *        are accessible from within the cluster. (Value: "CLUSTER_SCOPE")
  *    @arg @c kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified
  *        Default value, will be inferred as cluster scope. (Value:
  *        "DNS_SCOPE_UNSPECIFIED")
@@ -2975,6 +3079,41 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRContainer_Empty : GTLRObject
+@end
+
+
+/**
+ *  EphemeralStorageLocalSsdConfig contains configuration for the node ephemeral
+ *  storage using Local SSD.
+ */
+@interface GTLRContainer_EphemeralStorageLocalSsdConfig : GTLRObject
+
+/**
+ *  Number of local SSDs to use to back ephemeral storage. Uses NVMe interfaces.
+ *  Each local SSD is 375 GB in size. If zero, it means to disable using local
+ *  SSDs as ephemeral storage. The limit for this value is dependent upon the
+ *  maximum number of disks available on a machine per zone. See:
+ *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+@end
+
+
+/**
+ *  Configuration of Fast Socket feature.
+ */
+@interface GTLRContainer_FastSocket : GTLRObject
+
+/**
+ *  Whether Fast Socket features are enabled in the node pool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 
@@ -3606,6 +3745,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  LocalNvmeSsdBlockConfig contains configuration for using raw-block local
+ *  NVMe SSD.
+ */
+@interface GTLRContainer_LocalNvmeSsdBlockConfig : GTLRObject
+
+/**
+ *  The number of raw-block local NVMe SSD disks to be attached to the node.
+ *  Each local SSD is 375 GB in size. If zero, it means no raw-block local NVMe
+ *  SSD disks to be attached to the node. The limit for this value is dependent
+ *  upon the maximum number of disks available on a machine per zone. See:
+ *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+@end
+
+
+/**
  *  LoggingComponentConfig is cluster logging component configuration.
  */
 @interface GTLRContainer_LoggingComponentConfig : GTLRObject
@@ -4148,6 +4307,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
+/**
+ *  Parameters for the node ephemeral storage using Local SSDs. If unspecified,
+ *  ephemeral storage is backed by the boot disk.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EphemeralStorageLocalSsdConfig *ephemeralStorageLocalSsdConfig;
+
+/** Enable or disable NCCL fast socket for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_FastSocket *fastSocket;
+
 /** Google Container File System (image streaming) configs. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
@@ -4176,6 +4344,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Parameters that can be configured on Linux nodes. */
 @property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *linuxNodeConfig;
+
+/** Parameters for using raw-block Local NVMe SSDs. */
+@property(nonatomic, strong, nullable) GTLRContainer_LocalNvmeSsdBlockConfig *localNvmeSsdBlockConfig;
 
 /**
  *  The number of local SSD disks to be attached to the node. The limit for this
@@ -4304,6 +4475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodeTaint *> *taints;
+
+/** Parameters that can be configured on Windows nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_WindowsNodeConfig *windowsNodeConfig;
 
 /** The workload metadata configuration for this node. */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadMetadataConfig *workloadMetadataConfig;
@@ -4561,6 +4735,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *config;
 
 /**
+ *  This checksum is computed by the server based on the value of node pool
+ *  fields, and may be sent on update requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  The initial node count for the pool. You must ensure that your Compute
  *  Engine [resource quota](https://cloud.google.com/compute/quotas) is
  *  sufficient for this number of instances. You must also have available
@@ -4606,6 +4787,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  cluster-level defaults.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeNetworkConfig *networkConfig;
+
+/** Specifies the node placement policy. */
+@property(nonatomic, strong, nullable) GTLRContainer_PlacementPolicy *placementPolicy;
 
 /**
  *  [Output only] The pod CIDR block size per node in this node pool.
@@ -5003,6 +5187,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  PlacementPolicy defines the placement policy used by the node pool.
+ */
+@interface GTLRContainer_PlacementPolicy : GTLRObject
+
+/**
+ *  The type of placement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_PlacementPolicy_Type_Compact COMPACT specifies node
+ *        placement in the same availability domain to ensure low communication
+ *        latency. (Value: "COMPACT")
+ *    @arg @c kGTLRContainer_PlacementPolicy_Type_TypeUnspecified
+ *        TYPE_UNSPECIFIED specifies no requirements on nodes placement. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -6502,6 +6707,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
+/**
+ *  The current etag of the node pool. If an etag is provided and does not match
+ *  the current etag of the node pool, update will be blocked and an ABORTED
+ *  error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Enable or disable NCCL fast socket for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_FastSocket *fastSocket;
+
 /** GCFS config. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
@@ -6592,6 +6807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Upgrade settings control disruption and speed of the upgrade. */
 @property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
+
+/** Parameters that can be configured on Windows nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_WindowsNodeConfig *windowsNodeConfig;
 
 /** The desired workload metadata config for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadMetadataConfig *workloadMetadataConfig;
@@ -6861,6 +7079,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Parameters that can be configured on Windows nodes. Windows Node Config that
+ *  define the parameters that will be used to configure the Windows node pool
+ *  settings
+ */
+@interface GTLRContainer_WindowsNodeConfig : GTLRObject
+
+/**
+ *  OSVersion specifies the Windows node config to be used on the node
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2019
+ *        LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base
+ *        Image (Value: "OS_VERSION_LTSC2019")
+ *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2022
+ *        LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base
+ *        Image (Value: "OS_VERSION_LTSC2022")
+ *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionUnspecified
+ *        When OSVersion is not specified (Value: "OS_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *osVersion;
 
 @end
 

@@ -22,13 +22,19 @@
 @class GTLRTranslate_BatchTranslateTextRequest_Glossaries;
 @class GTLRTranslate_BatchTranslateTextRequest_Labels;
 @class GTLRTranslate_BatchTranslateTextRequest_Models;
+@class GTLRTranslate_Dataset;
+@class GTLRTranslate_DatasetInputConfig;
+@class GTLRTranslate_DatasetOutputConfig;
 @class GTLRTranslate_DetectedLanguage;
 @class GTLRTranslate_DetectLanguageRequest_Labels;
 @class GTLRTranslate_DocumentInputConfig;
 @class GTLRTranslate_DocumentOutputConfig;
 @class GTLRTranslate_DocumentRequest_Labels;
 @class GTLRTranslate_DocumentTranslation;
+@class GTLRTranslate_Example;
 @class GTLRTranslate_GcsDestination;
+@class GTLRTranslate_GcsInputSource;
+@class GTLRTranslate_GcsOutputDestination;
 @class GTLRTranslate_GcsSource;
 @class GTLRTranslate_Glossary;
 @class GTLRTranslate_GlossaryEntry;
@@ -37,11 +43,13 @@
 @class GTLRTranslate_GlossaryTermsPair;
 @class GTLRTranslate_GlossaryTermsSet;
 @class GTLRTranslate_InputConfig;
+@class GTLRTranslate_InputFile;
 @class GTLRTranslate_LanguageCodePair;
 @class GTLRTranslate_LanguageCodesSet;
 @class GTLRTranslate_Location;
 @class GTLRTranslate_Location_Labels;
 @class GTLRTranslate_Location_Metadata;
+@class GTLRTranslate_Model;
 @class GTLRTranslate_Operation;
 @class GTLRTranslate_Operation_Metadata;
 @class GTLRTranslate_Operation_Response;
@@ -134,6 +142,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  The BatchTranslateDocument request.
  */
 @interface GTLRTranslate_BatchTranslateDocumentRequest : GTLRObject
+
+/**
+ *  Optional. This flag is to support user customized attribution. If not
+ *  provided, the default is `Machine Translated by Google`. Customized
+ *  attribution should follow rules in
+ *  https://cloud.google.com/translate/attribution#attribution_and_logos
+ */
+@property(nonatomic, copy, nullable) NSString *customizedAttribution;
 
 /** Optional. */
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchTranslateDocumentRequest_FormatConversions *formatConversions;
@@ -343,6 +359,90 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A dataset that hosts the examples (sentence pairs) used for translation
+ *  models.
+ */
+@interface GTLRTranslate_Dataset : GTLRObject
+
+/** Output only. Timestamp when this dataset was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The name of the dataset to show in the interface. The name can be up to 32
+ *  characters long and can consist only of ASCII Latin letters A-Z and a-z,
+ *  underscores (_), and ASCII digits 0-9.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The number of examples in the dataset.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exampleCount;
+
+/**
+ *  The resource name of the dataset, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The BCP-47 language code of the source language. */
+@property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
+
+/** The BCP-47 language code of the target language. */
+@property(nonatomic, copy, nullable) NSString *targetLanguageCode;
+
+/**
+ *  Output only. Number of test examples (sentence pairs).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *testExampleCount;
+
+/**
+ *  Output only. Number of training examples (sentence pairs).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainExampleCount;
+
+/** Output only. Timestamp when this dataset was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. Number of validation examples (sentence pairs).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateExampleCount;
+
+@end
+
+
+/**
+ *  Input configuration for datasets.
+ */
+@interface GTLRTranslate_DatasetInputConfig : GTLRObject
+
+/** Files containing the sentence pairs to be imported to the dataset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_InputFile *> *inputFiles;
+
+@end
+
+
+/**
+ *  Output configuration for datasets.
+ */
+@interface GTLRTranslate_DatasetOutputConfig : GTLRObject
+
+/** Google Cloud Storage destination to write the output. */
+@property(nonatomic, strong, nullable) GTLRTranslate_GcsOutputDestination *gcsDestination;
+
+@end
+
+
+/**
  *  The response message for language detection.
  */
 @interface GTLRTranslate_DetectedLanguage : GTLRObject
@@ -355,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code of source content in the request, detected
+ *  The BCP-47 language code of the source content in the request, detected
  *  automatically.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -540,6 +640,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_DocumentOutputConfig *documentOutputConfig;
 
 /**
+ *  Optional. If true, use the text removal server to remove the shadow text on
+ *  background image for native pdf translation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableShadowRemovalNativePdf;
+
+/**
  *  Optional. Glossary to be applied. The glossary must be within the same
  *  region (have the same location-id) as the model, otherwise an
  *  INVALID_ARGUMENT (400) error is returned.
@@ -685,6 +793,42 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A sentence pair.
+ */
+@interface GTLRTranslate_Example : GTLRObject
+
+/**
+ *  Output only. The resource name of the example, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}/examples/{example_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Sentence in source language. */
+@property(nonatomic, copy, nullable) NSString *sourceText;
+
+/** Sentence in target language. */
+@property(nonatomic, copy, nullable) NSString *targetText;
+
+/**
+ *  Output only. Usage of the sentence pair. Options are TRAIN|VALIDATION|TEST.
+ */
+@property(nonatomic, copy, nullable) NSString *usage;
+
+@end
+
+
+/**
+ *  Request message for ExportData.
+ */
+@interface GTLRTranslate_ExportDataRequest : GTLRObject
+
+/** Required. The config for the output content. */
+@property(nonatomic, strong, nullable) GTLRTranslate_DatasetOutputConfig *outputConfig;
+
+@end
+
+
+/**
  *  The Google Cloud Storage location for the output content.
  */
 @interface GTLRTranslate_GcsDestination : GTLRObject
@@ -704,6 +848,32 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The Google Cloud Storage location for the input content.
  */
+@interface GTLRTranslate_GcsInputSource : GTLRObject
+
+/** Required. Source data URI. For example, `gs://my_bucket/my_object`. */
+@property(nonatomic, copy, nullable) NSString *inputUri;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage location for the output content.
+ */
+@interface GTLRTranslate_GcsOutputDestination : GTLRObject
+
+/**
+ *  Required. Google Cloud Storage URI to output directory. For example,
+ *  `gs://bucket/directory`. The requesting user must have write permission to
+ *  the bucket. The directory will be created if it doesn't exist.
+ */
+@property(nonatomic, copy, nullable) NSString *outputUriPrefix;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage location for the input content.
+ */
 @interface GTLRTranslate_GcsSource : GTLRObject
 
 /** Required. Source data URI. For example, `gs://my_bucket/my_object`. */
@@ -713,7 +883,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Represents a glossary built from user provided data.
+ *  Represents a glossary built from user-provided data.
  */
 @interface GTLRTranslate_Glossary : GTLRObject
 
@@ -792,13 +962,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  [google.rpc.Code.INVALID_ARGUMENT] for unsupported URI-s and file formats.
  *  Wildcards are not allowed. This must be a single file in one of the
  *  following formats: For unidirectional glossaries: - TSV/CSV (`.tsv`/`.csv`):
- *  2 column file, tab- or comma-separated. The first column is source text. The
- *  second column is target text. The file must not contain headers. That is,
- *  the first row is data, not column names. - TMX (`.tmx`): TMX file with
- *  parallel data defining source/target term pairs. For equivalent term sets
- *  glossaries: - CSV (`.csv`): Multi-column CSV file defining equivalent
- *  glossary terms in multiple languages. See documentation for more information
- *  - [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
+ *  Two column file, tab- or comma-separated. The first column is source text.
+ *  The second column is target text. No headers in this file. The first row
+ *  contains data and not column names. - TMX (`.tmx`): TMX file with parallel
+ *  data defining source/target term pairs. For equivalent term sets glossaries:
+ *  - CSV (`.csv`): Multi-column CSV file defining equivalent glossary terms in
+ *  multiple languages. See documentation for more information -
+ *  [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_GcsSource *gcsSource;
 
@@ -850,6 +1020,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request message for ImportData.
+ */
+@interface GTLRTranslate_ImportDataRequest : GTLRObject
+
+/** Required. The config for the input content. */
+@property(nonatomic, strong, nullable) GTLRTranslate_DatasetInputConfig *inputConfig;
+
+@end
+
+
+/**
  *  Input configuration for BatchTranslateText request.
  */
 @interface GTLRTranslate_InputConfig : GTLRObject
@@ -877,6 +1058,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  empty. For `.txt`, this field must be "text/plain" or empty.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  An input file.
+ */
+@interface GTLRTranslate_InputFile : GTLRObject
+
+/** Google Cloud Storage file source. */
+@property(nonatomic, strong, nullable) GTLRTranslate_GcsInputSource *gcsSource;
+
+/**
+ *  Optional. Usage of the file contents. Options are TRAIN|VALIDATION|TEST, or
+ *  UNASSIGNED (by default) for auto split.
+ */
+@property(nonatomic, copy, nullable) NSString *usage;
 
 @end
 
@@ -912,6 +1110,60 @@ NS_ASSUME_NONNULL_BEGIN
  *  match for GlossaryTerm.language_code.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
+
+@end
+
+
+/**
+ *  Response message for ListDatasets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "datasets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTranslate_ListDatasetsResponse : GTLRCollectionObject
+
+/**
+ *  The datasets read.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Dataset *> *datasets;
+
+/**
+ *  A token to retrieve next page of results. Pass this token to the page_token
+ *  field in the ListDatasetsRequest to obtain the corresponding page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListExamples.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "examples" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTranslate_ListExamplesResponse : GTLRCollectionObject
+
+/**
+ *  The sentence pairs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Example *> *examples;
+
+/**
+ *  A token to retrieve next page of results. Pass this token to the page_token
+ *  field in the ListExamplesRequest to obtain the corresponding page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -990,6 +1242,33 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Location *> *locations;
 
 /** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListModels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "models" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTranslate_ListModelsResponse : GTLRCollectionObject
+
+/**
+ *  The models read.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Model *> *models;
+
+/**
+ *  A token to retrieve next page of results. Pass this token to the page_token
+ *  field in the ListModelsRequest to obtain the corresponding page.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -1077,6 +1356,75 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRTranslate_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  A trained translation model.
+ */
+@interface GTLRTranslate_Model : GTLRObject
+
+/**
+ *  Output only. Timestamp when the model resource was created, which is also
+ *  when the training started.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The dataset from which the model is trained, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Output only. Timestamp when the model training finished and ready to be used
+ *  for translation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deployTime;
+
+/**
+ *  The name of the model to show in the interface. The name can be up to 32
+ *  characters long and can consist only of ASCII Latin letters A-Z and a-z,
+ *  underscores (_), and ASCII digits 0-9.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the model, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The BCP-47 language code of the source language. */
+@property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
+
+/** Output only. The BCP-47 language code of the target language. */
+@property(nonatomic, copy, nullable) NSString *targetLanguageCode;
+
+/**
+ *  Output only. Number of examples (sentence pairs) used to test the model.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *testExampleCount;
+
+/**
+ *  Output only. Number of examples (sentence pairs) used to train the model.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainExampleCount;
+
+/** Output only. Timestamp when this model was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. Number of examples (sentence pairs) used to validate the model.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateExampleCount;
+
 @end
 
 
@@ -1191,10 +1539,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  retention policy applied on the output bucket that may avoid file updating.
  *  (https://cloud.google.com/storage/docs/bucket-lock#retention-policy) The
  *  format of translations_file (for target language code 'trg') is:
- *  gs://translation_test/a_b_c_'trg'_translations.[extension] If the input file
- *  extension is tsv, the output has the following columns: Column 1: ID of the
- *  request provided in the input, if it's not provided in the input, then the
- *  input row number is used (0-based). Column 2: source sentence. Column 3:
+ *  `gs://translation_test/a_b_c_'trg'_translations.[extension]` If the input
+ *  file extension is tsv, the output has the following columns: Column 1: ID of
+ *  the request provided in the input, if it's not provided in the input, then
+ *  the input row number is used (0-based). Column 2: source sentence. Column 3:
  *  translation without applying a glossary. Empty string if there is an error.
  *  Column 4 (only present if a glossary is provided in the request):
  *  translation after applying the glossary. Empty string if there is an error
@@ -1271,7 +1619,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_SupportedLanguage : GTLRObject
 
 /**
- *  Human readable name of the language localized in the display language
+ *  Human-readable name of the language localized in the display language
  *  specified in the request.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -1279,19 +1627,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Supported language code, generally consisting of its ISO 639-1 identifier,
  *  for example, 'en', 'ja'. In certain cases, BCP-47 codes including language
- *  and region identifiers are returned (for example, 'zh-TW' and 'zh-CN')
+ *  and region identifiers are returned (for example, 'zh-TW' and 'zh-CN').
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Can be used as source language.
+ *  Can be used as a source language.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *supportSource;
 
 /**
- *  Can be used as target language.
+ *  Can be used as a target language.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1315,21 +1663,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Configures which glossary should be used for a specific target language, and
- *  defines options for applying that glossary.
+ *  Configures which glossary is used for a specific target language and defines
+ *  options for applying that glossary.
  */
 @interface GTLRTranslate_TextGlossaryConfig : GTLRObject
 
 /**
  *  Required. The `glossary` to be applied for this translation. The format
- *  depends on glossary: - User provided custom glossary:
+ *  depends on the glossary: - User-provided custom glossary:
  *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
  */
 @property(nonatomic, copy, nullable) NSString *glossary;
 
 /**
- *  Optional. Indicates match is case-insensitive. Default value is false if
- *  missing.
+ *  Optional. Indicates match is case insensitive. The default value is `false`
+ *  if missing.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1345,8 +1693,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The content of the input in string format. We recommend the total
- *  content be less than 30k codepoints. The max length of this field is 1024.
- *  Use BatchTranslateText for larger text.
+ *  content be less than 30,000 codepoints. The max length of this field is
+ *  1024. Use BatchTranslateText for larger text.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contents;
 

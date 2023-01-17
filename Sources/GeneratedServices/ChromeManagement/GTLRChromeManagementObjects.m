@@ -51,6 +51,11 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Sy
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemOther = @"SYSTEM_OTHER";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemWindows = @"SYSTEM_WINDOWS";
 
+// GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo.type
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_Extension = @"EXTENSION";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_ItemTypeUnspecified = @"ITEM_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_Others = @"OTHERS";
+
 // GTLRChromeManagement_GoogleChromeManagementV1CpuInfo.architecture
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64 = @"X64";
@@ -126,6 +131,19 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadNotStarted = @"OS_IMAGE_DOWNLOAD_NOT_STARTED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsUpdateNeedReboot = @"OS_UPDATE_NEED_REBOOT";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified = @"UPDATE_STATE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkConnectionStateChange = @"NETWORK_CONNECTION_STATE_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded = @"USB_ADDED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved = @"USB_REMOVED";
+
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.httpsLatencyState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_HttpsLatencyStateUnspecified = @"HTTPS_LATENCY_STATE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Problem = @"PROBLEM";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Recovery = @"RECOVERY";
 
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityDpOnlyLevel = @"THUNDERBOLT_SECURITY_DP_ONLY_LEVEL";
@@ -276,7 +294,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 @implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
 @dynamic googleOwned, isCwsHosted, isExtensionPolicySupported, isKioskOnly,
          isTheme, kioskEnabled, minUserCount, permissions, siteAccess,
-         supportEnabled;
+         supportEnabled, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -653,6 +671,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryEventsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryEventsResponse
+@dynamic nextPageToken, telemetryEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"telemetryEvents" : [GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"telemetryEvents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo
 //
 
@@ -781,6 +821,15 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice
 //
 
@@ -816,6 +865,65 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo
+@dynamic deviceId, orgUnitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent
+@dynamic audioSevereUnderrunEvent, device, eventType, httpsLatencyChangeEvent,
+         name, reportTime, usbPeripheralsEvent, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent
+@dynamic httpsLatencyRoutineData, httpsLatencyState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent
+@dynamic usbPeripheralReport;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"usbPeripheralReport" : [GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo
+@dynamic email, orgUnitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo
 //
 
@@ -831,6 +939,25 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo
 @dynamic encryptionAlgorithm, encryptionState, keyLength, maxKeys;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport
+@dynamic categories, classId, firmwareVersion, name, pid, subclassId, vendor,
+         vid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

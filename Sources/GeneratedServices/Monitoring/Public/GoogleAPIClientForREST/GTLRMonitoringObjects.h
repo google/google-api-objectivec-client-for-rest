@@ -36,6 +36,7 @@
 @class GTLRMonitoring_Condition;
 @class GTLRMonitoring_ContentMatcher;
 @class GTLRMonitoring_CreateTimeSeriesSummary;
+@class GTLRMonitoring_Criteria;
 @class GTLRMonitoring_Custom;
 @class GTLRMonitoring_Distribution;
 @class GTLRMonitoring_DistributionCut;
@@ -47,6 +48,7 @@
 @class GTLRMonitoring_Explicit;
 @class GTLRMonitoring_Exponential;
 @class GTLRMonitoring_Field;
+@class GTLRMonitoring_ForecastOptions;
 @class GTLRMonitoring_GkeNamespace;
 @class GTLRMonitoring_GkeService;
 @class GTLRMonitoring_GkeWorkload;
@@ -99,6 +101,7 @@
 @class GTLRMonitoring_ServiceLevelIndicator;
 @class GTLRMonitoring_ServiceLevelObjective;
 @class GTLRMonitoring_ServiceLevelObjective_UserLabels;
+@class GTLRMonitoring_Snooze;
 @class GTLRMonitoring_SourceContext;
 @class GTLRMonitoring_Status;
 @class GTLRMonitoring_Status_Details_Item;
@@ -2811,6 +2814,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Criteria specific to the AlertPolicys that this Snooze applies to. The
+ *  Snooze will suppress alerts that come from one of the AlertPolicys whose
+ *  names are supplied.
+ */
+@interface GTLRMonitoring_Criteria : GTLRObject
+
+/**
+ *  The specific AlertPolicy names for the alert that should be snoozed. The
+ *  format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID] There
+ *  is a limit of 10 policies per snooze. This limit is checked during snooze
+ *  creation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *policies;
+
+@end
+
+
+/**
  *  Use a custom service to designate a service that you want to monitor when
  *  none of the other service types (like App Engine, Cloud Run, or a GKE type)
  *  matches your intended service.
@@ -2926,7 +2947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_Documentation : GTLRObject
 
 /**
- *  The text of the documentation, interpreted according to mime_type. The
+ *  The body of the documentation, interpreted according to mime_type. The
  *  content may not exceed 8,192 Unicode characters and may not exceed more than
  *  10,240 bytes when encoded in UTF-8 format, whichever is smaller. This text
  *  can be templatized by using variables
@@ -3211,6 +3232,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Example: "type.googleapis.com/google.protobuf.Timestamp".
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
+
+@end
+
+
+/**
+ *  Options used when forecasting the time series and testing the predicted
+ *  value against the threshold.
+ */
+@interface GTLRMonitoring_ForecastOptions : GTLRObject
+
+/**
+ *  Required. The length of time into the future to forecast whether a time
+ *  series will violate the threshold. If the predicted value is found to
+ *  violate the threshold, and the violation is observed in all forecasts made
+ *  for the configured duration, then the time series is considered to be
+ *  failing.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *forecastHorizon;
 
 @end
 
@@ -4094,6 +4133,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  The results of a successful ListSnoozes call, containing the matching
+ *  Snoozes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "snoozes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMonitoring_ListSnoozesResponse : GTLRCollectionObject
+
+/**
+ *  Page token for repeated calls to ListSnoozes, to fetch additional pages of
+ *  results. If this is empty or missing, there are no more pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Snoozes matching this list call.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Snooze *> *snoozes;
+
+@end
+
+
+/**
  *  The ListTimeSeries response.
  */
 @interface GTLRMonitoring_ListTimeSeriesResponse : GTLRObject
@@ -4766,6 +4833,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  must not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  When this field is present, the MetricThreshold condition forecasts whether
+ *  the time series is predicted to violate the threshold within the
+ *  forecast_horizion. When this field is not set, the MetricThreshold tests the
+ *  current value of the timeseries against the threshold.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ForecastOptions *forecastOptions;
 
 /**
  *  A value against which to compare the time series.
@@ -5860,6 +5935,44 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        fetch them all at once.
  */
 @interface GTLRMonitoring_ServiceLevelObjective_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  A Snooze will prevent any alerts from being opened, and close any that are
+ *  already open. The Snooze will work on alerts that match the criteria defined
+ *  in the Snooze. The Snooze will be active from interval.start_time through
+ *  interval.end_time.
+ */
+@interface GTLRMonitoring_Snooze : GTLRObject
+
+/**
+ *  Required. This defines the criteria for applying the Snooze. See Criteria
+ *  for more information.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Criteria *criteria;
+
+/**
+ *  Required. A display name for the Snooze. This can be, at most, 512 unicode
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The Snooze will be active from interval.start_time through
+ *  interval.end_time. interval.start_time cannot be in the past. There is a 15
+ *  second clock skew to account for the time it takes for a request to reach
+ *  the API from the UI.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeInterval *interval;
+
+/**
+ *  Required. The name of the Snooze. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze
+ *  will be generated by the system.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
