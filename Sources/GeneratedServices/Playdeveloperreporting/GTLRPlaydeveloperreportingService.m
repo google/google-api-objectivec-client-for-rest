@@ -8,6 +8,15 @@
 
 #import <GoogleAPIClientForREST/GTLRPlaydeveloperreporting.h>
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopePlaydeveloperreporting = @"https://www.googleapis.com/auth/playdeveloperreporting";
+
+// ----------------------------------------------------------------------------
+//   GTLRPlaydeveloperreportingService
+//
+
 @implementation GTLRPlaydeveloperreportingService
 
 - (instancetype)init {

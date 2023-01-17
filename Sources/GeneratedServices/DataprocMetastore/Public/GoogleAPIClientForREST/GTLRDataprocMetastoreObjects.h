@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v1beta)
+//   Dataproc Metastore API (metastore/v1)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.
@@ -17,34 +17,26 @@
 
 @class GTLRDataprocMetastore_AuditConfig;
 @class GTLRDataprocMetastore_AuditLogConfig;
-@class GTLRDataprocMetastore_AuxiliaryVersionConfig;
-@class GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_BackendMetastore;
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_Consumer;
 @class GTLRDataprocMetastore_DatabaseDump;
-@class GTLRDataprocMetastore_DataCatalogConfig;
-@class GTLRDataprocMetastore_DataplexConfig;
-@class GTLRDataprocMetastore_DataplexConfig_LakeResources;
 @class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_Federation;
 @class GTLRDataprocMetastore_Federation_BackendMetastores;
 @class GTLRDataprocMetastore_Federation_Labels;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
-@class GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
-@class GTLRDataprocMetastore_Lake;
 @class GTLRDataprocMetastore_Location;
 @class GTLRDataprocMetastore_Location_Labels;
 @class GTLRDataprocMetastore_Location_Metadata;
 @class GTLRDataprocMetastore_MaintenanceWindow;
 @class GTLRDataprocMetastore_MetadataExport;
 @class GTLRDataprocMetastore_MetadataImport;
-@class GTLRDataprocMetastore_MetadataIntegration;
 @class GTLRDataprocMetastore_MetadataManagementActivity;
 @class GTLRDataprocMetastore_NetworkConfig;
 @class GTLRDataprocMetastore_Operation;
@@ -100,12 +92,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
 
-/**
- *  The backend metastore is BigQuery.
- *
- *  Value: "BIGQUERY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery;
 /**
  *  The backend metastore is Dataproc Metastore.
  *
@@ -260,28 +246,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_State
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Updating;
-
-// ----------------------------------------------------------------------------
-// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
-
-/**
- *  The protocol is not set.
- *
- *  Value: "ENDPOINT_PROTOCOL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified;
-/**
- *  Use the modernized gRPC protocol for the metastore service endpoint.
- *
- *  Value: "GRPC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc;
-/**
- *  Use the legacy Apache Thrift protocol for the metastore service endpoint.
- *
- *  Value: "THRIFT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
@@ -718,51 +682,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Configuration information for the auxiliary service versions.
- */
-@interface GTLRDataprocMetastore_AuxiliaryVersionConfig : GTLRObject
-
-/**
- *  A mapping of Hive metastore configuration key-value pairs to apply to the
- *  auxiliary Hive metastore (configured in hive-site.xml) in addition to the
- *  primary version's overrides. If keys are present in both the auxiliary
- *  version's overrides and the primary version's overrides, the value from the
- *  auxiliary version's overrides takes precedence.
- */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides *configOverrides;
-
-/**
- *  Output only. The network configuration contains the endpoint URI(s) of the
- *  auxiliary Hive metastore service.
- */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_NetworkConfig *networkConfig;
-
-/**
- *  The Hive metastore version of the auxiliary service. It must be less than
- *  the primary Hive metastore service's version.
- */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  A mapping of Hive metastore configuration key-value pairs to apply to the
- *  auxiliary Hive metastore (configured in hive-site.xml) in addition to the
- *  primary version's overrides. If keys are present in both the auxiliary
- *  version's overrides and the primary version's overrides, the value from the
- *  auxiliary version's overrides takes precedence.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides : GTLRObject
-@end
-
-
-/**
  *  Represents a backend metastore for the federation.
  */
 @interface GTLRDataprocMetastore_BackendMetastore : GTLRObject
@@ -771,8 +690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  The type of the backend metastore.
  *
  *  Likely values:
- *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery The
- *        backend metastore is BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore
  *        The backend metastore is Dataproc Metastore. (Value:
  *        "DATAPROC_METASTORE")
@@ -784,9 +701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 /**
  *  The relative resource name of the metastore that is being federated. The
  *  formats of the relative resource names for the currently supported
- *  metastores are listed below: Dataplex:
- *  projects/{project_id}/locations/{location}/lakes/{lake_id} BigQuery:
- *  projects/{project_id} Dataproc Metastore:
+ *  metastores are listed below: Dataplex
+ *  projects/{project_id}/locations/{location}/lakes/{lake_id} BigQuery
+ *  projects/{project_id} Dataproc Metastore
  *  projects/{project_id}/locations/{location}/services/{service_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -909,6 +826,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRDataprocMetastore_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  Contains information of the customer's network configurations.
  */
 @interface GTLRDataprocMetastore_Consumer : GTLRObject
@@ -924,7 +848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  accessible to hosts in the subnet and to all hosts in a subnet in the same
  *  region and same network. There must be at least one IP address available in
  *  the subnet's primary range. The subnet is specified in the following
- *  form:`projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+ *  form:projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -971,53 +895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-@end
-
-
-/**
- *  Specifies how metastore metadata should be integrated with the Data Catalog
- *  service.
- */
-@interface GTLRDataprocMetastore_DataCatalogConfig : GTLRObject
-
-/**
- *  Defines whether the metastore metadata should be synced to Data Catalog. The
- *  default value is to disable syncing metastore metadata to Data Catalog.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-@end
-
-
-/**
- *  Specifies how metastore metadata should be integrated with the Dataplex
- *  service.
- */
-@interface GTLRDataprocMetastore_DataplexConfig : GTLRObject
-
-/**
- *  A reference to the Lake resources that this metastore service is attached
- *  to. The key is the lake resource name. Example:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
- */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataplexConfig_LakeResources *lakeResources;
-
-@end
-
-
-/**
- *  A reference to the Lake resources that this metastore service is attached
- *  to. The key is the lake resource name. Example:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
- *
- *  @note This class is documented as having more properties of
- *        GTLRDataprocMetastore_Lake. Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRDataprocMetastore_DataplexConfig_LakeResources : GTLRObject
 @end
 
 
@@ -1248,18 +1125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @interface GTLRDataprocMetastore_HiveMetastoreConfig : GTLRObject
 
 /**
- *  A mapping of Hive metastore version to the auxiliary version configuration.
- *  When specified, a secondary Hive metastore service is created along with the
- *  primary service. All auxiliary versions must be less than the service's
- *  primary version. The key is the auxiliary service name and it must match the
- *  regular expression a-z?. This means that the first character must be a
- *  lowercase letter, and all the following characters must be hyphens,
- *  lowercase letters, or digits, except the last character, which cannot be a
- *  hyphen.
- */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions *auxiliaryVersions;
-
-/**
  *  A mapping of Hive metastore configuration key-value pairs to apply to the
  *  Hive metastore (configured in hive-site.xml). The mappings override system
  *  defaults (some keys cannot be overridden). These overrides are also applied
@@ -1267,22 +1132,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  version's AuxiliaryVersionConfig.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides *configOverrides;
-
-/**
- *  The protocol to use for the metastore service endpoint. If unspecified,
- *  defaults to THRIFT.
- *
- *  Likely values:
- *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified
- *        The protocol is not set. (Value: "ENDPOINT_PROTOCOL_UNSPECIFIED")
- *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc
- *        Use the modernized gRPC protocol for the metastore service endpoint.
- *        (Value: "GRPC")
- *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift
- *        Use the legacy Apache Thrift protocol for the metastore service
- *        endpoint. (Value: "THRIFT")
- */
-@property(nonatomic, copy, nullable) NSString *endpointProtocol;
 
 /**
  *  Information used to configure the Hive metastore service as a service
@@ -1296,26 +1145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 /** Immutable. The Hive metastore schema version. */
 @property(nonatomic, copy, nullable) NSString *version;
 
-@end
-
-
-/**
- *  A mapping of Hive metastore version to the auxiliary version configuration.
- *  When specified, a secondary Hive metastore service is created along with the
- *  primary service. All auxiliary versions must be less than the service's
- *  primary version. The key is the auxiliary service name and it must match the
- *  regular expression a-z?. This means that the first character must be a
- *  lowercase letter, and all the following characters must be hyphens,
- *  lowercase letters, or digits, except the last character, which cannot be a
- *  hyphen.
- *
- *  @note This class is documented as having more properties of
- *        GTLRDataprocMetastore_AuxiliaryVersionConfig. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions : GTLRObject
 @end
 
 
@@ -1378,20 +1207,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  but there is no exact format.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
-
-@end
-
-
-/**
- *  Represents a Lake resource
- */
-@interface GTLRDataprocMetastore_Lake : GTLRObject
-
-/**
- *  The Lake resource name. Example:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1781,21 +1596,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Specifies how metastore metadata should be integrated with external
- *  services.
- */
-@interface GTLRDataprocMetastore_MetadataIntegration : GTLRObject
-
-/** The integration config for the Data Catalog service. */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataCatalogConfig *dataCatalogConfig;
-
-/** The integration config for the Dataplex service. */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataplexConfig *dataplexConfig;
-
-@end
-
-
-/**
  *  The metadata management activities of the metastore service.
  */
 @interface GTLRDataprocMetastore_MetadataManagementActivity : GTLRObject
@@ -2031,28 +1831,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Request message for DataprocMetastore.RemoveIamPolicy.
- */
-@interface GTLRDataprocMetastore_RemoveIamPolicyRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for DataprocMetastore.RemoveIamPolicy.
- */
-@interface GTLRDataprocMetastore_RemoveIamPolicyResponse : GTLRObject
-
-/**
- *  whether related policies are removed
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *success;
-
-@end
-
-
-/**
  *  The details of a metadata restore operation.
  */
 @interface GTLRDataprocMetastore_Restore : GTLRObject
@@ -2219,12 +1997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  type.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MaintenanceWindow *maintenanceWindow;
-
-/**
- *  The setting that defines how metastore metadata should be integrated with
- *  external services and systems.
- */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_MetadataIntegration *metadataIntegration;
 
 /**
  *  Output only. The metadata management activities of the metastore service.
@@ -2430,7 +2202,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @interface GTLRDataprocMetastore_TelemetryConfig : GTLRObject
 
 /**
- *  logFormat
+ *  The output format of the Dataproc Metastore service's logs.
  *
  *  Likely values:
  *    @arg @c kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Json Logging

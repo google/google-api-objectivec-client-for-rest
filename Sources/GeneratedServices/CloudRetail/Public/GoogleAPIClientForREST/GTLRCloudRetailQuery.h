@@ -1437,9 +1437,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  using the `servingConfigs` resource. `placements` is a legacy resource. The
  *  ID of the Recommendations AI serving config or placement. Before you can
  *  request predictions from your model, you must create at least one serving
- *  config or placement for it. For more information, see [Managing serving
- *  configurations] (https://cloud.google.com/retail/docs/manage-configs). The
- *  full list of available serving configs can be seen at
+ *  config or placement for it. For more information, see [Manage serving
+ *  configs] (https://cloud.google.com/retail/docs/manage-configs). The full
+ *  list of available serving configs can be seen at
  *  https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
  */
 @property(nonatomic, copy, nullable) NSString *placement;
@@ -1459,10 +1459,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    using the `servingConfigs` resource. `placements` is a legacy resource.
  *    The ID of the Recommendations AI serving config or placement. Before you
  *    can request predictions from your model, you must create at least one
- *    serving config or placement for it. For more information, see [Managing
- *    serving configurations]
- *    (https://cloud.google.com/retail/docs/manage-configs). The full list of
- *    available serving configs can be seen at
+ *    serving config or placement for it. For more information, see [Manage
+ *    serving configs] (https://cloud.google.com/retail/docs/manage-configs).
+ *    The full list of available serving configs can be seen at
  *    https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsPredict
@@ -1490,8 +1489,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
  *  or the name of the legacy placement resource, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/placements/default_search`. This
- *  field is used to identify the serving configuration name and the set of
- *  models that will be used to make the search.
+ *  field is used to identify the serving config name and the set of models that
+ *  will be used to make the search.
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
@@ -1509,8 +1508,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
  *    or the name of the legacy placement resource, such as `projects/ *
  *    /locations/global/catalogs/default_catalog/placements/default_search`.
- *    This field is used to identify the serving configuration name and the set
- *    of models that will be used to make the search.
+ *    This field is used to identify the serving config name and the set of
+ *    models that will be used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsSearch
  */
@@ -1779,9 +1778,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  using the `servingConfigs` resource. `placements` is a legacy resource. The
  *  ID of the Recommendations AI serving config or placement. Before you can
  *  request predictions from your model, you must create at least one serving
- *  config or placement for it. For more information, see [Managing serving
- *  configurations] (https://cloud.google.com/retail/docs/manage-configs). The
- *  full list of available serving configs can be seen at
+ *  config or placement for it. For more information, see [Manage serving
+ *  configs] (https://cloud.google.com/retail/docs/manage-configs). The full
+ *  list of available serving configs can be seen at
  *  https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
  */
 @property(nonatomic, copy, nullable) NSString *placement;
@@ -1801,10 +1800,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    using the `servingConfigs` resource. `placements` is a legacy resource.
  *    The ID of the Recommendations AI serving config or placement. Before you
  *    can request predictions from your model, you must create at least one
- *    serving config or placement for it. For more information, see [Managing
- *    serving configurations]
- *    (https://cloud.google.com/retail/docs/manage-configs). The full list of
- *    available serving configs can be seen at
+ *    serving config or placement for it. For more information, see [Manage
+ *    serving configs] (https://cloud.google.com/retail/docs/manage-configs).
+ *    The full list of available serving configs can be seen at
  *    https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict
@@ -1870,8 +1868,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
  *  or the name of the legacy placement resource, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/placements/default_search`. This
- *  field is used to identify the serving configuration name and the set of
- *  models that will be used to make the search.
+ *  field is used to identify the serving config name and the set of models that
+ *  will be used to make the search.
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
@@ -1889,8 +1887,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
  *    or the name of the legacy placement resource, such as `projects/ *
  *    /locations/global/catalogs/default_catalog/placements/default_search`.
- *    This field is used to identify the serving configuration name and the set
- *    of models that will be used to make the search.
+ *    This field is used to identify the serving config name and the set of
+ *    models that will be used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch
  */
@@ -2095,7 +2093,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The prebuilt rule name that can convert a specific type of raw_json. For
- *  example: "default_schema/v1.0"
+ *  example: "ga4_bq" rule for the GA4 user event schema.
  */
 @property(nonatomic, copy, nullable) NSString *prebuiltRule;
 
@@ -2281,6 +2279,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/1234/locations/global/catalogs/default_catalog`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If set to true, the user event will be written asynchronously after
+ *  validation, and the API will respond without waiting for the write.
+ *  Therefore, silent failures can occur even if the API returns success. In
+ *  case of silent failures, error messages can be found in Stackdriver logs.
+ */
+@property(nonatomic, assign) BOOL writeAsync;
 
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2UserEvent.

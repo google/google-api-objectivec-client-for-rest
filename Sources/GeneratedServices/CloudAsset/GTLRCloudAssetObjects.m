@@ -4,7 +4,8 @@
 // API:
 //   Cloud Asset API (cloudasset/v1)
 // Description:
-//   The cloud asset API manages the history and inventory of cloud resources.
+//   The Cloud Asset API manages the history and inventory of Google Cloud
+//   resources.
 // Documentation:
 //   https://cloud.google.com/asset-inventory/docs/quickstart
 
@@ -46,6 +47,22 @@ NSString * const kGTLRCloudAsset_Feed_ContentType_Resource     = @"RESOURCE";
 // GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination.partitionKey
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_PartitionKeyUnspecified = @"PARTITION_KEY_UNSPECIFIED";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_RequestTime = @"REQUEST_TIME";
+
+// GTLRCloudAsset_GoogleCloudAssetV1Constraint.constraintDefault
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Allow = @"ALLOW";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_ConstraintDefaultUnspecified = @"CONSTRAINT_DEFAULT_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Deny = @"DENY";
+
+// GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint.actionType
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_Allow = @"ALLOW";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_Deny = @"DENY";
+
+// GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint.methodTypes
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Create = @"CREATE";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Delete = @"DELETE";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Update = @"UPDATE";
 
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
 NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow = @"ALLOW";
@@ -214,6 +231,100 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzeOrgPoliciesResponse
+//
+
+@implementation GTLRCloudAsset_AnalyzeOrgPoliciesResponse
+@dynamic constraint, nextPageToken, orgPolicyResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orgPolicyResults" : [GTLRCloudAsset_OrgPolicyResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"orgPolicyResults";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzeOrgPolicyGovernedAssetsResponse
+//
+
+@implementation GTLRCloudAsset_AnalyzeOrgPolicyGovernedAssetsResponse
+@dynamic constraint, governedAssets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"governedAssets" : [GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedAsset class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"governedAssets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzeOrgPolicyGovernedContainersResponse
+//
+
+@implementation GTLRCloudAsset_AnalyzeOrgPolicyGovernedContainersResponse
+@dynamic constraint, governedContainers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"governedContainers" : [GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"governedContainers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzerOrgPolicy
+//
+
+@implementation GTLRCloudAsset_AnalyzerOrgPolicy
+@dynamic appliedResource, attachedResource, inheritFromParent, reset, rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRCloudAsset_GoogleCloudAssetV1Rule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzerOrgPolicyConstraint
+//
+
+@implementation GTLRCloudAsset_AnalyzerOrgPolicyConstraint
+@dynamic customConstraint, googleDefinedConstraint;
 @end
 
 
@@ -554,11 +665,114 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedAsset
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedAsset
+@dynamic consolidatedPolicy, governedIamPolicy, governedResource, policyBundle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyBundle" : [GTLRCloudAsset_AnalyzerOrgPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy
+@dynamic attachedResource, folders, organization, policy, project;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource
+@dynamic folders, fullResourceName, organization, parent, project;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination
 @dynamic dataset, partitionKey, tablePrefix, writeDisposition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1BooleanConstraint
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1BooleanConstraint
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1Constraint
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1Constraint
+@dynamic booleanConstraint, constraintDefault, descriptionProperty, displayName,
+         listConstraint, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint
+@dynamic actionType, condition, descriptionProperty, displayName, methodTypes,
+         name, resourceTypes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodTypes" : [NSString class],
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -579,6 +793,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1GcsDestination
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer
+@dynamic consolidatedPolicy, fullResourceName, parent, policyBundle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyBundle" : [GTLRCloudAsset_AnalyzerOrgPolicy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -608,6 +840,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1ListConstraint
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1ListConstraint
+@dynamic supportsIn, supportsUnder;
 @end
 
 
@@ -704,11 +946,50 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleCloudAssetV1QueryAssetsOutputConfigBigQueryDestination
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1QueryAssetsOutputConfigBigQueryDestination
+@dynamic dataset, table, writeDisposition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleCloudAssetV1Resource
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1Resource
 @dynamic analysisState, fullResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1Rule
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1Rule
+@dynamic allowAll, condition, denyAll, enforce, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1StringValues
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1StringValues
+@dynamic allowedValues, deniedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedValues" : [NSString class],
+    @"deniedValues" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1367,6 +1648,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_OrgPolicyResult
+//
+
+@implementation GTLRCloudAsset_OrgPolicyResult
+@dynamic consolidatedPolicy, policyBundle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyBundle" : [GTLRCloudAsset_AnalyzerOrgPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_OsInfo
 //
 
@@ -1459,11 +1758,78 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_QueryAssetsOutputConfig
+//
+
+@implementation GTLRCloudAsset_QueryAssetsOutputConfig
+@dynamic bigqueryDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_QueryAssetsRequest
+//
+
+@implementation GTLRCloudAsset_QueryAssetsRequest
+@dynamic jobReference, outputConfig, pageSize, pageToken, readTime,
+         readTimeWindow, statement, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_QueryAssetsResponse
+//
+
+@implementation GTLRCloudAsset_QueryAssetsResponse
+@dynamic done, error, jobReference, outputConfig, queryResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_QueryContent
 //
 
 @implementation GTLRCloudAsset_QueryContent
 @dynamic iamPolicyAnalysisQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_QueryResult
+//
+
+@implementation GTLRCloudAsset_QueryResult
+@dynamic nextPageToken, rows, schema, totalRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRCloudAsset_QueryResult_Rows_Item class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_QueryResult_Rows_Item
+//
+
+@implementation GTLRCloudAsset_QueryResult_Rows_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -1763,6 +2129,42 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_TableFieldSchema
+//
+
+@implementation GTLRCloudAsset_TableFieldSchema
+@dynamic field, fields, mode, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudAsset_TableFieldSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_TableSchema
+//
+
+@implementation GTLRCloudAsset_TableSchema
+@dynamic fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudAsset_TableFieldSchema class]
+  };
+  return map;
 }
 
 @end

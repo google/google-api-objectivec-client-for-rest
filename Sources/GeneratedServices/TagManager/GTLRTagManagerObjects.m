@@ -134,6 +134,7 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoStatus = @"videoStatu
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoTitle = @"videoTitle";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoUrl = @"videoUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoVisible = @"videoVisible";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_VisitorRegion = @"visitorRegion";
 
 // GTLRTagManager_Condition.type
 NSString * const kGTLRTagManager_Condition_Type_ConditionTypeUnspecified = @"conditionTypeUnspecified";

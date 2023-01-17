@@ -97,6 +97,7 @@ NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_AuthenticationCo
 NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_ScanConfigIssue = @"SCAN_CONFIG_ISSUE";
+NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_StartingUrlsCrawlHttpErrors = @"STARTING_URLS_CRAWL_HTTP_ERRORS";
 NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TimedOutWhileScanning = @"TIMED_OUT_WHILE_SCANNING";
 NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyHttpErrors = @"TOO_MANY_HTTP_ERRORS";
 NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyRedirects = @"TOO_MANY_REDIRECTS";

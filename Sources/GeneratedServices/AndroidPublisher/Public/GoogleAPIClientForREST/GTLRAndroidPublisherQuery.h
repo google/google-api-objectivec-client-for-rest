@@ -608,7 +608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
  *        debugging symbols file type. (Value: "nativeCode")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    629145600. Accepted MIME type: application/octet-stream
+ *    838860800. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */

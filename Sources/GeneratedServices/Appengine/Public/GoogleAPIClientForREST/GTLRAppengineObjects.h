@@ -53,7 +53,10 @@
 @class GTLRAppengine_Operation;
 @class GTLRAppengine_Operation_Metadata;
 @class GTLRAppengine_Operation_Response;
+@class GTLRAppengine_ProjectsMetadata;
+@class GTLRAppengine_ProjectState;
 @class GTLRAppengine_ReadinessCheck;
+@class GTLRAppengine_Reasons;
 @class GTLRAppengine_RequestUtilization;
 @class GTLRAppengine_ResourceRecord;
 @class GTLRAppengine_Resources;
@@ -477,6 +480,270 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTraffic
  *  Value: "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_ProjectEvent.phase
+
+/** Value: "AFTER_RESOURCE_HANDLING" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling;
+/** Value: "BEFORE_RESOURCE_HANDLING" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling;
+/** Value: "UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_ProjectsMetadata.consumerProjectState
+
+/**
+ *  This state indicates that the project has been (or is being) completely
+ *  removed. This is often due to a data governance purge request and therefore
+ *  resources should be deleted when this state is reached.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Deleted;
+/**
+ *  CCFE considers the project to be in an OFF state. This could occur due to
+ *  various factors. The state could be triggered by Google-internal audits (ex.
+ *  abuse suspension, billing closed) or cleanups trigged by compliance systems
+ *  (ex. data governance hide). User-initiated events such as service management
+ *  deactivation trigger a project to an OFF state.CLHs might choose to do
+ *  nothing in this case or to turn off costly resources. CLHs need to consider
+ *  the customer experience if an ON/OFF/ON sequence of state transitions occurs
+ *  vs. the cost of deleting resources, keeping metadata about resources, or
+ *  even keeping resources live for a period of time.CCFE will not send any new
+ *  customer requests to the CLH when the project is in an OFF state. However,
+ *  CCFE will allow all previous customer requests relayed to CLH to complete.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Off;
+/**
+ *  CCFE considers the project to be serving or transitioning into serving.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_On;
+/**
+ *  A project should never be in an unknown state. Receipt of a project with
+ *  this state is an error.
+ *
+ *  Value: "UNKNOWN_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_UnknownState;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_ProjectState.state
+
+/**
+ *  This state indicates that the project has been (or is being) completely
+ *  removed. This is often due to a data governance purge request and therefore
+ *  resources should be deleted when this state is reached.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectState_State_Deleted;
+/**
+ *  CCFE considers the project to be in an OFF state. This could occur due to
+ *  various factors. The state could be triggered by Google-internal audits (ex.
+ *  abuse suspension, billing closed) or cleanups trigged by compliance systems
+ *  (ex. data governance hide). User-initiated events such as service management
+ *  deactivation trigger a project to an OFF state.CLHs might choose to do
+ *  nothing in this case or to turn off costly resources. CLHs need to consider
+ *  the customer experience if an ON/OFF/ON sequence of state transitions occurs
+ *  vs. the cost of deleting resources, keeping metadata about resources, or
+ *  even keeping resources live for a period of time.CCFE will not send any new
+ *  customer requests to the CLH when the project is in an OFF state. However,
+ *  CCFE will allow all previous customer requests relayed to CLH to complete.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectState_State_Off;
+/**
+ *  CCFE considers the project to be serving or transitioning into serving.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectState_State_On;
+/**
+ *  A project should never be in an unknown state. Receipt of a project with
+ *  this state is an error.
+ *
+ *  Value: "UNKNOWN_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectState_State_UnknownState;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Reasons.abuse
+
+/**
+ *  Due to various reasons CCFE might proactively restate a project state to a
+ *  CLH to ensure that the CLH and CCFE are both aware of the project state.
+ *  This reason can be tied to any of the states.
+ *
+ *  Value: "ABUSE_CONTROL_PLANE_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Abuse_AbuseControlPlaneSync;
+/**
+ *  An unknown reason indicates that the abuse system has not sent a signal for
+ *  this project.
+ *
+ *  Value: "ABUSE_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Abuse_AbuseUnknownReason;
+/**
+ *  Projects that were once considered abusive can later be deemed non-abusive.
+ *  When this happens we must reinstate the project. Reinstate is a reason to
+ *  put the project into an ON state.
+ *
+ *  Value: "REINSTATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Abuse_Reinstate;
+/**
+ *  If a project is deemed abusive we receive a suspend signal. Suspend is a
+ *  reason to put the project into an INTERNAL_OFF state.
+ *
+ *  Value: "SUSPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Abuse_Suspend;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Reasons.billing
+
+/**
+ *  Due to various reasons CCFE might proactively restate a project state to a
+ *  CLH to ensure that the CLH and CCFE are both aware of the project state.
+ *  This reason can be tied to any of the states.
+ *
+ *  Value: "BILLING_CONTROL_PLANE_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Billing_BillingControlPlaneSync;
+/**
+ *  An unknown reason indicates that the billing system has not sent a signal
+ *  for this project.
+ *
+ *  Value: "BILLING_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Billing_BillingUnknownReason;
+/**
+ *  When a billing account is closed, it is a stronger signal about non-payment.
+ *  Close is a reason to put the project into an INTERNAL_OFF state.
+ *
+ *  Value: "CLOSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Billing_Close;
+/**
+ *  Consumers can re-open billing accounts and update accounts to pull them out
+ *  of probation. When this happens, we get a signal that the account is open.
+ *  Open is a reason to put the project into an ON state.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Billing_Open;
+/**
+ *  Minor infractions cause a probation signal to be sent. Probation is a reason
+ *  to put the project into a ON state even though it is a negative signal. CCFE
+ *  will block mutations for this project while it is on billing probation, but
+ *  the CLH is expected to serve non-mutation requests.
+ *
+ *  Value: "PROBATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_Billing_Probation;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Reasons.dataGovernance
+
+/**
+ *  Due to various reasons CCFE might proactively restate a project state to a
+ *  CLH to ensure that the CLH and CCFE are both aware of the project state.
+ *  This reason can be tied to any of the states.
+ *
+ *  Value: "DATA_GOVERNANCE_CONTROL_PLANE_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_DataGovernanceControlPlaneSync;
+/**
+ *  An unknown reason indicates that data governance has not sent a signal for
+ *  this project.
+ *
+ *  Value: "DATA_GOVERNANCE_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_DataGovernanceUnknownReason;
+/**
+ *  When a project is deleted we retain some data for a period of time to allow
+ *  the consumer to change their mind. Data governance sends a signal to hide
+ *  the data when this occurs. Hide is a reason to put the project in an
+ *  INTERNAL_OFF state.
+ *
+ *  Value: "HIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Hide;
+/**
+ *  After a period of time data must be completely removed from our systems.
+ *  When data governance sends a purge signal we need to remove data. Purge is a
+ *  reason to put the project in a DELETED state. Purge is the only event that
+ *  triggers a delete mutation. All other events have update semantics.
+ *
+ *  Value: "PURGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Purge;
+/**
+ *  The decision to un-delete a project can be made. When this happens data
+ *  governance tells us to unhide any hidden data. Unhide is a reason to put the
+ *  project in an ON state.
+ *
+ *  Value: "UNHIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Unhide;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Reasons.serviceManagement
+
+/**
+ *  If the deactivation is cancelled, service managed needs to abort the
+ *  deactivation. Abort is a reason to put the project in an ON state.
+ *
+ *  Value: "ABORT_DEACTIVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_AbortDeactivation;
+/**
+ *  When a customer activates an API CCFE notifies the CLH and sets the project
+ *  to the ON state.
+ *
+ *  Value: "ACTIVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_Activation;
+/**
+ *  If the deactivation is followed through with, service management needs to
+ *  finish deactivation. Commit is a reason to put the project in a DELETED
+ *  state.
+ *
+ *  Value: "COMMIT_DEACTIVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_CommitDeactivation;
+/**
+ *  When a customer deactivates and API service management starts a two-step
+ *  process to perform the deactivation. The first step is to prepare. Prepare
+ *  is a reason to put the project in a EXTERNAL_OFF state.
+ *
+ *  Value: "PREPARE_DEACTIVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_PrepareDeactivation;
+/**
+ *  Due to various reasons CCFE might proactively restate a project state to a
+ *  CLH to ensure that the CLH and CCFE are both aware of the project state.
+ *  This reason can be tied to any of the states.
+ *
+ *  Value: "SERVICE_MANAGEMENT_CONTROL_PLANE_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_ServiceManagementControlPlaneSync;
+/**
+ *  An unknown reason indicates that we have not received a signal from service
+ *  management about this project. Since projects are created by request of
+ *  service management, this reason should never be set.
+ *
+ *  Value: "SERVICE_MANAGEMENT_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_ServiceManagementUnknownReason;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ResourceRecord.type
@@ -2744,6 +3011,177 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  The request sent to CLHs during project events.
+ */
+@interface GTLRAppengine_ProjectEvent : GTLRObject
+
+/**
+ *  The unique ID for this project event. CLHs can use this value to dedup
+ *  repeated calls. required
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  phase
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling Value
+ *        "AFTER_RESOURCE_HANDLING"
+ *    @arg @c kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling Value
+ *        "BEFORE_RESOURCE_HANDLING"
+ *    @arg @c kGTLRAppengine_ProjectEvent_Phase_Unknown Value "UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/** The projects metadata for this project. required */
+@property(nonatomic, strong, nullable) GTLRAppengine_ProjectsMetadata *projectMetadata;
+
+/** The state of the project that led to this event. */
+@property(nonatomic, strong, nullable) GTLRAppengine_ProjectState *state;
+
+@end
+
+
+/**
+ *  ProjectsMetadata is the metadata CCFE stores about the all the relevant
+ *  projects (tenant, consumer, producer).
+ */
+@interface GTLRAppengine_ProjectsMetadata : GTLRObject
+
+/** The consumer project id. */
+@property(nonatomic, copy, nullable) NSString *consumerProjectId;
+
+/**
+ *  The consumer project number.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerProjectNumber;
+
+/**
+ *  The CCFE state of the consumer project. It is the same state that is
+ *  communicated to the CLH during project events. Notice that this field is not
+ *  set in the DB, it is only set in this proto when communicated to CLH in the
+ *  side channel.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Deleted This
+ *        state indicates that the project has been (or is being) completely
+ *        removed. This is often due to a data governance purge request and
+ *        therefore resources should be deleted when this state is reached.
+ *        (Value: "DELETED")
+ *    @arg @c kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Off CCFE
+ *        considers the project to be in an OFF state. This could occur due to
+ *        various factors. The state could be triggered by Google-internal
+ *        audits (ex. abuse suspension, billing closed) or cleanups trigged by
+ *        compliance systems (ex. data governance hide). User-initiated events
+ *        such as service management deactivation trigger a project to an OFF
+ *        state.CLHs might choose to do nothing in this case or to turn off
+ *        costly resources. CLHs need to consider the customer experience if an
+ *        ON/OFF/ON sequence of state transitions occurs vs. the cost of
+ *        deleting resources, keeping metadata about resources, or even keeping
+ *        resources live for a period of time.CCFE will not send any new
+ *        customer requests to the CLH when the project is in an OFF state.
+ *        However, CCFE will allow all previous customer requests relayed to CLH
+ *        to complete. (Value: "OFF")
+ *    @arg @c kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_On CCFE
+ *        considers the project to be serving or transitioning into serving.
+ *        (Value: "ON")
+ *    @arg @c kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_UnknownState
+ *        A project should never be in an unknown state. Receipt of a project
+ *        with this state is an error. (Value: "UNKNOWN_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *consumerProjectState;
+
+/**
+ *  The service account authorized to operate on the consumer project. Note:
+ *  CCFE only propagates P4SA with default tag to CLH.
+ */
+@property(nonatomic, copy, nullable) NSString *p4ServiceAccount;
+
+/** The producer project id. */
+@property(nonatomic, copy, nullable) NSString *producerProjectId;
+
+/**
+ *  The producer project number.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *producerProjectNumber;
+
+/** The tenant project id. */
+@property(nonatomic, copy, nullable) NSString *tenantProjectId;
+
+/**
+ *  The tenant project number.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tenantProjectNumber;
+
+@end
+
+
+/**
+ *  ProjectState contains the externally-visible project state that is used to
+ *  communicate the state and reasoning for that state to the CLH. This data is
+ *  not persisted by CCFE, but is instead derived from CCFE's internal
+ *  representation of the project state.
+ */
+@interface GTLRAppengine_ProjectState : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons;
+
+/**
+ *  The previous and current reasons for a project state will be sent for a
+ *  project event. CLHs that need to know the signal that caused the project
+ *  event to trigger (edges) as opposed to just knowing the state can act upon
+ *  differences in the previous and current reasons.Reasons will be provided for
+ *  every system: service management, data governance, abuse, and billing.If
+ *  this is a CCFE-triggered event used for reconciliation then the current
+ *  reasons will be set to their *_CONTROL_PLANE_SYNC state. The previous
+ *  reasons will contain the last known set of non-unknown
+ *  non-control_plane_sync reasons for the state.Reasons fields are deprecated.
+ *  New tenants should only use the state field. If you must know the reason(s)
+ *  behind a specific state, please consult with CCFE team first
+ *  (cloud-ccfe-discuss\@google.com).
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons;
+
+/**
+ *  The current state of the project. This state is the culmination of all of
+ *  the opinions from external systems that CCFE knows about of the project.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_ProjectState_State_Deleted This state indicates
+ *        that the project has been (or is being) completely removed. This is
+ *        often due to a data governance purge request and therefore resources
+ *        should be deleted when this state is reached. (Value: "DELETED")
+ *    @arg @c kGTLRAppengine_ProjectState_State_Off CCFE considers the project
+ *        to be in an OFF state. This could occur due to various factors. The
+ *        state could be triggered by Google-internal audits (ex. abuse
+ *        suspension, billing closed) or cleanups trigged by compliance systems
+ *        (ex. data governance hide). User-initiated events such as service
+ *        management deactivation trigger a project to an OFF state.CLHs might
+ *        choose to do nothing in this case or to turn off costly resources.
+ *        CLHs need to consider the customer experience if an ON/OFF/ON sequence
+ *        of state transitions occurs vs. the cost of deleting resources,
+ *        keeping metadata about resources, or even keeping resources live for a
+ *        period of time.CCFE will not send any new customer requests to the CLH
+ *        when the project is in an OFF state. However, CCFE will allow all
+ *        previous customer requests relayed to CLH to complete. (Value: "OFF")
+ *    @arg @c kGTLRAppengine_ProjectState_State_On CCFE considers the project to
+ *        be serving or transitioning into serving. (Value: "ON")
+ *    @arg @c kGTLRAppengine_ProjectState_State_UnknownState A project should
+ *        never be in an unknown state. Receipt of a project with this state is
+ *        an error. (Value: "UNKNOWN_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Readiness checking configuration for VM instances. Unhealthy instances are
  *  removed from traffic rotation.
  */
@@ -2784,6 +3222,130 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /** Time before the check is considered failed. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Projects transition between and within states based on reasons sent from
+ *  various systems. CCFE will provide the CLH with reasons for the current
+ *  state per system.The current systems that CCFE supports are: Service
+ *  Management (Inception) Data Governance (Wipeout) Abuse (Ares) Billing
+ *  (Internal Cloud Billing API)
+ */
+@interface GTLRAppengine_Reasons : GTLRObject
+
+/**
+ *  abuse
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Reasons_Abuse_AbuseControlPlaneSync Due to various
+ *        reasons CCFE might proactively restate a project state to a CLH to
+ *        ensure that the CLH and CCFE are both aware of the project state. This
+ *        reason can be tied to any of the states. (Value:
+ *        "ABUSE_CONTROL_PLANE_SYNC")
+ *    @arg @c kGTLRAppengine_Reasons_Abuse_AbuseUnknownReason An unknown reason
+ *        indicates that the abuse system has not sent a signal for this
+ *        project. (Value: "ABUSE_UNKNOWN_REASON")
+ *    @arg @c kGTLRAppengine_Reasons_Abuse_Reinstate Projects that were once
+ *        considered abusive can later be deemed non-abusive. When this happens
+ *        we must reinstate the project. Reinstate is a reason to put the
+ *        project into an ON state. (Value: "REINSTATE")
+ *    @arg @c kGTLRAppengine_Reasons_Abuse_Suspend If a project is deemed
+ *        abusive we receive a suspend signal. Suspend is a reason to put the
+ *        project into an INTERNAL_OFF state. (Value: "SUSPEND")
+ */
+@property(nonatomic, copy, nullable) NSString *abuse;
+
+/**
+ *  billing
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Reasons_Billing_BillingControlPlaneSync Due to
+ *        various reasons CCFE might proactively restate a project state to a
+ *        CLH to ensure that the CLH and CCFE are both aware of the project
+ *        state. This reason can be tied to any of the states. (Value:
+ *        "BILLING_CONTROL_PLANE_SYNC")
+ *    @arg @c kGTLRAppengine_Reasons_Billing_BillingUnknownReason An unknown
+ *        reason indicates that the billing system has not sent a signal for
+ *        this project. (Value: "BILLING_UNKNOWN_REASON")
+ *    @arg @c kGTLRAppengine_Reasons_Billing_Close When a billing account is
+ *        closed, it is a stronger signal about non-payment. Close is a reason
+ *        to put the project into an INTERNAL_OFF state. (Value: "CLOSE")
+ *    @arg @c kGTLRAppengine_Reasons_Billing_Open Consumers can re-open billing
+ *        accounts and update accounts to pull them out of probation. When this
+ *        happens, we get a signal that the account is open. Open is a reason to
+ *        put the project into an ON state. (Value: "OPEN")
+ *    @arg @c kGTLRAppengine_Reasons_Billing_Probation Minor infractions cause a
+ *        probation signal to be sent. Probation is a reason to put the project
+ *        into a ON state even though it is a negative signal. CCFE will block
+ *        mutations for this project while it is on billing probation, but the
+ *        CLH is expected to serve non-mutation requests. (Value: "PROBATION")
+ */
+@property(nonatomic, copy, nullable) NSString *billing;
+
+/**
+ *  dataGovernance
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Reasons_DataGovernance_DataGovernanceControlPlaneSync
+ *        Due to various reasons CCFE might proactively restate a project state
+ *        to a CLH to ensure that the CLH and CCFE are both aware of the project
+ *        state. This reason can be tied to any of the states. (Value:
+ *        "DATA_GOVERNANCE_CONTROL_PLANE_SYNC")
+ *    @arg @c kGTLRAppengine_Reasons_DataGovernance_DataGovernanceUnknownReason
+ *        An unknown reason indicates that data governance has not sent a signal
+ *        for this project. (Value: "DATA_GOVERNANCE_UNKNOWN_REASON")
+ *    @arg @c kGTLRAppengine_Reasons_DataGovernance_Hide When a project is
+ *        deleted we retain some data for a period of time to allow the consumer
+ *        to change their mind. Data governance sends a signal to hide the data
+ *        when this occurs. Hide is a reason to put the project in an
+ *        INTERNAL_OFF state. (Value: "HIDE")
+ *    @arg @c kGTLRAppengine_Reasons_DataGovernance_Purge After a period of time
+ *        data must be completely removed from our systems. When data governance
+ *        sends a purge signal we need to remove data. Purge is a reason to put
+ *        the project in a DELETED state. Purge is the only event that triggers
+ *        a delete mutation. All other events have update semantics. (Value:
+ *        "PURGE")
+ *    @arg @c kGTLRAppengine_Reasons_DataGovernance_Unhide The decision to
+ *        un-delete a project can be made. When this happens data governance
+ *        tells us to unhide any hidden data. Unhide is a reason to put the
+ *        project in an ON state. (Value: "UNHIDE")
+ */
+@property(nonatomic, copy, nullable) NSString *dataGovernance;
+
+/**
+ *  serviceManagement
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Reasons_ServiceManagement_AbortDeactivation If the
+ *        deactivation is cancelled, service managed needs to abort the
+ *        deactivation. Abort is a reason to put the project in an ON state.
+ *        (Value: "ABORT_DEACTIVATION")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceManagement_Activation When a
+ *        customer activates an API CCFE notifies the CLH and sets the project
+ *        to the ON state. (Value: "ACTIVATION")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceManagement_CommitDeactivation If the
+ *        deactivation is followed through with, service management needs to
+ *        finish deactivation. Commit is a reason to put the project in a
+ *        DELETED state. (Value: "COMMIT_DEACTIVATION")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceManagement_PrepareDeactivation When
+ *        a customer deactivates and API service management starts a two-step
+ *        process to perform the deactivation. The first step is to prepare.
+ *        Prepare is a reason to put the project in a EXTERNAL_OFF state.
+ *        (Value: "PREPARE_DEACTIVATION")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceManagement_ServiceManagementControlPlaneSync
+ *        Due to various reasons CCFE might proactively restate a project state
+ *        to a CLH to ensure that the CLH and CCFE are both aware of the project
+ *        state. This reason can be tied to any of the states. (Value:
+ *        "SERVICE_MANAGEMENT_CONTROL_PLANE_SYNC")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceManagement_ServiceManagementUnknownReason
+ *        An unknown reason indicates that we have not received a signal from
+ *        service management about this project. Since projects are created by
+ *        request of service management, this reason should never be set.
+ *        (Value: "SERVICE_MANAGEMENT_UNKNOWN_REASON")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceManagement;
 
 @end
 

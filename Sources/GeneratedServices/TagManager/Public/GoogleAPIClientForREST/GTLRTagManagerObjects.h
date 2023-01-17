@@ -317,6 +317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoTit
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoUrl;
 /** Value: "videoVisible" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoVisible;
+/** Value: "visitorRegion" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VisitorRegion;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_Condition.type
@@ -924,6 +926,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VideoUrl Value "videoUrl"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VideoVisible Value
  *        "videoVisible"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VisitorRegion Value
+ *        "visitorRegion"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1099,7 +1103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *publicId;
 
 /**
- *  The URLs of the cloud environment for the GTM Container. \@mutable
+ *  List of server-side container URLs for the Container. If multiple URLs are
+ *  provided, all URL paths must match. \@mutable
  *  tagmanager.accounts.containers.create \@mutable
  *  tagmanager.accounts.containers.update
  */

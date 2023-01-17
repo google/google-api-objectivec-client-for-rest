@@ -3268,6 +3268,194 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
+ *  Creates a Snooze that will prevent alerts, which match the provided
+ *  criteria, from being opened. The Snooze applies for a specific time
+ *  interval.
+ *
+ *  Method: monitoring.projects.snoozes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ProjectsSnoozesCreate : GTLRMonitoringQuery
+
+/**
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) in which a Snooze
+ *  should be created. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Snooze.
+ *
+ *  Creates a Snooze that will prevent alerts, which match the provided
+ *  criteria, from being opened. The Snooze applies for a specific time
+ *  interval.
+ *
+ *  @param object The @c GTLRMonitoring_Snooze to include in the query.
+ *  @param parent Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) in which a
+ *    Snooze should be created. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *
+ *  @return GTLRMonitoringQuery_ProjectsSnoozesCreate
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_Snooze *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves a Snooze by name.
+ *
+ *  Method: monitoring.projects.snoozes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsSnoozesGet : GTLRMonitoringQuery
+
+/**
+ *  Required. The ID of the Snooze to retrieve. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Snooze.
+ *
+ *  Retrieves a Snooze by name.
+ *
+ *  @param name Required. The ID of the Snooze to retrieve. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID]
+ *
+ *  @return GTLRMonitoringQuery_ProjectsSnoozesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the Snoozes associated with a project. Can optionally pass in filter,
+ *  which specifies predicates to match Snoozes.
+ *
+ *  Method: monitoring.projects.snoozes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsSnoozesList : GTLRMonitoringQuery
+
+/**
+ *  Optional. Optional filter to restrict results to the given criteria. The
+ *  following fields are supported. interval.start_time interval.end_timeFor
+ *  example: ``` interval.start_time > "2022-03-11T00:00:00-08:00" AND
+ *  interval.end_time < "2022-03-12T00:00:00-08:00" ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return for a single query. The
+ *  server may further constrain the maximum number of results returned in a
+ *  single page. The value should be in the range 1, 1000. If the value given is
+ *  outside this range, the server will decide the number of results to be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token from a previous call to ListSnoozesRequest to
+ *  get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) whose Snoozes
+ *  should be listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListSnoozesResponse.
+ *
+ *  Lists the Snoozes associated with a project. Can optionally pass in filter,
+ *  which specifies predicates to match Snoozes.
+ *
+ *  @param parent Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) whose Snoozes
+ *    should be listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *
+ *  @return GTLRMonitoringQuery_ProjectsSnoozesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Snooze, identified by its name, with the parameters in the given
+ *  Snooze object.
+ *
+ *  Method: monitoring.projects.snoozes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ProjectsSnoozesPatch : GTLRMonitoringQuery
+
+/**
+ *  Required. The name of the Snooze. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze
+ *  will be generated by the system.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fields to update.For each field listed in update_mask: If the
+ *  Snooze object supplied in the UpdateSnoozeRequest has a value for that
+ *  field, the value of the field in the existing Snooze will be set to the
+ *  value of the field in the supplied Snooze. If the field does not have a
+ *  value in the supplied Snooze, the field in the existing Snooze is set to its
+ *  default value.Fields not listed retain their existing value.The following
+ *  are the field names that are accepted in update_mask: display_name
+ *  interval.start_time interval.end_timeThat said, the start time and end time
+ *  of the Snooze determines which fields can legally be updated. Before
+ *  attempting an update, users should consult the documentation for
+ *  UpdateSnoozeRequest, which talks about which fields can be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Snooze.
+ *
+ *  Updates a Snooze, identified by its name, with the parameters in the given
+ *  Snooze object.
+ *
+ *  @param object The @c GTLRMonitoring_Snooze to include in the query.
+ *  @param name Required. The name of the Snooze. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze
+ *    will be generated by the system.
+ *
+ *  @return GTLRMonitoringQuery_ProjectsSnoozesPatch
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_Snooze *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates or adds data to one or more time series. The response is empty if
  *  all time series in the request were written. If any time series could not be
  *  written, a corresponding failure message is included in the error response.

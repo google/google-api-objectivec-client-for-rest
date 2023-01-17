@@ -1857,10 +1857,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsDelete : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  Required. The resource name of the service account. Use one of the following
+ *  formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1878,11 +1885,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  then wait at least 24 hours and watch for unintended consequences. If there
  *  are no unintended consequences, you can delete the service account.
  *
- *  @param name Required. The resource name of the service account in the
- *    following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using
- *    `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *    account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *    of the service account.
+ *  @param name Required. The resource name of the service account. Use one of
+ *    the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsDelete
  */
@@ -1911,10 +1925,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsDisable : GTLRIamQuery
 
 /**
- *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  The resource name of the service account. Use one of the following formats:
+ *  * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1935,11 +1956,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_DisableServiceAccountRequest to include in the
  *    query.
- *  @param name The resource name of the service account in the following
- *    format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a
- *    wildcard for the `PROJECT_ID` will infer the project from the account. The
- *    `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name The resource name of the service account. Use one of the
+ *    following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsDisable
  */
@@ -1963,10 +1991,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsEnable : GTLRIamQuery
 
 /**
- *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  The resource name of the service account. Use one of the following formats:
+ *  * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1981,11 +2016,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_EnableServiceAccountRequest to include in the
  *    query.
- *  @param name The resource name of the service account in the following
- *    format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a
- *    wildcard for the `PROJECT_ID` will infer the project from the account. The
- *    `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name The resource name of the service account. Use one of the
+ *    following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsEnable
  */
@@ -2005,10 +2047,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsGet : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  Required. The resource name of the service account. Use one of the following
+ *  formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2017,11 +2066,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Gets a ServiceAccount.
  *
- *  @param name Required. The resource name of the service account in the
- *    following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using
- *    `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *    account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *    of the service account.
+ *  @param name Required. The resource name of the service account. Use one of
+ *    the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsGet
  */
@@ -2101,10 +2157,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysCreate : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  Required. The resource name of the service account. Use one of the following
+ *  formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2115,11 +2178,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_CreateServiceAccountKeyRequest to include in
  *    the query.
- *  @param name Required. The resource name of the service account in the
- *    following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using
- *    `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *    account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *    of the service account.
+ *  @param name Required. The resource name of the service account. Use one of
+ *    the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysCreate
  */
@@ -2141,11 +2211,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysDelete : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account key in the following
- *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
- *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *  of the service account.
+ *  Required. The resource name of the service account key. Use one of the
+ *  following formats: *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *  alternative, you can use the `-` wildcard character instead of the project
+ *  ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible, avoid
+ *  using the `-` wildcard character, because it can cause response messages to
+ *  contain misleading error codes. For example, if you try to access the
+ *  service account key
+ *  `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2156,12 +2234,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  short-lived credentials that have been issued based on the service account
  *  key.
  *
- *  @param name Required. The resource name of the service account key in the
- *    following format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
- *    a wildcard for the `PROJECT_ID` will infer the project from the account.
- *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name Required. The resource name of the service account key. Use one
+ *    of the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *    alternative, you can use the `-` wildcard character instead of the project
+ *    ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible,
+ *    avoid using the `-` wildcard character, because it can cause response
+ *    messages to contain misleading error codes. For example, if you try to
+ *    access the service account key
+ *    `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does
+ *    not exist, the response contains an HTTP `403 Forbidden` error instead of
+ *    a `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysDelete
  */
@@ -2181,11 +2266,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysDisable : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account key in the following
- *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
- *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *  of the service account.
+ *  Required. The resource name of the service account key. Use one of the
+ *  following formats: *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *  alternative, you can use the `-` wildcard character instead of the project
+ *  ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible, avoid
+ *  using the `-` wildcard character, because it can cause response messages to
+ *  contain misleading error codes. For example, if you try to access the
+ *  service account key
+ *  `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2197,12 +2290,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_DisableServiceAccountKeyRequest to include in
  *    the query.
- *  @param name Required. The resource name of the service account key in the
- *    following format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
- *    a wildcard for the `PROJECT_ID` will infer the project from the account.
- *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name Required. The resource name of the service account key. Use one
+ *    of the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *    alternative, you can use the `-` wildcard character instead of the project
+ *    ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible,
+ *    avoid using the `-` wildcard character, because it can cause response
+ *    messages to contain misleading error codes. For example, if you try to
+ *    access the service account key
+ *    `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does
+ *    not exist, the response contains an HTTP `403 Forbidden` error instead of
+ *    a `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysDisable
  */
@@ -2222,11 +2322,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysEnable : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account key in the following
- *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
- *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *  of the service account.
+ *  Required. The resource name of the service account key. Use one of the
+ *  following formats: *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *  alternative, you can use the `-` wildcard character instead of the project
+ *  ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible, avoid
+ *  using the `-` wildcard character, because it can cause response messages to
+ *  contain misleading error codes. For example, if you try to access the
+ *  service account key
+ *  `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2237,12 +2345,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_EnableServiceAccountKeyRequest to include in
  *    the query.
- *  @param name Required. The resource name of the service account key in the
- *    following format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
- *    a wildcard for the `PROJECT_ID` will infer the project from the account.
- *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name Required. The resource name of the service account key. Use one
+ *    of the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *    alternative, you can use the `-` wildcard character instead of the project
+ *    ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible,
+ *    avoid using the `-` wildcard character, because it can cause response
+ *    messages to contain misleading error codes. For example, if you try to
+ *    access the service account key
+ *    `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does
+ *    not exist, the response contains an HTTP `403 Forbidden` error instead of
+ *    a `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysEnable
  */
@@ -2262,11 +2377,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysGet : GTLRIamQuery
 
 /**
- *  Required. The resource name of the service account key in the following
- *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
- *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *  of the service account.
+ *  Required. The resource name of the service account key. Use one of the
+ *  following formats: *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *  alternative, you can use the `-` wildcard character instead of the project
+ *  ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible, avoid
+ *  using the `-` wildcard character, because it can cause response messages to
+ *  contain misleading error codes. For example, if you try to access the
+ *  service account key
+ *  `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2289,12 +2412,19 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Gets a ServiceAccountKey.
  *
- *  @param name Required. The resource name of the service account key in the
- *    following format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
- *    a wildcard for the `PROJECT_ID` will infer the project from the account.
- *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name Required. The resource name of the service account key. Use one
+ *    of the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` As an
+ *    alternative, you can use the `-` wildcard character instead of the project
+ *    ID: * `projects/-/serviceAccounts/{EMAIL_ADDRESS}/keys/{KEY_ID}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}/keys/{KEY_ID}` When possible,
+ *    avoid using the `-` wildcard character, because it can cause response
+ *    messages to contain misleading error codes. For example, if you try to
+ *    access the service account key
+ *    `projects/-/serviceAccounts/fake\@example.com/keys/fake-key`, which does
+ *    not exist, the response contains an HTTP `403 Forbidden` error instead of
+ *    a `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysGet
  */
@@ -2329,10 +2459,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *keyTypes;
 
 /**
- *  Required. The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID`, will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  Required. The resource name of the service account. Use one of the following
+ *  formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2341,11 +2478,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Lists every ServiceAccountKey for a service account.
  *
- *  @param name Required. The resource name of the service account in the
- *    following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using
- *    `-` as a wildcard for the `PROJECT_ID`, will infer the project from the
- *    account. The `ACCOUNT` value can be the `email` address or the `unique_id`
- *    of the service account.
+ *  @param name Required. The resource name of the service account. Use one of
+ *    the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysList
  */
@@ -2366,10 +2510,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysUpload : GTLRIamQuery
 
 /**
- *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  The resource name of the service account key. Use one of the following
+ *  formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2382,11 +2533,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_UploadServiceAccountKeyRequest to include in
  *    the query.
- *  @param name The resource name of the service account in the following
- *    format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a
- *    wildcard for the `PROJECT_ID` will infer the project from the account. The
- *    `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *  @param name The resource name of the service account key. Use one of the
+ *    following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysUpload
  */
@@ -2461,10 +2619,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
  *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
  *  wildcard character, because it can cause response messages to contain
- *  misleading error codes. For example, if you try to get the service account
- *  `projects/-/serviceAccounts/fake\@example.com`, which does not exist, the
- *  response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
- *  error.
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2483,10 +2641,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
  *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
  *    `-` wildcard character, because it can cause response messages to contain
- *    misleading error codes. For example, if you try to get the service account
- *    `projects/-/serviceAccounts/fake\@example.com`, which does not exist, the
- *    response contains an HTTP `403 Forbidden` error instead of a `404 Not
- *    Found` error.
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsPatch
  */
@@ -2571,10 +2729,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Required. Deprecated. [Migrate to Service Account Credentials
  *  API](https://cloud.google.com/iam/help/credentials/migrate-api). The
- *  resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  resource name of the service account. Use one of the following formats: *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2592,11 +2757,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  @param object The @c GTLRIam_SignBlobRequest to include in the query.
  *  @param name Required. Deprecated. [Migrate to Service Account Credentials
  *    API](https://cloud.google.com/iam/help/credentials/migrate-api). The
- *    resource name of the service account in the following format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *    for the `PROJECT_ID` will infer the project from the account. The
- *    `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *    resource name of the service account. Use one of the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsSignBlob
  */
@@ -2624,10 +2795,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Required. Deprecated. [Migrate to Service Account Credentials
  *  API](https://cloud.google.com/iam/help/credentials/migrate-api). The
- *  resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *  for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT`
- *  value can be the `email` address or the `unique_id` of the service account.
+ *  resource name of the service account. Use one of the following formats: *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2645,11 +2823,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  @param object The @c GTLRIam_SignJwtRequest to include in the query.
  *  @param name Required. Deprecated. [Migrate to Service Account Credentials
  *    API](https://cloud.google.com/iam/help/credentials/migrate-api). The
- *    resource name of the service account in the following format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
- *    for the `PROJECT_ID` will infer the project from the account. The
- *    `ACCOUNT` value can be the `email` address or the `unique_id` of the
- *    service account.
+ *    resource name of the service account. Use one of the following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsSignJwt
  */
@@ -2709,9 +2893,17 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsUndelete : GTLRIamQuery
 
 /**
- *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`. Using `-` as a
- *  wildcard for the `PROJECT_ID` will infer the project from the account.
+ *  The resource name of the service account. Use one of the following formats:
+ *  * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *  can use the `-` wildcard character instead of the project ID: *
+ *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
+ *  wildcard character, because it can cause response messages to contain
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2726,10 +2918,18 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  @param object The @c GTLRIam_UndeleteServiceAccountRequest to include in the
  *    query.
- *  @param name The resource name of the service account in the following
- *    format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`. Using
- *    `-` as a wildcard for the `PROJECT_ID` will infer the project from the
- *    account.
+ *  @param name The resource name of the service account. Use one of the
+ *    following formats: *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you
+ *    can use the `-` wildcard character instead of the project ID: *
+ *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
+ *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
+ *    `-` wildcard character, because it can cause response messages to contain
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsUndelete
  */
@@ -2758,10 +2958,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
  *  `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-`
  *  wildcard character, because it can cause response messages to contain
- *  misleading error codes. For example, if you try to get the service account
- *  `projects/-/serviceAccounts/fake\@example.com`, which does not exist, the
- *  response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
- *  error.
+ *  misleading error codes. For example, if you try to access the service
+ *  account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *  exist, the response contains an HTTP `403 Forbidden` error instead of a `404
+ *  Not Found` error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2781,10 +2981,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    `projects/-/serviceAccounts/{EMAIL_ADDRESS}` *
  *    `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the
  *    `-` wildcard character, because it can cause response messages to contain
- *    misleading error codes. For example, if you try to get the service account
- *    `projects/-/serviceAccounts/fake\@example.com`, which does not exist, the
- *    response contains an HTTP `403 Forbidden` error instead of a `404 Not
- *    Found` error.
+ *    misleading error codes. For example, if you try to access the service
+ *    account `projects/-/serviceAccounts/fake\@example.com`, which does not
+ *    exist, the response contains an HTTP `403 Forbidden` error instead of a
+ *    `404 Not Found` error.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsUpdate
  */

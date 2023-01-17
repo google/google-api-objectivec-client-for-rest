@@ -408,7 +408,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_EntityResult
-@dynamic cursor, entity, updateTime, version;
+@dynamic createTime, cursor, entity, updateTime, version;
 @end
 
 
@@ -951,7 +951,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_MutationResult
-@dynamic conflictDetected, key, updateTime, version;
+@dynamic conflictDetected, createTime, key, updateTime, version;
 @end
 
 

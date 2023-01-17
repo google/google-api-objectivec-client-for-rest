@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Admin API (analyticsadmin/v1alpha)
+//   Google Analytics Admin API (analyticsadmin/v1beta)
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -20,7 +20,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_AccountsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -39,13 +39,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_AccountsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAccount class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaAccount class];
   query.loggingName = @"analyticsadmin.accounts.get";
   return query;
 }
@@ -58,13 +58,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_AccountsGetDataSharingSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDataSharingSettings class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaDataSharingSettings class];
   query.loggingName = @"analyticsadmin.accounts.getDataSharingSettings";
   return query;
 }
@@ -76,12 +76,12 @@
 @dynamic pageSize, pageToken, showDeleted;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1alpha/accounts";
+  NSString *pathURITemplate = @"v1beta/accounts";
   GTLRGoogleAnalyticsAdminQuery_AccountsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListAccountsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse class];
   query.loggingName = @"analyticsadmin.accounts.list";
   return query;
 }
@@ -92,7 +92,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAccount *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaAccount *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -101,14 +101,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_AccountsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAccount class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaAccount class];
   query.loggingName = @"analyticsadmin.accounts.patch";
   return query;
 }
@@ -117,20 +117,20 @@
 
 @implementation GTLRGoogleAnalyticsAdminQuery_AccountsProvisionAccountTicket
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest *)object {
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1alpha/accounts:provisionAccountTicket";
+  NSString *pathURITemplate = @"v1beta/accounts:provisionAccountTicket";
   GTLRGoogleAnalyticsAdminQuery_AccountsProvisionAccountTicket *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketResponse class];
   query.loggingName = @"analyticsadmin.accounts.provisionAccountTicket";
   return query;
 }
@@ -141,7 +141,7 @@
 
 @dynamic account;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest *)object
                         account:(NSString *)account {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -150,14 +150,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"account" ];
-  NSString *pathURITemplate = @"v1alpha/{+account}:searchChangeHistoryEvents";
+  NSString *pathURITemplate = @"v1beta/{+account}:searchChangeHistoryEvents";
   GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.account = account;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsResponse class];
   query.loggingName = @"analyticsadmin.accounts.searchChangeHistoryEvents";
   return query;
 }
@@ -169,258 +169,13 @@
 @dynamic pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1alpha/accountSummaries";
+  NSString *pathURITemplate = @"v1beta/accountSummaries";
   GTLRGoogleAnalyticsAdminQuery_AccountSummariesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListAccountSummariesResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListAccountSummariesResponse class];
   query.loggingName = @"analyticsadmin.accountSummaries.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksAudit
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:audit";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksAudit *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.audit";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchCreate";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.batchCreate";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchDelete
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchDelete";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.batchDelete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchGet
-
-@dynamic names, parent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchGet";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaBatchGetUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.batchGet";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchUpdate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchUpdate";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.batchUpdate";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksCreate
-
-@dynamic notifyNewUser, parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class];
-  query.loggingName = @"analyticsadmin.accounts.userLinks.patch";
   return query;
 }
 
@@ -430,7 +185,7 @@
 
 @dynamic property;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionRequest *)object
                        property:(NSString *)property {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -439,134 +194,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"property" ];
-  NSString *pathURITemplate = @"v1alpha/{+property}:acknowledgeUserDataCollection";
+  NSString *pathURITemplate = @"v1beta/{+property}:acknowledgeUserDataCollection";
   GTLRGoogleAnalyticsAdminQuery_PropertiesAcknowledgeUserDataCollection *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.property = property;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionResponse class];
   query.loggingName = @"analyticsadmin.properties.acknowledgeUserDataCollection";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesArchive
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:archive";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesArchive *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.audiences.archive";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAudience *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/audiences";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAudience class];
-  query.loggingName = @"analyticsadmin.properties.audiences.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAudience class];
-  query.loggingName = @"analyticsadmin.properties.audiences.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/audiences";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListAudiencesResponse class];
-  query.loggingName = @"analyticsadmin.properties.audiences.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAudience *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAudience class];
-  query.loggingName = @"analyticsadmin.properties.audiences.patch";
   return query;
 }
 
@@ -576,7 +212,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaConversionEvent *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -585,14 +221,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/conversionEvents";
+  NSString *pathURITemplate = @"v1beta/{+parent}/conversionEvents";
   GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaConversionEvent class];
   query.loggingName = @"analyticsadmin.properties.conversionEvents.create";
   return query;
 }
@@ -605,7 +241,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -624,13 +260,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaConversionEvent class];
   query.loggingName = @"analyticsadmin.properties.conversionEvents.get";
   return query;
 }
@@ -643,13 +279,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/conversionEvents";
+  NSString *pathURITemplate = @"v1beta/{+parent}/conversionEvents";
   GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListConversionEventsResponse class];
   query.loggingName = @"analyticsadmin.properties.conversionEvents.list";
   return query;
 }
@@ -658,20 +294,20 @@
 
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesCreate
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object {
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProperty *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1alpha/properties";
+  NSString *pathURITemplate = @"v1beta/properties";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProperty class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaProperty class];
   query.loggingName = @"analyticsadmin.properties.create";
   return query;
 }
@@ -682,7 +318,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomDimensionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -691,7 +327,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:archive";
+  NSString *pathURITemplate = @"v1beta/{+name}:archive";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsArchive *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -709,7 +345,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomDimension *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -718,14 +354,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/customDimensions";
+  NSString *pathURITemplate = @"v1beta/{+parent}/customDimensions";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaCustomDimension class];
   query.loggingName = @"analyticsadmin.properties.customDimensions.create";
   return query;
 }
@@ -738,13 +374,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaCustomDimension class];
   query.loggingName = @"analyticsadmin.properties.customDimensions.get";
   return query;
 }
@@ -757,13 +393,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/customDimensions";
+  NSString *pathURITemplate = @"v1beta/{+parent}/customDimensions";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListCustomDimensionsResponse class];
   query.loggingName = @"analyticsadmin.properties.customDimensions.list";
   return query;
 }
@@ -774,7 +410,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomDimension *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -783,14 +419,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaCustomDimension class];
   query.loggingName = @"analyticsadmin.properties.customDimensions.patch";
   return query;
 }
@@ -801,7 +437,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomMetricRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -810,7 +446,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:archive";
+  NSString *pathURITemplate = @"v1beta/{+name}:archive";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsArchive *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -828,7 +464,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomMetric *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -837,14 +473,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/customMetrics";
+  NSString *pathURITemplate = @"v1beta/{+parent}/customMetrics";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaCustomMetric class];
   query.loggingName = @"analyticsadmin.properties.customMetrics.create";
   return query;
 }
@@ -857,13 +493,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaCustomMetric class];
   query.loggingName = @"analyticsadmin.properties.customMetrics.get";
   return query;
 }
@@ -876,13 +512,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/customMetrics";
+  NSString *pathURITemplate = @"v1beta/{+parent}/customMetrics";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListCustomMetricsResponse class];
   query.loggingName = @"analyticsadmin.properties.customMetrics.list";
   return query;
 }
@@ -893,7 +529,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomMetric *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -902,14 +538,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaCustomMetric class];
   query.loggingName = @"analyticsadmin.properties.customMetrics.patch";
   return query;
 }
@@ -920,7 +556,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataStream *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaDataStream *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -929,14 +565,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/dataStreams";
+  NSString *pathURITemplate = @"v1beta/{+parent}/dataStreams";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDataStream class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaDataStream class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.create";
   return query;
 }
@@ -949,7 +585,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -968,33 +604,14 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDataStream class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaDataStream class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGetGlobalSiteTag
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGetGlobalSiteTag *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag class];
-  query.loggingName = @"analyticsadmin.properties.dataStreams.getGlobalSiteTag";
   return query;
 }
 
@@ -1006,13 +623,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/dataStreams";
+  NSString *pathURITemplate = @"v1beta/{+parent}/dataStreams";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListDataStreamsResponse class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.list";
   return query;
 }
@@ -1023,7 +640,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1032,14 +649,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  NSString *pathURITemplate = @"v1beta/{+parent}/measurementProtocolSecrets";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create";
   return query;
 }
@@ -1052,7 +669,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1071,13 +688,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get";
   return query;
 }
@@ -1090,13 +707,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  NSString *pathURITemplate = @"v1beta/{+parent}/measurementProtocolSecrets";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListMeasurementProtocolSecretsResponse class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list";
   return query;
 }
@@ -1107,7 +724,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1116,14 +733,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch";
   return query;
 }
@@ -1134,7 +751,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataStream *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaDataStream *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1143,14 +760,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDataStream class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaDataStream class];
   query.loggingName = @"analyticsadmin.properties.dataStreams.patch";
   return query;
 }
@@ -1163,263 +780,14 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProperty class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaProperty class];
   query.loggingName = @"analyticsadmin.properties.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsApprove
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:approve";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsApprove *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:cancel";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/displayVideo360AdvertiserLinkProposals";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/displayVideo360AdvertiserLinkProposals";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/displayVideo360AdvertiserLinks";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinks.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinks.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinks.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/displayVideo360AdvertiserLinks";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinks.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink class];
-  query.loggingName = @"analyticsadmin.properties.displayVideo360AdvertiserLinks.patch";
   return query;
 }
 
@@ -1429,7 +797,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1438,14 +806,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/firebaseLinks";
+  NSString *pathURITemplate = @"v1beta/{+parent}/firebaseLinks";
   GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink class];
   query.loggingName = @"analyticsadmin.properties.firebaseLinks.create";
   return query;
 }
@@ -1458,7 +826,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1477,13 +845,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/firebaseLinks";
+  NSString *pathURITemplate = @"v1beta/{+parent}/firebaseLinks";
   GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListFirebaseLinksResponse class];
   query.loggingName = @"analyticsadmin.properties.firebaseLinks.list";
   return query;
 }
@@ -1496,33 +864,14 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProperty class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaProperty class];
   query.loggingName = @"analyticsadmin.properties.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesGetAttributionSettings
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesGetAttributionSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings class];
-  query.loggingName = @"analyticsadmin.properties.getAttributionSettings";
   return query;
 }
 
@@ -1534,33 +883,14 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesGetDataRetentionSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings class];
   query.loggingName = @"analyticsadmin.properties.getDataRetentionSettings";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings class];
-  query.loggingName = @"analyticsadmin.properties.getGoogleSignalsSettings";
   return query;
 }
 
@@ -1570,7 +900,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1579,14 +909,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/googleAdsLinks";
+  NSString *pathURITemplate = @"v1beta/{+parent}/googleAdsLinks";
   GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink class];
   query.loggingName = @"analyticsadmin.properties.googleAdsLinks.create";
   return query;
 }
@@ -1599,7 +929,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1618,13 +948,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/googleAdsLinks";
+  NSString *pathURITemplate = @"v1beta/{+parent}/googleAdsLinks";
   GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListGoogleAdsLinksResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListGoogleAdsLinksResponse class];
   query.loggingName = @"analyticsadmin.properties.googleAdsLinks.list";
   return query;
 }
@@ -1635,7 +965,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1644,14 +974,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink class];
   query.loggingName = @"analyticsadmin.properties.googleAdsLinks.patch";
   return query;
 }
@@ -1663,12 +993,12 @@
 @dynamic filter, pageSize, pageToken, showDeleted;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1alpha/properties";
+  NSString *pathURITemplate = @"v1beta/properties";
   GTLRGoogleAnalyticsAdminQuery_PropertiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListPropertiesResponse class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaListPropertiesResponse class];
   query.loggingName = @"analyticsadmin.properties.list";
   return query;
 }
@@ -1679,7 +1009,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProperty *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1688,180 +1018,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProperty class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaProperty class];
   query.loggingName = @"analyticsadmin.properties.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
-
-@dynamic entity;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest *)object
-                         entity:(NSString *)entity {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"entity" ];
-  NSString *pathURITemplate = @"v1alpha/{+entity}:runAccessReport";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.entity = entity;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportResponse class];
-  query.loggingName = @"analyticsadmin.properties.runAccessReport";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/searchAds360Links";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link class];
-  query.loggingName = @"analyticsadmin.properties.searchAds360Links.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.searchAds360Links.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link class];
-  query.loggingName = @"analyticsadmin.properties.searchAds360Links.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/searchAds360Links";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.searchAds360Links.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link class];
-  query.loggingName = @"analyticsadmin.properties.searchAds360Links.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateAttributionSettings
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateAttributionSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings class];
-  query.loggingName = @"analyticsadmin.properties.updateAttributionSettings";
   return query;
 }
 
@@ -1871,7 +1036,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1880,287 +1045,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateDataRetentionSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings class];
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings class];
   query.loggingName = @"analyticsadmin.properties.updateDataRetentionSettings";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings class];
-  query.loggingName = @"analyticsadmin.properties.updateGoogleSignalsSettings";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksAudit
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:audit";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksAudit *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.audit";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchCreate";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.batchCreate";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchDelete
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchDelete";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.batchDelete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchGet
-
-@dynamic names, parent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchGet";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaBatchGetUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.batchGet";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchUpdate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks:batchUpdate";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.batchUpdate";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksCreate
-
-@dynamic notifyNewUser, parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/userLinks";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class];
-  query.loggingName = @"analyticsadmin.properties.userLinks.patch";
   return query;
 }
 

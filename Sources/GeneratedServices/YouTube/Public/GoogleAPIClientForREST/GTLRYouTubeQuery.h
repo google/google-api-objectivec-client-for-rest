@@ -2207,6 +2207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.liveBroadcasts.insertCuepoint
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint : GTLRYouTubeQuery

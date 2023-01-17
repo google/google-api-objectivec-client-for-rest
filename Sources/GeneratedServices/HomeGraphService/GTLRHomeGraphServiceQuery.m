@@ -4,7 +4,7 @@
 // API:
 //   HomeGraph API (homegraph/v1)
 // Documentation:
-//   https://developers.google.com/actions/smarthome/create-app#request-sync
+//   https://developers.home.google.com/cloud-to-cloud/get-started
 
 #import <GoogleAPIClientForREST/GTLRHomeGraphServiceQuery.h>
 

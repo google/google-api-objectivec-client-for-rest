@@ -200,6 +200,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Analyzes multiple conversations in a single request.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.bulkAnalyze
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsBulkAnalyze : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource to create analyses in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Analyzes multiple conversations in a single request.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource to create analyses in.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsBulkAnalyze
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets conversation statistics.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.calculateStats
@@ -344,6 +374,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports conversations and processes them according to the user's
+ *  configuration.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.ingest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsIngest : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource for new conversations. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Imports conversations and processes them according to the user's
+ *  configuration.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource for new conversations.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsIngest
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -651,6 +713,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @param name Required. The name of the issue model to get.
  *
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes an issue.
+ *
+ *  Method: contactcenterinsights.projects.locations.issueModels.issues.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the issue to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes an issue.
+ *
+ *  @param name Required. The name of the issue to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsIssuesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v1beta)
+//   Dataproc Metastore API (metastore/v1)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.
@@ -14,6 +14,33 @@
 @implementation GTLRDataprocMetastoreQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDataprocMetastoreQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Empty class];
+  query.loggingName = @"metastore.operations.cancel";
+  return query;
+}
 
 @end
 
@@ -30,7 +57,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/federations";
+  NSString *pathURITemplate = @"v1/{+parent}/federations";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -50,7 +77,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -69,7 +96,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -92,7 +119,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -111,7 +138,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/federations";
+  NSString *pathURITemplate = @"v1/{+parent}/federations";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -137,7 +164,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -164,7 +191,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -191,7 +218,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -211,7 +238,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -230,7 +257,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRDataprocMetastoreQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -249,7 +276,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -268,7 +295,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -287,7 +314,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -313,7 +340,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/backups";
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -333,7 +360,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -352,7 +379,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -375,7 +402,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -394,7 +421,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/backups";
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -420,7 +447,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -429,33 +456,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
   query.loggingName = @"metastore.projects.locations.services.backups.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_TestIamPermissionsResponse class];
-  query.loggingName = @"metastore.projects.locations.services.backups.testIamPermissions";
   return query;
 }
 
@@ -474,7 +474,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/services";
+  NSString *pathURITemplate = @"v1/{+parent}/services";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -488,167 +488,13 @@
 
 @end
 
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
-  query.loggingName = @"metastore.projects.locations.services.databases.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
-  query.loggingName = @"metastore.projects.locations.services.databases.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
-  query.loggingName = @"metastore.projects.locations.services.databases.tables.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
-  query.loggingName = @"metastore.projects.locations.services.databases.tables.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_TestIamPermissionsResponse class];
-  query.loggingName = @"metastore.projects.locations.services.databases.tables.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_TestIamPermissionsResponse class];
-  query.loggingName = @"metastore.projects.locations.services.databases.testIamPermissions";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDelete
 
 @dynamic name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -674,7 +520,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"service" ];
-  NSString *pathURITemplate = @"v1beta/{+service}:exportMetadata";
+  NSString *pathURITemplate = @"v1/{+service}:exportMetadata";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesExportMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -694,7 +540,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -717,7 +563,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -736,7 +582,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/services";
+  NSString *pathURITemplate = @"v1/{+parent}/services";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -762,7 +608,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/metadataImports";
+  NSString *pathURITemplate = @"v1/{+parent}/metadataImports";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -782,7 +628,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -801,7 +647,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/metadataImports";
+  NSString *pathURITemplate = @"v1/{+parent}/metadataImports";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -827,7 +673,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -854,7 +700,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -863,33 +709,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
   query.loggingName = @"metastore.projects.locations.services.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRemoveIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_RemoveIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:removeIamPolicy";
-  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRemoveIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataprocMetastore_RemoveIamPolicyResponse class];
-  query.loggingName = @"metastore.projects.locations.services.removeIamPolicy";
   return query;
 }
 
@@ -908,7 +727,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"service" ];
-  NSString *pathURITemplate = @"v1beta/{+service}:restore";
+  NSString *pathURITemplate = @"v1/{+service}:restore";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRestore *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -935,7 +754,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -962,7 +781,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataprocMetastoreQuery_ProjectsLocationsServicesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

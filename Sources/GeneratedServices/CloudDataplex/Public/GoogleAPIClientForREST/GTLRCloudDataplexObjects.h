@@ -38,9 +38,37 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Content_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoDoubleFieldInfo;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataSource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventActionDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails_Parameters;
@@ -64,13 +92,17 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Schema;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SchemaPartitionField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SchemaSchemaField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Session;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatCsvOptions;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatIcebergOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatJsonOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Task;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Task_Labels;
@@ -85,6 +117,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskNotebookTaskConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskSparkTaskConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskTriggerSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Trigger;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Zone;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Zone_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ZoneDiscoverySpec;
@@ -258,6 +293,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Asset
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetDiscoveryStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec.readAccessMode
+
+/**
+ *  Access mode unspecified.
+ *
+ *  Value: "ACCESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_AccessModeUnspecified;
+/**
+ *  Default. Data is accessed directly using storage APIs.
+ *
+ *  Value: "DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_Direct;
+/**
+ *  Data is accessed through a managed interface using BigQuery APIs.
+ *
+ *  Value: "MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_Managed;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec.type
 
 /**
@@ -362,6 +419,90 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Conte
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation.statistic
+
+/**
+ *  Evaluate the column max
+ *
+ *  Value: "MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Max;
+/**
+ *  Evaluate the column mean
+ *
+ *  Value: "MEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Mean;
+/**
+ *  Evaluate the column min
+ *
+ *  Value: "MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Min;
+/**
+ *  Unspecified statistic type
+ *
+ *  Value: "STATISTIC_UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_StatisticUndefined;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.state
+
+/**
+ *  Resource is active but has unresolved actions.
+ *
+ *  Value: "ACTION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_ActionRequired;
+/**
+ *  Resource is active, i.e., ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Active;
+/**
+ *  Resource is under creation.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Creating;
+/**
+ *  Resource is under deletion.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Deleting;
+/**
+ *  State is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.type
+
+/**
+ *  Data Profile scan.
+ *
+ *  Value: "DATA_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile;
+/**
+ *  Data Quality scan.
+ *
+ *  Value: "DATA_QUALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality;
+/**
+ *  The DataScan type is unspecified.
+ *
+ *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.scope
 
 /**
@@ -460,6 +601,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_ScanTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.state
+
+/**
+ *  The DataScanJob is canceling.
+ *
+ *  Value: "CANCELING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Canceling;
+/**
+ *  The DataScanJob cancellation was successful.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Cancelled;
+/**
+ *  The DataScanJob is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Failed;
+/**
+ *  The DataScanJob has been created but not started to run yet.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Pending;
+/**
+ *  The DataScanJob is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Running;
+/**
+ *  The DataScanJob state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_StateUnspecified;
+/**
+ *  The DataScanJob completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.type
+
+/**
+ *  Data Profile scan.
+ *
+ *  Value: "DATA_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile;
+/**
+ *  Data Quality scan.
+ *
+ *  Value: "DATA_QUALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality;
+/**
+ *  The DataScan type is unspecified.
+ *
+ *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
@@ -1177,6 +1386,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Sessi
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail_Engine_SparkSql;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess.read
+
+/**
+ *  Access mode unspecified.
+ *
+ *  Value: "ACCESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_AccessModeUnspecified;
+/**
+ *  Default. Data is accessed directly using storage APIs.
+ *
+ *  Value: "DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_Direct;
+/**
+ *  Data is accessed through a managed interface using BigQuery APIs.
+ *
+ *  Value: "MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_Managed;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat.compressionFormat
 
 /**
@@ -1824,7 +2055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  explicitly set a timezone to the cron tab, apply a prefix in the cron tab:
  *  "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE}
  *  may only be a valid string from IANA time zone database. For example,
- *  "CRON_TZ=America/New_York 1 * * * *", or "TZ=America/New_York 1 * * * *".
+ *  CRON_TZ=America/New_York 1 * * * *, or TZ=America/New_York 1 * * * *.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -1973,6 +2204,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  projects/{project_number}/datasets/{dataset_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Determines how read permissions are handled for each asset and
+ *  their associated tables. Only available to storage buckets assets.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_AccessModeUnspecified
+ *        Access mode unspecified. (Value: "ACCESS_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_Direct
+ *        Default. Data is accessed directly using storage APIs. (Value:
+ *        "DIRECT")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceSpec_ReadAccessMode_Managed
+ *        Data is accessed through a managed interface using BigQuery APIs.
+ *        (Value: "MANAGED")
+ */
+@property(nonatomic, copy, nullable) NSString *readAccessMode;
 
 /**
  *  Required. Immutable. Type of resource.
@@ -2187,6 +2434,727 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  DataProfileResult defines the output of DataProfileScan. Each field of the
+ *  table will have field type specific profile result.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult : GTLRObject
+
+/** The profile information per field. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile *profile;
+
+/**
+ *  The count of rows scanned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/** The data scanned for this result. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
+
+@end
+
+
+/**
+ *  Contains name, type, mode and field type specific profile information.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile : GTLRObject
+
+/** List of fields with structural and profile information for each field. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField *> *fields;
+
+@end
+
+
+/**
+ *  A field within a table.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField : GTLRObject
+
+/**
+ *  The mode of the field. Possible values include: REQUIRED, if it is a
+ *  required field. NULLABLE, if it is an optional field. REPEATED, if it is a
+ *  repeated field.
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** The name of the field. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Profile information for the corresponding field. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo *profile;
+
+/**
+ *  The field data type. Possible values include: STRING BYTE INT64 INT32 INT16
+ *  DOUBLE FLOAT DECIMAL BOOLEAN BINARY TIMESTAMP DATE TIME NULL RECORD
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The profile information for each field type.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo : GTLRObject
+
+/**
+ *  Ratio of rows with distinct values against total scanned rows. Not available
+ *  for complex non-groupable field type RECORD and fields with REPEATABLE mode.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distinctRatio;
+
+/** Double type field information. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoDoubleFieldInfo *doubleProfile;
+
+/** Integer type field information. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo *integerProfile;
+
+/**
+ *  Ratio of rows with null value against total scanned rows.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullRatio;
+
+/** String type field information. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo *stringProfile;
+
+/**
+ *  The list of top N non-null values and number of times they occur in the
+ *  scanned data. N is 10 or equal to the number of distinct values in the
+ *  field, whichever is smaller. Not available for complex non-groupable field
+ *  type RECORD and fields with REPEATABLE mode.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue *> *topNValues;
+
+@end
+
+
+/**
+ *  The profile information for a double type field.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoDoubleFieldInfo : GTLRObject
+
+/**
+ *  Average of non-null values in the scanned data. NaN, if the field has a NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *average;
+
+/**
+ *  Maximum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Minimum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
+
+/**
+ *  A quartile divides the number of data points into four parts, or quarters,
+ *  of more-or-less equal size. Three main quartiles used are: The first
+ *  quartile (Q1) splits off the lowest 25% of data from the highest 75%. It is
+ *  also known as the lower or 25th empirical quartile, as 25% of the data is
+ *  below this point. The second quartile (Q2) is the median of a data set. So,
+ *  50% of the data lies below this point. The third quartile (Q3) splits off
+ *  the highest 25% of data from the lowest 75%. It is known as the upper or
+ *  75th empirical quartile, as 75% of the data lies below this point. Here, the
+ *  quartiles is provided as an ordered list of quartile values for the scanned
+ *  data, occurring in order Q1, median, Q3.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *quartiles;
+
+/**
+ *  Standard deviation of non-null values in the scanned data. NaN, if the field
+ *  has a NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardDeviation;
+
+@end
+
+
+/**
+ *  The profile information for an integer type field.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoIntegerFieldInfo : GTLRObject
+
+/**
+ *  Average of non-null values in the scanned data. NaN, if the field has a NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *average;
+
+/**
+ *  Maximum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Minimum of non-null values in the scanned data. NaN, if the field has a NaN.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
+
+/**
+ *  A quartile divides the number of data points into four parts, or quarters,
+ *  of more-or-less equal size. Three main quartiles used are: The first
+ *  quartile (Q1) splits off the lowest 25% of data from the highest 75%. It is
+ *  also known as the lower or 25th empirical quartile, as 25% of the data is
+ *  below this point. The second quartile (Q2) is the median of a data set. So,
+ *  50% of the data lies below this point. The third quartile (Q3) splits off
+ *  the highest 25% of data from the lowest 75%. It is known as the upper or
+ *  75th empirical quartile, as 75% of the data lies below this point. Here, the
+ *  quartiles is provided as an ordered list of quartile values for the scanned
+ *  data, occurring in order Q1, median, Q3.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *quartiles;
+
+/**
+ *  Standard deviation of non-null values in the scanned data. NaN, if the field
+ *  has a NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardDeviation;
+
+@end
+
+
+/**
+ *  The profile information for a string type field.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo : GTLRObject
+
+/**
+ *  Average length of non-null values in the scanned data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageLength;
+
+/**
+ *  Maximum length of non-null values in the scanned data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxLength;
+
+/**
+ *  Minimum length of non-null values in the scanned data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minLength;
+
+@end
+
+
+/**
+ *  Top N non-null values in the scanned data.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue : GTLRObject
+
+/**
+ *  Count of the corresponding value in the scanned data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** String value of a top N non-null value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  DataProfileScan related setting.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec : GTLRObject
+@end
+
+
+/**
+ *  DataQualityDimensionResult provides a more detailed, per-dimension view of
+ *  the results.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult : GTLRObject
+
+/**
+ *  Whether the dimension passed or failed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passed;
+
+@end
+
+
+/**
+ *  The output of a DataQualityScan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult : GTLRObject
+
+/** A list of results at the dimension level. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult *> *dimensions;
+
+/**
+ *  Overall data quality result -- true if all rules passed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passed;
+
+/**
+ *  The count of rows processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/** A list of all the rules in a job, and their results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult *> *rules;
+
+/** The data scanned for this result. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
+
+@end
+
+
+/**
+ *  A rule captures data quality intent about a data source.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule : GTLRObject
+
+/** Optional. The unnested column which this rule is evaluated against. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  Required. The dimension a rule belongs to. Results are also aggregated at
+ *  the dimension level. Supported dimensions are "COMPLETENESS", "ACCURACY",
+ *  "CONSISTENCY", "VALIDITY", "UNIQUENESS", "INTEGRITY"
+ */
+@property(nonatomic, copy, nullable) NSString *dimension;
+
+/**
+ *  Optional. Rows with null values will automatically fail a rule, unless
+ *  ignore_null is true. In that case, such null rows are trivially considered
+ *  passing.Only applicable to ColumnMap rules.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreNull;
+
+/** ColumnMap rule which evaluates whether each column value is null. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation *nonNullExpectation;
+
+/**
+ *  ColumnMap rule which evaluates whether each column value lies between a
+ *  specified range.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation *rangeExpectation;
+
+/**
+ *  ColumnMap rule which evaluates whether each column value matches a specified
+ *  regex.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation *regexExpectation;
+
+/**
+ *  Table rule which evaluates whether each row passes the specified condition.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation *rowConditionExpectation;
+
+/**
+ *  ColumnMap rule which evaluates whether each column value is contained by a
+ *  specified set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation *setExpectation;
+
+/**
+ *  ColumnAggregate rule which evaluates whether the column aggregate statistic
+ *  lies between a specified range.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation *statisticRangeExpectation;
+
+/** Table rule which evaluates whether the provided expression is true. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation *tableConditionExpectation;
+
+/**
+ *  Optional. The minimum ratio of passing_rows / total_rows required to pass
+ *  this rule, with a range of 0.0, 1.0.0 indicates default value (i.e. 1.0).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+/** ColumnAggregate rule which evaluates whether the column has duplicates. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation *uniquenessExpectation;
+
+@end
+
+
+/**
+ *  Evaluates whether each column value is null.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation : GTLRObject
+@end
+
+
+/**
+ *  Evaluates whether each column value lies between a specified range.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation : GTLRObject
+
+/**
+ *  Optional. The maximum column value allowed for a row to pass this
+ *  validation. At least one of min_value and max_value need to be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *maxValue;
+
+/**
+ *  Optional. The minimum column value allowed for a row to pass this
+ *  validation. At least one of min_value and max_value need to be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *minValue;
+
+/**
+ *  Optional. Whether each value needs to be strictly lesser than ('<') the
+ *  maximum, or if equality is allowed.Only relevant if a max_value has been
+ *  defined. Default = false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strictMaxEnabled;
+
+/**
+ *  Optional. Whether each value needs to be strictly greater than ('>') the
+ *  minimum, or if equality is allowed.Only relevant if a min_value has been
+ *  defined. Default = false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strictMinEnabled;
+
+@end
+
+
+/**
+ *  Evaluates whether each column value matches a specified regex.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation : GTLRObject
+
+/** A regular expression the column value is expected to match. */
+@property(nonatomic, copy, nullable) NSString *regex;
+
+@end
+
+
+/**
+ *  DataQualityRuleResult provides a more detailed, per-rule view of the
+ *  results.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult : GTLRObject
+
+/**
+ *  The number of rows a rule was evaluated against. This field is only valid
+ *  for ColumnMap type rules.Evaluated count can be configured to either include
+ *  all rows (default) - with null rows automatically failing rule evaluation,
+ *  or exclude null rows from the evaluated_count, by setting ignore_nulls =
+ *  true.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evaluatedCount;
+
+/**
+ *  The query to find rows that did not pass this rule. Only applies to
+ *  ColumnMap and RowCondition rules.
+ */
+@property(nonatomic, copy, nullable) NSString *failingRowsQuery;
+
+/**
+ *  The number of rows with null values in the specified column.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullCount;
+
+/**
+ *  Whether the rule passed or failed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passed;
+
+/**
+ *  The number of rows which passed a rule evaluation. This field is only valid
+ *  for ColumnMap type rules.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passedCount;
+
+/**
+ *  The ratio of passed_count / evaluated_count. This field is only valid for
+ *  ColumnMap type rules.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passRatio;
+
+/** The rule specified in the DataQualitySpec, as is. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *rule;
+
+@end
+
+
+/**
+ *  Evaluates whether each row passes the specified condition.The SQL expression
+ *  needs to use BigQuery standard SQL syntax and should produce a boolean value
+ *  per row as the result.Example: col1 >= 0 AND col2 < 10
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation : GTLRObject
+
+/** The SQL expression. */
+@property(nonatomic, copy, nullable) NSString *sqlExpression;
+
+@end
+
+
+/**
+ *  Evaluates whether each column value is contained by a specified set.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation : GTLRObject
+
+/** Expected values for the column value. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Evaluates whether the column aggregate statistic lies between a specified
+ *  range.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation : GTLRObject
+
+/**
+ *  The maximum column statistic value allowed for a row to pass this
+ *  validation.At least one of min_value and max_value need to be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *maxValue;
+
+/**
+ *  The minimum column statistic value allowed for a row to pass this
+ *  validation.At least one of min_value and max_value need to be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *minValue;
+
+/**
+ *  statistic
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Max
+ *        Evaluate the column max (Value: "MAX")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Mean
+ *        Evaluate the column mean (Value: "MEAN")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Min
+ *        Evaluate the column min (Value: "MIN")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_StatisticUndefined
+ *        Unspecified statistic type (Value: "STATISTIC_UNDEFINED")
+ */
+@property(nonatomic, copy, nullable) NSString *statistic;
+
+/**
+ *  Whether column statistic needs to be strictly lesser than ('<') the maximum,
+ *  or if equality is allowed.Only relevant if a max_value has been defined.
+ *  Default = false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strictMaxEnabled;
+
+/**
+ *  Whether column statistic needs to be strictly greater than ('>') the
+ *  minimum, or if equality is allowed.Only relevant if a min_value has been
+ *  defined. Default = false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strictMinEnabled;
+
+@end
+
+
+/**
+ *  Evaluates whether the provided expression is true.The SQL expression needs
+ *  to use BigQuery standard SQL syntax and should produce a scalar boolean
+ *  result.Example: MIN(col1) >= 0
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation : GTLRObject
+
+/** The SQL expression. */
+@property(nonatomic, copy, nullable) NSString *sqlExpression;
+
+@end
+
+
+/**
+ *  Evaluates whether the column has duplicates.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation : GTLRObject
+@end
+
+
+/**
+ *  DataQualityScan related setting.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec : GTLRObject
+
+/**
+ *  The list of rules to evaluate against a data source. At least one rule is
+ *  required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rules;
+
+@end
+
+
+/**
+ *  Represents a user-visible job which provides the insights for the related
+ *  data source.For example: Data Quality: generates queries based on the rules
+ *  and runs against the data to get data quality check results. Data Profile:
+ *  analyzes the data in table(s) and generates insights about the structure,
+ *  content and relationships (such as null percent, cardinality, min/max/mean,
+ *  etc).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan : GTLRObject
+
+/** Output only. The time when the scan was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The data source for DataScan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataSource *data;
+
+/** Output only. The result of the data profile scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult *dataProfileResult;
+
+/** DataProfileScan related setting. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec *dataProfileSpec;
+
+/** Output only. The result of the data quality scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult *dataQualityResult;
+
+/** DataQualityScan related setting. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec *dataQualitySpec;
+
+/**
+ *  Optional. Description of the scan. Must be between 1-1024 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. Must be between 1-256 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. DataScan execution settings.If not specified, the fields in it
+ *  will use their default values.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec *executionSpec;
+
+/** Output only. Status of the data scan execution. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus *executionStatus;
+
+/** Optional. User-defined labels for the scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels *labels;
+
+/**
+ *  Output only. The relative resource name of the scan, of the form:
+ *  projects/{project}/locations/{location_id}/dataScans/{datascan_id}, where
+ *  project refers to a project_id or project_number and location_id refers to a
+ *  GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Current state of the DataScan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_ActionRequired
+ *        Resource is active but has unresolved actions. (Value:
+ *        "ACTION_REQUIRED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Active
+ *        Resource is active, i.e., ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Creating
+ *        Resource is under creation. (Value: "CREATING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_Deleting
+ *        Resource is under deletion. (Value: "DELETING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_StateUnspecified
+ *        State is not specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of DataScan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile
+ *        Data Profile scan. (Value: "DATA_PROFILE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality
+ *        Data Quality scan. (Value: "DATA_QUALITY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified
+ *        The DataScan type is unspecified. (Value:
+ *        "DATA_SCAN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. System generated globally unique ID for the scan. This ID will
+ *  be different if the scan is deleted and re-created with the same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the scan was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the scan.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels : GTLRObject
+@end
+
+
+/**
  *  These messages contain information about the execution of a datascan. The
  *  monitored resource is 'DataScan'
  */
@@ -2330,6 +3298,134 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed : GTLRObject
+@end
+
+
+/**
+ *  DataScan execution settings.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec : GTLRObject
+
+/**
+ *  Immutable. The unnested field (of type Date or Timestamp) that contains
+ *  values which monotonically increase over time.If not specified, a data scan
+ *  will run for all data in the table.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Optional. Spec related to how often and when a scan should be triggered.If
+ *  not specified, the default is OnDemand, which means the scan will not run
+ *  until the user calls RunDataScan API.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Trigger *trigger;
+
+@end
+
+
+/**
+ *  Status of the data scan execution.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus : GTLRObject
+
+/** The time when the latest DataScanJob ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestJobEndTime;
+
+/** The time when the latest DataScanJob started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestJobStartTime;
+
+@end
+
+
+/**
+ *  A DataScanJob represents an instance of DataScan execution.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob : GTLRObject
+
+/** Output only. The result of the data profile scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult *dataProfileResult;
+
+/** Output only. DataProfileScan related setting. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec *dataProfileSpec;
+
+/** Output only. The result of the data quality scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult *dataQualityResult;
+
+/** Output only. DataQualityScan related setting. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec *dataQualitySpec;
+
+/** Output only. The time when the DataScanJob ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Additional information about the current state. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Output only. The relative resource name of the DataScanJob, of the form:
+ *  projects/{project}/locations/{location_id}/dataScans/{datascan_id}/jobs/{job_id},
+ *  where project refers to a project_id or project_number and location_id
+ *  refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when the DataScanJob was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. Execution state for the DataScanJob.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Canceling
+ *        The DataScanJob is canceling. (Value: "CANCELING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Cancelled
+ *        The DataScanJob cancellation was successful. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Failed
+ *        The DataScanJob is no longer running due to an error. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Pending
+ *        The DataScanJob has been created but not started to run yet. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Running
+ *        The DataScanJob is running. (Value: "RUNNING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_StateUnspecified
+ *        The DataScanJob state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Succeeded
+ *        The DataScanJob completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of the parent DataScan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile
+ *        Data Profile scan. (Value: "DATA_PROFILE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality
+ *        Data Quality scan. (Value: "DATA_QUALITY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified
+ *        The DataScan type is unspecified. (Value:
+ *        "DATA_SCAN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. System generated globally unique ID for the DataScanJob. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  The data source for DataScan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataSource : GTLRObject
+
+/**
+ *  Immutable. The Dataplex entity that represents the data source (e.g.
+ *  BigQuery table) for DataScan, of the form:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
+
 @end
 
 
@@ -2510,6 +3606,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Entity : GTLRObject
 
 /**
+ *  Output only. Identifies the access mechanism to the entity. Not user
+ *  settable.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess *access;
+
+/**
  *  Required. Immutable. The ID of the asset associated with the storage
  *  location containing the entity data. The entity must be with in the same
  *  zone with the asset.
@@ -2614,6 +3716,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        Type unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. System generated unique ID for the Entity. This ID will be
+ *  different if the Entity is deleted and re-created with the same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 /** Output only. The time when the entity was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -3265,6 +4373,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  List DataScanJobs response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataScanJobs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScanJobsResponse : GTLRCollectionObject
+
+/**
+ *  DataScanJobs (BASIC view only) under a given dataScan.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob *> *dataScanJobs;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  List dataScans response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataScans" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScansResponse : GTLRCollectionObject
+
+/**
+ *  DataScans (BASIC view only) under the given parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataScan *> *dataScans;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  List metadata entities response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3553,6 +4718,73 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  correspond to the partition schema defined in the parent entity.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Run DataScan Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanRequest : GTLRObject
+@end
+
+
+/**
+ *  Run DataScan Response.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanResponse : GTLRObject
+
+/** DataScanJob created by RunDataScan request. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob *job;
+
+@end
+
+
+/**
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskResponse
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskResponse : GTLRObject
+
+/** Jobs created by RunTask API. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Job *job;
+
+@end
+
+
+/**
+ *  The data scanned during processing (e.g. in incremental DataScan)
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData : GTLRObject
+
+/** The range denoted by values of an incremental field */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField *incrementalField;
+
+@end
+
+
+/**
+ *  A data range denoted by a pair of start/end values of a field.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField : GTLRObject
+
+/** Value that marks the end of the range. */
+@property(nonatomic, copy, nullable) NSString *end;
+
+/**
+ *  The field that contains values which monotonically increases over time (e.g.
+ *  a timestamp column).
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** Value that marks the start of the range. */
+@property(nonatomic, copy, nullable) NSString *start;
 
 @end
 
@@ -3893,6 +5125,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Describes the access mechanism of the data within its storage location.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess : GTLRObject
+
+/**
+ *  Output only. Describes the read access mechanism of the data. Not user
+ *  settable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_AccessModeUnspecified
+ *        Access mode unspecified. (Value: "ACCESS_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_Direct
+ *        Default. Data is accessed directly using storage APIs. (Value:
+ *        "DIRECT")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess_Read_Managed
+ *        Data is accessed through a managed interface using BigQuery APIs.
+ *        (Value: "MANAGED")
+ */
+@property(nonatomic, copy, nullable) NSString *read;
+
+@end
+
+
+/**
  *  Describes the format of the data within its storage location.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat : GTLRObject
@@ -3949,6 +5205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
+/** Optional. Additional information about iceberg tables. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatIcebergOptions *iceberg;
+
 /** Optional. Additional information about CSV formatted data. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatJsonOptions *json;
 
@@ -3993,6 +5252,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  quotation mark) if unspecified.
  */
 @property(nonatomic, copy, nullable) NSString *quote;
+
+@end
+
+
+/**
+ *  Describes Iceberg data format.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormatIcebergOptions : GTLRObject
+
+/**
+ *  Optional. The location of where the iceberg metadata is present, must be
+ *  within the table path
+ */
+@property(nonatomic, copy, nullable) NSString *metadataLocation;
 
 @end
 
@@ -4405,8 +5678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  tasks periodically. To explicitly set a timezone to the cron tab, apply a
  *  prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
  *  "TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
- *  from IANA time zone database. For example, "CRON_TZ=America/New_York 1 * * *
- *  *", or "TZ=America/New_York 1 * * * *". This field is required for RECURRING
+ *  from IANA time zone database. For example, CRON_TZ=America/New_York 1 * * *
+ *  *, or TZ=America/New_York 1 * * * *. This field is required for RECURRING
  *  tasks.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
@@ -4431,6 +5704,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        Unspecified trigger type. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  DataScan scheduling and trigger settings.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Trigger : GTLRObject
+
+/** The scan runs once via RunDataScan API. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand *onDemand;
+
+/** The scan is scheduled to run periodically. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule *schedule;
+
+@end
+
+
+/**
+ *  The scan runs once via RunDataScan API.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand : GTLRObject
+@end
+
+
+/**
+ *  The scan is scheduled to run periodically.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule : GTLRObject
+
+/**
+ *  Required. Cron (https://en.wikipedia.org/wiki/Cron) schedule for running
+ *  scans periodically.To explicitly set a timezone in the cron tab, apply a
+ *  prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+ *  "TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+ *  from IANA time zone database (wikipedia
+ *  (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)). For
+ *  example, CRON_TZ=America/New_York 1 * * * *, or TZ=America/New_York 1 * * *
+ *  *.This field is required for Schedule scans.
+ */
+@property(nonatomic, copy, nullable) NSString *cron;
 
 @end
 
@@ -4583,7 +5897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  explicitly set a timezone to the cron tab, apply a prefix in the cron tab:
  *  "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE}
  *  may only be a valid string from IANA time zone database. For example,
- *  "CRON_TZ=America/New_York 1 * * * *", or "TZ=America/New_York 1 * * * *".
+ *  CRON_TZ=America/New_York 1 * * * *, or TZ=America/New_York 1 * * * *.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 

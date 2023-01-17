@@ -30,6 +30,11 @@ NSString * const kGTLRBloggerRoleAuthor              = @"AUTHOR";
 NSString * const kGTLRBloggerRoleReader              = @"READER";
 NSString * const kGTLRBloggerRoleViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 
+// sortOption
+NSString * const kGTLRBloggerSortOptionAscending             = @"ASCENDING";
+NSString * const kGTLRBloggerSortOptionDescending            = @"DESCENDING";
+NSString * const kGTLRBloggerSortOptionSortOptionUnspecified = @"SORT_OPTION_UNSPECIFIED";
+
 // status
 NSString * const kGTLRBloggerStatusDeleted     = @"DELETED";
 NSString * const kGTLRBloggerStatusDraft       = @"DRAFT";
@@ -319,7 +324,7 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 
 @implementation GTLRBloggerQuery_PagesDelete
 
-@dynamic blogId, pageId;
+@dynamic blogId, pageId, useTrash;
 
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          pageId:(NSString *)pageId {
@@ -551,7 +556,7 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 
 @implementation GTLRBloggerQuery_PostsDelete
 
-@dynamic blogId, postId;
+@dynamic blogId, postId, useTrash;
 
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId {
@@ -645,7 +650,7 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 @implementation GTLRBloggerQuery_PostsList
 
 @dynamic blogId, endDate, fetchBodies, fetchImages, labels, maxResults, orderBy,
-         pageToken, startDate, status, view;
+         pageToken, sortOption, startDate, status, view;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

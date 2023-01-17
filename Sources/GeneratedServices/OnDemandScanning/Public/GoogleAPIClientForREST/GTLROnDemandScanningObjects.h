@@ -431,6 +431,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven;
 /**
+ *  NPM packages.
+ *
+ *  Value: "NPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Npm;
+/**
  *  Operating System
  *
  *  Value: "OS"
@@ -438,6 +444,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Os;
 /** Value: "PACKAGE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified;
+/**
+ *  Python packages.
+ *
+ *  Value: "PYPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Pypi;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_PackageIssue.effectiveSeverity
@@ -2216,10 +2228,14 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        toolchain + standard library packages. (Value: "GO_STDLIB")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Maven Java packages
  *        from Maven. (Value: "MAVEN")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Npm NPM packages.
+ *        (Value: "NPM")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Os Operating System
  *        (Value: "OS")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified
  *        Value "PACKAGE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Pypi Python
+ *        packages. (Value: "PYPI")
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
 

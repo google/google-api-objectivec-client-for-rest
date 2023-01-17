@@ -27,7 +27,6 @@ NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublisher = @"https://ww
   if (self) {
     // From discovery.
     self.rootURLString = @"https://gamesconfiguration.googleapis.com/";
-    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

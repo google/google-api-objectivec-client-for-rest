@@ -51,9 +51,16 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -243,6 +250,28 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "SYSTEM_WINDOWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemWindows;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo.type
+
+/**
+ *  Chrome Extensions.
+ *
+ *  Value: "EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_Extension;
+/**
+ *  Unspecified ItemType.
+ *
+ *  Value: "ITEM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_ItemTypeUnspecified;
+/**
+ *  Any other type than extension.
+ *
+ *  Value: "OTHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_Others;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1CpuInfo.architecture
@@ -621,6 +650,70 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "UPDATE_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
+
+/**
+ *  Triggered when a audio devices run out of buffer data for more than 5
+ *  seconds.
+ *
+ *  Value: "AUDIO_SEVERE_UNDERRUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun;
+/**
+ *  Event type unknown.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified;
+/**
+ *  Triggered immediately on any changes to a network connection.
+ *
+ *  Value: "NETWORK_CONNECTION_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkConnectionStateChange;
+/**
+ *  Triggered when a new HTTPS latency problem was detected or the device has
+ *  recovered form an existing HTTPS latency problem.
+ *
+ *  Value: "NETWORK_HTTPS_LATENCY_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange;
+/**
+ *  Triggered when USB devices are added.
+ *
+ *  Value: "USB_ADDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded;
+/**
+ *  Triggered when USB devices are removed.
+ *
+ *  Value: "USB_REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.httpsLatencyState
+
+/**
+ *  HTTPS latency state is unspecified.
+ *
+ *  Value: "HTTPS_LATENCY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_HttpsLatencyStateUnspecified;
+/**
+ *  HTTPS latency problem.
+ *
+ *  Value: "PROBLEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Problem;
+/**
+ *  HTTPS latency recovered from a problem.
+ *
+ *  Value: "RECOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Recovery;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
@@ -1273,6 +1366,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *supportEnabled;
+
+/**
+ *  Output only. Types of an item in the Chrome Web Store
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_Extension
+ *        Chrome Extensions. (Value: "EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_ItemTypeUnspecified
+ *        Unspecified ItemType. (Value: "ITEM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Type_Others
+ *        Any other type than extension. (Value: "OTHERS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2141,6 +2247,30 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response message for listing telemetry events for a customer.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "telemetryEvents" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryEventsResponse : GTLRCollectionObject
+
+/** Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Telemetry events returned in the response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent *> *telemetryEvents;
+
+@end
+
+
+/**
  *  Memory information of a device. * This field has both telemetry and device
  *  information: - `totalRamBytes` - Device information - `availableRamBytes` -
  *  Telemetry information - `totalMemoryEncryption` - Device information * Data
@@ -2562,6 +2692,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  `TelemetryAudioSevereUnderrunEvent` is triggered when a audio devices run
+ *  out of buffer data for more than 5 seconds.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent : GTLRObject
+@end
+
+
+/**
  *  Telemetry data collected from a managed device.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
@@ -2653,6 +2791,137 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Information on Thunderbolt bus. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo *> *thunderboltInfo;
+
+@end
+
+
+/**
+ *  Information about a device associated with telemetry data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo : GTLRObject
+
+/**
+ *  Output only. The unique Directory API ID of the device. This value is the
+ *  same as the Admin Console's Directory API ID in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** Output only. Organization unit ID of the device. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+@end
+
+
+/**
+ *  Telemetry data reported by a managed device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent : GTLRObject
+
+/**
+ *  Output only. Payload for audio severe underrun event. Present only when the
+ *  `event_type` field is `AUDIO_SEVERE_UNDERRUN`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent *audioSevereUnderrunEvent;
+
+/** Output only. Information about the device associated with the event. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo *device;
+
+/**
+ *  The event type of the current event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun
+ *        Triggered when a audio devices run out of buffer data for more than 5
+ *        seconds. (Value: "AUDIO_SEVERE_UNDERRUN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified
+ *        Event type unknown. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkConnectionStateChange
+ *        Triggered immediately on any changes to a network connection. (Value:
+ *        "NETWORK_CONNECTION_STATE_CHANGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange
+ *        Triggered when a new HTTPS latency problem was detected or the device
+ *        has recovered form an existing HTTPS latency problem. (Value:
+ *        "NETWORK_HTTPS_LATENCY_CHANGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded
+ *        Triggered when USB devices are added. (Value: "USB_ADDED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved
+ *        Triggered when USB devices are removed. (Value: "USB_REMOVED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Output only. Payload for HTTPS latency change event. Present only when
+ *  `event_type` is `NETWORK_HTTPS_LATENCY_CHANGE`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent *httpsLatencyChangeEvent;
+
+/** Output only. Resource name of the event. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Timestamp that represents when the event was reported. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/**
+ *  Output only. Payload for usb peripherals event. Present only when the
+ *  `event_type` field is either `USB_ADDED` or `USB_REMOVED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent *usbPeripheralsEvent;
+
+/** Output only. Information about the user associated with the event. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo *user;
+
+@end
+
+
+/**
+ *  Https latency routine is run periodically and
+ *  `TelemetryHttpsLatencyChangeEvent` is triggered if a latency problem was
+ *  detected or if the device has recovered from a latency problem..
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent : GTLRObject
+
+/** HTTPS latency routine data that triggered the event. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData *httpsLatencyRoutineData;
+
+/**
+ *  Current HTTPS latency state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_HttpsLatencyStateUnspecified
+ *        HTTPS latency state is unspecified. (Value:
+ *        "HTTPS_LATENCY_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Problem
+ *        HTTPS latency problem. (Value: "PROBLEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Recovery
+ *        HTTPS latency recovered from a problem. (Value: "RECOVERY")
+ */
+@property(nonatomic, copy, nullable) NSString *httpsLatencyState;
+
+@end
+
+
+/**
+ *  `TelemetryUsbPeripheralsEvent` is triggered USB devices are either added or
+ *  removed.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent : GTLRObject
+
+/** List of usb devices that were either added or removed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport *> *usbPeripheralReport;
+
+@end
+
+
+/**
+ *  Information about a user associated with telemetry data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo : GTLRObject
+
+/** Output only. User's email. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Output only. Organization unit ID of the user. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end
 
@@ -2771,6 +3040,57 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxKeys;
+
+@end
+
+
+/**
+ *  USB connected peripheral report.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport : GTLRObject
+
+/**
+ *  Output only. Categories the device belongs to
+ *  https://www.usb.org/defined-class-codes
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
+
+/**
+ *  Output only. Class ID https://www.usb.org/defined-class-codes
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *classId;
+
+/** Output only. Firmware version */
+@property(nonatomic, copy, nullable) NSString *firmwareVersion;
+
+/** Output only. Device name, model name, or product name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Product ID
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pid;
+
+/**
+ *  Output only. Subclass ID https://www.usb.org/defined-class-codes
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subclassId;
+
+/** Output only. Vendor name */
+@property(nonatomic, copy, nullable) NSString *vendor;
+
+/**
+ *  Output only. Vendor ID
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vid;
 
 @end
 

@@ -1150,6 +1150,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Mexico;
 /**
+ *  The infoType is typically used in New Zealand.
+ *
+ *  Value: "NEW_ZEALAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_NewZealand;
+/**
  *  The infoType is typically used in Norway.
  *
  *  Value: "NORWAY"
@@ -3694,7 +3700,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplateName;
 
-/** The item to de-identify. Will be treated as text. */
+/**
+ *  The item to de-identify. Will be treated as text. This value must be of type
+ *  Table if your deidentify_config is a RecordTransformations object.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
 
 /** Deprecated. This field has no effect. */
@@ -4046,7 +4055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The rule to exclude findings based on a hotword. For record inspection of
  *  tables, column names are considered hotwords. An example of this is to
- *  exclude a finding if a BigQuery column matches a specific pattern.
+ *  exclude a finding if it belongs to a BigQuery column that matches a specific
+ *  pattern.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword : GTLRObject
 
@@ -4850,6 +4860,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Unused location (Value: "LOCATION_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Mexico
  *        The infoType is typically used in Mexico. (Value: "MEXICO")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_NewZealand
+ *        The infoType is typically used in New Zealand. (Value: "NEW_ZEALAND")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Norway
  *        The infoType is typically used in Norway. (Value: "NORWAY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Paraguay
@@ -6369,14 +6381,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Publish the result summary of a DlpJob to the Cloud Security Command Center
- *  (CSCC Alpha). This action is only available for projects which are parts of
- *  an organization and whitelisted for the alpha Cloud Security Command Center.
- *  The action will publish the count of finding instances and their info types.
- *  The summary of findings will be persisted in CSCC and are governed by CSCC
- *  service-specific policy, see https://cloud.google.com/terms/service-terms
- *  Only a single instance of this action can be specified. Compatible with:
- *  Inspect
+ *  Publish the result summary of a DlpJob to [Security Command
+ *  Center](https://cloud.google.com/security-command-center). This action is
+ *  available for only projects that belong to an organization. This action
+ *  publishes the count of finding instances and their infoTypes. The summary of
+ *  findings are persisted in Security Command Center and are governed by
+ *  [service-specific policies for Security Command
+ *  Center](https://cloud.google.com/terms/service-terms). Only a single
+ *  instance of this action can be specified. Compatible with: Inspect
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc : GTLRObject
 @end

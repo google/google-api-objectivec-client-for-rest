@@ -237,6 +237,259 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Dataset.
+ *
+ *  Method: translate.projects.locations.datasets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsCreate : GTLRTranslateQuery
+
+/** Required. The project name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Creates a Dataset.
+ *
+ *  @param object The @c GTLRTranslate_Dataset to include in the query.
+ *  @param parent Required. The project name.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_Dataset *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a dataset and all of its contents.
+ *
+ *  Method: translate.projects.locations.datasets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsDelete : GTLRTranslateQuery
+
+/** Required. The name of the dataset to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Deletes a dataset and all of its contents.
+ *
+ *  @param name Required. The name of the dataset to delete.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists sentence pairs in the dataset.
+ *
+ *  Method: translate.projects.locations.datasets.examples.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsExamplesList : GTLRTranslateQuery
+
+/**
+ *  Optional. An expression for filtering the examples that will be returned.
+ *  Example filter: * `usage=TRAIN`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. The server can return fewer results than
+ *  requested.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results for the server to return.
+ *  Typically obtained from next_page_token field in the response of a
+ *  ListExamples call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent dataset. In form of
+ *  `projects/{project-number-or-id}/locations/{location-id}/datasets/{dataset-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListExamplesResponse.
+ *
+ *  Lists sentence pairs in the dataset.
+ *
+ *  @param parent Required. Name of the parent dataset. In form of
+ *    `projects/{project-number-or-id}/locations/{location-id}/datasets/{dataset-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsExamplesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Exports dataset's data to the provided output location.
+ *
+ *  Method: translate.projects.locations.datasets.exportData
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsExportData : GTLRTranslateQuery
+
+/**
+ *  Required. Name of the dataset. In form of
+ *  `projects/{project-number-or-id}/locations/{location-id}/datasets/{dataset-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Exports dataset's data to the provided output location.
+ *
+ *  @param object The @c GTLRTranslate_ExportDataRequest to include in the
+ *    query.
+ *  @param dataset Required. Name of the dataset. In form of
+ *    `projects/{project-number-or-id}/locations/{location-id}/datasets/{dataset-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsExportData
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_ExportDataRequest *)object
+                        dataset:(NSString *)dataset;
+
+@end
+
+/**
+ *  Gets a Dataset.
+ *
+ *  Method: translate.projects.locations.datasets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsGet : GTLRTranslateQuery
+
+/** Required. The resource name of the dataset to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Dataset.
+ *
+ *  Gets a Dataset.
+ *
+ *  @param name Required. The resource name of the dataset to retrieve.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Import sentence pairs into translation Dataset.
+ *
+ *  Method: translate.projects.locations.datasets.importData
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsImportData : GTLRTranslateQuery
+
+/**
+ *  Required. Name of the dataset. In form of
+ *  `projects/{project-number-or-id}/locations/{location-id}/datasets/{dataset-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Import sentence pairs into translation Dataset.
+ *
+ *  @param object The @c GTLRTranslate_ImportDataRequest to include in the
+ *    query.
+ *  @param dataset Required. Name of the dataset. In form of
+ *    `projects/{project-number-or-id}/locations/{location-id}/datasets/{dataset-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsImportData
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_ImportDataRequest *)object
+                        dataset:(NSString *)dataset;
+
+@end
+
+/**
+ *  Lists datasets.
+ *
+ *  Method: translate.projects.locations.datasets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsDatasetsList : GTLRTranslateQuery
+
+/**
+ *  Optional. Requested page size. The server can return fewer results than
+ *  requested.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results for the server to return.
+ *  Typically obtained from next_page_token field in the response of a
+ *  ListDatasets call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent project. In form of
+ *  `projects/{project-number-or-id}/locations/{location-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListDatasetsResponse.
+ *
+ *  Lists datasets.
+ *
+ *  @param parent Required. Name of the parent project. In form of
+ *    `projects/{project-number-or-id}/locations/{location-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsDatasetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Detects the language of text within a request.
  *
  *  Method: translate.projects.locations.detectLanguage
@@ -777,6 +1030,147 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Model.
+ *
+ *  Method: translate.projects.locations.models.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsModelsCreate : GTLRTranslateQuery
+
+/**
+ *  Required. The project name, in form of
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Creates a Model.
+ *
+ *  @param object The @c GTLRTranslate_Model to include in the query.
+ *  @param parent Required. The project name, in form of
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsModelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_Model *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a model.
+ *
+ *  Method: translate.projects.locations.models.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsModelsDelete : GTLRTranslateQuery
+
+/** Required. The name of the model to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Deletes a model.
+ *
+ *  @param name Required. The name of the model to delete.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsModelsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a model.
+ *
+ *  Method: translate.projects.locations.models.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsModelsGet : GTLRTranslateQuery
+
+/** Required. The resource name of the model to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Model.
+ *
+ *  Gets a model.
+ *
+ *  @param name Required. The resource name of the model to retrieve.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsModelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists models.
+ *
+ *  Method: translate.projects.locations.models.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsModelsList : GTLRTranslateQuery
+
+/**
+ *  Optional. An expression for filtering the models that will be returned.
+ *  Supported filter: `dataset_id=${dataset_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. The server can return fewer results than
+ *  requested.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results for the server to return.
+ *  Typically obtained from next_page_token field in the response of a
+ *  ListModels call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent project. In form of
+ *  `projects/{project-number-or-id}/locations/{location-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListModelsResponse.
+ *
+ *  Lists models.
+ *
+ *  @param parent Required. Name of the parent project. In form of
+ *    `projects/{project-number-or-id}/locations/{location-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsModelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -112,6 +112,11 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk = @"
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled = @"PREINSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup = @"REQUIRED_FOR_SETUP";
 
+// GTLRAndroidManagement_ApplicationPolicy.workProfileWidgets
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsAllowed = @"WORK_PROFILE_WIDGETS_ALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsDisallowed = @"WORK_PROFILE_WIDGETS_DISALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsUnspecified = @"WORK_PROFILE_WIDGETS_UNSPECIFIED";
+
 // GTLRAndroidManagement_ApplicationReport.applicationSource
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified = @"APPLICATION_SOURCE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore = @"INSTALLED_FROM_PLAY_STORE";
@@ -170,6 +175,11 @@ NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSha
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED";
+
+// GTLRAndroidManagement_CrossProfilePolicies.workProfileWidgetsDefault
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultAllowed = @"WORK_PROFILE_WIDGETS_DEFAULT_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultDisallowed = @"WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultUnspecified = @"WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED";
 
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
@@ -694,7 +704,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          connectedWorkAndPersonalApp, defaultPermissionPolicy, delegatedScopes,
          disabled, extensionConfig, installType, lockTaskAllowed,
          managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
-         packageName, permissionGrants;
+         packageName, permissionGrants, workProfileWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1023,7 +1033,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_CrossProfilePolicies
 @dynamic crossProfileCopyPaste, crossProfileDataSharing,
-         showWorkContactsInPersonalProfile;
+         showWorkContactsInPersonalProfile, workProfileWidgetsDefault;
 @end
 
 

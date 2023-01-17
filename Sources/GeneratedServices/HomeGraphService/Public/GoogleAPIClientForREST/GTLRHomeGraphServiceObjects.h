@@ -4,7 +4,7 @@
 // API:
 //   HomeGraph API (homegraph/v1)
 // Documentation:
-//   https://developers.google.com/actions/smarthome/create-app#request-sync
+//   https://developers.home.google.com/cloud-to-cloud/get-started
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -77,9 +77,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Custom device attributes stored in Home Graph and provided to your smart
  *  home Action in each
- *  [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query)
- *  and
- *  [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
+ *  [QUERY](https://developers.home.google.com/cloud-to-cloud/intents/query) and
+ *  [EXECUTE](https://developers.home.google.com/cloud-to-cloud/intents/execute)
  *  intent. Data in this object has a few constraints: No sensitive information,
  *  including but not limited to Personally Identifiable Information.
  */
@@ -111,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Alternate IDs associated with this device. This is used to identify cloud
  *  synced devices enabled for [local
- *  fulfillment](https://developers.google.com/assistant/smarthome/concepts/local).
+ *  fulfillment](https://developers.home.google.com/local-home/overview).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_AgentOtherDeviceId *> *otherDeviceIds;
 
@@ -129,13 +128,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Traits supported by the device. See [device
- *  traits](https://developers.google.com/assistant/smarthome/traits).
+ *  traits](https://developers.home.google.com/cloud-to-cloud/traits).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *traits;
 
 /**
  *  Hardware type of the device. See [device
- *  types](https://developers.google.com/assistant/smarthome/guides).
+ *  types](https://developers.home.google.com/cloud-to-cloud/guides).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -165,9 +164,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Custom device attributes stored in Home Graph and provided to your smart
  *  home Action in each
- *  [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query)
- *  and
- *  [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
+ *  [QUERY](https://developers.home.google.com/cloud-to-cloud/intents/query) and
+ *  [EXECUTE](https://developers.home.google.com/cloud-to-cloud/intents/execute)
  *  intent. Data in this object has a few constraints: No sensitive information,
  *  including but not limited to Personally Identifiable Information.
  *
@@ -277,8 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Response type for the
  *  [`Query`](#google.home.graph.v1.HomeGraphApiService.Query) call. This should
  *  follow the same format as the Google smart home `action.devices.QUERY`
- *  [response](https://developers.google.com/assistant/smarthome/reference/intent/query).
- *  # Example ```json { "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+ *  [response](https://developers.home.google.com/cloud-to-cloud/intents/query).
+ *  Example: ```json { "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
  *  "payload": { "devices": { "123": { "on": true, "online": true }, "456": {
  *  "on": true, "online": true, "brightness": 80, "color": { "name": "cerulean",
  *  "spectrumRGB": 31655 } } } } } ```
@@ -342,14 +340,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Notifications metadata for devices. See the **Device NOTIFICATIONS** section
  *  of the individual trait [reference
- *  guides](https://developers.google.com/assistant/smarthome/traits).
+ *  guides](https://developers.home.google.com/cloud-to-cloud/traits).
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_ReportStateAndNotificationDevice_Notifications *notifications;
 
 /**
  *  States of devices to update. See the **Device STATES** section of the
  *  individual trait [reference
- *  guides](https://developers.google.com/assistant/smarthome/traits).
+ *  guides](https://developers.home.google.com/cloud-to-cloud/traits).
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_ReportStateAndNotificationDevice_States *states;
 
@@ -359,7 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Notifications metadata for devices. See the **Device NOTIFICATIONS** section
  *  of the individual trait [reference
- *  guides](https://developers.google.com/assistant/smarthome/traits).
+ *  guides](https://developers.home.google.com/cloud-to-cloud/traits).
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -373,7 +371,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  States of devices to update. See the **Device STATES** section of the
  *  individual trait [reference
- *  guides](https://developers.google.com/assistant/smarthome/traits).
+ *  guides](https://developers.home.google.com/cloud-to-cloud/traits).
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -389,7 +387,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  [`ReportStateAndNotification`](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
  *  call. It may include states, notifications, or both. States and
  *  notifications are defined per `device_id` (for example, "123" and "456" in
- *  the following example). # Example ```json { "requestId":
+ *  the following example). Example: ```json { "requestId":
  *  "ff36a3cc-ec34-11e6-b1a0-64510650abcf", "agentUserId": "1234", "payload": {
  *  "devices": { "states": { "123": { "on": true }, "456": { "on": true,
  *  "brightness": 10 } }, } } } ```
@@ -491,8 +489,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Response type for the
  *  [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync) call. This should
  *  follow the same format as the Google smart home `action.devices.SYNC`
- *  [response](https://developers.google.com/assistant/smarthome/reference/intent/sync).
- *  # Example ```json { "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+ *  [response](https://developers.home.google.com/cloud-to-cloud/intents/sync).
+ *  Example: ```json { "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
  *  "payload": { "agentUserId": "1836.15267389", "devices": [{ "id": "123",
  *  "type": "action.devices.types.OUTLET", "traits": [
  *  "action.devices.traits.OnOff" ], "name": { "defaultNames": ["My Outlet

@@ -1413,6 +1413,538 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
+ *  Creates and configures a client-side encryption identity that's authorized
+ *  to send mail from the user account. Google publishes the S/MIME certificate
+ *  to a shared domain-wide directory so that people within a Google Workspace
+ *  organization can encrypt and send mail to the identity.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.identities.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseIdentitiesCreate : GTLRGmailQuery
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseIdentity.
+ *
+ *  Creates and configures a client-side encryption identity that's authorized
+ *  to send mail from the user account. Google publishes the S/MIME certificate
+ *  to a shared domain-wide directory so that people within a Google Workspace
+ *  organization can encrypt and send mail to the identity.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param object The @c GTLRGmail_CseIdentity to include in the query.
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseIdentitiesCreate
+ */
++ (instancetype)queryWithObject:(GTLRGmail_CseIdentity *)object
+                         userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Deletes a client-side encryption identity. The authenticated user can no
+ *  longer use the identity to send encrypted messages. You cannot restore the
+ *  identity after you delete it. Instead, use the CreateCseIdentity method to
+ *  create another identity with the same configuration.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.identities.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseIdentitiesDelete : GTLRGmailQuery
+
+/**
+ *  The primary email address associated with the client-side encryption
+ *  identity configuration that's removed.
+ */
+@property(nonatomic, copy, nullable) NSString *cseEmailAddress;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a client-side encryption identity. The authenticated user can no
+ *  longer use the identity to send encrypted messages. You cannot restore the
+ *  identity after you delete it. Instead, use the CreateCseIdentity method to
+ *  create another identity with the same configuration.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param cseEmailAddress The primary email address associated with the
+ *    client-side encryption identity configuration that's removed.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseIdentitiesDelete
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                cseEmailAddress:(NSString *)cseEmailAddress;
+
+@end
+
+/**
+ *  Retrieves a client-side encryption identity configuration.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.identities.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseIdentitiesGet : GTLRGmailQuery
+
+/**
+ *  The primary email address associated with the client-side encryption
+ *  identity configuration that's retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *cseEmailAddress;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseIdentity.
+ *
+ *  Retrieves a client-side encryption identity configuration.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param cseEmailAddress The primary email address associated with the
+ *    client-side encryption identity configuration that's retrieved.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseIdentitiesGet
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                cseEmailAddress:(NSString *)cseEmailAddress;
+
+@end
+
+/**
+ *  Lists the client-side encrypted identities for an authenticated user.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.identities.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseIdentitiesList : GTLRGmailQuery
+
+/**
+ *  The number of identities to return. If not provided, the page size will
+ *  default to 20 entries.
+ *
+ *  @note If not set, the documented server-side default will be 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Pagination token indicating which page of identities to return. If the token
+ *  is not supplied, then the API will return the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_ListCseIdentitiesResponse.
+ *
+ *  Lists the client-side encrypted identities for an authenticated user.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseIdentitiesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithUserId:(NSString *)userId;
+
+@end
+
+/**
+ *  Associates a different key pair with an existing client-side encryption
+ *  identity. The updated key pair must validate against Google's [S/MIME
+ *  certificate profiles](https://support.google.com/a/answer/7300887).
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.identities.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseIdentitiesPatch : GTLRGmailQuery
+
+/** The email address of the client-side encryption identity to update. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseIdentity.
+ *
+ *  Associates a different key pair with an existing client-side encryption
+ *  identity. The updated key pair must validate against Google's [S/MIME
+ *  certificate profiles](https://support.google.com/a/answer/7300887).
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param object The @c GTLRGmail_CseIdentity to include in the query.
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param emailAddress The email address of the client-side encryption identity
+ *    to update.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseIdentitiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRGmail_CseIdentity *)object
+                         userId:(NSString *)userId
+                   emailAddress:(NSString *)emailAddress;
+
+@end
+
+/**
+ *  Creates and uploads a client-side encryption S/MIME public key certificate
+ *  chain and private key metadata for the authenticated user.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.keypairs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseKeypairsCreate : GTLRGmailQuery
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseKeyPair.
+ *
+ *  Creates and uploads a client-side encryption S/MIME public key certificate
+ *  chain and private key metadata for the authenticated user.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param object The @c GTLRGmail_CseKeyPair to include in the query.
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseKeypairsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGmail_CseKeyPair *)object
+                         userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Turns off a client-side encryption key pair. The authenticated user can no
+ *  longer use the key pair to decrypt incoming CSE message texts or sign
+ *  outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the
+ *  key pair. After 30 days, you can permanently delete the key pair by using
+ *  the ObliterateCseKeyPair method.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.keypairs.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseKeypairsDisable : GTLRGmailQuery
+
+/** The identifier of the key pair to turn off. */
+@property(nonatomic, copy, nullable) NSString *keyPairId;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseKeyPair.
+ *
+ *  Turns off a client-side encryption key pair. The authenticated user can no
+ *  longer use the key pair to decrypt incoming CSE message texts or sign
+ *  outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the
+ *  key pair. After 30 days, you can permanently delete the key pair by using
+ *  the ObliterateCseKeyPair method.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param object The @c GTLRGmail_DisableCseKeyPairRequest to include in the
+ *    query.
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param keyPairId The identifier of the key pair to turn off.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseKeypairsDisable
+ */
++ (instancetype)queryWithObject:(GTLRGmail_DisableCseKeyPairRequest *)object
+                         userId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId;
+
+@end
+
+/**
+ *  Turns on a client-side encryption key pair that was turned off. The key pair
+ *  becomes active again for any associated client-side encryption identities.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.keypairs.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseKeypairsEnable : GTLRGmailQuery
+
+/** The identifier of the key pair to turn on. */
+@property(nonatomic, copy, nullable) NSString *keyPairId;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseKeyPair.
+ *
+ *  Turns on a client-side encryption key pair that was turned off. The key pair
+ *  becomes active again for any associated client-side encryption identities.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param object The @c GTLRGmail_EnableCseKeyPairRequest to include in the
+ *    query.
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param keyPairId The identifier of the key pair to turn on.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseKeypairsEnable
+ */
++ (instancetype)queryWithObject:(GTLRGmail_EnableCseKeyPairRequest *)object
+                         userId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId;
+
+@end
+
+/**
+ *  Retrieves an existing client-side encryption key pair.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.keypairs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseKeypairsGet : GTLRGmailQuery
+
+/** The identifier of the key pair to retrieve. */
+@property(nonatomic, copy, nullable) NSString *keyPairId;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_CseKeyPair.
+ *
+ *  Retrieves an existing client-side encryption key pair.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param keyPairId The identifier of the key pair to retrieve.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseKeypairsGet
+ */
++ (instancetype)queryWithUserId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId;
+
+@end
+
+/**
+ *  Lists client-side encryption key pairs for an authenticated user.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.keypairs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseKeypairsList : GTLRGmailQuery
+
+/**
+ *  The number of key pairs to return. If not provided, the page size will
+ *  default to 20 entries.
+ *
+ *  @note If not set, the documented server-side default will be 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Pagination token indicating which page of key pairs to return. If the token
+ *  is not supplied, then the API will return the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_ListCseKeyPairsResponse.
+ *
+ *  Lists client-side encryption key pairs for an authenticated user.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseKeypairsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithUserId:(NSString *)userId;
+
+@end
+
+/**
+ *  Deletes a client-side encryption key pair permanently and immediately. You
+ *  can only permanently delete key pairs that have been turned off for more
+ *  than 30 days. To turn off a key pair, use the DisableCseKeyPair method.
+ *  Gmail can't restore or decrypt any messages that were encrypted by an
+ *  obliterated key. Authenticated users and Google Workspace administrators
+ *  lose access to reading the encrypted messages.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  Method: gmail.users.settings.cse.keypairs.obliterate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ *    @c kGTLRAuthScopeGmailSettingsSharing
+ */
+@interface GTLRGmailQuery_UsersSettingsCseKeypairsObliterate : GTLRGmailQuery
+
+/** The identifier of the key pair to obliterate. */
+@property(nonatomic, copy, nullable) NSString *keyPairId;
+
+/**
+ *  The requester's primary email address. To indicate the authenticated user,
+ *  you can use the special value `me`.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a client-side encryption key pair permanently and immediately. You
+ *  can only permanently delete key pairs that have been turned off for more
+ *  than 30 days. To turn off a key pair, use the DisableCseKeyPair method.
+ *  Gmail can't restore or decrypt any messages that were encrypted by an
+ *  obliterated key. Authenticated users and Google Workspace administrators
+ *  lose access to reading the encrypted messages.
+ *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
+ *
+ *  @param object The @c GTLRGmail_ObliterateCseKeyPairRequest to include in the
+ *    query.
+ *  @param userId The requester's primary email address. To indicate the
+ *    authenticated user, you can use the special value `me`. (Default me)
+ *  @param keyPairId The identifier of the key pair to obliterate.
+ *
+ *  @return GTLRGmailQuery_UsersSettingsCseKeypairsObliterate
+ */
++ (instancetype)queryWithObject:(GTLRGmail_ObliterateCseKeyPairRequest *)object
+                         userId:(NSString *)userId
+                      keyPairId:(NSString *)keyPairId;
+
+@end
+
+/**
  *  Adds a delegate with its verification status set directly to `accepted`,
  *  without sending any verification email. The delegate user must be a member
  *  of the same G Suite organization as the delegator user. Gmail imposes

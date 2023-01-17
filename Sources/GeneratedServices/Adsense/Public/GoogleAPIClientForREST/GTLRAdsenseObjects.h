@@ -243,26 +243,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Header_Type_MetricTally;
 // GTLRAdsense_Site.state
 
 /**
- *  Running some checks on the site. This usually takes a few days, but in some
- *  cases can take up to 2 weeks.
+ *  Google is running some checks on the site. This usually takes a few days,
+ *  but in some cases it can take two to four weeks.
  *
  *  Value: "GETTING_READY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_GettingReady;
 /**
  *  Publisher needs to fix some issues before the site is ready to show ads.
+ *  Learn what to do [if a new site isn't
+ *  ready](https://support.google.com/adsense/answer/9061852).
  *
  *  Value: "NEEDS_ATTENTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_NeedsAttention;
 /**
- *  The site is ready to show ads.
+ *  The site is ready to show ads. Learn how to [set up ads on the
+ *  site](https://support.google.com/adsense/answer/7037624).
  *
  *  Value: "READY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_Ready;
 /**
- *  The site hasn't been checked yet.
+ *  Either: * The site hasn't been checked yet. * The site is inactive and needs
+ *  another review before it can show ads again. Learn how to [request a review
+ *  for an inactive site](https://support.google.com/adsense/answer/9393996).
  *
  *  Value: "REQUIRES_REVIEW"
  */
@@ -1182,16 +1187,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *  Output only. State of a site.
  *
  *  Likely values:
- *    @arg @c kGTLRAdsense_Site_State_GettingReady Running some checks on the
- *        site. This usually takes a few days, but in some cases can take up to
- *        2 weeks. (Value: "GETTING_READY")
+ *    @arg @c kGTLRAdsense_Site_State_GettingReady Google is running some checks
+ *        on the site. This usually takes a few days, but in some cases it can
+ *        take two to four weeks. (Value: "GETTING_READY")
  *    @arg @c kGTLRAdsense_Site_State_NeedsAttention Publisher needs to fix some
- *        issues before the site is ready to show ads. (Value:
+ *        issues before the site is ready to show ads. Learn what to do [if a
+ *        new site isn't
+ *        ready](https://support.google.com/adsense/answer/9061852). (Value:
  *        "NEEDS_ATTENTION")
- *    @arg @c kGTLRAdsense_Site_State_Ready The site is ready to show ads.
- *        (Value: "READY")
- *    @arg @c kGTLRAdsense_Site_State_RequiresReview The site hasn't been
- *        checked yet. (Value: "REQUIRES_REVIEW")
+ *    @arg @c kGTLRAdsense_Site_State_Ready The site is ready to show ads. Learn
+ *        how to [set up ads on the
+ *        site](https://support.google.com/adsense/answer/7037624). (Value:
+ *        "READY")
+ *    @arg @c kGTLRAdsense_Site_State_RequiresReview Either: * The site hasn't
+ *        been checked yet. * The site is inactive and needs another review
+ *        before it can show ads again. Learn how to [request a review for an
+ *        inactive site](https://support.google.com/adsense/answer/9393996).
+ *        (Value: "REQUIRES_REVIEW")
  *    @arg @c kGTLRAdsense_Site_State_StateUnspecified State unspecified.
  *        (Value: "STATE_UNSPECIFIED")
  */

@@ -124,12 +124,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieves a list of conversions from a DoubleClick Search engine account.
  *
- *  Method: doubleclicksearch.conversion.GetCustomerId
+ *  Method: doubleclicksearch.conversion.getByCustomerId
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
-@interface GTLRDoubleclicksearchQuery_ConversionGetCustomerId : GTLRDoubleclicksearchQuery
+@interface GTLRDoubleclicksearchQuery_ConversionGetByCustomerId : GTLRDoubleclicksearchQuery
 
 /** Numeric ID of the ad group. */
 @property(nonatomic, assign) long long adGroupId;
@@ -195,7 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param startRow The 0-based starting index for retrieving conversions
  *    results.
  *
- *  @return GTLRDoubleclicksearchQuery_ConversionGetCustomerId
+ *  @return GTLRDoubleclicksearchQuery_ConversionGetByCustomerId
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                             endDate:(NSInteger)endDate

@@ -243,6 +243,16 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1FieldConstraints
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1FieldConstraints
+@dynamic numericRangeConstraint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromePolicy_GoogleChromePolicyVersionsV1InheritOrgUnitPolicyRequest
 //
 
@@ -347,6 +357,16 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint
+@dynamic maximum, minimum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationFieldError
 //
 
@@ -396,9 +416,9 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDescription
-@dynamic defaultValue, descriptionProperty, field, fieldDependencies,
-         fieldDescription, inputConstraint, knownValueDescriptions, name,
-         nestedFieldDescriptions, requiredItems;
+@dynamic defaultValue, descriptionProperty, field, fieldConstraints,
+         fieldDependencies, fieldDescription, inputConstraint,
+         knownValueDescriptions, name, nestedFieldDescriptions, requiredItems;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

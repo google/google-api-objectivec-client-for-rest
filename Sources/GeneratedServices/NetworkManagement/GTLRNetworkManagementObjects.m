@@ -54,6 +54,7 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @
 // GTLRNetworkManagement_DropInfo.cause
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive = @"CLOUD_FUNCTION_NOT_ACTIVE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady = @"CLOUD_RUN_REVISION_NOT_READY";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress = @"CLOUD_SQL_INSTANCE_NO_IP_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoRoute = @"CLOUD_SQL_INSTANCE_NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotConfiguredForExternalTraffic = @"CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC";
@@ -179,7 +180,9 @@ NSString * const kGTLRNetworkManagement_Step_State_Forward     = @"FORWARD";
 NSString * const kGTLRNetworkManagement_Step_State_Nat         = @"NAT";
 NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection = @"PROXY_CONNECTION";
 NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved = @"SPOOFING_APPROVED";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromAppEngineVersion = @"START_FROM_APP_ENGINE_VERSION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction = @"START_FROM_CLOUD_FUNCTION";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudRunRevision = @"START_FROM_CLOUD_RUN_REVISION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance = @"START_FROM_CLOUD_SQL_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromGkeMaster = @"START_FROM_GKE_MASTER";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance = @"START_FROM_INSTANCE";
@@ -209,6 +212,26 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_AppEngineVersionEndpoint
+//
+
+@implementation GTLRNetworkManagement_AppEngineVersionEndpoint
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_AppEngineVersionInfo
+//
+
+@implementation GTLRNetworkManagement_AppEngineVersionInfo
+@dynamic displayName, environment, runtime, uri;
 @end
 
 
@@ -297,6 +320,26 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_CloudRunRevisionEndpoint
+//
+
+@implementation GTLRNetworkManagement_CloudRunRevisionEndpoint
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_CloudRunRevisionInfo
+//
+
+@implementation GTLRNetworkManagement_CloudRunRevisionInfo
+@dynamic displayName, location, serviceUri, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_CloudSQLInstanceInfo
 //
 
@@ -378,8 +421,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Endpoint
-@dynamic cloudFunction, cloudSqlInstance, gkeMasterCluster, instance, ipAddress,
-         network, networkType, port, projectId;
+@dynamic appEngineVersion, cloudFunction, cloudRunRevision, cloudSqlInstance,
+         gkeMasterCluster, instance, ipAddress, network, networkType, port,
+         projectId;
 @end
 
 
@@ -802,10 +846,10 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Step
-@dynamic abort, causesDrop, cloudFunction, cloudSqlInstance, deliver,
-         descriptionProperty, drop, endpoint, firewall, forward, forwardingRule,
-         gkeMaster, instance, loadBalancer, network, projectId, route, state,
-         vpcConnector, vpnGateway, vpnTunnel;
+@dynamic abort, appEngineVersion, causesDrop, cloudFunction, cloudRunRevision,
+         cloudSqlInstance, deliver, descriptionProperty, drop, endpoint,
+         firewall, forward, forwardingRule, gkeMaster, instance, loadBalancer,
+         network, projectId, route, state, vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

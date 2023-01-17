@@ -24,13 +24,16 @@
 @class GTLRServiceNetworking_BackendRule;
 @class GTLRServiceNetworking_Billing;
 @class GTLRServiceNetworking_BillingDestination;
+@class GTLRServiceNetworking_ClientLibrarySettings;
 @class GTLRServiceNetworking_CloudSQLConfig;
+@class GTLRServiceNetworking_CommonLanguageSettings;
 @class GTLRServiceNetworking_Connection;
 @class GTLRServiceNetworking_ConsumerConfig;
 @class GTLRServiceNetworking_ConsumerProject;
 @class GTLRServiceNetworking_Context;
 @class GTLRServiceNetworking_ContextRule;
 @class GTLRServiceNetworking_Control;
+@class GTLRServiceNetworking_CppSettings;
 @class GTLRServiceNetworking_CustomError;
 @class GTLRServiceNetworking_CustomErrorRule;
 @class GTLRServiceNetworking_CustomHttpPattern;
@@ -38,19 +41,25 @@
 @class GTLRServiceNetworking_DnsZone;
 @class GTLRServiceNetworking_Documentation;
 @class GTLRServiceNetworking_DocumentationRule;
+@class GTLRServiceNetworking_DotnetSettings;
 @class GTLRServiceNetworking_Endpoint;
 @class GTLRServiceNetworking_Enum;
 @class GTLRServiceNetworking_EnumValue;
 @class GTLRServiceNetworking_Field;
 @class GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange;
+@class GTLRServiceNetworking_GoSettings;
 @class GTLRServiceNetworking_Http;
 @class GTLRServiceNetworking_HttpRule;
+@class GTLRServiceNetworking_JavaSettings;
+@class GTLRServiceNetworking_JavaSettings_ServiceClassNames;
 @class GTLRServiceNetworking_JwtLocation;
 @class GTLRServiceNetworking_LabelDescriptor;
 @class GTLRServiceNetworking_LogDescriptor;
 @class GTLRServiceNetworking_Logging;
 @class GTLRServiceNetworking_LoggingDestination;
+@class GTLRServiceNetworking_LongRunning;
 @class GTLRServiceNetworking_Method;
+@class GTLRServiceNetworking_MethodSettings;
 @class GTLRServiceNetworking_MetricDescriptor;
 @class GTLRServiceNetworking_MetricDescriptorMetadata;
 @class GTLRServiceNetworking_MetricRule;
@@ -59,6 +68,7 @@
 @class GTLRServiceNetworking_MonitoredResourceDescriptor;
 @class GTLRServiceNetworking_Monitoring;
 @class GTLRServiceNetworking_MonitoringDestination;
+@class GTLRServiceNetworking_NodeSettings;
 @class GTLRServiceNetworking_OAuthRequirements;
 @class GTLRServiceNetworking_Operation;
 @class GTLRServiceNetworking_Operation_Metadata;
@@ -67,11 +77,15 @@
 @class GTLRServiceNetworking_Option_Value;
 @class GTLRServiceNetworking_Page;
 @class GTLRServiceNetworking_PeeredDnsDomain;
+@class GTLRServiceNetworking_PhpSettings;
 @class GTLRServiceNetworking_PolicyBinding;
+@class GTLRServiceNetworking_Publishing;
+@class GTLRServiceNetworking_PythonSettings;
 @class GTLRServiceNetworking_Quota;
 @class GTLRServiceNetworking_QuotaLimit;
 @class GTLRServiceNetworking_QuotaLimit_Values;
 @class GTLRServiceNetworking_RangeReservation;
+@class GTLRServiceNetworking_RubySettings;
 @class GTLRServiceNetworking_SecondaryIpRange;
 @class GTLRServiceNetworking_SecondaryIpRangeSpec;
 @class GTLRServiceNetworking_SourceContext;
@@ -148,6 +162,102 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTransl
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceNetworking_ClientLibrarySettings.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceNetworking_CommonLanguageSettings.destinations
+
+/**
+ *  Client libraries will neither be generated nor published to package
+ *  managers.
+ *
+ *  Value: "CLIENT_LIBRARY_DESTINATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_ClientLibraryDestinationUnspecified;
+/**
+ *  Generate the client library in a repo under github.com/googleapis, but don't
+ *  publish it to package managers.
+ *
+ *  Value: "GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_Github;
+/**
+ *  Publish the library to package managers like nuget.org and npmjs.com.
+ *
+ *  Value: "PACKAGE_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_PackageManager;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Enum.syntax
@@ -645,6 +755,40 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescr
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceNetworking_Publishing.organization
+
+/**
+ *  Ads (Advertising) Org.
+ *
+ *  Value: "ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Ads;
+/**
+ *  Not useful.
+ *
+ *  Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_ClientLibraryOrganizationUnspecified;
+/**
+ *  Google Cloud Platform Org.
+ *
+ *  Value: "CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Cloud;
+/**
+ *  Photos Org.
+ *
+ *  Value: "PHOTOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos;
+/**
+ *  Street View Org.
+ *
+ *  Value: "STREET_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_StreetView;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Type.syntax
 
 /**
@@ -885,6 +1029,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_AddSubnetworkRequest : GTLRObject
 
 /**
+ *  Optional. Defines the allowSubnetCidrRoutesOverlap field of the subnet, e.g.
+ *  Available in alpha and beta according to [Compute API
+ *  documentation](https://cloud.google.com/compute/docs/reference/rest/beta/subnetworks/insert)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowSubnetCidrRoutesOverlap;
+
+/**
  *  Optional. The IAM permission check determines whether the consumer project
  *  has 'servicenetworking.services.use' permission or not.
  *
@@ -933,9 +1086,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Required. The prefix length of the subnet's IP address range. Use CIDR range
- *  notation, such as `30` to provision a subnet with an `x.x.x.x/30` CIDR
+ *  notation, such as `29` to provision a subnet with an `x.x.x.x/29` CIDR
  *  range. The IP address range is drawn from a pool of available ranges in the
- *  service consumer's allocated range.
+ *  service consumer's allocated range. GCE disallows subnets with prefix_length
+ *  > 29
  *
  *  Uses NSNumber of intValue.
  */
@@ -988,6 +1142,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  ranges, the call fails.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requestedRanges;
+
+/**
+ *  Optional. Defines the role field of the subnet, e.g. 'ACTIVE'. For
+ *  information about the roles that can be set using this field, see
+ *  [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks)
+ *  in the Compute API documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 /**
  *  Optional. A list of secondary IP ranges to be created within the new
@@ -1297,6 +1459,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
+ *  Deprecated, do not use.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minDeadline;
+
+/**
  *  The number of seconds to wait for the completion of a long running
  *  operation. The default is no deadline.
  *
@@ -1422,6 +1591,96 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Details about how and where to publish client libraries.
+ */
+@interface GTLRServiceNetworking_ClientLibrarySettings : GTLRObject
+
+/** Settings for C++ client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CppSettings *cppSettings;
+
+/** Settings for .NET client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DotnetSettings *dotnetSettings;
+
+/** Settings for Go client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_GoSettings *goSettings;
+
+/** Settings for legacy Java features, supported in the Service YAML. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_JavaSettings *javaSettings;
+
+/**
+ *  Launch stage of this version of the API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects allowlisted. Alpha releases don't have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Beta Beta
+ *        is the point at which we are ready to open a release for any customer
+ *        to use. There are no SLA or technical support obligations in a Beta
+ *        release. Products will be complete from a feature perspective, but may
+ *        have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Ga GA
+ *        features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/** Settings for Node client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_NodeSettings *nodeSettings;
+
+/** Settings for PHP client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_PhpSettings *phpSettings;
+
+/** Settings for Python client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_PythonSettings *pythonSettings;
+
+/**
+ *  When using transport=rest, the client request will encode enums as numbers
+ *  rather than strings.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restNumericEnums;
+
+/** Settings for Ruby client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_RubySettings *rubySettings;
+
+/** Version of the API to apply these settings to. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Cloud SQL configuration.
  */
 @interface GTLRServiceNetworking_CloudSQLConfig : GTLRObject
@@ -1438,6 +1697,25 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *umbrellaProject;
+
+@end
+
+
+/**
+ *  Required information for every language.
+ */
+@interface GTLRServiceNetworking_CommonLanguageSettings : GTLRObject
+
+/**
+ *  The destination where API teams want this client library to be published.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
+
+/**
+ *  Link to automatically generated reference documentation. Example:
+ *  https://cloud.google.com/nodejs/docs/reference/asset/latest
+ */
+@property(nonatomic, copy, nullable) NSString *referenceDocsUri;
 
 @end
 
@@ -1666,15 +1944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Selects and configures the service controller used by the service. The
- *  service controller handles two things: - **What is allowed:** for each API
- *  request, Chemist checks the project status, activation status, abuse status,
- *  billing status, service status, location restrictions, VPC Service Controls,
- *  SuperQuota, and other policies. - **What has happened:** for each API
- *  response, Chemist reports the telemetry data to analytics, auditing,
- *  billing, eventing, logging, monitoring, sawmill, and tracing. Chemist also
- *  accepts telemetry data not associated with API traffic, such as billing
- *  metrics. Example: control: environment: servicecontrol.googleapis.com
+ *  Selects and configures the service controller used by the service. Example:
+ *  control: environment: servicecontrol.googleapis.com
  */
 @interface GTLRServiceNetworking_Control : GTLRObject
 
@@ -1684,6 +1955,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  most services is servicecontrol.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *environment;
+
+@end
+
+
+/**
+ *  Settings for C++ client libraries.
+ */
+@interface GTLRServiceNetworking_CppSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
 
 @end
 
@@ -1944,6 +2226,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Settings for Dotnet client libraries.
+ */
+@interface GTLRServiceNetworking_DotnetSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1983,6 +2276,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  cross-origin request is allowed # to proceed. allow_cors: true
  */
 @interface GTLRServiceNetworking_Endpoint : GTLRObject
+
+/**
+ *  Unimplemented. Dot not use. DEPRECATED: This field is no longer supported.
+ *  Instead of using aliases, please specify multiple google.api.Endpoint for
+ *  each of the intended aliases. Additional names that this endpoint will be
+ *  hosted on.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing
@@ -2268,6 +2569,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Settings for Go client libraries.
+ */
+@interface GTLRServiceNetworking_GoSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  Defines the HTTP configuration for an API service. It contains a list of
  *  HttpRule, each specifying the mapping of an RPC method to one or more HTTP
  *  REST API methods.
@@ -2497,6 +2809,58 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Settings for Java client libraries.
+ */
+@interface GTLRServiceNetworking_JavaSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+/**
+ *  The package name to use in Java. Clobbers the java_package option set in the
+ *  protobuf. This should be used **only** by APIs who have already set the
+ *  language_settings.java.package_name" field in gapic.yaml. API teams should
+ *  use the protobuf java_package option where possible. Example of a YAML
+ *  configuration:: publishing: java_settings: library_package:
+ *  com.google.cloud.pubsub.v1
+ */
+@property(nonatomic, copy, nullable) NSString *libraryPackage;
+
+/**
+ *  Configure the Java class name to use instead of the service's for its
+ *  corresponding generated GAPIC client. Keys are fully-qualified service names
+ *  as they appear in the protobuf (including the full the
+ *  language_settings.java.interface_names" field in gapic.yaml. API teams
+ *  should otherwise use the service name as it appears in the protobuf. Example
+ *  of a YAML configuration:: publishing: java_settings: service_class_names: -
+ *  google.pubsub.v1.Publisher: TopicAdmin - google.pubsub.v1.Subscriber:
+ *  SubscriptionAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_JavaSettings_ServiceClassNames *serviceClassNames;
+
+@end
+
+
+/**
+ *  Configure the Java class name to use instead of the service's for its
+ *  corresponding generated GAPIC client. Keys are fully-qualified service names
+ *  as they appear in the protobuf (including the full the
+ *  language_settings.java.interface_names" field in gapic.yaml. API teams
+ *  should otherwise use the service name as it appears in the protobuf. Example
+ *  of a YAML configuration:: publishing: java_settings: service_class_names: -
+ *  google.pubsub.v1.Publisher: TopicAdmin - google.pubsub.v1.Subscriber:
+ *  SubscriptionAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceNetworking_JavaSettings_ServiceClassNames : GTLRObject
+@end
+
+
+/**
  *  Specifies a location to extract JWT from an API request.
  */
 @interface GTLRServiceNetworking_JwtLocation : GTLRObject
@@ -2697,6 +3061,40 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Describes settings to use when generating API methods that use the
+ *  long-running operation pattern. All default values below are from those used
+ *  in the client library generators (e.g.
+ *  [Java](https://github.com/googleapis/gapic-generator-java/blob/04c2faa191a9b5a10b92392fe8482279c4404803/src/main/java/com/google/api/generator/gapic/composer/common/RetrySettingsComposer.java)).
+ */
+@interface GTLRServiceNetworking_LongRunning : GTLRObject
+
+/**
+ *  Initial delay after which the first poll request will be made. Default
+ *  value: 5 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *initialPollDelay;
+
+/**
+ *  Maximum time between two subsequent poll requests. Default value: 45
+ *  seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxPollDelay;
+
+/**
+ *  Multiplier to gradually increase delay between subsequent polls until it
+ *  reaches max_poll_delay. Default value: 1.5.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pollDelayMultiplier;
+
+/** Total polling timeout. Default value: 5 minutes. */
+@property(nonatomic, strong, nullable) GTLRDuration *totalPollTimeout;
+
+@end
+
+
+/**
  *  Method represents a method of an API interface.
  */
 @interface GTLRServiceNetworking_Method : GTLRObject
@@ -2737,6 +3135,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        (Value: "SYNTAX_PROTO3")
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
+
+@end
+
+
+/**
+ *  Describes the generator configuration for a method.
+ */
+@interface GTLRServiceNetworking_MethodSettings : GTLRObject
+
+/**
+ *  Describes settings to use for long-running operations when generating API
+ *  methods for RPCs. Complements RPCs that use the annotations in
+ *  google/longrunning/operations.proto. Example of a YAML configuration::
+ *  publishing: method_behavior: - selector: CreateAdDomain long_running:
+ *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
+ *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
+ *  # 90 minutes
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_LongRunning *longRunning;
+
+/**
+ *  The fully qualified name of the method, for which the options below apply.
+ *  This is used to find the method to apply the options.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 
@@ -3271,6 +3694,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Settings for Node client libraries.
+ */
+@interface GTLRServiceNetworking_NodeSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  OAuth scopes are a way to define data and permissions on data. For example,
  *  there are scopes defined for "Read-only access to Google Calendar" and
  *  "Access to Cloud Platform". Users can consent to a scope for an application,
@@ -3491,6 +3925,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Settings for Php client libraries.
+ */
+@interface GTLRServiceNetworking_PhpSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  Grouping of IAM role and IAM member.
  */
 @interface GTLRServiceNetworking_PolicyBinding : GTLRObject
@@ -3511,6 +3956,91 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  project
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  This message configures the settings for publishing [Google Cloud Client
+ *  libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+ *  generated from the service config.
+ */
+@interface GTLRServiceNetworking_Publishing : GTLRObject
+
+/**
+ *  Used as a tracking tag when collecting data about the APIs developer
+ *  relations artifacts like docs, packages delivered to package managers, etc.
+ *  Example: "speech".
+ */
+@property(nonatomic, copy, nullable) NSString *apiShortName;
+
+/**
+ *  GitHub teams to be added to CODEOWNERS in the directory in GitHub containing
+ *  source code for the client libraries for this API.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *codeownerGithubTeams;
+
+/**
+ *  A prefix used in sample code when demarking regions to be included in
+ *  documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *docTagPrefix;
+
+/**
+ *  Link to product home page. Example:
+ *  https://cloud.google.com/asset-inventory/docs/overview
+ */
+@property(nonatomic, copy, nullable) NSString *documentationUri;
+
+/** GitHub label to apply to issues and pull requests opened for this API. */
+@property(nonatomic, copy, nullable) NSString *githubLabel;
+
+/**
+ *  Client library settings. If the same version string appears multiple times
+ *  in this list, then the last one wins. Settings from earlier settings with
+ *  the same version string are discarded.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_ClientLibrarySettings *> *librarySettings;
+
+/**
+ *  A list of API method settings, e.g. the behavior for methods that use the
+ *  long-running operation pattern.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_MethodSettings *> *methodSettings;
+
+/**
+ *  Link to a place that API users can report issues. Example:
+ *  https://issuetracker.google.com/issues/new?component=190865&template=1161103
+ */
+@property(nonatomic, copy, nullable) NSString *newIssueUri NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  For whom the client library is being published.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Ads Ads
+ *        (Advertising) Org. (Value: "ADS")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_ClientLibraryOrganizationUnspecified
+ *        Not useful. (Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Cloud Google Cloud
+ *        Platform Org. (Value: "CLOUD")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Photos Photos Org.
+ *        (Value: "PHOTOS")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_StreetView Street
+ *        View Org. (Value: "STREET_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+@end
+
+
+/**
+ *  Settings for Python client libraries.
+ */
+@interface GTLRServiceNetworking_PythonSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
 
 @end
 
@@ -3694,9 +4224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Required. The size of the desired subnet. Use usual CIDR range notation. For
- *  example, '30' to find unused x.x.x.x/30 CIDR range. The goal is to determine
+ *  example, '29' to find unused x.x.x.x/29 CIDR range. The goal is to determine
  *  if one of the allocated ranges has enough free space for a subnet of the
- *  requested size.
+ *  requested size. GCE disallows subnets with prefix_length > 29
  *
  *  Uses NSNumber of intValue.
  */
@@ -3713,9 +4243,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Optional. The size of the desired secondary ranges for the subnet. Use usual
- *  CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR range.
+ *  CIDR range notation. For example, '29' to find unused x.x.x.x/29 CIDR range.
  *  The goal is to determine that the allocated ranges have enough free space
- *  for all the requested secondary ranges.
+ *  for all the requested secondary ranges. GCE disallows subnets with
+ *  prefix_length > 29
  *
  *  Uses NSNumber of intValue.
  */
@@ -3839,6 +4370,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  `projects/123456/global/gateways/default-internet-gateway`
  */
 @property(nonatomic, copy, nullable) NSString *nextHopGateway;
+
+@end
+
+
+/**
+ *  Settings for Ruby client libraries.
+ */
+@interface GTLRServiceNetworking_RubySettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
 
 @end
 
@@ -4036,6 +4578,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /** The Google project that owns this service. */
 @property(nonatomic, copy, nullable) NSString *producerProjectId;
+
+/**
+ *  Settings for [Google Cloud Client
+ *  libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+ *  generated from APIs defined as protocol buffers.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_Publishing *publishing;
 
 /** Quota configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_Quota *quota;

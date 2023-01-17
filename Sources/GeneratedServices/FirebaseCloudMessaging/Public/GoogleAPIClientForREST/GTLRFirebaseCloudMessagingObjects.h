@@ -538,7 +538,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request
  *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
- *  for supported headers such as `apns-expiration` and `apns-priority`.
+ *  for supported headers such as `apns-expiration` and `apns-priority`. The
+ *  backend sets a default value for `apns-expiration` of 30 days and a default
+ *  value for `apns-priority` of 10 if not explicitly set.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Headers *headers;
 
@@ -547,9 +549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title and
- *  google.firebase.fcm.v1.Notification.body. The backend sets a default value
- *  for `apns-expiration` of 30 days and a default value for `apns-priority` of
- *  10 if not explicitly set.
+ *  google.firebase.fcm.v1.Notification.body.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Payload *payload;
 
@@ -560,7 +560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request
  *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
- *  for supported headers such as `apns-expiration` and `apns-priority`.
+ *  for supported headers such as `apns-expiration` and `apns-priority`. The
+ *  backend sets a default value for `apns-expiration` of 30 days and a default
+ *  value for `apns-priority` of 10 if not explicitly set.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -576,9 +578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title and
- *  google.firebase.fcm.v1.Notification.body. The backend sets a default value
- *  for `apns-expiration` of 30 days and a default value for `apns-priority` of
- *  10 if not explicitly set.
+ *  google.firebase.fcm.v1.Notification.body.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

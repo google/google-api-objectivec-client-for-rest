@@ -1134,24 +1134,24 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @implementation GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate
 
-@dynamic advertisersId;
+@dynamic advertiserId;
 
 + (instancetype)queryWithObject:(GTLRDisplayVideo_BulkUpdateLineItemsRequest *)object
-                  advertisersId:(NSString *)advertisersId {
+                   advertiserId:(long long)advertiserId {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"advertisersId" ];
-  NSString *pathURITemplate = @"v2/advertisers/{advertisersId}/lineItems:bulkUpdate";
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/lineItems:bulkUpdate";
   GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.advertisersId = advertisersId;
+  query.advertiserId = advertiserId;
   query.expectedObjectClass = [GTLRDisplayVideo_BulkUpdateLineItemsResponse class];
   query.loggingName = @"displayvideo.advertisers.lineItems.bulkUpdate";
   return query;

@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   reCAPTCHA Enterprise API (recaptchaenterprise/v1)
+// Description:
+//   Help protect your website from fraudulent activity, spam, and abuse without
+//   creating friction.
 // Documentation:
 //   https://cloud.google.com/recaptcha-enterprise/
 

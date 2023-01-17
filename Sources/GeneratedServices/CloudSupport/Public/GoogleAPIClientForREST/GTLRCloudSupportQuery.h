@@ -35,7 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a file attachment on a case or Cloud resource.
+ *  Create a file attachment on a case or Cloud resource. The attachment object
+ *  must have the following fields set: filename.
  *
  *  Method: cloudsupport.attachments.create
  *
@@ -45,20 +46,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSupportQuery_AttachmentsCreate : GTLRCloudSupportQuery
 
 /**
- *  Required. The resource name of the case to which attachment should be
- *  attached.
+ *  Required. The resource name of the case (or case parent) to which the
+ *  attachment should be attached.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudSupport_Attachment.
  *
- *  Create a file attachment on a case or Cloud resource.
+ *  Create a file attachment on a case or Cloud resource. The attachment object
+ *  must have the following fields set: filename.
  *
  *  @param object The @c GTLRCloudSupport_CreateAttachmentRequest to include in
  *    the query.
- *  @param parent Required. The resource name of the case to which attachment
- *    should be attached.
+ *  @param parent Required. The resource name of the case (or case parent) to
+ *    which the attachment should be attached.
  *
  *  @return GTLRCloudSupportQuery_AttachmentsCreate
  */
@@ -192,7 +194,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Add a new comment to the specified Case.
+ *  Add a new comment to the specified Case. The comment object must have the
+ *  following fields set: body.
  *
  *  Method: cloudsupport.cases.comments.create
  *
@@ -209,7 +212,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_Comment.
  *
- *  Add a new comment to the specified Case.
+ *  Add a new comment to the specified Case. The comment object must have the
+ *  following fields set: body.
  *
  *  @param object The @c GTLRCloudSupport_Comment to include in the query.
  *  @param parent Required. The resource name of Case to which this comment
@@ -268,7 +272,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a new case and associate it with the given Cloud resource.
+ *  Create a new case and associate it with the given Cloud resource. The case
+ *  object must have the following fields set: display_name, description,
+ *  classification, and severity.
  *
  *  Method: cloudsupport.cases.create
  *
@@ -286,7 +292,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_Case.
  *
- *  Create a new case and associate it with the given Cloud resource.
+ *  Create a new case and associate it with the given Cloud resource. The case
+ *  object must have the following fields set: display_name, description,
+ *  classification, and severity.
  *
  *  @param object The @c GTLRCloudSupport_Case to include in the query.
  *  @param parent Required. The name of the Cloud resource under which the case
@@ -429,9 +437,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update the specified case. Only a subset of fields (display_name,
- *  description, time_zone, subscriber_email_addresses, related_resources,
- *  severity, priority, primary_contact, and labels) can be updated.
+ *  Update the specified case. Only a subset of fields can be updated.
  *
  *  Method: cloudsupport.cases.patch
  *
@@ -444,13 +450,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A field that represents attributes of a case object that should be updated
- *  as part of this request. Supported values are severity, display_name, and
+ *  A list of attributes of the case object that should be updated as part of
+ *  this request. Supported values are severity, display_name, and
  *  subscriber_email_addresses. If no fields are specified, all supported fields
- *  will be updated. WARNING: If you do not provide a field mask then you may
+ *  are updated. WARNING: If you do not provide a field mask, then you may
  *  accidentally clear some fields. For example, if you leave field mask empty
- *  and do not provide a value for subscriber_email_addresses then
- *  subscriber_email_addresses will be updated to empty.
+ *  and do not provide a value for subscriber_email_addresses, then
+ *  subscriber_email_addresses is updated to empty.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -459,9 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_Case.
  *
- *  Update the specified case. Only a subset of fields (display_name,
- *  description, time_zone, subscriber_email_addresses, related_resources,
- *  severity, priority, primary_contact, and labels) can be updated.
+ *  Update the specified case. Only a subset of fields can be updated.
  *
  *  @param object The @c GTLRCloudSupport_Case to include in the query.
  *  @param name The resource name for the case.
@@ -577,7 +581,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a file attachment on a case or Cloud resource.
+ *  Create a file attachment on a case or Cloud resource. The attachment object
+ *  must have the following fields set: filename.
  *
  *  Method: cloudsupport.media.upload
  *
@@ -587,20 +592,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSupportQuery_MediaUpload : GTLRCloudSupportQuery
 
 /**
- *  Required. The resource name of the case to which attachment should be
- *  attached.
+ *  Required. The resource name of the case (or case parent) to which the
+ *  attachment should be attached.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudSupport_Attachment.
  *
- *  Create a file attachment on a case or Cloud resource.
+ *  Create a file attachment on a case or Cloud resource. The attachment object
+ *  must have the following fields set: filename.
  *
  *  @param object The @c GTLRCloudSupport_CreateAttachmentRequest to include in
  *    the query.
- *  @param parent Required. The resource name of the case to which attachment
- *    should be attached.
+ *  @param parent Required. The resource name of the case (or case parent) to
+ *    which the attachment should be attached.
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *

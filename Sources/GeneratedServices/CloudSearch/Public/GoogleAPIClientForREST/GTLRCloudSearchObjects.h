@@ -133,6 +133,10 @@
 @class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup;
 @class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup;
 @class GTLRCloudSearch_Attachment;
+@class GTLRCloudSearch_Attribute;
+@class GTLRCloudSearch_AttributeRemoved;
+@class GTLRCloudSearch_Attributes;
+@class GTLRCloudSearch_AttributeSet;
 @class GTLRCloudSearch_AuditLoggingSettings;
 @class GTLRCloudSearch_AuthorizedItemId;
 @class GTLRCloudSearch_AutoComplete;
@@ -156,8 +160,8 @@
 @class GTLRCloudSearch_CardAction;
 @class GTLRCloudSearch_CardCapabilityMetadata;
 @class GTLRCloudSearch_CardHeader;
+@class GTLRCloudSearch_CaribouAttributeValue;
 @class GTLRCloudSearch_ChatClientActionMarkup;
-@class GTLRCloudSearch_ChatConfig;
 @class GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadata;
 @class GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataAttachmentMetadata;
 @class GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataBotMessageMetadata;
@@ -170,7 +174,9 @@
 @class GTLRCloudSearch_ChatContentExtension;
 @class GTLRCloudSearch_ChatProto;
 @class GTLRCloudSearch_CircleProto;
+@class GTLRCloudSearch_ClientContext;
 @class GTLRCloudSearch_CloudPrincipalProto;
+@class GTLRCloudSearch_ClusterInfo;
 @class GTLRCloudSearch_CoActivity;
 @class GTLRCloudSearch_Collaboration;
 @class GTLRCloudSearch_Color;
@@ -237,18 +243,25 @@
 @class GTLRCloudSearch_FacetResult;
 @class GTLRCloudSearch_FieldViolation;
 @class GTLRCloudSearch_Filter;
+@class GTLRCloudSearch_FilterCreated;
+@class GTLRCloudSearch_FilterDeleted;
 @class GTLRCloudSearch_FilterOptions;
+@class GTLRCloudSearch_FilterUpdate;
 @class GTLRCloudSearch_FixedFooter;
+@class GTLRCloudSearch_Folder;
+@class GTLRCloudSearch_FolderAttribute;
 @class GTLRCloudSearch_FormAction;
 @class GTLRCloudSearch_FormatMetadata;
 @class GTLRCloudSearch_Formatting;
 @class GTLRCloudSearch_FreshnessOptions;
+@class GTLRCloudSearch_FuseboxItem;
+@class GTLRCloudSearch_FuseboxItemThreadMatchInfo;
+@class GTLRCloudSearch_FuseboxPrefUpdatePreState;
 @class GTLRCloudSearch_GaiaGroupProto;
 @class GTLRCloudSearch_GaiaUserProto;
 @class GTLRCloudSearch_GatewayAccess;
 @class GTLRCloudSearch_GatewaySipAccess;
 @class GTLRCloudSearch_GmailClientActionMarkup;
-@class GTLRCloudSearch_GoogleChatConfig;
 @class GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup;
 @class GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard;
 @class GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction;
@@ -277,6 +290,8 @@
 @class GTLRCloudSearch_HangoutEvent;
 @class GTLRCloudSearch_HangoutVideoEventMetadata;
 @class GTLRCloudSearch_HashtagData;
+@class GTLRCloudSearch_History;
+@class GTLRCloudSearch_HistoryRecord;
 @class GTLRCloudSearch_HostAppActionMarkup;
 @class GTLRCloudSearch_HostProto;
 @class GTLRCloudSearch_HtmlOperatorOptions;
@@ -289,9 +304,16 @@
 @class GTLRCloudSearch_ImageComponent;
 @class GTLRCloudSearch_ImageCropStyle;
 @class GTLRCloudSearch_ImageKeyValue;
+@class GTLRCloudSearch_ImapSessionContext;
+@class GTLRCloudSearch_ImapSyncDelete;
+@class GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage;
+@class GTLRCloudSearch_ImapsyncFolderAttributeFolderMessageFlags;
+@class GTLRCloudSearch_ImapUidsReassign;
+@class GTLRCloudSearch_ImapUpdate;
 @class GTLRCloudSearch_IncomingWebhookChangedMetadata;
 @class GTLRCloudSearch_IndexItemOptions;
 @class GTLRCloudSearch_InsertContent;
+@class GTLRCloudSearch_IntegerFacetingOptions;
 @class GTLRCloudSearch_IntegerOperatorOptions;
 @class GTLRCloudSearch_IntegerPropertyOptions;
 @class GTLRCloudSearch_IntegerValues;
@@ -305,14 +327,25 @@
 @class GTLRCloudSearch_ItemContent;
 @class GTLRCloudSearch_ItemCountByStatus;
 @class GTLRCloudSearch_ItemMetadata;
+@class GTLRCloudSearch_ItemParts;
 @class GTLRCloudSearch_ItemStatus;
 @class GTLRCloudSearch_ItemStructuredData;
+@class GTLRCloudSearch_JobsettedServerSpec;
 @class GTLRCloudSearch_KeyValue;
+@class GTLRCloudSearch_LabelAdded;
+@class GTLRCloudSearch_LabelCreated;
+@class GTLRCloudSearch_LabelDeleted;
+@class GTLRCloudSearch_LabelRemoved;
+@class GTLRCloudSearch_LabelRenamed;
+@class GTLRCloudSearch_Labels;
+@class GTLRCloudSearch_LabelUpdate;
+@class GTLRCloudSearch_LabelUpdated;
 @class GTLRCloudSearch_LanguageConfig;
 @class GTLRCloudSearch_LdapGroupProto;
 @class GTLRCloudSearch_LdapUserProto;
 @class GTLRCloudSearch_LegacyUploadMetadata;
 @class GTLRCloudSearch_LinkData;
+@class GTLRCloudSearch_MatchInfo;
 @class GTLRCloudSearch_MatchRange;
 @class GTLRCloudSearch_MdbGroupProto;
 @class GTLRCloudSearch_MdbUserProto;
@@ -324,12 +357,16 @@
 @class GTLRCloudSearch_Menu;
 @class GTLRCloudSearch_MenuItem;
 @class GTLRCloudSearch_Message;
+@class GTLRCloudSearch_MessageAdded;
 @class GTLRCloudSearch_MessageAttributes;
+@class GTLRCloudSearch_MessageDeleted;
 @class GTLRCloudSearch_MessageId;
 @class GTLRCloudSearch_MessageParentId;
 @class GTLRCloudSearch_MessageProps;
+@class GTLRCloudSearch_MessageSet;
 @class GTLRCloudSearch_Metadata;
 @class GTLRCloudSearch_Metaline;
+@class GTLRCloudSearch_MultiKey;
 @class GTLRCloudSearch_Name;
 @class GTLRCloudSearch_NamedProperty;
 @class GTLRCloudSearch_OAuthConsumerProto;
@@ -344,6 +381,7 @@
 @class GTLRCloudSearch_Operation;
 @class GTLRCloudSearch_Operation_Metadata;
 @class GTLRCloudSearch_Operation_Response;
+@class GTLRCloudSearch_OsVersion;
 @class GTLRCloudSearch_OtrChatMessageEvent;
 @class GTLRCloudSearch_OtrModificationEvent;
 @class GTLRCloudSearch_PackagingServiceClient;
@@ -355,8 +393,13 @@
 @class GTLRCloudSearch_PhoneNumber;
 @class GTLRCloudSearch_Photo;
 @class GTLRCloudSearch_PinnedItemId;
+@class GTLRCloudSearch_PossiblyTrimmedModel;
 @class GTLRCloudSearch_PostiniUserProto;
+@class GTLRCloudSearch_PrefDeleted;
+@class GTLRCloudSearch_PrefUpdate;
+@class GTLRCloudSearch_PrefWritten;
 @class GTLRCloudSearch_Presenter;
+@class GTLRCloudSearch_PreState;
 @class GTLRCloudSearch_Principal;
 @class GTLRCloudSearch_PrincipalProto;
 @class GTLRCloudSearch_PrivateMessageInfo;
@@ -373,6 +416,7 @@
 @class GTLRCloudSearch_QuerySource;
 @class GTLRCloudSearch_QuerySuggestion;
 @class GTLRCloudSearch_QuotedMessageMetadata;
+@class GTLRCloudSearch_Rank;
 @class GTLRCloudSearch_RbacRoleProto;
 @class GTLRCloudSearch_RbacSubjectProto;
 @class GTLRCloudSearch_ReactionInfo;
@@ -381,6 +425,8 @@
 @class GTLRCloudSearch_RecordingEvent;
 @class GTLRCloudSearch_RecordingInfo;
 @class GTLRCloudSearch_RecordingSessionInfo;
+@class GTLRCloudSearch_Reference;
+@class GTLRCloudSearch_References;
 @class GTLRCloudSearch_RenameEvent;
 @class GTLRCloudSearch_RepositoryError;
 @class GTLRCloudSearch_RequestFileScope;
@@ -399,6 +445,7 @@
 @class GTLRCloudSearch_RoomUpdatedMetadata;
 @class GTLRCloudSearch_Roster;
 @class GTLRCloudSearch_RosterId;
+@class GTLRCloudSearch_RpcOptions;
 @class GTLRCloudSearch_SafeUrlProto;
 @class GTLRCloudSearch_Schema;
 @class GTLRCloudSearch_ScoringConfig;
@@ -412,6 +459,7 @@
 @class GTLRCloudSearch_Segment;
 @class GTLRCloudSearch_SelectionControl;
 @class GTLRCloudSearch_SelectionItem;
+@class GTLRCloudSearch_SessionContext;
 @class GTLRCloudSearch_SessionEvent;
 @class GTLRCloudSearch_SessionStateInfo;
 @class GTLRCloudSearch_Settings;
@@ -451,14 +499,25 @@
 @class GTLRCloudSearch_TextParagraph;
 @class GTLRCloudSearch_TextPropertyOptions;
 @class GTLRCloudSearch_TextValues;
+@class GTLRCloudSearch_ThreadKeySet;
+@class GTLRCloudSearch_ThreadUpdate;
 @class GTLRCloudSearch_TimestampOperatorOptions;
 @class GTLRCloudSearch_TimestampPropertyOptions;
 @class GTLRCloudSearch_TimestampValues;
 @class GTLRCloudSearch_TombstoneMetadata;
 @class GTLRCloudSearch_Toolbar;
 @class GTLRCloudSearch_TopicId;
+@class GTLRCloudSearch_TopicState;
+@class GTLRCloudSearch_TopicState_LabelIdMessageCount;
+@class GTLRCloudSearch_TopicStateUpdate;
+@class GTLRCloudSearch_TransactionContext;
+@class GTLRCloudSearch_TransactionDebugInfo;
 @class GTLRCloudSearch_TranscriptionSessionInfo;
 @class GTLRCloudSearch_TransientData;
+@class GTLRCloudSearch_Trigger;
+@class GTLRCloudSearch_TriggerAction;
+@class GTLRCloudSearch_TriggerKey;
+@class GTLRCloudSearch_Triggers;
 @class GTLRCloudSearch_TrustedResourceUrlProto;
 @class GTLRCloudSearch_TypeInfo;
 @class GTLRCloudSearch_UniversalPhoneAccess;
@@ -1062,6 +1121,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUpl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureIllegalStateForAttachments;
 /**
+ *  Rule fetch was attempted but failed, so rule evaluation could not be
+ *  performed.
+ *
+ *  Value: "SCAN_FAILURE_RULE_FETCH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureRuleFetchFailed;
+/**
  *  Rule fetch and evaluation were attempted but the scanning timed out.
  *
  *  Value: "SCAN_FAILURE_TIMEOUT"
@@ -1102,6 +1168,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUpl
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because file type is
+ *  unsupported.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType;
 /**
  *  Rule fetch and evaluation are skipped because the user sending message is
  *  consumer.
@@ -2498,28 +2571,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Rectan
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Square;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_ChatConfig.chatType
-
-/**
- *  Chat Type has not been specified.
- *
- *  Value: "CHAT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ChatConfig_ChatType_ChatTypeUnspecified;
-/**
- *  Google Chat.
- *
- *  Value: "GOOGLE_CHAT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ChatConfig_ChatType_GoogleChat;
-/**
- *  Meets native chat.
- *
- *  Value: "MEET_CHAT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ChatConfig_ChatType_MeetChat;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_ChatContentExtension.eventOtrStatus
 
 /**
@@ -2557,6 +2608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoA
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppKahoot;
 /**
+ *  Samsung Notes
+ *
+ *  Value: "CO_ACTIVITY_APP_SAMSUNG_NOTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSamsungNotes;
+/**
  *  Spotify music.
  *
  *  Value: "CO_ACTIVITY_APP_SPOTIFY"
@@ -2580,6 +2637,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoA
  *  Value: "CO_ACTIVITY_APP_YOU_TUBE_MAIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMain;
+/**
+ *  YouTube Music
+ *
+ *  Value: "CO_ACTIVITY_APP_YOU_TUBE_MUSIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMusic;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_CompositeFilter.logicOperator
@@ -2647,6 +2710,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureIllegalStateForAttachments;
 /**
+ *  Rule fetch was attempted but failed, so rule evaluation could not be
+ *  performed.
+ *
+ *  Value: "SCAN_FAILURE_RULE_FETCH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureRuleFetchFailed;
+/**
  *  Rule fetch and evaluation were attempted but the scanning timed out.
  *
  *  Value: "SCAN_FAILURE_TIMEOUT"
@@ -2687,6 +2757,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_S
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because file type is
+ *  unsupported.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType;
 /**
  *  Rule fetch and evaluation are skipped because the user sending message is
  *  consumer.
@@ -4382,6 +4459,93 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_Ha
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_VideoStart;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_HistoryRecord.type
+
+/** Value: "ATTRIBUTE_REMOVED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_AttributeRemoved;
+/** Value: "ATTRIBUTE_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_AttributeSet;
+/**
+ *  FilterUpdate:
+ *
+ *  Value: "FILTER_CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_FilterCreated;
+/** Value: "FILTER_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_FilterDeleted;
+/**
+ *  IMAP
+ *
+ *  Value: "IMAP_UIDS_REASSIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_ImapUidsReassign;
+/**
+ *  Represents a change internal to the Fusebox. HistoryRecords for Fusebox
+ *  internal changes contribute to the user's version, which is defined as the
+ *  latest HistoryRecord's record_id. INTERNAL HistoryRecords exist to allow a
+ *  client to update its notion of the latest record_id it has processed, but do
+ *  not necessarily contain any other information.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_Internal;
+/** Value: "LABEL_ADDED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelAdded;
+/**
+ *  LabelUpdate:
+ *
+ *  Value: "LABEL_CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelCreated;
+/** Value: "LABEL_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelDeleted;
+/** Value: "LABEL_REMOVED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelRemoved;
+/** Value: "LABEL_RENAMED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelRenamed;
+/** Value: "LABEL_UPDATED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelUpdated;
+/**
+ *  ThreadUpdate:
+ *
+ *  Value: "MESSAGE_ADDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_MessageAdded;
+/** Value: "MESSAGE_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_MessageDeleted;
+/** Value: "PREF_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_PrefDeleted;
+/**
+ *  PrefUpdate:
+ *
+ *  Value: "PREF_WRITTEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_PrefWritten;
+/** Value: "THREAD_KEY_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_ThreadKeySet;
+/**
+ *  EAI
+ *
+ *  Value: "TOPIC_STATE_UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_TopicStateUpdated;
+/**
+ *  TXN_DEBUG_INFO
+ *
+ *  Value: "TXN_DEBUG_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_TxnDebugInfo;
+/**
+ *  Represents a type that is deprecated or not known by the executing code.
+ *  Even if Fusebox sends a HistoryRecord with Type not UNKNOWN, it may send
+ *  Type values that are not yet defined on the client-side, in which case they
+ *  will be appear as Type.UNKNOWN on the client.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_HistoryRecord_Type_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_IconImage.icon
 
 /** Value: "AIRPLANE" */
@@ -4676,6 +4840,794 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_VideoCame
  *  Value: "VIDEO_PLAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_VideoPlay;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_ImapSessionContext.app
+
+/**
+ *  AdSense
+ *
+ *  Value: "ADSENSE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AdsenseApp;
+/**
+ *  AdWords
+ *
+ *  Value: "ADWORDS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AdwordsApp;
+/**
+ *  Allo
+ *
+ *  Value: "ALLO_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AlloApp;
+/**
+ *  Android's legacy default AOSP browser (distinct
+ *
+ *  Value: "ANDROID_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AndroidBrowser;
+/**
+ *  Android Device Manager
+ *
+ *  Value: "ANDROID_DEVICE_MANAGER_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AndroidDeviceManagerApp;
+/**
+ *  Native Android email app
+ *
+ *  Value: "ANDROID_EMAIL_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AndroidEmailApp;
+/**
+ *  Apple apps (mail, contacts & calendar)
+ *
+ *  Value: "APPLE_NATIVE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AppleNativeApp;
+/**
+ *  Google Arts & Culture
+ *
+ *  Value: "ARTS_AND_CULTURE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_ArtsAndCultureApp;
+/**
+ *  Google Assistant standalone app. iOS only,
+ *
+ *  Value: "ASSISTANT_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_AssistantApp;
+/**
+ *  Battlestar (go/battlestar)
+ *
+ *  Value: "BATTLESTAR_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_BattlestarApp;
+/**
+ *  BlackBerry Internet Service
+ *
+ *  Value: "BIS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_BisApp;
+/**
+ *  Boxer
+ *
+ *  Value: "BOXER_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_BoxerApp;
+/**
+ *  Calendar
+ *
+ *  Value: "CALENDAR_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_CalendarApp;
+/**
+ *  Browsers Google Chrome
+ *
+ *  Value: "CHROME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Chrome;
+/**
+ *  Chrome Sync
+ *
+ *  Value: "CHROME_SYNC_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_ChromeSyncApp;
+/**
+ *  Chrome Webview
+ *
+ *  Value: "CHROME_WEBVIEW_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_ChromeWebviewApp;
+/**
+ *  Google Classroom
+ *
+ *  Value: "CLASSROOM_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_ClassroomApp;
+/**
+ *  Popoular browser in Vietnam
+ *
+ *  Value: "COC_COC_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_CocCocBrowser;
+/**
+ *  Datally
+ *
+ *  Value: "DATALLY_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DatallyApp;
+/** Value: "DEPRECATED_IOS_MAIL_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DeprecatedIosMailApp;
+/**
+ *  Do not remove this fields - remvoing them caused issues in the past (see
+ *  cl/180425348 for reference).
+ *
+ *  Value: "DEPRECATED_MAC_OSX_MAIL_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DeprecatedMacOsxMailApp;
+/**
+ *  Docs
+ *
+ *  Value: "DOCS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DocsApp;
+/**
+ *  Drive
+ *
+ *  Value: "DRIVE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DriveApp;
+/**
+ *  Drive Sync
+ *
+ *  Value: "DRIVE_SYNC_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DriveSyncApp;
+/**
+ *  Duo
+ *
+ *  Value: "DUO_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_DuoApp;
+/**
+ *  Google Earth
+ *
+ *  Value: "EARTH_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_EarthApp;
+/**
+ *  Tag #7 used to be CHROME_WEBVIEW, which was deprecated and replaced by
+ *  CHROME_WEBVIEW_APP. When adding a new browser, skip #7 for safety. Microsoft
+ *  Edge
+ *
+ *  Value: "EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Edge;
+/**
+ *  Google Express (formerly Shopping Express)
+ *
+ *  Value: "EXPRESS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_ExpressApp;
+/**
+ *  Google Family Link
+ *
+ *  Value: "FAMILY_LINK_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_FamilyLinkApp;
+/**
+ *  Files Go
+ *
+ *  Value: "FILES_GO_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_FilesGoApp;
+/**
+ *  Mozilla Firefox
+ *
+ *  Value: "FIREFOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Firefox;
+/**
+ *  since on Android OPA is integrated in GSA. Gboard - the Google Keyboard
+ *
+ *  Value: "GBOARD_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GboardApp;
+/**
+ *  Email apps Gmail
+ *
+ *  Value: "GMAIL_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GmailApp;
+/**
+ *  Inbox by Gmail
+ *
+ *  Value: "GMAIL_INBOX_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GmailInboxApp;
+/**
+ *  Maps
+ *
+ *  Value: "GMM_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GmmApp;
+/**
+ *  Google Analytics
+ *
+ *  Value: "GOOGLE_ANALYTICS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GoogleAnalyticsApp;
+/**
+ *  Google Go
+ *
+ *  Value: "GOOGLE_GO_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GoogleGoApp;
+/**
+ *  Google My Business
+ *
+ *  Value: "GOOGLE_MY_BUSINESS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GoogleMyBusinessApp;
+/**
+ *  Google Pay (formerly Android Pay)
+ *
+ *  Value: "GOOGLE_PAY_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GooglePayApp;
+/**
+ *  Includes both Now and Search on GSA.
+ *
+ *  Value: "GSA_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_GsaApp;
+/**
+ *  Hangouts Classic
+ *
+ *  Value: "HANGOUTS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_HangoutsApp;
+/**
+ *  Hangouts Meet
+ *
+ *  Value: "HANGOUTS_MEET_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_HangoutsMeetApp;
+/**
+ *  Google Home app (rebranded from Chromecast app)
+ *
+ *  Value: "HOME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_HomeApp;
+/**
+ *  Jamboard app (go/jamboard)
+ *
+ *  Value: "JAMBOARD_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_JamboardApp;
+/**
+ *  Keep
+ *
+ *  Value: "KEEP_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_KeepApp;
+/**
+ *  Mail.dll by Limilabs
+ *
+ *  Value: "LIMILABS_MAIL_DLL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_LimilabsMailDll;
+/**
+ *  Non-browser, non-mail, non-first-party apps LogDog (https://getlogdog.com/)
+ *
+ *  Value: "LOGDOG_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_LogdogApp;
+/**
+ *  Tag for the maximum enum value that represents a browser. Enum values
+ *  (strictly) between OTHER_APP and this value represent browsers. This should
+ *  never appear in real data.
+ *
+ *  Value: "MAX_BROWSER_APP_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_MaxBrowserAppValue;
+/**
+ *  Motorola email app
+ *
+ *  Value: "MOTO_EMAIL_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_MotoEmailApp;
+/**
+ *  Microsoft Internet Explorer
+ *
+ *  Value: "MSIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Msie;
+/**
+ *  MSIE in Compatibility View. See b/22467241.
+ *
+ *  Value: "MSIE_COMPATIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_MsieCompatibility;
+/**
+ *  Google News & Weather
+ *
+ *  Value: "NEWS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_NewsApp;
+/**
+ *  Opera
+ *
+ *  Value: "OPERA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Opera;
+/**
+ *  Google Opinion Rewards
+ *
+ *  Value: "OPINION_REWARDS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_OpinionRewardsApp;
+/**
+ *  Unknown
+ *
+ *  Value: "OTHER_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_OtherApp;
+/**
+ *  Browser not otherwise specified
+ *
+ *  Value: "OTHER_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_OtherBrowser;
+/**
+ *  Microsoft Outlook
+ *
+ *  Value: "OUTLOOK_MAIL_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_OutlookMailApp;
+/**
+ *  Photos
+ *
+ *  Value: "PHOTOS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PhotosApp;
+/**
+ *  Google Play
+ *
+ *  Value: "PLAY_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayApp;
+/**
+ *  Google Play Books
+ *
+ *  Value: "PLAY_BOOKS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayBooksApp;
+/**
+ *  Google Play Games
+ *
+ *  Value: "PLAY_GAMES_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayGamesApp;
+/**
+ *  Google Play Movies & TV
+ *
+ *  Value: "PLAY_MOVIES_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayMoviesApp;
+/**
+ *  Google Play Music
+ *
+ *  Value: "PLAY_MUSIC_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayMusicApp;
+/**
+ *  Google Play Newsstand
+ *
+ *  Value: "PLAY_NEWSSTAND_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayNewsstandApp;
+/**
+ *  Google+
+ *
+ *  Value: "PLUS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlusApp;
+/**
+ *  Pokemon GO (uses Google to sign in)
+ *
+ *  Value: "POKEMON_GO_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_PokemonGoApp;
+/**
+ *  Apple Safari
+ *
+ *  Value: "SAFARI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Safari;
+/**
+ *  Safari Webview
+ *
+ *  Value: "SAFARI_WEBVIEW_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SafariWebviewApp;
+/**
+ *  Samsung browser on Android
+ *
+ *  Value: "SAMSUNG_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SamsungBrowser;
+/**
+ *  (replaced by Gmail in Lollipop) Samsung mail
+ *
+ *  Value: "SAMSUNG_MAIL_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SamsungMailApp;
+/**
+ *  Sheets
+ *
+ *  Value: "SHEETS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SheetsApp;
+/**
+ *  Amazon Silk browser
+ *
+ *  Value: "SILK_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SilkBrowser;
+/**
+ *  Slides
+ *
+ *  Value: "SLIDES_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SlidesApp;
+/**
+ *  SmartLock
+ *
+ *  Value: "SMART_LOCK_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_SmartLockApp;
+/**
+ *  Stadia (go/stadia)
+ *
+ *  Value: "STADIA_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_StadiaApp;
+/**
+ *  Google Street View
+ *
+ *  Value: "STREET_VIEW_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_StreetViewApp;
+/**
+ *  Tez payment app for India (go/paisa)
+ *
+ *  Value: "TEZ_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_TezApp;
+/**
+ *  Translate
+ *
+ *  Value: "TRANSLATE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_TranslateApp;
+/**
+ *  Google Trips
+ *
+ *  Value: "TRIPS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_TripsApp;
+/**
+ *  UC Browser
+ *
+ *  Value: "UC_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_UcBrowser;
+/**
+ *  Google Voice
+ *
+ *  Value: "VOICE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_VoiceApp;
+/**
+ *  Google Wallet
+ *
+ *  Value: "WALLET_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_WalletApp;
+/**
+ *  Waze
+ *
+ *  Value: "WAZE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_WazeApp;
+/**
+ *  Android Wear companion app
+ *
+ *  Value: "WEAR_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_WearApp;
+/**
+ *  WhatsApp in Drive
+ *
+ *  Value: "WHATS_APP_IN_DRIVE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_WhatsAppInDriveApp;
+/**
+ *  Google Wifi (incl. OnHub)
+ *
+ *  Value: "WIFI_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_WifiApp;
+/**
+ *  from customized OEM flavours). Yandex Browser
+ *
+ *  Value: "YANDEX_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YandexBrowser;
+/**
+ *  YouTube
+ *
+ *  Value: "YOUTUBE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeApp;
+/**
+ *  YouTube Capture
+ *
+ *  Value: "YOUTUBE_CAPTURE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeCaptureApp;
+/**
+ *  YouTube Creator Studio
+ *
+ *  Value: "YOUTUBE_CREATOR_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeCreatorApp;
+/**
+ *  YouTube Gaming
+ *
+ *  Value: "YOUTUBE_GAMING_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeGamingApp;
+/**
+ *  YouTube Go
+ *
+ *  Value: "YOUTUBE_GO_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeGoApp;
+/**
+ *  YouTube Kids
+ *
+ *  Value: "YOUTUBE_KIDS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeKidsApp;
+/**
+ *  YouTube Music
+ *
+ *  Value: "YOUTUBE_MUSIC_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeMusicApp;
+/**
+ *  YouTube TV
+ *
+ *  Value: "YOUTUBE_TV_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeTvApp;
+/**
+ *  YouTube VR
+ *
+ *  Value: "YOUTUBE_VR_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeVrApp;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_ImapSessionContext.deviceType
+
+/**
+ *  Examples: Android Auto (Embedded mode, not mirrored from phone).
+ *
+ *  Value: "CAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Car;
+/**
+ *  Other connected home devices which do not fit in any of the above
+ *  categories; that is, neither media- or gaming-focused, nor primarily a
+ *  voice-enabled speaker.
+ *
+ *  Value: "CONNECTED_HOME_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_ConnectedHomeOther;
+/**
+ *  Devices whose primary purpose is playing games. Examples: Xbox, Playstation.
+ *
+ *  Value: "GAME_CONSOLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_GameConsole;
+/**
+ *  Google Glass.
+ *
+ *  Value: "GLASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Glass;
+/**
+ *  Add-on devices (i.e. devices which require connecting to another device,
+ *  such as screens/TVs/speakers) whose primary purpose is media consumption
+ *  (excludes physical TV screens). Examples: Chromecast, Roku, Apple TV, Nexus
+ *  Player.
+ *
+ *  Value: "MEDIA_PLAYER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_MediaPlayer;
+/**
+ *  Primarily used for phones, but also set as default for OSes that are
+ *  predominantly for phones (Android, iOS etc.) when we can't determine
+ *  otherwise.
+ *
+ *  Value: "MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Mobile;
+/**
+ *  PCs (incl. Macs). Desktops, laptops and various niche form factors that
+ *  typically run desktop-class OSes (all-in-ones, HTPCs etc.).
+ *
+ *  Value: "PC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Pc;
+/**
+ *  Mobile devices which are not phones, but are capable of storing and playing
+ *  digital media such as audio, images, and video files. Example: iPod.
+ *
+ *  Value: "PORTABLE_MEDIA_PLAYER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_PortableMediaPlayer;
+/**
+ *  Examples: Google Home Display (Quartz/Manhattan/Jasper/Dragonglass), Amazon
+ *  Echo Spot, Amazon Echo Show.
+ *
+ *  Value: "SMART_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_SmartDisplay;
+/**
+ *  Examples: Google Home, Amazon Echo.
+ *
+ *  Value: "SMART_SPEAKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_SmartSpeaker;
+/**
+ *  Tablets.
+ *
+ *  Value: "TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Tablet;
+/**
+ *  Smart TVs which interact with Google products without an external additional
+ *  device. Includes TV sets which run Android TV directly. Refers to actual TV
+ *  screens, rather than connected boxes or dongles.
+ *
+ *  Value: "TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Tv;
+/**
+ *  Unknown device type.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Unknown;
+/**
+ *  Standalone VR headsets, such as the Lenovo Mirage Solo. Does not include
+ *  phone-based VR (such as Daydream View or Gear VR) or PC/Console-based such
+ *  as Oculus Rift, HTC Vive and PSVR; in such cases, the form factor may be
+ *  PHONE, PC or GAME_CONSOLE as applicable.
+ *
+ *  Value: "VR_HEADSET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_VrHeadset;
+/**
+ *  Wearable devices such as smartwatches.
+ *
+ *  Value: "WEARABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Wearable;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_ImapSessionContext.os
+
+/**
+ *  Mobile operating systems (1-99).
+ *
+ *  Value: "ANDROID_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_AndroidOs;
+/**
+ *  Android optimized for IoT devices. go/things
+ *
+ *  Value: "ANDROID_THINGS_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_AndroidThingsOs;
+/**
+ *  Apple tvOS (powering the Apple TV).
+ *
+ *  Value: "APPLE_TV_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_AppleTvOs;
+/** Value: "BLACKBERRY_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_BlackberryOs;
+/**
+ *  Cast family devices, including Chromecast, Google Home, and third-party
+ *  speaker with integrated Assistant.
+ *
+ *  Value: "CAST_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_CastOs;
+/** Value: "CHROME_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_ChromeOs;
+/**
+ *  Amazon Fire OS (for Kindle Fire devices or Fire TV).
+ *
+ *  Value: "FIRE_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_FireOs;
+/** Value: "IOS_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_IosOs;
+/**
+ *  KaiOS, a fork from Firefox OS that is between a full smartphone and a
+ *  feature phone. Notably, it supports the Google Assistant. go/kaiosama
+ *
+ *  Value: "KAI_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_KaiOs;
+/** Value: "LINUX_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_LinuxOs;
+/** Value: "MAC_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_MacOs;
+/**
+ *  Tag for the maximum enum value that represents a mobile OS. Enum values
+ *  (strictly) between UNKNOWN_OS and this value represent mobile OSes. This
+ *  should never appear in real data.
+ *
+ *  Value: "MAX_MOBILE_OS_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_MaxMobileOsValue;
+/**
+ *  The OS powering Playstation consoles. Ignores OS changes across console
+ *  generations.
+ *
+ *  Value: "PLAYSTATION_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_PlaystationOs;
+/**
+ *  Stadia on Cast devices. This is not truly an OS, but it's a temporary
+ *  setting since Stadia uses a different sign-in flow (and is revoked
+ *  differently) from Cast. See http://go/stadia-in-google-account. Do not use
+ *  without discussing with id-devices-eng\@.
+ *
+ *  Value: "STADIA_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_StadiaOs;
+/**
+ *  Tizen OS, popular in Samsung TVs, watches and more.
+ *
+ *  Value: "TIZEN_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_TizenOs;
+/** Value: "UNKNOWN_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_UnknownOs;
+/**
+ *  PC operating systems.
+ *
+ *  Value: "WINDOWS_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_WindowsOs;
+/** Value: "WIN_PHONE_OS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_WinPhoneOs;
+/**
+ *  The Windows-derived OS used on Xbox consoles.
+ *
+ *  Value: "XBOX_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_Os_XboxOs;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_IncomingWebhookChangedMetadata.type
@@ -5274,19 +6226,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangeEvent_Type_L
 // GTLRCloudSearch_Message.deletableBy
 
 /**
- *  Only the creator of an entity can mutate it.
+ *  The message creator can mutate regardless of request origin. Use case: for
+ *  messages created by human via Chat UI or Chat API. These messages can be
+ *  mutated by the same human user via Chat UI or via any app on Chat API.
  *
  *  Value: "PERMISSION_CREATOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionCreator;
 /**
- *  Every human member of a space or the creator can mutate the entity.
+ *  Every human member of a space or the creator can mutate the entity. This
+ *  excludes app acting on behalf of human via Chat API. Use case: This is to
+ *  enable humans to delete messages created by apps.
  *
  *  Value: "PERMISSION_MEMBER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionMember;
 /**
- *  No one can mutate the entity.
+ *  No one except for the message creator/origin pair can mutate. This
+ *  permission checks both gaia id and the request origin. Request origin can be
+ *  Chat API or Chat UI. Mutation is allowed iff both attributes of the request
+ *  match the original message creation. Use case: this allows historical 1P
+ *  apps lock down message edit permission i.e. In Chat UI, humans cannot edit
+ *  their messages created via these 1P apps. Do not use this for additional use
+ *  cases.
  *
  *  Value: "PERMISSION_NO_ONE"
  */
@@ -5322,6 +6284,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanF
  *  Value: "SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureIllegalStateForAttachments;
+/**
+ *  Rule fetch was attempted but failed, so rule evaluation could not be
+ *  performed.
+ *
+ *  Value: "SCAN_FAILURE_RULE_FETCH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureRuleFetchFailed;
 /**
  *  Rule fetch and evaluation were attempted but the scanning timed out.
  *
@@ -5363,6 +6332,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanR
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because file type is
+ *  unsupported.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType;
 /**
  *  Rule fetch and evaluation are skipped because the user sending message is
  *  consumer.
@@ -5474,19 +6450,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanU
 // GTLRCloudSearch_Message.editableBy
 
 /**
- *  Only the creator of an entity can mutate it.
+ *  The message creator can mutate regardless of request origin. Use case: for
+ *  messages created by human via Chat UI or Chat API. These messages can be
+ *  mutated by the same human user via Chat UI or via any app on Chat API.
  *
  *  Value: "PERMISSION_CREATOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionCreator;
 /**
- *  Every human member of a space or the creator can mutate the entity.
+ *  Every human member of a space or the creator can mutate the entity. This
+ *  excludes app acting on behalf of human via Chat API. Use case: This is to
+ *  enable humans to delete messages created by apps.
  *
  *  Value: "PERMISSION_MEMBER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionMember;
 /**
- *  No one can mutate the entity.
+ *  No one except for the message creator/origin pair can mutate. This
+ *  permission checks both gaia id and the request origin. Request origin can be
+ *  Chat API or Chat UI. Mutation is allowed iff both attributes of the request
+ *  match the original message creation. Use case: this allows historical 1P
+ *  apps lock down message edit permission i.e. In Chat UI, humans cannot edit
+ *  their messages created via these 1P apps. Do not use this for additional use
+ *  cases.
  *
  *  Value: "PERMISSION_NO_ONE"
  */
@@ -5586,6 +6572,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_QuotedByState_Quoted
  *  Value: "QUOTED_BY_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_Message.richTextFormattingType
+
+/**
+ *  The formatting was specified as {\@link
+ *  com.google.apps.dynamite.v1.shared.FormatMetadata} annotations.
+ *
+ *  Value: "FORMAT_ANNOTATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotations;
+/**
+ *  The client sent the format annotations, but didn't set the
+ *  accept_format_annotations field to true. This shouldn't happen, but there
+ *  might be some old clients that end up here.
+ *
+ *  Value: "FORMAT_ANNOTATIONS_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotationsIgnored;
+/**
+ *  A combination of MARKDOWN and FORMAT_ANNOTATIONS_IGNORED.
+ *
+ *  Value: "FORMAT_ANNOTATIONS_IGNORED_WITH_MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotationsIgnoredWithMarkdown;
+/**
+ *  The formatting was specified as *markdown characters* in message text.
+ *
+ *  Value: "MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_Markdown;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_MessageInfo.searcherMembershipState
@@ -6247,6 +7266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_RequiredMessageFeaturesMetadata.requiredFeatures
 
+/** Value: "REQUIRED_FEATURE_CUSTOM_HYPERLINK" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureCustomHyperlink;
 /** Value: "REQUIRED_FEATURE_MESSAGE_QUOTING" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting;
 /** Value: "REQUIRED_FEATURE_TOMBSTONES_IN_DMS_AND_UFRS" */
@@ -6894,6 +7915,310 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneT
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_TombstoneUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_Trigger.dispatcher
+
+/**
+ *  Replace ACTION_INVOKE_X; the CS and Stratus are no longer limited to a
+ *  single type of action. Each additional remote client should be defined here.
+ *
+ *  Value: "DISPATCHER_COPROC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherCoproc;
+/** Value: "DISPATCHER_CS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherCs;
+/** Value: "DISPATCHER_JOBSETTED_PRIMARY" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherJobsettedPrimary;
+/** Value: "DISPATCHER_STRATUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherStratus;
+/** Value: "DISPATCHER_STUBBY_DISPATCHER" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherStubbyDispatcher;
+/** Value: "DISPATCHER_TASKS_SERVER" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherTasksServer;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_TriggerAction.action
+
+/**
+ *  This trigger will be executed once per newly created account. It will be
+ *  created as part of the first transaction written to the account. The trigger
+ *  can also be written as part of an SVF in case we want to re-initialize every
+ *  account.
+ *
+ *  Value: "ACTION_ACCOUNT_INITIALIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionAccountInitialization;
+/**
+ *  Begins the message expunge similar to ACTION_MESSAGE_EXPUNGE but fires
+ *  within one day. To be used ONLY for auto save drafts. See
+ *  go/faster-auto-save-draft-deletion for more details.
+ *
+ *  Value: "ACTION_AUTO_SAVE_DRAFT_EXPUNGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionAutoSaveDraftExpunge;
+/**
+ *  Similar to ACTION_QUERY_RETENTION but uses the MessageRetention policies to
+ *  trash/delete the messages: cs/caribou/base/lib/proto/data_retention.proto .
+ *
+ *  Value: "ACTION_CARIBOU_DATA_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionCaribouDataRetention;
+/**
+ *  Trigger for executing comparison logic between the output of
+ *  ApplyDataRetention idle task and CaribouDataRetention trigger.
+ *
+ *  Value: "ACTION_CARIBOU_DATA_RETENTION_DIFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionCaribouDataRetentionDiff;
+/**
+ *  No-op
+ *
+ *  Value: "ACTION_CREATE_NEW_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionCreateNewTrigger;
+/**
+ *  No-op
+ *
+ *  Value: "ACTION_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionDelete;
+/**
+ *  Sends RPC to everclear for the message expunge.
+ *
+ *  Value: "ACTION_EVERCLEAR_EXPUNGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionEverclearExpunge;
+/**
+ *  The retention trigger that will be written to implement Groups retention.
+ *
+ *  Value: "ACTION_GROUPS_QUERY_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionGroupsQueryRetention;
+/**
+ *  This trigger deletes expired HistoryRecords. See go/history-record-cleanup
+ *  for more details.
+ *
+ *  Value: "ACTION_HISTORY_CLEANUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionHistoryCleanup;
+/**
+ *  Sends the trigger to the master Caribou server via the Stubby
+ *  TriggerHandlerService interface (defined in
+ *  caribou/coproc/proto/trigger_handler.proto). The trigger is handled at fire
+ *  time in the account's primary replica, and only in non-primary replicas
+ *  after a delay.
+ *
+ *  Value: "ACTION_INVOKE_CS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeCs;
+/**
+ *  Process the debug log trigger by adding message body before dispatching to
+ *  the Caribou Server through Stubby Dispatcher.
+ *
+ *  Value: "ACTION_INVOKE_DEBUG_LOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeDebugLog;
+/**
+ *  Send the trigger to a groups server that implements the
+ *  TriggerHandlerService. Dispatched via GSLB target specified by
+ *  FLAGS_triggers_groups_server_address.
+ *
+ *  Value: "ACTION_INVOKE_GROUPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeGroups;
+/**
+ *  Similar to ACTION_INVOKE_CS, but instead of sending the trigger to the
+ *  master Caribou server, sends it to a jobsetted server in the user's master
+ *  jobset using the consistent-hash homing algorithm. The jobsetted_server_spec
+ *  must be specified when using this TriggerAction.
+ *
+ *  Value: "ACTION_INVOKE_JOBSETTED_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeJobsettedPrimary;
+/**
+ *  Send the trigger to an Observer server that implements the
+ *  TriggerHandlerService. Dispatched via GSLB target specified by
+ *  FLAGS_triggers_observer_server_address.
+ *
+ *  Value: "ACTION_INVOKE_OBSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeObserver;
+/**
+ *  Send the trigger to an Observer server that implements the
+ *  TriggerHandlerService for wipeout purpose. Dispatched via GSLB target
+ *  specified by FLAGS_triggers_observer_server_address. It behaves differently
+ *  from the invoke observer trigger (ACTION_INVOKE_OBSERVER) and should be
+ *  batched separately. Tingle always fires this kind of action trigger for
+ *  ^deleted messages.
+ *
+ *  Value: "ACTION_INVOKE_OBSERVER_WIPEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeObserverWipeout;
+/**
+ *  Send the trigger to a SmartMail Publisher server that implements the
+ *  TriggerHandlerService. Dispatched via GSLB target specified by
+ *  FLAGS_triggers_publisher_server_address.
+ *
+ *  Value: "ACTION_INVOKE_PUBLISHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokePublisher;
+/**
+ *  Dispatches the permanent backup trigger to Satellite through Stubby
+ *  dispatcher.
+ *
+ *  Value: "ACTION_INVOKE_SATELLITE_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSatelliteBackup;
+/**
+ *  Dispatches the image processing trigger to Satellite through Stubby
+ *  dispatcher. See go/gmail-photo-sharing for details.
+ *
+ *  Value: "ACTION_INVOKE_SATELLITE_IMAGE_PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSatelliteImageProcessing;
+/**
+ *  Send the trigger to the S/MIME certificate issuer server. Dispatched via the
+ *  GSLB target specified by
+ *  FLAGS_triggers_smime_certificate_issuer_server_address.
+ *
+ *  Value: "ACTION_INVOKE_SMIME_CERTIFICATE_ISSUER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSmimeCertificateIssuer;
+/**
+ *  Similar to ACTION_INVOKE_CS, but instead of sending the trigger to the
+ *  master Caribou server, sends it to a Stratus server that also implements the
+ *  TriggerHandlerService. This Stratus server is specified via
+ *  FLAGS_triggers_stratus_server_address. The trigger is handled at fire time
+ *  in the account's primary replica, and only in non-primary replicas after a
+ *  delay.
+ *
+ *  Value: "ACTION_INVOKE_STRATUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeStratus;
+/**
+ *  Send the trigger to the stubby dispatcher, which routes the RPC using the
+ *  value of Trigger.dispatch_id as the RoutingInfo.extension_tag field.
+ *  Dispatched via the GSLB target specified by
+ *  FLAGS_triggers_stubby_dispatcher_address.
+ *
+ *  Value: "ACTION_INVOKE_STUBBY_DISPATCHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeStubbyDispatcher;
+/**
+ *  Send the trigger to a Tasks server that implements the
+ *  TriggerHandlerService. Dispatched via GSLB target specified by
+ *  FLAGS_triggers_tasks_server_address.
+ *
+ *  Value: "ACTION_INVOKE_TASKS_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeTasksServer;
+/**
+ *  This trigger relabels messages asynchronously. See go/fusebox-bulk-api for
+ *  more details.
+ *
+ *  Value: "ACTION_ITEM_BULK_RELABEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionItemBulkRelabel;
+/**
+ *  This action begins the message expunge process. It will trigger a purge
+ *  attempt for all messages that have this trigger.
+ *
+ *  Value: "ACTION_MESSAGE_EXPUNGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionMessageExpunge;
+/**
+ *  Move messages from ^deleted to ^all. This trigger will only undelete
+ *  messages that were deleted before the fire time of the trigger. Also,
+ *  messages whose blobs are already deleted will not be undeleted. This is an
+ *  account trigger.
+ *
+ *  Value: "ACTION_MESSAGE_UNDELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionMessageUndelete;
+/** Value: "ACTION_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionNone;
+/**
+ *  Backfills a set of records from an account and pushes them to PDH.
+ *
+ *  Value: "ACTION_PDH_BACKFILL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPdhBackfill;
+/**
+ *  This action begins the message's PDH expunge. It will trigger a expunge
+ *  (from pdh) attempt for all messages that have this trigger.
+ *
+ *  Value: "ACTION_PDH_EXPUNGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPdhExpunge;
+/**
+ *  Trigger to backfill gaps left by pdh pushed via push notification. see
+ *  go/tingle-moonshine-push-v2
+ *
+ *  Value: "ACTION_PDH_PUSH_NOTIFICATION_BACKFILL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPdhPushNotificationBackfill;
+/**
+ *  This trigger deletes expired temporary preferences. See go/tingle-temp-prefs
+ *  for more details.
+ *
+ *  Value: "ACTION_PREFERENCE_CLEANUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPreferenceCleanup;
+/**
+ *  Push a set of history records to PDH.
+ *
+ *  Value: "ACTION_PUSH_HISTORY_TO_PDH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPushHistoryToPdh;
+/**
+ *  When this trigger fires, based on the latest retention policy: 1. messages
+ *  that need to be deleted will be deleted through the CS trigger handler 2.
+ *  ^deleted messages that need to be expunged will be expunged
+ *
+ *  Value: "ACTION_QUERY_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionQueryRetention;
+/**
+ *  Trigger for backfill relevancy score. see go/gmail-relevancy-scoring-write
+ *  for detail.
+ *
+ *  Value: "ACTION_RELEVANCY_SCORE_BACKFILL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionRelevancyScoreBackfill;
+/**
+ *  When this trigger fires, the current retention policy will be loaded from
+ *  the policy management system and stored into the preference cache (if
+ *  necessary). This will also create new expunge triggers if necessary.
+ *
+ *  Value: "ACTION_RETENTION_POLICY_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionRetentionPolicyUpdate;
+/**
+ *  Begins the message expunge similar to ACTION_MESSAGE_EXPUNGE but doesn't
+ *  check if the message was deleted at least 30 days back. To be used ONLY for
+ *  service removal. See go/gmail-service-removal for more details.
+ *
+ *  Value: "ACTION_SERVICE_REMOVED_MESSAGE_EXPUNGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionServiceRemovedMessageExpunge;
+/**
+ *  When this trigger fires, the message should be used to update the user's
+ *  importance model. See http://go/io-tingle for more details.
+ *
+ *  Value: "ACTION_UPDATE_ICEBOX_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionUpdateIceboxModel;
+/**
+ *  This trigger will undelete messages that were ^deleted arbitrarily long in
+ *  the past and a trash label will be applied to these undeleted messages. This
+ *  is an account trigger that will be written when the Vault admin enables end
+ *  user access for the Vault customer. This trigger shares its implementation
+ *  with the ACTION_MESSAGE_UNDELETE trigger.
+ *
+ *  Value: "ACTION_VAULT_END_USER_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionVaultEndUserAccess;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
 
 /**
@@ -7030,47 +8355,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResu
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_UnknownVirusScanResult;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_UrlMetadata.linkType
+// GTLRCloudSearch_UrlMetadata.urlSource
 
 /**
  *  Set by the server, when it detects a URL in the message text
  *
  *  Value: "AUTO_DETECTED_PLAIN_TEXT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_AutoDetectedPlainText;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_AutoDetectedPlainText;
 /**
- *  Set by the server, when it detects a URL in markdown-syntax in the message
- *  text
- *
- *  Value: "MARKDOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_Markdown;
-/**
- *  Set by the server when a URL annotation received from client has 0 length
- *  and 0 start index
- *
- *  Value: "NO_ASSOCIATED_TEXT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_NoAssociatedText;
-/**
- *  Set by the client, when the user adds a link via the rich-text editing (RTE)
- *  toolbar
+ *  Set by the client, when the user adds a link as a custom hyperlink.
+ *  Validated by the server and persisted in storage.
  *
  *  Value: "RICH_TEXT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_RichText;
-/** Value: "UNDEFINED" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_Undefined;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_UrlMetadata.urlSource
-
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_RichText;
 /** Value: "SERVER_SUPPLIED_POLICY_VIOLATION" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation;
 /** Value: "URL_SOURCE_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UrlSourceUnknown;
-/** Value: "USER_SUPPLIED_URL" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UserSuppliedUrl;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_User.userAccountState
@@ -8153,6 +9456,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        An IllegalStateException is thrown when executing DLP on attachments.
  *        This could happen if the space row is missing. (Value:
  *        "SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureRuleFetchFailed
+ *        Rule fetch was attempted but failed, so rule evaluation could not be
+ *        performed. (Value: "SCAN_FAILURE_RULE_FETCH_FAILED")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureTimeout
  *        Rule fetch and evaluation were attempted but the scanning timed out.
  *        (Value: "SCAN_FAILURE_TIMEOUT")
@@ -8175,6 +9481,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound
  *        Rule fetch happened, but rule evaluation is skipped because no rules
  *        were found. (Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType
+ *        Rule fetch happened, but rule evaluation is skipped because file type
+ *        is unsupported. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedConsumer
  *        Rule fetch and evaluation are skipped because the user sending message
  *        is consumer. (Value: "SCAN_SKIPPED_CONSUMER")
@@ -10995,6 +12305,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  An Attribute is a piece of data attached an Item. Attributes are opaque to
+ *  the Starbox and have no effect on, nor are they effected by, message
+ *  storage, indexing, or search.
+ */
+@interface GTLRCloudSearch_Attribute : GTLRObject
+
+/**
+ *  The name of the attribute. Required - If a write is attempted with an empty
+ *  string, the server will return an error.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_CaribouAttributeValue *value;
+
+@end
+
+
+/**
+ *  An attribute was deleted from some (subset of the) messages in this thread.
+ */
+@interface GTLRCloudSearch_AttributeRemoved : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *attributeId;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_Attributes
+ */
+@interface GTLRCloudSearch_Attributes : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Attribute *> *attribute;
+
+@end
+
+
+/**
+ *  An attribute was added to some (subset of the) messages in this thread.
+ */
+@interface GTLRCloudSearch_AttributeSet : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *attributeId;
+
+/**
+ *  The serialized attribute_value as persisted in the storage layer. The
+ *  application is responsible for deserializing it to an Attribute.Value if
+ *  appropriate.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *attributeValue;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
+
+@end
+
+
+/**
  *  Represents the settings for Cloud audit logging
  */
 @interface GTLRCloudSearch_AuditLoggingSettings : GTLRObject
@@ -11477,9 +12848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *calendarEventId;
 
-/** Configuration for the chat for this conference. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_ChatConfig *chatConfig;
-
 /**
  *  The current co-activity session, or unset if there is none in progress. A
  *  co-activity session can be initiated by devices in JOINED state . Initiator
@@ -11513,16 +12881,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxJoinedDevices;
-
-/**
- *  Output only. Information about the media backend for the currently ongoing
- *  conference in the meeting space. The media backend information will only be
- *  filled in for clients that are supposed to present the information. The
- *  information should be displayed in a debug panel and is only intended for
- *  internal debugging purposes. If the string is empty nothing should be
- *  displayed about the media backend.
- */
-@property(nonatomic, copy, nullable) NSString *mediaBackendInfo;
 
 /**
  *  Output only. The name or description of the organization or domain that the
@@ -11821,33 +13179,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Actions handled by Chat Clients.
+ *  GTLRCloudSearch_CaribouAttributeValue
  */
-@interface GTLRCloudSearch_ChatClientActionMarkup : GTLRObject
+@interface GTLRCloudSearch_CaribouAttributeValue : GTLRObject
+
+/**
+ *  Tags 1 through 15 are reserved for the most commonly used fields.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
+
+/**
+ *  intValue
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/**
+ *  longValue
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longValue;
+
+/**
+ *  Generally, applications should avoid storing raw bytes and instead store
+ *  structured data as protocol buffer extensions. This both reduces the amount
+ *  of ad-hoc attribute parsing code as well as eliminates an intermediate copy
+ *  of the data when deserializing the value. The rawByteValue field is mainly
+ *  provided for compatibility with attributes stored before the introduction of
+ *  the Attribute.Value.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *rawByteValue;
+
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
 @end
 
 
 /**
- *  Configuration of the in meeting chat.
+ *  Actions handled by Chat Clients.
  */
-@interface GTLRCloudSearch_ChatConfig : GTLRObject
-
-/**
- *  The Type of chat this Conference is currently using.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_ChatConfig_ChatType_ChatTypeUnspecified Chat Type
- *        has not been specified. (Value: "CHAT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_ChatConfig_ChatType_GoogleChat Google Chat.
- *        (Value: "GOOGLE_CHAT")
- *    @arg @c kGTLRCloudSearch_ChatConfig_ChatType_MeetChat Meets native chat.
- *        (Value: "MEET_CHAT")
- */
-@property(nonatomic, copy, nullable) NSString *chatType;
-
-/** The configuration of Google Chat when selected. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatConfig *googleChatConfig;
-
+@interface GTLRCloudSearch_ChatClientActionMarkup : GTLRObject
 @end
 
 
@@ -12088,6 +13466,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Represents the context of the client on behalf of which a HistoryRecord is
+ *  produced. The ClientContext message can be used to hold context about the
+ *  service client (e.g. the internal server making fusebox requests) or the
+ *  user client (e.g. the IP address of the end user).
+ */
+@interface GTLRCloudSearch_ClientContext : GTLRObject
+
+/**
+ *  The client operation to which this history record belongs. The notion of a
+ *  client operation is provided to keep track of client operations which might
+ *  span multiple transactions in the lower level.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** E.g. "pinto", "imap", "bigtop", "upload" */
+@property(nonatomic, copy, nullable) NSString *clientType;
+
+/**
+ *  Contains information about the session which created this history record.
+ *  This will be empty if the history record was generated by an internal
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SessionContext *sessionContext;
+
+/** Textual representation of the user's IP address, if available. */
+@property(nonatomic, copy, nullable) NSString *userIp;
+
+@end
+
+
+/**
  *  Principal associated with a Cloud Principal representing third party user.
  */
 @interface GTLRCloudSearch_CloudPrincipalProto : GTLRObject
@@ -12098,6 +13507,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  ClusterInfo contains clustering related information for a particular thread
+ *  that would be sent as part of the conversation view. Today, this information
+ *  would be used by iOS notification server to identify whether the thread
+ *  belongs to a cluster. If the thread belongs to a grouped cluster, it would
+ *  identify whether the cluster is throttled.
+ */
+@interface GTLRCloudSearch_ClusterInfo : GTLRObject
+
+/**
+ *  IDs of the highest priority clusters to which the thread belongs to. If this
+ *  field is not present, the thread does not belong to any cluster and would be
+ *  shown in the inbox, unclustered.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clusterId;
+
+/**
+ *  If the thread belongs to a grouped cluster and all of those clusters are
+ *  throttled, then this field is set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *throttled;
 
 @end
 
@@ -12124,6 +13560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        HeadsUp game. (Value: "CO_ACTIVITY_APP_HEADSUP")
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppKahoot
  *        Kahoot! educational software. (Value: "CO_ACTIVITY_APP_KAHOOT")
+ *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSamsungNotes
+ *        Samsung Notes (Value: "CO_ACTIVITY_APP_SAMSUNG_NOTES")
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSpotify
  *        Spotify music. (Value: "CO_ACTIVITY_APP_SPOTIFY")
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppUno Uno
@@ -12133,6 +13571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMain
  *        Main YouTube app, for watching videos. (Value:
  *        "CO_ACTIVITY_APP_YOU_TUBE_MAIN")
+ *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMusic
+ *        YouTube Music (Value: "CO_ACTIVITY_APP_YOU_TUBE_MUSIC")
  */
 @property(nonatomic, copy, nullable) NSString *coActivityApp;
 
@@ -13132,6 +14572,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        An IllegalStateException is thrown when executing DLP on attachments.
  *        This could happen if the space row is missing. (Value:
  *        "SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS")
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureRuleFetchFailed
+ *        Rule fetch was attempted but failed, so rule evaluation could not be
+ *        performed. (Value: "SCAN_FAILURE_RULE_FETCH_FAILED")
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureTimeout
  *        Rule fetch and evaluation were attempted but the scanning timed out.
  *        (Value: "SCAN_FAILURE_TIMEOUT")
@@ -13154,6 +14597,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound
  *        Rule fetch happened, but rule evaluation is skipped because no rules
  *        were found. (Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND")
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType
+ *        Rule fetch happened, but rule evaluation is skipped because file type
+ *        is unsupported. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE")
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedConsumer
  *        Rule fetch and evaluation are skipped because the user sending message
  *        is consumer. (Value: "SCAN_SKIPPED_CONSUMER")
@@ -13575,6 +15022,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        "YESTERDAY"
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  This is the proto for holding message level scoring information. This data
+ *  is used for logging in query-api server and for testing purposes.
+ */
+@interface GTLRCloudSearch_DynamiteMessagesScoringInfo : GTLRObject
+
+/**
+ *  finalScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finalScore;
+
+/**
+ *  freshnessScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freshnessScore;
+
+/**
+ *  joinedSpaceAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *joinedSpaceAffinityScore;
+
+/**
+ *  messageAgeInDays
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageAgeInDays;
+
+/**
+ *  topicalityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topicalityScore;
 
 @end
 
@@ -14039,6 +15530,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
+ *  Filter to be passed in the search request if the corresponding bucket is
+ *  selected.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Filter *filter;
+
+/**
  *  Percent of results that match the bucket value. The returned value is
  *  between (0-100], and is rounded down to an integer if fractional. If the
  *  value is not explicitly returned, it represents a percentage value that
@@ -14060,6 +15557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  FacetResult for every source_name/object_type/operator_name combination.
  */
 @interface GTLRCloudSearch_FacetOptions : GTLRObject
+
+/**
+ *  If set, describes integer faceting options for the given integer property.
+ *  The corresponding integer property in the schema should be marked
+ *  isFacetable. The number of buckets returned would be minimum of this and
+ *  num_facet_buckets.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_IntegerFacetingOptions *integerFacetingOptions;
 
 /**
  *  Maximum number of facet buckets that should be returned for this facet.
@@ -14151,6 +15656,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  A filter was created.
+ */
+@interface GTLRCloudSearch_FilterCreated : GTLRObject
+@end
+
+
+/**
+ *  A filter was deleted.
+ */
+@interface GTLRCloudSearch_FilterDeleted : GTLRObject
+@end
+
+
+/**
  *  Filter options to be applied on query.
  */
 @interface GTLRCloudSearch_FilterOptions : GTLRObject
@@ -14169,6 +15688,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  HistoryRecord for changes associated with a filter, namely: FILTER_CREATED
+ *  FILTER_DELETED
+ */
+@interface GTLRCloudSearch_FilterUpdate : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_FilterCreated *filterCreated;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_FilterDeleted *filterDeleted;
+@property(nonatomic, copy, nullable) NSString *filterId;
+
+@end
+
+
+/**
  *  A persistent (sticky) footer that is added to the bottom of the card.
  */
 @interface GTLRCloudSearch_FixedFooter : GTLRObject
@@ -14176,6 +15708,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Button *> *buttons;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_TextButton *primaryButton;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_TextButton *secondaryButton;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_Folder
+ */
+@interface GTLRCloudSearch_Folder : GTLRObject
+
+/**
+ *  Folder mapping id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** One for each copy of the message in the IMAP folder. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage *> *message;
+
+@end
+
+
+/**
+ *  This is the content of //imapsync/folder attribute.
+ */
+@interface GTLRCloudSearch_FolderAttribute : GTLRObject
+
+/** List of all IMAP folders where the message presents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Folder *> *folder;
 
 @end
 
@@ -14364,6 +15927,168 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  defaults to 2 years from the current time.
  */
 @property(nonatomic, copy, nullable) NSString *freshnessProperty;
+
+@end
+
+
+/**
+ *  The Item message is the read interface for user data (traditionally referred
+ *  to as a "message", such as a mail message or a chat message, but generalized
+ *  to encompass other types such as tasks) and stored in Tingle. Each Item is
+ *  associated with a single Thread. An Item contains three classes of data.
+ *  (1): Item "fields" are common to items of all message types (e.g. mail,
+ *  chat, task, etc.) and are identified by the ItemFieldSpec.FetchType enum
+ *  when fetching Items. (2): Item "attributes" represent data associated with
+ *  an Item that is stored on behalf of the client but to which the fusebox and
+ *  storage layers are otherwise agnostic. (3): Item "parts" are
+ *  application-defined protocol buffers that affect how the Item is indexed.
+ *  Item parts are referenced as extensions to the ItemParts message. By default
+ *  the application specifies the index terms associated with an Item part. For
+ *  performance sensitive applications, the storage layer can be modified to
+ *  understand and index data types natively.
+ */
+@interface GTLRCloudSearch_FuseboxItem : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Attributes *attributes;
+
+/**
+ *  The creation time of the Item in micro seconds.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creationTimeMicroseconds;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_History *history;
+
+/**
+ *  The key is used to refer to an item. Note that every field of the MultiKey
+ *  is unique to the Item, and thus the Item can be looked up by any of the
+ *  fields.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *itemKey;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Labels *labels;
+
+/**
+ *  The modification time of the Item in micro seconds. Modifications to the
+ *  message include label addition, deletion, etc.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModificationTimeUs;
+
+/** go/lockpicker Locker counterpart of references. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_References *lockerReferences;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MatchInfo *matchInfo;
+
+/**
+ *  Type-specific data are represented as extensions to the ItemParts message.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ItemParts *parts;
+
+/**
+ *  The read timestamp at which this item was read. This is a temporary field
+ *  used to check if two items streamed during dual reading were read at the
+ *  same timestamp. This will be populated by Fusebox RPCs. "DO NOT USE UNLESS
+ *  YOU TALK TO FUSEBOX TEAM (gmail-fusebox\@)".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readTs;
+
+/**
+ *  References to attachments, video attachments in Youtube and Hangout
+ *  messages.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_References *references;
+
+/** The snippet is a brief bit of text describing this item. */
+@property(nonatomic, copy, nullable) NSString *snippet;
+
+/** The key of the Thread with which this Item is associated. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *threadKey;
+
+/**
+ *  A base64 encoded and encrypted string generated from the Gaia Id and the
+ *  thread id. Used to generate the permalink for this thread, exposed from
+ *  Gmail API.
+ */
+@property(nonatomic, copy, nullable) NSString *threadLocator;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Triggers *triggers;
+
+/**
+ *  The latest history operation id that resulted in a mutation of the item.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  In the context of a search, the MatchInfo contains information about which
+ *  Items matched the query.
+ */
+@interface GTLRCloudSearch_FuseboxItemThreadMatchInfo : GTLRObject
+
+/**
+ *  If SearchQuery.Options.Clustering is present, the query will be treated as a
+ *  cluster query, and this field may be populated with the cluster ID of the
+ *  cluster to which this thread belongs, if any. The cluster ID will be a label
+ *  on the message.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  The server id of the last item that matched the query. This is always set,
+ *  regardless of the compute_matching_items_per_thread option. This is the
+ *  value by which search results are sorted, in descending (i.e. newest first)
+ *  order.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastMatchingItemId;
+
+/**
+ *  The MultiKey of the last item that matched the query. This is always set,
+ *  regardless of the compute_matching_items_per_thread option. This is the
+ *  value by which search results are sorted, in descending (i.e. newest first)
+ *  order.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *lastMatchingItemKey;
+
+/**
+ *  If SearchQuery.Options.compute_matching_items_per_thread, this field will
+ *  contain the keys of all items that matched the query, in ascending order.
+ *  Note that this option requires extra computation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *matchingItemKey;
+
+/**
+ *  The rank of this ItemThread in the result set of the query. This rank may be
+ *  used to sort ItemThreads in proper order. Ranks are specific to a query, and
+ *  stable for a given query at a specific time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Rank *rank;
+
+@end
+
+
+/**
+ *  If the Value field is not set this means the pref did not exist.
+ */
+@interface GTLRCloudSearch_FuseboxPrefUpdatePreState : GTLRObject
+
+/**
+ *  value
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -14582,17 +16307,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_OpenCreatedDraftActionMarkup *openCreatedDraftActionMarkup;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_TaskActionMarkup *taskAction;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateDraftActionMarkup *updateDraftActionMarkup;
-
-@end
-
-
-/**
- *  Configuration of the Google Chat in Meet.
- */
-@interface GTLRCloudSearch_GoogleChatConfig : GTLRObject
-
-/** ID of the Chat group. */
-@property(nonatomic, copy, nullable) NSString *chatGroupId;
 
 @end
 
@@ -15486,6 +17200,109 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  The most recent history records associated with the item.
+ */
+@interface GTLRCloudSearch_History : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_HistoryRecord *> *record;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_HistoryRecord
+ */
+@interface GTLRCloudSearch_HistoryRecord : GTLRObject
+
+/**
+ *  This will almost always be set, but there are corner cases in which the
+ *  information is not available, and thus applications must handle its absence
+ *  appropriately.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ClientContext *clientContext;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_FilterUpdate *filterUpdate;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ImapUpdate *imapUpdate;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelUpdate *labelUpdate;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_PrefUpdate *prefUpdate;
+
+/**
+ *  Each HistoryRecord has a unique id. Ids are monotonically increasing, and
+ *  not necessarily contiguous.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordId;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ThreadUpdate *threadUpdate;
+
+/**
+ *  This will almost always be set, but there are corner cases in which the
+ *  information is not available, and thus applications must handle its absence
+ *  appropriately.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TransactionContext *transactionContext;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TransactionDebugInfo *txnDebugInfo;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_AttributeRemoved Value
+ *        "ATTRIBUTE_REMOVED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_AttributeSet Value
+ *        "ATTRIBUTE_SET"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_FilterCreated FilterUpdate:
+ *        (Value: "FILTER_CREATED")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_FilterDeleted Value
+ *        "FILTER_DELETED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_ImapUidsReassign IMAP (Value:
+ *        "IMAP_UIDS_REASSIGN")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_Internal Represents a change
+ *        internal to the Fusebox. HistoryRecords for Fusebox internal changes
+ *        contribute to the user's version, which is defined as the latest
+ *        HistoryRecord's record_id. INTERNAL HistoryRecords exist to allow a
+ *        client to update its notion of the latest record_id it has processed,
+ *        but do not necessarily contain any other information. (Value:
+ *        "INTERNAL")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_LabelAdded Value "LABEL_ADDED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_LabelCreated LabelUpdate:
+ *        (Value: "LABEL_CREATED")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_LabelDeleted Value
+ *        "LABEL_DELETED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_LabelRemoved Value
+ *        "LABEL_REMOVED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_LabelRenamed Value
+ *        "LABEL_RENAMED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_LabelUpdated Value
+ *        "LABEL_UPDATED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_MessageAdded ThreadUpdate:
+ *        (Value: "MESSAGE_ADDED")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_MessageDeleted Value
+ *        "MESSAGE_DELETED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_PrefDeleted Value
+ *        "PREF_DELETED"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_PrefWritten PrefUpdate:
+ *        (Value: "PREF_WRITTEN")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_ThreadKeySet Value
+ *        "THREAD_KEY_SET"
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_TopicStateUpdated EAI (Value:
+ *        "TOPIC_STATE_UPDATED")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_TxnDebugInfo TXN_DEBUG_INFO
+ *        (Value: "TXN_DEBUG_INFO")
+ *    @arg @c kGTLRCloudSearch_HistoryRecord_Type_Unknown Represents a type that
+ *        is deprecated or not known by the executing code. Even if Fusebox
+ *        sends a HistoryRecord with Type not UNKNOWN, it may send Type values
+ *        that are not yet defined on the client-side, in which case they will
+ *        be appear as Type.UNKNOWN on the client. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Actions handled by individual host apps.
  */
 @interface GTLRCloudSearch_HostAppActionMarkup : GTLRObject
@@ -15904,6 +17721,425 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_ImapSessionContext
+ */
+@interface GTLRCloudSearch_ImapSessionContext : GTLRObject
+
+/**
+ *  app
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AdsenseApp AdSense (Value:
+ *        "ADSENSE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AdwordsApp AdWords (Value:
+ *        "ADWORDS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AlloApp Allo (Value:
+ *        "ALLO_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AndroidBrowser Android's
+ *        legacy default AOSP browser (distinct (Value: "ANDROID_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AndroidDeviceManagerApp
+ *        Android Device Manager (Value: "ANDROID_DEVICE_MANAGER_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AndroidEmailApp Native
+ *        Android email app (Value: "ANDROID_EMAIL_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AppleNativeApp Apple apps
+ *        (mail, contacts & calendar) (Value: "APPLE_NATIVE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_ArtsAndCultureApp Google
+ *        Arts & Culture (Value: "ARTS_AND_CULTURE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_AssistantApp Google
+ *        Assistant standalone app. iOS only, (Value: "ASSISTANT_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_BattlestarApp Battlestar
+ *        (go/battlestar) (Value: "BATTLESTAR_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_BisApp BlackBerry Internet
+ *        Service (Value: "BIS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_BoxerApp Boxer (Value:
+ *        "BOXER_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_CalendarApp Calendar
+ *        (Value: "CALENDAR_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_Chrome Browsers Google
+ *        Chrome (Value: "CHROME")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_ChromeSyncApp Chrome Sync
+ *        (Value: "CHROME_SYNC_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_ChromeWebviewApp Chrome
+ *        Webview (Value: "CHROME_WEBVIEW_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_ClassroomApp Google
+ *        Classroom (Value: "CLASSROOM_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_CocCocBrowser Popoular
+ *        browser in Vietnam (Value: "COC_COC_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DatallyApp Datally (Value:
+ *        "DATALLY_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DeprecatedIosMailApp Value
+ *        "DEPRECATED_IOS_MAIL_APP"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DeprecatedMacOsxMailApp Do
+ *        not remove this fields - remvoing them caused issues in the past (see
+ *        cl/180425348 for reference). (Value: "DEPRECATED_MAC_OSX_MAIL_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DocsApp Docs (Value:
+ *        "DOCS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DriveApp Drive (Value:
+ *        "DRIVE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DriveSyncApp Drive Sync
+ *        (Value: "DRIVE_SYNC_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_DuoApp Duo (Value:
+ *        "DUO_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_EarthApp Google Earth
+ *        (Value: "EARTH_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_Edge Tag #7 used to be
+ *        CHROME_WEBVIEW, which was deprecated and replaced by
+ *        CHROME_WEBVIEW_APP. When adding a new browser, skip #7 for safety.
+ *        Microsoft Edge (Value: "EDGE")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_ExpressApp Google Express
+ *        (formerly Shopping Express) (Value: "EXPRESS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_FamilyLinkApp Google
+ *        Family Link (Value: "FAMILY_LINK_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_FilesGoApp Files Go
+ *        (Value: "FILES_GO_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_Firefox Mozilla Firefox
+ *        (Value: "FIREFOX")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GboardApp since on Android
+ *        OPA is integrated in GSA. Gboard - the Google Keyboard (Value:
+ *        "GBOARD_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GmailApp Email apps Gmail
+ *        (Value: "GMAIL_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GmailInboxApp Inbox by
+ *        Gmail (Value: "GMAIL_INBOX_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GmmApp Maps (Value:
+ *        "GMM_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GoogleAnalyticsApp Google
+ *        Analytics (Value: "GOOGLE_ANALYTICS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GoogleGoApp Google Go
+ *        (Value: "GOOGLE_GO_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GoogleMyBusinessApp Google
+ *        My Business (Value: "GOOGLE_MY_BUSINESS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GooglePayApp Google Pay
+ *        (formerly Android Pay) (Value: "GOOGLE_PAY_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_GsaApp Includes both Now
+ *        and Search on GSA. (Value: "GSA_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_HangoutsApp Hangouts
+ *        Classic (Value: "HANGOUTS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_HangoutsMeetApp Hangouts
+ *        Meet (Value: "HANGOUTS_MEET_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_HomeApp Google Home app
+ *        (rebranded from Chromecast app) (Value: "HOME_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_JamboardApp Jamboard app
+ *        (go/jamboard) (Value: "JAMBOARD_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_KeepApp Keep (Value:
+ *        "KEEP_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_LimilabsMailDll Mail.dll
+ *        by Limilabs (Value: "LIMILABS_MAIL_DLL")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_LogdogApp Non-browser,
+ *        non-mail, non-first-party apps LogDog (https://getlogdog.com/) (Value:
+ *        "LOGDOG_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_MaxBrowserAppValue Tag for
+ *        the maximum enum value that represents a browser. Enum values
+ *        (strictly) between OTHER_APP and this value represent browsers. This
+ *        should never appear in real data. (Value: "MAX_BROWSER_APP_VALUE")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_MotoEmailApp Motorola
+ *        email app (Value: "MOTO_EMAIL_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_Msie Microsoft Internet
+ *        Explorer (Value: "MSIE")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_MsieCompatibility MSIE in
+ *        Compatibility View. See b/22467241. (Value: "MSIE_COMPATIBILITY")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_NewsApp Google News &
+ *        Weather (Value: "NEWS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_Opera Opera (Value:
+ *        "OPERA")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_OpinionRewardsApp Google
+ *        Opinion Rewards (Value: "OPINION_REWARDS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_OtherApp Unknown (Value:
+ *        "OTHER_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_OtherBrowser Browser not
+ *        otherwise specified (Value: "OTHER_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_OutlookMailApp Microsoft
+ *        Outlook (Value: "OUTLOOK_MAIL_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PhotosApp Photos (Value:
+ *        "PHOTOS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlayApp Google Play
+ *        (Value: "PLAY_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlayBooksApp Google Play
+ *        Books (Value: "PLAY_BOOKS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlayGamesApp Google Play
+ *        Games (Value: "PLAY_GAMES_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlayMoviesApp Google Play
+ *        Movies & TV (Value: "PLAY_MOVIES_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlayMusicApp Google Play
+ *        Music (Value: "PLAY_MUSIC_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlayNewsstandApp Google
+ *        Play Newsstand (Value: "PLAY_NEWSSTAND_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PlusApp Google+ (Value:
+ *        "PLUS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_PokemonGoApp Pokemon GO
+ *        (uses Google to sign in) (Value: "POKEMON_GO_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_Safari Apple Safari
+ *        (Value: "SAFARI")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SafariWebviewApp Safari
+ *        Webview (Value: "SAFARI_WEBVIEW_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SamsungBrowser Samsung
+ *        browser on Android (Value: "SAMSUNG_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SamsungMailApp (replaced
+ *        by Gmail in Lollipop) Samsung mail (Value: "SAMSUNG_MAIL_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SheetsApp Sheets (Value:
+ *        "SHEETS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SilkBrowser Amazon Silk
+ *        browser (Value: "SILK_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SlidesApp Slides (Value:
+ *        "SLIDES_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_SmartLockApp SmartLock
+ *        (Value: "SMART_LOCK_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_StadiaApp Stadia
+ *        (go/stadia) (Value: "STADIA_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_StreetViewApp Google
+ *        Street View (Value: "STREET_VIEW_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_TezApp Tez payment app for
+ *        India (go/paisa) (Value: "TEZ_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_TranslateApp Translate
+ *        (Value: "TRANSLATE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_TripsApp Google Trips
+ *        (Value: "TRIPS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_UcBrowser UC Browser
+ *        (Value: "UC_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_VoiceApp Google Voice
+ *        (Value: "VOICE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_WalletApp Google Wallet
+ *        (Value: "WALLET_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_WazeApp Waze (Value:
+ *        "WAZE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_WearApp Android Wear
+ *        companion app (Value: "WEAR_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_WhatsAppInDriveApp
+ *        WhatsApp in Drive (Value: "WHATS_APP_IN_DRIVE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_WifiApp Google Wifi (incl.
+ *        OnHub) (Value: "WIFI_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YandexBrowser from
+ *        customized OEM flavours). Yandex Browser (Value: "YANDEX_BROWSER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeApp YouTube (Value:
+ *        "YOUTUBE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeCaptureApp YouTube
+ *        Capture (Value: "YOUTUBE_CAPTURE_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeCreatorApp YouTube
+ *        Creator Studio (Value: "YOUTUBE_CREATOR_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeGamingApp YouTube
+ *        Gaming (Value: "YOUTUBE_GAMING_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeGoApp YouTube Go
+ *        (Value: "YOUTUBE_GO_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeKidsApp YouTube
+ *        Kids (Value: "YOUTUBE_KIDS_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeMusicApp YouTube
+ *        Music (Value: "YOUTUBE_MUSIC_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeTvApp YouTube TV
+ *        (Value: "YOUTUBE_TV_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_YoutubeVrApp YouTube VR
+ *        (Value: "YOUTUBE_VR_APP")
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  User agent information
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Car Examples:
+ *        Android Auto (Embedded mode, not mirrored from phone). (Value: "CAR")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_ConnectedHomeOther
+ *        Other connected home devices which do not fit in any of the above
+ *        categories; that is, neither media- or gaming-focused, nor primarily a
+ *        voice-enabled speaker. (Value: "CONNECTED_HOME_OTHER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_GameConsole Devices
+ *        whose primary purpose is playing games. Examples: Xbox, Playstation.
+ *        (Value: "GAME_CONSOLE")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Glass Google Glass.
+ *        (Value: "GLASS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_MediaPlayer Add-on
+ *        devices (i.e. devices which require connecting to another device, such
+ *        as screens/TVs/speakers) whose primary purpose is media consumption
+ *        (excludes physical TV screens). Examples: Chromecast, Roku, Apple TV,
+ *        Nexus Player. (Value: "MEDIA_PLAYER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Mobile Primarily
+ *        used for phones, but also set as default for OSes that are
+ *        predominantly for phones (Android, iOS etc.) when we can't determine
+ *        otherwise. (Value: "MOBILE")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Pc PCs (incl.
+ *        Macs). Desktops, laptops and various niche form factors that typically
+ *        run desktop-class OSes (all-in-ones, HTPCs etc.). (Value: "PC")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_PortableMediaPlayer
+ *        Mobile devices which are not phones, but are capable of storing and
+ *        playing digital media such as audio, images, and video files. Example:
+ *        iPod. (Value: "PORTABLE_MEDIA_PLAYER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_SmartDisplay
+ *        Examples: Google Home Display (Quartz/Manhattan/Jasper/Dragonglass),
+ *        Amazon Echo Spot, Amazon Echo Show. (Value: "SMART_DISPLAY")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_SmartSpeaker
+ *        Examples: Google Home, Amazon Echo. (Value: "SMART_SPEAKER")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Tablet Tablets.
+ *        (Value: "TABLET")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Tv Smart TVs which
+ *        interact with Google products without an external additional device.
+ *        Includes TV sets which run Android TV directly. Refers to actual TV
+ *        screens, rather than connected boxes or dongles. (Value: "TV")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Unknown Unknown
+ *        device type. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_VrHeadset
+ *        Standalone VR headsets, such as the Lenovo Mirage Solo. Does not
+ *        include phone-based VR (such as Daydream View or Gear VR) or
+ *        PC/Console-based such as Oculus Rift, HTC Vive and PSVR; in such
+ *        cases, the form factor may be PHONE, PC or GAME_CONSOLE as applicable.
+ *        (Value: "VR_HEADSET")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_DeviceType_Wearable Wearable
+ *        devices such as smartwatches. (Value: "WEARABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/**
+ *  As agreed with Bond team, this holds the fingerprint of any "aguid" or
+ *  "guid" provided by the ID command. The fingerprint should be calculated by
+ *  fingerprint2011. Note that not all clients will provide aguid or guid
+ *  through ID command.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guidFingerprint;
+
+/**
+ *  os
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_AndroidOs Mobile operating
+ *        systems (1-99). (Value: "ANDROID_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_AndroidThingsOs Android
+ *        optimized for IoT devices. go/things (Value: "ANDROID_THINGS_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_AppleTvOs Apple tvOS
+ *        (powering the Apple TV). (Value: "APPLE_TV_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_BlackberryOs Value
+ *        "BLACKBERRY_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_CastOs Cast family devices,
+ *        including Chromecast, Google Home, and third-party speaker with
+ *        integrated Assistant. (Value: "CAST_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_ChromeOs Value "CHROME_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_FireOs Amazon Fire OS (for
+ *        Kindle Fire devices or Fire TV). (Value: "FIRE_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_IosOs Value "IOS_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_KaiOs KaiOS, a fork from
+ *        Firefox OS that is between a full smartphone and a feature phone.
+ *        Notably, it supports the Google Assistant. go/kaiosama (Value:
+ *        "KAI_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_LinuxOs Value "LINUX_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_MacOs Value "MAC_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_MaxMobileOsValue Tag for
+ *        the maximum enum value that represents a mobile OS. Enum values
+ *        (strictly) between UNKNOWN_OS and this value represent mobile OSes.
+ *        This should never appear in real data. (Value: "MAX_MOBILE_OS_VALUE")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_PlaystationOs The OS
+ *        powering Playstation consoles. Ignores OS changes across console
+ *        generations. (Value: "PLAYSTATION_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_StadiaOs Stadia on Cast
+ *        devices. This is not truly an OS, but it's a temporary setting since
+ *        Stadia uses a different sign-in flow (and is revoked differently) from
+ *        Cast. See http://go/stadia-in-google-account. Do not use without
+ *        discussing with id-devices-eng\@. (Value: "STADIA_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_TizenOs Tizen OS, popular
+ *        in Samsung TVs, watches and more. (Value: "TIZEN_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_UnknownOs Value
+ *        "UNKNOWN_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_WindowsOs PC operating
+ *        systems. (Value: "WINDOWS_OS")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_WinPhoneOs Value
+ *        "WIN_PHONE_OS"
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_Os_XboxOs The Windows-derived
+ *        OS used on Xbox consoles. (Value: "XBOX_OS")
+ */
+@property(nonatomic, copy, nullable) NSString *os;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_OsVersion *osVersion;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_PossiblyTrimmedModel *possiblyTrimmedModel;
+
+@end
+
+
+/**
+ *  Message delete history record extension that exports //imapsync/folder
+ *  attribute of deleted messages which have ^is label.
+ */
+@interface GTLRCloudSearch_ImapSyncDelete : GTLRObject
+
+/** Contains the value of //imapsync/folder attribute of deleted message. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_FolderAttribute *mappings;
+
+/**
+ *  msgId
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *msgId;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage
+ */
+@interface GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage : GTLRObject
+
+/** Flags of the message. Represents unseen and flagged state. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ImapsyncFolderAttributeFolderMessageFlags *flags;
+
+/**
+ *  UID of the message.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uid;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_ImapsyncFolderAttributeFolderMessageFlags
+ */
+@interface GTLRCloudSearch_ImapsyncFolderAttributeFolderMessageFlags : GTLRObject
+
+/**
+ *  Flagged state of the message.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flagged;
+
+/**
+ *  Seen state of the message.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seen;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_ImapUidsReassign
+ */
+@interface GTLRCloudSearch_ImapUidsReassign : GTLRObject
+
+/** Label */
+@property(nonatomic, copy, nullable) NSString *labelId;
+
+/**
+ *  The message Ids
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *messageId;
+
+@end
+
+
+/**
+ *  HistoryRecord for changes associated with IMAP, namely: IMAP_UIDS_REASSIGN
+ */
+@interface GTLRCloudSearch_ImapUpdate : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ImapUidsReassign *imapUidsReassign;
+
+@end
+
+
+/**
  *  Annotation metadata to display system messages for incoming webhook events.
  *  Next Tag: 7
  */
@@ -16070,6 +18306,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Used to specify integer faceting options.
+ */
+@interface GTLRCloudSearch_IntegerFacetingOptions : GTLRObject
+
+/**
+ *  Buckets for given integer values should be in strictly ascending order. For
+ *  example, if values supplied are (1,5,10,100), the following facet buckets
+ *  will be formed {<1, [1,5), [5-10), [10-100), >=100}.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *integerBuckets;
+
+@end
+
+
+/**
  *  Used to provide a search operator for integer properties. This is optional.
  *  Search operators let users restrict the query to specific fields relevant to
  *  the type of item being searched.
@@ -16118,6 +18371,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  The options for integer properties.
  */
 @interface GTLRCloudSearch_IntegerPropertyOptions : GTLRObject
+
+/**
+ *  If set, describes integer faceting options for the given integer property.
+ *  The corresponding integer property should be marked isFacetable.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_IntegerFacetingOptions *integerFacetingOptions;
 
 /**
  *  The maximum value of the property. The minimum and maximum values for the
@@ -16605,6 +18864,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Container for type-specific extensions of an Item. This protobuf is defined
+ *  in a separate file to allow types to reference/extend the message without
+ *  depending on other fusebox protobufs. See items.proto.
+ */
+@interface GTLRCloudSearch_ItemParts : GTLRObject
+@end
+
+
+/**
  *  This contains item's status and any errors.
  */
 @interface GTLRCloudSearch_ItemStatus : GTLRObject
@@ -16659,6 +18927,87 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  definition in the schema for the data source.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_StructuredDataObject *object;
+
+@end
+
+
+/**
+ *  An ItemThread is an ordered list of Items. An ItemThread corresponds to a
+ *  "conversation" in the context of mail. An Item belongs to exactly one
+ *  ItemThread.
+ */
+@interface GTLRCloudSearch_ItemThread : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ClusterInfo *clusterInfo;
+
+/**
+ *  The Items in the ItemThread. In the context of a search, the list of Items
+ *  may be a subset of those that logically belong to the ItemThread. The
+ *  details of which items are included are available in the ItemThreadView
+ *  returned in the overall rpc response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FuseboxItem *> *item;
+
+/**
+ *  The server id of the last item returned in the ItemThread. This can be
+ *  deduced from the [item] list but is provided for convenience. When manually
+ *  constructing an ItemThreadViewSpec to perform operations on the ItemThread,
+ *  this value can be used as the [high_item_id_watermark].
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastItemId;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_FuseboxItemThreadMatchInfo *matchInfo;
+
+/**
+ *  A snippet summarizing the thread. This field is only populated for searches.
+ */
+@property(nonatomic, copy, nullable) NSString *snippet;
+
+/**
+ *  The MultiKey that identifies this thread. This value never changes, i.e.
+ *  remains constant across modifications to the thread, including addition,
+ *  relabeling, or deletion of contained Items. As such, the thread key may not
+ *  necessarily correspond to the key of an contained Item. Legacy note: The
+ *  "server_id" of the thread key is equivalent to the notion of the "original
+ *  thread id" in the CSS API.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *threadKey;
+
+/**
+ *  A base64 encoded and encrypted string generated from the Gaia Id and the
+ *  thread id. Used to generate the permalink for this thread, exposed from
+ *  Gmail API.
+ */
+@property(nonatomic, copy, nullable) NSString *threadLocator;
+
+/** Next available id : 10 */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TopicState *topicState;
+
+/**
+ *  The latest history operation id that resulted in a mutation of any item in
+ *  the thread.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Identifies a jobsetted server as a target for Trigger dispatch.
+ */
+@interface GTLRCloudSearch_JobsettedServerSpec : GTLRObject
+
+/**
+ *  E.g. "gateway", "stubby" etc. Leave unset to use the default unnamed port.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/** E.g. "satellite-server", "bigtop-sync", etc. */
+@property(nonatomic, copy, nullable) NSString *serverName;
 
 @end
 
@@ -16770,6 +19119,119 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /** Formatted text supported. */
 @property(nonatomic, copy, nullable) NSString *topLabel;
 
+@end
+
+
+/**
+ *  A label was added to some (subset of the) messages in this thread.
+ */
+@interface GTLRCloudSearch_LabelAdded : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *labelId;
+@property(nonatomic, copy, nullable) NSString *labelName;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
+
+/**
+ *  syncId
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncId;
+
+@end
+
+
+/**
+ *  A label was created.
+ */
+@interface GTLRCloudSearch_LabelCreated : GTLRObject
+@end
+
+
+/**
+ *  A label was deleted.
+ */
+@interface GTLRCloudSearch_LabelDeleted : GTLRObject
+@end
+
+
+/**
+ *  A label was removed from some (subset of the) messages in this thread.
+ */
+@interface GTLRCloudSearch_LabelRemoved : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *labelId;
+@property(nonatomic, copy, nullable) NSString *labelName;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
+
+/**
+ *  syncId
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncId;
+
+@end
+
+
+/**
+ *  A label was renamed.
+ */
+@interface GTLRCloudSearch_LabelRenamed : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *oldCanonicalName;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_Labels
+ */
+@interface GTLRCloudSearch_Labels : GTLRObject
+
+/**
+ *  The display name of the labels. This is populated (instead of the id) when
+ *  the request fetch_spec has LABEL_DISPLAY_NAMES.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *displayName;
+
+/**
+ *  The ids of the labels attached to the Item, e.g. "^i", "^x_1"
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identifier;
+
+@end
+
+
+/**
+ *  HistoryRecord for changes associated with a label, namely: LABEL_CREATED
+ *  LABEL_DELETED LABEL_RENAMED LABEL_UPDATED
+ */
+@interface GTLRCloudSearch_LabelUpdate : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelCreated *labelCreated;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelDeleted *labelDeleted;
+@property(nonatomic, copy, nullable) NSString *labelId;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelRenamed *labelRenamed;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelUpdated *labelUpdated;
+
+/**
+ *  syncId
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncId;
+
+@end
+
+
+/**
+ *  A label pref was updated outside of a rename, create, or delete.
+ */
+@interface GTLRCloudSearch_LabelUpdated : GTLRObject
 @end
 
 
@@ -17085,6 +19547,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_UnmappedIdentity *> *unmappedIdentities;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_MatchInfo
+ */
+@interface GTLRCloudSearch_MatchInfo : GTLRObject
+
+/** Reference keys for image attachments that matches search query. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matchingImageReferenceKey;
 
 @end
 
@@ -17495,13 +19968,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  CreateMessageRequest).
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearch_Message_DeletableBy_PermissionCreator Only the
- *        creator of an entity can mutate it. (Value: "PERMISSION_CREATOR")
+ *    @arg @c kGTLRCloudSearch_Message_DeletableBy_PermissionCreator The message
+ *        creator can mutate regardless of request origin. Use case: for
+ *        messages created by human via Chat UI or Chat API. These messages can
+ *        be mutated by the same human user via Chat UI or via any app on Chat
+ *        API. (Value: "PERMISSION_CREATOR")
  *    @arg @c kGTLRCloudSearch_Message_DeletableBy_PermissionMember Every human
- *        member of a space or the creator can mutate the entity. (Value:
+ *        member of a space or the creator can mutate the entity. This excludes
+ *        app acting on behalf of human via Chat API. Use case: This is to
+ *        enable humans to delete messages created by apps. (Value:
  *        "PERMISSION_MEMBER")
- *    @arg @c kGTLRCloudSearch_Message_DeletableBy_PermissionNoOne No one can
- *        mutate the entity. (Value: "PERMISSION_NO_ONE")
+ *    @arg @c kGTLRCloudSearch_Message_DeletableBy_PermissionNoOne No one except
+ *        for the message creator/origin pair can mutate. This permission checks
+ *        both gaia id and the request origin. Request origin can be Chat API or
+ *        Chat UI. Mutation is allowed iff both attributes of the request match
+ *        the original message creation. Use case: this allows historical 1P
+ *        apps lock down message edit permission i.e. In Chat UI, humans cannot
+ *        edit their messages created via these 1P apps. Do not use this for
+ *        additional use cases. (Value: "PERMISSION_NO_ONE")
  *    @arg @c kGTLRCloudSearch_Message_DeletableBy_PermissionUnspecified Default
  *        case, should never be used. If this data is encountered in the DB any
  *        request should throw an exception. (Value: "PERMISSION_UNSPECIFIED")
@@ -17549,6 +20033,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        An IllegalStateException is thrown when executing DLP on attachments.
  *        This could happen if the space row is missing. (Value:
  *        "SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS")
+ *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureRuleFetchFailed
+ *        Rule fetch was attempted but failed, so rule evaluation could not be
+ *        performed. (Value: "SCAN_FAILURE_RULE_FETCH_FAILED")
  *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureTimeout Rule
  *        fetch and evaluation were attempted but the scanning timed out.
  *        (Value: "SCAN_FAILURE_TIMEOUT")
@@ -17571,6 +20058,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound
  *        Rule fetch happened, but rule evaluation is skipped because no rules
  *        were found. (Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND")
+ *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType
+ *        Rule fetch happened, but rule evaluation is skipped because file type
+ *        is unsupported. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE")
  *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedConsumer Rule
  *        fetch and evaluation are skipped because the user sending message is
  *        consumer. (Value: "SCAN_SKIPPED_CONSUMER")
@@ -17645,13 +20136,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  CreateMessageRequest).
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearch_Message_EditableBy_PermissionCreator Only the
- *        creator of an entity can mutate it. (Value: "PERMISSION_CREATOR")
+ *    @arg @c kGTLRCloudSearch_Message_EditableBy_PermissionCreator The message
+ *        creator can mutate regardless of request origin. Use case: for
+ *        messages created by human via Chat UI or Chat API. These messages can
+ *        be mutated by the same human user via Chat UI or via any app on Chat
+ *        API. (Value: "PERMISSION_CREATOR")
  *    @arg @c kGTLRCloudSearch_Message_EditableBy_PermissionMember Every human
- *        member of a space or the creator can mutate the entity. (Value:
+ *        member of a space or the creator can mutate the entity. This excludes
+ *        app acting on behalf of human via Chat API. Use case: This is to
+ *        enable humans to delete messages created by apps. (Value:
  *        "PERMISSION_MEMBER")
- *    @arg @c kGTLRCloudSearch_Message_EditableBy_PermissionNoOne No one can
- *        mutate the entity. (Value: "PERMISSION_NO_ONE")
+ *    @arg @c kGTLRCloudSearch_Message_EditableBy_PermissionNoOne No one except
+ *        for the message creator/origin pair can mutate. This permission checks
+ *        both gaia id and the request origin. Request origin can be Chat API or
+ *        Chat UI. Mutation is allowed iff both attributes of the request match
+ *        the original message creation. Use case: this allows historical 1P
+ *        apps lock down message edit permission i.e. In Chat UI, humans cannot
+ *        edit their messages created via these 1P apps. Do not use this for
+ *        additional use cases. (Value: "PERMISSION_NO_ONE")
  *    @arg @c kGTLRCloudSearch_Message_EditableBy_PermissionUnspecified Default
  *        case, should never be used. If this data is encountered in the DB any
  *        request should throw an exception. (Value: "PERMISSION_UNSPECIFIED")
@@ -17836,6 +20338,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedRetentionSettings *retentionSettings;
 
 /**
+ *  Used by clients to correctly log format type for message creation due to
+ *  complexity with client side optimistic update (see
+ *  go/content-metric-post-send-logging for details). Currently, only set by
+ *  server in the message or topic creation path.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotations
+ *        The formatting was specified as {\@link
+ *        com.google.apps.dynamite.v1.shared.FormatMetadata} annotations.
+ *        (Value: "FORMAT_ANNOTATIONS")
+ *    @arg @c kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotationsIgnored
+ *        The client sent the format annotations, but didn't set the
+ *        accept_format_annotations field to true. This shouldn't happen, but
+ *        there might be some old clients that end up here. (Value:
+ *        "FORMAT_ANNOTATIONS_IGNORED")
+ *    @arg @c kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotationsIgnoredWithMarkdown
+ *        A combination of MARKDOWN and FORMAT_ANNOTATIONS_IGNORED. (Value:
+ *        "FORMAT_ANNOTATIONS_IGNORED_WITH_MARKDOWN")
+ *    @arg @c kGTLRCloudSearch_Message_RichTextFormattingType_Markdown The
+ *        formatting was specified as *markdown characters* in message text.
+ *        (Value: "MARKDOWN")
+ *    @arg @c kGTLRCloudSearch_Message_RichTextFormattingType_None Value "NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *richTextFormattingType;
+
+/**
  *  A client-specified string that can be used to uniquely identify a message in
  *  a space, in lieu of `id.message_id`.
  */
@@ -17865,6 +20393,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  A message was added. Specifying id and initial labels.
+ */
+@interface GTLRCloudSearch_MessageAdded : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attributeIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *messageKey;
+
+/**
+ *  Note that there can be fewer sync ids than label ids.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *syncIds;
+
+@end
+
+
+/**
  *  Stores tombstone message attributes:
  *  go/tombstone-message-attributes-overview
  */
@@ -17876,6 +20423,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isTombstone;
+
+@end
+
+
+/**
+ *  Some (subset of the) messages in this thread were deleted.
+ */
+@interface GTLRCloudSearch_MessageDeleted : GTLRObject
+
+/**
+ *  Value of coproc's message delete history record extension that exports
+ *  /imapsync/folder attribute of deleted messages which have ^is label.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_ImapSyncDelete *> *imapSyncMappings;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
 
 @end
 
@@ -17955,6 +20518,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  This is proto2's version of MessageSet.
+ */
+@interface GTLRCloudSearch_MessageSet : GTLRObject
+@end
+
+
+/**
  *  Metadata of a matched search result.
  */
 @interface GTLRCloudSearch_Metadata : GTLRObject
@@ -18007,6 +20577,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  properties is 5.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DisplayedProperty *> *properties;
+
+@end
+
+
+/**
+ *  A union-like type for identifiying an object in storage. MultiKeys contain
+ *  multiple key fields, each in a separate key space. At least one key field
+ *  must be set. More than one key field may be set as long as all key values
+ *  refer to the same object. All objects in storage have unique server_id keys.
+ *  All MultiKeys returned from storage to storage clients will always have the
+ *  server_id field set. When creating an object, if a MultiKey without a
+ *  server_id is supplied to storage, the storage system will auto-assign a
+ *  server ID to the new object. For all other storage requests (i.e. those not
+ *  creating new objects), clients may omit server_id (as long as they supply
+ *  another key). Instead of server ids, clients can specify string based
+ *  client_assigned_perm_id keys. Mail message drafts are a prime example of
+ *  these kinds of objects. Each time a user saves a new version of a draft, the
+ *  storage system needs to create a new object with the updated draft content
+ *  and needs to delete the object containing the old content. The new object
+ *  gets a new SERVER_ID but should get the same CLIENT_ASSIGNED_PERM_ID as the
+ *  now-deleted object containing the old content. Carrying forward the perm ID
+ *  allows it to be used to consistently refer to the same logical object across
+ *  revisions. These perm IDs save sync clients from having to deal with
+ *  changing object IDs. For example, assume there's a mail message in storage
+ *  with SERVER_ID = 123 and CLIENT_ASSIGNED_PERM_ID = "foo". The following are
+ *  all valid ways of addressing the object using MultiKeys: 1) MultiKey {
+ *  server_id = 123 } 2) MultiKey { server_id = 123, client_assigned_perm_id =
+ *  "foo" } 3) MultiKey { client_assigned_perm_id = "foo" } Multikeys are never
+ *  serialized in the storage. The individual keys are extracted and processed
+ *  separately. Both the integer ids as well as string ids are indexed for
+ *  efficient retrieval using the same fields in the backend. See
+ *  go/tingle-multikeys for more information on background and motivation.
+ */
+@interface GTLRCloudSearch_MultiKey : GTLRObject
+
+/** A client-assigned string based key. */
+@property(nonatomic, copy, nullable) NSString *clientAssignedPermId;
+
+/**
+ *  A server-assigned ID. This ID must be used only by Gmail and is constructed
+ *  using millesecond ts << 20 + randomness. The ID affects the sort order of
+ *  the index.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serverId;
 
 @end
 
@@ -18354,6 +20970,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_OsVersion
+ */
+@interface GTLRCloudSearch_OsVersion : GTLRObject
+
+/**
+ *  majorVersion
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *majorVersion;
+
+/**
+ *  minorVersion
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minorVersion;
+
+/**
+ *  tertiaryVersion
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tertiaryVersion;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_OtrChatMessageEvent
  */
 @interface GTLRCloudSearch_OtrChatMessageEvent : GTLRObject
@@ -18697,6 +21342,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  This message contains either the device model, or a prefix of the device
+ *  model (AKA a trimmed device model). The "is_trimmed" field indicates which
+ *  one it is.
+ */
+@interface GTLRCloudSearch_PossiblyTrimmedModel : GTLRObject
+
+/**
+ *  isTrimmed
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTrimmed;
+
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  See
  *  http://s/?fileprint=//depot/google3/security/authentication/postini/auth_token.proto
  */
@@ -18708,6 +21372,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *postiniUserId;
+
+@end
+
+
+/**
+ *  PREF_DELETED
+ */
+@interface GTLRCloudSearch_PrefDeleted : GTLRObject
+@end
+
+
+/**
+ *  HistoryRecord for changes associated with prefs, namely: PREF_WRITTEN
+ *  PREF_DELETED
+ */
+@interface GTLRCloudSearch_PrefUpdate : GTLRObject
+
+/** Name of the affected preference. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_PrefDeleted *prefDeleted;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_PrefWritten *prefWritten;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_FuseboxPrefUpdatePreState *preState;
+
+@end
+
+
+/**
+ *  PREF_WRITTEN
+ */
+@interface GTLRCloudSearch_PrefWritten : GTLRObject
+
+/**
+ *  value
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -18732,6 +21435,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** The device resource name of the currently presenting device. */
 @property(nonatomic, copy, nullable) NSString *presenterDeviceId;
+
+@end
+
+
+/**
+ *  State of the thread previous to the update. This really just describes the
+ *  label state of all messages before the update.
+ */
+@interface GTLRCloudSearch_PreState : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *messageKey;
+
+/**
+ *  Note that there can be fewer sync ids than label ids.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *syncIds;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *threadKey;
 
 @end
 
@@ -18906,7 +21630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Private message information specific to a given user.
+ *  Private message information specific to a given user. DEPRECATED: Use the
+ *  privateMessageViewer field in CreateMessageInfo instead.
  */
 @interface GTLRCloudSearch_PrivateMessageInfo : GTLRObject
 
@@ -19645,6 +22370,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  The rank contains a tuple of numbers which may be used as a general sort
+ *  order. The rank should be treated as an ordered set of numbers, where the
+ *  ordering is done in descending order of the most significant rank member.
+ *  For example, given the following ranks described as (primary, secondary):
+ *  (1,1), (1,2), (2,2) (2,1) The descending rank-order is: (2,2) > (2,1) >
+ *  (1,2) > (1,1)
+ */
+@interface GTLRCloudSearch_Rank : GTLRObject
+
+/**
+ *  The primary rank is the most significant rank member. This rank element
+ *  should always be present. Items with higher primary rank are always
+ *  considered of higher rank than those of lower primary rank.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primary;
+
+/**
+ *  The secondary rank may be used to rank items of identical primary rank. This
+ *  rank element should always be present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *secondary;
+
+@end
+
+
+/**
  *  Principal associated with a given RBAC role. This principal is used by
  *  Sphinx Provisioning Service for RBAC (go/cedi-auth) provisionable
  *  (go/sphinx-rbacz-design).
@@ -19858,6 +22613,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** Recording session's state information. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SessionStateInfo *sessionStateInfo;
+
+@end
+
+
+/**
+ *  All fields in this proto are now columns in spanner see
+ *  google3/storage/slice/production/gmail/user_data_tables.pi for
+ *  documentation.
+ */
+@interface GTLRCloudSearch_Reference : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *blobId;
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  hashProperty
+ *
+ *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
+ */
+@property(nonatomic, copy, nullable) NSString *hashProperty;
+
+/** LINT.IfChange */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  LINT.ThenChange(//depot/google3/storage/slice/production/gmail/
+ *  user_data_tables.pi)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  size
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_References
+ */
+@interface GTLRCloudSearch_References : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Reference *> *references;
 
 @end
 
@@ -20275,6 +23076,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Options for Triggers dispatched via RPC.
+ */
+@interface GTLRCloudSearch_RpcOptions : GTLRObject
+
+/**
+ *  The RPC's request extensions (i.e. RPC::request_extensions(), a.k.a. the
+ *  Stubby side channel) will be merged with the specified [request_extensions].
+ *  When Triggers are batched, the RPC's request extensions will be merged with
+ *  all of the [request_extensions] of the Triggers in the batch. Note that
+ *  merging of request extensions follows standard protocol buffer semantics;
+ *  values of singular fields override previous values, and values of repeated
+ *  fields are appended (In the case of Triggers, Triggers with later fire times
+ *  will be merged after Triggers with earlier fire times in the same batch). It
+ *  is not advised to specify extensions with repeated fields on batchable
+ *  Triggers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MessageSet *requestExtensions;
 
 @end
 
@@ -20883,6 +23706,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Client should use as a form input value.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SessionContext
+ */
+@interface GTLRCloudSearch_SessionContext : GTLRObject
+
+/**
+ *  Time at which this activity's session was authenticated, in seconds since
+ *  the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *authTime;
+
+/**
+ *  Gaia ID of the authenticated user when delegate access is active. In such
+ *  sessions the main gaia ID is that of the delegator, i.e. the account being
+ *  accessed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *delegateUserId;
+
+/** Device User Session ID, see go/dusi. */
+@property(nonatomic, copy, nullable) NSString *dusi;
+
+/** Imap session context for Bond/Gmail integration */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ImapSessionContext *imapSessionContext;
+
+/**
+ *  OAuth login ID.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oauthLoginId;
+
+/**
+ *  The devconsole project ID of the developer who authenticated with OAuth.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oauthProjectId;
 
 @end
 
@@ -21931,6 +24799,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *deletionPolicyUrl;
 
+/** Link to GWM page of the app. May be empty. */
+@property(nonatomic, copy, nullable) NSString *gwmUrl;
+
 /** Link to the privacy policy webpage for the bot. May be empty. */
 @property(nonatomic, copy, nullable) NSString *privacyPolicyUrl;
 
@@ -22181,6 +25052,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  The ThreadKey was set on some (subset of the) messages in this thread.
+ */
+@interface GTLRCloudSearch_ThreadKeySet : GTLRObject
+
+/** Messages on which the thread_key was changed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
+
+/** The new thread_key for this thread */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *newThreadKey NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  HistoryRecord for changes associated with a thread, namely: MESSAGE_ADDED
+ *  MESSAGE_DELETED LABEL_ADDED LABEL_REMOVED ATTRIBUTE_SET ATTRIBUTE_REMOVED
+ *  THREAD_KEY_SET All label_ids refer to the (unchanging) value as defined by
+ *  the Label.id field in labels.proto. In particular, it is *not* the
+ *  canonical_name.
+ */
+@interface GTLRCloudSearch_ThreadUpdate : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AttributeRemoved *attributeRemoved;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AttributeSet *attributeSet;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelAdded *labelAdded;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_LabelRemoved *labelRemoved;
+
+/**
+ *  Indicates the record id of the last operation that modified this thread.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastHistoryRecordId;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MessageAdded *messageAdded;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MessageDeleted *messageDeleted;
+
+/**
+ *  The first non-empty thread-key on any message in the thread (including
+ *  deleted messages). This field has been introduced to maintain backward
+ *  compatibility for clients that are not subthread aware.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *originalThreadKey;
+
+/**
+ *  The PreStates of all messages before the transaction. These are suppressed
+ *  if the client requested that prestates not be included in the output of the
+ *  GetHistoryRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_PreState *> *preState;
+
+/** Affected thread */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MultiKey *threadKey;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ThreadKeySet *threadKeySet;
+
+/** Thread PLID */
+@property(nonatomic, copy, nullable) NSString *threadLocator;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TopicStateUpdate *topicStateUpdate;
+
+@end
+
+
+/**
  *  Used to provide a search operator for timestamp properties. This is
  *  optional. Search operators let users restrict the query to specific fields
  *  relevant to the type of item being searched.
@@ -22319,6 +25255,99 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  State of an topic thread as maintained within Tingle.
+ */
+@interface GTLRCloudSearch_TopicState : GTLRObject
+
+/**
+ *  Map of label => count of topic constituent messages with label These only
+ *  contain counts of labels that are relevant for topic
+ *  normalization/denormalization. Eg. If a topic thread has 5 constituents, 4
+ *  of which are in inbox, this will contain ^i => 4. Some labels of interest
+ *  are archive, inbox, trash, spam, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TopicState_LabelIdMessageCount *labelIdMessageCount;
+
+/**
+ *  Number of constituents for this entity.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numConstituents;
+
+@end
+
+
+/**
+ *  Map of label => count of topic constituent messages with label These only
+ *  contain counts of labels that are relevant for topic
+ *  normalization/denormalization. Eg. If a topic thread has 5 constituents, 4
+ *  of which are in inbox, this will contain ^i => 4. Some labels of interest
+ *  are archive, inbox, trash, spam, etc.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudSearch_TopicState_LabelIdMessageCount : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudSearch_TopicStateUpdate
+ */
+@interface GTLRCloudSearch_TopicStateUpdate : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TopicState *topicState;
+
+@end
+
+
+/**
+ *  Storage information pertaining to the transaction with which a HistoryRecord
+ *  is associated.
+ */
+@interface GTLRCloudSearch_TransactionContext : GTLRObject
+
+/**
+ *  The last HistoryRecord of the transaction. Note that this may correspond to
+ *  a record that is filtered by Tingle (and thus not returned to the client).
+ *  See http://b/9513464.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endingRecordId;
+
+/**
+ *  The first HistoryRecord of the transaction. Note that this may be a record
+ *  of type INTERNAL.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startingRecordId;
+
+/**
+ *  The microsecond timestamp of the transaction.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeTimestampUs;
+
+@end
+
+
+/**
+ *  HistoryRecord for debug info associated with the transaction, namely:
+ *  TXN_DEBUG_INFO TODO(b/143845917) This is a short-term workaround for
+ *  unblocking fusebox writes migration. Clean up the code or land a long-term
+ *  solution after the rollout. go/diff-to-historyrecord
+ */
+@interface GTLRCloudSearch_TransactionDebugInfo : GTLRObject
+@end
+
+
+/**
  *  Information about a transcription session.
  */
 @interface GTLRCloudSearch_TranscriptionSessionInfo : GTLRObject
@@ -22336,6 +25365,326 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Transient generic data that will not be saved on the server.
  */
 @interface GTLRCloudSearch_TransientData : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudSearch_Trigger
+ */
+@interface GTLRCloudSearch_Trigger : GTLRObject
+
+/**
+ *  Each dispatcher should use an enum to for the actions that it supports. If a
+ *  dispatcher has only one action, this does not need to be set. (It can be
+ *  expanded later, defining the default behaviour as type 0.) For purposes such
+ *  as batching, the type of a trigger is (dispatcher, action_type).
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *actionType;
+
+/**
+ *  Maximum possible delay in micros that can be tolerated so triggers can be
+ *  batched, which makes processing more efficient compared to firing triggers
+ *  individually. Note that the actual fire time will be somewhere in the
+ *  timerange interval [fire_time_us, fire_time_us + batch_time_us).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchTimeUs;
+
+/**
+ *  Which server should interpret action_type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_Trigger_Dispatcher_DispatcherCoproc Replace
+ *        ACTION_INVOKE_X; the CS and Stratus are no longer limited to a single
+ *        type of action. Each additional remote client should be defined here.
+ *        (Value: "DISPATCHER_COPROC")
+ *    @arg @c kGTLRCloudSearch_Trigger_Dispatcher_DispatcherCs Value
+ *        "DISPATCHER_CS"
+ *    @arg @c kGTLRCloudSearch_Trigger_Dispatcher_DispatcherJobsettedPrimary
+ *        Value "DISPATCHER_JOBSETTED_PRIMARY"
+ *    @arg @c kGTLRCloudSearch_Trigger_Dispatcher_DispatcherStratus Value
+ *        "DISPATCHER_STRATUS"
+ *    @arg @c kGTLRCloudSearch_Trigger_Dispatcher_DispatcherStubbyDispatcher
+ *        Value "DISPATCHER_STUBBY_DISPATCHER"
+ *    @arg @c kGTLRCloudSearch_Trigger_Dispatcher_DispatcherTasksServer Value
+ *        "DISPATCHER_TASKS_SERVER"
+ */
+@property(nonatomic, copy, nullable) NSString *dispatcher;
+
+/**
+ *  Must be set for DISPATCHER_STUBBY_DISPATCHER.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dispatchId;
+
+/**
+ *  Earliest time to fire at in microseconds. The actual time that the trigger
+ *  will fire will be in the timerange: [fire_time_us, fire_time_us +
+ *  batch_time_us).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fireTimeUs;
+
+/** Must be set for DISPATCHER_JOBSETTED_PRIMARY. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_JobsettedServerSpec *jobsettedServerSpec;
+
+/** The trigger key, if applicable. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_RpcOptions *rpcOptions;
+
+/**
+ *  The slice_fire_time_us is automatically computed and stored as part of the
+ *  trigger write. It represents the exact fire time at which the trigger will
+ *  be queued to fire and will satisfy fire_time_us < slice_fire_time_us <=
+ *  fire_time_us + batch_time_us Triggers have an index row in the slice trigger
+ *  index with the row prefix matching this time. Note that this field is
+ *  internal to gmail_cp and is ignored if set by external clients when adding /
+ *  updating triggers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sliceFireTimeUs;
+
+/** Trigger action to perform. This should always be set. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TriggerAction *triggerAction;
+
+/**
+ *  The TriggerKey will uniquely determine a trigger within a given context. A
+ *  context is a single message for message triggers or a single account for
+ *  account triggers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TriggerKey *triggerKey;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_TriggerAction
+ */
+@interface GTLRCloudSearch_TriggerAction : GTLRObject
+
+/**
+ *  action
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionAccountInitialization
+ *        This trigger will be executed once per newly created account. It will
+ *        be created as part of the first transaction written to the account.
+ *        The trigger can also be written as part of an SVF in case we want to
+ *        re-initialize every account. (Value: "ACTION_ACCOUNT_INITIALIZATION")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionAutoSaveDraftExpunge
+ *        Begins the message expunge similar to ACTION_MESSAGE_EXPUNGE but fires
+ *        within one day. To be used ONLY for auto save drafts. See
+ *        go/faster-auto-save-draft-deletion for more details. (Value:
+ *        "ACTION_AUTO_SAVE_DRAFT_EXPUNGE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionCaribouDataRetention
+ *        Similar to ACTION_QUERY_RETENTION but uses the MessageRetention
+ *        policies to trash/delete the messages:
+ *        cs/caribou/base/lib/proto/data_retention.proto . (Value:
+ *        "ACTION_CARIBOU_DATA_RETENTION")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionCaribouDataRetentionDiff
+ *        Trigger for executing comparison logic between the output of
+ *        ApplyDataRetention idle task and CaribouDataRetention trigger. (Value:
+ *        "ACTION_CARIBOU_DATA_RETENTION_DIFF")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionCreateNewTrigger No-op
+ *        (Value: "ACTION_CREATE_NEW_TRIGGER")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionDelete No-op (Value:
+ *        "ACTION_DELETE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionEverclearExpunge Sends
+ *        RPC to everclear for the message expunge. (Value:
+ *        "ACTION_EVERCLEAR_EXPUNGE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionGroupsQueryRetention
+ *        The retention trigger that will be written to implement Groups
+ *        retention. (Value: "ACTION_GROUPS_QUERY_RETENTION")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionHistoryCleanup This
+ *        trigger deletes expired HistoryRecords. See go/history-record-cleanup
+ *        for more details. (Value: "ACTION_HISTORY_CLEANUP")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeCs Sends the
+ *        trigger to the master Caribou server via the Stubby
+ *        TriggerHandlerService interface (defined in
+ *        caribou/coproc/proto/trigger_handler.proto). The trigger is handled at
+ *        fire time in the account's primary replica, and only in non-primary
+ *        replicas after a delay. (Value: "ACTION_INVOKE_CS")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeDebugLog Process
+ *        the debug log trigger by adding message body before dispatching to the
+ *        Caribou Server through Stubby Dispatcher. (Value:
+ *        "ACTION_INVOKE_DEBUG_LOG")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeGroups Send the
+ *        trigger to a groups server that implements the TriggerHandlerService.
+ *        Dispatched via GSLB target specified by
+ *        FLAGS_triggers_groups_server_address. (Value: "ACTION_INVOKE_GROUPS")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeJobsettedPrimary
+ *        Similar to ACTION_INVOKE_CS, but instead of sending the trigger to the
+ *        master Caribou server, sends it to a jobsetted server in the user's
+ *        master jobset using the consistent-hash homing algorithm. The
+ *        jobsetted_server_spec must be specified when using this TriggerAction.
+ *        (Value: "ACTION_INVOKE_JOBSETTED_PRIMARY")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeObserver Send
+ *        the trigger to an Observer server that implements the
+ *        TriggerHandlerService. Dispatched via GSLB target specified by
+ *        FLAGS_triggers_observer_server_address. (Value:
+ *        "ACTION_INVOKE_OBSERVER")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeObserverWipeout
+ *        Send the trigger to an Observer server that implements the
+ *        TriggerHandlerService for wipeout purpose. Dispatched via GSLB target
+ *        specified by FLAGS_triggers_observer_server_address. It behaves
+ *        differently from the invoke observer trigger (ACTION_INVOKE_OBSERVER)
+ *        and should be batched separately. Tingle always fires this kind of
+ *        action trigger for ^deleted messages. (Value:
+ *        "ACTION_INVOKE_OBSERVER_WIPEOUT")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokePublisher Send
+ *        the trigger to a SmartMail Publisher server that implements the
+ *        TriggerHandlerService. Dispatched via GSLB target specified by
+ *        FLAGS_triggers_publisher_server_address. (Value:
+ *        "ACTION_INVOKE_PUBLISHER")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSatelliteBackup
+ *        Dispatches the permanent backup trigger to Satellite through Stubby
+ *        dispatcher. (Value: "ACTION_INVOKE_SATELLITE_BACKUP")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSatelliteImageProcessing
+ *        Dispatches the image processing trigger to Satellite through Stubby
+ *        dispatcher. See go/gmail-photo-sharing for details. (Value:
+ *        "ACTION_INVOKE_SATELLITE_IMAGE_PROCESSING")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSmimeCertificateIssuer
+ *        Send the trigger to the S/MIME certificate issuer server. Dispatched
+ *        via the GSLB target specified by
+ *        FLAGS_triggers_smime_certificate_issuer_server_address. (Value:
+ *        "ACTION_INVOKE_SMIME_CERTIFICATE_ISSUER")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeStratus Similar
+ *        to ACTION_INVOKE_CS, but instead of sending the trigger to the master
+ *        Caribou server, sends it to a Stratus server that also implements the
+ *        TriggerHandlerService. This Stratus server is specified via
+ *        FLAGS_triggers_stratus_server_address. The trigger is handled at fire
+ *        time in the account's primary replica, and only in non-primary
+ *        replicas after a delay. (Value: "ACTION_INVOKE_STRATUS")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeStubbyDispatcher
+ *        Send the trigger to the stubby dispatcher, which routes the RPC using
+ *        the value of Trigger.dispatch_id as the RoutingInfo.extension_tag
+ *        field. Dispatched via the GSLB target specified by
+ *        FLAGS_triggers_stubby_dispatcher_address. (Value:
+ *        "ACTION_INVOKE_STUBBY_DISPATCHER")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionInvokeTasksServer Send
+ *        the trigger to a Tasks server that implements the
+ *        TriggerHandlerService. Dispatched via GSLB target specified by
+ *        FLAGS_triggers_tasks_server_address. (Value:
+ *        "ACTION_INVOKE_TASKS_SERVER")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionItemBulkRelabel This
+ *        trigger relabels messages asynchronously. See go/fusebox-bulk-api for
+ *        more details. (Value: "ACTION_ITEM_BULK_RELABEL")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionMessageExpunge This
+ *        action begins the message expunge process. It will trigger a purge
+ *        attempt for all messages that have this trigger. (Value:
+ *        "ACTION_MESSAGE_EXPUNGE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionMessageUndelete Move
+ *        messages from ^deleted to ^all. This trigger will only undelete
+ *        messages that were deleted before the fire time of the trigger. Also,
+ *        messages whose blobs are already deleted will not be undeleted. This
+ *        is an account trigger. (Value: "ACTION_MESSAGE_UNDELETE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionNone Value
+ *        "ACTION_NONE"
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionPdhBackfill Backfills
+ *        a set of records from an account and pushes them to PDH. (Value:
+ *        "ACTION_PDH_BACKFILL")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionPdhExpunge This action
+ *        begins the message's PDH expunge. It will trigger a expunge (from pdh)
+ *        attempt for all messages that have this trigger. (Value:
+ *        "ACTION_PDH_EXPUNGE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionPdhPushNotificationBackfill
+ *        Trigger to backfill gaps left by pdh pushed via push notification. see
+ *        go/tingle-moonshine-push-v2 (Value:
+ *        "ACTION_PDH_PUSH_NOTIFICATION_BACKFILL")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionPreferenceCleanup This
+ *        trigger deletes expired temporary preferences. See
+ *        go/tingle-temp-prefs for more details. (Value:
+ *        "ACTION_PREFERENCE_CLEANUP")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionPushHistoryToPdh Push
+ *        a set of history records to PDH. (Value: "ACTION_PUSH_HISTORY_TO_PDH")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionQueryRetention When
+ *        this trigger fires, based on the latest retention policy: 1. messages
+ *        that need to be deleted will be deleted through the CS trigger handler
+ *        2. ^deleted messages that need to be expunged will be expunged (Value:
+ *        "ACTION_QUERY_RETENTION")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionRelevancyScoreBackfill
+ *        Trigger for backfill relevancy score. see
+ *        go/gmail-relevancy-scoring-write for detail. (Value:
+ *        "ACTION_RELEVANCY_SCORE_BACKFILL")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionRetentionPolicyUpdate
+ *        When this trigger fires, the current retention policy will be loaded
+ *        from the policy management system and stored into the preference cache
+ *        (if necessary). This will also create new expunge triggers if
+ *        necessary. (Value: "ACTION_RETENTION_POLICY_UPDATE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionServiceRemovedMessageExpunge
+ *        Begins the message expunge similar to ACTION_MESSAGE_EXPUNGE but
+ *        doesn't check if the message was deleted at least 30 days back. To be
+ *        used ONLY for service removal. See go/gmail-service-removal for more
+ *        details. (Value: "ACTION_SERVICE_REMOVED_MESSAGE_EXPUNGE")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionUpdateIceboxModel When
+ *        this trigger fires, the message should be used to update the user's
+ *        importance model. See http://go/io-tingle for more details. (Value:
+ *        "ACTION_UPDATE_ICEBOX_MODEL")
+ *    @arg @c kGTLRCloudSearch_TriggerAction_Action_ActionVaultEndUserAccess
+ *        This trigger will undelete messages that were ^deleted arbitrarily
+ *        long in the past and a trash label will be applied to these undeleted
+ *        messages. This is an account trigger that will be written when the
+ *        Vault admin enables end user access for the Vault customer. This
+ *        trigger shares its implementation with the ACTION_MESSAGE_UNDELETE
+ *        trigger. (Value: "ACTION_VAULT_END_USER_ACCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Clients should use extensions on the Trigger message instead.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  dataInt
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataInt;
+
+@end
+
+
+/**
+ *  A TriggerKey (type + instance_id) uniquely identifies a trigger within a
+ *  message for a message-trigger and within an account for an account-trigger.
+ */
+@interface GTLRCloudSearch_TriggerKey : GTLRObject
+
+/**
+ *  Identifier to distinguish multiple Triggers of the same type (per message or
+ *  per account).
+ */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/**
+ *  A non-empty string that identifies the type of Trigger. Triggers of the same
+ *  type may be batched together. The universe of values for the type field
+ *  should be finite as it is used as a stats key.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_Triggers
+ */
+@interface GTLRCloudSearch_Triggers : GTLRObject
+
+/** A list of triggers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Trigger *> *triggers;
+
 @end
 
 
@@ -22697,6 +26046,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata *dlpMetricsMetadata;
 
 /**
+ *  The timestamp of the most recent virus scan completed (in microseconds).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latestVirusScanTimestamp;
+
+/**
  *  A copy of the LocalId in Annotation. This field is supposed to be filled by
  *  server only.
  */
@@ -22784,26 +26140,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *intImageWidth;
 
 /**
- *  NEXT TAG : 18
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_AutoDetectedPlainText Set by
- *        the server, when it detects a URL in the message text (Value:
- *        "AUTO_DETECTED_PLAIN_TEXT")
- *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_Markdown Set by the server,
- *        when it detects a URL in markdown-syntax in the message text (Value:
- *        "MARKDOWN")
- *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_NoAssociatedText Set by the
- *        server when a URL annotation received from client has 0 length and 0
- *        start index (Value: "NO_ASSOCIATED_TEXT")
- *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_RichText Set by the client,
- *        when the user adds a link via the rich-text editing (RTE) toolbar
- *        (Value: "RICH_TEXT")
- *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_Undefined Value "UNDEFINED"
- */
-@property(nonatomic, copy, nullable) NSString *linkType;
-
-/**
  *  Mime type of the content (Currently mapped from Page Render Service
  *  ItemType) Note that this is not necessarily the mime type of the http
  *  resource. For example a text/html from youtube or vimeo may actually be
@@ -22836,12 +26172,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  urlSource
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_AutoDetectedPlainText Set
+ *        by the server, when it detects a URL in the message text (Value:
+ *        "AUTO_DETECTED_PLAIN_TEXT")
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_RichText Set by the client,
+ *        when the user adds a link as a custom hyperlink. Validated by the
+ *        server and persisted in storage. (Value: "RICH_TEXT")
  *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation
  *        Value "SERVER_SUPPLIED_POLICY_VIOLATION"
  *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_UrlSourceUnknown Value
  *        "URL_SOURCE_UNKNOWN"
- *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_UserSuppliedUrl Value
- *        "USER_SUPPLIED_URL"
  */
 @property(nonatomic, copy, nullable) NSString *urlSource;
 

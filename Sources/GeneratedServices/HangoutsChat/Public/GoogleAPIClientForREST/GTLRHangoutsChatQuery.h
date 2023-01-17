@@ -66,228 +66,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.dms.conversations.messages
- */
-@interface GTLRHangoutsChatQuery_DmsConversationsMessages : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_DmsConversationsMessages
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.dms.messages
- */
-@interface GTLRHangoutsChatQuery_DmsMessages : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_DmsMessages
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.dms.webhooks
- */
-@interface GTLRHangoutsChatQuery_DmsWebhooks : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_DmsWebhooks
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Downloads media. Download is supported on the URI
  *  `/v1/media/{+name}?alt=media`.
  *
@@ -333,232 +111,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.rooms.conversations.messages
- */
-@interface GTLRHangoutsChatQuery_RoomsConversationsMessages : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_RoomsConversationsMessages
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.rooms.messages
- */
-@interface GTLRHangoutsChatQuery_RoomsMessages : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_RoomsMessages
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.rooms.webhooks
- */
-@interface GTLRHangoutsChatQuery_RoomsWebhooks : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_RoomsWebhooks
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Returns a space. Requires [service account
+ *  Returns a space. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.spaces` or `chat.spaces.readonly` authorization scope.
  *
  *  Method: chat.spaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatSpaces
+ *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
  */
 @interface GTLRHangoutsChatQuery_SpacesGet : GTLRHangoutsChatQuery
 
@@ -571,8 +140,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Space.
  *
- *  Returns a space. Requires [service account
+ *  Returns a space. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.spaces` or `chat.spaces.readonly` authorization scope.
  *
  *  @param name Required. Resource name of the space, in the form "spaces/ *".
  *    Format: spaces/{space}
@@ -584,10 +162,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Lists spaces the caller is a member of. Requires [service account
+ *  Lists spaces the caller is a member of. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.spaces` or `chat.spaces.readonly` authorization scope.
+ *  Lists spaces visible to the caller or authenticated user. Group chats and
+ *  DMs aren't listed until the first message is sent.
  *
  *  Method: chat.spaces.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatSpaces
+ *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
  */
 @interface GTLRHangoutsChatQuery_SpacesList : GTLRHangoutsChatQuery
 
@@ -601,16 +194,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Optional. A page token, received from a previous list spaces call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided must match the call that provided the page token.
+ *  this to retrieve the subsequent page. When paginating, the filter value
+ *  should match the call that provided the page token. Passing a different
+ *  value may lead to unexpected results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_ListSpacesResponse.
  *
- *  Lists spaces the caller is a member of. Requires [service account
+ *  Lists spaces the caller is a member of. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.spaces` or `chat.spaces.readonly` authorization scope.
+ *  Lists spaces visible to the caller or authenticated user. Group chats and
+ *  DMs aren't listed until the first message is sent.
  *
  *  @return GTLRHangoutsChatQuery_SpacesList
  *
@@ -623,13 +228,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Returns a membership. Requires [service account
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Returns a membership. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.memberships` or `chat.memberships.readonly` authorization
+ *  scope.
  *
  *  Method: chat.spaces.members.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatMemberships
+ *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersGet : GTLRHangoutsChatQuery
 
@@ -642,8 +259,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Membership.
  *
- *  Returns a membership. Requires [service account
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Returns a membership. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.memberships` or `chat.memberships.readonly` authorization
+ *  scope.
  *
  *  @param name Required. Resource name of the membership to retrieve. Format:
  *    spaces/{space}/members/{member}
@@ -655,13 +283,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Lists memberships in a space. Requires [service account
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
+ *  memberships in a space. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.memberships` or `chat.memberships.readonly` authorization
+ *  scope.
  *
  *  Method: chat.spaces.members.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatMemberships
+ *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersList : GTLRHangoutsChatQuery
 
@@ -676,7 +316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  A page token, received from a previous list memberships call. Provide this
  *  to retrieve the subsequent page. When paginating, all other parameters
- *  provided must match the call that provided the page token.
+ *  provided should match the call that provided the page token. Passing
+ *  different values to the other parameters may lead to unexpected results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -689,8 +330,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_ListMembershipsResponse.
  *
- *  Lists memberships in a space. Requires [service account
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
+ *  memberships in a space. Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.memberships` or `chat.memberships.readonly` authorization
+ *  scope.
  *
  *  @param parent Required. The resource name of the space for which to fetch a
  *    membership list. Format: spaces/{space}
@@ -750,6 +402,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  early access to certain features. [User
  *  authentication](https://developers.google.com/chat/api/guides/auth/users)
  *  requires the `chat.messages` or `chat.messages.create` authorization scope.
+ *  Because Chat provides authentication for
+ *  [webhooks](https://developers.google.com/chat/how-tos/webhooks) as part of
+ *  the URL that's generated when a webhook is registered, webhooks can create
+ *  messages without a service account or user authentication.
  *
  *  Method: chat.spaces.messages.create
  *
@@ -824,6 +480,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  early access to certain features. [User
  *  authentication](https://developers.google.com/chat/api/guides/auth/users)
  *  requires the `chat.messages` or `chat.messages.create` authorization scope.
+ *  Because Chat provides authentication for
+ *  [webhooks](https://developers.google.com/chat/how-tos/webhooks) as part of
+ *  the URL that's generated when a webhook is registered, webhooks can create
+ *  messages without a service account or user authentication.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. The resource name of the space in which to create a
@@ -961,8 +621,90 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Updates a message. For example usage, see [Update a
  *  message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message).
- *  Requires [service account
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` authorization scope.
+ *
+ *  Method: chat.spaces.messages.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagesPatch : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. If `true` and the message is not found, a new message is created
+ *  and `updateMask` is ignored. The specified message ID must be
+ *  [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)
+ *  or the request fails.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Resource name in the form `spaces/ * /messages/ *`. Example:
+ *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The field paths to update. Separate multiple values with commas.
+ *  Currently supported field paths: - text - cards (Requires [service account
+ *  authentication](/chat/api/guides/auth/service-accounts).) - cards_v2
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Message.
+ *
+ *  Updates a message. For example usage, see [Update a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` authorization scope.
+ *
+ *  @param object The @c GTLRHangoutsChat_Message to include in the query.
+ *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
+ *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesPatch
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a message. For example usage, see [Update a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` authorization scope.
  *
  *  Method: chat.spaces.messages.update
  *
@@ -999,8 +741,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Updates a message. For example usage, see [Update a
  *  message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message).
- *  Requires [service account
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` authorization scope.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
@@ -1010,80 +761,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  */
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  Method: chat.spaces.webhooks
- */
-@interface GTLRHangoutsChatQuery_SpacesWebhooks : GTLRHangoutsChatQuery
-
-/**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
- */
-@property(nonatomic, copy, nullable) NSString *messageId;
-
-/**
- *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
- *        Creates the message as a reply to the thread specified by thread ID or
- *        thread_key. If it fails, the message starts a new thread instead.
- *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
- *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
- *        message as a reply to the thread specified by thread ID or thread_key.
- *        If it fails, a NOT_FOUND error is returned instead. (Value:
- *        "REPLY_MESSAGE_OR_FAIL")
- */
-@property(nonatomic, copy, nullable) NSString *messageReplyOption;
-
-/**
- *  Required. The resource name of the space in which to create a message.
- *  Format: spaces/{space}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
- *  identifier. To start or add to a thread, create a message and specify a
- *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
- *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
- */
-@property(nonatomic, copy, nullable) NSString *threadKey;
-
-/**
- *  Fetches a @c GTLRHangoutsChat_Message.
- *
- *  Legacy path for creating message. Calling these will result in a BadRequest
- *  response.
- *
- *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. The resource name of the space in which to create a
- *    message. Format: spaces/{space}
- *
- *  @return GTLRHangoutsChatQuery_SpacesWebhooks
- */
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent;
 
 @end
 

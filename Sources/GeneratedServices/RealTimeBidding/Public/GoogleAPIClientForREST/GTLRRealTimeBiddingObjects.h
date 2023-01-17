@@ -843,43 +843,55 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Bid
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_GoogleRtb;
 /**
- *  OpenRTB / JSON encoding, specification version 2.2.
+ *  Deprecated: Use OPENRTB_JSON.
  *
  *  Value: "OPENRTB_2_2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb22;
 /**
- *  OpenRTB / JSON encoding, specification version 2.3.
+ *  Deprecated: Use OPENRTB_JSON.
  *
  *  Value: "OPENRTB_2_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb23;
 /**
- *  OpenRTB / JSON encoding, specification version 2.4.
+ *  Deprecated: Use OPENRTB_JSON.
  *
  *  Value: "OPENRTB_2_4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb24;
 /**
- *  OpenRTB / JSON encoding, specification version 2.5.
+ *  Deprecated: Use OPENRTB_JSON.
  *
  *  Value: "OPENRTB_2_5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb25;
 /**
- *  OpenRTB / Protobuf encoding, specification version 2.3.
+ *  OpenRTB / JSON encoding (unversioned/latest).
+ *
+ *  Value: "OPENRTB_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbJson;
+/**
+ *  OpenRTB / Protobuf encoding (unversioned/latest).
+ *
+ *  Value: "OPENRTB_PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf;
+/**
+ *  Deprecated: Use OPENRTB_PROTOBUF.
  *
  *  Value: "OPENRTB_PROTOBUF_2_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf23;
 /**
- *  OpenRTB / Protobuf encoding, specification version 2.4.
+ *  Deprecated: Use OPENRTB_PROTOBUF.
  *
  *  Value: "OPENRTB_PROTOBUF_2_4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf24;
 /**
- *  OpenRTB / Protobuf encoding, specification version 2.5.
+ *  Deprecated: Use OPENRTB_PROTOBUF.
  *
  *  Value: "OPENRTB_PROTOBUF_2_5"
  */
@@ -2406,23 +2418,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *        (Value: "BID_PROTOCOL_UNSPECIFIED")
  *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_GoogleRtb Google RTB
  *        protocol / Protobuf encoding. (Value: "GOOGLE_RTB")
- *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb22 OpenRTB / JSON
- *        encoding, specification version 2.2. (Value: "OPENRTB_2_2")
- *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb23 OpenRTB / JSON
- *        encoding, specification version 2.3. (Value: "OPENRTB_2_3")
- *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb24 OpenRTB / JSON
- *        encoding, specification version 2.4. (Value: "OPENRTB_2_4")
- *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb25 OpenRTB / JSON
- *        encoding, specification version 2.5. (Value: "OPENRTB_2_5")
+ *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb22 Deprecated:
+ *        Use OPENRTB_JSON. (Value: "OPENRTB_2_2")
+ *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb23 Deprecated:
+ *        Use OPENRTB_JSON. (Value: "OPENRTB_2_3")
+ *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb24 Deprecated:
+ *        Use OPENRTB_JSON. (Value: "OPENRTB_2_4")
+ *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb25 Deprecated:
+ *        Use OPENRTB_JSON. (Value: "OPENRTB_2_5")
+ *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbJson OpenRTB /
+ *        JSON encoding (unversioned/latest). (Value: "OPENRTB_JSON")
+ *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf OpenRTB
+ *        / Protobuf encoding (unversioned/latest). (Value: "OPENRTB_PROTOBUF")
  *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf23
- *        OpenRTB / Protobuf encoding, specification version 2.3. (Value:
- *        "OPENRTB_PROTOBUF_2_3")
+ *        Deprecated: Use OPENRTB_PROTOBUF. (Value: "OPENRTB_PROTOBUF_2_3")
  *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf24
- *        OpenRTB / Protobuf encoding, specification version 2.4. (Value:
- *        "OPENRTB_PROTOBUF_2_4")
+ *        Deprecated: Use OPENRTB_PROTOBUF. (Value: "OPENRTB_PROTOBUF_2_4")
  *    @arg @c kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf25
- *        OpenRTB / Protobuf encoding, specification version 2.5. (Value:
- *        "OPENRTB_PROTOBUF_2_5")
+ *        Deprecated: Use OPENRTB_PROTOBUF. (Value: "OPENRTB_PROTOBUF_2_5")
  */
 @property(nonatomic, copy, nullable) NSString *bidProtocol;
 

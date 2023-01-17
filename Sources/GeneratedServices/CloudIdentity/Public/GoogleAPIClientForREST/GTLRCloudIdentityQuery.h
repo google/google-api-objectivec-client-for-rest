@@ -1440,8 +1440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. The parent resource under which to list all `Group` resources.
  *  Must be of the form `identitysources/{identity_source}` for external-
- *  identity-mapped groups or `customers/{customer}` for Google Groups. The
- *  `customer` must begin with "C" (for example, 'C046psxkn').
+ *  identity-mapped groups or `customers/{customer_id}` for Google Groups. The
+ *  `customer_id` must begin with "C" (for example, 'C046psxkn'). [Find your
+ *  customer ID.] (https://support.google.com/cloudidentity/answer/10070793)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2112,9 +2113,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Required. The search query. Must be specified in [Common Expression
  *  Language](https://opensource.google/projects/cel). May only contain equality
  *  operators on the parent and inclusion operators on labels (e.g., `parent ==
- *  'customers/{customer}' &&
+ *  'customers/{customer_id}' &&
  *  'cloudidentity.googleapis.com/groups.discussion_forum' in labels`). The
- *  `customer` must begin with "C" (for example, 'C046psxkn').
+ *  `customer_id` must begin with "C" (for example, 'C046psxkn'). [Find your
+ *  customer ID.] (https://support.google.com/cloudidentity/answer/10070793)
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

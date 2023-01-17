@@ -96,6 +96,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableO
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableEnabled = @"INDEXABLE_ENABLED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableOptionUnspecified = @"INDEXABLE_OPTION_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.retrievableOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableDisabled = @"RETRIEVABLE_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableEnabled = @"RETRIEVABLE_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableOptionUnspecified = @"RETRIEVABLE_OPTION_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.searchableOption
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableDisabled = @"SEARCHABLE_DISABLED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableEnabled = @"SEARCHABLE_ENABLED";
@@ -1293,7 +1298,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute
 @dynamic dynamicFacetableOption, exactSearchableOption, indexableOption, inUse,
-         key, searchableOption, type;
+         key, retrievableOption, searchableOption, type;
 @end
 
 

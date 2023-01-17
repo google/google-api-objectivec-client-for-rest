@@ -525,7 +525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAt
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableEnabled;
 /**
- *  Value used when unset. Defaults to EXACT_SEARCHABLE_DISABLED.
+ *  Value used when unset.
  *
  *  Value: "EXACT_SEARCHABLE_OPTION_UNSPECIFIED"
  */
@@ -552,6 +552,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAt
  *  Value: "INDEXABLE_OPTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.retrievableOption
+
+/**
+ *  Retrievable option disabled for an attribute.
+ *
+ *  Value: "RETRIEVABLE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableDisabled;
+/**
+ *  Retrievable option enabled for an attribute.
+ *
+ *  Value: "RETRIEVABLE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableEnabled;
+/**
+ *  Value used when unset.
+ *
+ *  Value: "RETRIEVABLE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableOptionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.searchableOption
@@ -1730,7 +1752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 /**
  *  Required. The type of model e.g. `home-page`. Currently supported values:
  *  `recommended-for-you`, `others-you-may-like`, `frequently-bought-together`,
- *  `page-optimization`, `similar-items`, `buy-it-again`, and
+ *  `page-optimization`, `similar-items`, `buy-it-again`, `on-sale-items`, and
  *  `recently-viewed`(readonly value). This field together with
  *  optimization_objective describe model metadata to use to control model
  *  training and serving. See https://cloud.google.com/retail/docs/models for
@@ -1754,9 +1776,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /**
  *  The PageOptimizationConfig for model training. This determines how many
- *  panels to optimize for, and which serving configurations to consider for
- *  each panel. The purpose of this model is to optimize which ServingConfig to
- *  show on which panels in way that optimizes the visitors shopping journey.
+ *  panels to optimize for, and which serving configs to consider for each
+ *  panel. The purpose of this model is to optimize which ServingConfig to show
+ *  on which panels in way that optimizes the visitors shopping journey.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig : GTLRObject
 
@@ -2647,7 +2669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 /**
  *  Required. The type of model e.g. `home-page`. Currently supported values:
  *  `recommended-for-you`, `others-you-may-like`, `frequently-bought-together`,
- *  `page-optimization`, `similar-items`, `buy-it-again`, and
+ *  `page-optimization`, `similar-items`, `buy-it-again`, `on-sale-items`, and
  *  `recently-viewed`(readonly value). This field together with
  *  optimization_objective describe model metadata to use to control model
  *  training and serving. See https://cloud.google.com/retail/docs/models for
@@ -2950,7 +2972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 /**
  *  If EXACT_SEARCHABLE_ENABLED, attribute values will be exact searchable. This
  *  property only applies to textual custom attributes and requires indexable
- *  set to enabled to enable exact-searchable.
+ *  set to enabled to enable exact-searchable. If unset, the server behavior
+ *  defaults to EXACT_SEARCHABLE_DISABLED.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableDisabled
@@ -2960,8 +2983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *        Exact searchable option enabled for an attribute. (Value:
  *        "EXACT_SEARCHABLE_ENABLED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableOptionUnspecified
- *        Value used when unset. Defaults to EXACT_SEARCHABLE_DISABLED. (Value:
- *        "EXACT_SEARCHABLE_OPTION_UNSPECIFIED")
+ *        Value used when unset. (Value: "EXACT_SEARCHABLE_OPTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *exactSearchableOption;
 
@@ -3007,9 +3029,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  `attributes.custom_attribute`, such as `attributes.xyz`. To be indexable,
  *  the attribute name can contain only alpha-numeric characters and
  *  underscores. For example, an attribute named `attributes.abc_xyz` can be
- *  indexed, but an attribute named `attributes.abc-xyz` cannot be indexed.
+ *  indexed, but an attribute named `attributes.abc-xyz` cannot be indexed. For
+ *  attributes whoes key start with `attributes.`, we refer them as custom
+ *  attributes. Otherwise they are built-in attributes such as `color` and
+ *  `brands`.
  */
 @property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  If RETRIEVABLE_ENABLED, attribute values are retrievable in the search
+ *  results. If unset, the server behavior defaults to RETRIEVABLE_DISABLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableDisabled
+ *        Retrievable option disabled for an attribute. (Value:
+ *        "RETRIEVABLE_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableEnabled
+ *        Retrievable option enabled for an attribute. (Value:
+ *        "RETRIEVABLE_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_RetrievableOption_RetrievableOptionUnspecified
+ *        Value used when unset. (Value: "RETRIEVABLE_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *retrievableOption;
 
 /**
  *  When AttributesConfig.attribute_config_level is
@@ -3072,7 +3113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  The color display names, which may be different from standard color family
  *  names, such as the color aliases used in the website frontend. Normally it
  *  is expected to have only 1 color. May consider using single "Mixed" instead
- *  of multiple values. A maximum of 25 colors are allowed. Each value must be a
+ *  of multiple values. A maximum of 75 colors are allowed. Each value must be a
  *  UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
  *  INVALID_ARGUMENT error is returned. Google Merchant Center property
  *  [color](https://support.google.com/merchants/answer/6324487). Schema.org
@@ -3366,7 +3407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @interface GTLRCloudRetail_GoogleCloudRetailV2Control : GTLRObject
 
 /**
- *  Output only. List of serving configuration ids that are associated with this
+ *  Output only. List of serving config ids that are associated with this
  *  control in the same Catalog. Note the association is managed via the
  *  ServingConfig, this is an output only denormalized view.
  */
@@ -4612,7 +4653,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  returned in by default: * name * color_info The maximum number of paths is
  *  30. Otherwise, an INVALID_ARGUMENT error is returned. Note: Returning more
  *  fields in SearchResponse can increase response payload size and serving
- *  latency.
+ *  latency. This field is deprecated. Use the retrievable site-wide control
+ *  instead.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -6313,7 +6355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, copy, nullable) NSString *diversityLevel;
 
 /**
- *  What kind of diversity to use - data driven or rule based.
+ *  What kind of diversity to use - data driven or rule based. If unset, the
+ *  server behavior defaults to RULE_BASED_DIVERSITY.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DataDrivenDiversity
@@ -6418,7 +6461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  product items with a similar recommendation probability to be ordered by
  *  price, with the highest-priced items first. This setting could result in a
  *  decrease in click-through and conversion rates. Allowed values are: *
- *  `no-price-reranking` * `low-price-raranking` * `medium-price-reranking` *
+ *  `no-price-reranking` * `low-price-reranking` * `medium-price-reranking` *
  *  `high-price-reranking` If not specified, we choose default based on model
  *  type. Default value: `no-price-reranking`. Can only be set if solution_types
  *  is SOLUTION_TYPE_RECOMMENDATION.

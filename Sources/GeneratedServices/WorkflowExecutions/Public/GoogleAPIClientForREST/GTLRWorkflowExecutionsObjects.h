@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRWorkflowExecutions_Execution.callLogLevel
 
 /**
- *  No call logging specified.
+ *  No call logging level specified.
  *
  *  Value: "CALL_LOG_LEVEL_UNSPECIFIED"
  */
@@ -134,7 +134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *
  *  Likely values:
  *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified
- *        No call logging specified. (Value: "CALL_LOG_LEVEL_UNSPECIFIED")
+ *        No call logging level specified. (Value: "CALL_LOG_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls Log all
  *        call steps within workflows, all call returns, and all exceptions
  *        raised. (Value: "LOG_ALL_CALLS")
@@ -143,6 +143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *        (Value: "LOG_ERRORS_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *callLogLevel;
+
+/** Output only. Measures the duration of the execution. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /** Output only. Marks the end of execution, successful or not. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;

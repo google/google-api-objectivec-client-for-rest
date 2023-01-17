@@ -157,6 +157,7 @@
 @class GTLRDataflow_Status_Details_Item;
 @class GTLRDataflow_Step;
 @class GTLRDataflow_Step_Properties;
+@class GTLRDataflow_Straggler;
 @class GTLRDataflow_StragglerDebuggingInfo;
 @class GTLRDataflow_StragglerInfo;
 @class GTLRDataflow_StragglerInfo_Causes;
@@ -172,6 +173,7 @@
 @class GTLRDataflow_StreamingSetupTask;
 @class GTLRDataflow_StreamingSideInputLocation;
 @class GTLRDataflow_StreamingStageLocation;
+@class GTLRDataflow_StreamingStragglerInfo;
 @class GTLRDataflow_StreamLocation;
 @class GTLRDataflow_StringList;
 @class GTLRDataflow_StructuredMessage;
@@ -197,6 +199,8 @@
 @class GTLRDataflow_WorkerSettings;
 @class GTLRDataflow_WorkerShutdownNotice;
 @class GTLRDataflow_WorkerShutdownNoticeResponse;
+@class GTLRDataflow_WorkerThreadScalingReport;
+@class GTLRDataflow_WorkerThreadScalingReportResponse;
 @class GTLRDataflow_WorkItem;
 @class GTLRDataflow_WorkItemDetails;
 @class GTLRDataflow_WorkItemServiceState;
@@ -1129,6 +1133,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 // GTLRDataflow_ParameterMetadata.paramType
 
 /**
+ *  The parameter specifies a BigQuery table.
+ *
+ *  Value: "BIGQUERY_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_BigqueryTable;
+/**
  *  Default input type.
  *
  *  Value: "DEFAULT"
@@ -1170,6 +1180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Gcs
  *  Value: "GCS_WRITE_FOLDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder;
+/**
+ *  The parameter specifies a JavaScript UDF in Cloud Storage.
+ *
+ *  Value: "JAVASCRIPT_UDF_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile;
 /**
  *  The parameter specifies a Pub/Sub Subscription.
  *
@@ -4867,6 +4883,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Optional. The type of the parameter. Used for selecting input picker.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_BigqueryTable The
+ *        parameter specifies a BigQuery table. (Value: "BIGQUERY_TABLE")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Default Default input
  *        type. (Value: "DEFAULT")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket The
@@ -4887,6 +4905,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder The
  *        parameter specifies a Cloud Storage folder to write to. (Value:
  *        "GCS_WRITE_FOLDER")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile The
+ *        parameter specifies a JavaScript UDF in Cloud Storage. (Value:
+ *        "JAVASCRIPT_UDF_FILE")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription The
  *        parameter specifies a Pub/Sub Subscription. (Value:
  *        "PUBSUB_SUBSCRIPTION")
@@ -6525,6 +6546,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Information for a straggler.
+ */
+@interface GTLRDataflow_Straggler : GTLRObject
+
+/** Batch straggler identification and debugging information. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StragglerInfo *batchStraggler;
+
+/** Streaming straggler identification and debugging information. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingStragglerInfo *streamingStraggler;
+
+@end
+
+
+/**
  *  Information useful for debugging a straggler. Each type will provide
  *  specialized debugging information relevant for a particular cause. The
  *  StragglerDebuggingInfo will be 1:1 mapping to the StragglerCause enum.
@@ -6573,6 +6608,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Summarized straggler identification details.
  */
 @interface GTLRDataflow_StragglerSummary : GTLRObject
+
+/** The most recent stragglers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Straggler *> *recentStragglers;
 
 /**
  *  Aggregated counts of straggler causes, keyed by the string representation of
@@ -6824,6 +6862,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Identifies the particular stream within the streaming Dataflow job. */
 @property(nonatomic, copy, nullable) NSString *streamId;
+
+@end
+
+
+/**
+ *  Information useful for streaming straggler identification and debugging.
+ */
+@interface GTLRDataflow_StreamingStragglerInfo : GTLRObject
+
+/** The event-time watermark lag at the time of the straggler detection. */
+@property(nonatomic, strong, nullable) GTLRDuration *dataWatermarkLag;
+
+/** End time of this straggler. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Start time of this straggler. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** The system watermark lag at the time of the straggler detection. */
+@property(nonatomic, strong, nullable) GTLRDuration *systemWatermarkLag;
+
+/** Name of the worker where the straggler was detected. */
+@property(nonatomic, copy, nullable) NSString *workerName;
 
 @end
 
@@ -7313,6 +7374,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Shutdown notice by workers. */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerShutdownNotice *workerShutdownNotice;
 
+/** Thread scaling information reported by workers. */
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerThreadScalingReport *workerThreadScalingReport;
+
 @end
 
 
@@ -7408,6 +7472,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Service's response to shutdown notice (currently empty). */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerShutdownNoticeResponse *workerShutdownNoticeResponse;
+
+/** Service's thread scaling recommendation for workers. */
+@property(nonatomic, strong, nullable) GTLRDataflow_WorkerThreadScalingReportResponse *workerThreadScalingReportResponse;
 
 @end
 
@@ -7687,6 +7754,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Service-side response to WorkerMessage issuing shutdown notice.
  */
 @interface GTLRDataflow_WorkerShutdownNoticeResponse : GTLRObject
+@end
+
+
+/**
+ *  Contains information about the thread scaling information of a worker.
+ */
+@interface GTLRDataflow_WorkerThreadScalingReport : GTLRObject
+
+/**
+ *  Current number of active threads in a worker.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentThreadCount;
+
+@end
+
+
+/**
+ *  Contains the thread scaling recommendation for a worker from the backend.
+ */
+@interface GTLRDataflow_WorkerThreadScalingReportResponse : GTLRObject
+
+/**
+ *  Recommended number of threads for a worker.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recommendedThreadCount;
+
 @end
 
 

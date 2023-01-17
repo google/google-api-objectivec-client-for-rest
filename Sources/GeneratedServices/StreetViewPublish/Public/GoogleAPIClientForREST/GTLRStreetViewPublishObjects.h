@@ -25,6 +25,7 @@
 @class GTLRStreetViewPublish_LatLngBounds;
 @class GTLRStreetViewPublish_Level;
 @class GTLRStreetViewPublish_Measurement3d;
+@class GTLRStreetViewPublish_NoOverlapGpsFailureDetails;
 @class GTLRStreetViewPublish_NotOutdoorsFailureDetails;
 @class GTLRStreetViewPublish_Operation;
 @class GTLRStreetViewPublish_Operation_Metadata;
@@ -647,6 +648,26 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 
 
 /**
+ *  Details related to PhotoSequenceProcessingFailureReason#NO_OVERLAP_GPS.
+ */
+@interface GTLRStreetViewPublish_NoOverlapGpsFailureDetails : GTLRObject
+
+/** Time of last recorded GPS point. */
+@property(nonatomic, strong, nullable) GTLRDateTime *gpsEndTime;
+
+/** Time of first recorded GPS point. */
+@property(nonatomic, strong, nullable) GTLRDateTime *gpsStartTime;
+
+/** End time of video. */
+@property(nonatomic, strong, nullable) GTLRDateTime *videoEndTime;
+
+/** Start time of video. */
+@property(nonatomic, strong, nullable) GTLRDateTime *videoStartTime;
+
+@end
+
+
+/**
  *  Details related to ProcessingFailureReason#NOT_OUTDOORS. If there are
  *  multiple indoor frames found, the first frame is recorded here.
  */
@@ -1184,6 +1205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 
 /** See InsufficientGpsFailureDetails. */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_InsufficientGpsFailureDetails *insufficientGpsDetails;
+
+/** See NoOverlapGpsFailureDetails. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_NoOverlapGpsFailureDetails *noOverlapGpsDetails;
 
 /** See NotOutdoorsFailureDetails. */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_NotOutdoorsFailureDetails *notOutdoorsDetails;

@@ -499,6 +499,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @property(nonatomic, strong, nullable) NSNumber *escalated;
 
+/**
+ *  The language the user has requested to receive support in. This should be a
+ *  BCP 47 language code (e.g., `"en"`, `"zh-CN"`, `"zh-TW"`, `"ja"`, `"ko"`).
+ *  If no language or an unsupported language is specified, this field defaults
+ *  to English (en). Language selection during case creation may affect your
+ *  available support options. For a list of supported languages and their
+ *  support working hours, see:
+ *  https://cloud.google.com/support/docs/language-working-hours
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
 /** The resource name for the case. */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -21,6 +21,19 @@ NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityInfo = @"SEVER
 NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning = @"SEVERITY_WARNING";
 
+// GTLRDirectory_ChromeOsDevice.deprovisionReason
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement = @"deprovisionReasonDifferentModelReplacement";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove = @"deprovisionReasonDomainMove";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired = @"deprovisionReasonNotRequired";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther = @"deprovisionReasonOther";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter = @"deprovisionReasonRepairCenter";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice = @"deprovisionReasonRetiringDevice";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement = @"deprovisionReasonSameModelReplacement";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration = @"deprovisionReasonServiceExpiration";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified = @"deprovisionReasonUnspecified";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade = @"deprovisionReasonUpgrade";
+NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgradeTransfer = @"deprovisionReasonUpgradeTransfer";
+
 // GTLRDirectory_ChromeosdevicesCommand.state
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_AckedByClient = @"ACKED_BY_CLIENT";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Cancelled = @"CANCELLED";
@@ -32,6 +45,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified = 
 
 // GTLRDirectory_ChromeosdevicesCommand.type
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot = @"REBOOT";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash = @"REMOTE_POWERWASH";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_SetVolume = @"SET_VOLUME";
@@ -46,6 +60,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success = @"
 
 // GTLRDirectory_ChromeosdevicesIssueCommandRequest.commandType
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot = @"REBOOT";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash = @"REMOTE_POWERWASH";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_SetVolume = @"SET_VOLUME";
@@ -482,9 +497,10 @@ NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown = @"UNK
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         autoUpdateExpiration, bootMode, cpuInfo, cpuStatusReports, deviceFiles,
-         deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
-         ethernetMacAddress0, firmwareVersion, firstEnrollmentTime, kind,
+         autoUpdateExpiration, bootMode, cpuInfo, cpuStatusReports,
+         deprovisionReason, deviceFiles, deviceId, diskVolumeReports,
+         dockMacAddress, ETag, ethernetMacAddress, ethernetMacAddress0,
+         firmwareVersion, firstEnrollmentTime, kind, lastDeprovisionTimestamp,
          lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
          manufactureDate, meid, model, notes, orderNumber, orgUnitId,
          orgUnitPath, osUpdateStatus, osVersion, platformVersion, recentUsers,
@@ -749,7 +765,7 @@ NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown = @"UNK
 //
 
 @implementation GTLRDirectory_ChromeosdevicesCommandResult
-@dynamic errorMessage, executeTime, result;
+@dynamic commandResultPayload, errorMessage, executeTime, result;
 @end
 
 
@@ -1857,7 +1873,7 @@ NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown = @"UNK
 //
 
 @implementation GTLRDirectory_UserName
-@dynamic familyName, fullName, givenName;
+@dynamic displayName, familyName, fullName, givenName;
 @end
 
 

@@ -1792,7 +1792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsCreate : GTLRApigeeQuery
 
 /**
- *  Required. Name of the GCP project in which to associate the Apigee
+ *  Required. Name of the Google Cloud project in which to associate the Apigee
  *  organization. Pass the information as a query parameter using the following
  *  structure in your request: `projects/`
  */
@@ -4149,6 +4149,58 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets the deployed ingress configuration for an environment group.
+ *
+ *  Method: apigee.organizations.envgroups.getDeployedIngressConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsGetDeployedIngressConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the deployed configuration for the environment group in
+ *  the following format:
+ *  'organizations/{org}/envgroups/{envgroup}/deployedIngressConfig'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  When set to FULL, additional details about the specific deployments
+ *  receiving traffic will be included in the IngressConfig response's
+ *  RoutingRules.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeViewIngressConfigViewUnspecified The default/unset
+ *        value. The API will default to the BASIC view. (Value:
+ *        "INGRESS_CONFIG_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeViewBasic Include all ingress config data necessary for
+ *        the runtime to configure ingress, but no more. Routing rules will
+ *        include only basepath and destination environment. This the default
+ *        value. (Value: "BASIC")
+ *    @arg @c kGTLRApigeeViewFull Include all ingress config data, including
+ *        internal debug info for each routing rule such as the proxy claiming a
+ *        particular basepath and when the routing rule first appeared in the
+ *        env group. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig.
+ *
+ *  Gets the deployed ingress configuration for an environment group.
+ *
+ *  @param name Required. Name of the deployed configuration for the environment
+ *    group in the following format:
+ *    'organizations/{org}/envgroups/{envgroup}/deployedIngressConfig'.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsGetDeployedIngressConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists all environment groups.
  *
  *  Method: apigee.organizations.envgroups.list
@@ -5416,6 +5468,42 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the API Security runtime configuration for an environment. This named
+ *  ApiSecurityRuntimeConfig to prevent conflicts with ApiSecurityConfig from
+ *  addon config.
+ *
+ *  Method: apigee.organizations.environments.getApiSecurityRuntimeConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsGetApiSecurityRuntimeConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the environment API Security Runtime configuration
+ *  resource. Use the following structure in your request:
+ *  `organizations/{org}/environments/{env}/apiSecurityRuntimeConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiSecurityRuntimeConfig.
+ *
+ *  Gets the API Security runtime configuration for an environment. This named
+ *  ApiSecurityRuntimeConfig to prevent conflicts with ApiSecurityConfig from
+ *  addon config.
+ *
+ *  @param name Required. Name of the environment API Security Runtime
+ *    configuration resource. Use the following structure in your request:
+ *    `organizations/{org}/environments/{env}/apiSecurityRuntimeConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetApiSecurityRuntimeConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -9791,8 +9879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Lists the Apigee organizations and associated GCP projects that you have
- *  permission to access. See [Understanding
+ *  Lists the Apigee organizations and associated Google Cloud projects that you
+ *  have permission to access. See [Understanding
  *  organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure).
  *
  *  Method: apigee.organizations.list
@@ -9808,8 +9896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListOrganizationsResponse.
  *
- *  Lists the Apigee organizations and associated GCP projects that you have
- *  permission to access. See [Understanding
+ *  Lists the Apigee organizations and associated Google Cloud projects that you
+ *  have permission to access. See [Understanding
  *  organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure).
  *
  *  @param parent Required. Use the following structure in your request:

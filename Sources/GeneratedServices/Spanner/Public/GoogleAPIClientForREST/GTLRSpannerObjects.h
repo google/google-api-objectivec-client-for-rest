@@ -196,8 +196,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Warning;
 // GTLRSpanner_CopyBackupEncryptionConfig.encryptionType
 
 /**
- *  Use customer managed encryption. If specified, `kms_key_name` must contain a
- *  valid Cloud KMS key.
+ *  Use customer managed encryption. If specified, either `kms_key_name` or
+ *  `kms_key_names` must contain valid Cloud KMS key(s).
  *
  *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
  */
@@ -770,6 +770,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Bytes;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Date;
 /**
+ *  Encoded as `string`, in decimal format.
+ *
+ *  Value: "ENUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Enum;
+/**
  *  Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or `"-Infinity"`.
  *
  *  Value: "FLOAT64"
@@ -801,6 +807,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Json;
  *  Value: "NUMERIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Numeric;
+/**
+ *  Encoded as a base64-encoded `string`, as described in RFC 4648, section 4.
+ *
+ *  Value: "PROTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Proto;
 /**
  *  Encoded as `string`.
  *
@@ -916,7 +928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *databaseDialect;
 
-/** Output only. Output only. The encryption information for the backup. . */
+/** Output only. The encryption information for the backup. */
 @property(nonatomic, strong, nullable) GTLRSpanner_EncryptionInfo *encryptionInfo;
 
 /**
@@ -1304,8 +1316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *
  *  Likely values:
  *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption
- *        Use customer managed encryption. If specified, `kms_key_name` must
- *        contain a valid Cloud KMS key. (Value: "CUSTOMER_MANAGED_ENCRYPTION")
+ *        Use customer managed encryption. If specified, either `kms_key_name`
+ *        or `kms_key_names` must contain valid Cloud KMS key(s). (Value:
+ *        "CUSTOMER_MANAGED_ENCRYPTION")
  *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified
  *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_GoogleDefaultEncryption
@@ -1488,6 +1501,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  statement, the database is not created.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraStatements;
+
+/**
+ *  Optional. Proto descriptors used by CREATE/ALTER PROTO BUNDLE statements in
+ *  'extra_statements' above. Contains a protobuf-serialized
+ *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto).
+ *  To generate it, [install](https://grpc.io/docs/protoc-installation/) and run
+ *  `protoc` with --include_imports and --descriptor_set_out. For example, to
+ *  generate for moon/shot/app.proto, run """ $protoc --proto_path=/app_path
+ *  --proto_path=/lib_path \\ --include_imports \\
+ *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto """ For more
+ *  details, see protobuffer [self
+ *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *protoDescriptors;
 
 @end
 
@@ -2193,6 +2223,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  The response for GetDatabaseDdl.
  */
 @interface GTLRSpanner_GetDatabaseDdlResponse : GTLRObject
+
+/**
+ *  Proto descriptors stored in the database. Contains a protobuf-serialized
+ *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto).
+ *  For more details, see protobuffer [self
+ *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *protoDescriptors;
 
 /**
  *  A list of formatted DDL statements defining the schema of the database
@@ -5207,6 +5248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        as described in RFC 4648, section 4. (Value: "BYTES")
  *    @arg @c kGTLRSpanner_Type_Code_Date Encoded as `string` in RFC 3339 date
  *        format. (Value: "DATE")
+ *    @arg @c kGTLRSpanner_Type_Code_Enum Encoded as `string`, in decimal
+ *        format. (Value: "ENUM")
  *    @arg @c kGTLRSpanner_Type_Code_Float64 Encoded as `number`, or the strings
  *        `"NaN"`, `"Infinity"`, or `"-Infinity"`. (Value: "FLOAT64")
  *    @arg @c kGTLRSpanner_Type_Code_Int64 Encoded as `string`, in decimal
@@ -5223,6 +5266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        `[+-]Digits[.[Digits]][ExponentIndicator[+-]Digits]` or
  *        `+-.Digits[ExponentIndicator[+-]Digits]` (ExponentIndicator is `"e"`
  *        or `"E"`) (Value: "NUMERIC")
+ *    @arg @c kGTLRSpanner_Type_Code_Proto Encoded as a base64-encoded `string`,
+ *        as described in RFC 4648, section 4. (Value: "PROTO")
  *    @arg @c kGTLRSpanner_Type_Code_String Encoded as `string`. (Value:
  *        "STRING")
  *    @arg @c kGTLRSpanner_Type_Code_Struct Encoded as `list`, where list
@@ -5239,6 +5284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        "TYPE_CODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  If code == PROTO or code == ENUM, then `proto_type_fqn` is the fully
+ *  qualified name of the proto type representing the proto/enum definition.
+ */
+@property(nonatomic, copy, nullable) NSString *protoTypeFqn;
 
 /**
  *  If code == STRUCT, then `struct_type` provides type information for the
@@ -5347,6 +5398,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  `ALREADY_EXISTS`.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Optional. Proto descriptors used by CREATE/ALTER PROTO BUNDLE statements.
+ *  Contains a protobuf-serialized
+ *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto).
+ *  To generate it, [install](https://grpc.io/docs/protoc-installation/) and run
+ *  `protoc` with --include_imports and --descriptor_set_out. For example, to
+ *  generate for moon/shot/app.proto, run """ $protoc --proto_path=/app_path
+ *  --proto_path=/lib_path \\ --include_imports \\
+ *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto """ For more
+ *  details, see protobuffer [self
+ *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *protoDescriptors;
 
 /** Required. DDL statements to be applied to the database. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statements;

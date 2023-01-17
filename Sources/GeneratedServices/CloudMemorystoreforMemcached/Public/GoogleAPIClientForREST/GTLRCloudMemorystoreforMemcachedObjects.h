@@ -1470,7 +1470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 
 /**
- *  Defines policies to service maintenance events.
+ *  LINT.IfChange Defines policies to service maintenance events.
  */
 @interface GTLRCloudMemorystoreforMemcached_MaintenancePolicy : GTLRObject
 

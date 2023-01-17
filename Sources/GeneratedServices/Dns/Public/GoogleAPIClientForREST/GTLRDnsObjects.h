@@ -1158,6 +1158,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /** IPv4 address of a target name server. */
 @property(nonatomic, copy, nullable) NSString *ipv4Address;
 
+/**
+ *  IPv6 address of a target name server. Does not accept both fields (ipv4 &
+ *  ipv6) being populated. Public preview as of November 2022.
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6Address;
+
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -1628,6 +1634,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 /** IPv4 address to forward queries to. */
 @property(nonatomic, copy, nullable) NSString *ipv4Address;
+
+/**
+ *  IPv6 address to forward to. Does not accept both fields (ipv4 & ipv6) being
+ *  populated. Public preview as of November 2022.
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6Address;
 
 @property(nonatomic, copy, nullable) NSString *kind;
 

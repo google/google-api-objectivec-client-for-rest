@@ -24,26 +24,35 @@
 @class GTLRServiceConsumerManagement_Billing;
 @class GTLRServiceConsumerManagement_BillingConfig;
 @class GTLRServiceConsumerManagement_BillingDestination;
+@class GTLRServiceConsumerManagement_ClientLibrarySettings;
+@class GTLRServiceConsumerManagement_CommonLanguageSettings;
 @class GTLRServiceConsumerManagement_Context;
 @class GTLRServiceConsumerManagement_ContextRule;
 @class GTLRServiceConsumerManagement_Control;
+@class GTLRServiceConsumerManagement_CppSettings;
 @class GTLRServiceConsumerManagement_CustomError;
 @class GTLRServiceConsumerManagement_CustomErrorRule;
 @class GTLRServiceConsumerManagement_CustomHttpPattern;
 @class GTLRServiceConsumerManagement_Documentation;
 @class GTLRServiceConsumerManagement_DocumentationRule;
+@class GTLRServiceConsumerManagement_DotnetSettings;
 @class GTLRServiceConsumerManagement_Endpoint;
 @class GTLRServiceConsumerManagement_Enum;
 @class GTLRServiceConsumerManagement_EnumValue;
 @class GTLRServiceConsumerManagement_Field;
+@class GTLRServiceConsumerManagement_GoSettings;
 @class GTLRServiceConsumerManagement_Http;
 @class GTLRServiceConsumerManagement_HttpRule;
+@class GTLRServiceConsumerManagement_JavaSettings;
+@class GTLRServiceConsumerManagement_JavaSettings_ServiceClassNames;
 @class GTLRServiceConsumerManagement_JwtLocation;
 @class GTLRServiceConsumerManagement_LabelDescriptor;
 @class GTLRServiceConsumerManagement_LogDescriptor;
 @class GTLRServiceConsumerManagement_Logging;
 @class GTLRServiceConsumerManagement_LoggingDestination;
+@class GTLRServiceConsumerManagement_LongRunning;
 @class GTLRServiceConsumerManagement_Method;
+@class GTLRServiceConsumerManagement_MethodSettings;
 @class GTLRServiceConsumerManagement_MetricDescriptor;
 @class GTLRServiceConsumerManagement_MetricDescriptorMetadata;
 @class GTLRServiceConsumerManagement_MetricRule;
@@ -52,6 +61,7 @@
 @class GTLRServiceConsumerManagement_MonitoredResourceDescriptor;
 @class GTLRServiceConsumerManagement_Monitoring;
 @class GTLRServiceConsumerManagement_MonitoringDestination;
+@class GTLRServiceConsumerManagement_NodeSettings;
 @class GTLRServiceConsumerManagement_OAuthRequirements;
 @class GTLRServiceConsumerManagement_Operation;
 @class GTLRServiceConsumerManagement_Operation_Metadata;
@@ -59,10 +69,14 @@
 @class GTLRServiceConsumerManagement_Option;
 @class GTLRServiceConsumerManagement_Option_Value;
 @class GTLRServiceConsumerManagement_Page;
+@class GTLRServiceConsumerManagement_PhpSettings;
 @class GTLRServiceConsumerManagement_PolicyBinding;
+@class GTLRServiceConsumerManagement_Publishing;
+@class GTLRServiceConsumerManagement_PythonSettings;
 @class GTLRServiceConsumerManagement_Quota;
 @class GTLRServiceConsumerManagement_QuotaLimit;
 @class GTLRServiceConsumerManagement_QuotaLimit_Values;
+@class GTLRServiceConsumerManagement_RubySettings;
 @class GTLRServiceConsumerManagement_ServiceAccountConfig;
 @class GTLRServiceConsumerManagement_SourceContext;
 @class GTLRServiceConsumerManagement_SourceInfo;
@@ -149,6 +163,102 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_BackendRule_Pa
 FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_PathTranslationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceConsumerManagement_ClientLibrarySettings.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceConsumerManagement_CommonLanguageSettings.destinations
+
+/**
+ *  Client libraries will neither be generated nor published to package
+ *  managers.
+ *
+ *  Value: "CLIENT_LIBRARY_DESTINATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_ClientLibraryDestinationUnspecified;
+/**
+ *  Generate the client library in a repo under github.com/googleapis, but don't
+ *  publish it to package managers.
+ *
+ *  Value: "GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_Github;
+/**
+ *  Publish the library to package managers like nuget.org and npmjs.com.
+ *
+ *  Value: "PACKAGE_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_PackageManager;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_Enum.syntax
@@ -646,6 +756,40 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MonitoredResou
 FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceConsumerManagement_Publishing.organization
+
+/**
+ *  Ads (Advertising) Org.
+ *
+ *  Value: "ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Ads;
+/**
+ *  Not useful.
+ *
+ *  Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_ClientLibraryOrganizationUnspecified;
+/**
+ *  Google Cloud Platform Org.
+ *
+ *  Value: "CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Cloud;
+/**
+ *  Photos Org.
+ *
+ *  Value: "PHOTOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Photos;
+/**
+ *  Street View Org.
+ *
+ *  Value: "STREET_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_StreetView;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_TenantResource.status
 
 /**
@@ -1081,6 +1225,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
+ *  Deprecated, do not use.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minDeadline;
+
+/**
  *  The number of seconds to wait for the completion of a long running
  *  operation. The default is no deadline.
  *
@@ -1220,6 +1371,115 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Details about how and where to publish client libraries.
+ */
+@interface GTLRServiceConsumerManagement_ClientLibrarySettings : GTLRObject
+
+/** Settings for C++ client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CppSettings *cppSettings;
+
+/** Settings for .NET client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_DotnetSettings *dotnetSettings;
+
+/** Settings for Go client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_GoSettings *goSettings;
+
+/** Settings for legacy Java features, supported in the Service YAML. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_JavaSettings *javaSettings;
+
+/**
+ *  Launch stage of this version of the API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects allowlisted. Alpha releases don't have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a Beta release. Products will be complete from a feature perspective,
+ *        but may have some open outstanding issues. Beta releases are suitable
+ *        for limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/** Settings for Node client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_NodeSettings *nodeSettings;
+
+/** Settings for PHP client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_PhpSettings *phpSettings;
+
+/** Settings for Python client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_PythonSettings *pythonSettings;
+
+/**
+ *  When using transport=rest, the client request will encode enums as numbers
+ *  rather than strings.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restNumericEnums;
+
+/** Settings for Ruby client libraries. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_RubySettings *rubySettings;
+
+/** Version of the API to apply these settings to. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Required information for every language.
+ */
+@interface GTLRServiceConsumerManagement_CommonLanguageSettings : GTLRObject
+
+/**
+ *  The destination where API teams want this client library to be published.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
+
+/**
+ *  Link to automatically generated reference documentation. Example:
+ *  https://cloud.google.com/nodejs/docs/reference/asset/latest
+ */
+@property(nonatomic, copy, nullable) NSString *referenceDocsUri;
+
+@end
+
+
+/**
  *  `Context` defines which contexts an API requests. Example: context: rules: -
  *  selector: "*" requested: - google.rpc.context.ProjectContext -
  *  google.rpc.context.OriginContext The above specifies that all methods in the
@@ -1280,15 +1540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  Selects and configures the service controller used by the service. The
- *  service controller handles two things: - **What is allowed:** for each API
- *  request, Chemist checks the project status, activation status, abuse status,
- *  billing status, service status, location restrictions, VPC Service Controls,
- *  SuperQuota, and other policies. - **What has happened:** for each API
- *  response, Chemist reports the telemetry data to analytics, auditing,
- *  billing, eventing, logging, monitoring, sawmill, and tracing. Chemist also
- *  accepts telemetry data not associated with API traffic, such as billing
- *  metrics. Example: control: environment: servicecontrol.googleapis.com
+ *  Selects and configures the service controller used by the service. Example:
+ *  control: environment: servicecontrol.googleapis.com
  */
 @interface GTLRServiceConsumerManagement_Control : GTLRObject
 
@@ -1298,6 +1551,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  most services is servicecontrol.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *environment;
+
+@end
+
+
+/**
+ *  Settings for C++ client libraries.
+ */
+@interface GTLRServiceConsumerManagement_CppSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
 
 @end
 
@@ -1496,6 +1760,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Settings for Dotnet client libraries.
+ */
+@interface GTLRServiceConsumerManagement_DotnetSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1520,6 +1795,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  cross-origin request is allowed # to proceed. allow_cors: true
  */
 @interface GTLRServiceConsumerManagement_Endpoint : GTLRObject
+
+/**
+ *  Unimplemented. Dot not use. DEPRECATED: This field is no longer supported.
+ *  Instead of using aliases, please specify multiple google.api.Endpoint for
+ *  each of the intended aliases. Additional names that this endpoint will be
+ *  hosted on.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing
@@ -1707,6 +1990,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
+
+@end
+
+
+/**
+ *  Settings for Go client libraries.
+ */
+@interface GTLRServiceConsumerManagement_GoSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
 
 @end
 
@@ -1941,6 +2235,58 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Settings for Java client libraries.
+ */
+@interface GTLRServiceConsumerManagement_JavaSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
+
+/**
+ *  The package name to use in Java. Clobbers the java_package option set in the
+ *  protobuf. This should be used **only** by APIs who have already set the
+ *  language_settings.java.package_name" field in gapic.yaml. API teams should
+ *  use the protobuf java_package option where possible. Example of a YAML
+ *  configuration:: publishing: java_settings: library_package:
+ *  com.google.cloud.pubsub.v1
+ */
+@property(nonatomic, copy, nullable) NSString *libraryPackage;
+
+/**
+ *  Configure the Java class name to use instead of the service's for its
+ *  corresponding generated GAPIC client. Keys are fully-qualified service names
+ *  as they appear in the protobuf (including the full the
+ *  language_settings.java.interface_names" field in gapic.yaml. API teams
+ *  should otherwise use the service name as it appears in the protobuf. Example
+ *  of a YAML configuration:: publishing: java_settings: service_class_names: -
+ *  google.pubsub.v1.Publisher: TopicAdmin - google.pubsub.v1.Subscriber:
+ *  SubscriptionAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_JavaSettings_ServiceClassNames *serviceClassNames;
+
+@end
+
+
+/**
+ *  Configure the Java class name to use instead of the service's for its
+ *  corresponding generated GAPIC client. Keys are fully-qualified service names
+ *  as they appear in the protobuf (including the full the
+ *  language_settings.java.interface_names" field in gapic.yaml. API teams
+ *  should otherwise use the service name as it appears in the protobuf. Example
+ *  of a YAML configuration:: publishing: java_settings: service_class_names: -
+ *  google.pubsub.v1.Publisher: TopicAdmin - google.pubsub.v1.Subscriber:
+ *  SubscriptionAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceConsumerManagement_JavaSettings_ServiceClassNames : GTLRObject
+@end
+
+
+/**
  *  Specifies a location to extract JWT from an API request.
  */
 @interface GTLRServiceConsumerManagement_JwtLocation : GTLRObject
@@ -2142,6 +2488,40 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Describes settings to use when generating API methods that use the
+ *  long-running operation pattern. All default values below are from those used
+ *  in the client library generators (e.g.
+ *  [Java](https://github.com/googleapis/gapic-generator-java/blob/04c2faa191a9b5a10b92392fe8482279c4404803/src/main/java/com/google/api/generator/gapic/composer/common/RetrySettingsComposer.java)).
+ */
+@interface GTLRServiceConsumerManagement_LongRunning : GTLRObject
+
+/**
+ *  Initial delay after which the first poll request will be made. Default
+ *  value: 5 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *initialPollDelay;
+
+/**
+ *  Maximum time between two subsequent poll requests. Default value: 45
+ *  seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxPollDelay;
+
+/**
+ *  Multiplier to gradually increase delay between subsequent polls until it
+ *  reaches max_poll_delay. Default value: 1.5.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pollDelayMultiplier;
+
+/** Total polling timeout. Default value: 5 minutes. */
+@property(nonatomic, strong, nullable) GTLRDuration *totalPollTimeout;
+
+@end
+
+
+/**
  *  Method represents a method of an API interface.
  */
 @interface GTLRServiceConsumerManagement_Method : GTLRObject
@@ -2182,6 +2562,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *        `proto3`. (Value: "SYNTAX_PROTO3")
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
+
+@end
+
+
+/**
+ *  Describes the generator configuration for a method.
+ */
+@interface GTLRServiceConsumerManagement_MethodSettings : GTLRObject
+
+/**
+ *  Describes settings to use for long-running operations when generating API
+ *  methods for RPCs. Complements RPCs that use the annotations in
+ *  google/longrunning/operations.proto. Example of a YAML configuration::
+ *  publishing: method_behavior: - selector: CreateAdDomain long_running:
+ *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
+ *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
+ *  # 90 minutes
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_LongRunning *longRunning;
+
+/**
+ *  The fully qualified name of the method, for which the options below apply.
+ *  This is used to find the method to apply the options.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 
@@ -2717,6 +3122,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Settings for Node client libraries.
+ */
+@interface GTLRServiceConsumerManagement_NodeSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  OAuth scopes are a way to define data and permissions on data. For example,
  *  there are scopes defined for "Read-only access to Google Calendar" and
  *  "Access to Cloud Platform". Users can consent to a scope for an application,
@@ -2898,6 +3314,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Settings for Php client libraries.
+ */
+@interface GTLRServiceConsumerManagement_PhpSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  Translates to IAM Policy bindings (without auditing at this level)
  */
 @interface GTLRServiceConsumerManagement_PolicyBinding : GTLRObject
@@ -2914,6 +3341,91 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  This message configures the settings for publishing [Google Cloud Client
+ *  libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+ *  generated from the service config.
+ */
+@interface GTLRServiceConsumerManagement_Publishing : GTLRObject
+
+/**
+ *  Used as a tracking tag when collecting data about the APIs developer
+ *  relations artifacts like docs, packages delivered to package managers, etc.
+ *  Example: "speech".
+ */
+@property(nonatomic, copy, nullable) NSString *apiShortName;
+
+/**
+ *  GitHub teams to be added to CODEOWNERS in the directory in GitHub containing
+ *  source code for the client libraries for this API.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *codeownerGithubTeams;
+
+/**
+ *  A prefix used in sample code when demarking regions to be included in
+ *  documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *docTagPrefix;
+
+/**
+ *  Link to product home page. Example:
+ *  https://cloud.google.com/asset-inventory/docs/overview
+ */
+@property(nonatomic, copy, nullable) NSString *documentationUri;
+
+/** GitHub label to apply to issues and pull requests opened for this API. */
+@property(nonatomic, copy, nullable) NSString *githubLabel;
+
+/**
+ *  Client library settings. If the same version string appears multiple times
+ *  in this list, then the last one wins. Settings from earlier settings with
+ *  the same version string are discarded.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_ClientLibrarySettings *> *librarySettings;
+
+/**
+ *  A list of API method settings, e.g. the behavior for methods that use the
+ *  long-running operation pattern.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_MethodSettings *> *methodSettings;
+
+/**
+ *  Link to a place that API users can report issues. Example:
+ *  https://issuetracker.google.com/issues/new?component=190865&template=1161103
+ */
+@property(nonatomic, copy, nullable) NSString *newIssueUri NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  For whom the client library is being published.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_Publishing_Organization_Ads Ads
+ *        (Advertising) Org. (Value: "ADS")
+ *    @arg @c kGTLRServiceConsumerManagement_Publishing_Organization_ClientLibraryOrganizationUnspecified
+ *        Not useful. (Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED")
+ *    @arg @c kGTLRServiceConsumerManagement_Publishing_Organization_Cloud
+ *        Google Cloud Platform Org. (Value: "CLOUD")
+ *    @arg @c kGTLRServiceConsumerManagement_Publishing_Organization_Photos
+ *        Photos Org. (Value: "PHOTOS")
+ *    @arg @c kGTLRServiceConsumerManagement_Publishing_Organization_StreetView
+ *        Street View Org. (Value: "STREET_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+@end
+
+
+/**
+ *  Settings for Python client libraries.
+ */
+@interface GTLRServiceConsumerManagement_PythonSettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
 
 @end
 
@@ -3081,6 +3593,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
+ *  Settings for Ruby client libraries.
+ */
+@interface GTLRServiceConsumerManagement_RubySettings : GTLRObject
+
+/** Some settings. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
+
+@end
+
+
+/**
  *  Response for the search query.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3216,6 +3739,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /** The Google project that owns this service. */
 @property(nonatomic, copy, nullable) NSString *producerProjectId;
+
+/**
+ *  Settings for [Google Cloud Client
+ *  libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+ *  generated from APIs defined as protocol buffers.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_Publishing *publishing;
 
 /** Quota configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_Quota *quota;

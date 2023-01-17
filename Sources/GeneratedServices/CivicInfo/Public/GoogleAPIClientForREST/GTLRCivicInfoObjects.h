@@ -1509,8 +1509,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeReefRockSubmerged;
 /**
  *  An area controlled in some way by an authoritative source, such as a
- *  government-designated COVID containment zone. Features of this type should
- *  have one or more gcids corresponding to their specific regulation.
+ *  government-designated COVID containment zone or an area under government
+ *  sanctions. Features of this type should have one or more gcids corresponding
+ *  to their specific regulation, and client handling of these features may vary
+ *  based on the type of regulation.
  *
  *  Value: "typeRegulatedArea"
  */
@@ -3443,9 +3445,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *        A submerged rock in the water. (Value: "typeReefRockSubmerged")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeRegulatedArea An
  *        area controlled in some way by an authoritative source, such as a
- *        government-designated COVID containment zone. Features of this type
- *        should have one or more gcids corresponding to their specific
- *        regulation. (Value: "typeRegulatedArea")
+ *        government-designated COVID containment zone or an area under
+ *        government sanctions. Features of this type should have one or more
+ *        gcids corresponding to their specific regulation, and client handling
+ *        of these features may vary based on the type of regulation. (Value:
+ *        "typeRegulatedArea")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeReservation A
  *        reservation is a region collectively held or governed by indigenous
  *        people and officially recognized by the country’s government at the

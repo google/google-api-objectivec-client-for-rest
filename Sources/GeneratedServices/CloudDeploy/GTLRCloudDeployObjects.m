@@ -23,6 +23,7 @@ NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRen
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_DeployJobRun.failureCause
+NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
@@ -81,6 +82,7 @@ NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_NeedsApproval = @"NEEDS_
 NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_Rejected = @"REJECTED";
 
 // GTLRCloudDeploy_Rollout.deployFailureCause
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed = @"EXECUTION_FAILED";
@@ -110,6 +112,7 @@ NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatues
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_TargetRender.failureCause
+NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
@@ -121,6 +124,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Succeeded = @"SUCC
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateUnspecified = @"TARGET_RENDER_STATE_UNSPECIFIED";
 
 // GTLRCloudDeploy_VerifyJobRun.failureCause
+NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
@@ -781,7 +785,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_PipelineCondition
-@dynamic pipelineReadyCondition, targetsPresentCondition;
+@dynamic pipelineReadyCondition, targetsPresentCondition, targetsTypeCondition;
 @end
 
 
@@ -1240,6 +1244,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_TargetsTypeCondition
+//
+
+@implementation GTLRCloudDeploy_TargetsTypeCondition
+@dynamic errorDetails, status;
 @end
 
 

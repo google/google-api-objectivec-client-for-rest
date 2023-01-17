@@ -33,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMemberships;
 /**
+ *  Authorization scope: View members in Google Chat conversations.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly;
+/**
  *  Authorization scope: View, compose, send, update, and delete messages, and
  *  add, view, and delete reactions to messages.
  *
@@ -46,11 +52,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessages;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesCreate;
 /**
- *  Authorization scope: view messages and reactions in Google Chat
+ *  Authorization scope: View messages and reactions in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly;
+/**
+ *  Authorization scope: Create conversations and spaces and view or update
+ *  metadata (including history settings) in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpaces;
+/**
+ *  Authorization scope: View chat and spaces in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService

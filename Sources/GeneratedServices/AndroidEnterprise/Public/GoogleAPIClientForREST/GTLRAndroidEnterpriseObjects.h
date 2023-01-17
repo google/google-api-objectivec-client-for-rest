@@ -38,6 +38,7 @@
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig;
 @class GTLRAndroidEnterprise_Entitlement;
+@class GTLRAndroidEnterprise_GoogleAuthenticationSettings;
 @class GTLRAndroidEnterprise_GroupLicense;
 @class GTLRAndroidEnterprise_Install;
 @class GTLRAndroidEnterprise_InstallFailureEvent;
@@ -332,6 +333,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Fre
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense;
 /** Value: "userPurchase" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_GoogleAuthenticationSettings.dedicatedDevicesAllowed
+
+/**
+ *  Dedicated devices are allowed.
+ *
+ *  Value: "allowed"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Allowed;
+/**
+ *  This value is unused.
+ *
+ *  Value: "dedicatedDevicesAllowedUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_DedicatedDevicesAllowedUnspecified;
+/**
+ *  Dedicated devices are not allowed.
+ *
+ *  Value: "disallowed"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Disallowed;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_GoogleAuthenticationSettings.googleAuthenticationRequired
+
+/**
+ *  This value is unused.
+ *
+ *  Value: "googleAuthenticationRequiredUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified;
+/**
+ *  Google authentication is not required.
+ *
+ *  Value: "notRequired"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired;
+/**
+ *  User is required to be successfully authenticated by Google.
+ *
+ *  Value: "required"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_GroupLicense.acquisitionKind
@@ -1434,6 +1479,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
+ *  Response message for create enrollment token.
+ */
+@interface GTLRAndroidEnterprise_CreateEnrollmentTokenResponse : GTLRObject
+
+/** Enrollment token. */
+@property(nonatomic, copy, nullable) NSString *enrollmentToken;
+
+@end
+
+
+/**
  *  A Devices resource represents a mobile device managed by the EMM and
  *  belonging to a specific enterprise user.
  */
@@ -1576,6 +1632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
 
+/** Output only. Settings for Google-provided user authentication. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_GoogleAuthenticationSettings *googleAuthenticationSettings;
+
 /**
  *  The unique ID for the enterprise.
  *
@@ -1701,6 +1760,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  license to.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Entitlement *> *entitlement;
+
+@end
+
+
+/**
+ *  Contains settings for Google-provided user authentication.
+ */
+@interface GTLRAndroidEnterprise_GoogleAuthenticationSettings : GTLRObject
+
+/**
+ *  Whether dedicated devices are allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Allowed
+ *        Dedicated devices are allowed. (Value: "allowed")
+ *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_DedicatedDevicesAllowedUnspecified
+ *        This value is unused. (Value: "dedicatedDevicesAllowedUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Disallowed
+ *        Dedicated devices are not allowed. (Value: "disallowed")
+ */
+@property(nonatomic, copy, nullable) NSString *dedicatedDevicesAllowed;
+
+/**
+ *  Whether Google authentication is required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified
+ *        This value is unused. (Value:
+ *        "googleAuthenticationRequiredUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired
+ *        Google authentication is not required. (Value: "notRequired")
+ *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required
+ *        User is required to be successfully authenticated by Google. (Value:
+ *        "required")
+ */
+@property(nonatomic, copy, nullable) NSString *googleAuthenticationRequired;
 
 @end
 

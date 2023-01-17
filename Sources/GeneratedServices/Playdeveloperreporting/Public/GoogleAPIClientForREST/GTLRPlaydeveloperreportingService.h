@@ -19,6 +19,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: See metrics and data about the apps in your Google Play
+ *  Developer account
+ *
+ *  Value "https://www.googleapis.com/auth/playdeveloperreporting"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlaydeveloperreporting;
+
+// ----------------------------------------------------------------------------
+//   GTLRPlaydeveloperreportingService
+//
+
 /**
  *  Service for executing Google Play Developer Reporting API queries.
  */

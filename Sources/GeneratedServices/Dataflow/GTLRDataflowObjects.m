@@ -174,6 +174,7 @@ NSString * const kGTLRDataflow_NameAndKind_Kind_Set          = @"SET";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Sum          = @"SUM";
 
 // GTLRDataflow_ParameterMetadata.paramType
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_BigqueryTable = @"BIGQUERY_TABLE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default = @"DEFAULT";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket = @"GCS_READ_BUCKET";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile = @"GCS_READ_FILE";
@@ -181,6 +182,7 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder = @"GCS
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket = @"GCS_WRITE_BUCKET";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile = @"GCS_WRITE_FILE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder = @"GCS_WRITE_FOLDER";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile = @"JAVASCRIPT_UDF_FILE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription = @"PUBSUB_SUBSCRIPTION";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic = @"PUBSUB_TOPIC";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text = @"TEXT";
@@ -2609,6 +2611,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_Straggler
+//
+
+@implementation GTLRDataflow_Straggler
+@dynamic batchStraggler, streamingStraggler;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_StragglerDebuggingInfo
 //
 
@@ -2647,7 +2659,15 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_StragglerSummary
-@dynamic stragglerCauseCount, totalStragglerCount;
+@dynamic recentStragglers, stragglerCauseCount, totalStragglerCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentStragglers" : [GTLRDataflow_Straggler class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2808,6 +2828,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_StreamingStageLocation
 @dynamic streamId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StreamingStragglerInfo
+//
+
+@implementation GTLRDataflow_StreamingStragglerInfo
+@dynamic dataWatermarkLag, endTime, startTime, systemWatermarkLag, workerName;
 @end
 
 
@@ -3069,7 +3099,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_WorkerMessage
 @dynamic labels, time, workerHealthReport, workerLifecycleEvent,
-         workerMessageCode, workerMetrics, workerShutdownNotice;
+         workerMessageCode, workerMetrics, workerShutdownNotice,
+         workerThreadScalingReport;
 @end
 
 
@@ -3118,7 +3149,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_WorkerMessageResponse
 @dynamic workerHealthReportResponse, workerMetricsResponse,
-         workerShutdownNoticeResponse;
+         workerShutdownNoticeResponse, workerThreadScalingReportResponse;
 @end
 
 
@@ -3212,6 +3243,26 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkerShutdownNoticeResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_WorkerThreadScalingReport
+//
+
+@implementation GTLRDataflow_WorkerThreadScalingReport
+@dynamic currentThreadCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_WorkerThreadScalingReportResponse
+//
+
+@implementation GTLRDataflow_WorkerThreadScalingReportResponse
+@dynamic recommendedThreadCount;
 @end
 
 

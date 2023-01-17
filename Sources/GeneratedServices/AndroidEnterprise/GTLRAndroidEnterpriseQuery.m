@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// deviceType
+NSString * const kGTLRAndroidEnterpriseDeviceTypeDedicatedDevice = @"dedicatedDevice";
+NSString * const kGTLRAndroidEnterpriseDeviceTypeKnowledgeWorker = @"knowledgeWorker";
+NSString * const kGTLRAndroidEnterpriseDeviceTypeUnknown       = @"unknown";
+
 // keyType
 NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"googleCredentials";
 NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"pkcs12";
@@ -222,6 +227,25 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRAndroidEnterprise_Enterprise class];
   query.loggingName = @"androidenterprise.enterprises.completeSignup";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken
+
+@dynamic deviceType, enterpriseId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
+  NSArray *pathParams = @[ @"enterpriseId" ];
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/createEnrollmentToken";
+  GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.expectedObjectClass = [GTLRAndroidEnterprise_CreateEnrollmentTokenResponse class];
+  query.loggingName = @"androidenterprise.enterprises.createEnrollmentToken";
   return query;
 }
 

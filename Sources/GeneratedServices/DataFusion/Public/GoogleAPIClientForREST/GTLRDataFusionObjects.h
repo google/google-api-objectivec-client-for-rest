@@ -88,26 +88,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_H
 // GTLRDataFusion_Accelerator.state
 
 /**
- *  Indicates that the accelerator is disabled and not available to use
+ *  Indicates that the accelerator is disabled and not available to use.
  *
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_Disabled;
 /**
- *  Indicates that the accelerator is enabled and available to use
+ *  Indicates that the accelerator is enabled and available to use.
  *
  *  Value: "ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_Enabled;
 /**
- *  Default value, do not use
+ *  Default value, do not use.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_StateUnspecified;
 /**
  *  Indicates that accelerator state is currently unknown. Requests for enable,
- *  disable could be retried while in this state
+ *  disable could be retried while in this state.
  *
  *  Value: "UNKNOWN"
  */
@@ -311,18 +311,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  The state of the accelerator
+ *  The state of the accelerator.
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Accelerator_State_Disabled Indicates that the
- *        accelerator is disabled and not available to use (Value: "DISABLED")
+ *        accelerator is disabled and not available to use. (Value: "DISABLED")
  *    @arg @c kGTLRDataFusion_Accelerator_State_Enabled Indicates that the
- *        accelerator is enabled and available to use (Value: "ENABLED")
+ *        accelerator is enabled and available to use. (Value: "ENABLED")
  *    @arg @c kGTLRDataFusion_Accelerator_State_StateUnspecified Default value,
- *        do not use (Value: "STATE_UNSPECIFIED")
+ *        do not use. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRDataFusion_Accelerator_State_Unknown Indicates that
  *        accelerator state is currently unknown. Requests for enable, disable
- *        could be retried while in this state (Value: "UNKNOWN")
+ *        could be retried while in this state. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -661,6 +661,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverMonitoring;
+
+/**
+ *  Option to enable granular zone separation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableZoneSeparation;
 
 /** Option to enable and pass metadata for event publishing. */
 @property(nonatomic, strong, nullable) GTLRDataFusion_EventPublishConfig *eventPublishConfig;

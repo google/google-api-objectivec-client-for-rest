@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   reCAPTCHA Enterprise API (recaptchaenterprise/v1)
+// Description:
+//   Help protect your website from fraudulent activity, spam, and abuse without
+//   creating friction.
 // Documentation:
 //   https://cloud.google.com/recaptcha-enterprise/
 
@@ -13,8 +16,10 @@
 #endif
 
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
@@ -79,6 +84,78 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "SUSPICIOUS_LOGIN_ACTIVITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo.latestVerificationResult
+
+/**
+ *  The verification flow could not be completed due to a critical internal
+ *  error.
+ *
+ *  Value: "ERROR_CRITICAL_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCriticalInternal;
+/**
+ *  The client has exceeded their two factor request quota for this period of
+ *  time.
+ *
+ *  Value: "ERROR_CUSTOMER_QUOTA_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCustomerQuotaExhausted;
+/**
+ *  The recipient has already been sent too many verification codes in a short
+ *  amount of time.
+ *
+ *  Value: "ERROR_RECIPIENT_ABUSE_LIMIT_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorRecipientAbuseLimitExhausted;
+/**
+ *  The recipient is not allowed for account verification. This can occur during
+ *  integration but should not occur in production.
+ *
+ *  Value: "ERROR_RECIPIENT_NOT_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorRecipientNotAllowed;
+/**
+ *  The site is not properly onboarded to use the account verification feature.
+ *
+ *  Value: "ERROR_SITE_ONBOARDING_INCOMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorSiteOnboardingIncomplete;
+/**
+ *  The user failed the verification challenge.
+ *
+ *  Value: "ERROR_USER_NOT_VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorUserNotVerified;
+/**
+ *  The request parameters do not match with the token provided and cannot be
+ *  processed.
+ *
+ *  Value: "ERROR_VERDICT_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorVerdictMismatch;
+/**
+ *  The request cannot be processed at the time because of an incident. This
+ *  bypass can be restricted to a problematic destination email domain, a
+ *  customer, or could affect the entire service.
+ *
+ *  Value: "ERROR_VERIFICATION_BYPASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorVerificationBypassed;
+/**
+ *  No information about the latest account verification.
+ *
+ *  Value: "RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ResultUnspecified;
+/**
+ *  The user was successfully verified. This means the account verification
+ *  challenge was successfully completed.
+ *
+ *  Value: "SUCCESS_USER_VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_SuccessUserVerified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.annotation
@@ -458,6 +535,70 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Information about account verification, used for identity verification.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo : GTLRObject
+
+/** Endpoints that can be used for identity verification. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo *> *endpoints;
+
+/**
+ *  Language code preference for the verification message, set as a IETF BCP 47
+ *  language code.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Output only. Result of the latest account verification challenge.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCriticalInternal
+ *        The verification flow could not be completed due to a critical
+ *        internal error. (Value: "ERROR_CRITICAL_INTERNAL")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCustomerQuotaExhausted
+ *        The client has exceeded their two factor request quota for this period
+ *        of time. (Value: "ERROR_CUSTOMER_QUOTA_EXHAUSTED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorRecipientAbuseLimitExhausted
+ *        The recipient has already been sent too many verification codes in a
+ *        short amount of time. (Value: "ERROR_RECIPIENT_ABUSE_LIMIT_EXHAUSTED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorRecipientNotAllowed
+ *        The recipient is not allowed for account verification. This can occur
+ *        during integration but should not occur in production. (Value:
+ *        "ERROR_RECIPIENT_NOT_ALLOWED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorSiteOnboardingIncomplete
+ *        The site is not properly onboarded to use the account verification
+ *        feature. (Value: "ERROR_SITE_ONBOARDING_INCOMPLETE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorUserNotVerified
+ *        The user failed the verification challenge. (Value:
+ *        "ERROR_USER_NOT_VERIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorVerdictMismatch
+ *        The request parameters do not match with the token provided and cannot
+ *        be processed. (Value: "ERROR_VERDICT_MISMATCH")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorVerificationBypassed
+ *        The request cannot be processed at the time because of an incident.
+ *        This bypass can be restricted to a problematic destination email
+ *        domain, a customer, or could affect the entire service. (Value:
+ *        "ERROR_VERIFICATION_BYPASSED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ResultUnspecified
+ *        No information about the latest account verification. (Value:
+ *        "RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_SuccessUserVerified
+ *        The user was successfully verified. This means the account
+ *        verification challenge was successfully completed. (Value:
+ *        "SUCCESS_USER_VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latestVerificationResult;
+
+/**
+ *  Username of the account that is being verified. Deprecated. Customers should
+ *  now provide the hashed account ID field in Event.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  Settings specific to keys that can be used by Android apps.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings : GTLRObject
@@ -549,6 +690,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment *accountDefenderAssessment;
 
+/**
+ *  Account verification information for identity verification. The assessment
+ *  event must include a token and site key to use this feature.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo *accountVerification;
+
 /** The event being assessed. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event *event;
 
@@ -609,6 +756,35 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passedCount;
+
+@end
+
+
+/**
+ *  Information about a verification endpoint that can be used for 2FA.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo : GTLRObject
+
+/** Email address for which to trigger a verification request. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
+
+/**
+ *  Output only. Timestamp of the last successful verification for the endpoint,
+ *  if any.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastVerificationTime;
+
+/**
+ *  Phone number for which to trigger a verification request. Should be given in
+ *  E.164 format.
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  Output only. Token to provide to the client to trigger endpoint
+ *  verification. It must be used within 15 minutes.
+ */
+@property(nonatomic, copy, nullable) NSString *requestToken;
 
 @end
 
@@ -847,6 +1023,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  The migrate key request message.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest : GTLRObject
+
+/**
+ *  Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or
+ *  migrated key behaves differently than a reCAPTCHA (non-Enterprise version)
+ *  key when you reach a quota limit (see
+ *  https://cloud.google.com/recaptcha-enterprise/quotas#quota_limit). To avoid
+ *  any disruption of your usage, we check that a billing account is present. If
+ *  your usage of reCAPTCHA is under the free quota, you can safely skip the
+ *  billing check and proceed with the migration. See
+ *  https://cloud.google.com/recaptcha-enterprise/docs/billing-information.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipBillingCheck;
+
 @end
 
 
@@ -1138,6 +1329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Action name provided at token generation. */
 @property(nonatomic, copy, nullable) NSString *action;
 
+/**
+ *  The name of the Android package with which the token was generated (Android
+ *  keys only).
+ */
+@property(nonatomic, copy, nullable) NSString *androidPackageName;
+
 /** The timestamp corresponding to the generation of the token. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1169,6 +1366,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        "UNKNOWN_INVALID_REASON")
  */
 @property(nonatomic, copy, nullable) NSString *invalidReason;
+
+/**
+ *  The ID of the iOS bundle with which the token was generated (iOS keys only).
+ */
+@property(nonatomic, copy, nullable) NSString *iosBundleId;
 
 /**
  *  Whether the provided user response token is valid. When valid = false, the

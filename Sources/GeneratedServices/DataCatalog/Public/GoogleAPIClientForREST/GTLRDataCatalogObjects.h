@@ -25,10 +25,13 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexSpec;
@@ -46,6 +49,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema;
@@ -62,6 +66,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TableSpec;
@@ -73,10 +78,16 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageStats;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec;
+@class GTLRDataCatalog_Operation;
+@class GTLRDataCatalog_Operation_Metadata;
+@class GTLRDataCatalog_Operation_Response;
 @class GTLRDataCatalog_Policy;
+@class GTLRDataCatalog_Status;
+@class GTLRDataCatalog_Status_Details_Item;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -155,6 +166,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Clou
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema.highestIndexingType
+
+/**
+ *  Column not a part of an index.
+ *
+ *  Value: "INDEXING_TYPE_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeNone;
+/**
+ *  Column Part of non unique index.
+ *
+ *  Value: "INDEXING_TYPE_NON_UNIQUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeNonUnique;
+/**
+ *  Column part of the primary key.
+ *
+ *  Value: "INDEXING_TYPE_PRIMARY_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypePrimaryKey;
+/**
+ *  Column part of unique index.
+ *
+ *  Value: "INDEXING_TYPE_UNIQUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeUnique;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INDEXING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec.type
+
+/**
+ *  Dimension.
+ *
+ *  Value: "DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Dimension;
+/**
+ *  Dimension group - parent for Dimension.
+ *
+ *  Value: "DIMENSION_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_DimensionGroup;
+/**
+ *  Filter.
+ *
+ *  Value: "FILTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Filter;
+/**
+ *  Unspecified.
+ *
+ *  Value: "LOOKER_COLUMN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_LookerColumnTypeUnspecified;
+/**
+ *  Measure.
+ *
+ *  Value: "MEASURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure;
+/**
+ *  Parameter.
+ *
+ *  Value: "PAREMETER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
 
 /**
@@ -177,6 +262,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_TableTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec.viewType
+
+/**
+ *  Materialized view.
+ *
+ *  Value: "MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_MaterializedView;
+/**
+ *  Standard view.
+ *
+ *  Value: "STANDARD_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_StandardView;
+/**
+ *  Default unknown view type.
+ *
+ *  Value: "VIEW_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_ViewTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable.system
 
 /**
@@ -191,6 +298,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
  *  Value: "CLOUD_PUBSUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub;
+/**
+ *  Cloud Sql
+ *
+ *  Value: "CLOUD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudSql;
 /**
  *  Dataplex.
  *
@@ -209,6 +322,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_IntegratedSystemUnspecified;
+/**
+ *  Looker
+ *
+ *  Value: "LOOKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Looker;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource.service
@@ -248,6 +367,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub;
 /**
+ *  Cloud Sql
+ *
+ *  Value: "CLOUD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudSql;
+/**
  *  Dataplex.
  *
  *  Value: "DATAPLEX"
@@ -265,6 +390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_IntegratedSystemUnspecified;
+/**
+ *  Looker
+ *
+ *  Value: "LOOKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Looker;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.type
@@ -276,11 +407,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster;
 /**
+ *  A Dashboard, for example from Looker.
+ *
+ *  Value: "DASHBOARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Dashboard;
+/**
  *  A database.
  *
  *  Value: "DATABASE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database;
+/**
+ *  Schema within a relational database.
+ *
+ *  Value: "DATABASE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DatabaseSchema;
 /**
  *  Output only. Connection to a data source. For example, a BigQuery
  *  connection.
@@ -301,6 +444,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified;
 /**
+ *  A Looker Explore. For more information, see [Looker Explore API]
+ *  (https://developers.looker.com/api/explorer/4.0/methods/LookmlModel/lookml_model_explore).
+ *
+ *  Value: "EXPLORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Explore;
+/**
  *  An entry type for a set of files or objects. For example, a Cloud Storage
  *  fileset.
  *
@@ -313,6 +463,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "LAKE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake;
+/**
+ *  A Looker Look. For more information, see [Looker Look API]
+ *  (https://developers.looker.com/api/explorer/4.0/methods/Look).
+ *
+ *  Value: "LOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Look;
 /**
  *  Output only. The type of models. For more information, see [Supported models
  *  in BigQuery ML]
@@ -387,6 +544,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Fiel
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata.state
+
+/**
+ *  The import of entries has been finished.
+ *
+ *  Value: "IMPORT_DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportDone;
+/**
+ *  The import of entries is in progress.
+ *
+ *  Value: "IMPORT_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportInProgress;
+/**
+ *  The import of entries has been abandoned in favor of a newer request.
+ *
+ *  Value: "IMPORT_OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportObsolete;
+/**
+ *  The dump with entries has been queued for import.
+ *
+ *  Value: "IMPORT_QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportQueued;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "IMPORT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec.routineType
 
 /**
@@ -452,6 +643,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Sear
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub;
 /**
+ *  Cloud Sql
+ *
+ *  Value: "CLOUD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudSql;
+/**
  *  Dataplex.
  *
  *  Value: "DATAPLEX"
@@ -469,6 +666,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Sear
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_IntegratedSystemUnspecified;
+/**
+ *  Looker
+ *
+ *  Value: "LOOKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Looker;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult.searchResultType
@@ -854,6 +1057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, copy, nullable) NSString *column;
 
+/** Optional. Default value for the column. */
+@property(nonatomic, copy, nullable) NSString *defaultValue;
+
 /**
  *  Optional. Description of the column. Default value is an empty string. The
  *  description must be a UTF-8 string with the maximum size of 2000 bytes.
@@ -869,11 +1075,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *gcRule;
 
 /**
+ *  Optional. Most important inclusion of this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeNone
+ *        Column not a part of an index. (Value: "INDEXING_TYPE_NONE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeNonUnique
+ *        Column Part of non unique index. (Value: "INDEXING_TYPE_NON_UNIQUE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypePrimaryKey
+ *        Column part of the primary key. (Value: "INDEXING_TYPE_PRIMARY_KEY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeUnique
+ *        Column part of unique index. (Value: "INDEXING_TYPE_UNIQUE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeUnspecified
+ *        Unspecified. (Value: "INDEXING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *highestIndexingType;
+
+/** Looker specific column info of this column. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec *lookerColumnSpec;
+
+/**
  *  Optional. A column's mode indicates whether values in this column are
  *  required, nullable, or repeated. Only `NULLABLE`, `REQUIRED`, and `REPEATED`
  *  values are supported. Default mode is `NULLABLE`.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Optional. Ordinal position
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
 
 /**
  *  Optional. Schema of sub-columns. A column can have zero or more sub-columns.
@@ -885,6 +1118,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  of 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Column info specific to Looker System.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec : GTLRObject
+
+/**
+ *  Looker specific column type of this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Dimension
+ *        Dimension. (Value: "DIMENSION")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_DimensionGroup
+ *        Dimension group - parent for Dimension. (Value: "DIMENSION_GROUP")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Filter
+ *        Filter. (Value: "FILTER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_LookerColumnTypeUnspecified
+ *        Unspecified. (Value: "LOOKER_COLUMN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure
+ *        Measure. (Value: "MEASURE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter
+ *        Parameter. (Value: "PAREMETER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Common statistics on the entry's usage. They can be set on any system.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats : GTLRObject
+
+/**
+ *  View count in source system.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewCount;
 
 @end
 
@@ -935,6 +1210,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec : GTLRObject
 
 /**
+ *  Spec what aplies to tables that are actually views. Not set for "real"
+ *  tables.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec *databaseViewSpec;
+
+/**
  *  Output only. Fields specific to a Dataplex table and present only in the
  *  Dataplex table entries.
  */
@@ -952,6 +1233,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Default unknown table type. (Value: "TABLE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Specification that applies to database view.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec : GTLRObject
+
+/** Name of a singular table this view reflects one to one. */
+@property(nonatomic, copy, nullable) NSString *baseTable;
+
+/** SQL query used to generate this view. */
+@property(nonatomic, copy, nullable) NSString *sqlQuery;
+
+/**
+ *  Type of this view.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_MaterializedView
+ *        Materialized view. (Value: "MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_StandardView
+ *        Standard view. (Value: "STANDARD_VIEW")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_ViewTypeUnspecified
+ *        Default unknown view type. (Value: "VIEW_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *viewType;
 
 @end
 
@@ -982,12 +1290,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudSql
+ *        Cloud Sql (Value: "CLOUD_SQL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Dataplex
  *        Dataplex. (Value: "DATAPLEX")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_DataprocMetastore
  *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_IntegratedSystemUnspecified
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Looker
+ *        Looker (Value: "LOOKER")
  */
 @property(nonatomic, copy, nullable) NSString *system;
 
@@ -1133,7 +1445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /**
  *  Specification that applies to a table resource. Valid only for entries with
- *  the `TABLE` type.
+ *  the `TABLE` or `EXPLORE` type.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec *databaseTableSpec;
 
@@ -1158,10 +1470,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Display name of an entry. The name must contain only Unicode letters,
- *  numbers (0-9), underscores (_), dashes (-), spaces ( ), and can't start or
- *  end with spaces. The maximum size is 200 bytes when encoded in UTF-8.
- *  Default value is an empty string.
+ *  Display name of an entry. The maximum size is 500 bytes when encoded in
+ *  UTF-8. Default value is an empty string.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1199,12 +1509,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudSql
+ *        Cloud Sql (Value: "CLOUD_SQL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Dataplex
  *        Dataplex. (Value: "DATAPLEX")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_DataprocMetastore
  *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_IntegratedSystemUnspecified
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Looker
+ *        Looker (Value: "LOOKER")
  */
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
@@ -1228,6 +1542,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  (-), and hashes (#). The maximum size is 200 bytes when encoded in UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
+
+/**
+ *  Specification that applies to Looker sysstem. Only settable when
+ *  `user_specified_system` is equal to `LOOKER`
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec *lookerSystemSpec;
 
 /**
  *  Output only. The resource name of an entry in URL format. Note: The entry
@@ -1260,6 +1580,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *sourceSystemTimestamps;
 
 /**
+ *  Specification that applies to a relational database system. Only settable
+ *  when `user_specified_system` is equal to `SQL_DATABASE`
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec *sqlDatabaseSystemSpec;
+
+/**
  *  The type of the entry. Only used for entries with types listed in the
  *  `EntryType` enum. Currently, only `FILESET` enum value is allowed. All other
  *  entries created in Data Catalog must use the `user_specified_type`.
@@ -1268,8 +1594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster A
  *        group of servers that work together. For example, a Kafka cluster.
  *        (Value: "CLUSTER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Dashboard A
+ *        Dashboard, for example from Looker. (Value: "DASHBOARD")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database A
  *        database. (Value: "DATABASE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DatabaseSchema
+ *        Schema within a relational database. (Value: "DATABASE_SCHEMA")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataSourceConnection
  *        Output only. Connection to a data source. For example, a BigQuery
  *        connection. (Value: "DATA_SOURCE_CONNECTION")
@@ -1278,11 +1608,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        (Value: "DATA_STREAM")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified
  *        Default unknown type. (Value: "ENTRY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Explore A
+ *        Looker Explore. For more information, see [Looker Explore API]
+ *        (https://developers.looker.com/api/explorer/4.0/methods/LookmlModel/lookml_model_explore).
+ *        (Value: "EXPLORE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset An
  *        entry type for a set of files or objects. For example, a Cloud Storage
  *        fileset. (Value: "FILESET")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake A
  *        Dataplex lake. (Value: "LAKE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Look A Looker
+ *        Look. For more information, see [Looker Look API]
+ *        (https://developers.looker.com/api/explorer/4.0/methods/Look). (Value:
+ *        "LOOK")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model Output
  *        only. The type of models. For more information, see [Supported models
  *        in BigQuery ML]
@@ -1541,6 +1879,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Metadata message for long-running operation returned by the ImportEntries.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata : GTLRObject
+
+/**
+ *  Partial errors that are encountered during the ImportEntries operation.
+ *  There is no guarantee that all the encountered errors are reported. However,
+ *  if no errors are reported, it means that no errors were encountered.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_Status *> *errors;
+
+/**
+ *  State of the import operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportDone
+ *        The import of entries has been finished. (Value: "IMPORT_DONE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportInProgress
+ *        The import of entries is in progress. (Value: "IMPORT_IN_PROGRESS")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportObsolete
+ *        The import of entries has been abandoned in favor of a newer request.
+ *        (Value: "IMPORT_OBSOLETE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportQueued
+ *        The dump with entries has been queued for import. (Value:
+ *        "IMPORT_QUEUED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "IMPORT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Request message for ImportEntries method.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest : GTLRObject
+
+/**
+ *  Path to a Cloud Storage bucket that contains a dump ready for ingestion.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsBucketPath;
+
+@end
+
+
+/**
+ *  Response message for long-running operation returned by the ImportEntries.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesResponse : GTLRObject
+
+/**
+ *  Number of entries deleted as a result of import operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedEntriesCount;
+
+/**
+ *  Cumulative number of entries created and entries updated as a result of
+ *  import operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *upsertedEntriesCount;
+
+@end
+
+
+/**
  *  Request message for ImportTaxonomies.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportTaxonomiesRequest : GTLRObject
@@ -1707,6 +2116,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy *> *taxonomies;
+
+@end
+
+
+/**
+ *  Specification that applies to entries that are part `LOOKER` system
+ *  (user_specified_type)
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec : GTLRObject
+
+/** Name of the parent Looker Instance. Empty if it does not exist. */
+@property(nonatomic, copy, nullable) NSString *parentInstanceDisplayName;
+
+/**
+ *  ID of the parent Looker Instance. Empty if it does not exist. Example value:
+ *  `someinstance.looker.com`
+ */
+@property(nonatomic, copy, nullable) NSString *parentInstanceId;
+
+/** Name of the parent Model. Empty if it does not exist. */
+@property(nonatomic, copy, nullable) NSString *parentModelDisplayName;
+
+/** ID of the parent Model. Empty if it does not exist. */
+@property(nonatomic, copy, nullable) NSString *parentModelId;
+
+/** Name of the parent View. Empty if it does not exist. */
+@property(nonatomic, copy, nullable) NSString *parentViewDisplayName;
+
+/** ID of the parent View. Empty if it does not exist. */
+@property(nonatomic, copy, nullable) NSString *parentViewId;
 
 @end
 
@@ -2193,12 +2632,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudSql
+ *        Cloud Sql (Value: "CLOUD_SQL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Dataplex
  *        Dataplex. (Value: "DATAPLEX")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_DataprocMetastore
  *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_IntegratedSystemUnspecified
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Looker
+ *        Looker (Value: "LOOKER")
  */
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
@@ -2306,6 +2749,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** Top level policy tags associated with the taxonomy, if any. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag *> *policyTags;
+
+@end
+
+
+/**
+ *  Specification that applies to entries that are part `SQL_DATABASE` system
+ *  (user_specified_type)
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec : GTLRObject
+
+/** Version of the database engine. */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
+ *  Host of the SQL database enum InstanceHost { UNDEFINED = 0; SELF_HOSTED = 1;
+ *  CLOUD_SQL = 2; AMAZON_RDS = 3; AZURE_SQL = 4; } Host of the enclousing
+ *  database instance.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceHost;
+
+/**
+ *  SQL Database Engine. enum SqlEngine { UNDEFINED = 0; MY_SQL = 1; POSTGRE_SQL
+ *  = 2; SQL_SERVER = 3; } Engine of the enclosing database instance.
+ */
+@property(nonatomic, copy, nullable) NSString *sqlEngine;
 
 @end
 
@@ -2720,6 +3188,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal : GTLRObject
 
+/**
+ *  Common usage statistics over each of the predefined time ranges. Supported
+ *  time ranges are `{"24H", "7D", "30D", "Lifetime"}`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange *commonUsageWithinTimeRange;
+
+/**
+ *  Favorite count in the source system.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *favoriteCount;
+
 /** The end timestamp of the duration of usage statistics. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -2729,6 +3210,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange *usageWithinTimeRange;
 
+@end
+
+
+/**
+ *  Common usage statistics over each of the predefined time ranges. Supported
+ *  time ranges are `{"24H", "7D", "30D", "Lifetime"}`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange : GTLRObject
 @end
 
 
@@ -2795,6 +3290,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 /** Output only. The query that defines the table view. */
 @property(nonatomic, copy, nullable) NSString *viewQuery;
 
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataCatalog_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_Operation *> *operations;
+
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRDataCatalog_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataCatalog_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataCatalog_Operation_Response : GTLRObject
 @end
 
 
@@ -2897,6 +3496,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_Policy *policy;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRDataCatalog_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRDataCatalog_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataCatalog_Status_Details_Item : GTLRObject
 @end
 
 

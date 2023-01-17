@@ -253,7 +253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 @property(nonatomic, strong, nullable) GTLRSASPortal_FrequencyRange *frequencyRange;
 
 /**
- *  The channel score, normalized to be in [0,100].
+ *  The channel score, normalized to be in the range [0,100].
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -310,7 +310,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 /** The deployment's display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Output only. The FRNs copied from its direct parent. */
+/**
+ *  Output only. The FCC Registration Numbers (FRNs) copied from its direct
+ *  parent.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *frns;
 
 /** Output only. Resource name. */
@@ -350,7 +353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 /** The FCC identifier of the device. */
 @property(nonatomic, copy, nullable) NSString *fccId;
 
-/** Only ranges within the allowlists are available for new grants. */
+/**
+ *  Only ranges that are within the allowlists are available for new grants.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_FrequencyRange *> *grantRangeAllowlists;
 
 /** Output only. Grants held by the device. */
@@ -560,25 +565,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 
 /**
  *  If populated, the Antenna Model Pattern to use. Format is:
- *  RecordCreatorId:PatternId
+ *  `RecordCreatorId:PatternId`
  */
 @property(nonatomic, copy, nullable) NSString *antennaModel;
 
 /**
- *  CCG. A group of CBSDs in the same ICG requesting a common primary channel
- *  assignment. See CBRSA-TS-2001 V3.0.0 for more details.
+ *  Common Channel Group (CCG). A group of CBSDs in the same ICG requesting a
+ *  common primary channel assignment. For more details, see [CBRSA-TS-2001
+ *  V3.0.0](https://ongoalliance.org/wp-content/uploads/2020/02/CBRSA-TS-2001-V3.0.0_Approved-for-publication.pdf).
  */
 @property(nonatomic, copy, nullable) NSString *commonChannelGroup;
 
 /**
- *  ICG. A group of CBSDs that manage their own interference with the group. See
- *  CBRSA-TS-2001 V3.0.0 for more details.
+ *  Interference Coordination Group (ICG). A group of CBSDs that manage their
+ *  own interference with the group. For more details, see [CBRSA-TS-2001
+ *  V3.0.0](https://ongoalliance.org/wp-content/uploads/2020/02/CBRSA-TS-2001-V3.0.0_Approved-for-publication.pdf).
  */
 @property(nonatomic, copy, nullable) NSString *interferenceCoordinationGroup;
 
 /**
- *  Output only. Whether a CPI has validated to have coordinated with the
- *  National Quiet Zone office.
+ *  Output only. Set to `true` if a CPI has validated that they have coordinated
+ *  with the National Quiet Zone office.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -733,6 +740,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 @property(nonatomic, strong, nullable) NSNumber *antennaGain;
 
 /**
+ *  As above, but as a DoubleValue.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *antennaGainNewField;
+
+/**
  *  If an external antenna is used, the antenna model is optionally provided in
  *  this field. The string has a maximum length of 128 octets.
  */
@@ -754,6 +768,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *eirpCapability;
+
+/**
+ *  As above, but as a DoubleValue.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eirpCapabilityNewField;
 
 /**
  *  Device antenna height in meters. When the `heightType` parameter value is
@@ -1005,21 +1026,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  */
 @interface GTLRSASPortal_NrqzValidation : GTLRObject
 
-/** Validation case id. */
+/** Validation case ID. */
 @property(nonatomic, copy, nullable) NSString *caseId;
 
 /** CPI who signed the validation. */
 @property(nonatomic, copy, nullable) NSString *cpiId;
 
 /**
- *  Device latitude associated with the validation.
+ *  Device latitude that's associated with the validation.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
- *  Device longitude associated with the validation.
+ *  Device longitude that's associated with the validation.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1153,8 +1174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 @interface GTLRSASPortal_SetPolicyRequest : GTLRObject
 
 /**
- *  Optional. Set the field as true when we would like to disable the onboarding
- *  notification.
+ *  Optional. Set the field as `true` to disable the onboarding notification.
  *
  *  Uses NSNumber of boolValue.
  */

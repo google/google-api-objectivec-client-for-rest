@@ -5,7 +5,8 @@
 //   My Business Business Information API (mybusinessbusinessinformation/v1)
 // Description:
 //   The My Business Business Information API provides an interface for managing
-//   business information on Google.
+//   business information. Note - If you have a quota of 0 after enabling the
+//   API, please request for GBP API access.
 // Documentation:
 //   https://developers.google.com/my-business/
 

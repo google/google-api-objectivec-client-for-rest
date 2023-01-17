@@ -295,7 +295,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsCreate
 
-@dynamic parent, privateConnectionId, requestId;
+@dynamic force, parent, privateConnectionId, requestId;
 
 + (instancetype)queryWithObject:(GTLRDatastream_PrivateConnection *)object
                          parent:(NSString *)parent {

@@ -29,17 +29,39 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnec
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Mysql = @"MYSQL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres = @"POSTGRES";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema.highestIndexingType
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeNone = @"INDEXING_TYPE_NONE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeNonUnique = @"INDEXING_TYPE_NON_UNIQUE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypePrimaryKey = @"INDEXING_TYPE_PRIMARY_KEY";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeUnique = @"INDEXING_TYPE_UNIQUE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema_HighestIndexingType_IndexingTypeUnspecified = @"INDEXING_TYPE_UNSPECIFIED";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec.type
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Dimension = @"DIMENSION";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_DimensionGroup = @"DIMENSION_GROUP";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Filter = @"FILTER";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_LookerColumnTypeUnspecified = @"LOOKER_COLUMN_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure = @"MEASURE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter = @"PAREMETER";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_External = @"EXTERNAL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_Native = @"NATIVE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_TableTypeUnspecified = @"TABLE_TYPE_UNSPECIFIED";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec.viewType
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_MaterializedView = @"MATERIALIZED_VIEW";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_StandardView = @"STANDARD_VIEW";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec_ViewType_ViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable.system
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub = @"CLOUD_PUBSUB";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudSql = @"CLOUD_SQL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Dataplex = @"DATAPLEX";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_IntegratedSystemUnspecified = @"INTEGRATED_SYSTEM_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Looker = @"LOOKER";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource.service
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_Bigquery = @"BIGQUERY";
@@ -49,18 +71,24 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_Ser
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.integratedSystem
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub = @"CLOUD_PUBSUB";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudSql = @"CLOUD_SQL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Dataplex = @"DATAPLEX";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_IntegratedSystemUnspecified = @"INTEGRATED_SYSTEM_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Looker = @"LOOKER";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.type
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster = @"CLUSTER";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Dashboard = @"DASHBOARD";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database = @"DATABASE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DatabaseSchema = @"DATABASE_SCHEMA";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataSourceConnection = @"DATA_SOURCE_CONNECTION";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream = @"DATA_STREAM";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified = @"ENTRY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Explore = @"EXPLORE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset = @"FILESET";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake = @"LAKE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Look = @"LOOK";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model = @"MODEL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Routine = @"ROUTINE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service = @"SERVICE";
@@ -74,6 +102,13 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveTyp
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext = @"RICHTEXT";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String = @"STRING";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp = @"TIMESTAMP";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata.state
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportDone = @"IMPORT_DONE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportInProgress = @"IMPORT_IN_PROGRESS";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportObsolete = @"IMPORT_OBSOLETE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportQueued = @"IMPORT_QUEUED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified = @"IMPORT_STATE_UNSPECIFIED";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec.routineType
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_Procedure = @"PROCEDURE";
@@ -89,9 +124,11 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mo
 // GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult.integratedSystem
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub = @"CLOUD_PUBSUB";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudSql = @"CLOUD_SQL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Dataplex = @"DATAPLEX";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_IntegratedSystemUnspecified = @"INTEGRATED_SYSTEM_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Looker = @"LOOKER";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult.searchResultType
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_Entry = @"ENTRY";
@@ -243,7 +280,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema
-@dynamic column, descriptionProperty, gcRule, mode, subcolumns, type;
+@dynamic column, defaultValue, descriptionProperty, gcRule, highestIndexingType,
+         lookerColumnSpec, mode, ordinalPosition, subcolumns, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -256,6 +294,26 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats
+@dynamic viewCount;
 @end
 
 
@@ -303,7 +361,17 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec
-@dynamic dataplexTable, type;
+@dynamic databaseViewSpec, dataplexTable, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec
+@dynamic baseTable, sqlQuery, viewType;
 @end
 
 
@@ -384,9 +452,10 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 @dynamic bigqueryDateShardedSpec, bigqueryTableSpec, businessContext,
          databaseTableSpec, dataSource, dataSourceConnectionSpec,
          descriptionProperty, displayName, filesetSpec, fullyQualifiedName,
-         gcsFilesetSpec, integratedSystem, labels, linkedResource, name,
-         personalDetails, routineSpec, schema, sourceSystemTimestamps, type,
-         usageSignal, userSpecifiedSystem, userSpecifiedType;
+         gcsFilesetSpec, integratedSystem, labels, linkedResource,
+         lookerSystemSpec, name, personalDetails, routineSpec, schema,
+         sourceSystemTimestamps, sqlDatabaseSystemSpec, type, usageSignal,
+         userSpecifiedSystem, userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -526,6 +595,44 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec
 @dynamic filePath, gcsTimestamps, sizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata
+@dynamic errors, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDataCatalog_Status class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest
+@dynamic gcsBucketPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesResponse
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesResponse
+@dynamic deletedEntriesCount, upsertedEntriesCount;
 @end
 
 
@@ -682,6 +789,17 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return @"taxonomies";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec
+@dynamic parentInstanceDisplayName, parentInstanceId, parentModelDisplayName,
+         parentModelId, parentViewDisplayName, parentViewId;
 @end
 
 
@@ -1000,6 +1118,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec
+@dynamic databaseVersion, instanceHost, sqlEngine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest
 //
 
@@ -1190,7 +1318,22 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal
-@dynamic updateTime, usageWithinTimeRange;
+@dynamic commonUsageWithinTimeRange, favoriteCount, updateTime,
+         usageWithinTimeRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats class];
+}
+
 @end
 
 
@@ -1231,6 +1374,66 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_ListOperationsResponse
+//
+
+@implementation GTLRDataCatalog_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRDataCatalog_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_Operation
+//
+
+@implementation GTLRDataCatalog_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_Operation_Metadata
+//
+
+@implementation GTLRDataCatalog_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_Operation_Response
+//
+
+@implementation GTLRDataCatalog_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_Policy
 //
 
@@ -1258,6 +1461,38 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 @implementation GTLRDataCatalog_SetIamPolicyRequest
 @dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_Status
+//
+
+@implementation GTLRDataCatalog_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDataCatalog_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_Status_Details_Item
+//
+
+@implementation GTLRDataCatalog_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

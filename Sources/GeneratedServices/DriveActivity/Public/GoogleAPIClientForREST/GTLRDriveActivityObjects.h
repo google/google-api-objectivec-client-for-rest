@@ -787,11 +787,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
- *  How the individual activities are consolidated. A set of activities may be
- *  consolidated into one combined activity if they are related in some way,
- *  such as one actor performing the same action on multiple targets, or
- *  multiple actors performing the same action on a single target. The strategy
- *  defines the rules for which activities are related.
+ *  How the individual activities are consolidated. If a set of activities is
+ *  related they can be consolidated into one combined activity, such as one
+ *  actor performing the same action on multiple targets, or multiple actors
+ *  performing the same action on a single target. The strategy defines the
+ *  rules for which activities are related.
  */
 @interface GTLRDriveActivity_ConsolidationStrategy : GTLRObject
 
@@ -1289,7 +1289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
- *  A strategy which consolidates activities using the grouping rules from the
+ *  A strategy that consolidates activities using the grouping rules from the
  *  legacy V1 Activity API. Similar actions occurring within a window of time
  *  can be grouped across multiple targets (such as moving a set of files at
  *  once) or multiple actors (such as several users editing the same item).
@@ -1321,7 +1321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
- *  A strategy which does no consolidation of individual activities.
+ *  A strategy that does no consolidation of individual activities.
  */
 @interface GTLRDriveActivity_NoConsolidation : GTLRObject
 @end
@@ -1455,14 +1455,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @interface GTLRDriveActivity_QueryDriveActivityRequest : GTLRObject
 
 /**
- *  Return activities for this Drive folder and all children and descendants.
+ *  Return activities for this Drive folder, plus all children and descendants.
  *  The format is `items/ITEM_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorName;
 
 /**
  *  Details on how to consolidate related actions that make up the activity. If
- *  not set, then related actions are not consolidated.
+ *  not set, then related actions aren't consolidated.
  */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_ConsolidationStrategy *consolidationStrategy;
 
@@ -1475,8 +1475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *  1452409200000 AND time <= 1492812924310` - `time >=
  *  "2016-01-10T01:02:03-05:00"` - `detail.action_detail_case`: Uses the "has"
  *  operator (:) and either a singular value or a list of allowed action types
- *  enclosed in parentheses. Examples: - `detail.action_detail_case: RENAME` -
- *  `detail.action_detail_case:(CREATE EDIT)` -
+ *  enclosed in parentheses, separated by a space. To exclude a result from the
+ *  response, prepend a hyphen (`-`) to the beginning of the filter string.
+ *  Examples: - `detail.action_detail_case:RENAME` -
+ *  `detail.action_detail_case:(CREATE RESTORE)` -
  *  `-detail.action_detail_case:MOVE`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1485,8 +1487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, copy, nullable) NSString *itemName;
 
 /**
- *  The miminum number of activities desired in the response; the server will
- *  attempt to return at least this quanitity. The server may also return fewer
+ *  The minimum number of activities desired in the response; the server
+ *  attempts to return at least this quantity. The server may also return fewer
  *  activities if it has a partial response ready before the request times out.
  *  If not set, a default value is used.
  *
@@ -1495,9 +1497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  The token identifying which page of results to return. Set this to the
+ *  The token identifies which page of results to return. Set this to the
  *  next_page_token value returned from a previous query to obtain the following
- *  page of results. If not set, the first page of results will be returned.
+ *  page of results. If not set, the first page of results is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1714,7 +1716,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
- *  Information about the target of activity.
+ *  Information about the target of activity. For more information on how
+ *  activity history is shared with users, see [Activity history
+ *  visibility](https://developers.google.com/drive/activity/v2#activityhistory).
  */
 @interface GTLRDriveActivity_Target : GTLRObject
 

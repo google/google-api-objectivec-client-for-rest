@@ -4,7 +4,10 @@
 // API:
 //   Google Play Integrity API (playintegrity/v1)
 // Description:
-//   Play Integrity
+//   The Play Integrity API helps you check that you're interacting with your
+//   genuine app on a genuine Android device powered by Google Play services.
+//   The Play Integrity API has replaced SafetyNet Attestation and Android
+//   Device Verification.
 // Documentation:
 //   https://developer.android.com/google/play/integrity
 
@@ -39,7 +42,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlayIntegrity;
 /**
  *  Service for executing Google Play Integrity API queries.
  *
- *  Play Integrity
+ *  The Play Integrity API helps you check that you're interacting with your
+ *  genuine app on a genuine Android device powered by Google Play services. The
+ *  Play Integrity API has replaced SafetyNet Attestation and Android Device
+ *  Verification.
  */
 @interface GTLRPlayIntegrityService : GTLRService
 

@@ -1110,7 +1110,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureSpec
-@dynamic configmanagement, fleetobservability, identityservice, mesh;
+@dynamic configmanagement, fleetInherited, fleetobservability, identityservice,
+         mesh;
 @end
 
 

@@ -23,6 +23,21 @@ NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathTo
 NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceNetworking_ClientLibrarySettings.launchStage
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceNetworking_CommonLanguageSettings.destinations
+NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_ClientLibraryDestinationUnspecified = @"CLIENT_LIBRARY_DESTINATION_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_Github = @"GITHUB";
+NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_PackageManager = @"PACKAGE_MANAGER";
+
 // GTLRServiceNetworking_Enum.syntax
 NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -107,6 +122,13 @@ NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceNetworking_Publishing.organization
+NSString * const kGTLRServiceNetworking_Publishing_Organization_Ads = @"ADS";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceNetworking_Type.syntax
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -233,11 +255,12 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
-@dynamic checkServiceNetworkingUsePermission, computeIdempotencyWindow,
-         consumer, consumerNetwork, descriptionProperty, ipPrefixLength,
-         outsideAllocationPublicIpRange, privateIpv6GoogleAccess, purpose,
-         region, requestedAddress, requestedRanges, secondaryIpRangeSpecs,
-         subnetwork, subnetworkUsers, useCustomComputeIdempotencyWindow;
+@dynamic allowSubnetCidrRoutesOverlap, checkServiceNetworkingUsePermission,
+         computeIdempotencyWindow, consumer, consumerNetwork,
+         descriptionProperty, ipPrefixLength, outsideAllocationPublicIpRange,
+         privateIpv6GoogleAccess, purpose, region, requestedAddress,
+         requestedRanges, role, secondaryIpRangeSpecs, subnetwork,
+         subnetworkUsers, useCustomComputeIdempotencyWindow;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -368,8 +391,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
-         pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 
@@ -420,11 +443,41 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_ClientLibrarySettings
+//
+
+@implementation GTLRServiceNetworking_ClientLibrarySettings
+@dynamic cppSettings, dotnetSettings, goSettings, javaSettings, launchStage,
+         nodeSettings, phpSettings, pythonSettings, restNumericEnums,
+         rubySettings, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_CloudSQLConfig
 //
 
 @implementation GTLRServiceNetworking_CloudSQLConfig
 @dynamic service, umbrellaNetwork, umbrellaProject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_CommonLanguageSettings
+//
+
+@implementation GTLRServiceNetworking_CommonLanguageSettings
+@dynamic destinations, referenceDocsUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -537,6 +590,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_Control
 @dynamic environment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_CppSettings
+//
+
+@implementation GTLRServiceNetworking_CppSettings
+@dynamic common;
 @end
 
 
@@ -688,6 +751,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_DotnetSettings
+//
+
+@implementation GTLRServiceNetworking_DotnetSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Empty
 //
 
@@ -711,7 +784,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Endpoint
-@dynamic allowCors, name, target;
+@dynamic aliases, allowCors, name, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aliases" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -817,6 +898,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_GoSettings
+//
+
+@implementation GTLRServiceNetworking_GoSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Http
 //
 
@@ -851,6 +942,30 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
     @"additionalBindings" : [GTLRServiceNetworking_HttpRule class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_JavaSettings
+//
+
+@implementation GTLRServiceNetworking_JavaSettings
+@dynamic common, libraryPackage, serviceClassNames;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_JavaSettings_ServiceClassNames
+//
+
+@implementation GTLRServiceNetworking_JavaSettings_ServiceClassNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1000,6 +1115,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_LongRunning
+//
+
+@implementation GTLRServiceNetworking_LongRunning
+@dynamic initialPollDelay, maxPollDelay, pollDelayMultiplier, totalPollTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Method
 //
 
@@ -1014,6 +1139,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_MethodSettings
+//
+
+@implementation GTLRServiceNetworking_MethodSettings
+@dynamic longRunning, selector;
 @end
 
 
@@ -1146,6 +1281,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_NodeSettings
+//
+
+@implementation GTLRServiceNetworking_NodeSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_OAuthRequirements
 //
 
@@ -1264,11 +1409,53 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_PhpSettings
+//
+
+@implementation GTLRServiceNetworking_PhpSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_PolicyBinding
 //
 
 @implementation GTLRServiceNetworking_PolicyBinding
 @dynamic member, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_Publishing
+//
+
+@implementation GTLRServiceNetworking_Publishing
+@dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
+         githubLabel, librarySettings, methodSettings, newIssueUri,
+         organization;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"codeownerGithubTeams" : [NSString class],
+    @"librarySettings" : [GTLRServiceNetworking_ClientLibrarySettings class],
+    @"methodSettings" : [GTLRServiceNetworking_MethodSettings class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_PythonSettings
+//
+
+@implementation GTLRServiceNetworking_PythonSettings
+@dynamic common;
 @end
 
 
@@ -1425,6 +1612,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_RubySettings
+//
+
+@implementation GTLRServiceNetworking_RubySettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_SearchRangeRequest
 //
 
@@ -1463,8 +1660,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 @dynamic apis, authentication, backend, billing, configVersion, context,
          control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, quota, sourceInfo, systemParameters,
-         systemTypes, title, types, usage;
+         name, producerProjectId, publishing, quota, sourceInfo,
+         systemParameters, systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

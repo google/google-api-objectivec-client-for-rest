@@ -635,6 +635,24 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_Criteria
+//
+
+@implementation GTLRMonitoring_Criteria
+@dynamic policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Custom
 //
 
@@ -807,6 +825,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ForecastOptions
+//
+
+@implementation GTLRMonitoring_ForecastOptions
+@dynamic forecastHorizon;
 @end
 
 
@@ -1190,6 +1218,28 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_ListSnoozesResponse
+//
+
+@implementation GTLRMonitoring_ListSnoozesResponse
+@dynamic nextPageToken, snoozes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snoozes" : [GTLRMonitoring_Snooze class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"snoozes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_ListTimeSeriesResponse
 //
 
@@ -1378,7 +1428,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_MetricThreshold
 @dynamic aggregations, comparison, denominatorAggregations, denominatorFilter,
-         duration, evaluationMissingData, filter, thresholdValue, trigger;
+         duration, evaluationMissingData, filter, forecastOptions,
+         thresholdValue, trigger;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1798,6 +1849,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Snooze
+//
+
+@implementation GTLRMonitoring_Snooze
+@dynamic criteria, displayName, interval, name;
 @end
 
 

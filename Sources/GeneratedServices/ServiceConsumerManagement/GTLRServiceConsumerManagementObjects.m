@@ -22,6 +22,21 @@ NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_Appe
 NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceConsumerManagement_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceConsumerManagement_ClientLibrarySettings.launchStage
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceConsumerManagement_ClientLibrarySettings_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceConsumerManagement_CommonLanguageSettings.destinations
+NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_ClientLibraryDestinationUnspecified = @"CLIENT_LIBRARY_DESTINATION_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_Github = @"GITHUB";
+NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_PackageManager = @"PACKAGE_MANAGER";
+
 // GTLRServiceConsumerManagement_Enum.syntax
 NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -106,6 +121,13 @@ NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_Laun
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceConsumerManagement_Publishing.organization
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Ads = @"ADS";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceConsumerManagement_TenantResource.status
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Active = @"ACTIVE";
@@ -269,8 +291,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
-         pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 
@@ -331,6 +353,36 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_ClientLibrarySettings
+//
+
+@implementation GTLRServiceConsumerManagement_ClientLibrarySettings
+@dynamic cppSettings, dotnetSettings, goSettings, javaSettings, launchStage,
+         nodeSettings, phpSettings, pythonSettings, restNumericEnums,
+         rubySettings, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_CommonLanguageSettings
+//
+
+@implementation GTLRServiceConsumerManagement_CommonLanguageSettings
+@dynamic destinations, referenceDocsUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_Context
 //
 
@@ -376,6 +428,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 @implementation GTLRServiceConsumerManagement_Control
 @dynamic environment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_CppSettings
+//
+
+@implementation GTLRServiceConsumerManagement_CppSettings
+@dynamic common;
 @end
 
 
@@ -481,6 +543,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_DotnetSettings
+//
+
+@implementation GTLRServiceConsumerManagement_DotnetSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_Empty
 //
 
@@ -494,7 +566,15 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Endpoint
-@dynamic allowCors, name, target;
+@dynamic aliases, allowCors, name, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aliases" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -562,6 +642,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_GoSettings
+//
+
+@implementation GTLRServiceConsumerManagement_GoSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_Http
 //
 
@@ -596,6 +686,30 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
     @"additionalBindings" : [GTLRServiceConsumerManagement_HttpRule class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_JavaSettings
+//
+
+@implementation GTLRServiceConsumerManagement_JavaSettings
+@dynamic common, libraryPackage, serviceClassNames;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_JavaSettings_ServiceClassNames
+//
+
+@implementation GTLRServiceConsumerManagement_JavaSettings_ServiceClassNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -731,6 +845,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_LongRunning
+//
+
+@implementation GTLRServiceConsumerManagement_LongRunning
+@dynamic initialPollDelay, maxPollDelay, pollDelayMultiplier, totalPollTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_Method
 //
 
@@ -745,6 +869,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_MethodSettings
+//
+
+@implementation GTLRServiceConsumerManagement_MethodSettings
+@dynamic longRunning, selector;
 @end
 
 
@@ -877,6 +1011,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_NodeSettings
+//
+
+@implementation GTLRServiceConsumerManagement_NodeSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_OAuthRequirements
 //
 
@@ -967,6 +1111,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_PhpSettings
+//
+
+@implementation GTLRServiceConsumerManagement_PhpSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_PolicyBinding
 //
 
@@ -980,6 +1134,38 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_Publishing
+//
+
+@implementation GTLRServiceConsumerManagement_Publishing
+@dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
+         githubLabel, librarySettings, methodSettings, newIssueUri,
+         organization;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"codeownerGithubTeams" : [NSString class],
+    @"librarySettings" : [GTLRServiceConsumerManagement_ClientLibrarySettings class],
+    @"methodSettings" : [GTLRServiceConsumerManagement_MethodSettings class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_PythonSettings
+//
+
+@implementation GTLRServiceConsumerManagement_PythonSettings
+@dynamic common;
 @end
 
 
@@ -1044,6 +1230,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_RubySettings
+//
+
+@implementation GTLRServiceConsumerManagement_RubySettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_SearchTenancyUnitsResponse
 //
 
@@ -1073,8 +1269,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 @dynamic apis, authentication, backend, billing, configVersion, context,
          control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, quota, sourceInfo, systemParameters,
-         systemTypes, title, types, usage;
+         name, producerProjectId, publishing, quota, sourceInfo,
+         systemParameters, systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

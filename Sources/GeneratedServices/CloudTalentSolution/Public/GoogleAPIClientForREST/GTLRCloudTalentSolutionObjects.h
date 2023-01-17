@@ -3777,8 +3777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  If true, disable automatic enrollment selection (at all diversion points).
  *  Automatic enrollment selection means experiment selection process based on
  *  the experiment's automatic enrollment condition. This does not disable
- *  selection of forced experiments. Setting this filed to false does not change
- *  anything in experiment selection process.
+ *  selection of forced experiments. Setting this field to false does not change
+ *  anything in the experiment selection process.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3819,8 +3819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  If true, disable manual enrollment selection (at all diversion points).
  *  Manual enrollment selection means experiment selection process based on the
  *  request's manual enrollment states (a.k.a. opt-in experiments). This does
- *  not disable selection of forced experiments. Setting this filed to false
- *  does not change anything in experiment selection process.
+ *  not disable selection of forced experiments. Setting this field to false
+ *  does not change anything in the experiment selection process.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3833,7 +3833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  selection of forced experiments. This is useful in cases when it is not
  *  known whether experiment selection behavior is responsible for a error or
  *  breakage. Disabling organic selection may help to isolate the cause of a
- *  given problem. Setting this filed to false does not change anything in
+ *  given problem. Setting this field to false does not change anything in the
  *  experiment selection process.
  *
  *  Uses NSNumber of boolValue.
@@ -3853,9 +3853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts *forcedRollouts;
 
 /**
- *  If set to ALL_OFF, organic selection will be disabled; if set to ALL_ON,
- *  organic selection will be disabled, and only select launch experiments will
- *  receive traffic. See go/mendel-aoao-runtime-design.
+ *  Sets different testing modes. See the documentation in the TestingMode
+ *  message for more information.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff

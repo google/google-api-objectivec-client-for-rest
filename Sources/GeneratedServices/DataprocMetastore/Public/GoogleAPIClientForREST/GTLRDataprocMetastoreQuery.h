@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v1beta)
+//   Dataproc Metastore API (metastore/v1)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.
@@ -31,6 +31,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  Method: metastore.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_OperationsCancel : GTLRDataprocMetastoreQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRDataprocMetastoreQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -898,50 +943,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: metastore.projects.locations.services.backups.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsTestIamPermissions : GTLRDataprocMetastoreQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRDataprocMetastore_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
  *  Creates a metastore service in a project and location.
  *
  *  Method: metastore.projects.locations.services.create
@@ -993,274 +994,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataprocMetastore_Service *)object
                          parent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: metastore.projects.locations.services.databases.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesGetIamPolicy : GTLRDataprocMetastoreQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the
- *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
- *  will be rejected.Requests for policies with any conditional role bindings
- *  must specify version 3. Policies with no conditional role bindings may
- *  specify any valid value or leave the field unset.The policy in the response
- *  might use the policy version that you specified, or it might use a lower
- *  policy version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1.To learn which
- *  resources support conditions in their IAM policies, see the IAM
- *  documentation
- *  (https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  Method: metastore.projects.locations.services.databases.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesSetIamPolicy : GTLRDataprocMetastoreQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: metastore.projects.locations.services.databases.tables.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesGetIamPolicy : GTLRDataprocMetastoreQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the
- *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
- *  will be rejected.Requests for policies with any conditional role bindings
- *  must specify version 3. Policies with no conditional role bindings may
- *  specify any valid value or leave the field unset.The policy in the response
- *  might use the policy version that you specified, or it might use a lower
- *  policy version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1.To learn which
- *  resources support conditions in their IAM policies, see the IAM
- *  documentation
- *  (https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  Method: metastore.projects.locations.services.databases.tables.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesSetIamPolicy : GTLRDataprocMetastoreQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: metastore.projects.locations.services.databases.tables.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesTestIamPermissions : GTLRDataprocMetastoreQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRDataprocMetastore_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: metastore.projects.locations.services.databases.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTestIamPermissions : GTLRDataprocMetastoreQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRDataprocMetastore_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -1751,45 +1484,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataprocMetastore_Service *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Removes the attached IAM policies for a resource
- *
- *  Method: metastore.projects.locations.services.removeIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRemoveIamPolicy : GTLRDataprocMetastoreQuery
-
-/**
- *  Required. The relative resource name of the dataplane resource to remove IAM
- *  policy, in the following
- *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}
- *  or
- *  projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}/tables/{table_id}.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_RemoveIamPolicyResponse.
- *
- *  Removes the attached IAM policies for a resource
- *
- *  @param object The @c GTLRDataprocMetastore_RemoveIamPolicyRequest to include
- *    in the query.
- *  @param resource Required. The relative resource name of the dataplane
- *    resource to remove IAM policy, in the following
- *    form:projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}
- *    or
- *    projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}/tables/{table_id}.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRemoveIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_RemoveIamPolicyRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 

@@ -93,6 +93,51 @@ NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTra
 NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalOnly = @"INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY";
 NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedUnspecified = @"INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED";
 
+// GTLRAppengine_ProjectEvent.phase
+NSString * const kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling = @"AFTER_RESOURCE_HANDLING";
+NSString * const kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling = @"BEFORE_RESOURCE_HANDLING";
+NSString * const kGTLRAppengine_ProjectEvent_Phase_Unknown     = @"UNKNOWN";
+
+// GTLRAppengine_ProjectsMetadata.consumerProjectState
+NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Deleted = @"DELETED";
+NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Off = @"OFF";
+NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_On = @"ON";
+NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_UnknownState = @"UNKNOWN_STATE";
+
+// GTLRAppengine_ProjectState.state
+NSString * const kGTLRAppengine_ProjectState_State_Deleted     = @"DELETED";
+NSString * const kGTLRAppengine_ProjectState_State_Off         = @"OFF";
+NSString * const kGTLRAppengine_ProjectState_State_On          = @"ON";
+NSString * const kGTLRAppengine_ProjectState_State_UnknownState = @"UNKNOWN_STATE";
+
+// GTLRAppengine_Reasons.abuse
+NSString * const kGTLRAppengine_Reasons_Abuse_AbuseControlPlaneSync = @"ABUSE_CONTROL_PLANE_SYNC";
+NSString * const kGTLRAppengine_Reasons_Abuse_AbuseUnknownReason = @"ABUSE_UNKNOWN_REASON";
+NSString * const kGTLRAppengine_Reasons_Abuse_Reinstate        = @"REINSTATE";
+NSString * const kGTLRAppengine_Reasons_Abuse_Suspend          = @"SUSPEND";
+
+// GTLRAppengine_Reasons.billing
+NSString * const kGTLRAppengine_Reasons_Billing_BillingControlPlaneSync = @"BILLING_CONTROL_PLANE_SYNC";
+NSString * const kGTLRAppengine_Reasons_Billing_BillingUnknownReason = @"BILLING_UNKNOWN_REASON";
+NSString * const kGTLRAppengine_Reasons_Billing_Close          = @"CLOSE";
+NSString * const kGTLRAppengine_Reasons_Billing_Open           = @"OPEN";
+NSString * const kGTLRAppengine_Reasons_Billing_Probation      = @"PROBATION";
+
+// GTLRAppengine_Reasons.dataGovernance
+NSString * const kGTLRAppengine_Reasons_DataGovernance_DataGovernanceControlPlaneSync = @"DATA_GOVERNANCE_CONTROL_PLANE_SYNC";
+NSString * const kGTLRAppengine_Reasons_DataGovernance_DataGovernanceUnknownReason = @"DATA_GOVERNANCE_UNKNOWN_REASON";
+NSString * const kGTLRAppengine_Reasons_DataGovernance_Hide    = @"HIDE";
+NSString * const kGTLRAppengine_Reasons_DataGovernance_Purge   = @"PURGE";
+NSString * const kGTLRAppengine_Reasons_DataGovernance_Unhide  = @"UNHIDE";
+
+// GTLRAppengine_Reasons.serviceManagement
+NSString * const kGTLRAppengine_Reasons_ServiceManagement_AbortDeactivation = @"ABORT_DEACTIVATION";
+NSString * const kGTLRAppengine_Reasons_ServiceManagement_Activation = @"ACTIVATION";
+NSString * const kGTLRAppengine_Reasons_ServiceManagement_CommitDeactivation = @"COMMIT_DEACTIVATION";
+NSString * const kGTLRAppengine_Reasons_ServiceManagement_PrepareDeactivation = @"PREPARE_DEACTIVATION";
+NSString * const kGTLRAppengine_Reasons_ServiceManagement_ServiceManagementControlPlaneSync = @"SERVICE_MANAGEMENT_CONTROL_PLANE_SYNC";
+NSString * const kGTLRAppengine_Reasons_ServiceManagement_ServiceManagementUnknownReason = @"SERVICE_MANAGEMENT_UNKNOWN_REASON";
+
 // GTLRAppengine_ResourceRecord.type
 NSString * const kGTLRAppengine_ResourceRecord_Type_A          = @"A";
 NSString * const kGTLRAppengine_ResourceRecord_Type_Aaaa       = @"AAAA";
@@ -985,12 +1030,54 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_ProjectEvent
+//
+
+@implementation GTLRAppengine_ProjectEvent
+@dynamic eventId, phase, projectMetadata, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_ProjectsMetadata
+//
+
+@implementation GTLRAppengine_ProjectsMetadata
+@dynamic consumerProjectId, consumerProjectNumber, consumerProjectState,
+         p4ServiceAccount, producerProjectId, producerProjectNumber,
+         tenantProjectId, tenantProjectNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_ProjectState
+//
+
+@implementation GTLRAppengine_ProjectState
+@dynamic currentReasons, previousReasons, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_ReadinessCheck
 //
 
 @implementation GTLRAppengine_ReadinessCheck
 @dynamic appStartTimeout, checkInterval, failureThreshold, host, path,
          successThreshold, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Reasons
+//
+
+@implementation GTLRAppengine_Reasons
+@dynamic abuse, billing, dataGovernance, serviceManagement;
 @end
 
 

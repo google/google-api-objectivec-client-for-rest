@@ -654,6 +654,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.workProfileWidgets
+
+/**
+ *  Work profile widgets are allowed. This means the application will be able to
+ *  add widgets to the home screen.
+ *
+ *  Value: "WORK_PROFILE_WIDGETS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsAllowed;
+/**
+ *  Work profile widgets are disallowed. This means the application will not be
+ *  able to add widgets to the home screen.
+ *
+ *  Value: "WORK_PROFILE_WIDGETS_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsDisallowed;
+/**
+ *  Unspecified. Defaults to work_profile_widgets_default
+ *
+ *  Value: "WORK_PROFILE_WIDGETS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationReport.applicationSource
 
 /**
@@ -945,6 +969,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_S
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.workProfileWidgetsDefault
+
+/**
+ *  Work profile widgets are allowed by default. This means that if the policy
+ *  does not specify work_profile_widgets as WORK_PROFILE_WIDGETS_DISALLOWED for
+ *  the application, it will be able to add widgets to the home screen.
+ *
+ *  Value: "WORK_PROFILE_WIDGETS_DEFAULT_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultAllowed;
+/**
+ *  Work profile widgets are disallowed by default. This means that if the
+ *  policy does not specify work_profile_widgets as WORK_PROFILE_WIDGETS_ALLOWED
+ *  for the application, it will be unable to add widgets to the home screen.
+ *
+ *  Value: "WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultDisallowed;
+/**
+ *  Unspecified. Defaults to WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED.
+ *
+ *  Value: "WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -3598,8 +3648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Whether the app is allowed to lock itself in full-screen mode. DEPRECATED.
- *  Use InstallType KIOSK or kioskCustomLauncherEnabled to to configure a
- *  dedicated device.
+ *  Use InstallType KIOSK or kioskCustomLauncherEnabled to configure a dedicated
+ *  device.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3646,6 +3696,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  default_permission_policy and permission_grants which apply to all apps.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
+
+/**
+ *  Specifies whether the app installed in the work profile is allowed to add
+ *  widgets to the home screen.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsAllowed
+ *        Work profile widgets are allowed. This means the application will be
+ *        able to add widgets to the home screen. (Value:
+ *        "WORK_PROFILE_WIDGETS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsDisallowed
+ *        Work profile widgets are disallowed. This means the application will
+ *        not be able to add widgets to the home screen. (Value:
+ *        "WORK_PROFILE_WIDGETS_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsUnspecified
+ *        Unspecified. Defaults to work_profile_widgets_default (Value:
+ *        "WORK_PROFILE_WIDGETS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workProfileWidgets;
 
 @end
 
@@ -4418,6 +4487,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, copy, nullable) NSString *showWorkContactsInPersonalProfile;
 
+/**
+ *  Specifies the default behaviour for work profile widgets. If the policy does
+ *  not specify work_profile_widgets for a specific application, it will behave
+ *  according to the value specified here.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultAllowed
+ *        Work profile widgets are allowed by default. This means that if the
+ *        policy does not specify work_profile_widgets as
+ *        WORK_PROFILE_WIDGETS_DISALLOWED for the application, it will be able
+ *        to add widgets to the home screen. (Value:
+ *        "WORK_PROFILE_WIDGETS_DEFAULT_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultDisallowed
+ *        Work profile widgets are disallowed by default. This means that if the
+ *        policy does not specify work_profile_widgets as
+ *        WORK_PROFILE_WIDGETS_ALLOWED for the application, it will be unable to
+ *        add widgets to the home screen. (Value:
+ *        "WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultUnspecified
+ *        Unspecified. Defaults to WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED.
+ *        (Value: "WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workProfileWidgetsDefault;
+
 @end
 
 
@@ -5101,7 +5194,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Configuration to enable an app as an extension app, with the capability of
- *  interacting with Android Device Policy offline.
+ *  interacting with Android Device Policy offline. For Android versions 13 and
+ *  above, extension apps are exempt from battery restrictions so will not be
+ *  placed into the restricted App Standby Bucket
+ *  (https://developer.android.com/topic/performance/appstandby#restricted-bucket).
+ *  Extensions apps are also protected against users clearing their data or
+ *  force-closing the application, although admins can continue to use the clear
+ *  app data command
+ *  (https://developer.android.com/management/reference/rest/v1/enterprises.devices/issueCommand#CommandType)
+ *  on extension apps if needed for Android 13 and above.
  */
 @interface GTLRAndroidManagement_ExtensionConfig : GTLRObject
 

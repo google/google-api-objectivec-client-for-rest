@@ -36,6 +36,8 @@
 @class GTLRCompute_AddressList_Warning_Data_Item;
 @class GTLRCompute_AdvancedMachineFeatures;
 @class GTLRCompute_AliasIpRange;
+@class GTLRCompute_AllocationResourceStatus;
+@class GTLRCompute_AllocationResourceStatusSpecificSKUAllocation;
 @class GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk;
 @class GTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties;
 @class GTLRCompute_AllocationSpecificSKUReservation;
@@ -366,6 +368,16 @@
 @class GTLRCompute_MetadataFilterLabelMatch;
 @class GTLRCompute_NamedPort;
 @class GTLRCompute_Network;
+@class GTLRCompute_NetworkAttachment;
+@class GTLRCompute_NetworkAttachmentAggregatedList_Items;
+@class GTLRCompute_NetworkAttachmentAggregatedList_Warning;
+@class GTLRCompute_NetworkAttachmentAggregatedList_Warning_Data_Item;
+@class GTLRCompute_NetworkAttachmentConnectedEndpoint;
+@class GTLRCompute_NetworkAttachmentList_Warning;
+@class GTLRCompute_NetworkAttachmentList_Warning_Data_Item;
+@class GTLRCompute_NetworkAttachmentsScopedList;
+@class GTLRCompute_NetworkAttachmentsScopedList_Warning;
+@class GTLRCompute_NetworkAttachmentsScopedList_Warning_Data_Item;
 @class GTLRCompute_NetworkEdgeSecurityService;
 @class GTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Items;
 @class GTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning;
@@ -7642,6 +7654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubne
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot;
 /** Value: "SEV_CAPABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable;
+/** Value: "SEV_SNP_CAPABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SevSnpCapable;
 /** Value: "UEFI_COMPATIBLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible;
 /** Value: "VIRTIO_SCSI_MULTIQUEUE" */
@@ -12842,6 +12856,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedLis
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectDiagnostics.bundleAggregationType
+
+/**
+ *  LACP is enabled.
+ *
+ *  Value: "BUNDLE_AGGREGATION_TYPE_LACP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnostics_BundleAggregationType_BundleAggregationTypeLacp;
+/**
+ *  LACP is disabled.
+ *
+ *  Value: "BUNDLE_AGGREGATION_TYPE_STATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnostics_BundleAggregationType_BundleAggregationTypeStatic;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectDiagnostics.bundleOperationalStatus
+
+/**
+ *  If bundleAggregationType is LACP: LACP is not established and/or all links
+ *  in the bundle have DOWN operational status. If bundleAggregationType is
+ *  STATIC: one or more links in the bundle has DOWN operational status.
+ *
+ *  Value: "BUNDLE_OPERATIONAL_STATUS_DOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnostics_BundleOperationalStatus_BundleOperationalStatusDown;
+/**
+ *  If bundleAggregationType is LACP: LACP is established and at least one link
+ *  in the bundle has UP operational status. If bundleAggregationType is STATIC:
+ *  all links in the bundle (typically just one) have UP operational status.
+ *
+ *  Value: "BUNDLE_OPERATIONAL_STATUS_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnostics_BundleOperationalStatus_BundleOperationalStatusUp;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectDiagnosticsLinkLACPStatus.state
 
 /**
@@ -12894,6 +12944,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOptic
  *  Value: "OK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_Ok;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectDiagnosticsLinkStatus.operationalStatus
+
+/**
+ *  The interface is unable to communicate with the remote end.
+ *
+ *  Value: "LINK_OPERATIONAL_STATUS_DOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkStatus_OperationalStatus_LinkOperationalStatusDown;
+/**
+ *  The interface has low level communication with the remote end.
+ *
+ *  Value: "LINK_OPERATIONAL_STATUS_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkStatus_OperationalStatus_LinkOperationalStatusUp;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectList_Warning.code
@@ -14664,6 +14730,584 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriter
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Network_NetworkFirewallPolicyEnforcementOrder_AfterClassicFirewall;
 /** Value: "BEFORE_CLASSIC_FIREWALL" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Network_NetworkFirewallPolicyEnforcementOrder_BeforeClassicFirewall;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkAttachment.connectionPreference
+
+/** Value: "ACCEPT_AUTOMATIC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachment_ConnectionPreference_AcceptAutomatic;
+/** Value: "ACCEPT_MANUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachment_ConnectionPreference_AcceptManual;
+/** Value: "INVALID" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachment_ConnectionPreference_Invalid;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkAttachmentAggregatedList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkAttachmentConnectedEndpoint.status
+
+/**
+ *  The consumer allows traffic from the producer to reach its VPC.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Accepted;
+/**
+ *  The consumer network attachment no longer exists.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Closed;
+/**
+ *  The consumer needs to take further action before traffic can be served.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_NeedsAttention;
+/**
+ *  The consumer neither allows nor prohibits traffic from the producer to reach
+ *  its VPC.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Pending;
+/**
+ *  The consumer prohibits traffic from the producer to reach its VPC.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Rejected;
+/** Value: "STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkAttachmentList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkAttachmentsScopedList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning.code
@@ -19623,6 +20267,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_DefaultNetworkTier_Stand
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_DefaultNetworkTier_StandardOverridesFixedStandard;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Project.vmDnsSetting
+
+/** Value: "GLOBAL_DEFAULT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_VmDnsSetting_GlobalDefault;
+/** Value: "UNSPECIFIED_VM_DNS_SETTING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_VmDnsSetting_UnspecifiedVmDnsSetting;
+/** Value: "ZONAL_DEFAULT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_VmDnsSetting_ZonalDefault;
+/** Value: "ZONAL_ONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_VmDnsSetting_ZonalOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Project.xpnProjectStatus
 
 /** Value: "HOST" */
@@ -20541,10 +21197,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Firewalls;
 /** Value: "FORWARDING_RULES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ForwardingRules;
+/** Value: "GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalExternalManagedBackendServices;
 /** Value: "GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalExternalManagedForwardingRules;
+/** Value: "GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalExternalProxyLbBackendServices;
 /** Value: "GLOBAL_INTERNAL_ADDRESSES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses;
+/** Value: "GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalManagedBackendServices;
+/** Value: "GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalTrafficDirectorBackendServices;
 /** Value: "GPUS_ALL_REGIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions;
 /** Value: "HEALTH_CHECKS" */
@@ -20663,8 +21327,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPre
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes;
 /** Value: "REGIONAL_AUTOSCALERS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
+/** Value: "REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalExternalManagedBackendServices;
+/** Value: "REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalExternalNetworkLbBackendServices;
 /** Value: "REGIONAL_INSTANCE_GROUP_MANAGERS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers;
+/** Value: "REGIONAL_INTERNAL_LB_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInternalLbBackendServices;
+/** Value: "REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInternalManagedBackendServices;
 /** Value: "RESERVATIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Reservations;
 /** Value: "RESOURCE_POLICIES" */
@@ -35914,6 +36586,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_AllocationResourceStatus
+ */
+@interface GTLRCompute_AllocationResourceStatus : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_AllocationResourceStatusSpecificSKUAllocation *specificSkuAllocation;
+
+@end
+
+
+/**
+ *  GTLRCompute_AllocationResourceStatusSpecificSKUAllocation
+ */
+@interface GTLRCompute_AllocationResourceStatusSpecificSKUAllocation : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *sourceInstanceTemplateId;
+
+@end
+
+
+/**
  *  GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk
  */
 @interface GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk : GTLRObject
@@ -36003,6 +36695,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inUseCount;
+
+/**
+ *  Specifies the instance template to create the reservation. If you use this
+ *  field, you must exclude the instanceProperties field. This field is
+ *  optional, and it can be a full or partial URL. For example, the following
+ *  are all valid URLs to an instance template: -
+ *  https://www.googleapis.com/compute/v1/projects/project
+ *  /global/instanceTemplates/instanceTemplate -
+ *  projects/project/global/instanceTemplates/instanceTemplate -
+ *  global/instanceTemplates/instanceTemplate
+ */
+@property(nonatomic, copy, nullable) NSString *sourceInstanceTemplate;
 
 @end
 
@@ -37605,7 +38309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  group is completely drained, offering 0% of its available capacity. The
  *  valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger
  *  than 0 and smaller than 0.1. You cannot configure a setting of 0 when there
- *  is only one backend attached to the backend service.
+ *  is only one backend attached to the backend service. Not available with
+ *  backends that don't support using a balancingMode. This includes backends
+ *  such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -43068,8 +43774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The reason of the error. This is a constant value that identifies the
  *  proximate cause of the error. Error reasons are unique within a particular
- *  domain of errors. This should be at most 63 characters and match
- *  /[A-Z0-9_]+/.
+ *  domain of errors. This should be at most 63 characters and match a regular
+ *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -44260,8 +44966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Name of the resource. For Organization Firewall Policies it's a [Output
- *  Only] numeric ID allocated by GCP which uniquely identifies the Organization
- *  Firewall Policy.
+ *  Only] numeric ID allocated by Google Cloud which uniquely identifies the
+ *  Organization Firewall Policy.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -44530,9 +45236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_FirewallPolicyRule : GTLRObject
 
 /**
- *  The Action to perform when the client connection triggers the rule. Can
- *  currently be either "allow" or "deny()" where valid values for status are
- *  403, 404, and 502.
+ *  The Action to perform when the client connection triggers the rule. Valid
+ *  actions are "allow", "deny" and "goto_next".
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -44774,12 +45479,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *allowGlobalAccess;
 
 /**
- *  This field is used along with the backend_service field for Internal TCP/UDP
- *  Load Balancing or Network Load Balancing, or with the target field for
- *  internal and external TargetInstance. You can only use one of ports and
- *  port_range, or allPorts. The three are mutually exclusive. For TCP, UDP and
- *  SCTP traffic, packets addressed to any ports will be forwarded to the target
- *  or backendService.
+ *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
+ *  By internal TCP/UDP load balancers, backend service-based network load
+ *  balancers, and internal and external protocol forwarding. Set this field to
+ *  true to allow packets addressed to any port or packets lacking destination
+ *  port information (for example, UDP fragments after the first fragment) to be
+ *  forwarded to the backends configured with this forwarding rule. The ports,
+ *  port_range, and allPorts fields are mutually exclusive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -45015,28 +45721,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *noAutomateDnsZone;
 
 /**
- *  This field can be used only if: - Load balancing scheme is one of EXTERNAL,
- *  INTERNAL_SELF_MANAGED or INTERNAL_MANAGED - IPProtocol is one of TCP, UDP,
- *  or SCTP. Packets addressed to ports in the specified range will be forwarded
- *  to target or backend_service. You can only use one of ports, port_range, or
- *  allPorts. The three are mutually exclusive. Forwarding rules with the same
- *  [IPAddress, IPProtocol] pair must have disjoint ports. Some types of
- *  forwarding target have constraints on the acceptable ports. For more
- *  information, see [Port
- *  specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#port_specifications).
- *  \@pattern: \\\\d+(?:-\\\\d+)?
+ *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
+ *  By backend service-based network load balancers, target pool-based network
+ *  load balancers, internal proxy load balancers, external proxy load
+ *  balancers, Traffic Director, external protocol forwarding, and Classic VPN.
+ *  Some products have restrictions on what ports can be used. See port
+ *  specifications for details. Only packets addressed to ports in the specified
+ *  range will be forwarded to the backends configured with this forwarding
+ *  rule. The ports, port_range, and allPorts fields are mutually exclusive. For
+ *  external forwarding rules, two or more forwarding rules cannot use the same
+ *  [IPAddress, IPProtocol] pair, and cannot have overlapping portRanges. For
+ *  internal forwarding rules within the same VPC network, two or more
+ *  forwarding rules cannot use the same [IPAddress, IPProtocol] pair, and
+ *  cannot have overlapping portRanges. \@pattern: \\\\d+(?:-\\\\d+)?
  */
 @property(nonatomic, copy, nullable) NSString *portRange;
 
 /**
- *  The ports field is only supported when the forwarding rule references a
- *  backend_service directly. Only packets addressed to the [specified list of
- *  ports]((https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#port_specifications))
- *  are forwarded to backends. You can only use one of ports and port_range, or
- *  allPorts. The three are mutually exclusive. You can specify a list of up to
- *  five ports, which can be non-contiguous. Forwarding rules with the same
- *  [IPAddress, IPProtocol] pair must have disjoint ports. \@pattern:
- *  \\\\d+(?:-\\\\d+)?
+ *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
+ *  By internal TCP/UDP load balancers, backend service-based network load
+ *  balancers, and internal protocol forwarding. You can specify a list of up to
+ *  five ports by number, separated by commas. The ports can be contiguous or
+ *  discontiguous. Only packets addressed to these ports will be forwarded to
+ *  the backends configured with this forwarding rule. For external forwarding
+ *  rules, two or more forwarding rules cannot use the same [IPAddress,
+ *  IPProtocol] pair, and cannot share any values defined in ports. For internal
+ *  forwarding rules within the same VPC network, two or more forwarding rules
+ *  cannot use the same [IPAddress, IPProtocol] pair, and cannot share any
+ *  values defined in ports. The ports, port_range, and allPorts fields are
+ *  mutually exclusive. \@pattern: \\\\d+(?:-\\\\d+)?
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
@@ -45119,11 +45832,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  forwarding rules, this target must be in the same region as the forwarding
  *  rule. For global forwarding rules, this target must be a global load
  *  balancing resource. The forwarded traffic must be of a type appropriate to
- *  the target object. For more information, see the "Target" column in [Port
+ *  the target object. - For load balancers, see the "Target" column in [Port
  *  specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
- *  For Private Service Connect forwarding rules that forward traffic to Google
- *  APIs, provide the name of a supported Google API bundle: - vpc-sc - APIs
- *  that support VPC Service Controls. - all-apis - All supported Google APIs.
+ *  - For Private Service Connect forwarding rules that forward traffic to
+ *  Google APIs, provide the name of a supported Google API bundle: - vpc-sc -
+ *  APIs that support VPC Service Controls. - all-apis - All supported Google
+ *  APIs. - For Private Service Connect forwarding rules that forward traffic to
+ *  managed services, the target must be a service attachment.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -45976,6 +46691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "MULTI_IP_SUBNET"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SecureBoot Value "SECURE_BOOT"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SevCapable Value "SEV_CAPABLE"
+ *    @arg @c kGTLRCompute_GuestOsFeature_Type_SevSnpCapable Value
+ *        "SEV_SNP_CAPABLE"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_UefiCompatible Value
  *        "UEFI_COMPATIBLE"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue Value
@@ -46535,13 +47252,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  A list of URLs to the HealthCheck resources. Must have at least one
- *  HealthCheck, and not more than 10. HealthCheck resources must have
+ *  HealthCheck, and not more than 10 for regional HealthCheckService, and not
+ *  more than 1 for global HealthCheckService. HealthCheck resources must have
  *  portSpecification=USE_SERVING_PORT or portSpecification=USE_FIXED_PORT. For
  *  regional HealthCheckService, the HealthCheck must be regional and in the
  *  same region. For global HealthCheckService, HealthCheck must be global. Mix
  *  of regional and global HealthChecks is not supported. Multiple regional
  *  HealthChecks must belong to the same region. Regional HealthChecks must
- *  belong to the same region as zones of NEGs.
+ *  belong to the same region as zones of NetworkEndpointGroups. For global
+ *  HealthCheckService using global INTERNET_IP_PORT NetworkEndpointGroups, the
+ *  global HealthChecks must specify sourceRegions, and HealthChecks that
+ *  specify sourceRegions can only be used with global INTERNET_IP_PORT
+ *  NetworkEndpointGroups.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *healthChecks;
 
@@ -46551,7 +47273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  NO_AGGREGATION. An EndpointHealth message is returned for each pair in the
  *  health check service. - AND. If any health check of an endpoint reports
  *  UNHEALTHY, then UNHEALTHY is the HealthState of the endpoint. If all health
- *  checks report HEALTHY, the HealthState of the endpoint is HEALTHY. .
+ *  checks report HEALTHY, the HealthState of the endpoint is HEALTHY. . This is
+ *  only allowed with regional HealthCheckService.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HealthCheckService_HealthStatusAggregationPolicy_And
@@ -46594,7 +47317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  A list of URLs to the NetworkEndpointGroup resources. Must not have more
  *  than 100. For regional HealthCheckService, NEGs must be in zones in the
- *  region of the HealthCheckService.
+ *  region of the HealthCheckService. For global HealthCheckServices, the
+ *  NetworkEndpointGroups must be global INTERNET_IP_PORT.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkEndpointGroups;
 
@@ -53683,8 +54407,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Email address to contact the customer NOC for operations and maintenance
  *  notifications regarding this Interconnect. If specified, this will be used
- *  for notifications in addition to all other forms described, such as
- *  Stackdriver logs alerting and Cloud Notifications.
+ *  for notifications in addition to all other forms described, such as Cloud
+ *  Monitoring logs alerting and Cloud Notifications. This field is required for
+ *  users who sign up for Cloud Interconnect using workforce identity
+ *  federation.
  */
 @property(nonatomic, copy, nullable) NSString *nocContactEmail;
 
@@ -54761,6 +55487,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectDiagnosticsARPEntry *> *arpCaches;
 
 /**
+ *  The aggregation type of the bundle interface.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectDiagnostics_BundleAggregationType_BundleAggregationTypeLacp
+ *        LACP is enabled. (Value: "BUNDLE_AGGREGATION_TYPE_LACP")
+ *    @arg @c kGTLRCompute_InterconnectDiagnostics_BundleAggregationType_BundleAggregationTypeStatic
+ *        LACP is disabled. (Value: "BUNDLE_AGGREGATION_TYPE_STATIC")
+ */
+@property(nonatomic, copy, nullable) NSString *bundleAggregationType;
+
+/**
+ *  The operational status of the bundle interface.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectDiagnostics_BundleOperationalStatus_BundleOperationalStatusDown
+ *        If bundleAggregationType is LACP: LACP is not established and/or all
+ *        links in the bundle have DOWN operational status. If
+ *        bundleAggregationType is STATIC: one or more links in the bundle has
+ *        DOWN operational status. (Value: "BUNDLE_OPERATIONAL_STATUS_DOWN")
+ *    @arg @c kGTLRCompute_InterconnectDiagnostics_BundleOperationalStatus_BundleOperationalStatusUp
+ *        If bundleAggregationType is LACP: LACP is established and at least one
+ *        link in the bundle has UP operational status. If bundleAggregationType
+ *        is STATIC: all links in the bundle (typically just one) have UP
+ *        operational status. (Value: "BUNDLE_OPERATIONAL_STATUS_UP")
+ */
+@property(nonatomic, copy, nullable) NSString *bundleOperationalStatus;
+
+/**
  *  A list of InterconnectDiagnostics.LinkStatus objects, describing the status
  *  for each link on the Interconnect.
  */
@@ -54880,6 +55634,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *googleDemarc;
 
 @property(nonatomic, strong, nullable) GTLRCompute_InterconnectDiagnosticsLinkLACPStatus *lacpStatus;
+
+/**
+ *  The operational status of the link.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkStatus_OperationalStatus_LinkOperationalStatusDown
+ *        The interface is unable to communicate with the remote end. (Value:
+ *        "LINK_OPERATIONAL_STATUS_DOWN")
+ *    @arg @c kGTLRCompute_InterconnectDiagnosticsLinkStatus_OperationalStatus_LinkOperationalStatusUp
+ *        The interface has low level communication with the remote end. (Value:
+ *        "LINK_OPERATIONAL_STATUS_UP")
+ */
+@property(nonatomic, copy, nullable) NSString *operationalStatus;
 
 /**
  *  An InterconnectDiagnostics.LinkOpticalPower object, describing the current
@@ -57733,6 +58500,673 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  NetworkAttachments A network attachment resource ...
+ */
+@interface GTLRCompute_NetworkAttachment : GTLRObject
+
+/**
+ *  [Output Only] An array of connections for all the producers connected to
+ *  this network attachment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkAttachmentConnectedEndpoint *> *connectionEndpoints;
+
+/**
+ *  connectionPreference
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkAttachment_ConnectionPreference_AcceptAutomatic
+ *        Value "ACCEPT_AUTOMATIC"
+ *    @arg @c kGTLRCompute_NetworkAttachment_ConnectionPreference_AcceptManual
+ *        Value "ACCEPT_MANUAL"
+ *    @arg @c kGTLRCompute_NetworkAttachment_ConnectionPreference_Invalid Value
+ *        "INVALID"
+ */
+@property(nonatomic, copy, nullable) NSString *connectionPreference;
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] Fingerprint of this resource. A hash of the contents stored in
+ *  this object. This field is used in optimistic locking. An up-to-date
+ *  fingerprint must be provided in order to patch.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  [Output Only] The unique identifier for the resource type. The server
+ *  generates this identifier.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** [Output Only] Type of the resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output Only] The URL of the network which the Network Attachment belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Projects that are allowed to connect to this network attachment. The project
+ *  can be specified using its id or number.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *producerAcceptLists;
+
+/**
+ *  Projects that are not allowed to connect to this network attachment. The
+ *  project can be specified using its id or number.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *producerRejectLists;
+
+/**
+ *  [Output Only] URL of the region where the network attachment resides. This
+ *  field applies only to the region resource. You must specify this field as
+ *  part of the HTTP request URL. It is not settable as a field in the request
+ *  body.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Server-defined URL for this resource's resource id. */
+@property(nonatomic, copy, nullable) NSString *selfLinkWithId;
+
+/**
+ *  An array of URLs where each entry is the URL of a subnet provided by the
+ *  service consumer to use for endpoints in the producers that connect to this
+ *  network attachment.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subnetworks;
+
+@end
+
+
+/**
+ *  Contains a list of NetworkAttachmentsScopedList.
+ */
+@interface GTLRCompute_NetworkAttachmentAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of NetworkAttachmentsScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkAttachmentAggregatedList_Items *items;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkAttachmentAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of NetworkAttachmentsScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_NetworkAttachmentsScopedList. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCompute_NetworkAttachmentAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_NetworkAttachmentAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_Unreachable
+ *        A given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkAttachmentAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_NetworkAttachmentAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_NetworkAttachmentAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  [Output Only] A connection connected to this network attachment.
+ */
+@interface GTLRCompute_NetworkAttachmentConnectedEndpoint : GTLRObject
+
+/**
+ *  The IP address assigned to the producer instance network interface. This
+ *  value will be a range in case of Serverless.
+ */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** The project id or number of the interface to which the IP was assigned. */
+@property(nonatomic, copy, nullable) NSString *projectIdOrNum;
+
+/** Alias IP ranges from the same subnetwork */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryIpCidrRanges;
+
+/**
+ *  The status of a connected endpoint to this network attachment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Accepted
+ *        The consumer allows traffic from the producer to reach its VPC.
+ *        (Value: "ACCEPTED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Closed The
+ *        consumer network attachment no longer exists. (Value: "CLOSED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_NeedsAttention
+ *        The consumer needs to take further action before traffic can be
+ *        served. (Value: "NEEDS_ATTENTION")
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Pending The
+ *        consumer neither allows nor prohibits traffic from the producer to
+ *        reach its VPC. (Value: "PENDING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_Rejected
+ *        The consumer prohibits traffic from the producer to reach its VPC.
+ *        (Value: "REJECTED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentConnectedEndpoint_Status_StatusUnspecified
+ *        Value "STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  The subnetwork used to assign the IP to the producer instance network
+ *  interface.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
+ *  GTLRCompute_NetworkAttachmentList
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_NetworkAttachmentList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of NetworkAttachment resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkAttachment *> *items;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkAttachmentList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_NetworkAttachmentList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NoResultsOnPage No
+ *        results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_Unreachable A
+ *        given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkAttachmentList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_NetworkAttachmentList_Warning_Data_Item
+ */
+@interface GTLRCompute_NetworkAttachmentList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_NetworkAttachmentsScopedList
+ */
+@interface GTLRCompute_NetworkAttachmentsScopedList : GTLRObject
+
+/** A list of NetworkAttachments contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkAttachment *> *networkAttachments;
+
+/**
+ *  Informational warning which replaces the list of network attachments when
+ *  the list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkAttachmentsScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of network attachments when
+ *  the list is empty.
+ */
+@interface GTLRCompute_NetworkAttachmentsScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_Unreachable
+ *        A given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkAttachmentsScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_NetworkAttachmentsScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_NetworkAttachmentsScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Represents a Google Cloud Armor network edge security service resource.
  */
 @interface GTLRCompute_NetworkEdgeSecurityService : GTLRObject
@@ -59369,6 +60803,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  network - projects/project/global/networks/network - global/networks/default
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The URL of the network attachment that this interface should connect to in
+ *  the following format:
+ *  projects/{project_number}/regions/{region_name}/networkAttachments/{network_attachment_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
 
 /**
  *  An IPv4 internal IP address to assign to the instance for this network
@@ -62234,7 +63675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Optional. This field is used to configure how often to send a full update of
  *  all non-healthy backends. If unspecified, full updates are not sent. If
  *  specified, must be in the range between 600 seconds to 3600 seconds. Nanos
- *  are disallowed.
+ *  are disallowed. Can only be set for regional notification endpoints.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *resendInterval;
 
@@ -64723,6 +66164,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_UsageExportLocation *usageExportLocation;
 
 /**
+ *  [Output Only] Default internal DNS setting used by VMs running in this
+ *  project.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Project_VmDnsSetting_GlobalDefault Value
+ *        "GLOBAL_DEFAULT"
+ *    @arg @c kGTLRCompute_Project_VmDnsSetting_UnspecifiedVmDnsSetting Value
+ *        "UNSPECIFIED_VM_DNS_SETTING"
+ *    @arg @c kGTLRCompute_Project_VmDnsSetting_ZonalDefault Value
+ *        "ZONAL_DEFAULT"
+ *    @arg @c kGTLRCompute_Project_VmDnsSetting_ZonalOnly Value "ZONAL_ONLY"
+ */
+@property(nonatomic, copy, nullable) NSString *vmDnsSetting;
+
+/**
  *  [Output Only] The role this project has in a shared VPC configuration.
  *  Currently, only projects with the host role, which is specified by the value
  *  HOST, are differentiated.
@@ -65940,10 +67396,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "EXTERNAL_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_Firewalls Value "FIREWALLS"
  *    @arg @c kGTLRCompute_Quota_Metric_ForwardingRules Value "FORWARDING_RULES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GlobalExternalManagedBackendServices
+ *        Value "GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_GlobalExternalManagedForwardingRules
  *        Value "GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GlobalExternalProxyLbBackendServices
+ *        Value "GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_GlobalInternalAddresses Value
  *        "GLOBAL_INTERNAL_ADDRESSES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GlobalInternalManagedBackendServices
+ *        Value "GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GlobalInternalTrafficDirectorBackendServices
+ *        Value "GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_GpusAllRegions Value "GPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_HealthChecks Value "HEALTH_CHECKS"
  *    @arg @c kGTLRCompute_Quota_Metric_Images Value "IMAGES"
@@ -66038,8 +67502,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "PUBLIC_DELEGATED_PREFIXES"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalAutoscalers Value
  *        "REGIONAL_AUTOSCALERS"
+ *    @arg @c kGTLRCompute_Quota_Metric_RegionalExternalManagedBackendServices
+ *        Value "REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES"
+ *    @arg @c kGTLRCompute_Quota_Metric_RegionalExternalNetworkLbBackendServices
+ *        Value "REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers Value
  *        "REGIONAL_INSTANCE_GROUP_MANAGERS"
+ *    @arg @c kGTLRCompute_Quota_Metric_RegionalInternalLbBackendServices Value
+ *        "REGIONAL_INTERNAL_LB_BACKEND_SERVICES"
+ *    @arg @c kGTLRCompute_Quota_Metric_RegionalInternalManagedBackendServices
+ *        Value "REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_Reservations Value "RESERVATIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_ResourcePolicies Value
  *        "RESOURCE_POLICIES"
@@ -68047,6 +69519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** [Output Only] Status information for Reservation resource. */
+@property(nonatomic, strong, nullable) GTLRCompute_AllocationResourceStatus *resourceStatus;
+
 /**
  *  [Output Only] Reserved for future use.
  *
@@ -68698,8 +70173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *amount;
 
 /**
- *  Type of resource for which this commitment applies. Possible values are VCPU
- *  and MEMORY
+ *  Type of resource for which this commitment applies. Possible values are
+ *  VCPU, MEMORY, LOCAL_SSD, and ACCELERATOR.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ResourceCommitment_Type_Accelerator Value
@@ -73682,6 +75157,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *connectionLimit;
+
+/** The network URL for the network to set the limit for. */
+@property(nonatomic, copy, nullable) NSString *networkUrl;
 
 /** The project id or number for the project to set the limit for. */
 @property(nonatomic, copy, nullable) NSString *projectIdOrNum;

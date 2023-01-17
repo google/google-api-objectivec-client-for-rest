@@ -194,6 +194,117 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @end
 
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_AuthorizedOrgsDesc *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/authorizedOrgsDescs";
+  GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.authorizedOrgsDescs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.authorizedOrgsDescs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_AuthorizedOrgsDesc class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.authorizedOrgsDescs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/authorizedOrgsDescs";
+  GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_ListAuthorizedOrgsDescsResponse class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.authorizedOrgsDescs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_AuthorizedOrgsDesc *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.authorizedOrgsDescs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessContextManagerQuery_AccessPoliciesCreate
 
 + (instancetype)queryWithObject:(GTLRAccessContextManager_AccessPolicy *)object {

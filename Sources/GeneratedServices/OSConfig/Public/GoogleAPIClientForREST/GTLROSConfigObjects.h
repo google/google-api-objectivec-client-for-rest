@@ -3105,7 +3105,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  */
 @property(nonatomic, copy, nullable) NSString *outputFilePath;
 
-/** An inline script. The size of the script is limited to 1024 characters. */
+/** An inline script. The size of the script is limited to 32KiB. */
 @property(nonatomic, copy, nullable) NSString *script;
 
 @end
@@ -3181,8 +3181,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 @interface GTLROSConfig_OSPolicyResourceFileResource : GTLRObject
 
 /**
- *  A a file with this content. The size of the content is limited to 1024
- *  characters.
+ *  A a file with this content. The size of the content is limited to 32KiB.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 

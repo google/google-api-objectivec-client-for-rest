@@ -51,7 +51,7 @@
 
 @end
 
-@implementation GTLRDoubleclicksearchQuery_ConversionGetCustomerId
+@implementation GTLRDoubleclicksearchQuery_ConversionGetByCustomerId
 
 @dynamic adGroupId, adId, advertiserId, agencyId, campaignId, criterionId,
          customerId, endDate, engineAccountId, rowCount, startDate, startRow;
@@ -63,7 +63,7 @@
                            startRow:(NSUInteger)startRow {
   NSArray *pathParams = @[ @"customerId" ];
   NSString *pathURITemplate = @"doubleclicksearch/v2/customer/{customerId}/conversion";
-  GTLRDoubleclicksearchQuery_ConversionGetCustomerId *query =
+  GTLRDoubleclicksearchQuery_ConversionGetByCustomerId *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
@@ -73,7 +73,7 @@
   query.startDate = startDate;
   query.startRow = startRow;
   query.expectedObjectClass = [GTLRDoubleclicksearch_ConversionList class];
-  query.loggingName = @"doubleclicksearch.conversion.GetCustomerId";
+  query.loggingName = @"doubleclicksearch.conversion.getByCustomerId";
   return query;
 }
 

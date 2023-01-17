@@ -740,7 +740,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Lists the status of the integration executions.
+ *  Lists the results of all the integration executions. The response includes
+ *  the same information as the [execution
+ *  log](https://cloud.google.com/application-integration/docs/viewing-logs) in
+ *  the Integration UI.
  *
  *  Method: integrations.projects.locations.integrations.executions.list
  *
@@ -838,7 +841,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  Fetches a @c
  *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionsResponse.
  *
- *  Lists the status of the integration executions.
+ *  Lists the results of all the integration executions. The response includes
+ *  the same information as the [execution
+ *  log](https://cloud.google.com/application-integration/docs/viewing-logs) in
+ *  the Integration UI.
  *
  *  @param parent Required. The parent resource name of the integration
  *    execution.
@@ -905,38 +911,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Get execution stats
- *
- *  Method: integrations.projects.locations.integrations.monitorexecutionstats
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsMonitorexecutionstats : GTLRIntegrationsQuery
-
-/** Required. The parent resource name: {parent=projects/ * /locations/ *}. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse.
- *
- *  Get execution stats
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest
- *    to include in the query.
- *  @param parent Required. The parent resource name: {parent=projects/ *
- *    /locations/ *}.
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsMonitorexecutionstats
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest *)object
-                         parent:(NSString *)parent;
 
 @end
 
@@ -2094,7 +2068,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Lists the status of the integration executions.
+ *  Lists the results of all the integration executions. The response includes
+ *  the same information as the [execution
+ *  log](https://cloud.google.com/application-integration/docs/viewing-logs) in
+ *  the Integration UI.
  *
  *  Method: integrations.projects.locations.products.integrations.executions.list
  *
@@ -2192,7 +2169,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  Fetches a @c
  *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionsResponse.
  *
- *  Lists the status of the integration executions.
+ *  Lists the results of all the integration executions. The response includes
+ *  the same information as the [execution
+ *  log](https://cloud.google.com/application-integration/docs/viewing-logs) in
+ *  the Integration UI.
  *
  *  @param parent Required. The parent resource name of the integration
  *    execution.
@@ -2442,38 +2422,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Get execution stats
- *
- *  Method: integrations.projects.locations.products.integrations.monitorexecutionstats
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsMonitorexecutionstats : GTLRIntegrationsQuery
-
-/** Required. The parent resource name: {parent=projects/ * /locations/ *}. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse.
- *
- *  Get execution stats
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest
- *    to include in the query.
- *  @param parent Required. The parent resource name: {parent=projects/ *
- *    /locations/ *}.
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsMonitorexecutionstats
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest *)object
-                         parent:(NSString *)parent;
 
 @end
 

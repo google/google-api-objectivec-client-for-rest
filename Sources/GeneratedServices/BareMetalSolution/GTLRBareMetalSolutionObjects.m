@@ -34,6 +34,11 @@ NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified = @"STAT
 NSString * const kGTLRBareMetalSolution_Instance_State_Stopping = @"STOPPING";
 NSString * const kGTLRBareMetalSolution_Instance_State_Updating = @"UPDATING";
 
+// GTLRBareMetalSolution_Instance.workloadProfile
+NSString * const kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileGeneric = @"WORKLOAD_PROFILE_GENERIC";
+NSString * const kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileHana = @"WORKLOAD_PROFILE_HANA";
+NSString * const kGTLRBareMetalSolution_Instance_WorkloadProfile_WorkloadProfileUnspecified = @"WORKLOAD_PROFILE_UNSPECIFIED";
+
 // GTLRBareMetalSolution_InstanceConfig.networkConfig
 NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_MultiVlan = @"MULTI_VLAN";
 NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_NetworkconfigUnspecified = @"NETWORKCONFIG_UNSPECIFIED";
@@ -152,6 +157,11 @@ NSString * const kGTLRBareMetalSolution_Volume_State_Updating  = @"UPDATING";
 NSString * const kGTLRBareMetalSolution_Volume_StorageType_Hdd = @"HDD";
 NSString * const kGTLRBareMetalSolution_Volume_StorageType_Ssd = @"SSD";
 NSString * const kGTLRBareMetalSolution_Volume_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Volume.workloadProfile
+NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_Generic = @"GENERIC";
+NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_Hana = @"HANA";
+NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_WorkloadProfileUnspecified = @"WORKLOAD_PROFILE_UNSPECIFIED";
 
 // GTLRBareMetalSolution_VolumeConfig.performanceTier
 NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierAssigned = @"VOLUME_PERFORMANCE_TIER_ASSIGNED";
@@ -282,7 +292,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 @dynamic createTime, hyperthreadingEnabled, identifier,
          interactiveSerialConsoleEnabled, labels, logicalInterfaces, loginInfo,
          luns, machineType, name, networks, networkTemplate, osImage, pod,
-         state, updateTime, volumes;
+         state, updateTime, volumes, workloadProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -864,17 +874,6 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBareMetalSolution_OperationMetadata
-//
-
-@implementation GTLRBareMetalSolution_OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBareMetalSolution_OSImage
 //
 
@@ -1104,7 +1103,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
          originallyRequestedSizeGib, performanceTier, pod, protocol,
          remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
          snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,
-         state, storageType;
+         state, storageType, workloadProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   contentwarehouse API (contentwarehouse/v1)
+//   Document AI Warehouse API (contentwarehouse/v1)
 // Documentation:
 //   https://cloud.google.com/document-warehouse
 
@@ -35,7 +35,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeContentwarehouseCloudPlatform;
 //
 
 /**
- *  Service for executing contentwarehouse API queries.
+ *  Service for executing Document AI Warehouse API queries.
  */
 @interface GTLRContentwarehouseService : GTLRService
 

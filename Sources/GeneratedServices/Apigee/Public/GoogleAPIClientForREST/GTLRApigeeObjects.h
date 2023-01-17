@@ -63,12 +63,15 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment;
 @class GTLRApigee_GoogleCloudApigeeV1DeploymentConfig;
 @class GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Attributes;
+@class GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Endpoints;
+@class GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1DimensionMetric;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointAttachment;
+@class GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
@@ -2321,6 +2324,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for
+ *  GetApiSecurityRuntimeConfig[EnvironmentService.GetApiSecurityRuntimeConfig].
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiSecurityRuntimeConfig : GTLRObject
+
+/** A list of up to 5 Cloud Storage Blobs that contain SecurityActions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *location;
+
+/**
+ *  Name of the environment API Security Runtime configuration resource. Format:
+ *  `organizations/{org}/environments/{env}/apiSecurityRuntimeConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Revision ID of the API Security Runtime configuration. The higher the value,
+ *  the more recently the configuration was deployed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revisionId;
+
+/**
+ *  Unique ID for the API Security Runtime configuration. The ID will only
+ *  change if the environment is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Time that the API Security Runtime configuration was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1App
  */
 @interface GTLRApigee_GoogleCloudApigeeV1App : GTLRObject
@@ -3602,7 +3640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  NEXT ID: 9
+ *  NEXT ID: 11
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentConfig : GTLRObject
 
@@ -3611,6 +3649,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Base path where the application will be hosted. Defaults to "/". */
 @property(nonatomic, copy, nullable) NSString *basePath;
+
+/**
+ *  The list of deployment groups in which this proxy should be deployed. Not
+ *  currently populated for shared flows.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deploymentGroups;
+
+/**
+ *  A mapping from basepaths to proxy endpoint names in this proxy. Not
+ *  populated for shared flows.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Endpoints *endpoints;
 
 /** Location of the API proxy bundle as a URI. */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -3650,6 +3700,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Attributes : GTLRObject
+@end
+
+
+/**
+ *  A mapping from basepaths to proxy endpoint names in this proxy. Not
+ *  populated for shared flows.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Endpoints : GTLRObject
+@end
+
+
+/**
+ *  DeploymentGroupConfig represents a deployment group that should be present
+ *  in a particular environment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig : GTLRObject
+
+/**
+ *  Name of the deployment group in the following format:
+ *  `organizations/{org}/environments/{env}/deploymentGroups/{group}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Revision number which can be used by the runtime to detect if the deployment
+ *  group has changed between two versions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revisionId;
+
+/**
+ *  Unique ID. The ID will only change if the deployment group is deleted and
+ *  recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
 @end
 
 
@@ -4056,6 +4148,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  EndpointChainingRule specifies the proxies contained in a particular
+ *  deployment group, so that other deployment groups can find them in chaining
+ *  calls.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule : GTLRObject
+
+/**
+ *  The deployment group to target for cross-shard chaining calls to these
+ *  proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentGroup;
+
+/** List of proxy ids which may be found in the given deployment group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *proxyIds;
+
+@end
+
+
+/**
  *  Metadata common to many entities in this API.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EntityMetadata : GTLRObject
@@ -4223,8 +4334,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Debug mask that applies to all deployments in the environment. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DebugMask *debugMask;
 
+/** List of deployment groups in the environment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig *> *deploymentGroups;
+
 /** List of deployments in the environment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeploymentConfig *> *deployments;
+
+/**
+ *  Revision ID for environment-scoped resources (e.g. target servers,
+ *  keystores) in this config. This ID will increment any time a resource not
+ *  scoped to a deployment group changes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *envScopedRevisionId;
 
 /** Feature flags inherited from the organization and environment. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags *featureFlags;
@@ -4398,8 +4521,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig : GTLRObject
 
+/** A list of proxies in each deployment group for proxy chaining calls. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule *> *endpointChainingRules;
+
 /** Host names for the environment group. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hostnames;
+
+/**
+ *  When this message appears in the top-level IngressConfig, this field will be
+ *  populated in lieu of the inlined routing_rules and hostnames fields. Some
+ *  URL for downloading the full EnvironmentGroupConfig for this group.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Name of the environment group in the following format:
@@ -5586,7 +5719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListOrganizationsResponse : GTLRObject
 
-/** List of Apigee organizations and associated GCP projects. */
+/** List of Apigee organizations and associated Google Cloud projects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping *> *organizations;
 
 @end
@@ -6165,8 +6298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. DEPRECATED: This field will be deprecated once Apigee supports
- *  DRZ. Primary GCP region for analytics data storage. For valid values, see
- *  [Create an Apigee
+ *  DRZ. Primary Google Cloud region for analytics data storage. For valid
+ *  values, see [Create an Apigee
  *  organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
  */
 @property(nonatomic, copy, nullable) NSString *analyticsRegion;
@@ -6379,7 +6512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *organization;
 
-/** GCP project associated with the Apigee organization */
+/** Google Cloud project associated with the Apigee organization */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -7426,6 +7559,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *basepath;
 
 /**
+ *  Name of a deployment group in an environment bound to the environment group
+ *  in the following format:
+ *  `organizations/{org}/environment/{env}/deploymentGroups/{group}` Only one of
+ *  environment or deployment_group will be set.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentGroup;
+
+/**
  *  The env group config revision_id when this rule was added or last updated.
  *  This value is set when the rule is created and will only update if the the
  *  environment_id changes. It is used to determine if the runtime is up to date
@@ -7438,9 +7579,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Name of an environment bound to the environment group in the following
- *  format: `organizations/{org}/environments/{env}`.
+ *  format: `organizations/{org}/environments/{env}`. Only one of environment or
+ *  deployment_group will be set.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Conflicting targets, which will be resource names specifying either
+ *  deployment groups or environments.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *otherTargets;
 
 /**
  *  The resource name of the proxy revision that is receiving this basepath in
@@ -7960,7 +8108,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *selfProperty;
 
-/** Query state could be "enqueued", "running", "completed", "failed". */
+/**
+ *  Query state could be "enqueued", "running", "completed", "expired" and
+ *  "failed".
+ */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /** Output only. Last updated timestamp for the query. */
@@ -8451,7 +8602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  TargetServer configuration. TargetServers are used to decouple a proxy's
+ *  TargetServer configuration. TargetServers are used to decouple a proxy
  *  TargetEndpoint HTTPTargetConnections from concrete URLs for backend
  *  services.
  */

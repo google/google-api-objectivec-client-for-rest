@@ -144,8 +144,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_AgentMetadata
-@dynamic creationTime, creator, instance, instanceId, osRelease, version,
-         zoneProperty;
+@dynamic creationTime, creator, imageVersion, instance, instanceId,
+         instancePreemptionNoticeReceived, osRelease, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -185,6 +185,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 
 @implementation GTLRCloudBatch_AgentTaskInfo
 @dynamic runnable, taskId, taskStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentTimingInfo
+//
+
+@implementation GTLRCloudBatch_AgentTimingInfo
+@dynamic agentStartupTime, bootTime, scriptStartupTime;
 @end
 
 
@@ -358,7 +368,21 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_Environment
-@dynamic variables;
+@dynamic encryptedVariables, secretVariables, variables;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_Environment_SecretVariables
+//
+
+@implementation GTLRCloudBatch_Environment_SecretVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -407,7 +431,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_InstancePolicy
-@dynamic accelerators, disks, machineType, minCpuPlatform, provisioningModel;
+@dynamic accelerators, bootDisk, disks, machineType, minCpuPlatform,
+         provisioningModel;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -513,6 +538,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
   return [GTLRCloudBatch_TaskGroupStatus class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_KMSEnvMap
+//
+
+@implementation GTLRCloudBatch_KMSEnvMap
+@dynamic cipherText, keyName;
 @end
 
 
@@ -808,7 +843,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_ReportAgentStateRequest
-@dynamic agentInfo, metadata;
+@dynamic agentInfo, agentTimingInfo, metadata;
 @end
 
 
@@ -818,7 +853,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_ReportAgentStateResponse
-@dynamic tasks;
+@dynamic defaultReportInterval, minReportInterval, tasks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

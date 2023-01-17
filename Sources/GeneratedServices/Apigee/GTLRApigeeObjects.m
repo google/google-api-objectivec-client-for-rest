@@ -628,6 +628,24 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ApiSecurityRuntimeConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ApiSecurityRuntimeConfig
+@dynamic location, name, revisionId, uid, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"location" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1App
 //
 
@@ -1187,7 +1205,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1DeploymentConfig
-@dynamic attributes, basePath, location, name, proxyUid, serviceAccount, uid;
+@dynamic attributes, basePath, deploymentGroups, endpoints, location, name,
+         proxyUid, serviceAccount, uid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentGroups" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1202,6 +1229,30 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Endpoints
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Endpoints
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig
+@dynamic name, revisionId, uid;
 @end
 
 
@@ -1349,6 +1400,24 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule
+@dynamic deploymentGroup, proxyIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"proxyIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1EntityMetadata
 //
 
@@ -1380,14 +1449,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
-@dynamic arcConfigLocation, createTime, dataCollectors, debugMask, deployments,
-         featureFlags, flowhooks, forwardProxyUri, gatewayConfigLocation,
-         keystores, name, provider, pubsubTopic, resourceReferences, resources,
-         revisionId, sequenceNumber, targets, traceConfig, uid;
+@dynamic arcConfigLocation, createTime, dataCollectors, debugMask,
+         deploymentGroups, deployments, envScopedRevisionId, featureFlags,
+         flowhooks, forwardProxyUri, gatewayConfigLocation, keystores, name,
+         provider, pubsubTopic, resourceReferences, resources, revisionId,
+         sequenceNumber, targets, traceConfig, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dataCollectors" : [GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig class],
+    @"deploymentGroups" : [GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig class],
     @"deployments" : [GTLRApigee_GoogleCloudApigeeV1DeploymentConfig class],
     @"flowhooks" : [GTLRApigee_GoogleCloudApigeeV1FlowHookConfig class],
     @"keystores" : [GTLRApigee_GoogleCloudApigeeV1KeystoreConfig class],
@@ -1449,10 +1520,12 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig
-@dynamic hostnames, name, revisionId, routingRules, uid;
+@dynamic endpointChainingRules, hostnames, location, name, revisionId,
+         routingRules, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"endpointChainingRules" : [GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule class],
     @"hostnames" : [NSString class],
     @"routingRules" : [GTLRApigee_GoogleCloudApigeeV1RoutingRule class]
   };
@@ -3181,7 +3254,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RoutingRule
-@dynamic basepath, envGroupRevision, environment, receiver, updateTime;
+@dynamic basepath, deploymentGroup, envGroupRevision, environment, otherTargets,
+         receiver, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"otherTargets" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The backup's project and location, in the format
  *  `projects/{project_number}/locations/{location}`. In Filestore, backup
- *  locations map to GCP regions, for example **us-west1**.
+ *  locations map to Google Cloud regions, for example **us-west1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudFilestore_Backup to include in the query.
  *  @param parent Required. The backup's project and location, in the format
  *    `projects/{project_number}/locations/{location}`. In Filestore, backup
- *    locations map to GCP regions, for example **us-west1**.
+ *    locations map to Google Cloud regions, for example **us-west1**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsCreate
  */
@@ -168,9 +168,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The project and location for which to retrieve backup information,
  *  in the format `projects/{project_number}/locations/{location}`. In
- *  Filestore, backup locations map to GCP regions, for example **us-west1**. To
- *  retrieve backup information for all locations, use "-" for the `{location}`
- *  value.
+ *  Filestore, backup locations map to Google Cloud regions, for example
+ *  **us-west1**. To retrieve backup information for all locations, use "-" for
+ *  the `{location}` value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -183,8 +183,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The project and location for which to retrieve
  *    backup information, in the format
  *    `projects/{project_number}/locations/{location}`. In Filestore, backup
- *    locations map to GCP regions, for example **us-west1**. To retrieve backup
- *    information for all locations, use "-" for the `{location}` value.
+ *    locations map to Google Cloud regions, for example **us-west1**. To
+ *    retrieve backup information for all locations, use "-" for the
+ *    `{location}` value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsList
  *
@@ -283,7 +284,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The instance's project and location, in the format
  *  `projects/{project_id}/locations/{location}`. In Filestore, locations map to
- *  GCP zones, for example **us-west1-b**.
+ *  Google Cloud zones, for example **us-west1-b**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -297,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param parent Required. The instance's project and location, in the format
  *    `projects/{project_id}/locations/{location}`. In Filestore, locations map
- *    to GCP zones, for example **us-west1-b**.
+ *    to Google Cloud zones, for example **us-west1-b**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate
  */
@@ -403,9 +404,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The project and location for which to retrieve instance
  *  information, in the format `projects/{project_id}/locations/{location}`. In
- *  Cloud Filestore, locations map to GCP zones, for example **us-west1-b**. To
- *  retrieve instance information for all locations, use "-" for the
- *  `{location}` value.
+ *  Cloud Filestore, locations map to Google Cloud zones, for example
+ *  **us-west1-b**. To retrieve instance information for all locations, use "-"
+ *  for the `{location}` value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -418,9 +419,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The project and location for which to retrieve
  *    instance information, in the format
  *    `projects/{project_id}/locations/{location}`. In Cloud Filestore,
- *    locations map to GCP zones, for example **us-west1-b**. To retrieve
- *    instance information for all locations, use "-" for the `{location}`
- *    value.
+ *    locations map to Google Cloud zones, for example **us-west1-b**. To
+ *    retrieve instance information for all locations, use "-" for the
+ *    `{location}` value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList
  *

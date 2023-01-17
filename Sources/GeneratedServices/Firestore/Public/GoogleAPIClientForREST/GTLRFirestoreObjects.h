@@ -2584,7 +2584,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Document *> *documents;
 
-/** The next page token. */
+/**
+ *  A token to retrieve the next page of documents. If this field is omitted,
+ *  there are no subsequent pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

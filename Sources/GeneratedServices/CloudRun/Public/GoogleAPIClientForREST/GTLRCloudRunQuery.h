@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a Job.
+ *  Creates a Job.
  *
  *  Method: run.projects.locations.jobs.create
  *
@@ -54,7 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project in which this Job should be created.
- *  Format: projects/{project}/locations/{location}
+ *  Format: projects/{project}/locations/{location}, where {project} can be
+ *  project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -67,12 +68,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
  *
- *  Create a Job.
+ *  Creates a Job.
  *
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Job to include in the
  *    query.
  *  @param parent Required. The location and project in which this Job should be
- *    created. Format: projects/{project}/locations/{location}
+ *    created. Format: projects/{project}/locations/{location}, where {project}
+ *    can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsCreate
  */
@@ -99,7 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Job. Format:
- *  projects/{project}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *  project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -115,7 +118,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a Job.
  *
  *  @param name Required. The full name of the Job. Format:
- *    projects/{project}/locations/{location}/jobs/{job}
+ *    projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *    project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsDelete
  */
@@ -124,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Delete an Execution.
+ *  Deletes an Execution.
  *
  *  Method: run.projects.locations.jobs.executions.delete
  *
@@ -141,7 +145,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Execution to delete. Format:
- *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+ *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+ *  where {project} can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -154,10 +159,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
  *
- *  Delete an Execution.
+ *  Deletes an Execution.
  *
  *  @param name Required. The name of the Execution to delete. Format:
- *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+ *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+ *    where {project} can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsDelete
  */
@@ -166,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets information about a Execution.
+ *  Gets information about an Execution.
  *
  *  Method: run.projects.locations.jobs.executions.get
  *
@@ -177,17 +183,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Execution. Format:
- *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+ *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+ *  where {project} can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Execution.
  *
- *  Gets information about a Execution.
+ *  Gets information about an Execution.
  *
  *  @param name Required. The full name of the Execution. Format:
- *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+ *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+ *    where {project} can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsGet
  */
@@ -196,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Executions from a Job.
+ *  Lists Executions from a Job.
  *
  *  Method: run.projects.locations.jobs.executions.list
  *
@@ -217,7 +225,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The Execution from which the Executions should be listed. To list
  *  all Executions across Jobs, use "-" instead of Job name. Format:
- *  projects/{project}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *  project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -229,11 +238,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListExecutionsResponse.
  *
- *  List Executions from a Job.
+ *  Lists Executions from a Job.
  *
  *  @param parent Required. The Execution from which the Executions should be
  *    listed. To list all Executions across Jobs, use "-" instead of Job name.
- *    Format: projects/{project}/locations/{location}/jobs/{job}
+ *    Format: projects/{project}/locations/{location}/jobs/{job}, where
+ *    {project} can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsList
  *
@@ -276,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Tasks from an Execution of a Job.
+ *  Lists Tasks from an Execution of a Job.
  *
  *  Method: run.projects.locations.jobs.executions.tasks.list
  *
@@ -310,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListTasksResponse.
  *
- *  List Tasks from an Execution of a Job.
+ *  Lists Tasks from an Execution of a Job.
  *
  *  @param parent Required. The Execution from which the Tasks should be listed.
  *    To list all Tasks across Executions of a Job, use "-" instead of Execution
@@ -339,7 +349,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Job. Format:
- *  projects/{project}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *  project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -349,7 +360,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about a Job.
  *
  *  @param name Required. The full name of the Job. Format:
- *    projects/{project}/locations/{location}/jobs/{job}
+ *    projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *    project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsGet
  */
@@ -358,7 +370,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the IAM Access Control policy currently in effect for the given Job.
+ *  Gets the IAM Access Control policy currently in effect for the given Job.
  *  This result does not include any inherited policies.
  *
  *  Method: run.projects.locations.jobs.getIamPolicy
@@ -392,7 +404,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
  *
- *  Get the IAM Access Control policy currently in effect for the given Job.
+ *  Gets the IAM Access Control policy currently in effect for the given Job.
  *  This result does not include any inherited policies.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
@@ -407,7 +419,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Jobs.
+ *  Lists Jobs.
  *
  *  Method: run.projects.locations.jobs.list
  *
@@ -427,7 +439,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project to list resources on. Format:
- *  projects/{project}/locations/{location}
+ *  projects/{project}/locations/{location}, where {project} can be project id
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -439,10 +452,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListJobsResponse.
  *
- *  List Jobs.
+ *  Lists Jobs.
  *
  *  @param parent Required. The location and project to list resources on.
- *    Format: projects/{project}/locations/{location}
+ *    Format: projects/{project}/locations/{location}, where {project} can be
+ *    project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsList
  *
@@ -512,7 +526,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Job. Format:
- *  projects/{project}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *  project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -524,7 +539,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2RunJobRequest to include
  *    in the query.
  *  @param name Required. The full name of the Job. Format:
- *    projects/{project}/locations/{location}/jobs/{job}
+ *    projects/{project}/locations/{location}/jobs/{job}, where {project} can be
+ *    project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsRun
  */
@@ -750,14 +766,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project in which this service should be created.
- *  Format: projects/{project}/locations/{location} Only lowercase characters,
- *  digits, and hyphens.
+ *  Format: projects/{project}/locations/{location}, where {project} can be
+ *  project id or number. Only lowercase characters, digits, and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Required. The unique identifier for the Service. It must begin with letter,
- *  and may not end with hyphen; must contain fewer than 50 characters. The name
+ *  and cannot end with hyphen; must contain fewer than 50 characters. The name
  *  of the service becomes {parent}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
@@ -776,8 +792,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Service to include in the
  *    query.
  *  @param parent Required. The location and project in which this service
- *    should be created. Format: projects/{project}/locations/{location} Only
- *    lowercase characters, digits, and hyphens.
+ *    should be created. Format: projects/{project}/locations/{location}, where
+ *    {project} can be project id or number. Only lowercase characters, digits,
+ *    and hyphens.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesCreate
  */
@@ -805,7 +822,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Service. Format:
- *  projects/{project}/locations/{location}/services/{service}
+ *  projects/{project}/locations/{location}/services/{service}, where {project}
+ *  can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -822,7 +840,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  will delete all revisions.
  *
  *  @param name Required. The full name of the Service. Format:
- *    projects/{project}/locations/{location}/services/{service}
+ *    projects/{project}/locations/{location}/services/{service}, where
+ *    {project} can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesDelete
  */
@@ -842,7 +861,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Service. Format:
- *  projects/{project}/locations/{location}/services/{service}
+ *  projects/{project}/locations/{location}/services/{service}, where {project}
+ *  can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -852,7 +872,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about a Service.
  *
  *  @param name Required. The full name of the Service. Format:
- *    projects/{project}/locations/{location}/services/{service}
+ *    projects/{project}/locations/{location}/services/{service}, where
+ *    {project} can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesGet
  */
@@ -861,7 +882,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the IAM Access Control policy currently in effect for the given Cloud
+ *  Gets the IAM Access Control policy currently in effect for the given Cloud
  *  Run Service. This result does not include any inherited policies.
  *
  *  Method: run.projects.locations.services.getIamPolicy
@@ -895,7 +916,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
  *
- *  Get the IAM Access Control policy currently in effect for the given Cloud
+ *  Gets the IAM Access Control policy currently in effect for the given Cloud
  *  Run Service. This result does not include any inherited policies.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
@@ -910,7 +931,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Services.
+ *  Lists Services.
  *
  *  Method: run.projects.locations.services.list
  *
@@ -930,8 +951,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project to list resources on. Location must be a
- *  valid GCP region, and may not be the "-" wildcard. Format:
- *  projects/{project}/locations/{location}
+ *  valid Google Cloud region, and cannot be the "-" wildcard. Format:
+ *  projects/{project}/locations/{location}, where {project} can be project id
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -943,11 +965,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListServicesResponse.
  *
- *  List Services.
+ *  Lists Services.
  *
  *  @param parent Required. The location and project to list resources on.
- *    Location must be a valid GCP region, and may not be the "-" wildcard.
- *    Format: projects/{project}/locations/{location}
+ *    Location must be a valid Google Cloud region, and cannot be the "-"
+ *    wildcard. Format: projects/{project}/locations/{location}, where {project}
+ *    can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesList
  *
@@ -1010,7 +1033,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Delete a Revision.
+ *  Deletes a Revision.
  *
  *  Method: run.projects.locations.services.revisions.delete
  *
@@ -1040,7 +1063,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
  *
- *  Delete a Revision.
+ *  Deletes a Revision.
  *
  *  @param name Required. The name of the Revision to delete. Format:
  *    projects/{project}/locations/{location}/services/{service}/revisions/{revision}
@@ -1082,7 +1105,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Revisions from a given Service, or from a given location.
+ *  Lists Revisions from a given Service, or from a given location.
  *
  *  Method: run.projects.locations.services.revisions.list
  *
@@ -1115,7 +1138,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse.
  *
- *  List Revisions from a given Service, or from a given location.
+ *  Lists Revisions from a given Service, or from a given location.
  *
  *  @param parent Required. The Service from which the Revisions should be
  *    listed. To list all Revisions across Services, use "-" instead of Service

@@ -20,6 +20,20 @@ NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_DataRead = @"D
 NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAccessContextManager_AuthorizedOrgsDesc.assetType
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeCredentialStrength = @"ASSET_TYPE_CREDENTIAL_STRENGTH";
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeDevice = @"ASSET_TYPE_DEVICE";
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeUnspecified = @"ASSET_TYPE_UNSPECIFIED";
+
+// GTLRAccessContextManager_AuthorizedOrgsDesc.authorizationDirection
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionFrom = @"AUTHORIZATION_DIRECTION_FROM";
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionTo = @"AUTHORIZATION_DIRECTION_TO";
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionUnspecified = @"AUTHORIZATION_DIRECTION_UNSPECIFIED";
+
+// GTLRAccessContextManager_AuthorizedOrgsDesc.authorizationType
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeTrust = @"AUTHORIZATION_TYPE_TRUST";
+NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeUnspecified = @"AUTHORIZATION_TYPE_UNSPECIFIED";
+
 // GTLRAccessContextManager_BasicLevel.combiningFunction
 NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_And = @"AND";
 NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_Or = @"OR";
@@ -145,6 +159,24 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_AuthorizedOrgsDesc
+//
+
+@implementation GTLRAccessContextManager_AuthorizedOrgsDesc
+@dynamic assetType, authorizationDirection, authorizationType, name, orgs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orgs" : [NSString class]
   };
   return map;
 }
@@ -500,6 +532,28 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (NSString *)collectionItemsKey {
   return @"accessPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ListAuthorizedOrgsDescsResponse
+//
+
+@implementation GTLRAccessContextManager_ListAuthorizedOrgsDescsResponse
+@dynamic authorizedOrgsDescs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedOrgsDescs" : [GTLRAccessContextManager_AuthorizedOrgsDesc class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authorizedOrgsDescs";
 }
 
 @end

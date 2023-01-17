@@ -108,8 +108,10 @@ NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability = @"VULNERA
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Go = @"GO";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_GoStdlib = @"GO_STDLIB";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven = @"MAVEN";
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_Npm = @"NPM";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Os = @"OS";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_Pypi = @"PYPI";
 
 // GTLROnDemandScanning_PackageIssue.effectiveSeverity
 NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Critical = @"CRITICAL";

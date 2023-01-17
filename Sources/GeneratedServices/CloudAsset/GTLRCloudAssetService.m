@@ -4,7 +4,8 @@
 // API:
 //   Cloud Asset API (cloudasset/v1)
 // Description:
-//   The cloud asset API manages the history and inventory of cloud resources.
+//   The Cloud Asset API manages the history and inventory of Google Cloud
+//   resources.
 // Documentation:
 //   https://cloud.google.com/asset-inventory/docs/quickstart
 

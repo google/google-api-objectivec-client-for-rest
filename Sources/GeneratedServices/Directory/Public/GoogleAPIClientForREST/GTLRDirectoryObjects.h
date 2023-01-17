@@ -109,6 +109,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_Seve
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning;
 
 // ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeOsDevice.deprovisionReason
+
+/**
+ *  Different model replacement.
+ *
+ *  Value: "deprovisionReasonDifferentModelReplacement"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement;
+/**
+ *  Domain move.
+ *
+ *  Value: "deprovisionReasonDomainMove"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove;
+/**
+ *  No reason required, i.e. licenses returned to customer's license pool.
+ *
+ *  Value: "deprovisionReasonNotRequired"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired;
+/**
+ *  Other.
+ *
+ *  Value: "deprovisionReasonOther"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther;
+/**
+ *  Deprovisioned by a RMA (service center) caller.
+ *
+ *  Value: "deprovisionReasonRepairCenter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter;
+/**
+ *  Retiring device.
+ *
+ *  Value: "deprovisionReasonRetiringDevice"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice;
+/**
+ *  Same model replacement.
+ *
+ *  Value: "deprovisionReasonSameModelReplacement"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement;
+/**
+ *  Service expiration.
+ *
+ *  Value: "deprovisionReasonServiceExpiration"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration;
+/**
+ *  The deprovision reason is unknown.
+ *
+ *  Value: "deprovisionReasonUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified;
+/**
+ *  Device upgrade.
+ *
+ *  Value: "deprovisionReasonUpgrade"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade;
+/**
+ *  Transferring perpetual upgrade to a new device.
+ *
+ *  Value: "deprovisionReasonUpgradeTransfer"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgradeTransfer;
+
+// ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeosdevicesCommand.state
 
 /**
@@ -163,6 +233,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_S
  *  Value: "COMMAND_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified;
+/**
+ *  Starts a Chrome Remote Desktop session.
+ *
+ *  Value: "DEVICE_START_CRD_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession;
 /**
  *  Reboot the device. Can only be issued to Kiosk and managed guest session
  *  devices.
@@ -240,6 +316,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_R
  *  Value: "COMMAND_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified;
+/**
+ *  Starts a Chrome Remote Desktop session.
+ *
+ *  Value: "DEVICE_START_CRD_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession;
 /**
  *  Reboot the device. Can only be issued to Kiosk and managed guest session
  *  devices.
@@ -1290,6 +1372,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 /** Reports of CPU utilization and temperature (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item *> *cpuStatusReports;
 
+/**
+ *  (Read-only) Deprovision reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement
+ *        Different model replacement. (Value:
+ *        "deprovisionReasonDifferentModelReplacement")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove
+ *        Domain move. (Value: "deprovisionReasonDomainMove")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired
+ *        No reason required, i.e. licenses returned to customer's license pool.
+ *        (Value: "deprovisionReasonNotRequired")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther
+ *        Other. (Value: "deprovisionReasonOther")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter
+ *        Deprovisioned by a RMA (service center) caller. (Value:
+ *        "deprovisionReasonRepairCenter")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice
+ *        Retiring device. (Value: "deprovisionReasonRetiringDevice")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement
+ *        Same model replacement. (Value:
+ *        "deprovisionReasonSameModelReplacement")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration
+ *        Service expiration. (Value: "deprovisionReasonServiceExpiration")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified
+ *        The deprovision reason is unknown. (Value:
+ *        "deprovisionReasonUnspecified")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade
+ *        Device upgrade. (Value: "deprovisionReasonUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgradeTransfer
+ *        Transferring perpetual upgrade to a new device. (Value:
+ *        "deprovisionReasonUpgradeTransfer")
+ */
+@property(nonatomic, copy, nullable) NSString *deprovisionReason;
+
 /** A list of device files to download (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DeviceFiles_Item *> *deviceFiles;
 
@@ -1333,6 +1450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  `admin#directory#chromeosdevice`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** (Read-only) Date and time for the last deprovision of the device. */
+@property(nonatomic, copy, nullable) NSString *lastDeprovisionTimestamp;
 
 /** Date and time the device was last enrolled (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastEnrollmentTime;
@@ -1862,6 +1982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  Likely values:
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified
  *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession
+ *        Starts a Chrome Remote Desktop session. (Value:
+ *        "DEVICE_START_CRD_SESSION")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot Reboot the
  *        device. Can only be issued to Kiosk and managed guest session devices.
  *        (Value: "REBOOT")
@@ -1892,6 +2015,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  The result of executing a command.
  */
 @interface GTLRDirectory_ChromeosdevicesCommandResult : GTLRObject
+
+/**
+ *  The payload for the command result. The following commands respond with a
+ *  payload: - DEVICE_START_CRD_SESSION: Payload is a stringified JSON object in
+ *  the form: { "url": url }. The URL provides a link to the CRD session.
+ */
+@property(nonatomic, copy, nullable) NSString *commandResultPayload;
 
 /**
  *  The error message with a short explanation as to why the command failed.
@@ -1932,6 +2062,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  Likely values:
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified
  *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession
+ *        Starts a Chrome Remote Desktop session. (Value:
+ *        "DEVICE_START_CRD_SESSION")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot
  *        Reboot the device. Can only be issued to Kiosk and managed guest
  *        session devices. (Value: "REBOOT")
@@ -1959,7 +2092,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  The payload for the command, provide it only if command supports it. The
  *  following commands support adding payload: - SET_VOLUME: Payload is a
  *  stringified JSON object in the form: { "volume": 50 }. The volume has to be
- *  an integer in the range [0,100].
+ *  an integer in the range [0,100]. - DEVICE_START_CRD_SESSION: Payload is
+ *  optionally a stringified JSON object in the form: { "ackedUserPresence":
+ *  true }. ackedUserPresence is a boolean. If a device is being used,
+ *  ackedUserPresence must be set to true to acknowledge that you want to start
+ *  a CRD session anyways. It is false by default, so a CRD command will fail if
+ *  used on an active device without this field.
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 
@@ -2465,7 +2603,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  Google Groups provide your users the ability to send messages to groups of
  *  people using the group's email address. For more information about common
  *  tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-groups).
+ *  Guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-groups).
+ *  For information about other types of groups, see the [Cloud Identity Groups
+ *  API documentation](https://cloud.google.com/identity/docs/groups). Note: The
+ *  user calling the API (or being impersonated by a service account) must have
+ *  an assigned
+ *  [role](https://developers.google.com/admin-sdk/directory/v1/guides/manage-roles)
+ *  that includes Admin API Groups permissions, such as Super Admin or Groups
+ *  Admin.
  */
 @interface GTLRDirectory_Group : GTLRObject
 
@@ -3936,7 +4081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of the user's addresses. The maximum allowed data size for this
- *  field is 10Kb.
+ *  field is 10KB.
  *
  *  Can be any valid JSON type.
  */
@@ -3993,7 +4138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of the user's email addresses. The maximum allowed data size for
- *  this field is 10Kb.
+ *  this field is 10KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4004,14 +4149,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of external IDs for the user, such as an employee or network ID.
- *  The maximum allowed data size for this field is 2Kb.
+ *  The maximum allowed data size for this field is 2KB.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id externalIds;
 
 /**
- *  The user's gender. The maximum allowed data size for this field is 1Kb.
+ *  The user's gender. The maximum allowed data size for this field is 1KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4039,7 +4184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 /**
  *  The list of the user's Instant Messenger (IM) accounts. A user account can
  *  have multiple ims properties. But, only one of these ims properties can be
- *  the primary IM contact. The maximum allowed data size for this field is 2Kb.
+ *  the primary IM contact. The maximum allowed data size for this field is 2KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4056,8 +4201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) NSNumber *includeInGlobalAddressList;
 
 /**
- *  If `true`, the user's IP address is
- *  [whitelisted](https://support.google.com/a/answer/60752).
+ *  If `true`, the user's IP address is subject to a deprecated IP address
+ *  [`allowlist`](https://support.google.com/a/answer/60752) configuration.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4113,7 +4258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of the user's keywords. The maximum allowed data size for this
- *  field is 1Kb.
+ *  field is 1KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4126,7 +4271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The user's languages. The maximum allowed data size for this field is 1Kb.
+ *  The user's languages. The maximum allowed data size for this field is 1KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4136,7 +4281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
 
 /**
- *  The user's locations. The maximum allowed data size for this field is 10Kb.
+ *  The user's locations. The maximum allowed data size for this field is 10KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4150,7 +4295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  (-), forward slashes (/), and periods (.). For more information about
  *  character usage rules, see the [administration help
  *  center](https://support.google.com/a/answer/9193374). Maximum allowed data
- *  size for this field is 1Kb.
+ *  size for this field is 1KB.
  */
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
@@ -4169,7 +4314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of organizations the user belongs to. The maximum allowed data size
- *  for this field is 10Kb.
+ *  for this field is 10KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4187,7 +4332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of the user's phone numbers. The maximum allowed data size for this
- *  field is 1Kb.
+ *  field is 1KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4219,7 +4364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The list of the user's relationships to other users. The maximum allowed
- *  data size for this field is 2Kb.
+ *  data size for this field is 2KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4253,7 +4398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoUrl;
 
 /**
- *  The user's websites. The maximum allowed data size for this field is 2Kb.
+ *  The user's websites. The maximum allowed data size for this field is 2KB.
  *
  *  Can be any valid JSON type.
  */
@@ -4618,6 +4763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  GTLRDirectory_UserName
  */
 @interface GTLRDirectory_UserName : GTLRObject
+
+/** The user's display name. Limit: 256 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The user's last name. Required when creating a user account. */
 @property(nonatomic, copy, nullable) NSString *familyName;

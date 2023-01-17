@@ -403,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesStart : GTLRTPUQuery
 
-/** The resource name. */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -412,7 +412,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Starts a node.
  *
  *  @param object The @c GTLRTPU_StartNodeRequest to include in the query.
- *  @param name The resource name.
+ *  @param name Required. The resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsNodesStart
  */
@@ -431,7 +431,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesStop : GTLRTPUQuery
 
-/** The resource name. */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Stops a node. This operation is only available with single TPU nodes.
  *
  *  @param object The @c GTLRTPU_StopNodeRequest to include in the query.
- *  @param name The resource name.
+ *  @param name Required. The resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsNodesStop
  */

@@ -29,87 +29,6 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
-@implementation GTLRHangoutsChatQuery_DmsConversationsMessages
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_DmsConversationsMessages *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.dms.conversations.messages";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_DmsMessages
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_DmsMessages *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.dms.messages";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_DmsWebhooks
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/webhooks";
-  GTLRHangoutsChatQuery_DmsWebhooks *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.dms.webhooks";
-  return query;
-}
-
-@end
-
 @implementation GTLRHangoutsChatQuery_MediaDownload
 
 @dynamic resourceName;
@@ -132,87 +51,6 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
     [self queryWithResourceName:resourceName];
   query.downloadAsDataObjectType = @"media";
   query.loggingName = @"Download chat.media.download";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_RoomsConversationsMessages
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_RoomsConversationsMessages *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.rooms.conversations.messages";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_RoomsMessages
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/messages";
-  GTLRHangoutsChatQuery_RoomsMessages *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.rooms.messages";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_RoomsWebhooks
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/webhooks";
-  GTLRHangoutsChatQuery_RoomsWebhooks *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.rooms.webhooks";
   return query;
 }
 
@@ -376,6 +214,33 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMessagesPatch
+
+@dynamic allowMissing, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMessagesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
+  query.loggingName = @"chat.spaces.messages.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesUpdate
 
 @dynamic allowMissing, name, updateMask;
@@ -398,33 +263,6 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.name = name;
   query.expectedObjectClass = [GTLRHangoutsChat_Message class];
   query.loggingName = @"chat.spaces.messages.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRHangoutsChatQuery_SpacesWebhooks
-
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
-
-+ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/webhooks";
-  GTLRHangoutsChatQuery_SpacesWebhooks *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRHangoutsChat_Message class];
-  query.loggingName = @"chat.spaces.webhooks";
   return query;
 }
 

@@ -229,8 +229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL restrictToMyDrive;
 
 /**
- *  A comma-separated list of spaces to query within the user corpus. Supported
- *  values are 'drive', 'appDataFolder' and 'photos'.
+ *  A comma-separated list of spaces to query within the corpora. Supported
+ *  values are 'drive' and 'appDataFolder'.
  *
  *  @note If not set, the documented server-side default will be drive.
  */
@@ -365,8 +365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL restrictToMyDrive;
 
 /**
- *  A comma-separated list of spaces to query within the user corpus. Supported
- *  values are 'drive', 'appDataFolder' and 'photos'.
+ *  A comma-separated list of spaces to query within the corpora. Supported
+ *  values are 'drive' and 'appDataFolder'.
  *
  *  @note If not set, the documented server-side default will be drive.
  */
@@ -438,7 +438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a new comment on a file.
+ *  Creates a comment on a file.
  *
  *  Method: drive.comments.create
  *
@@ -454,7 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Comment.
  *
- *  Creates a new comment on a file.
+ *  Creates a comment on a file.
  *
  *  @param object The @c GTLRDrive_Comment to include in the query.
  *  @param fileId The ID of the file.
@@ -635,7 +635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a new shared drive.
+ *  Creates a shared drive.
  *
  *  Method: drive.drives.create
  *
@@ -656,7 +656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Creates a new shared drive.
+ *  Creates a shared drive.
  *
  *  @param object The @c GTLRDrive_Drive to include in the query.
  *  @param requestId An ID, such as a random UUID, which uniquely identifies
@@ -986,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a new file.
+ *  Creates a file.
  *
  *  Method: drive.files.create
  *
@@ -1066,7 +1066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_File.
  *
- *  Creates a new file.
+ *  Creates a file.
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param uploadParameters The media to include in this query. Maximum size
@@ -1434,7 +1434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *q;
 
 /**
- *  A comma-separated list of spaces to query within the corpus. Supported
+ *  A comma-separated list of spaces to query within the corpora. Supported
  *  values are 'drive' and 'appDataFolder'.
  *
  *  @note If not set, the documented server-side default will be drive.
@@ -2121,7 +2121,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a new reply to a comment.
+ *  Creates a reply to a comment.
  *
  *  Method: drive.replies.create
  *
@@ -2140,7 +2140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Reply.
  *
- *  Creates a new reply to a comment.
+ *  Creates a reply to a comment.
  *
  *  @param object The @c GTLRDrive_Reply to include in the query.
  *  @param fileId The ID of the file.

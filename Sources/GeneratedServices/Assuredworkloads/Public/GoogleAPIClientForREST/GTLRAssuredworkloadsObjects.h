@@ -21,6 +21,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
@@ -110,6 +111,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4;
+/**
+ *  Assured Workloads for Israel Regions
+ *
+ *  Value: "ISR_REGIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions;
 /**
  *  International Traffic in Arms Regulations
  *
@@ -293,6 +300,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4;
 /**
+ *  Assured Workloads for Israel Regions
+ *
+ *  Value: "ISR_REGIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions;
+/**
  *  International Traffic in Arms Regulations
  *
  *  Value: "ITAR"
@@ -331,19 +344,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.partner
 
 /**
- *  S3NS regime/controls.
+ *  Enum representing S3NS partner.
  *
  *  Value: "LOCAL_CONTROLS_BY_S3NS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns;
-/**
- *  Unknown partner regime/controls.
- *
- *  Value: "PARTNER_UNSPECIFIED"
- */
+/** Value: "PARTNER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified;
 /**
- *  TSystem regime/controls.
+ *  Enum representing T_SYSTEM partner.
  *
  *  Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS"
  */
@@ -551,6 +560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions
+ *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
@@ -620,6 +631,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  Request of updating permission settings for a partner workload.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest : GTLRObject
+
+/**
+ *  Optional. The etag of the workload. If this is provided, it must match the
+ *  server's etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The partner permissions to be updated. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions *partnerPermissions;
+
+/**
+ *  Required. The list of fields to be updated. E.g. update_mask { paths:
+ *  "partner_permissions.data_logs_viewer"}
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  Request for restricting list of available resources in Workload environment.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest : GTLRObject
@@ -658,7 +694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Workload monitoring Violation.
+ *  Workload monitoring Violation. Next Id: 22
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation : GTLRObject
 
@@ -895,6 +931,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions
+ *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
@@ -973,15 +1011,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Compliance Regime associated with this workload.
+ *  Optional. Partner regime associated with this workload.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns
- *        S3NS regime/controls. (Value: "LOCAL_CONTROLS_BY_S3NS")
+ *        Enum representing S3NS partner. (Value: "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
- *        Unknown partner regime/controls. (Value: "PARTNER_UNSPECIFIED")
+ *        Value "PARTNER_UNSPECIFIED"
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems
- *        TSystem regime/controls. (Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
+ *        Enum representing T_SYSTEM partner. (Value:
+ *        "SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
  */
 @property(nonatomic, copy, nullable) NSString *partner;
 
@@ -1071,6 +1110,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Must be at least 24 hours and at most 876,000 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *rotationPeriod;
+
+@end
+
+
+/**
+ *  Permissions granted to the AW Partner SA account for the customer workload
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions : GTLRObject
+
+/**
+ *  Allow partner to view data and logs
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataLogsViewer;
+
+/**
+ *  Allow partner to monitor folder and remediate violations
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remediateFolderViolations;
+
+/**
+ *  Allow partner to approve or reject Service Access requests
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serviceAccessApprover;
 
 @end
 

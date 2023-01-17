@@ -1093,7 +1093,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 @dynamic customGpuDriverPath, disableTerminal, enableHealthMonitoring,
          idleShutdown, idleShutdownTimeout, installGpuDriver, kernels,
          notebookUpgradeSchedule, postStartupScript, postStartupScriptBehavior,
-         upgradeable;
+         upgradeable, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

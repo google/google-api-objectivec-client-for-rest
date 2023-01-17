@@ -668,6 +668,64 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 @end
 
+/**
+ *  List telemetry events.
+ *
+ *  Method: chromemanagement.customers.telemetry.events.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementTelemetryReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersTelemetryEventsList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. Only include resources that match the filter. Supported filter
+ *  fields: * device_id * user_id * device_org_unit_id * user_org_unit_id *
+ *  timestamp * event_type
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of results to return. Default value is 100. Maximum
+ *  value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Customer id or "my_customer" to use the customer associated to the
+ *  account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Read mask to specify which fields to return.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryEventsResponse.
+ *
+ *  List telemetry events.
+ *
+ *  @param parent Required. Customer id or "my_customer" to use the customer
+ *    associated to the account making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersTelemetryEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

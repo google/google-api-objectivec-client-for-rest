@@ -249,6 +249,117 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request message for ExchangeOauthToken
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenRequest : GTLRObject
+
+/**
+ *  Optional. The client identifier for the OAuth 2.0 client that requested the
+ *  provided token. It is REQUIRED when the [client]
+ *  (https://www.rfc-editor.org/rfc/rfc6749#section-1.1) is not authenticating
+ *  with the authorization server, i.e. when authentication method is [client
+ *  authentication] (https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1).
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Optional. The authorization code that was previously from workforce identity
+ *  federation's `authorize` endpoint. Required if the flow is authorization
+ *  code flow, i.e. if grant_type is 'authorization_code'
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Optional. The code verifier for the PKCE request, Google Cloud CLI
+ *  originally generates it before the authorization request. PKCE is used to
+ *  protect authorization code from interception attacks. See
+ *  https://www.rfc-editor.org/rfc/rfc7636#section-1.1 and
+ *  https://www.rfc-editor.org/rfc/rfc7636#section-3. It is required when the
+ *  flow is authorization code flow, i.e. if grant_type is 'authorization_code'
+ */
+@property(nonatomic, copy, nullable) NSString *codeVerifier;
+
+/**
+ *  Required. The grant types are as follows: - 'authorization_code' : an
+ *  authorization code flow, i.e. exchange of authorization code for the Oauth
+ *  access token - 'refresh_token' : a refresh token flow, i.e. obtain a new
+ *  access token by providing the refresh token. See
+ *  https://www.rfc-editor.org/rfc/rfc6749#section-6
+ */
+@property(nonatomic, copy, nullable) NSString *grantType;
+
+/**
+ *  Optional. redirect_url is required when the flow is authorization code flow
+ *  i.e. if grant_type is `authorization_code` See
+ *  https://www.rfc-editor.org/rfc/rfc6749#section-4.1.3
+ */
+@property(nonatomic, copy, nullable) NSString *redirectUri;
+
+/**
+ *  Optional. The Refresh token is the credential that is used to obtain a new
+ *  access token when the current access token becomes invalid or expires.
+ *  Required when using refresh token flow, i.e. if `grant_type` is
+ *  'refresh_token' See https://www.rfc-editor.org/rfc/rfc6749#section-1.5 and
+ *  https://www.rfc-editor.org/rfc/rfc6749#section-6
+ */
+@property(nonatomic, copy, nullable) NSString *refreshToken;
+
+/**
+ *  Optional. An optional list of scopes that are requested for the token to be
+ *  returned. See https://www.rfc-editor.org/rfc/rfc6749#section-3.3 Must be a
+ *  list of space-delimited, case-sensitive strings. Note: Currently, the scopes
+ *  in the request are not supported
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  Response message for ExchangeOauthToken. see
+ *  https://www.rfc-editor.org/rfc/rfc6749#section-5.1
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenResponse : GTLRObject
+
+/**
+ *  An OAuth 2.0 security token, issued by Google, in response to the Oauth
+ *  token exchange request for the authorization code and refresh token flows.
+ *  The returned [access
+ *  token](https://www.rfc-editor.org/rfc/rfc6749#section-4.1.4). Tokens can
+ *  vary in size, depending, in part, on the size of mapped claims, up to a
+ *  maximum of 12288 bytes (12 KB). Google reserves the right to change the
+ *  token size and the maximum length at any time.
+ */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/**
+ *  The amount of time, in seconds, between the time when the access token was
+ *  issued and the time when the access token will expires.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+/**
+ *  A refresh token, issued by Google, in response to the OAuth token exchange
+ *  request for refresh token flow
+ */
+@property(nonatomic, copy, nullable) NSString *refreshToken;
+
+/** A list of scopes associated with the returned token. */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  The type of token. Field reserved for RFC compliance. See
+ *  https://www.rfc-editor.org/rfc/rfc6749#section-5.1 Note: No token_type is
+ *  returned for current implementation
+ */
+@property(nonatomic, copy, nullable) NSString *tokenType;
+
+@end
+
+
+/**
  *  Request message for ExchangeToken.
  */
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest : GTLRObject

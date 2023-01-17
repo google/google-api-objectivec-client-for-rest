@@ -782,6 +782,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 
 
 /**
+ *  Request for the `MarkRecommendationDismissed` Method.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest : GTLRObject
+
+/** Fingerprint of the Recommendation. Provides optimistic locking. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
  *  Request for the `MarkRecommendationFailed` Method.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest : GTLRObject

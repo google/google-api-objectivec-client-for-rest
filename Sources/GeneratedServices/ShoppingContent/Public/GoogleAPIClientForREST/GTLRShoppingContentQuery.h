@@ -2396,6 +2396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Retrieves the status and review eligibility for the free listing program.
+ *  Returns errors and warnings if they require action to resolve, will become
+ *  disapprovals, or impact impressions. Use `accountstatuses` to view all
+ *  issues for an account.
  *
  *  Method: content.freelistingsprogram.get
  *
@@ -2411,6 +2414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_FreeListingsProgramStatus.
  *
  *  Retrieves the status and review eligibility for the free listing program.
+ *  Returns errors and warnings if they require action to resolve, will become
+ *  disapprovals, or impact impressions. Use `accountstatuses` to view all
+ *  issues for an account.
  *
  *  @param merchantId Required. The ID of the account.
  *
@@ -5379,7 +5385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Lists the quota limit and quota usage per method for your Merchant Center
+ *  Lists the daily call quota and usage per method for your Merchant Center
  *  account.
  *
  *  Method: content.quotas.list
@@ -5410,7 +5416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_ListMethodQuotasResponse.
  *
- *  Lists the quota limit and quota usage per method for your Merchant Center
+ *  Lists the daily call quota and usage per method for your Merchant Center
  *  account.
  *
  *  @param merchantId Required. The ID of the account that has quota. This
@@ -6829,6 +6835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Retrieves the status and review eligibility for the Shopping Ads program.
+ *  Returns errors and warnings if they require action to resolve, will become
+ *  disapprovals, or impact impressions. Use `accountstatuses` to view all
+ *  issues for an account.
  *
  *  Method: content.shoppingadsprogram.get
  *
@@ -6844,6 +6853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_ShoppingAdsProgramStatus.
  *
  *  Retrieves the status and review eligibility for the Shopping Ads program.
+ *  Returns errors and warnings if they require action to resolve, will become
+ *  disapprovals, or impact impressions. Use `accountstatuses` to view all
+ *  issues for an account.
  *
  *  @param merchantId Required. The ID of the account.
  *

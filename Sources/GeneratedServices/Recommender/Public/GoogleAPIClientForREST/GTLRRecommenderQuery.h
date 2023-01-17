@@ -478,6 +478,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.recommendations.markDismissed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
+
+/** Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
+ *    to include in the query.
+ *  @param name Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkDismissed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Marks the Recommendation State as Failed. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation failed. This stops the recommendation content
@@ -911,6 +949,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkClaimed
  */
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.folders.locations.recommenders.recommendations.markDismissed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
+
+/** Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
+ *    to include in the query.
+ *  @param name Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkDismissed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1441,6 +1517,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkClaimed
  */
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.organizations.locations.recommenders.recommendations.markDismissed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
+
+/** Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
+ *    to include in the query.
+ *  @param name Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkDismissed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -2018,6 +2132,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkClaimed
  */
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.projects.locations.recommenders.recommendations.markDismissed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
+
+/** Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Mark the Recommendation State as Dismissed. Users can use this method to
+ *  indicate to the Recommender API that an ACTIVE recommendation has to be
+ *  marked back as DISMISSED. MarkRecommendationDismissed can be applied to
+ *  recommendations in ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
+ *    to include in the query.
+ *  @param name Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkDismissed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
                            name:(NSString *)name;
 
 @end

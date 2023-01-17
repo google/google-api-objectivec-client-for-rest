@@ -27,6 +27,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// deviceType
+
+/**
+ *  This device is a dedicated device.
+ *
+ *  Value: "dedicatedDevice"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseDeviceTypeDedicatedDevice;
+/**
+ *  This device is required to have an authenticated user.
+ *
+ *  Value: "knowledgeWorker"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseDeviceTypeKnowledgeWorker;
+/**
+ *  This value is unused
+ *
+ *  Value: "unknown"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseDeviceTypeUnknown;
+
+// ----------------------------------------------------------------------------
 // keyType
 
 /**
@@ -397,6 +419,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
+ *  Returns a token for device enrollment. The DPC can encode this token within
+ *  the QR/NFC/zero-touch enrollment payload or fetch it before calling the
+ *  on-device API to authenticate the user. The token can be generated for each
+ *  device or reused across multiple devices.
+ *
+ *  Method: androidenterprise.enterprises.createEnrollmentToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken : GTLRAndroidEnterpriseQuery
+
+/**
+ *  Whether it’s a dedicated device or a knowledge worker device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterpriseDeviceTypeUnknown This value is unused
+ *        (Value: "unknown")
+ *    @arg @c kGTLRAndroidEnterpriseDeviceTypeDedicatedDevice This device is a
+ *        dedicated device. (Value: "dedicatedDevice")
+ *    @arg @c kGTLRAndroidEnterpriseDeviceTypeKnowledgeWorker This device is
+ *        required to have an authenticated user. (Value: "knowledgeWorker")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/**
+ *  Fetches a @c GTLRAndroidEnterprise_CreateEnrollmentTokenResponse.
+ *
+ *  Returns a token for device enrollment. The DPC can encode this token within
+ *  the QR/NFC/zero-touch enrollment payload or fetch it before calling the
+ *  on-device API to authenticate the user. The token can be generated for each
+ *  device or reused across multiple devices.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_EnterprisesCreateEnrollmentToken
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
+
+@end
+
+/**
  *  Returns a unique token to access an embeddable UI. To generate a web UI,
  *  pass the generated token into the managed Google Play javascript API. Each
  *  token may only be used to start one UI session. See the javascript API
@@ -667,7 +734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  The request mode for pulling notifications. Specifying waitForNotifications
  *  will cause the request to block and wait until one or more notifications are
  *  present, or return an empty notification list if no notifications are
- *  present after some time. Speciying returnImmediately will cause the request
+ *  present after some time. Specifying returnImmediately will cause the request
  *  to immediately return the pending notifications, or an empty list if no
  *  notifications are present. If omitted, defaults to waitForNotifications.
  *

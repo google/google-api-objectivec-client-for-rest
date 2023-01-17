@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   contentwarehouse API (contentwarehouse/v1)
+//   Document AI Warehouse API (contentwarehouse/v1)
 // Documentation:
 //   https://cloud.google.com/document-warehouse
 

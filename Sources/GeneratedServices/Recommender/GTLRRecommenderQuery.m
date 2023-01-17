@@ -209,6 +209,33 @@
 
 @end
 
+@implementation GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkDismissed
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markDismissed";
+  GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkDismissed *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
+  query.loggingName = @"recommender.billingAccounts.locations.recommenders.recommendations.markDismissed";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkFailed
 
 @dynamic name;
@@ -415,6 +442,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
   query.loggingName = @"recommender.folders.locations.recommenders.recommendations.markClaimed";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkDismissed
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markDismissed";
+  GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkDismissed *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
+  query.loggingName = @"recommender.folders.locations.recommenders.recommendations.markDismissed";
   return query;
 }
 
@@ -664,6 +718,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
   query.loggingName = @"recommender.organizations.locations.recommenders.recommendations.markClaimed";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkDismissed
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markDismissed";
+  GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkDismissed *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
+  query.loggingName = @"recommender.organizations.locations.recommenders.recommendations.markDismissed";
   return query;
 }
 
@@ -940,6 +1021,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
   query.loggingName = @"recommender.projects.locations.recommenders.recommendations.markClaimed";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkDismissed
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markDismissed";
+  GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkDismissed *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
+  query.loggingName = @"recommender.projects.locations.recommenders.recommendations.markDismissed";
   return query;
 }
 

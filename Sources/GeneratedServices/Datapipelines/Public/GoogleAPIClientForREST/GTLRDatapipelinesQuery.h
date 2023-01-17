@@ -35,68 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have
- *  permission to access it.
- *
- *  Method: datapipelines.projects.locations.listPipelines
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDatapipelinesCloudPlatform
- */
-@interface GTLRDatapipelinesQuery_ProjectsLocationsListPipelines : GTLRDatapipelinesQuery
-
-/**
- *  An expression for filtering the results of the request. If unspecified, all
- *  pipelines will be returned. Multiple filters can be applied and must be
- *  comma separated. Fields eligible for filtering are: + `type`: The type of
- *  the pipeline (streaming or batch). Allowed values are `ALL`, `BATCH`, and
- *  `STREAMING`. + `status`: The activity status of the pipeline. Allowed values
- *  are `ALL`, `ACTIVE`, `ARCHIVED`, and `PAUSED`. For example, to limit results
- *  to active batch processing pipelines: type:BATCH,status:ACTIVE
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  The maximum number of entities to return. The service may return fewer than
- *  this value, even if there are additional pages. If unspecified, the max
- *  limit is yet to be determined by the backend implementation.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListPipelines` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListPipelines` must match the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The location name. For example:
- *  `projects/PROJECT_ID/locations/LOCATION_ID`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRDatapipelines_GoogleCloudDatapipelinesV1ListPipelinesResponse.
- *
- *  Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have
- *  permission to access it.
- *
- *  @param parent Required. The location name. For example:
- *    `projects/PROJECT_ID/locations/LOCATION_ID`.
- *
- *  @return GTLRDatapipelinesQuery_ProjectsLocationsListPipelines
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
  *  Creates a pipeline. For a batch pipeline, you can pass scheduler
  *  information. Data Pipelines uses the scheduler information to create an
  *  internal scheduler that runs jobs periodically. If the internal scheduler is
@@ -242,6 +180,68 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`.
  *
  *  @return GTLRDatapipelinesQuery_ProjectsLocationsPipelinesJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have
+ *  permission to access it.
+ *
+ *  Method: datapipelines.projects.locations.pipelines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatapipelinesCloudPlatform
+ */
+@interface GTLRDatapipelinesQuery_ProjectsLocationsPipelinesList : GTLRDatapipelinesQuery
+
+/**
+ *  An expression for filtering the results of the request. If unspecified, all
+ *  pipelines will be returned. Multiple filters can be applied and must be
+ *  comma separated. Fields eligible for filtering are: + `type`: The type of
+ *  the pipeline (streaming or batch). Allowed values are `ALL`, `BATCH`, and
+ *  `STREAMING`. + `status`: The activity status of the pipeline. Allowed values
+ *  are `ALL`, `ACTIVE`, `ARCHIVED`, and `PAUSED`. For example, to limit results
+ *  to active batch processing pipelines: type:BATCH,status:ACTIVE
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of entities to return. The service may return fewer than
+ *  this value, even if there are additional pages. If unspecified, the max
+ *  limit is yet to be determined by the backend implementation.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListPipelines` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListPipelines` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The location name. For example:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDatapipelines_GoogleCloudDatapipelinesV1ListPipelinesResponse.
+ *
+ *  Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have
+ *  permission to access it.
+ *
+ *  @param parent Required. The location name. For example:
+ *    `projects/PROJECT_ID/locations/LOCATION_ID`.
+ *
+ *  @return GTLRDatapipelinesQuery_ProjectsLocationsPipelinesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

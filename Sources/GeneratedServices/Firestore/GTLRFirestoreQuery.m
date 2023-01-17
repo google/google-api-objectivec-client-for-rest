@@ -193,6 +193,29 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesDelete
+
+@dynamic allowMissing, ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchGet
 
 @dynamic database;

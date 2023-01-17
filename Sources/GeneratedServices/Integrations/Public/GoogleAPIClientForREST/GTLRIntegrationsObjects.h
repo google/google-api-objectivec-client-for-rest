@@ -13,13 +13,6 @@
 #endif
 
 @class GTLRIntegrations_CrmlogErrorCode;
-@class GTLRIntegrations_EnterpriseCrmCardsCellValue;
-@class GTLRIntegrations_EnterpriseCrmCardsRow;
-@class GTLRIntegrations_EnterpriseCrmCardsTabularData;
-@class GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesData;
-@class GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesDataRow;
-@class GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListData;
-@class GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoAddress;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoAttributes;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
@@ -182,12 +175,6 @@
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntParameterArray;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaJwt;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestGroupBy;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQuery;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeJoinConfig;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeUnionConfig;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaNextTask;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaOAuth2ClientCredentials;
@@ -216,7 +203,6 @@
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaUsernameAndPassword;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaValueType;
 @class GTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWithTriggerIdRequest;
-@class GTLRIntegrations_GoogleProtobufEmpty;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -3510,84 +3496,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1al
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion_Status_Unknown;
 
 // ----------------------------------------------------------------------------
-// GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest.responseTemplate
-
-/**
- *  Aplose series data
- *
- *  Value: "APLOSE_SERIES_LIST_CONFIG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_AploseSeriesListConfig;
-/**
- *  Unknown data format
- *
- *  Value: "DATA_FORMAT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_DataFormatUnspecified;
-/**
- *  Table data
- *
- *  Value: "TABLE_CONFIG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_TableConfig;
-
-// ----------------------------------------------------------------------------
-// GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent.borgTaskMetric
-
-/**
- *  Unknown metric
- *
- *  Value: "BORG_TASK_METRIC_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_BorgTaskMetricUnspecified;
-/**
- *  Metric end with: "/event/count".
- *
- *  Value: "EVENT_COUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_EventCount;
-/**
- *  Metric end with: "/event/duration".
- *
- *  Value: "EVENT_DURATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_EventDuration;
-/**
- *  Metric end with: "/task/individual_count".
- *
- *  Value: "TASK_INDIVIDUAL_COUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_TaskIndividualCount;
-/**
- *  Metric end with: "/task/individual_duration".
- *
- *  Value: "TASK_INDIVIDUAL_DURATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_TaskIndividualDuration;
-
-// ----------------------------------------------------------------------------
-// GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode.operationType
-
-/**
- *  Join Operation
- *
- *  Value: "JOIN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_Join;
-/**
- *  By default join.
- *
- *  Value: "OPERATION_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_OperationTypeUnspecified;
-/**
- *  Union operation
- *
- *  Value: "UNION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_Union;
-
-// ----------------------------------------------------------------------------
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode.requestType
 
 /**
@@ -4332,107 +4240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *        Value "WRONG_TENANT"
  */
 @property(nonatomic, copy, nullable) NSString *commonErrorCode;
-
-@end
-
-
-/**
- *  GTLRIntegrations_EnterpriseCrmCardsCellValue
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsCellValue : GTLRObject
-
-/**
- *  booleanValue
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *booleanValue;
-
-/**
- *  doubleValue
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *doubleValue;
-
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleProtobufEmpty *empty;
-
-/**
- *  longValue
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *longValue;
-
-@property(nonatomic, copy, nullable) NSString *stringValue;
-
-@end
-
-
-/**
- *  GTLRIntegrations_EnterpriseCrmCardsRow
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsRow : GTLRObject
-
-/** Ordered list of cell values within a row. */
-@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmCardsCellValue *> *cells;
-
-@end
-
-
-/**
- *  The generic data format returned from all connectors.
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsTabularData : GTLRObject
-
-/** Ordered list of column headers. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
-
-/** Ordered list of table rows. */
-@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmCardsRow *> *rows;
-
-@end
-
-
-/**
- *  Data used to render an Aplos Series card.
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesData : GTLRObject
-
-/** A single Series Row */
-@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesDataRow *> *rows;
-
-@end
-
-
-/**
- *  Aplos series row is exactly two columns labeled x and y.
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesDataRow : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmCardsCellValue *x;
-@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmCardsCellValue *y;
-
-@end
-
-
-/**
- *  Data used for Aplos charts that accept multiple Series.
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListData : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries *> *series;
-
-@end
-
-
-/**
- *  GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries
- */
-@interface GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListDataSeries : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesData *data;
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -6910,6 +6717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfoAudit : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *resolvedBy;
+@property(nonatomic, copy, nullable) NSString *resolvedByCpi;
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
@@ -9475,7 +9283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. Configuration for the connection. */
+/** Optional. Node configuration for the connection. */
 @property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1NodeConfig *nodeConfig;
 
 /**
@@ -9619,7 +9427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Configuration for the connection.
+ *  Node configuration for the connection.
  */
 @interface GTLRIntegrations_GoogleCloudConnectorsV1NodeConfig : GTLRObject
 
@@ -10333,8 +10141,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Matched against all {\@link TriggerConfig}s across all
- *  integrations. i.e. TriggerConfig.trigger_id.equals(trigger_id)
+ *  Required. Matched against all {\@link TriggerConfig}s across all
+ *  integrations. i.e. TriggerConfig.trigger_id.equals(trigger_id). The
+ *  trigger_id is in the format of `api_trigger/TRIGGER_NAME`.
  */
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
@@ -11708,196 +11517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** The list of the tasks. */
 @property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskEntity *> *taskEntities;
-
-@end
-
-
-/**
- *  The request to get data for monarch connector config.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest : GTLRObject
-
-/** How long the series data range: "1h","1d",etc. */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
-
-/** Final time to query over, or the current time if left unset. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Required. Query for searching data in monarch. */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQuery *mashQuery;
-
-/**
- *  Returns a table of all possible metric field values within the specified
- *  duration, ignoring any data samples. Useful for autocomplete functionality.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *metricFieldTable;
-
-/**
- *  The output period for the query. Must be set if there is a window operation
- *  within the query and unset otherwise.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *outputPeriod;
-
-/**
- *  Required. Template for response.
- *
- *  Likely values:
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_AploseSeriesListConfig
- *        Aplose series data (Value: "APLOSE_SERIES_LIST_CONFIG")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_DataFormatUnspecified
- *        Unknown data format (Value: "DATA_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest_ResponseTemplate_TableConfig
- *        Table data (Value: "TABLE_CONFIG")
- */
-@property(nonatomic, copy, nullable) NSString *responseTemplate;
-
-@end
-
-
-/**
- *  MashQuery GroupBy parameters.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestGroupBy : GTLRObject
-
-/** Optional. optional, metrics list for GroupBy. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
-
-/** Optional. optional, reduce function for GroupBy. */
-@property(nonatomic, copy, nullable) NSString *reducer;
-
-@end
-
-
-/**
- *  The MashQuery for searching data, set both queries for Join Operation.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQuery : GTLRObject
-
-/**
- *  Required. The components for constructing a mash query. Set
- *  "point_operation" if this is a single query
- */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent *firstQuery;
-
-/**
- *  Optional. optional, only set when joining 2 queries. By default join 2
- *  queries with join operation.
- */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode *operationMode;
-
-/**
- *  Optional. optional, only set when joining 2 queries. Set "point_operation"
- *  for joined query.
- */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent *secondQuery;
-
-@end
-
-
-/**
- *  The components for constructing MashQuery.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent : GTLRObject
-
-/**
- *  Required. The metric for monarch.BorgTask.
- *
- *  Likely values:
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_BorgTaskMetricUnspecified
- *        Unknown metric (Value: "BORG_TASK_METRIC_UNSPECIFIED")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_EventCount
- *        Metric end with: "/event/count". (Value: "EVENT_COUNT")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_EventDuration
- *        Metric end with: "/event/duration". (Value: "EVENT_DURATION")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_TaskIndividualCount
- *        Metric end with: "/task/individual_count". (Value:
- *        "TASK_INDIVIDUAL_COUNT")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryComponent_BorgTaskMetric_TaskIndividualDuration
- *        Metric end with: "/task/individual_duration". (Value:
- *        "TASK_INDIVIDUAL_DURATION")
- */
-@property(nonatomic, copy, nullable) NSString *borgTaskMetric;
-
-/**
- *  Optional. optional, filters on fetched data, "metric:client_id" not
- *  supported.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *dataFilters;
-
-/**
- *  Optional. optional, filters for Fetch Raw, "metric:client_id" not supported.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *fetchFilters;
-
-/** Optional. optional, GroupBy variables. */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestGroupBy *groupBy;
-
-/** Optional. optional, Point Operation on single query or joined query. */
-@property(nonatomic, copy, nullable) NSString *pointOperation;
-
-/** Required. Window time delta. */
-@property(nonatomic, copy, nullable) NSString *timeDelta;
-
-@end
-
-
-/**
- *  Operation between 2 query
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode : GTLRObject
-
-/** Optional. join operation */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeJoinConfig *joinConfig;
-
-/**
- *  Optional. optional operation types.
- *
- *  Likely values:
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_Join
- *        Join Operation (Value: "JOIN")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_OperationTypeUnspecified
- *        By default join. (Value: "OPERATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationMode_OperationType_Union
- *        Union operation (Value: "UNION")
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** Optional. union operation */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeUnionConfig *unionConfig;
-
-@end
-
-
-/**
- *  Join Operation
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeJoinConfig : GTLRObject
-@end
-
-
-/**
- *  Union operation
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQueryOperationModeUnionConfig : GTLRObject
-
-/** Optional. optional, reduce function */
-@property(nonatomic, copy, nullable) NSString *reducer;
-
-@end
-
-
-/**
- *  The response for getting Execution stats.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse : GTLRObject
-
-/** List of points. */
-@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmCardsTemplatesAplosSeriesListData *aplosSeriesListData;
-
-/** Data in form of table. */
-@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmCardsTabularData *tableData;
 
 @end
 

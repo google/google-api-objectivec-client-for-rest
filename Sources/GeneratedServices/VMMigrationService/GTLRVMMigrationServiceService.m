@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migrate to Virtual Machines API (vmmigration/v1)
+//   VM Migration API (vmmigration/v1)
 // Description:
 //   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.

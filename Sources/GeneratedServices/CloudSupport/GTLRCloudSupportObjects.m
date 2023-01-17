@@ -115,8 +115,8 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 
 @implementation GTLRCloudSupport_Case
 @dynamic classification, createTime, creator, descriptionProperty, displayName,
-         escalated, name, priority, severity, state, subscriberEmailAddresses,
-         testCase, timeZone, updateTime;
+         escalated, languageCode, name, priority, severity, state,
+         subscriberEmailAddresses, testCase, timeZone, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

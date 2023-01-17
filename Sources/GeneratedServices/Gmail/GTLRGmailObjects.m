@@ -21,6 +21,11 @@ NSString * const kGTLRGmail_AutoForwarding_Disposition_LeaveInInbox = @"leaveInI
 NSString * const kGTLRGmail_AutoForwarding_Disposition_MarkRead = @"markRead";
 NSString * const kGTLRGmail_AutoForwarding_Disposition_Trash   = @"trash";
 
+// GTLRGmail_CseKeyPair.enablementState
+NSString * const kGTLRGmail_CseKeyPair_EnablementState_Disabled = @"disabled";
+NSString * const kGTLRGmail_CseKeyPair_EnablementState_Enabled = @"enabled";
+NSString * const kGTLRGmail_CseKeyPair_EnablementState_StateUnspecified = @"stateUnspecified";
+
 // GTLRGmail_Delegate.verificationStatus
 NSString * const kGTLRGmail_Delegate_VerificationStatus_Accepted = @"accepted";
 NSString * const kGTLRGmail_Delegate_VerificationStatus_Expired = @"expired";
@@ -135,11 +140,60 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGmail_CseIdentity
+//
+
+@implementation GTLRGmail_CseIdentity
+@dynamic emailAddress, primaryKeyPairId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_CseKeyPair
+//
+
+@implementation GTLRGmail_CseKeyPair
+@dynamic disableTime, enablementState, keyPairId, pem, pkcs7,
+         privateKeyMetadata, subjectEmailAddresses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"privateKeyMetadata" : [GTLRGmail_CsePrivateKeyMetadata class],
+    @"subjectEmailAddresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_CsePrivateKeyMetadata
+//
+
+@implementation GTLRGmail_CsePrivateKeyMetadata
+@dynamic kaclsKeyMetadata, privateKeyMetadataId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGmail_Delegate
 //
 
 @implementation GTLRGmail_Delegate
 @dynamic delegateEmail, verificationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_DisableCseKeyPairRequest
+//
+
+@implementation GTLRGmail_DisableCseKeyPairRequest
 @end
 
 
@@ -155,6 +209,15 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_EnableCseKeyPairRequest
+//
+
+@implementation GTLRGmail_EnableCseKeyPairRequest
 @end
 
 
@@ -308,6 +371,16 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGmail_KaclsKeyMetadata
+//
+
+@implementation GTLRGmail_KaclsKeyMetadata
+@dynamic kaclsData, kaclsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGmail_Label
 //
 
@@ -339,6 +412,50 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
 @implementation GTLRGmail_LanguageSettings
 @dynamic displayLanguage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ListCseIdentitiesResponse
+//
+
+@implementation GTLRGmail_ListCseIdentitiesResponse
+@dynamic cseIdentities, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cseIdentities" : [GTLRGmail_CseIdentity class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"cseIdentities";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ListCseKeyPairsResponse
+//
+
+@implementation GTLRGmail_ListCseKeyPairsResponse
+@dynamic cseKeyPairs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cseKeyPairs" : [GTLRGmail_CseKeyPair class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"cseKeyPairs";
+}
+
 @end
 
 
@@ -635,6 +752,15 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ObliterateCseKeyPairRequest
+//
+
+@implementation GTLRGmail_ObliterateCseKeyPairRequest
 @end
 
 

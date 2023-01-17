@@ -808,8 +808,9 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_ServiceConfig
-@dynamic allTrafficOnLatestRevision, availableMemory, environmentVariables,
-         ingressSettings, maxInstanceCount, minInstanceCount, revision,
+@dynamic allTrafficOnLatestRevision, availableCpu, availableMemory,
+         environmentVariables, ingressSettings, maxInstanceCount,
+         maxInstanceRequestConcurrency, minInstanceCount, revision,
          secretEnvironmentVariables, secretVolumes, securityLevel, service,
          serviceAccountEmail, timeoutSeconds, uri, vpcConnector,
          vpcConnectorEgressSettings;

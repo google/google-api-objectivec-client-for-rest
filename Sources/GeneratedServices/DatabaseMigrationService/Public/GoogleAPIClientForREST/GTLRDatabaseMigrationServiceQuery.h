@@ -23,6 +23,41 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// tree
+
+/**
+ *  Unspecified tree type
+ *
+ *  Value: "DB_TREE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified;
+/**
+ *  The destination database tree
+ *
+ *  Value: "DESTINATION_TREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDestinationTree;
+/**
+ *  The draft database tree
+ *
+ *  Value: "DRAFT_TREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDraftTree;
+/**
+ *  The source database tree
+ *
+ *  Value: "SOURCE_TREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Database Migration Service query classes.
  */
@@ -52,13 +87,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two requests with the same id, then the second request will be ignored. It
+ *  is recommended to always set this value to a UUID. The id must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Create the connection profile without validating it. The default
+ *  is false. Only supported for Oracle connection profiles.
+ */
+@property(nonatomic, assign) BOOL skipValidation;
+
+/**
+ *  Optional. Only validate the connection profile, but don't create any
+ *  resources. The default is false. Only supported for Oracle connection
+ *  profiles.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.
@@ -279,13 +327,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two requests with the same id, then the second request will be ignored. It
+ *  is recommended to always set this value to a UUID. The id must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Update the connection profile without validating it. The default
+ *  is false. Only supported for Oracle connection profiles.
+ */
+@property(nonatomic, assign) BOOL skipValidation;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
@@ -294,6 +348,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the connection profile, but don't update any
+ *  resources. The default is false. Only supported for Oracle connection
+ *  profiles.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.
@@ -393,6 +454,610 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDatabaseMigrationService_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Apply draft tree onto a specific destination database
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.apply
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesApply : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. Name of the conversion workspace resource to apply draft to
+ *  destination for. in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Apply draft tree onto a specific destination database
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_ApplyConversionWorkspaceRequest to include in
+ *    the query.
+ *  @param name Required. Name of the conversion workspace resource to apply
+ *    draft to destination for. in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesApply
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_ApplyConversionWorkspaceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks all the data in the conversion workspace as committed.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.commit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesCommit : GTLRDatabaseMigrationServiceQuery
+
+/** Required. Name of the conversion workspace resource to commit. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Marks all the data in the conversion workspace as committed.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_CommitConversionWorkspaceRequest to include
+ *    in the query.
+ *  @param name Required. Name of the conversion workspace resource to commit.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesCommit
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_CommitConversionWorkspaceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a draft tree schema for the destination database.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.convert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesConvert : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Name of the conversion workspace resource to convert in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Creates a draft tree schema for the destination database.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_ConvertConversionWorkspaceRequest to include
+ *    in the query.
+ *  @param name Name of the conversion workspace resource to convert in the form
+ *    of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesConvert
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_ConvertConversionWorkspaceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new conversion workspace in a given project and location.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesCreate : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The ID of the conversion workspace to create. */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspaceId;
+
+/**
+ *  Required. The parent, which owns this collection of conversion workspaces.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  A unique id used to identify the request. If the server receives two
+ *  requests with the same id, then the second request will be ignored. It is
+ *  recommended to always set this value to a UUID. The id must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Creates a new conversion workspace in a given project and location.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_ConversionWorkspace to
+ *    include in the query.
+ *  @param parent Required. The parent, which owns this collection of conversion
+ *    workspaces.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_ConversionWorkspace *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDelete : GTLRDatabaseMigrationServiceQuery
+
+/** Required. Name of the conversion workspace resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A unique id used to identify the request. If the server receives two
+ *  requests with the same id, then the second request will be ignored. It is
+ *  recommended to always set this value to a UUID. The id must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Deletes a single conversion workspace.
+ *
+ *  @param name Required. Name of the conversion workspace resource to delete.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a list of committed revisions of a specific conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.describeConversionWorkspaceRevisions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeConversionWorkspaceRevisions : GTLRDatabaseMigrationServiceQuery
+
+/** Optional. Optional filter to request a specific commit id */
+@property(nonatomic, copy, nullable) NSString *commitId;
+
+/**
+ *  Required. Name of the conversion workspace resource whose revisions are
+ *  listed. in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspace;
+
+/**
+ *  Fetches a @c
+ *  GTLRDatabaseMigrationService_DescribeConversionWorkspaceRevisionsResponse.
+ *
+ *  Retrieves a list of committed revisions of a specific conversion workspace.
+ *
+ *  @param conversionWorkspace Required. Name of the conversion workspace
+ *    resource whose revisions are listed. in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeConversionWorkspaceRevisions
+ */
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace;
+
+@end
+
+/**
+ *  Use this method to describe the database entities tree for a specific
+ *  conversion workspace and a specific tree type. The DB Entities are not a
+ *  resource like conversion workspace or mapping rule, and they can not be
+ *  created, updated or deleted like one. Instead they are simple data objects
+ *  describing the structure of the client database.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.describeDatabaseEntities
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeDatabaseEntities : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Request a specific commit id. If not specified, the entities from the latest
+ *  commit are returned.
+ */
+@property(nonatomic, copy, nullable) NSString *commitId;
+
+/**
+ *  Required. Name of the conversion workspace resource whose DB entities are
+ *  described in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspace;
+
+/** Filter the returned entities based on AIP-160 standard */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of entities to return. The service may return fewer than
+ *  this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The nextPageToken value received in the previous call to
+ *  conversionWorkspace.describeDatabaseEntities, used in the subsequent request
+ *  to retrieve the next page of results. On first call this should be left
+ *  blank. When paginating, all other parameters provided to
+ *  conversionWorkspace.describeDatabaseEntities must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The tree to fetch
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified Unspecified
+ *        tree type (Value: "DB_TREE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeSourceTree The source database
+ *        tree (Value: "SOURCE_TREE")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDraftTree The draft database tree
+ *        (Value: "DRAFT_TREE")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDestinationTree The destination
+ *        database tree (Value: "DESTINATION_TREE")
+ */
+@property(nonatomic, copy, nullable) NSString *tree;
+
+/**
+ *  Whether to retrieve the latest committed version of the entities or the
+ *  latest version. This field is ignored if a specific commit_id is specified.
+ */
+@property(nonatomic, assign) BOOL uncommitted;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_DescribeDatabaseEntitiesResponse.
+ *
+ *  Use this method to describe the database entities tree for a specific
+ *  conversion workspace and a specific tree type. The DB Entities are not a
+ *  resource like conversion workspace or mapping rule, and they can not be
+ *  created, updated or deleted like one. Instead they are simple data objects
+ *  describing the structure of the client database.
+ *
+ *  @param conversionWorkspace Required. Name of the conversion workspace
+ *    resource whose DB entities are described in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeDatabaseEntities
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace;
+
+@end
+
+/**
+ *  Gets details of a single conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesGet : GTLRDatabaseMigrationServiceQuery
+
+/** Required. Name of the conversion workspace resource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_ConversionWorkspace.
+ *
+ *  Gets details of a single conversion workspace.
+ *
+ *  @param name Required. Name of the conversion workspace resource to get.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists conversion workspaces in a given project and location.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesList : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  A filter expression that filters conversion workspaces listed in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The value must be a
+ *  string, a number, or a boolean. The comparison operator must be either =,
+ *  !=, >, or <. For example, list conversion workspaces created this year by
+ *  specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also
+ *  filter nested fields. For example, you could specify **source.version =
+ *  "12.c.1"** to select all conversion workspaces with source database version
+ *  equal to 12.c.1
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of conversion workspaces to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 sets will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The nextPageToken value received in the previous call to
+ *  conversionWorkspaces.list, used in the subsequent request to retrieve the
+ *  next page of results. On first call this should be left blank. When
+ *  paginating, all other parameters provided to conversionWorkspaces.list must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of conversion workspaces.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_ListConversionWorkspacesResponse.
+ *
+ *  Lists conversion workspaces in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of conversion
+ *    workspaces.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Imports the mapping rules for a given conversion workspace. Supports various
+ *  formats of external rules files.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.mappingRules.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesImport : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. Name of the conversion workspace resource to import the rules to
+ *  in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Imports the mapping rules for a given conversion workspace. Supports various
+ *  formats of external rules files.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_ImportMappingRulesRequest
+ *    to include in the query.
+ *  @param parent Required. Name of the conversion workspace resource to import
+ *    the rules to in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesImport
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_ImportMappingRulesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesPatch : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Full name of the workspace resource, in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A unique id used to identify the request. If the server receives two
+ *  requests with the same id, then the second request will be ignored. It is
+ *  recommended to always set this value to a UUID. The id must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  conversion workspace resource by the update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Updates the parameters of a single conversion workspace.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_ConversionWorkspace to
+ *    include in the query.
+ *  @param name Full name of the workspace resource, in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_ConversionWorkspace *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rollbacks a conversion workspace to the last committed spanshot.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesRollback : GTLRDatabaseMigrationServiceQuery
+
+/** Required. Name of the conversion workspace resource to rollback to. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Rollbacks a conversion workspace to the last committed spanshot.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_RollbackConversionWorkspaceRequest to include
+ *    in the query.
+ *  @param name Required. Name of the conversion workspace resource to rollback
+ *    to.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesRollback
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_RollbackConversionWorkspaceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Use this method to search/list the background jobs for a specific conversion
+ *  workspace. The background jobs are not a resource like conversion workspace
+ *  or mapping rule, and they can not be created, updated or deleted like one.
+ *  Instead they are a way to expose the data plane jobs log.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.searchBackgroundJobs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSearchBackgroundJobs : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Optional. If supplied, will only return jobs that completed until (not
+ *  including) the given timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *completedUntilTime;
+
+/**
+ *  Required. Name of the conversion workspace resource whos jobs are listed. in
+ *  the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspace;
+
+/**
+ *  Optional. The maximum number of jobs to return. The service may return fewer
+ *  than this value. If unspecified, at most 100 jobs will be returned. The
+ *  maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger maxSize;
+
+/**
+ *  Optional. Whether or not to return just the most recent job per job type
+ */
+@property(nonatomic, assign) BOOL returnMostRecentPerJobType;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_SearchBackgroundJobsResponse.
+ *
+ *  Use this method to search/list the background jobs for a specific conversion
+ *  workspace. The background jobs are not a resource like conversion workspace
+ *  or mapping rule, and they can not be created, updated or deleted like one.
+ *  Instead they are a way to expose the data plane jobs log.
+ *
+ *  @param conversionWorkspace Required. Name of the conversion workspace
+ *    resource whos jobs are listed. in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSearchBackgroundJobs
+ */
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace;
+
+@end
+
+/**
+ *  Imports a snapshot of the source database into the conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.seed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSeed : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Name of the conversion workspace resource to seed with new database
+ *  structure. in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Imports a snapshot of the source database into the conversion workspace.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_SeedConversionWorkspaceRequest to include in
+ *    the query.
+ *  @param name Name of the conversion workspace resource to seed with new
+ *    database structure. in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSeed
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_SeedConversionWorkspaceRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1205,6 +1870,171 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new private connection in a given project and location.
+ *
+ *  Method: datamigration.projects.locations.privateConnections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsCreate : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The parent that owns the collection of PrivateConnections. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The private connection identifier. */
+@property(nonatomic, copy, nullable) NSString *privateConnectionId;
+
+/**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two requests with the same id, then the second request will be ignored. It
+ *  is recommended to always set this value to a UUID. The id must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Optional. If set to true, will skip validations. */
+@property(nonatomic, assign) BOOL skipValidation;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Creates a new private connection in a given project and location.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_PrivateConnection to
+ *    include in the query.
+ *  @param parent Required. The parent that owns the collection of
+ *    PrivateConnections.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_PrivateConnection *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Database Migration Service private connection.
+ *
+ *  Method: datamigration.projects.locations.privateConnections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsDelete : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The name of the private connection to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two requests with the same id, then the second request will be ignored. It
+ *  is recommended to always set this value to a UUID. The id must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Deletes a single Database Migration Service private connection.
+ *
+ *  @param name Required. The name of the private connection to delete.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single private connection.
+ *
+ *  Method: datamigration.projects.locations.privateConnections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsGet : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The name of the private connection to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_PrivateConnection.
+ *
+ *  Gets details of a single private connection.
+ *
+ *  @param name Required. The name of the private connection to get.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a list of private connections in a given project and location.
+ *
+ *  Method: datamigration.projects.locations.privateConnections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsList : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  A filter expression that filters private connections listed in the response.
+ *  The expression must specify the field name, a comparison operator, and the
+ *  value that you want to use for filtering. The value must be a string, a
+ *  number, or a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, list private connections created this year by specifying
+ *  **createTime %gt; 2021-01-01T00:00:00.000000000Z**.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Maximum number of private connections to return. If unspecified, at most 50
+ *  private connections that will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token received from a previous `ListPrivateConnections` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListPrivateConnections` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent that owns the collection of private connections. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_ListPrivateConnectionsResponse.
+ *
+ *  Retrieves a list of private connections in a given project and location.
+ *
+ *  @param parent Required. The parent that owns the collection of private
+ *    connections.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

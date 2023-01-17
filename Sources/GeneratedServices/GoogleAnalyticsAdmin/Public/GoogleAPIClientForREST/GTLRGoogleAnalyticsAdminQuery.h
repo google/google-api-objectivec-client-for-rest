@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Admin API (analyticsadmin/v1alpha)
+//   Google Analytics Admin API (analyticsadmin/v1beta)
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAccount.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaAccount.
  *
  *  Lookup for a single Account.
  *
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataSharingSettings.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaDataSharingSettings.
  *
  *  Get data sharing settings on an account. Data sharing settings are
  *  singletons.
@@ -175,7 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL showDeleted;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListAccountsResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse.
  *
  *  Returns all accounts accessible by the caller. Note that these accounts
  *  might not currently have GA4 properties. Soft-deleted (ie: "trashed")
@@ -219,18 +219,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAccount.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaAccount.
  *
  *  Updates an account.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAccount to include in
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaAccount to include in
  *    the query.
  *  @param name Output only. Resource name of this account. Format:
  *    accounts/{account} Example: "accounts/100"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAccount *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaAccount *)object
                            name:(NSString *)name;
 
 @end
@@ -246,17 +246,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsProvisionAccountTicket : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketResponse.
  *
  *  Requests a ticket for creating an account.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest to include
- *    in the query.
+ *    GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketRequest to include in
+ *    the query.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsProvisionAccountTicket
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest *)object;
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProvisionAccountTicketRequest *)object;
 
 @end
 
@@ -278,20 +278,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse.
+ *  GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsResponse.
  *
  *  Searches through all changes to an account or its children given the
  *  specified set of filters.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest to
- *    include in the query.
+ *    GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest to include
+ *    in the query.
  *  @param account Required. The account resource for which to return change
  *    history resources.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest *)object
                         account:(NSString *)account;
 
 @end
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListAccountSummariesResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListAccountSummariesResponse.
  *
  *  Returns summaries of all accounts accessible by the caller.
  *
@@ -335,370 +335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)query;
-
-@end
-
-/**
- *  Lists all user links on an account or property, including implicit ones that
- *  come from effective permissions granted by groups or organization admin
- *  roles. If a returned user link does not have direct permissions, they cannot
- *  be removed from the account or property directly with the DeleteUserLink
- *  command. They have to be removed from the group/etc that gives them
- *  permissions, which is currently only usable/discoverable in the GA or GMP
- *  UIs.
- *
- *  Method: analyticsadmin.accounts.userLinks.audit
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksAudit : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: accounts/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksResponse.
- *
- *  Lists all user links on an account or property, including implicit ones that
- *  come from effective permissions granted by groups or organization admin
- *  roles. If a returned user link does not have direct permissions, they cannot
- *  be removed from the account or property directly with the DeleteUserLink
- *  command. They have to be removed from the group/etc that gives them
- *  permissions, which is currently only usable/discoverable in the GA or GMP
- *  UIs.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest
- *    to include in the query.
- *  @param parent Required. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksAudit
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates information about multiple users' links to an account or property.
- *  This method is transactional. If any UserLink cannot be created, none of the
- *  UserLinks will be created.
- *
- *  Method: analyticsadmin.accounts.userLinks.batchCreate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchCreate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. This field is required. The parent field in the CreateUserLinkRequest
- *  messages must either be empty or match this field. Example format:
- *  accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksResponse.
- *
- *  Creates information about multiple users' links to an account or property.
- *  This method is transactional. If any UserLink cannot be created, none of the
- *  UserLinks will be created.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest to include in
- *    the query.
- *  @param parent Required. The account or property that all user links in the
- *    request are for. This field is required. The parent field in the
- *    CreateUserLinkRequest messages must either be empty or match this field.
- *    Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes information about multiple users' links to an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.batchDelete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchDelete : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. The parent of all values for user link names to delete must match this
- *  field. Example format: accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes information about multiple users' links to an account or property.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest to include in
- *    the query.
- *  @param parent Required. The account or property that all user links in the
- *    request are for. The parent of all values for user link names to delete
- *    must match this field. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchDelete
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets information about multiple users' links to an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.batchGet
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchGet : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The names of the user links to retrieve. A maximum of 1000 user
- *  links can be retrieved in a batch. Format:
- *  accounts/{accountId}/userLinks/{userLinkId}
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. The parent of all provided values for the 'names' field must match this
- *  field. Example format: accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaBatchGetUserLinksResponse.
- *
- *  Gets information about multiple users' links to an account or property.
- *
- *  @param parent Required. The account or property that all user links in the
- *    request are for. The parent of all provided values for the 'names' field
- *    must match this field. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchGet
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates information about multiple users' links to an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.batchUpdate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchUpdate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. The parent field in the UpdateUserLinkRequest messages must either be
- *  empty or match this field. Example format: accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksResponse.
- *
- *  Updates information about multiple users' links to an account or property.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest to include in
- *    the query.
- *  @param parent Required. The account or property that all user links in the
- *    request are for. The parent field in the UpdateUserLinkRequest messages
- *    must either be empty or match this field. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchUpdate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a user link on an account or property. If the user with the
- *  specified email already has permissions on the account or property, then the
- *  user's existing permissions will be unioned with the permissions specified
- *  in the new UserLink.
- *
- *  Method: analyticsadmin.accounts.userLinks.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksCreate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Optional. If set, then email the new user notifying them that they've been
- *  granted permissions to the resource.
- */
-@property(nonatomic, assign) BOOL notifyNewUser;
-
-/** Required. Example format: accounts/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink.
- *
- *  Creates a user link on an account or property. If the user with the
- *  specified email already has permissions on the account or property, then the
- *  user's existing permissions will be unioned with the permissions specified
- *  in the new UserLink.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink to include in
- *    the query.
- *  @param parent Required. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a user link on an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksDelete : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: accounts/1234/userLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes a user link on an account or property.
- *
- *  @param name Required. Example format: accounts/1234/userLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets information about a user's link to an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksGet : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: accounts/1234/userLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink.
- *
- *  Gets information about a user's link to an account or property.
- *
- *  @param name Required. Example format: accounts/1234/userLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all user links on an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksList : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The maximum number of user links to return. The service may return fewer
- *  than this value. If unspecified, at most 200 user links will be returned.
- *  The maximum value is 500; values above 500 will be coerced to 500.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListUserLinks` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListUserLinks` must match the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Example format: accounts/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse.
- *
- *  Lists all user links on an account or property.
- *
- *  @param parent Required. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a user link on an account or property.
- *
- *  Method: analyticsadmin.accounts.userLinks.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch : GTLRGoogleAnalyticsAdminQuery
-
-/** Output only. Example format: properties/1234/userLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink.
- *
- *  Updates a user link on an account or property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink to include in
- *    the query.
- *  @param name Output only. Example format: properties/1234/userLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                           name:(NSString *)name;
 
 @end
 
@@ -719,203 +355,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse.
+ *  GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionResponse.
  *
  *  Acknowledges the terms of user data collection for the specified property.
  *  This acknowledgement must be completed (either in the Google Analytics UI or
  *  via this API) before MeasurementProtocolSecret resources may be created.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest to
+ *    GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionRequest to
  *    include in the query.
  *  @param property Required. The property for which to acknowledge user data
  *    collection.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAcknowledgeUserDataCollection
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionRequest *)object
                        property:(NSString *)property;
-
-@end
-
-/**
- *  Archives an Audience on a property.
- *
- *  Method: analyticsadmin.properties.audiences.archive
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesArchive : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: properties/1234/audiences/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Archives an Audience on a property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest
- *    to include in the query.
- *  @param name Required. Example format: properties/1234/audiences/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesArchive
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates an Audience.
- *
- *  Method: analyticsadmin.properties.audiences.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesCreate : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAudience.
- *
- *  Creates an Audience.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAudience to include in
- *    the query.
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAudience *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Lookup for a single Audience. Audiences created before 2020 may not be
- *  supported. Default audiences will not show filter definitions.
- *
- *  Method: analyticsadmin.properties.audiences.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesGet : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the Audience to get. Example format:
- *  properties/1234/audiences/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAudience.
- *
- *  Lookup for a single Audience. Audiences created before 2020 may not be
- *  supported. Default audiences will not show filter definitions.
- *
- *  @param name Required. The name of the Audience to get. Example format:
- *    properties/1234/audiences/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists Audiences on a property. Audiences created before 2020 may not be
- *  supported. Default audiences will not show filter definitions.
- *
- *  Method: analyticsadmin.properties.audiences.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesList : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200 (higher values will be
- *  coerced to the maximum).
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListAudiences` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListAudiences` must match the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListAudiencesResponse.
- *
- *  Lists Audiences on a property. Audiences created before 2020 may not be
- *  supported. Default audiences will not show filter definitions.
- *
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates an Audience on a property.
- *
- *  Method: analyticsadmin.properties.audiences.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesPatch : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Output only. The resource name for this Audience resource. Format:
- *  properties/{propertyId}/audiences/{audienceId}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Field names must be in snake
- *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
- *  replace the entire entity, use one path with the string "*" to match all
- *  fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAudience.
- *
- *  Updates an Audience on a property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAudience to include in
- *    the query.
- *  @param name Output only. The resource name for this Audience resource.
- *    Format: properties/{propertyId}/audiences/{audienceId}
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesPatch
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAudience *)object
-                           name:(NSString *)name;
 
 @end
 
@@ -936,18 +391,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
  *  Creates a conversion event with the specified attributes.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent to
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
  *    include in the query.
  *  @param parent Required. The resource name of the parent property where this
  *    conversion event will be created. Format: properties/123
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaConversionEvent *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1003,7 +458,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
  *  Retrieve a single conversion event.
  *
@@ -1051,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListConversionEventsResponse.
  *
  *  Returns a list of conversion events in the specified parent property.
  *  Returns an empty list if no conversion events are found.
@@ -1080,16 +535,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesCreate : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
  *  Creates an "GA4" property with the specified location and attributes.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaProperty to include in
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaProperty to include in
  *    the query.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object;
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProperty *)object;
 
 @end
 
@@ -1115,14 +570,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Archives a CustomDimension on a property.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest to include
- *    in the query.
+ *    GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomDimensionRequest to include in
+ *    the query.
  *  @param name Required. The name of the CustomDimension to archive. Example
  *    format: properties/1234/customDimensions/5678
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsArchive
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomDimensionRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1141,17 +596,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.
  *
  *  Creates a CustomDimension.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension to
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension to
  *    include in the query.
  *  @param parent Required. Example format: properties/1234
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomDimension *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1174,7 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.
  *
  *  Lookup for a single CustomDimension.
  *
@@ -1217,7 +672,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListCustomDimensionsResponse.
  *
  *  Lists CustomDimensions on a property.
  *
@@ -1259,18 +714,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.
  *
  *  Updates a CustomDimension on a property.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension to
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension to
  *    include in the query.
  *  @param name Output only. Resource name for this CustomDimension resource.
  *    Format: properties/{property}/customDimensions/{customDimension}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomDimension *)object
                            name:(NSString *)name;
 
 @end
@@ -1297,14 +752,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Archives a CustomMetric on a property.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest to include in
+ *    GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomMetricRequest to include in
  *    the query.
  *  @param name Required. The name of the CustomMetric to archive. Example
  *    format: properties/1234/customMetrics/5678
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsArchive
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaArchiveCustomMetricRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1323,17 +778,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomMetric.
  *
  *  Creates a CustomMetric.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric to include
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomMetric to include
  *    in the query.
  *  @param parent Required. Example format: properties/1234
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomMetric *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1356,7 +811,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomMetric.
  *
  *  Lookup for a single CustomMetric.
  *
@@ -1399,7 +854,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListCustomMetricsResponse.
  *
  *  Lists CustomMetrics on a property.
  *
@@ -1441,18 +896,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomMetric.
  *
  *  Updates a CustomMetric on a property.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric to include
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomMetric to include
  *    in the query.
  *  @param name Output only. Resource name for this CustomMetric resource.
  *    Format: properties/{property}/customMetrics/{customMetric}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaCustomMetric *)object
                            name:(NSString *)name;
 
 @end
@@ -1471,17 +926,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaDataStream.
  *
  *  Creates a DataStream.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream to include
- *    in the query.
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaDataStream to include in
+ *    the query.
  *  @param parent Required. Example format: properties/1234
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataStream *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaDataStream *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1534,7 +989,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaDataStream.
  *
  *  Lookup for a single DataStream.
  *
@@ -1542,43 +997,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    properties/1234/dataStreams/5678
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the Site Tag for the specified web stream. Site Tags are immutable
- *  singletons.
- *
- *  Method: analyticsadmin.properties.dataStreams.getGlobalSiteTag
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGetGlobalSiteTag : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the site tag to lookup. Note that site tags are
- *  singletons and do not have unique IDs. Format:
- *  properties/{property_id}/dataStreams/{stream_id}/globalSiteTag Example:
- *  "properties/123/dataStreams/456/globalSiteTag"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag.
- *
- *  Returns the Site Tag for the specified web stream. Site Tags are immutable
- *  singletons.
- *
- *  @param name Required. The name of the site tag to lookup. Note that site
- *    tags are singletons and do not have unique IDs. Format:
- *    properties/{property_id}/dataStreams/{stream_id}/globalSiteTag Example:
- *    "properties/123/dataStreams/456/globalSiteTag"
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGetGlobalSiteTag
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1614,7 +1032,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListDataStreamsResponse.
  *
  *  Lists DataStreams on a property.
  *
@@ -1647,19 +1065,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret.
  *
  *  Creates a measurement protocol secret.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
- *    the query.
+ *    GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret to include in the
+ *    query.
  *  @param parent Required. The parent resource where this secret will be
  *    created. Format: properties/{property}/dataStreams/{dataStream}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1713,7 +1131,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret.
  *
  *  Lookup for a single "GA4" MeasurementProtocolSecret.
  *
@@ -1762,7 +1180,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse.
+ *  GTLRGoogleAnalyticsAdmin_V1betaListMeasurementProtocolSecretsResponse.
  *
  *  Returns child MeasurementProtocolSecrets under the specified parent
  *  Property.
@@ -1805,20 +1223,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret.
  *
  *  Updates a measurement protocol secret.
  *
  *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
- *    the query.
+ *    GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret to include in the
+ *    query.
  *  @param name Output only. Resource name of this secret. This secret may be a
  *    child of any type of stream. Format:
  *    properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret *)object
                            name:(NSString *)name;
 
 @end
@@ -1850,19 +1268,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaDataStream.
  *
  *  Updates a DataStream on a property.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream to include
- *    in the query.
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaDataStream to include in
+ *    the query.
  *  @param name Output only. Resource name of this Data Stream. Format:
  *    properties/{property_id}/dataStreams/{stream_id} Example:
  *    "properties/1000/dataStreams/2000"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataStream *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaDataStream *)object
                            name:(NSString *)name;
 
 @end
@@ -1890,7 +1308,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
  *  Marks target Property as soft-deleted (ie: "trashed") and returns it. This
  *  API does not have a method to restore soft-deleted properties. However, they
@@ -1910,427 +1328,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Approves a DisplayVideo360AdvertiserLinkProposal. The
- *  DisplayVideo360AdvertiserLinkProposal will be deleted and a new
- *  DisplayVideo360AdvertiserLink will be created.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsApprove : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to approve.
- *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse.
- *
- *  Approves a DisplayVideo360AdvertiserLinkProposal. The
- *  DisplayVideo360AdvertiserLinkProposal will be deleted and a new
- *  DisplayVideo360AdvertiserLink will be created.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
- *    to include in the query.
- *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
- *    to approve. Example format:
- *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsApprove
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either:
- *  - Declining a proposal initiated from Display & Video 360 - Withdrawing a
- *  proposal initiated from Google Analytics After being cancelled, a proposal
- *  will eventually be deleted automatically.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCancel : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to cancel.
- *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal.
- *
- *  Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either:
- *  - Declining a proposal initiated from Display & Video 360 - Withdrawing a
- *  proposal initiated from Google Analytics After being cancelled, a proposal
- *  will eventually be deleted automatically.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
- *    to include in the query.
- *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
- *    to cancel. Example format:
- *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCancel
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates a DisplayVideo360AdvertiserLinkProposal.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCreate : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal.
- *
- *  Creates a DisplayVideo360AdvertiserLinkProposal.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal to
- *    include in the query.
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only
- *  be used on cancelled proposals.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsDelete : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to delete.
- *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only
- *  be used on cancelled proposals.
- *
- *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
- *    to delete. Example format:
- *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lookup for a single DisplayVideo360AdvertiserLinkProposal.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsGet : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to get.
- *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal.
- *
- *  Lookup for a single DisplayVideo360AdvertiserLinkProposal.
- *
- *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
- *    to get. Example format:
- *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists DisplayVideo360AdvertiserLinkProposals on a property.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsList : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200 (higher values will be
- *  coerced to the maximum).
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous
- *  `ListDisplayVideo360AdvertiserLinkProposals` call. Provide this to retrieve
- *  the subsequent page. When paginating, all other parameters provided to
- *  `ListDisplayVideo360AdvertiserLinkProposals` must match the call that
- *  provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse.
- *
- *  Lists DisplayVideo360AdvertiserLinkProposals on a property.
- *
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users
- *  who have proper authorization both on the Google Analytics property and on
- *  the Display & Video 360 advertiser. Users who do not have access to the
- *  Display & Video 360 advertiser should instead seek to create a
- *  DisplayVideo360LinkProposal.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksCreate : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink.
- *
- *  Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users
- *  who have proper authorization both on the Google Analytics property and on
- *  the Display & Video 360 advertiser. Users who do not have access to the
- *  Display & Video 360 advertiser should instead seek to create a
- *  DisplayVideo360LinkProposal.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink to include
- *    in the query.
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a DisplayVideo360AdvertiserLink on a property.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksDelete : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the DisplayVideo360AdvertiserLink to delete. Example
- *  format: properties/1234/displayVideo360AdvertiserLinks/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes a DisplayVideo360AdvertiserLink on a property.
- *
- *  @param name Required. The name of the DisplayVideo360AdvertiserLink to
- *    delete. Example format:
- *    properties/1234/displayVideo360AdvertiserLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Look up a single DisplayVideo360AdvertiserLink
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksGet : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the DisplayVideo360AdvertiserLink to get. Example
- *  format: properties/1234/displayVideo360AdvertiserLink/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink.
- *
- *  Look up a single DisplayVideo360AdvertiserLink
- *
- *  @param name Required. The name of the DisplayVideo360AdvertiserLink to get.
- *    Example format: properties/1234/displayVideo360AdvertiserLink/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all DisplayVideo360AdvertiserLinks on a property.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksList : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200 (higher values will be
- *  coerced to the maximum).
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListDisplayVideo360AdvertiserLinks`
- *  call. Provide this to retrieve the subsequent page. When paginating, all
- *  other parameters provided to `ListDisplayVideo360AdvertiserLinks` must match
- *  the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse.
- *
- *  Lists all DisplayVideo360AdvertiserLinks on a property.
- *
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a DisplayVideo360AdvertiserLink on a property.
- *
- *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksPatch : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Output only. The resource name for this DisplayVideo360AdvertiserLink
- *  resource. Format:
- *  properties/{propertyId}/displayVideo360AdvertiserLinks/{linkId} Note: linkId
- *  is not the Display & Video 360 Advertiser ID
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Omitted fields will not be
- *  updated. To replace the entire entity, use one path with the string "*" to
- *  match all fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink.
- *
- *  Updates a DisplayVideo360AdvertiserLink on a property.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink to include
- *    in the query.
- *  @param name Output only. The resource name for this
- *    DisplayVideo360AdvertiserLink resource. Format:
- *    properties/{propertyId}/displayVideo360AdvertiserLinks/{linkId} Note:
- *    linkId is not the Display & Video 360 Advertiser ID
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksPatch
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Creates a FirebaseLink. Properties can have at most one FirebaseLink.
  *
  *  Method: analyticsadmin.properties.firebaseLinks.create
@@ -2344,18 +1341,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink.
  *
  *  Creates a FirebaseLink. Properties can have at most one FirebaseLink.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink to include
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink to include
  *    in the query.
  *  @param parent Required. Format: properties/{property_id} Example:
  *    properties/1234
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2414,7 +1411,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A page token, received from a previous `ListFirebaseLinks` call. Provide
  *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListProperties` must match the call that provided the page
+ *  provided to `ListFirebaseLinks` must match the call that provided the page
  *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2423,7 +1420,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListFirebaseLinksResponse.
  *
  *  Lists FirebaseLinks on a property. Properties can have at most one
  *  FirebaseLink.
@@ -2459,7 +1456,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
  *  Lookup for a single "GA4" Property.
  *
@@ -2467,37 +1464,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    properties/{property_id} Example: "properties/1000"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lookup for a AttributionSettings singleton.
- *
- *  Method: analyticsadmin.properties.getAttributionSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesGetAttributionSettings : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the attribution settings to retrieve. Format:
- *  properties/{property}/attributionSettings
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.
- *
- *  Lookup for a AttributionSettings singleton.
- *
- *  @param name Required. The name of the attribution settings to retrieve.
- *    Format: properties/{property}/attributionSettings
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGetAttributionSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2522,7 +1488,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.
  *
  *  Returns the singleton data retention settings for this property.
  *
@@ -2531,37 +1497,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    "properties/1000/dataRetentionSettings"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGetDataRetentionSettings
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lookup for Google Signals settings for a property.
- *
- *  Method: analyticsadmin.properties.getGoogleSignalsSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the google signals settings to retrieve. Format:
- *  properties/{property}/googleSignalsSettings
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.
- *
- *  Lookup for Google Signals settings for a property.
- *
- *  @param name Required. The name of the google signals settings to retrieve.
- *    Format: properties/{property}/googleSignalsSettings
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2581,17 +1516,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink.
  *
  *  Creates a GoogleAdsLink.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink to
- *    include in the query.
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink to include
+ *    in the query.
  *  @param parent Required. Example format: properties/1234
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksCreate
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2652,7 +1587,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListGoogleAdsLinksResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListGoogleAdsLinksResponse.
  *
  *  Lists GoogleAdsLinks on a property.
  *
@@ -2696,19 +1631,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink.
  *
  *  Updates a GoogleAdsLink on a property
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink to
- *    include in the query.
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink to include
+ *    in the query.
  *  @param name Output only. Format:
  *    properties/{propertyId}/googleAdsLinks/{googleAdsLinkId} Note:
  *    googleAdsLinkId is not the Google Ads customer ID.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink *)object
                            name:(NSString *)name;
 
 @end
@@ -2765,7 +1700,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL showDeleted;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListPropertiesResponse.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListPropertiesResponse.
  *
  *  Returns child Properties under the specified parent Account. Only "GA4"
  *  properties will be returned. Properties will be excluded if the caller does
@@ -2809,298 +1744,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
  *  Updates a property.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaProperty to include in
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaProperty to include in
  *    the query.
  *  @param name Output only. Resource name of this property. Format:
  *    properties/{property_id} Example: "properties/1000"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesPatch
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Returns a customized report of data access records. The report provides
- *  records of each time a user reads Google Analytics reporting data. Access
- *  records are retained for up to 2 years. Data Access Reports can be requested
- *  for a property. The property must be in Google Analytics 360. This method is
- *  only available to Administrators. These data access records include GA4 UI
- *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
- *  Firebase & Admob that can retrieve data from Google Analytics through a
- *  linkage. These records don't include property configuration changes like
- *  adding a stream or changing a property's time zone. For configuration change
- *  history, see
- *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
- *
- *  Method: analyticsadmin.properties.runAccessReport
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The Data Access Report is requested for this property. For example if "123"
- *  is your GA4 property ID, then entity should be "properties/123".
- */
-@property(nonatomic, copy, nullable) NSString *entity;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportResponse.
- *
- *  Returns a customized report of data access records. The report provides
- *  records of each time a user reads Google Analytics reporting data. Access
- *  records are retained for up to 2 years. Data Access Reports can be requested
- *  for a property. The property must be in Google Analytics 360. This method is
- *  only available to Administrators. These data access records include GA4 UI
- *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
- *  Firebase & Admob that can retrieve data from Google Analytics through a
- *  linkage. These records don't include property configuration changes like
- *  adding a stream or changing a property's time zone. For configuration change
- *  history, see
- *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest
- *    to include in the query.
- *  @param entity The Data Access Report is requested for this property. For
- *    example if "123" is your GA4 property ID, then entity should be
- *    "properties/123".
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest *)object
-                         entity:(NSString *)entity;
-
-@end
-
-/**
- *  Creates a SearchAds360Link.
- *
- *  Method: analyticsadmin.properties.searchAds360Links.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksCreate : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link.
- *
- *  Creates a SearchAds360Link.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link to
- *    include in the query.
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a SearchAds360Link on a property.
- *
- *  Method: analyticsadmin.properties.searchAds360Links.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksDelete : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the SearchAds360Link to delete. Example format:
- *  properties/1234/SearchAds360Links/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes a SearchAds360Link on a property.
- *
- *  @param name Required. The name of the SearchAds360Link to delete. Example
- *    format: properties/1234/SearchAds360Links/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Look up a single SearchAds360Link
- *
- *  Method: analyticsadmin.properties.searchAds360Links.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksGet : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the SearchAds360Link to get. Example format:
- *  properties/1234/SearchAds360Link/5678
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link.
- *
- *  Look up a single SearchAds360Link
- *
- *  @param name Required. The name of the SearchAds360Link to get. Example
- *    format: properties/1234/SearchAds360Link/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all SearchAds360Links on a property.
- *
- *  Method: analyticsadmin.properties.searchAds360Links.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksList : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200 (higher values will be
- *  coerced to the maximum).
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListSearchAds360Links` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListSearchAds360Links` must match the call that provided the
- *  page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Example format: properties/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse.
- *
- *  Lists all SearchAds360Links on a property.
- *
- *  @param parent Required. Example format: properties/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a SearchAds360Link on a property.
- *
- *  Method: analyticsadmin.properties.searchAds360Links.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksPatch : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Output only. The resource name for this SearchAds360Link resource. Format:
- *  properties/{propertyId}/searchAds360Links/{linkId} Note: linkId is not the
- *  Search Ads 360 advertiser ID
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Omitted fields will not be
- *  updated. To replace the entire entity, use one path with the string "*" to
- *  match all fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link.
- *
- *  Updates a SearchAds360Link on a property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link to
- *    include in the query.
- *  @param name Output only. The resource name for this SearchAds360Link
- *    resource. Format: properties/{propertyId}/searchAds360Links/{linkId} Note:
- *    linkId is not the Search Ads 360 advertiser ID
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksPatch
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Updates attribution settings on a property.
- *
- *  Method: analyticsadmin.properties.updateAttributionSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateAttributionSettings : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Output only. Resource name of this attribution settings resource. Format:
- *  properties/{property_id}/attributionSettings Example:
- *  "properties/1000/attributionSettings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Field names must be in snake
- *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
- *  replace the entire entity, use one path with the string "*" to match all
- *  fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.
- *
- *  Updates attribution settings on a property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings to
- *    include in the query.
- *  @param name Output only. Resource name of this attribution settings
- *    resource. Format: properties/{property_id}/attributionSettings Example:
- *    "properties/1000/attributionSettings"
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateAttributionSettings
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProperty *)object
                            name:(NSString *)name;
 
 @end
@@ -3132,427 +1787,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.
  *
  *  Updates the singleton data retention settings for this property.
  *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings
- *    to include in the query.
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings to
+ *    include in the query.
  *  @param name Output only. Resource name for this DataRetentionSetting
  *    resource. Format: properties/{property}/dataRetentionSettings
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateDataRetentionSettings
  */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Updates Google Signals settings for a property.
- *
- *  Method: analyticsadmin.properties.updateGoogleSignalsSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Output only. Resource name of this setting. Format:
- *  properties/{property_id}/googleSignalsSettings Example:
- *  "properties/1000/googleSignalsSettings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Field names must be in snake
- *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
- *  replace the entire entity, use one path with the string "*" to match all
- *  fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.
- *
- *  Updates Google Signals settings for a property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings
- *    to include in the query.
- *  @param name Output only. Resource name of this setting. Format:
- *    properties/{property_id}/googleSignalsSettings Example:
- *    "properties/1000/googleSignalsSettings"
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Lists all user links on an account or property, including implicit ones that
- *  come from effective permissions granted by groups or organization admin
- *  roles. If a returned user link does not have direct permissions, they cannot
- *  be removed from the account or property directly with the DeleteUserLink
- *  command. They have to be removed from the group/etc that gives them
- *  permissions, which is currently only usable/discoverable in the GA or GMP
- *  UIs.
- *
- *  Method: analyticsadmin.properties.userLinks.audit
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksAudit : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: accounts/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksResponse.
- *
- *  Lists all user links on an account or property, including implicit ones that
- *  come from effective permissions granted by groups or organization admin
- *  roles. If a returned user link does not have direct permissions, they cannot
- *  be removed from the account or property directly with the DeleteUserLink
- *  command. They have to be removed from the group/etc that gives them
- *  permissions, which is currently only usable/discoverable in the GA or GMP
- *  UIs.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest
- *    to include in the query.
- *  @param parent Required. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksAudit
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates information about multiple users' links to an account or property.
- *  This method is transactional. If any UserLink cannot be created, none of the
- *  UserLinks will be created.
- *
- *  Method: analyticsadmin.properties.userLinks.batchCreate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchCreate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. This field is required. The parent field in the CreateUserLinkRequest
- *  messages must either be empty or match this field. Example format:
- *  accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksResponse.
- *
- *  Creates information about multiple users' links to an account or property.
- *  This method is transactional. If any UserLink cannot be created, none of the
- *  UserLinks will be created.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest to include in
- *    the query.
- *  @param parent Required. The account or property that all user links in the
- *    request are for. This field is required. The parent field in the
- *    CreateUserLinkRequest messages must either be empty or match this field.
- *    Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes information about multiple users' links to an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.batchDelete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchDelete : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. The parent of all values for user link names to delete must match this
- *  field. Example format: accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes information about multiple users' links to an account or property.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest to include in
- *    the query.
- *  @param parent Required. The account or property that all user links in the
- *    request are for. The parent of all values for user link names to delete
- *    must match this field. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchDelete
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets information about multiple users' links to an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.batchGet
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchGet : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The names of the user links to retrieve. A maximum of 1000 user
- *  links can be retrieved in a batch. Format:
- *  accounts/{accountId}/userLinks/{userLinkId}
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. The parent of all provided values for the 'names' field must match this
- *  field. Example format: accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaBatchGetUserLinksResponse.
- *
- *  Gets information about multiple users' links to an account or property.
- *
- *  @param parent Required. The account or property that all user links in the
- *    request are for. The parent of all provided values for the 'names' field
- *    must match this field. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchGet
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates information about multiple users' links to an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.batchUpdate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchUpdate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The account or property that all user links in the request are
- *  for. The parent field in the UpdateUserLinkRequest messages must either be
- *  empty or match this field. Example format: accounts/1234
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksResponse.
- *
- *  Updates information about multiple users' links to an account or property.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest to include in
- *    the query.
- *  @param parent Required. The account or property that all user links in the
- *    request are for. The parent field in the UpdateUserLinkRequest messages
- *    must either be empty or match this field. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchUpdate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a user link on an account or property. If the user with the
- *  specified email already has permissions on the account or property, then the
- *  user's existing permissions will be unioned with the permissions specified
- *  in the new UserLink.
- *
- *  Method: analyticsadmin.properties.userLinks.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksCreate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Optional. If set, then email the new user notifying them that they've been
- *  granted permissions to the resource.
- */
-@property(nonatomic, assign) BOOL notifyNewUser;
-
-/** Required. Example format: accounts/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink.
- *
- *  Creates a user link on an account or property. If the user with the
- *  specified email already has permissions on the account or property, then the
- *  user's existing permissions will be unioned with the permissions specified
- *  in the new UserLink.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink to include in
- *    the query.
- *  @param parent Required. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a user link on an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksDelete : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: accounts/1234/userLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Deletes a user link on an account or property.
- *
- *  @param name Required. Example format: accounts/1234/userLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets information about a user's link to an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksGet : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: accounts/1234/userLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink.
- *
- *  Gets information about a user's link to an account or property.
- *
- *  @param name Required. Example format: accounts/1234/userLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all user links on an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksList : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  The maximum number of user links to return. The service may return fewer
- *  than this value. If unspecified, at most 200 user links will be returned.
- *  The maximum value is 500; values above 500 will be coerced to 500.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListUserLinks` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListUserLinks` must match the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Example format: accounts/1234 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse.
- *
- *  Lists all user links on an account or property.
- *
- *  @param parent Required. Example format: accounts/1234
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a user link on an account or property.
- *
- *  Method: analyticsadmin.properties.userLinks.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch : GTLRGoogleAnalyticsAdminQuery
-
-/** Output only. Example format: properties/1234/userLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink.
- *
- *  Updates a user link on an account or property.
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink to include in
- *    the query.
- *  @param name Output only. Example format: properties/1234/userLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings *)object
                            name:(NSString *)name;
 
 @end

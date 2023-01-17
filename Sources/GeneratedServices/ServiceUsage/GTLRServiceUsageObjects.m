@@ -24,6 +24,21 @@ NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddre
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceUsage_ClientLibrarySettings.launchStage
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceUsage_CommonLanguageSettings.destinations
+NSString * const kGTLRServiceUsage_CommonLanguageSettings_Destinations_ClientLibraryDestinationUnspecified = @"CLIENT_LIBRARY_DESTINATION_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_CommonLanguageSettings_Destinations_Github = @"GITHUB";
+NSString * const kGTLRServiceUsage_CommonLanguageSettings_Destinations_PackageManager = @"PACKAGE_MANAGER";
+
 // GTLRServiceUsage_DisableServiceRequest.checkIfServiceHasUsage
 NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Check = @"CHECK";
 NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_CheckIfServiceHasUsageUnspecified = @"CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED";
@@ -126,6 +141,13 @@ NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Ga = 
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceUsage_Publishing.organization
+NSString * const kGTLRServiceUsage_Publishing_Organization_Ads = @"ADS";
+NSString * const kGTLRServiceUsage_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceUsage_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceUsage_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceUsage_Type.syntax
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -268,8 +290,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
-         pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 
@@ -411,6 +433,36 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_ClientLibrarySettings
+//
+
+@implementation GTLRServiceUsage_ClientLibrarySettings
+@dynamic cppSettings, dotnetSettings, goSettings, javaSettings, launchStage,
+         nodeSettings, phpSettings, pythonSettings, restNumericEnums,
+         rubySettings, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_CommonLanguageSettings
+//
+
+@implementation GTLRServiceUsage_CommonLanguageSettings
+@dynamic destinations, referenceDocsUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Context
 //
 
@@ -456,6 +508,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_Control
 @dynamic environment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_CppSettings
+//
+
+@implementation GTLRServiceUsage_CppSettings
+@dynamic common;
 @end
 
 
@@ -579,6 +641,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_DotnetSettings
+//
+
+@implementation GTLRServiceUsage_DotnetSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Empty
 //
 
@@ -621,7 +693,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_Endpoint
-@dynamic allowCors, name, target;
+@dynamic aliases, allowCors, name, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aliases" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -715,8 +795,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 @dynamic apis, authentication, backend, billing, configVersion, context,
          control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
-         name, producerProjectId, quota, sourceInfo, systemParameters,
-         systemTypes, title, types, usage;
+         name, producerProjectId, publishing, quota, sourceInfo,
+         systemParameters, systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -805,6 +885,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoSettings
+//
+
+@implementation GTLRServiceUsage_GoSettings
+@dynamic common;
 @end
 
 
@@ -925,6 +1015,30 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
     @"overrides" : [GTLRServiceUsage_QuotaOverride class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_JavaSettings
+//
+
+@implementation GTLRServiceUsage_JavaSettings
+@dynamic common, libraryPackage, serviceClassNames;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_JavaSettings_ServiceClassNames
+//
+
+@implementation GTLRServiceUsage_JavaSettings_ServiceClassNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1060,6 +1174,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_LongRunning
+//
+
+@implementation GTLRServiceUsage_LongRunning
+@dynamic initialPollDelay, maxPollDelay, pollDelayMultiplier, totalPollTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Method
 //
 
@@ -1074,6 +1198,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_MethodSettings
+//
+
+@implementation GTLRServiceUsage_MethodSettings
+@dynamic longRunning, selector;
 @end
 
 
@@ -1206,6 +1340,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_NodeSettings
+//
+
+@implementation GTLRServiceUsage_NodeSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_OAuthRequirements
 //
 
@@ -1314,6 +1458,48 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_PhpSettings
+//
+
+@implementation GTLRServiceUsage_PhpSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Publishing
+//
+
+@implementation GTLRServiceUsage_Publishing
+@dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
+         githubLabel, librarySettings, methodSettings, newIssueUri,
+         organization;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"codeownerGithubTeams" : [NSString class],
+    @"librarySettings" : [GTLRServiceUsage_ClientLibrarySettings class],
+    @"methodSettings" : [GTLRServiceUsage_MethodSettings class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_PythonSettings
+//
+
+@implementation GTLRServiceUsage_PythonSettings
+@dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Quota
 //
 
@@ -1382,6 +1568,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_RubySettings
+//
+
+@implementation GTLRServiceUsage_RubySettings
+@dynamic common;
 @end
 
 

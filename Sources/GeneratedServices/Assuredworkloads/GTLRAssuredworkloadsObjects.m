@@ -23,6 +23,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
@@ -57,6 +58,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
@@ -164,6 +166,21 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 + (NSString *)collectionItemsKey {
   return @"workloads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest
+@dynamic ETag, partnerPermissions, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
 }
 
 @end
@@ -333,6 +350,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings
 @dynamic nextRotationTime, rotationPeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions
+@dynamic dataLogsViewer, remediateFolderViolations, serviceAccessApprover;
 @end
 
 

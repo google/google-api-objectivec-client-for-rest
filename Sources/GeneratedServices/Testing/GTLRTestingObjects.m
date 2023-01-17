@@ -112,10 +112,13 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_PlistCannotBeParse
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed = @"SCENARIO_LABEL_MALFORMED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelNotDeclared = @"SCENARIO_LABEL_NOT_DECLARED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared = @"SCENARIO_NOT_DECLARED";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ServiceNotActivated = @"SERVICE_NOT_ACTIVATED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound = @"TEST_LOOP_INTENT_FILTER_NOT_FOUND";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted = @"TEST_NOT_APP_HOSTED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk = @"TEST_ONLY_APK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestQuotaExceeded = @"TEST_QUOTA_EXCEEDED";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp = @"TEST_SAME_AS_APP";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UnknownPermissionError = @"UNKNOWN_PERMISSION_ERROR";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts = @"USE_DESTINATION_ARTIFACTS";
 
 // GTLRTesting_TestMatrix.outcomeSummary
@@ -368,13 +371,15 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_ApkManifest
-@dynamic applicationLabel, intentFilters, maxSdkVersion, minSdkVersion,
-         packageName, targetSdkVersion, usesPermission, versionCode,
-         versionName;
+@dynamic applicationLabel, intentFilters, maxSdkVersion, metadata,
+         minSdkVersion, packageName, targetSdkVersion, usesFeature,
+         usesPermission, versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"intentFilters" : [GTLRTesting_IntentFilter class],
+    @"metadata" : [GTLRTesting_Metadata class],
+    @"usesFeature" : [GTLRTesting_UsesFeature class],
     @"usesPermission" : [NSString class]
   };
   return map;
@@ -802,6 +807,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_Metadata
+//
+
+@implementation GTLRTesting_Metadata
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_NetworkConfiguration
 //
 
@@ -1128,6 +1143,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_UniformSharding
 @dynamic numShards;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_UsesFeature
+//
+
+@implementation GTLRTesting_UsesFeature
+@dynamic isRequired, name;
 @end
 
 
