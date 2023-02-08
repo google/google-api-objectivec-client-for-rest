@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRBigQueryReservation_Assignment;
+@class GTLRBigQueryReservation_Autoscale;
 @class GTLRBigQueryReservation_CapacityCommitment;
 @class GTLRBigQueryReservation_Reservation;
 @class GTLRBigQueryReservation_Status;
@@ -91,6 +92,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Pen
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_CapacityCommitment.edition
+
+/**
+ *  Default value, only for legacy reservations and capacity commitments.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise;
+
+// ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.plan
 
 /**
@@ -124,6 +141,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  *  Value: "MONTHLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
+/**
+ *  Should only be used for `renewal_plan` and is only meaningful if edition is
+ *  specified to values other than EDITION_UNSPECIFIED. Otherwise
+ *  CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. If the
+ *  renewal_plan is NONE, capacity commitment will be removed at the end of its
+ *  commitment period.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_None;
 /**
  *  Trial commitments have a committed period of 182 days after becoming ACTIVE.
  *  After that, they are converted to a new commitment based on the
@@ -169,6 +197,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
 /**
+ *  Should only be used for `renewal_plan` and is only meaningful if edition is
+ *  specified to values other than EDITION_UNSPECIFIED. Otherwise
+ *  CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. If the
+ *  renewal_plan is NONE, capacity commitment will be removed at the end of its
+ *  commitment period.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None;
+/**
  *  Trial commitments have a committed period of 182 days after becoming ACTIVE.
  *  After that, they are converted to a new commitment based on the
  *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so that
@@ -207,6 +246,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_Reservation.edition
+
+/**
+ *  Default value, only for legacy reservations and capacity commitments.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise;
 
 /**
  *  An assignment allows a project to submit jobs of a certain type using slots
@@ -269,6 +324,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 
 /**
+ *  Auto scaling settings.
+ */
+@interface GTLRBigQueryReservation_Autoscale : GTLRObject
+
+/**
+ *  Output only. The slot capacity added to this reservation when autoscale
+ *  happens. Will be between [0, max_slots].
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentSlots;
+
+/**
+ *  Number of slots to be scaled when needed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSlots;
+
+@end
+
+
+/**
  *  Represents a BI Reservation.
  */
 @interface GTLRBigQueryReservation_BiReservation : GTLRObject
@@ -318,6 +396,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
 
 /**
+ *  Edition of the capacity commitment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified
+ *        Default value, only for legacy reservations and capacity commitments.
+ *        (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise
+ *        Enterprise edition. (Value: "ENTERPRISE")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
+
+/**
  *  Output only. For FAILED commitment plan, provides the reason of failure.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Status *failureStatus;
@@ -362,6 +452,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *        commitments have a committed period of 30 days after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
  *        removed any time. (Value: "MONTHLY")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_None Should only
+ *        be used for `renewal_plan` and is only meaningful if edition is
+ *        specified to values other than EDITION_UNSPECIFIED. Otherwise
+ *        CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest
+ *        will be rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *        If the renewal_plan is NONE, capacity commitment will be removed at
+ *        the end of its commitment period. (Value: "NONE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial Trial
  *        commitments have a committed period of 182 days after becoming ACTIVE.
  *        After that, they are converted to a new commitment based on the
@@ -393,6 +490,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *        Monthly commitments have a committed period of 30 days after becoming
  *        ACTIVE. After that, they are not in a committed period anymore and can
  *        be removed any time. (Value: "MONTHLY")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None
+ *        Should only be used for `renewal_plan` and is only meaningful if
+ *        edition is specified to values other than EDITION_UNSPECIFIED.
+ *        Otherwise CreateCapacityCommitmentRequest or
+ *        UpdateCapacityCommitmentRequest will be rejected with error code
+ *        `google.rpc.Code.INVALID_ARGUMENT`. If the renewal_plan is NONE,
+ *        capacity commitment will be removed at the end of its commitment
+ *        period. (Value: "NONE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial
  *        Trial commitments have a committed period of 182 days after becoming
  *        ACTIVE. After that, they are converted to a new commitment based on
@@ -560,6 +665,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @interface GTLRBigQueryReservation_Reservation : GTLRObject
 
 /**
+ *  The configuration parameters for the auto scaling feature. Note this is an
+ *  alpha feature.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Autoscale *autoscale;
+
+/**
  *  Job concurrency target which sets a soft upper bound on the number of jobs
  *  that can run concurrently in this reservation. This is a soft target due to
  *  asynchronous nature of the system and various optimizations for small
@@ -573,6 +684,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /** Output only. Creation time of the reservation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  Edition of the reservation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified
+ *        Default value, only for legacy reservations and capacity commitments.
+ *        (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Enterprise
+ *        edition. (Value: "ENTERPRISE")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /**
  *  If false, any query or pipeline job using this reservation will use idle

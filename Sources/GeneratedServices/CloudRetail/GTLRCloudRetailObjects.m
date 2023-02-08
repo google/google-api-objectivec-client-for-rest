@@ -126,6 +126,33 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_Recon
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified = @"RECONCILIATION_MODE_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2Model.dataState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataError = @"DATA_ERROR";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataOk = @"DATA_OK";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataStateUnspecified = @"DATA_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2Model.filteringOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringDisabled = @"RECOMMENDATIONS_FILTERING_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringEnabled = @"RECOMMENDATIONS_FILTERING_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringOptionUnspecified = @"RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2Model.periodicTuningState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_AllTuningDisabled = @"ALL_TUNING_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningDisabled = @"PERIODIC_TUNING_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningEnabled = @"PERIODIC_TUNING_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningStateUnspecified = @"PERIODIC_TUNING_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2Model.servingState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Active = @"ACTIVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Inactive = @"INACTIVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_ServingStateUnspecified = @"SERVING_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Tuned = @"TUNED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2Model.trainingState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Paused = @"PAUSED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Training = @"TRAINING";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_TrainingStateUnspecified = @"TRAINING_STATE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2Product.availability
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Availability_Backorder = @"BACKORDER";
@@ -1469,6 +1496,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2CreateModelMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CreateModelMetadata
+@dynamic model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute
 //
 
@@ -1483,6 +1520,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo
+@dynamic experimentName, servingConfigExperiment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment
+@dynamic experimentServingConfig, originalServingConfig;
 @end
 
 
@@ -1704,6 +1761,28 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2ListModelsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ListModelsResponse
+@dynamic models, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"models" : [GTLRCloudRetail_GoogleCloudRetailV2Model class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"models";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2ListProductsResponse
 //
 
@@ -1775,6 +1854,53 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return [GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2Model
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Model
+@dynamic createTime, dataState, displayName, filteringOption, lastTuneTime,
+         name, optimizationObjective, periodicTuningState, servingConfigLists,
+         servingState, trainingState, tuningOperation, type, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingConfigLists" : [GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList
+@dynamic servingConfigIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingConfigIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest
 @end
 
 
@@ -2195,6 +2321,15 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2ResumeModelRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ResumeModelRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2Rule
 //
 
@@ -2480,13 +2615,14 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponse
-@dynamic appliedControls, attributionToken, correctedQuery, facets,
-         invalidConditionBoostSpecs, nextPageToken, queryExpansionInfo,
+@dynamic appliedControls, attributionToken, correctedQuery, experimentInfo,
+         facets, invalidConditionBoostSpecs, nextPageToken, queryExpansionInfo,
          redirectUri, results, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appliedControls" : [NSString class],
+    @"experimentInfo" : [GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo class],
     @"facets" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet class],
     @"invalidConditionBoostSpecs" : [GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec class],
     @"results" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult class]
@@ -2653,6 +2789,34 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SetInventoryResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2TuneModelMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2TuneModelMetadata
+@dynamic model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2TuneModelRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2TuneModelRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2TuneModelResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2TuneModelResponse
 @end
 
 

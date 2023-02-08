@@ -110,6 +110,12 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportQueued = @"IMPORT_QUEUED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified = @"IMPORT_STATE_UNSPECIFIED";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata.state
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationDone = @"RECONCILIATION_DONE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationInProgress = @"RECONCILIATION_IN_PROGRESS";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationQueued = @"RECONCILIATION_QUEUED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationStateUnspecified = @"RECONCILIATION_STATE_UNSPECIFIED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec.routineType
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_Procedure = @"PROCEDURE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
@@ -143,6 +149,11 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_Act
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl = @"FINE_GRAINED_ACCESS_CONTROL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService.name
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemDataplex = @"MANAGING_SYSTEM_DATAPLEX";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemOther = @"MANAGING_SYSTEM_OTHER";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemUnspecified = @"MANAGING_SYSTEM_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -925,6 +936,58 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata
+@dynamic errors, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_Errors
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_Errors
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataCatalog_Status class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest
+@dynamic forceDeleteMissing, tags, tagTemplate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse
+@dynamic createdTagsCount, deletedTagsCount, updatedTagsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest
 //
 
@@ -1278,7 +1341,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy
 @dynamic activatedPolicyTypes, descriptionProperty, displayName, name,
-         policyTagCount, taxonomyTimestamps;
+         policyTagCount, service, taxonomyTimestamps;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1291,6 +1354,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService
+@dynamic identity, name;
 @end
 
 

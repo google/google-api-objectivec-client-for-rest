@@ -975,8 +975,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_IPAllocationPolicy
 @dynamic clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
          createSubnetwork, ipv6AccessType, nodeIpv4Cidr, nodeIpv4CidrBlock,
-         servicesIpv4Cidr, servicesIpv4CidrBlock, servicesSecondaryRangeName,
-         stackType, subnetworkName, tpuIpv4CidrBlock, useIpAliases, useRoutes;
+         servicesIpv4Cidr, servicesIpv4CidrBlock, servicesIpv6CidrBlock,
+         servicesSecondaryRangeName, stackType, subnetIpv6CidrBlock,
+         subnetworkName, tpuIpv4CidrBlock, useIpAliases, useRoutes;
 @end
 
 

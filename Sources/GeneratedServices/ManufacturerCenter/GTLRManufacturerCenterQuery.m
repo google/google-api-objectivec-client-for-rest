@@ -29,6 +29,90 @@ NSString * const kGTLRManufacturerCenterIncludeUnknown         = @"UNKNOWN";
 
 @end
 
+@implementation GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManufacturerCenter_Empty class];
+  query.loggingName = @"manufacturers.accounts.languages.productCertifications.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManufacturerCenter_ProductCertification class];
+  query.loggingName = @"manufacturers.accounts.languages.productCertifications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/productCertifications";
+  GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManufacturerCenter_ListProductCertificationsResponse class];
+  query.loggingName = @"manufacturers.accounts.languages.productCertifications.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRManufacturerCenter_ProductCertification *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManufacturerCenter_ProductCertification class];
+  query.loggingName = @"manufacturers.accounts.languages.productCertifications.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRManufacturerCenterQuery_AccountsProductsDelete
 
 @dynamic name, parent;

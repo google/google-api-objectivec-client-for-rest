@@ -38,6 +38,12 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Content_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField;
@@ -69,6 +75,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataSource;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventActionDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails_Parameters;
@@ -92,6 +100,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Schema;
@@ -2434,6 +2443,220 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  DataAccessSpec holds the access control configuration to be enforced on data
+ *  stored within resources (eg: rows, columns in BigQuery Tables). When
+ *  associated with data, the data is only accessible to principals explicitly
+ *  granted access through the DataAccessSpec. Principals with access to the
+ *  containing resource are not implicitly granted access.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec : GTLRObject
+
+/**
+ *  Optional. The format of strings follows the pattern followed by IAM in the
+ *  bindings. user:{email}, serviceAccount:{email} group:{email}. The set of
+ *  principals to be granted reader role on data stored within resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *readers;
+
+@end
+
+
+/**
+ *  Denotes one dataAttribute in a dataTaxonomy, for example, PII. DataAttribute
+ *  resources can be defined in a hierarchy. A single dataAttribute resource can
+ *  contain specs of multiple types PII - ResourceAccessSpec : - readers
+ *  :foo\@bar.com - DataAccessSpec : - readers :bar\@foo.com
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute : GTLRObject
+
+/**
+ *  Output only. The number of child attributes present for this attribute.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attributeCount;
+
+/** Output only. The time when the DataAttribute was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Specified when applied to data stored on the resource (eg: rows,
+ *  columns in BigQuery Tables).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec *dataAccessSpec;
+
+/**
+ *  Optional. Description of the DataAttribute.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the DataAttribute. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels *labels;
+
+/**
+ *  Output only. The relative resource name of the dataAttribute, of the form:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The ID of the parent DataAttribute resource, should belong to the
+ *  same data taxonomy. Circular dependency in parent chain is not valid.
+ *  Maximum depth of the hierarchy allowed is 4. a -> b -> c -> d -> e, depth =
+ *  4
+ */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Optional. Specified when applied to a resource (eg: Cloud Storage bucket,
+ *  BigQuery dataset, BigQuery table).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec *resourceAccessSpec;
+
+/**
+ *  Output only. System generated globally unique ID for the DataAttribute. This
+ *  ID will be different if the DataAttribute is deleted and re-created with the
+ *  same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the DataAttribute was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the DataAttribute.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels : GTLRObject
+@end
+
+
+/**
+ *  DataAttributeBinding represents binding of attributes to resources. Eg: Bind
+ *  'CustomerInfo' entity with 'PII' attribute.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding : GTLRObject
+
+/**
+ *  Optional. List of attributes to be associated with the resource, provided in
+ *  the form:
+ *  projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
+
+/** Output only. The time when the DataAttributeBinding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the DataAttributeBinding.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding. Etags must be used when calling the
+ *  DeleteDataAttributeBinding and the UpdateDataAttributeBinding method.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the DataAttributeBinding. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels *labels;
+
+/**
+ *  Output only. The relative resource name of the Data Attribute Binding, of
+ *  the form:
+ *  projects/{project_number}/locations/{location}/dataAttributeBindings/{data_attribute_binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of paths for items within the associated resource (eg.
+ *  columns within a table) along with attribute bindings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath *> *paths;
+
+/**
+ *  Optional. Immutable. The resource name of the resource that is binded to
+ *  attributes. Presently, only entity resource is supported in the form:
+ *  projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/entities/{entity_id}
+ *  Must belong in the same project and region as the attribute binding, and
+ *  there can only exist one active binding for a resource.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Output only. System generated globally unique ID for the
+ *  DataAttributeBinding. This ID will be different if the DataAttributeBinding
+ *  is deleted and re-created with the same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the DataAttributeBinding was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the DataAttributeBinding.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels : GTLRObject
+@end
+
+
+/**
+ *  Represents a subresource of a given resource, and associated bindings with
+ *  it.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath : GTLRObject
+
+/**
+ *  Optional. List of attributes to be associated with the path of the resource,
+ *  provided in the form:
+ *  projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
+
+/**
+ *  Required. The name identifier of the path. Nested columns should be of the
+ *  form: 'country.state.city'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  DataProfileResult defines the output of DataProfileScan. Each field of the
  *  table will have field type specific profile result.
  */
@@ -3430,6 +3653,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  DataTaxonomy represents a set of hierarchical DataAttributes resources,
+ *  grouped with a common theme Eg: 'SensitiveDataTaxonomy' can have attributes
+ *  to manage PII data. It is defined at project level.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy : GTLRObject
+
+/**
+ *  Output only. The number of attributes in the DataTaxonomy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attributeCount;
+
+/** Output only. The time when the DataTaxonomy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the DataTaxonomy.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the DataTaxonomy. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels *labels;
+
+/**
+ *  Output only. The relative resource name of the DataTaxonomy, of the form:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. System generated globally unique ID for the dataTaxonomy. This
+ *  ID will be different if the DataTaxonomy is deleted and re-created with the
+ *  same name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the DataTaxonomy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the DataTaxonomy.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels : GTLRObject
+@end
+
+
+/**
  *  The payload associated with Discovery data processing.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent : GTLRObject
@@ -4373,6 +4664,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  List DataAttributeBindings response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataAttributeBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributeBindingsResponse : GTLRCollectionObject
+
+/**
+ *  DataAttributeBindings under the given parent Location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding *> *dataAttributeBindings;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
+ *  List DataAttributes response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataAttributes" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributesResponse : GTLRCollectionObject
+
+/**
+ *  DataAttributes under the given parent DataTaxonomy.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute *> *dataAttributes;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
  *  List DataScanJobs response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4425,6 +4776,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  List DataTaxonomies response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataTaxonomies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataTaxonomiesResponse : GTLRCollectionObject
+
+/**
+ *  DataTaxonomies under the given parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy *> *dataTaxonomies;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
 
 @end
 
@@ -4718,6 +5099,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  correspond to the partition schema defined in the parent entity.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  ResourceAccessSpec holds the access control configuration to be enforced on
+ *  the resources, for example, Cloud Storage bucket, BigQuery dataset, BigQuery
+ *  table.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec : GTLRObject
+
+/**
+ *  Optional. The set of principals to be granted owner role on the resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
+
+/**
+ *  Optional. The format of strings follows the pattern followed by IAM in the
+ *  bindings. user:{email}, serviceAccount:{email} group:{email}. The set of
+ *  principals to be granted reader role on the resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *readers;
+
+/**
+ *  Optional. The set of principals to be granted writer role on the resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *writers;
 
 @end
 
@@ -6163,11 +6571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, my-project.svc.id.goog[my-namespace/my-kubernetes-sa].
  *  group:{emailid}: An email address that represents a Google group. For
- *  example, admins\@example.com. deleted:user:{emailid}?uid={uniqueid}: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example, alice\@example.com?uid=123456789012345678901.
- *  If the user is recovered, this value reverts to user:{emailid} and the
- *  recovered user retains the role in the binding.
+ *  example, admins\@example.com. domain:{domain}: The G Suite domain (primary)
+ *  that represents all the users of that domain. For example, google.com or
+ *  example.com. deleted:user:{emailid}?uid={uniqueid}: An email address (plus
+ *  unique identifier) representing a user that has been recently deleted. For
+ *  example, alice\@example.com?uid=123456789012345678901. If the user is
+ *  recovered, this value reverts to user:{emailid} and the recovered user
+ *  retains the role in the binding.
  *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
  *  unique identifier) representing a service account that has been recently
  *  deleted. For example,
@@ -6178,9 +6588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  identifier) representing a Google group that has been recently deleted. For
  *  example, admins\@example.com?uid=123456789012345678901. If the group is
  *  recovered, this value reverts to group:{emailid} and the recovered group
- *  retains the role in the binding. domain:{domain}: The G Suite domain
- *  (primary) that represents all the users of that domain. For example,
- *  google.com or example.com.
+ *  retains the role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

@@ -4930,7 +4930,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_TextConfig : GTLRObject
 
-/** The transformations to apply to the detected data. */
+/**
+ *  The transformations to apply to the detected data. Deprecated. Use
+ *  `additional_transformations` instead.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *transformations;
 
 @end

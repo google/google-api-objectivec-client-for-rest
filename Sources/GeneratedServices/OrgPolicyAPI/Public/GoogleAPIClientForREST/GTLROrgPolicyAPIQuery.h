@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists `Constraints` that could be applied on the specified resource.
+ *  Lists constraints that could be applied on the specified resource.
  *
  *  Method: orgpolicy.folders.constraints.list
  *
@@ -58,21 +58,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The Cloud resource that parents the constraint. Must be in one of
- *  the following forms: * `projects/{project_number}` * `projects/{project_id}`
- *  * `folders/{folder_id}` * `organizations/{organization_id}`
+ *  Required. The Google Cloud resource that parents the constraint. Must be in
+ *  one of the following forms: * `projects/{project_number}` *
+ *  `projects/{project_id}` * `folders/{folder_id}` *
+ *  `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListConstraintsResponse.
  *
- *  Lists `Constraints` that could be applied on the specified resource.
+ *  Lists constraints that could be applied on the specified resource.
  *
- *  @param parent Required. The Cloud resource that parents the constraint. Must
- *    be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *  @param parent Required. The Google Cloud resource that parents the
+ *    constraint. Must be in one of the following forms: *
+ *    `projects/{project_number}` * `projects/{project_id}` *
+ *    `folders/{folder_id}` * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersConstraintsList
  *
@@ -85,10 +86,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Policy. Returns a `google.rpc.Status` with
+ *  Creates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy
- *  already exists on the given Cloud resource.
+ *  already exists on the given Google Cloud resource.
  *
  *  Method: orgpolicy.folders.policies.create
  *
@@ -98,8 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesCreate : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. The Cloud resource that will parent the new Policy. Must be in one
- *  of the following forms: * `projects/{project_number}` *
+ *  Required. The Google Cloud resource that will parent the new policy. Must be
+ *  in one of the following forms: * `projects/{project_number}` *
  *  `projects/{project_id}` * `folders/{folder_id}` *
  *  `organizations/{organization_id}`
  */
@@ -108,17 +109,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Creates a Policy. Returns a `google.rpc.Status` with
+ *  Creates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy
- *  already exists on the given Cloud resource.
+ *  already exists on the given Google Cloud resource.
  *
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
- *  @param parent Required. The Cloud resource that will parent the new Policy.
- *    Must be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *  @param parent Required. The Google Cloud resource that will parent the new
+ *    policy. Must be in one of the following forms: *
+ *    `projects/{project_number}` * `projects/{project_id}` *
+ *    `folders/{folder_id}` * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersPoliciesCreate
  */
@@ -128,8 +129,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Policy. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the constraint or Org Policy does not exist.
+ *  Deletes a policy. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does
+ *  not exist.
  *
  *  Method: orgpolicy.folders.policies.delete
  *
@@ -138,17 +140,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesDelete : GTLROrgPolicyAPIQuery
 
-/** Required. Name of the policy to delete. See `Policy` for naming rules. */
+/**
+ *  Required. Name of the policy to delete. See the policy entry for naming
+ *  rules.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleProtobufEmpty.
  *
- *  Deletes a Policy. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the constraint or Org Policy does not exist.
+ *  Deletes a policy. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does
+ *  not exist.
  *
- *  @param name Required. Name of the policy to delete. See `Policy` for naming
- *    rules.
+ *  @param name Required. Name of the policy to delete. See the policy entry for
+ *    naming rules.
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersPoliciesDelete
  */
@@ -157,9 +163,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a `Policy` on a resource. If no `Policy` is set on the resource,
- *  NOT_FOUND is returned. The `etag` value can be used with `UpdatePolicy()` to
- *  update a `Policy` during read-modify-write.
+ *  Gets a policy on a resource. If no policy is set on the resource,
+ *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
+ *  to update a policy during read-modify-write.
  *
  *  Method: orgpolicy.folders.policies.get
  *
@@ -176,9 +182,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Gets a `Policy` on a resource. If no `Policy` is set on the resource,
- *  NOT_FOUND is returned. The `etag` value can be used with `UpdatePolicy()` to
- *  update a `Policy` during read-modify-write.
+ *  Gets a policy on a resource. If no policy is set on the resource,
+ *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
+ *  to update a policy during read-modify-write.
  *
  *  @param name Required. Resource name of the policy. See `Policy` for naming
  *    requirements.
@@ -190,10 +196,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the effective `Policy` on a resource. This is the result of merging
- *  `Policies` in the resource hierarchy and evaluating conditions. The returned
- *  `Policy` will not have an `etag` or `condition` set because it is a computed
- *  `Policy` across multiple resources. Subtrees of Resource Manager resource
+ *  Gets the effective policy on a resource. This is the result of merging
+ *  policies in the resource hierarchy and evaluating conditions. The returned
+ *  policy will not have an `etag` or `condition` set because it is an evaluated
+ *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
  *  Method: orgpolicy.folders.policies.getEffectivePolicy
@@ -211,10 +217,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Gets the effective `Policy` on a resource. This is the result of merging
- *  `Policies` in the resource hierarchy and evaluating conditions. The returned
- *  `Policy` will not have an `etag` or `condition` set because it is a computed
- *  `Policy` across multiple resources. Subtrees of Resource Manager resource
+ *  Gets the effective policy on a resource. This is the result of merging
+ *  policies in the resource hierarchy and evaluating conditions. The returned
+ *  policy will not have an `etag` or `condition` set because it is an evaluated
+ *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
  *  @param name Required. The effective policy to compute. See `Policy` for
@@ -227,7 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves all of the `Policies` that exist on a particular resource.
+ *  Retrieves all of the policies that exist on a particular resource.
  *
  *  Method: orgpolicy.folders.policies.list
  *
@@ -250,21 +256,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The target Cloud resource that parents the set of constraints and
- *  policies that will be returned from this call. Must be in one of the
- *  following forms: * `projects/{project_number}` * `projects/{project_id}` *
- *  `folders/{folder_id}` * `organizations/{organization_id}`
+ *  Required. The target Google Cloud resource that parents the set of
+ *  constraints and policies that will be returned from this call. Must be in
+ *  one of the following forms: * `projects/{project_number}` *
+ *  `projects/{project_id}` * `folders/{folder_id}` *
+ *  `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListPoliciesResponse.
  *
- *  Retrieves all of the `Policies` that exist on a particular resource.
+ *  Retrieves all of the policies that exist on a particular resource.
  *
- *  @param parent Required. The target Cloud resource that parents the set of
- *    constraints and policies that will be returned from this call. Must be in
- *    one of the following forms: * `projects/{project_number}` *
+ *  @param parent Required. The target Google Cloud resource that parents the
+ *    set of constraints and policies that will be returned from this call. Must
+ *    be in one of the following forms: * `projects/{project_number}` *
  *    `projects/{project_id}` * `folders/{folder_id}` *
  *    `organizations/{organization_id}`
  *
@@ -279,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a Policy. Returns a `google.rpc.Status` with
+ *  Updates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist.
  *  Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag
  *  supplied in the request does not match the persisted etag of the policy
@@ -293,8 +300,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesPatch : GTLROrgPolicyAPIQuery
 
 /**
- *  Immutable. The resource name of the Policy. Must be one of the following
- *  forms, where constraint_name is the name of the constraint which this Policy
+ *  Immutable. The resource name of the policy. Must be one of the following
+ *  forms, where constraint_name is the name of the constraint which this policy
  *  configures: * `projects/{project_number}/policies/{constraint_name}` *
  *  `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -306,9 +313,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Field mask used to specify the fields to be overwritten in the policy by the
+ *  set. The fields specified in the update_mask are relative to the policy, not
+ *  the full request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Updates a Policy. Returns a `google.rpc.Status` with
+ *  Updates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist.
  *  Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag
  *  supplied in the request does not match the persisted etag of the policy
@@ -316,9 +332,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
- *  @param name Immutable. The resource name of the Policy. Must be one of the
+ *  @param name Immutable. The resource name of the policy. Must be one of the
  *    following forms, where constraint_name is the name of the constraint which
- *    this Policy configures: *
+ *    this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
  *    `folders/{folder_id}/policies/{constraint_name}` *
  *    `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -335,7 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists `Constraints` that could be applied on the specified resource.
+ *  Lists constraints that could be applied on the specified resource.
  *
  *  Method: orgpolicy.organizations.constraints.list
  *
@@ -358,21 +374,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The Cloud resource that parents the constraint. Must be in one of
- *  the following forms: * `projects/{project_number}` * `projects/{project_id}`
- *  * `folders/{folder_id}` * `organizations/{organization_id}`
+ *  Required. The Google Cloud resource that parents the constraint. Must be in
+ *  one of the following forms: * `projects/{project_number}` *
+ *  `projects/{project_id}` * `folders/{folder_id}` *
+ *  `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListConstraintsResponse.
  *
- *  Lists `Constraints` that could be applied on the specified resource.
+ *  Lists constraints that could be applied on the specified resource.
  *
- *  @param parent Required. The Cloud resource that parents the constraint. Must
- *    be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *  @param parent Required. The Google Cloud resource that parents the
+ *    constraint. Must be in one of the following forms: *
+ *    `projects/{project_number}` * `projects/{project_id}` *
+ *    `folders/{folder_id}` * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsConstraintsList
  *
@@ -385,7 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a CustomConstraint. Returns a `google.rpc.Status` with
+ *  Creates a custom constraint. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the organization does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the constraint
  *  already exists on the given organization.
@@ -405,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.
  *
- *  Creates a CustomConstraint. Returns a `google.rpc.Status` with
+ *  Creates a custom constraint. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the organization does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the constraint
  *  already exists on the given organization.
@@ -423,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Custom Constraint. Returns a `google.rpc.Status` with
+ *  Deletes a custom constraint. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist.
  *
  *  Method: orgpolicy.organizations.customConstraints.delete
@@ -434,19 +451,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsDelete : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. Name of the custom constraint to delete. See `CustomConstraint`
- *  for naming rules.
+ *  Required. Name of the custom constraint to delete. See the custom constraint
+ *  entry for naming rules.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleProtobufEmpty.
  *
- *  Deletes a Custom Constraint. Returns a `google.rpc.Status` with
+ *  Deletes a custom constraint. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist.
  *
- *  @param name Required. Name of the custom constraint to delete. See
- *    `CustomConstraint` for naming rules.
+ *  @param name Required. Name of the custom constraint to delete. See the
+ *    custom constraint entry for naming rules.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsDelete
  */
@@ -455,8 +472,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a CustomConstraint. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the CustomConstraint does not exist.
+ *  Gets a custom constraint. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the custom constraint does not exist.
  *
  *  Method: orgpolicy.organizations.customConstraints.get
  *
@@ -466,19 +483,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. Resource name of the custom constraint. See `CustomConstraint` for
- *  naming requirements.
+ *  Required. Resource name of the custom constraint. See the custom constraint
+ *  entry for naming requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.
  *
- *  Gets a CustomConstraint. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the CustomConstraint does not exist.
+ *  Gets a custom constraint. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the custom constraint does not exist.
  *
- *  @param name Required. Resource name of the custom constraint. See
- *    `CustomConstraint` for naming requirements.
+ *  @param name Required. Resource name of the custom constraint. See the custom
+ *    constraint entry for naming requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet
  */
@@ -487,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves all of the `CustomConstraints` that exist on a particular
+ *  Retrieves all of the custom constraints that exist on a particular
  *  organization resource.
  *
  *  Method: orgpolicy.organizations.customConstraints.list
@@ -511,7 +528,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The target Cloud resource that parents the set of custom
+ *  Required. The target Google Cloud resource that parents the set of custom
  *  constraints that will be returned from this call. Must be in one of the
  *  following forms: * `organizations/{organization_id}`
  */
@@ -521,12 +538,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListCustomConstraintsResponse.
  *
- *  Retrieves all of the `CustomConstraints` that exist on a particular
+ *  Retrieves all of the custom constraints that exist on a particular
  *  organization resource.
  *
- *  @param parent Required. The target Cloud resource that parents the set of
- *    custom constraints that will be returned from this call. Must be in one of
- *    the following forms: * `organizations/{organization_id}`
+ *  @param parent Required. The target Google Cloud resource that parents the
+ *    set of custom constraints that will be returned from this call. Must be in
+ *    one of the following forms: * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsList
  *
@@ -539,7 +556,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a Custom Constraint. Returns a `google.rpc.Status` with
+ *  Updates a custom constraint. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the
  *  supplied policy will perform a full overwrite of all fields.
  *
@@ -554,16 +571,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Immutable. Name of the constraint. This is unique within the organization.
  *  Format of the name should be *
  *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
- *  Example : "organizations/123/customConstraints/custom.createOnlyE2TypeVms"
- *  The max length is 70 characters and the min length is 1. Note that the
- *  prefix "organizations/{organization_id}/customConstraints/" is not counted.
+ *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
+ *  The max length is 70 characters and the minimum length is 1. Note that the
+ *  prefix `organizations/{organization_id}/customConstraints/` is not counted.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.
  *
- *  Updates a Custom Constraint. Returns a `google.rpc.Status` with
+ *  Updates a custom constraint. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the
  *  supplied policy will perform a full overwrite of all fields.
  *
@@ -572,9 +589,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Immutable. Name of the constraint. This is unique within the
  *    organization. Format of the name should be *
  *    `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
- *    Example : "organizations/123/customConstraints/custom.createOnlyE2TypeVms"
- *    The max length is 70 characters and the min length is 1. Note that the
- *    prefix "organizations/{organization_id}/customConstraints/" is not
+ *    Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
+ *    The max length is 70 characters and the minimum length is 1. Note that the
+ *    prefix `organizations/{organization_id}/customConstraints/` is not
  *    counted.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsPatch
@@ -585,10 +602,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Policy. Returns a `google.rpc.Status` with
+ *  Creates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy
- *  already exists on the given Cloud resource.
+ *  already exists on the given Google Cloud resource.
  *
  *  Method: orgpolicy.organizations.policies.create
  *
@@ -598,8 +615,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. The Cloud resource that will parent the new Policy. Must be in one
- *  of the following forms: * `projects/{project_number}` *
+ *  Required. The Google Cloud resource that will parent the new policy. Must be
+ *  in one of the following forms: * `projects/{project_number}` *
  *  `projects/{project_id}` * `folders/{folder_id}` *
  *  `organizations/{organization_id}`
  */
@@ -608,17 +625,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Creates a Policy. Returns a `google.rpc.Status` with
+ *  Creates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy
- *  already exists on the given Cloud resource.
+ *  already exists on the given Google Cloud resource.
  *
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
- *  @param parent Required. The Cloud resource that will parent the new Policy.
- *    Must be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *  @param parent Required. The Google Cloud resource that will parent the new
+ *    policy. Must be in one of the following forms: *
+ *    `projects/{project_number}` * `projects/{project_id}` *
+ *    `folders/{folder_id}` * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate
  */
@@ -628,8 +645,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Policy. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the constraint or Org Policy does not exist.
+ *  Deletes a policy. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does
+ *  not exist.
  *
  *  Method: orgpolicy.organizations.policies.delete
  *
@@ -638,17 +656,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesDelete : GTLROrgPolicyAPIQuery
 
-/** Required. Name of the policy to delete. See `Policy` for naming rules. */
+/**
+ *  Required. Name of the policy to delete. See the policy entry for naming
+ *  rules.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleProtobufEmpty.
  *
- *  Deletes a Policy. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the constraint or Org Policy does not exist.
+ *  Deletes a policy. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does
+ *  not exist.
  *
- *  @param name Required. Name of the policy to delete. See `Policy` for naming
- *    rules.
+ *  @param name Required. Name of the policy to delete. See the policy entry for
+ *    naming rules.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsPoliciesDelete
  */
@@ -657,9 +679,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a `Policy` on a resource. If no `Policy` is set on the resource,
- *  NOT_FOUND is returned. The `etag` value can be used with `UpdatePolicy()` to
- *  update a `Policy` during read-modify-write.
+ *  Gets a policy on a resource. If no policy is set on the resource,
+ *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
+ *  to update a policy during read-modify-write.
  *
  *  Method: orgpolicy.organizations.policies.get
  *
@@ -676,9 +698,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Gets a `Policy` on a resource. If no `Policy` is set on the resource,
- *  NOT_FOUND is returned. The `etag` value can be used with `UpdatePolicy()` to
- *  update a `Policy` during read-modify-write.
+ *  Gets a policy on a resource. If no policy is set on the resource,
+ *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
+ *  to update a policy during read-modify-write.
  *
  *  @param name Required. Resource name of the policy. See `Policy` for naming
  *    requirements.
@@ -690,10 +712,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the effective `Policy` on a resource. This is the result of merging
- *  `Policies` in the resource hierarchy and evaluating conditions. The returned
- *  `Policy` will not have an `etag` or `condition` set because it is a computed
- *  `Policy` across multiple resources. Subtrees of Resource Manager resource
+ *  Gets the effective policy on a resource. This is the result of merging
+ *  policies in the resource hierarchy and evaluating conditions. The returned
+ *  policy will not have an `etag` or `condition` set because it is an evaluated
+ *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
  *  Method: orgpolicy.organizations.policies.getEffectivePolicy
@@ -711,10 +733,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Gets the effective `Policy` on a resource. This is the result of merging
- *  `Policies` in the resource hierarchy and evaluating conditions. The returned
- *  `Policy` will not have an `etag` or `condition` set because it is a computed
- *  `Policy` across multiple resources. Subtrees of Resource Manager resource
+ *  Gets the effective policy on a resource. This is the result of merging
+ *  policies in the resource hierarchy and evaluating conditions. The returned
+ *  policy will not have an `etag` or `condition` set because it is an evaluated
+ *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
  *  @param name Required. The effective policy to compute. See `Policy` for
@@ -727,7 +749,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves all of the `Policies` that exist on a particular resource.
+ *  Retrieves all of the policies that exist on a particular resource.
  *
  *  Method: orgpolicy.organizations.policies.list
  *
@@ -750,21 +772,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The target Cloud resource that parents the set of constraints and
- *  policies that will be returned from this call. Must be in one of the
- *  following forms: * `projects/{project_number}` * `projects/{project_id}` *
- *  `folders/{folder_id}` * `organizations/{organization_id}`
+ *  Required. The target Google Cloud resource that parents the set of
+ *  constraints and policies that will be returned from this call. Must be in
+ *  one of the following forms: * `projects/{project_number}` *
+ *  `projects/{project_id}` * `folders/{folder_id}` *
+ *  `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListPoliciesResponse.
  *
- *  Retrieves all of the `Policies` that exist on a particular resource.
+ *  Retrieves all of the policies that exist on a particular resource.
  *
- *  @param parent Required. The target Cloud resource that parents the set of
- *    constraints and policies that will be returned from this call. Must be in
- *    one of the following forms: * `projects/{project_number}` *
+ *  @param parent Required. The target Google Cloud resource that parents the
+ *    set of constraints and policies that will be returned from this call. Must
+ *    be in one of the following forms: * `projects/{project_number}` *
  *    `projects/{project_id}` * `folders/{folder_id}` *
  *    `organizations/{organization_id}`
  *
@@ -779,7 +802,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a Policy. Returns a `google.rpc.Status` with
+ *  Updates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist.
  *  Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag
  *  supplied in the request does not match the persisted etag of the policy
@@ -793,8 +816,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesPatch : GTLROrgPolicyAPIQuery
 
 /**
- *  Immutable. The resource name of the Policy. Must be one of the following
- *  forms, where constraint_name is the name of the constraint which this Policy
+ *  Immutable. The resource name of the policy. Must be one of the following
+ *  forms, where constraint_name is the name of the constraint which this policy
  *  configures: * `projects/{project_number}/policies/{constraint_name}` *
  *  `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -806,9 +829,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Field mask used to specify the fields to be overwritten in the policy by the
+ *  set. The fields specified in the update_mask are relative to the policy, not
+ *  the full request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Updates a Policy. Returns a `google.rpc.Status` with
+ *  Updates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist.
  *  Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag
  *  supplied in the request does not match the persisted etag of the policy
@@ -816,9 +848,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
- *  @param name Immutable. The resource name of the Policy. Must be one of the
+ *  @param name Immutable. The resource name of the policy. Must be one of the
  *    following forms, where constraint_name is the name of the constraint which
- *    this Policy configures: *
+ *    this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
  *    `folders/{folder_id}/policies/{constraint_name}` *
  *    `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -835,7 +867,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists `Constraints` that could be applied on the specified resource.
+ *  Lists constraints that could be applied on the specified resource.
  *
  *  Method: orgpolicy.projects.constraints.list
  *
@@ -858,21 +890,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The Cloud resource that parents the constraint. Must be in one of
- *  the following forms: * `projects/{project_number}` * `projects/{project_id}`
- *  * `folders/{folder_id}` * `organizations/{organization_id}`
+ *  Required. The Google Cloud resource that parents the constraint. Must be in
+ *  one of the following forms: * `projects/{project_number}` *
+ *  `projects/{project_id}` * `folders/{folder_id}` *
+ *  `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListConstraintsResponse.
  *
- *  Lists `Constraints` that could be applied on the specified resource.
+ *  Lists constraints that could be applied on the specified resource.
  *
- *  @param parent Required. The Cloud resource that parents the constraint. Must
- *    be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *  @param parent Required. The Google Cloud resource that parents the
+ *    constraint. Must be in one of the following forms: *
+ *    `projects/{project_number}` * `projects/{project_id}` *
+ *    `folders/{folder_id}` * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsConstraintsList
  *
@@ -885,10 +918,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Policy. Returns a `google.rpc.Status` with
+ *  Creates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy
- *  already exists on the given Cloud resource.
+ *  already exists on the given Google Cloud resource.
  *
  *  Method: orgpolicy.projects.policies.create
  *
@@ -898,8 +931,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesCreate : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. The Cloud resource that will parent the new Policy. Must be in one
- *  of the following forms: * `projects/{project_number}` *
+ *  Required. The Google Cloud resource that will parent the new policy. Must be
+ *  in one of the following forms: * `projects/{project_number}` *
  *  `projects/{project_id}` * `folders/{folder_id}` *
  *  `organizations/{organization_id}`
  */
@@ -908,17 +941,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Creates a Policy. Returns a `google.rpc.Status` with
+ *  Creates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a
  *  `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy
- *  already exists on the given Cloud resource.
+ *  already exists on the given Google Cloud resource.
  *
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
- *  @param parent Required. The Cloud resource that will parent the new Policy.
- *    Must be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *  @param parent Required. The Google Cloud resource that will parent the new
+ *    policy. Must be in one of the following forms: *
+ *    `projects/{project_number}` * `projects/{project_id}` *
+ *    `folders/{folder_id}` * `organizations/{organization_id}`
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsPoliciesCreate
  */
@@ -928,8 +961,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Policy. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the constraint or Org Policy does not exist.
+ *  Deletes a policy. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does
+ *  not exist.
  *
  *  Method: orgpolicy.projects.policies.delete
  *
@@ -938,17 +972,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesDelete : GTLROrgPolicyAPIQuery
 
-/** Required. Name of the policy to delete. See `Policy` for naming rules. */
+/**
+ *  Required. Name of the policy to delete. See the policy entry for naming
+ *  rules.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleProtobufEmpty.
  *
- *  Deletes a Policy. Returns a `google.rpc.Status` with
- *  `google.rpc.Code.NOT_FOUND` if the constraint or Org Policy does not exist.
+ *  Deletes a policy. Returns a `google.rpc.Status` with
+ *  `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does
+ *  not exist.
  *
- *  @param name Required. Name of the policy to delete. See `Policy` for naming
- *    rules.
+ *  @param name Required. Name of the policy to delete. See the policy entry for
+ *    naming rules.
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsPoliciesDelete
  */
@@ -957,9 +995,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a `Policy` on a resource. If no `Policy` is set on the resource,
- *  NOT_FOUND is returned. The `etag` value can be used with `UpdatePolicy()` to
- *  update a `Policy` during read-modify-write.
+ *  Gets a policy on a resource. If no policy is set on the resource,
+ *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
+ *  to update a policy during read-modify-write.
  *
  *  Method: orgpolicy.projects.policies.get
  *
@@ -976,9 +1014,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Gets a `Policy` on a resource. If no `Policy` is set on the resource,
- *  NOT_FOUND is returned. The `etag` value can be used with `UpdatePolicy()` to
- *  update a `Policy` during read-modify-write.
+ *  Gets a policy on a resource. If no policy is set on the resource,
+ *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
+ *  to update a policy during read-modify-write.
  *
  *  @param name Required. Resource name of the policy. See `Policy` for naming
  *    requirements.
@@ -990,10 +1028,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the effective `Policy` on a resource. This is the result of merging
- *  `Policies` in the resource hierarchy and evaluating conditions. The returned
- *  `Policy` will not have an `etag` or `condition` set because it is a computed
- *  `Policy` across multiple resources. Subtrees of Resource Manager resource
+ *  Gets the effective policy on a resource. This is the result of merging
+ *  policies in the resource hierarchy and evaluating conditions. The returned
+ *  policy will not have an `etag` or `condition` set because it is an evaluated
+ *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
  *  Method: orgpolicy.projects.policies.getEffectivePolicy
@@ -1011,10 +1049,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Gets the effective `Policy` on a resource. This is the result of merging
- *  `Policies` in the resource hierarchy and evaluating conditions. The returned
- *  `Policy` will not have an `etag` or `condition` set because it is a computed
- *  `Policy` across multiple resources. Subtrees of Resource Manager resource
+ *  Gets the effective policy on a resource. This is the result of merging
+ *  policies in the resource hierarchy and evaluating conditions. The returned
+ *  policy will not have an `etag` or `condition` set because it is an evaluated
+ *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
  *  @param name Required. The effective policy to compute. See `Policy` for
@@ -1027,7 +1065,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves all of the `Policies` that exist on a particular resource.
+ *  Retrieves all of the policies that exist on a particular resource.
  *
  *  Method: orgpolicy.projects.policies.list
  *
@@ -1050,21 +1088,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The target Cloud resource that parents the set of constraints and
- *  policies that will be returned from this call. Must be in one of the
- *  following forms: * `projects/{project_number}` * `projects/{project_id}` *
- *  `folders/{folder_id}` * `organizations/{organization_id}`
+ *  Required. The target Google Cloud resource that parents the set of
+ *  constraints and policies that will be returned from this call. Must be in
+ *  one of the following forms: * `projects/{project_number}` *
+ *  `projects/{project_id}` * `folders/{folder_id}` *
+ *  `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListPoliciesResponse.
  *
- *  Retrieves all of the `Policies` that exist on a particular resource.
+ *  Retrieves all of the policies that exist on a particular resource.
  *
- *  @param parent Required. The target Cloud resource that parents the set of
- *    constraints and policies that will be returned from this call. Must be in
- *    one of the following forms: * `projects/{project_number}` *
+ *  @param parent Required. The target Google Cloud resource that parents the
+ *    set of constraints and policies that will be returned from this call. Must
+ *    be in one of the following forms: * `projects/{project_number}` *
  *    `projects/{project_id}` * `folders/{folder_id}` *
  *    `organizations/{organization_id}`
  *
@@ -1079,7 +1118,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a Policy. Returns a `google.rpc.Status` with
+ *  Updates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist.
  *  Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag
  *  supplied in the request does not match the persisted etag of the policy
@@ -1093,8 +1132,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesPatch : GTLROrgPolicyAPIQuery
 
 /**
- *  Immutable. The resource name of the Policy. Must be one of the following
- *  forms, where constraint_name is the name of the constraint which this Policy
+ *  Immutable. The resource name of the policy. Must be one of the following
+ *  forms, where constraint_name is the name of the constraint which this policy
  *  configures: * `projects/{project_number}/policies/{constraint_name}` *
  *  `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -1106,9 +1145,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Field mask used to specify the fields to be overwritten in the policy by the
+ *  set. The fields specified in the update_mask are relative to the policy, not
+ *  the full request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy.
  *
- *  Updates a Policy. Returns a `google.rpc.Status` with
+ *  Updates a policy. Returns a `google.rpc.Status` with
  *  `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist.
  *  Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag
  *  supplied in the request does not match the persisted etag of the policy
@@ -1116,9 +1164,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
- *  @param name Immutable. The resource name of the Policy. Must be one of the
+ *  @param name Immutable. The resource name of the policy. Must be one of the
  *    following forms, where constraint_name is the name of the constraint which
- *    this Policy configures: *
+ *    this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
  *    `folders/{folder_id}/policies/{constraint_name}` *
  *    `organizations/{organization_id}/policies/{constraint_name}` For example,

@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRCloudWorkstations_Empty.
+ *  Fetches a @c GTLRCloudWorkstations_GoogleProtobufEmpty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRCloudWorkstations_Empty.
+ *  Fetches a @c GTLRCloudWorkstations_GoogleProtobufEmpty.
  *
  *  Deletes a long-running operation. This method indicates that the client is
  *  no longer interested in the operation result. It does not cancel the

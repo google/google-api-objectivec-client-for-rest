@@ -61,6 +61,20 @@ NSString * const kGTLRTesting_IosModel_FormFactor_Phone        = @"PHONE";
 NSString * const kGTLRTesting_IosModel_FormFactor_Tablet       = @"TABLET";
 NSString * const kGTLRTesting_IosModel_FormFactor_Wearable     = @"WEARABLE";
 
+// GTLRTesting_PerAndroidVersionInfo.deviceCapacity
+NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityHigh = @"DEVICE_CAPACITY_HIGH";
+NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityLow = @"DEVICE_CAPACITY_LOW";
+NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityMedium = @"DEVICE_CAPACITY_MEDIUM";
+NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityNone = @"DEVICE_CAPACITY_NONE";
+NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityUnspecified = @"DEVICE_CAPACITY_UNSPECIFIED";
+
+// GTLRTesting_PerIosVersionInfo.deviceCapacity
+NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityHigh = @"DEVICE_CAPACITY_HIGH";
+NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityLow = @"DEVICE_CAPACITY_LOW";
+NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityMedium = @"DEVICE_CAPACITY_MEDIUM";
+NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityNone = @"DEVICE_CAPACITY_NONE";
+NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityUnspecified = @"DEVICE_CAPACITY_UNSPECIFIED";
+
 // GTLRTesting_RoboDirective.actionType
 NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText = @"ENTER_TEXT";
@@ -245,8 +259,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_AndroidModel
 @dynamic brand, codename, form, formFactor, identifier, lowFpsVideoRecording,
-         manufacturer, name, screenDensity, screenX, screenY, supportedAbis,
-         supportedVersionIds, tags, thumbnailUrl;
+         manufacturer, name, perVersionInfo, screenDensity, screenX, screenY,
+         supportedAbis, supportedVersionIds, tags, thumbnailUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -254,6 +268,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"perVersionInfo" : [GTLRTesting_PerAndroidVersionInfo class],
     @"supportedAbis" : [NSString class],
     @"supportedVersionIds" : [NSString class],
     @"tags" : [NSString class]
@@ -646,8 +661,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosModel
-@dynamic deviceCapabilities, formFactor, identifier, name, screenDensity,
-         screenX, screenY, supportedVersionIds, tags;
+@dynamic deviceCapabilities, formFactor, identifier, name, perVersionInfo,
+         screenDensity, screenX, screenY, supportedVersionIds, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -656,6 +671,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"deviceCapabilities" : [NSString class],
+    @"perVersionInfo" : [GTLRTesting_PerIosVersionInfo class],
     @"supportedVersionIds" : [NSString class],
     @"tags" : [NSString class]
   };
@@ -877,6 +893,26 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_PerAndroidVersionInfo
+//
+
+@implementation GTLRTesting_PerAndroidVersionInfo
+@dynamic deviceCapacity, versionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_PerIosVersionInfo
+//
+
+@implementation GTLRTesting_PerIosVersionInfo
+@dynamic deviceCapacity, versionId;
 @end
 
 

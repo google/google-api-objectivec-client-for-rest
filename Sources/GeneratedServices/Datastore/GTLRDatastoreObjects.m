@@ -311,7 +311,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_CommitRequest
-@dynamic databaseId, mode, mutations, transaction;
+@dynamic databaseId, mode, mutations, singleUseTransaction, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -916,7 +916,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_LookupResponse
-@dynamic deferred, found, missing, readTime;
+@dynamic deferred, found, missing, readTime, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1083,7 +1083,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_ReadOptions
-@dynamic readConsistency, readTime, transaction;
+@dynamic newTransaction, readConsistency, readTime, transaction;
 @end
 
 
@@ -1159,7 +1159,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunAggregationQueryResponse
-@dynamic batch, query;
+@dynamic batch, query, transaction;
 @end
 
 
@@ -1179,7 +1179,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryResponse
-@dynamic batch, query;
+@dynamic batch, query, transaction;
 @end
 
 

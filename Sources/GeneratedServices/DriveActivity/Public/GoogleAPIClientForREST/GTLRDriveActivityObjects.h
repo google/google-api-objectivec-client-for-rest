@@ -437,6 +437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FeatureUnspecified;
 /**
+ *  When restricted, this limits sharing of folders to managers only.
+ *
+ *  Value: "FILE_ORGANIZER_CAN_SHARE_FOLDERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders;
+/**
  *  When restricted, this prevents actions like copy, download, and print that
  *  might result in uncontrolled duplicates of items.
  *
@@ -1584,6 +1590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_FeatureUnspecified
  *        The feature which changed restriction settings was not available.
  *        (Value: "FEATURE_UNSPECIFIED")
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders
+ *        When restricted, this limits sharing of folders to managers only.
+ *        (Value: "FILE_ORGANIZER_CAN_SHARE_FOLDERS")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication When
  *        restricted, this prevents actions like copy, download, and print that
  *        might result in uncontrolled duplicates of items. (Value:

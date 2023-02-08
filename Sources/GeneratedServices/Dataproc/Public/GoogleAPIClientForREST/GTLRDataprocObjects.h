@@ -631,6 +631,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hdfs;
 /**
+ *  hivemetastore metric source
+ *
+ *  Value: "HIVEMETASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hivemetastore;
+/**
  *  Hiveserver2 metric source.
  *
  *  Value: "HIVESERVER2"
@@ -2152,7 +2158,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  this threshold will cause the session to be terminated. Minimum value is 10
  *  minutes; maximum value is 14 days (see JSON representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). Defaults
- *  to 4 hours if not set.
+ *  to 4 hours if not set. If both ttl and idle_ttl are specified, the
+ *  conditions are treated as and OR: the workload will be terminated when it
+ *  has been idle for idle_ttl or when the ttl has passed, whichever comes
+ *  first.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleTtl;
 
@@ -3870,6 +3879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Likely values:
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Hdfs HDFS metric source. (Value:
  *        "HDFS")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Hivemetastore hivemetastore
+ *        metric source (Value: "HIVEMETASTORE")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Hiveserver2 Hiveserver2 metric
  *        source. (Value: "HIVESERVER2")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified Required
@@ -4680,12 +4691,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning
- *  facilitates the removal of cluster nodes without interrupting jobs in
- *  progress. The timeout specifies the amount of time to wait for jobs finish
- *  before forcefully removing nodes. The default timeout is 0 for forceful
- *  decommissioning, and the maximum timeout period is 1 day. (see JSON
- *  Mapping—Duration
+ *  Optional. Timeout for graceful YARN decommissioning. Graceful
+ *  decommissioning facilitates the removal of cluster nodes without
+ *  interrupting jobs in progress. The timeout specifies the amount of time to
+ *  wait for jobs finish before forcefully removing nodes. The default timeout
+ *  is 0 for forceful decommissioning, and the maximum timeout period is 1 day.
+ *  (see JSON Mapping—Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).graceful_decommission_timeout
  *  is supported in Dataproc image versions 1.2+.
  */

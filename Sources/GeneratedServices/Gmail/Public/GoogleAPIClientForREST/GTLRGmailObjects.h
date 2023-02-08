@@ -472,8 +472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 
 
 /**
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html). The
- *  client-side encryption (CSE) configuration for the email address of an
+ *  The client-side encryption (CSE) configuration for the email address of an
  *  authenticated user. Gmail uses CSE configurations to save drafts of
  *  client-side encrypted email messages, and to sign and send encrypted email
  *  messages.
@@ -495,13 +494,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 
 
 /**
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html). A
- *  client-side encryption S/MIME key pair, which is comprised of a public key,
- *  its certificate chain, and metadata for its paired private key. Gmail uses
- *  the key pair to complete the following tasks: - Sign outgoing client-side
- *  encrypted messages. - Save and reopen drafts of client-side encrypted
- *  messages. - Save and reopen sent messages. - Decrypt incoming or archived
- *  S/MIME messages.
+ *  A client-side encryption S/MIME key pair, which is comprised of a public
+ *  key, its certificate chain, and metadata for its paired private key. Gmail
+ *  uses the key pair to complete the following tasks: - Sign outgoing
+ *  client-side encrypted messages. - Save and reopen drafts of client-side
+ *  encrypted messages. - Save and reopen sent messages. - Decrypt incoming or
+ *  archived S/MIME messages.
  */
 @interface GTLRGmail_CseKeyPair : GTLRObject
 

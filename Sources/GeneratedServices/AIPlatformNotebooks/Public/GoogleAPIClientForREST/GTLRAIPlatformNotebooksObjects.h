@@ -48,6 +48,7 @@
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest_Metadata;
 @class GTLRAIPlatformNotebooks_ReservationAffinity;
 @class GTLRAIPlatformNotebooks_Runtime;
+@class GTLRAIPlatformNotebooks_Runtime_Labels;
 @class GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig;
 @class GTLRAIPlatformNotebooks_RuntimeAccessConfig;
 @class GTLRAIPlatformNotebooks_RuntimeGuestOsFeature;
@@ -1174,8 +1175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  Definition of a hardware accelerator. Note that not all combinations of
  *  `type` and `core_count` are valid. Check [GPUs on Compute
- *  Engine](/compute/docs/gpus/#gpus-list) to find a valid combination. TPUs are
- *  not supported.
+ *  Engine](https://cloud.google.com/compute/docs/gpus/#gpus-list) to find a
+ *  valid combination. TPUs are not supported.
  */
 @interface GTLRAIPlatformNotebooks_AcceleratorConfig : GTLRObject
 
@@ -1256,8 +1257,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -1272,9 +1275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1431,8 +1432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Indicates a unique device name of your choice that is reflected into the
- *  /dev/disk/by-id/google-* tree of a Linux operating system running within the
- *  instance. This name can be used to reference the device for mounting,
+ *  `/dev/disk/by-id/google-*` tree of a Linux operating system running within
+ *  the instance. This name can be used to reference the device for mounting,
  *  resizing, and so on, from within the instance. If not specified, the server
  *  chooses a default device name to apply to this disk, in the form
  *  persistent-disk-x, where x is a number assigned by Google Compute
@@ -1469,7 +1470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  the request will fail if you attempt to attach a persistent disk in any
  *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
  *  performance characteristics of SCSI over NVMe, see Local SSD performance.
- *  Valid values: * NVME * SCSI
+ *  Valid values: * `NVME` * `SCSI`
  */
 @property(nonatomic, copy, nullable) NSString *interface;
 
@@ -1484,9 +1485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
 /**
- *  The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If
- *  not specified, the default is to attach the disk in READ_WRITE mode. Valid
- *  values: * READ_ONLY * READ_WRITE
+ *  The mode in which to attach this disk, either `READ_WRITE` or `READ_ONLY`.
+ *  If not specified, the default is to attach the disk in `READ_WRITE` mode.
+ *  Valid values: * `READ_ONLY` * `READ_WRITE`
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -1497,8 +1498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Indicates the type of the disk, either SCRATCH or PERSISTENT. Valid values:
- *  * PERSISTENT * SCRATCH
+ *  Indicates the type of the disk, either `SCRATCH` or `PERSISTENT`. Valid
+ *  values: * `PERSISTENT` * `SCRATCH`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1967,9 +1968,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  The ID of a supported feature. Read Enabling guest operating system features
- *  to see a list of available options. Valid values: * FEATURE_TYPE_UNSPECIFIED
- *  * MULTI_IP_SUBNET * SECURE_BOOT * UEFI_COMPATIBLE * VIRTIO_SCSI_MULTIQUEUE *
- *  WINDOWS
+ *  to see a list of available options. Valid values: *
+ *  `FEATURE_TYPE_UNSPECIFIED` * `MULTI_IP_SUBNET` * `SECURE_BOOT` *
+ *  `UEFI_COMPATIBLE` * `VIRTIO_SCSI_MULTIQUEUE` * `WINDOWS`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1984,7 +1985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  The hardware accelerator used on this instance. If you use accelerators,
  *  make sure that your configuration has [enough vCPUs and memory to support
- *  the `machine_type` you have selected](/compute/docs/gpus/#gpus-list).
+ *  the `machine_type` you have
+ *  selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
  */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_AcceleratorConfig *acceleratorConfig;
 
@@ -2119,8 +2121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Instance_Labels *labels;
 
 /**
- *  Required. The [Compute Engine machine type](/compute/docs/machine-types) of
- *  this instance.
+ *  Required. The [Compute Engine machine
+ *  type](https://cloud.google.com/compute/docs/machine-types) of this instance.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -2443,9 +2445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Locations that could not be reached. For example, ['us-west1-a',
- *  'us-central1-b']. A ListInstancesResponse will only contain either instances
- *  or unreachables,
+ *  Locations that could not be reached. For example, `['us-west1-a',
+ *  'us-central1-b']`. A ListInstancesResponse will only contain either
+ *  instances or unreachables,
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2525,8 +2527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Runtime *> *runtimes;
 
 /**
- *  Locations that could not be reached. For example, ['us-west1',
- *  'us-central1']. A ListRuntimesResponse will only contain either runtimes or
+ *  Locations that could not be reached. For example, `['us-west1',
+ *  'us-central1']`. A ListRuntimesResponse will only contain either runtimes or
  *  unreachables,
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
@@ -2592,9 +2594,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Optional. Output only. Specifies a unique device name of your choice that is
- *  reflected into the /dev/disk/by-id/google-* tree of a Linux operating system
- *  running within the instance. This name can be used to reference the device
- *  for mounting, resizing, and so on, from within the instance. If not
+ *  reflected into the `/dev/disk/by-id/google-*` tree of a Linux operating
+ *  system running within the instance. This name can be used to reference the
+ *  device for mounting, resizing, and so on, from within the instance. If not
  *  specified, the server chooses a default device name to apply to this disk,
  *  in the form persistent-disk-x, where x is a number assigned by Google
  *  Compute Engine. This field is only applicable for persistent disks.
@@ -2632,7 +2634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  the request will fail if you attempt to attach a persistent disk in any
  *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
  *  performance characteristics of SCSI over NVMe, see Local SSD performance.
- *  Valid values: * NVME * SCSI
+ *  Valid values: * `NVME` * `SCSI`
  */
 @property(nonatomic, copy, nullable) NSString *interface;
 
@@ -2646,9 +2648,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
 /**
- *  The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If
- *  not specified, the default is to attach the disk in READ_WRITE mode. Valid
- *  values: * READ_ONLY * READ_WRITE
+ *  The mode in which to attach this disk, either `READ_WRITE` or `READ_ONLY`.
+ *  If not specified, the default is to attach the disk in `READ_WRITE` mode.
+ *  Valid values: * `READ_ONLY` * `READ_WRITE`
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -2659,8 +2661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Specifies the type of the disk, either SCRATCH or PERSISTENT. If not
- *  specified, the default is PERSISTENT. Valid values: * PERSISTENT * SCRATCH
+ *  Specifies the type of the disk, either `SCRATCH` or `PERSISTENT`. If not
+ *  specified, the default is `PERSISTENT`. Valid values: * `PERSISTENT` *
+ *  `SCRATCH`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3050,6 +3053,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
+ *  Request for reporting a Managed Notebook Event.
+ */
+@interface GTLRAIPlatformNotebooks_ReportInstanceEventRequest : GTLRObject
+
+/** Required. The Event to be reported. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Event *event;
+
+/**
+ *  Required. The VM hardware token for authenticating the VM.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ */
+@property(nonatomic, copy, nullable) NSString *vmId;
+
+@end
+
+
+/**
  *  Request for notebook instances to report information to Notebooks API.
  */
 @interface GTLRAIPlatformNotebooks_ReportInstanceInfoRequest : GTLRObject
@@ -3155,7 +3175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Required. The snapshot for rollback. Example:
- *  "projects/test-project/global/snapshots/krwlzipynril".
+ *  `projects/test-project/global/snapshots/krwlzipynril`.
  */
 @property(nonatomic, copy, nullable) NSString *targetSnapshot;
 
@@ -3193,6 +3213,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        are not running) Applies to ACTIVE state. (Value: "UNHEALTHY")
  */
 @property(nonatomic, copy, nullable) NSString *healthState;
+
+/**
+ *  Optional. The labels to associate with this Managed Notebook or Runtime.
+ *  Label **keys** must contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). Label **values** may be empty,
+ *  but, if present, must contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Runtime_Labels *labels;
 
 /**
  *  Output only. Contains Runtime daemon metrics such as Service status and
@@ -3242,6 +3272,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /** Use a Compute Engine VM image to start the managed notebook instance. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VirtualMachine *virtualMachine;
 
+@end
+
+
+/**
+ *  Optional. The labels to associate with this Managed Notebook or Runtime.
+ *  Label **keys** must contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). Label **values** may be empty,
+ *  but, if present, must contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a cluster.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_Runtime_Labels : GTLRObject
 @end
 
 
@@ -3344,9 +3391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  The ID of a supported feature. Read [Enabling guest operating system
  *  features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features)
- *  to see a list of available options. Valid values: * FEATURE_TYPE_UNSPECIFIED
- *  * MULTI_IP_SUBNET * SECURE_BOOT * UEFI_COMPATIBLE * VIRTIO_SCSI_MULTIQUEUE *
- *  WINDOWS
+ *  to see a list of available options. Valid values: *
+ *  `FEATURE_TYPE_UNSPECIFIED` * `MULTI_IP_SUBNET` * `SECURE_BOOT` *
+ *  `UEFI_COMPATIBLE` * `VIRTIO_SCSI_MULTIQUEUE` * `WINDOWS`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3527,7 +3574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Cron-tab formatted schedule by which the job will execute. Format: minute,
- *  hour, day of month, month, day of week, e.g. 0 0 * * WED = every Wednesday
+ *  hour, day of month, month, day of week, e.g. `0 0 * * WED` = every Wednesday
  *  More examples: https://crontab.guru/examples.html
  */
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
@@ -3541,7 +3588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Output only. Display name used for UI purposes. Name can only contain
- *  alphanumeric characters, hyphens '-', and underscores '_'.
+ *  alphanumeric characters, hyphens `-`, and underscores `_`.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3757,7 +3804,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  A set of Shielded Instance options. Check [Images using supported Shielded
- *  VM features] Not all combinations are valid.
+ *  VM
+ *  features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
+ *  Not all combinations are valid.
  */
 @interface GTLRAIPlatformNotebooks_ShieldedInstanceConfig : GTLRObject
 
@@ -4039,7 +4088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Target VM Image. Format: ainotebooks-vm/project/image-name/name. */
+/** Target VM Image. Format: `ainotebooks-vm/project/image-name/name`. */
 @property(nonatomic, copy, nullable) NSString *targetImage;
 
 /** Target VM Version, like m63. */
@@ -4132,17 +4181,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Environment variables. At most 100 environment variables can be specified
- *  and unique. Example: GCP_BUCKET=gs://my-bucket/samples/
+ *  and unique. Example: `GCP_BUCKET=gs://my-bucket/samples/`
  */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VertexAIParameters_Env *env;
 
 /**
  *  The full name of the Compute Engine
- *  [network](/compute/docs/networks-and-firewalls#networks) to which the Job
- *  should be peered. For example, `projects/12345/global/networks/myVPC`.
+ *  [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
+ *  to which the Job should be peered. For example,
+ *  `projects/12345/global/networks/myVPC`.
  *  [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert)
  *  is of the form `projects/{project}/global/networks/{network}`. Where
- *  {project} is a project number, as in `12345`, and {network} is a network
+ *  `{project}` is a project number, as in `12345`, and `{network}` is a network
  *  name. Private services access must already be configured for the network. If
  *  left unspecified, the job is not peered with any network.
  */
@@ -4153,7 +4203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Environment variables. At most 100 environment variables can be specified
- *  and unique. Example: GCP_BUCKET=gs://my-bucket/samples/
+ *  and unique. Example: `GCP_BUCKET=gs://my-bucket/samples/`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

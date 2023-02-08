@@ -1686,6 +1686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Which namespace ids are being exported. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
 /**
  *  The state of the export operation.
  *
@@ -1714,7 +1717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *operationState;
 
-/** Where the entities are being exported to. */
+/** Where the documents are being exported to. */
 @property(nonatomic, copy, nullable) NSString *outputUriPrefix;
 
 /** The progress, in bytes, of this operation. */
@@ -1905,6 +1908,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** The location of the documents being imported. */
 @property(nonatomic, copy, nullable) NSString *inputUriPrefix;
+
+/** Which namespace ids are being imported. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 /**
  *  The state of the import operation.

@@ -16,6 +16,7 @@
 
 @class GTLRManufacturerCenter_Attributes;
 @class GTLRManufacturerCenter_Capacity;
+@class GTLRManufacturerCenter_Certification;
 @class GTLRManufacturerCenter_Count;
 @class GTLRManufacturerCenter_DestinationStatus;
 @class GTLRManufacturerCenter_FeatureDescription;
@@ -26,6 +27,7 @@
 @class GTLRManufacturerCenter_Nutrition;
 @class GTLRManufacturerCenter_Price;
 @class GTLRManufacturerCenter_Product;
+@class GTLRManufacturerCenter_ProductCertification;
 @class GTLRManufacturerCenter_ProductDetail;
 @class GTLRManufacturerCenter_VoluntaryNutritionFact;
 
@@ -497,6 +499,32 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 
 /**
+ *  Description of a certification.
+ */
+@interface GTLRManufacturerCenter_Certification : GTLRObject
+
+/** Required. Name of the certification body. */
+@property(nonatomic, copy, nullable) NSString *authority;
+
+/** Optional. A URL link to the certification. */
+@property(nonatomic, copy, nullable) NSString *link;
+
+/** Optional. A URL link to the certification logo. */
+@property(nonatomic, copy, nullable) NSString *logo;
+
+/** Required. Name of the certification. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The expiration date (UTC). */
+@property(nonatomic, copy, nullable) NSString *validUntil;
+
+/** Required. A custom value of the certification. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  The number of products in a single package. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#count.
  */
@@ -758,6 +786,33 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  “INCORRECT_TEXT_FORMATTING”, “IMAGE_NOT_SERVEABLE”, etc.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Response for ListProductCertifications method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "productCertifications" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRManufacturerCenter_ListProductCertificationsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The product certifications from the specified certification body.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_ProductCertification *> *productCertifications;
 
 @end
 
@@ -1051,6 +1106,63 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  US).
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
+
+@end
+
+
+/**
+ *  The data matches with the vertical specification for product in
+ *  http://google3/googlebase/verticals/devel/product_certification
+ */
+@interface GTLRManufacturerCenter_ProductCertification : GTLRObject
+
+/**
+ *  Required. This is the product's brand name. The brand is used to help
+ *  identify your product.
+ */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/** Required. A list of certifications to link to the described product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Certification *> *certification;
+
+/** Optional. A 2-letter country code (ISO 3166-1 Alpha 2). */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countryCode;
+
+/** Output only. The statuses of the destinations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_DestinationStatus *> *destinationStatuses;
+
+/**
+ *  Output only. A server-generated list of issues associated with the product.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Issue *> *issues;
+
+/**
+ *  Optional. These are the Manufacturer Part Numbers (MPN). MPNs are used to
+ *  uniquely identify a specific product among all products from the same
+ *  manufacturer
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mpn;
+
+/**
+ *  Required. The unique name identifier of a product certification Format:
+ *  accounts/{account}/languages/{language_code}/productCertifications/{id}
+ *  Where `id` is a some unique identifier and `language_code` is a 2-letter ISO
+ *  639-1 code of a Shopping supported language according to
+ *  https://support.google.com/merchants/answer/160637.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Another name for GTIN. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productCode;
+
+/**
+ *  Optional. These are your own product categorization system in your product
+ *  data.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productType;
+
+/** Required. This is to clearly identify the product you are certifying. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

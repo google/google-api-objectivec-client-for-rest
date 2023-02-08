@@ -2191,6 +2191,541 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 @end
 
+/**
+ *  Creates an InboundSamlSsoProfile for a customer.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate : GTLRCloudIdentityQuery
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Creates an InboundSamlSsoProfile for a customer.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundSamlSsoProfile to include in
+ *    the query.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSamlSsoProfile *)object;
+
+@end
+
+/**
+ *  Deletes an InboundSamlSsoProfile.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundSamlSsoProfile to delete. Format:
+ *  `inboundSamlSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Deletes an InboundSamlSsoProfile.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundSamlSsoProfile to delete. Format:
+ *    `inboundSamlSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an InboundSamlSsoProfile.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundSamlSsoProfile to get. Format:
+ *  `inboundSamlSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_InboundSamlSsoProfile.
+ *
+ *  Gets an InboundSamlSsoProfile.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundSamlSsoProfile to get. Format:
+ *    `inboundSamlSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Adds an IdpCredential. Up to 2 credentials are allowed.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.add
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsAdd : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The InboundSamlSsoProfile that owns the IdpCredential. Format:
+ *  `inboundSamlSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Adds an IdpCredential. Up to 2 credentials are allowed.
+ *
+ *  @param object The @c GTLRCloudIdentity_AddIdpCredentialRequest to include in
+ *    the query.
+ *  @param parent Required. The InboundSamlSsoProfile that owns the
+ *    IdpCredential. Format: `inboundSamlSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsAdd
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_AddIdpCredentialRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an IdpCredential.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  IdpCredential to delete. Format:
+ *  `inboundSamlSsoProfiles/{sso_profile_id}/idpCredentials/{idp_credential_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Deletes an IdpCredential.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    IdpCredential to delete. Format:
+ *    `inboundSamlSsoProfiles/{sso_profile_id}/idpCredentials/{idp_credential_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an IdpCredential.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  IdpCredential to retrieve. Format:
+ *  `inboundSamlSsoProfiles/{sso_profile_id}/idpCredentials/{idp_credential_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_IdpCredential.
+ *
+ *  Gets an IdpCredential.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    IdpCredential to retrieve. Format:
+ *    `inboundSamlSsoProfiles/{sso_profile_id}/idpCredentials/{idp_credential_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of IdpCredentials in an InboundSamlSsoProfile.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsList : GTLRCloudIdentityQuery
+
+/**
+ *  The maximum number of `IdpCredential`s to return. The service may return
+ *  fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListIdpCredentials` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListIdpCredentials` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of `IdpCredential`s.
+ *  Format: `inboundSamlSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListIdpCredentialsResponse.
+ *
+ *  Returns a list of IdpCredentials in an InboundSamlSsoProfile.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    `IdpCredential`s. Format: `inboundSamlSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists InboundSamlSsoProfiles for a customer.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesList : GTLRCloudIdentityQuery
+
+/**
+ *  A [Common Expression Language](https://github.com/google/cel-spec)
+ *  expression to filter the results. The only currently-supported filter is
+ *  filtering by customer. For example: `customer=="customers/C0123abc"`.
+ *  Omitting the filter or specifying a filter of
+ *  `customer=="customers/my_customer"` will return the profiles for the
+ *  customer that the caller (authenticated user) belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of InboundSamlSsoProfiles to return. The service may
+ *  return fewer than this value. If omitted (or defaulted to zero) the server
+ *  will use a sensible default. This default may change over time. The maximum
+ *  allowed value is 100. Requests with page_size greater than that will be
+ *  silently interpreted as having this maximum value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListInboundSamlSsoProfiles` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListInboundSamlSsoProfiles` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListInboundSamlSsoProfilesResponse.
+ *
+ *  Lists InboundSamlSsoProfiles for a customer.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates an InboundSamlSsoProfile.
+ *
+ *  Method: cloudidentity.inboundSamlSsoProfiles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesPatch : GTLRCloudIdentityQuery
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the SAML SSO
+ *  profile.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Updates an InboundSamlSsoProfile.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundSamlSsoProfile to include in
+ *    the query.
+ *  @param name Output only. [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the SAML SSO
+ *    profile.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSamlSsoProfilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSamlSsoProfile *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an InboundSsoAssignment for users and devices in a `Customer` under
+ *  a given `Group` or `OrgUnit`.
+ *
+ *  Method: cloudidentity.inboundSsoAssignments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSsoAssignmentsCreate : GTLRCloudIdentityQuery
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Creates an InboundSsoAssignment for users and devices in a `Customer` under
+ *  a given `Group` or `OrgUnit`.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundSsoAssignment to include in
+ *    the query.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSsoAssignmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSsoAssignment *)object;
+
+@end
+
+/**
+ *  Deletes an InboundSsoAssignment. To disable SSO, Create (or Update) an
+ *  assignment that has `sso_mode` == `SSO_OFF`.
+ *
+ *  Method: cloudidentity.inboundSsoAssignments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSsoAssignmentsDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundSsoAssignment to delete. Format: `inboundSsoAssignments/{assignment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Deletes an InboundSsoAssignment. To disable SSO, Create (or Update) an
+ *  assignment that has `sso_mode` == `SSO_OFF`.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundSsoAssignment to delete. Format:
+ *    `inboundSsoAssignments/{assignment}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSsoAssignmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an InboundSsoAssignment.
+ *
+ *  Method: cloudidentity.inboundSsoAssignments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSsoAssignmentsGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundSsoAssignment to fetch. Format: `inboundSsoAssignments/{assignment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_InboundSsoAssignment.
+ *
+ *  Gets an InboundSsoAssignment.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundSsoAssignment to fetch. Format:
+ *    `inboundSsoAssignments/{assignment}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSsoAssignmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the InboundSsoAssignments for a `Customer`.
+ *
+ *  Method: cloudidentity.inboundSsoAssignments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSsoAssignmentsList : GTLRCloudIdentityQuery
+
+/**
+ *  A CEL expression to filter the results. The only currently-supported filter
+ *  is filtering by customer. For example: `customer==customers/C0123abc`.
+ *  Omitting the filter or specifying a filter of
+ *  `customer==customers/my_customer` will return the assignments for the
+ *  customer that the caller (authenticated user) belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of assignments to return. The service may return fewer
+ *  than this value. If omitted (or defaulted to zero) the server will use a
+ *  sensible default. This default may change over time. The maximum allowed
+ *  value is 100, though requests with page_size greater than that will be
+ *  silently interpreted as having this maximum value. This may increase in the
+ *  futue.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListInboundSsoAssignments` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListInboundSsoAssignments` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListInboundSsoAssignmentsResponse.
+ *
+ *  Lists the InboundSsoAssignments for a `Customer`.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSsoAssignmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates an InboundSsoAssignment. The body of this request is the
+ *  `inbound_sso_assignment` field and the `update_mask` is relative to that.
+ *  For example: a PATCH to
+ *  `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of
+ *  `{ "rank": 1 }` moves that (presumably group-targeted) SSO assignment to the
+ *  highest priority and shifts any other group-targeted assignments down in
+ *  priority.
+ *
+ *  Method: cloudidentity.inboundSsoAssignments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundSsoAssignmentsPatch : GTLRCloudIdentityQuery
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the Inbound
+ *  SSO Assignment.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Updates an InboundSsoAssignment. The body of this request is the
+ *  `inbound_sso_assignment` field and the `update_mask` is relative to that.
+ *  For example: a PATCH to
+ *  `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of
+ *  `{ "rank": 1 }` moves that (presumably group-targeted) SSO assignment to the
+ *  highest priority and shifts any other group-targeted assignments down in
+ *  priority.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundSsoAssignment to include in
+ *    the query.
+ *  @param name Output only. [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the Inbound
+ *    SSO Assignment.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundSsoAssignmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSsoAssignment *)object
+                           name:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

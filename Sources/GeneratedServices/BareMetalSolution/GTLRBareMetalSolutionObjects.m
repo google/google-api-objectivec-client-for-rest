@@ -1103,7 +1103,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
          originallyRequestedSizeGib, performanceTier, pod, protocol,
          remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
          snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,
-         state, storageType, workloadProfile;
+         state, storageAggregatePool, storageType, workloadProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1133,7 +1133,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_VolumeConfig
 @dynamic gcpService, identifier, lunRanges, machineIds, name, nfsExports,
-         performanceTier, protocol, sizeGb, snapshotsEnabled, type, userNote;
+         performanceTier, protocol, sizeGb, snapshotsEnabled,
+         storageAggregatePool, type, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

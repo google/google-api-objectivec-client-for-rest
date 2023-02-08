@@ -118,8 +118,8 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Backup
-@dynamic capacityGb, createTime, descriptionProperty, downloadBytes, labels,
-         name, satisfiesPzs, sourceFileShare, sourceInstance,
+@dynamic capacityGb, createTime, descriptionProperty, downloadBytes, kmsKey,
+         labels, name, satisfiesPzs, sourceFileShare, sourceInstance,
          sourceInstanceTier, state, storageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

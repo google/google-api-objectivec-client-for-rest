@@ -492,10 +492,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest : GTLRObject
 
 /**
- *  Optional. If true, Google will cancel the subscription immediately, and
- *  issue a prorated refund for the remainder of the billing cycle. Otherwise,
- *  Google defers the cancelation at renewal_time, and therefore, will not issue
- *  a refund.
+ *  Optional. If true, Google will cancel the subscription immediately, and may
+ *  or may not (based on the contract) issue a prorated refund for the remainder
+ *  of the billing cycle. Otherwise, Google defers the cancelation at
+ *  renewal_time, and will not issue a refund.
  *
  *  Uses NSNumber of boolValue.
  */

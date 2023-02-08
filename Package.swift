@@ -54,6 +54,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AdSenseHost"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Advisorynotifications",
+            targets: ["GoogleAPIClientForREST_Advisorynotifications"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AIPlatformNotebooks",
             targets: ["GoogleAPIClientForREST_AIPlatformNotebooks"]
         ),
@@ -646,10 +650,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_IAMCredentials"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Ideahub",
-            targets: ["GoogleAPIClientForREST_Ideahub"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_IdentityToolkit",
             targets: ["GoogleAPIClientForREST_IdentityToolkit"]
         ),
@@ -848,6 +848,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_ResourceSettings",
             targets: ["GoogleAPIClientForREST_ResourceSettings"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_SA360",
+            targets: ["GoogleAPIClientForREST_SA360"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Safebrowsing",
@@ -1118,6 +1122,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_AdSenseHost",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AdSenseHost",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Advisorynotifications",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Advisorynotifications",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2009,12 +2019,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_Ideahub",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/Ideahub",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_IdentityToolkit",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/IdentityToolkit",
@@ -2312,6 +2316,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ResourceSettings",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/ResourceSettings",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_SA360",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/SA360",
             publicHeadersPath: "Public"
         ),
         .target(

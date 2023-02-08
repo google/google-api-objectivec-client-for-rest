@@ -3951,6 +3951,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalanc
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RoundRobin;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_BackendServiceLogConfig.optionalMode
+
+/**
+ *  A subset of optional fields.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_Custom;
+/**
+ *  None optional fields.
+ *
+ *  Value: "EXCLUDE_ALL_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_ExcludeAllOptional;
+/**
+ *  All optional fields.
+ *
+ *  Value: "INCLUDE_ALL_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_IncludeAllOptional;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_BackendServicesScopedList_Warning.code
 
 /**
@@ -21259,6 +21281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2aCpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2Cpus;
 /** Value: "N2D_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2dCpus;
+/** Value: "NETWORK_ATTACHMENTS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetworkAttachments;
 /** Value: "NETWORK_ENDPOINT_GROUPS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetworkEndpointGroups;
 /** Value: "NETWORK_FIREWALL_POLICIES" */
@@ -39102,12 +39126,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
- *  A list of locality load balancing policies to be used in order of
- *  preference. Either the policy or the customPolicy field should be set.
- *  Overrides any value set in the localityLbPolicy field. localityLbPolicies is
- *  only supported when the BackendService is referenced by a URL Map that is
- *  referenced by a target gRPC proxy that has the validateForProxyless field
- *  set to true.
+ *  A list of locality load-balancing policies to be used in order of
+ *  preference. When you use localityLbPolicies, you must set at least one value
+ *  for either the localityLbPolicies[].policy or the
+ *  localityLbPolicies[].customPolicy field. localityLbPolicies overrides any
+ *  value set in the localityLbPolicy field. For an example of how to use this
+ *  field, see Define a list of preferred policies. Caution: This field and its
+ *  children are intended for use in a service mesh that includes gRPC clients
+ *  only. Envoy proxies can't use backend services that have this configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig *> *localityLbPolicies;
 
@@ -40152,12 +40178,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  Identifies the custom policy. The value should match the type the custom
- *  implementation is registered with on the gRPC clients. It should follow
- *  protocol buffer message naming conventions and include the full path (e.g.
- *  myorg.CustomLbPolicy). The maximum length is 256 characters. Note that
- *  specifying the same custom policy more than once for a backend is not a
- *  valid configuration and will be rejected.
+ *  Identifies the custom policy. The value should match the name of a custom
+ *  implementation registered on the gRPC clients. It should follow protocol
+ *  buffer message naming conventions and include the full path (for example,
+ *  myorg.CustomLbPolicy). The maximum length is 256 characters. Do not specify
+ *  the same custom policy more than once for a backend. If you do, the
+ *  configuration is rejected. For an example of how to use this field, see Use
+ *  a custom policy.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -40170,11 +40197,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy : GTLRObject
 
 /**
- *  The name of a locality load balancer policy to be used. The value should be
- *  one of the predefined ones as supported by localityLbPolicy, although at the
- *  moment only ROUND_ROBIN is supported. This field should only be populated
- *  when the customPolicy field is not used. Note that specifying the same
- *  policy more than once for a backend is not a valid configuration and will be
+ *  The name of a locality load-balancing policy. Valid values include
+ *  ROUND_ROBIN and, for Java clients, LEAST_REQUEST. For information about
+ *  these values, see the description of localityLbPolicy. Do not specify the
+ *  same policy more than once for a backend. If you do, the configuration is
  *  rejected.
  *
  *  Likely values:
@@ -40223,6 +40249,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enable;
+
+/**
+ *  This field can only be specified if logging is enabled for this backend
+ *  service and "logConfig.optionalMode" was set to CUSTOM. Contains a list of
+ *  optional fields you want to include in the logs. For example:
+ *  serverInstance, serverGkeDetails.cluster, serverGkeDetails.pod.podNamespace
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *optionalFields;
+
+/**
+ *  This field can only be specified if logging is enabled for this backend
+ *  service. Configures whether all, none or a subset of optional fields should
+ *  be added to the reported logs. One of [INCLUDE_ALL_OPTIONAL,
+ *  EXCLUDE_ALL_OPTIONAL, CUSTOM]. Default is EXCLUDE_ALL_OPTIONAL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendServiceLogConfig_OptionalMode_Custom A subset
+ *        of optional fields. (Value: "CUSTOM")
+ *    @arg @c kGTLRCompute_BackendServiceLogConfig_OptionalMode_ExcludeAllOptional
+ *        None optional fields. (Value: "EXCLUDE_ALL_OPTIONAL")
+ *    @arg @c kGTLRCompute_BackendServiceLogConfig_OptionalMode_IncludeAllOptional
+ *        All optional fields. (Value: "INCLUDE_ALL_OPTIONAL")
+ */
+@property(nonatomic, copy, nullable) NSString *optionalMode;
 
 /**
  *  This field can only be specified if logging is enabled for this backend
@@ -54873,7 +54923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. Only
+ *  The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4093. Only
  *  specified at creation time.
  *
  *  Uses NSNumber of intValue.
@@ -67444,6 +67494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_N2aCpus Value "N2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2Cpus Value "N2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2dCpus Value "N2D_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NetworkAttachments Value
+ *        "NETWORK_ATTACHMENTS"
  *    @arg @c kGTLRCompute_Quota_Metric_NetworkEndpointGroups Value
  *        "NETWORK_ENDPOINT_GROUPS"
  *    @arg @c kGTLRCompute_Quota_Metric_NetworkFirewallPolicies Value
@@ -74378,17 +74430,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The Action to perform when the rule is matched. The following are the valid
- *  actions: - allow: allow access to target. - deny(): deny access to target,
- *  returns the HTTP response code specified (valid values are 403, 404, and
- *  502). - rate_based_ban: limit client traffic to the configured threshold and
- *  ban the client if the traffic exceeds the threshold. Configure parameters
- *  for this action in RateLimitOptions. Requires rate_limit_options to be set.
- *  - redirect: redirect to a different target. This can either be an internal
- *  reCAPTCHA redirect, or an external URL-based redirect via a 302 response.
- *  Parameters for this action can be configured via redirectOptions. -
- *  throttle: limit client traffic to the configured threshold. Configure
- *  parameters for this action in rateLimitOptions. Requires rate_limit_options
- *  to be set for this.
+ *  actions: - allow: allow access to target. - deny(STATUS): deny access to
+ *  target, returns the HTTP response code specified. Valid values for `STATUS`
+ *  are 403, 404, and 502. - rate_based_ban: limit client traffic to the
+ *  configured threshold and ban the client if the traffic exceeds the
+ *  threshold. Configure parameters for this action in RateLimitOptions.
+ *  Requires rate_limit_options to be set. - redirect: redirect to a different
+ *  target. This can either be an internal reCAPTCHA redirect, or an external
+ *  URL-based redirect via a 302 response. Parameters for this action can be
+ *  configured via redirectOptions. - throttle: limit client traffic to the
+ *  configured threshold. Configure parameters for this action in
+ *  rateLimitOptions. Requires rate_limit_options to be set for this.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -74602,9 +74654,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Action to take for requests that are above the configured rate limit
  *  threshold, to either deny with a specified HTTP response code, or redirect
- *  to a different endpoint. Valid options are "deny(status)", where valid
- *  values for status are 403, 404, 429, and 502, and "redirect" where the
- *  redirect parameters come from exceedRedirectOptions below.
+ *  to a different endpoint. Valid options are `deny(STATUS)`, where valid
+ *  values for `STATUS` are 403, 404, 429, and 502, and `redirect`, where the
+ *  redirect parameters come from `exceedRedirectOptions` below.
  */
 @property(nonatomic, copy, nullable) NSString *exceedAction;
 
@@ -76134,9 +76186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Attached disks configuration. If not provided, defaults are applied: For
- *  boot disk and any other R/W disks, new custom images will be created from
- *  each disk. For read-only disks, they will be attached in read-only mode.
- *  Local SSD disks will be created as blank volumes.
+ *  boot disk and any other R/W disks, the source images for each disk will be
+ *  used. For read-only disks, they will be attached in read-only mode. Local
+ *  SSD disks will be created as blank volumes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_DiskInstantiationConfig *> *diskConfigs;
 
@@ -86434,6 +86486,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The sensitivity value associated with the WAF rule ID. This corresponds to
+ *  the ModSecurity paranoia level, ranging from 1 to 4. 0 is reserved for
+ *  opt-in only rules.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sensitivity;
 
 @end
 

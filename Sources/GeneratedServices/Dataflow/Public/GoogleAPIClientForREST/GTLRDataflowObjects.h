@@ -110,7 +110,6 @@
 @class GTLRDataflow_PubSubIODetails;
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_PubsubSnapshotMetadata;
-@class GTLRDataflow_QueryInfo;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest;
@@ -1204,22 +1203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Pub
  *  Value: "TEXT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
-
-// ----------------------------------------------------------------------------
-// GTLRDataflow_QueryInfo.queryProperty
-
-/**
- *  Indicates this query reads from >= 1 unbounded source.
- *
- *  Value: "HAS_UNBOUNDED_SOURCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_QueryInfo_QueryProperty_HasUnboundedSource;
-/**
- *  The query property is unknown or unspecified.
- *
- *  Value: "QUERY_PROPERTY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_QueryInfo_QueryProperty_QueryPropertyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
@@ -4077,9 +4060,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /**
  *  JobMetrics contains a collection of metrics describing the detailed progress
  *  of a Dataflow job. Metrics correspond to user-defined and system-defined
- *  metrics in the job. This resource captures only the most recent values of
- *  each metric; time-series data can be queried for them (under the same metric
- *  names) from Cloud Monitoring.
+ *  metrics in the job. For more information, see [Dataflow job metrics]
+ *  (https://cloud.google.com/dataflow/docs/guides/using-monitoring-intf). This
+ *  resource captures only the most recent values of each metric; time-series
+ *  data can be queried for them (under the same metric names) from Cloud
+ *  Monitoring.
  */
 @interface GTLRDataflow_JobMetrics : GTLRObject
 
@@ -5220,17 +5205,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Information about a validated query.
- */
-@interface GTLRDataflow_QueryInfo : GTLRObject
-
-/** Includes an entry for each satisfied QueryProperty. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *queryProperty;
-
-@end
-
-
-/**
  *  An instruction that reads records. Takes no inputs, produces one output.
  */
 @interface GTLRDataflow_ReadInstruction : GTLRObject
@@ -5389,14 +5363,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 
 /**
- *  Additional experiment flags for the job, specified with the `--experiments`
- *  option.
+ *  Optional. Additional experiment flags for the job, specified with the
+ *  `--experiments` option.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
 
 /**
- *  Additional user labels to be specified for the job. Keys and values should
- *  follow the restrictions specified in the [labeling
+ *  Optional. Additional user labels to be specified for the job. Keys and
+ *  values should follow the restrictions specified in the [labeling
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
  *  page. An object containing a list of "key": value pairs. Example: { "name":
  *  "wrench", "mass": "1kg", "count": "3" }.
@@ -5404,22 +5378,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
 
 /**
- *  Whether to bypass the safety checks for the job's temporary directory. Use
- *  with caution.
+ *  Optional. Whether to bypass the safety checks for the job's temporary
+ *  directory. Use with caution.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
 
 /**
- *  Whether to enable Streaming Engine for the job.
+ *  Optional. Whether to enable Streaming Engine for the job.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStreamingEngine;
 
 /**
- *  Configuration for VM IPs.
+ *  Optional. Configuration for VM IPs.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate
@@ -5433,45 +5407,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *ipConfiguration;
 
 /**
- *  Name for the Cloud KMS key for the job. Key format is:
+ *  Optional. Name for the Cloud KMS key for the job. Key format is:
  *  projects//locations//keyRings//cryptoKeys/
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  The machine type to use for the job. Defaults to the value from the template
- *  if not specified.
+ *  Optional. The machine type to use for the job. Defaults to the value from
+ *  the template if not specified.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
- *  The maximum number of Google Compute Engine instances to be made available
- *  to your pipeline during execution, from 1 to 1000.
+ *  Optional. The maximum number of Google Compute Engine instances to be made
+ *  available to your pipeline during execution, from 1 to 1000. The default
+ *  value is 1.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxWorkers;
 
 /**
- *  Network to which VMs will be assigned. If empty or unspecified, the service
- *  will use the network "default".
+ *  Optional. Network to which VMs will be assigned. If empty or unspecified,
+ *  the service will use the network "default".
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The initial number of Google Compute Engine instances for the job.
+ *  Optional. The initial number of Google Compute Engine instances for the job.
+ *  The default value is 11.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numWorkers;
 
-/** The email address of the service account to run the job as. */
+/** Optional. The email address of the service account to run the job as. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  Subnetwork to which VMs will be assigned, if desired. You can specify a
- *  subnetwork using either a complete URL or an abbreviated path. Expected to
- *  be of the form
+ *  Optional. Subnetwork to which VMs will be assigned, if desired. You can
+ *  specify a subnetwork using either a complete URL or an abbreviated path.
+ *  Expected to be of the form
  *  "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK"
  *  or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in
  *  a Shared VPC network, you must use the complete URL.
@@ -5479,13 +5455,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  The Cloud Storage path to use for temporary files. Must be a valid Cloud
- *  Storage URL, beginning with `gs://`.
+ *  Required. The Cloud Storage path to use for temporary files. Must be a valid
+ *  Cloud Storage URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *tempLocation;
 
 /**
- *  The Compute Engine region
+ *  Required. The Compute Engine region
  *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which
  *  worker processing should occur, e.g. "us-west1". Mutually exclusive with
  *  worker_zone. If neither worker_region nor worker_zone is specified, default
@@ -5494,7 +5470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *workerRegion;
 
 /**
- *  The Compute Engine zone
+ *  Optional. The Compute Engine zone
  *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which
  *  worker processing should occur, e.g. "us-west1-a". Mutually exclusive with
  *  worker_region. If neither worker_region nor worker_zone is specified, a zone
@@ -5504,7 +5480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *workerZone;
 
 /**
- *  The Compute Engine [availability
+ *  Optional. The Compute Engine [availability
  *  zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones) for
  *  launching worker instances to run your pipeline. In the future, worker_zone
  *  will take precedence.
@@ -5517,8 +5493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Additional user labels to be specified for the job. Keys and values should
- *  follow the restrictions specified in the [labeling
+ *  Optional. Additional user labels to be specified for the job. Keys and
+ *  values should follow the restrictions specified in the [labeling
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
  *  page. An object containing a list of "key": value pairs. Example: { "name":
  *  "wrench", "mass": "1kg", "count": "3" }.
@@ -7164,20 +7140,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** User names for all collection outputs to this transform. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputCollectionName;
-
-@end
-
-
-/**
- *  Response to the validation request.
- */
-@interface GTLRDataflow_ValidateResponse : GTLRObject
-
-/** Will be empty if validation succeeds. */
-@property(nonatomic, copy, nullable) NSString *errorMessage;
-
-/** Information about the validated query. Not defined if validation fails. */
-@property(nonatomic, strong, nullable) GTLRDataflow_QueryInfo *queryInfo;
 
 @end
 

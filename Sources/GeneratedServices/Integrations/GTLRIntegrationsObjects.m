@@ -3055,42 +3055,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIntegrations_GoogleCloudIntegrationsV1alphaAttemptStats
 //
 
@@ -3249,34 +3213,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleRequest
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleRequest
-@dynamic bundleId, integrations, secondaryCustomerOrgId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"integrations" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleResponse
-@dynamic config, triggerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIntegrations_GoogleCloudIntegrationsV1alphaCredential
 //
 
@@ -3284,24 +3220,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 @dynamic authToken, credentialType, jwt, oauth2AuthorizationCode,
          oauth2ClientCredentials, oauth2ResourceOwnerCredentials, oidcToken,
          serviceAccountCredentials, usernameAndPassword;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse
 @end
 
 
@@ -3562,16 +3480,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaGetBundleResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaGetBundleResponse
-@dynamic config;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegration
 //
 
@@ -3604,24 +3512,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationAlertConfigThresholdValue
 @dynamic absolute, percentage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig
-@dynamic integrations, serviceAccount;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"integrations" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -3829,28 +3719,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse
-@dynamic executionSnapshots, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"executionSnapshots" : [GTLRIntegrations_EnterpriseCrmEventbusProtoEventExecutionSnapshot class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"executionSnapshots";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionsResponse
 //
 
@@ -4039,24 +3907,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 + (NSString *)collectionItemsKey {
   return @"suspensions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse
-@dynamic taskEntities;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"taskEntities" : [GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskEntity class]
-  };
-  return map;
 }
 
 @end
@@ -4509,21 +4359,10 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleRequest
+//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest
 //
 
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleRequest
-@dynamic config;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleResponse
-@dynamic config;
+@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest
 @end
 
 
@@ -4554,24 +4393,6 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaUsernameAndPassword
 @dynamic password, username;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse
-//
-
-@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse
 @end
 
 

@@ -101,6 +101,16 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManufacturerCenter_Certification
+//
+
+@implementation GTLRManufacturerCenter_Certification
+@dynamic authority, link, logo, name, validUntil, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManufacturerCenter_Count
 //
 
@@ -197,6 +207,28 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManufacturerCenter_ListProductCertificationsResponse
+//
+
+@implementation GTLRManufacturerCenter_ListProductCertificationsResponse
+@dynamic nextPageToken, productCertifications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productCertifications" : [GTLRManufacturerCenter_ProductCertification class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"productCertifications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManufacturerCenter_ListProductsResponse
 //
 
@@ -271,6 +303,31 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
   NSDictionary<NSString *, Class> *map = @{
     @"destinationStatuses" : [GTLRManufacturerCenter_DestinationStatus class],
     @"issues" : [GTLRManufacturerCenter_Issue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManufacturerCenter_ProductCertification
+//
+
+@implementation GTLRManufacturerCenter_ProductCertification
+@dynamic brand, certification, countryCode, destinationStatuses, issues, mpn,
+         name, productCode, productType, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certification" : [GTLRManufacturerCenter_Certification class],
+    @"countryCode" : [NSString class],
+    @"destinationStatuses" : [GTLRManufacturerCenter_DestinationStatus class],
+    @"issues" : [GTLRManufacturerCenter_Issue class],
+    @"mpn" : [NSString class],
+    @"productCode" : [NSString class],
+    @"productType" : [NSString class]
   };
   return map;
 }

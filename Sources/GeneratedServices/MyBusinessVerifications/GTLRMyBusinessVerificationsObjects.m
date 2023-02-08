@@ -227,7 +227,7 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 //
 
 @implementation GTLRMyBusinessVerifications_Verification
-@dynamic createTime, method, name, state;
+@dynamic announcement, createTime, method, name, state;
 @end
 
 
@@ -237,7 +237,7 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 //
 
 @implementation GTLRMyBusinessVerifications_VerificationOption
-@dynamic addressData, emailData, phoneNumber, verificationMethod;
+@dynamic addressData, announcement, emailData, phoneNumber, verificationMethod;
 @end
 
 

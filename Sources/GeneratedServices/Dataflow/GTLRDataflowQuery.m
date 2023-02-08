@@ -894,29 +894,6 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
-@implementation GTLRDataflowQuery_ProjectsLocationsSqlValidate
-
-@dynamic location, projectId, query;
-
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                          location:(NSString *)location {
-  NSArray *pathParams = @[
-    @"location", @"projectId"
-  ];
-  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/sql:validate";
-  GTLRDataflowQuery_ProjectsLocationsSqlValidate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.projectId = projectId;
-  query.location = location;
-  query.expectedObjectClass = [GTLRDataflow_ValidateResponse class];
-  query.loggingName = @"dataflow.projects.locations.sql.validate";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataflowQuery_ProjectsLocationsTemplatesCreate
 
 @dynamic location, projectId;

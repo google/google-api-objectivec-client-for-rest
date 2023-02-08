@@ -1998,52 +1998,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always confirm
- *  the given query parses correctly, and if able to look up schema information
- *  from DataCatalog, will validate that the query analyzes properly as well.
- *
- *  Method: dataflow.projects.locations.sql.validate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataflowCloudPlatform
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
- */
-@interface GTLRDataflowQuery_ProjectsLocationsSqlValidate : GTLRDataflowQuery
-
-/**
- *  The [regional endpoint]
- *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
- *  which to direct the request.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/** Required. The ID of the Cloud Platform project that the job belongs to. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** The sql query to validate. */
-@property(nonatomic, copy, nullable) NSString *query;
-
-/**
- *  Fetches a @c GTLRDataflow_ValidateResponse.
- *
- *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always confirm
- *  the given query parses correctly, and if able to look up schema information
- *  from DataCatalog, will validate that the query analyzes properly as well.
- *
- *  @param projectId Required. The ID of the Cloud Platform project that the job
- *    belongs to.
- *  @param location The [regional endpoint]
- *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
- *    which to direct the request.
- *
- *  @return GTLRDataflowQuery_ProjectsLocationsSqlValidate
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                          location:(NSString *)location;
-
-@end
-
-/**
  *  Creates a Cloud Dataflow job from a template. Do not enter confidential
  *  information when you supply string values using the API.
  *

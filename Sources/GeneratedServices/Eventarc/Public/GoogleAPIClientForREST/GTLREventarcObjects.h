@@ -380,8 +380,10 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -396,9 +398,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1605,9 +1605,10 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  Optional. To deliver messages, Eventarc might use other GCP products as a
- *  transport intermediary. This field contains a reference to that transport
- *  intermediary. This information can be used for debugging purposes.
+ *  Optional. To deliver messages, Eventarc might use other Google Cloud
+ *  products as a transport intermediary. This field contains a reference to
+ *  that transport intermediary. This information can be used for debugging
+ *  purposes.
  */
 @property(nonatomic, strong, nullable) GTLREventarc_Transport *transport;
 

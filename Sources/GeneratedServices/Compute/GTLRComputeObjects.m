@@ -574,6 +574,11 @@ NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPol
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RingHash = @"RING_HASH";
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RoundRobin = @"ROUND_ROBIN";
 
+// GTLRCompute_BackendServiceLogConfig.optionalMode
+NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_Custom = @"CUSTOM";
+NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_ExcludeAllOptional = @"EXCLUDE_ALL_OPTIONAL";
+NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_IncludeAllOptional = @"INCLUDE_ALL_OPTIONAL";
+
 // GTLRCompute_BackendServicesScopedList_Warning.code
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -3732,6 +3737,7 @@ NSString * const kGTLRCompute_Quota_Metric_MachineImages       = @"MACHINE_IMAGE
 NSString * const kGTLRCompute_Quota_Metric_N2aCpus             = @"N2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2Cpus              = @"N2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2dCpus             = @"N2D_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_NetworkAttachments  = @"NETWORK_ATTACHMENTS";
 NSString * const kGTLRCompute_Quota_Metric_NetworkEndpointGroups = @"NETWORK_ENDPOINT_GROUPS";
 NSString * const kGTLRCompute_Quota_Metric_NetworkFirewallPolicies = @"NETWORK_FIREWALL_POLICIES";
 NSString * const kGTLRCompute_Quota_Metric_Networks            = @"NETWORKS";
@@ -7602,7 +7608,15 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_BackendServiceLogConfig
-@dynamic enable, sampleRate;
+@dynamic enable, optionalFields, optionalMode, sampleRate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"optionalFields" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -22377,7 +22391,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_WafExpressionSetExpression
-@dynamic identifier;
+@dynamic identifier, sensitivity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

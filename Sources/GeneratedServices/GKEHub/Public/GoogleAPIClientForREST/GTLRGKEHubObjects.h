@@ -21,6 +21,7 @@
 @class GTLRGKEHub_Binding;
 @class GTLRGKEHub_CommonFeatureSpec;
 @class GTLRGKEHub_CommonFeatureState;
+@class GTLRGKEHub_CommonFleetDefaultMemberConfigSpec;
 @class GTLRGKEHub_ConfigManagementConfigSync;
 @class GTLRGKEHub_ConfigManagementConfigSyncDeploymentState;
 @class GTLRGKEHub_ConfigManagementConfigSyncState;
@@ -39,6 +40,7 @@
 @class GTLRGKEHub_ConfigManagementOciConfig;
 @class GTLRGKEHub_ConfigManagementOperatorState;
 @class GTLRGKEHub_ConfigManagementPolicyController;
+@class GTLRGKEHub_ConfigManagementPolicyControllerMigration;
 @class GTLRGKEHub_ConfigManagementPolicyControllerMonitoring;
 @class GTLRGKEHub_ConfigManagementPolicyControllerState;
 @class GTLRGKEHub_ConfigManagementPolicyControllerVersion;
@@ -499,6 +501,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_Dep
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementPolicyControllerMigration.stage
+
+/**
+ *  ACM Hub/Operator manages policycontroller. No migration yet completed.
+ *
+ *  Value: "ACM_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_AcmManaged;
+/**
+ *  All migrations steps complete; Poco Hub now manages policycontroller.
+ *
+ *  Value: "POCO_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_PocoManaged;
+/**
+ *  Unknown state of migration.
+ *
+ *  Value: "STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_StageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementPolicyControllerMonitoring.backends
@@ -1116,8 +1140,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -1132,9 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1185,6 +1209,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Output only. The "running state" of the Feature in this Hub. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FeatureState *state;
 
+@end
+
+
+/**
+ *  CommonFleetDefaultMemberConfigSpec contains default configuration
+ *  information for memberships of a fleet
+ */
+@interface GTLRGKEHub_CommonFleetDefaultMemberConfigSpec : GTLRObject
 @end
 
 
@@ -1853,6 +1885,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  State for the migration of PolicyController from ACM -> PoCo Hub.
+ */
+@interface GTLRGKEHub_ConfigManagementPolicyControllerMigration : GTLRObject
+
+/**
+ *  Stage of the migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_AcmManaged
+ *        ACM Hub/Operator manages policycontroller. No migration yet completed.
+ *        (Value: "ACM_MANAGED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_PocoManaged
+ *        All migrations steps complete; Poco Hub now manages policycontroller.
+ *        (Value: "POCO_MANAGED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_StageUnspecified
+ *        Unknown state of migration. (Value: "STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stage;
+
+@end
+
+
+/**
  *  PolicyControllerMonitoring specifies the backends Policy Controller should
  *  export metrics to. For example, to specify metrics should be exported to
  *  Cloud Monitoring and Prometheus, specify backends: ["cloudmonitoring",
@@ -1876,6 +1931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** The state about the policy controller installation. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGatekeeperDeploymentState *deploymentState;
+
+/** Record state of ACM -> PoCo Hub migration for this feature. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyControllerMigration *migration;
 
 /** The version of Gatekeeper Policy Controller deployed. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyControllerVersion *version;
@@ -2070,6 +2128,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Output only. When the Feature resource was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Optional. Feature configuration applicable to all memberships of the fleet.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_CommonFleetDefaultMemberConfigSpec *fleetDefaultMemberConfig;
 
 /** GCP labels for this Feature. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_Feature_Labels *labels;

@@ -27,8 +27,6 @@
 @class GTLRCloudSearch_AllAuthenticatedUsersProto;
 @class GTLRCloudSearch_Annotation;
 @class GTLRCloudSearch_AppId;
-@class GTLRCloudSearch_AppsDynamiteSharedAction;
-@class GTLRCloudSearch_AppsDynamiteSharedActionActionParameter;
 @class GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData;
 @class GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedAppProfile;
@@ -41,20 +39,13 @@
 @class GTLRCloudSearch_AppsDynamiteSharedAssistantUnfulfillableRequest;
 @class GTLRCloudSearch_AppsDynamiteSharedAvatarInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata;
-@class GTLRCloudSearch_AppsDynamiteSharedBorderStyle;
-@class GTLRCloudSearch_AppsDynamiteSharedButton;
-@class GTLRCloudSearch_AppsDynamiteSharedButtonList;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationData;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEvent;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEventTime;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataEventCreation;
 @class GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData;
 @class GTLRCloudSearch_AppsDynamiteSharedCallMetadata;
-@class GTLRCloudSearch_AppsDynamiteSharedCard;
-@class GTLRCloudSearch_AppsDynamiteSharedCardCardAction;
-@class GTLRCloudSearch_AppsDynamiteSharedCardCardHeader;
 @class GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion;
-@class GTLRCloudSearch_AppsDynamiteSharedCardSection;
 @class GTLRCloudSearch_AppsDynamiteSharedChatItem;
 @class GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge;
@@ -62,38 +53,20 @@
 @class GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply;
 @class GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention;
 @class GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo;
-@class GTLRCloudSearch_AppsDynamiteSharedColumns;
-@class GTLRCloudSearch_AppsDynamiteSharedColumnsColumn;
-@class GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets;
 @class GTLRCloudSearch_AppsDynamiteSharedContentReportType;
 @class GTLRCloudSearch_AppsDynamiteSharedCustomEmoji;
-@class GTLRCloudSearch_AppsDynamiteSharedDateTimePicker;
-@class GTLRCloudSearch_AppsDynamiteSharedDecoratedText;
-@class GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl;
 @class GTLRCloudSearch_AppsDynamiteSharedDimension;
-@class GTLRCloudSearch_AppsDynamiteSharedDivider;
 @class GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata;
 @class GTLRCloudSearch_AppsDynamiteSharedDocument;
 @class GTLRCloudSearch_AppsDynamiteSharedEmoji;
 @class GTLRCloudSearch_AppsDynamiteSharedFindDocumentSuggestion;
-@class GTLRCloudSearch_AppsDynamiteSharedGrid;
-@class GTLRCloudSearch_AppsDynamiteSharedGridGridItem;
 @class GTLRCloudSearch_AppsDynamiteSharedGroupDetails;
 @class GTLRCloudSearch_AppsDynamiteSharedGroupVisibility;
-@class GTLRCloudSearch_AppsDynamiteSharedIcon;
-@class GTLRCloudSearch_AppsDynamiteSharedImage;
-@class GTLRCloudSearch_AppsDynamiteSharedImageComponent;
-@class GTLRCloudSearch_AppsDynamiteSharedImageCropStyle;
 @class GTLRCloudSearch_AppsDynamiteSharedJustification;
 @class GTLRCloudSearch_AppsDynamiteSharedJustificationPerson;
 @class GTLRCloudSearch_AppsDynamiteSharedMeetMetadata;
 @class GTLRCloudSearch_AppsDynamiteSharedMessageInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload;
-@class GTLRCloudSearch_AppsDynamiteSharedOnClick;
-@class GTLRCloudSearch_AppsDynamiteSharedOpenLink;
-@class GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri;
-@class GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent;
-@class GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData;
 @class GTLRCloudSearch_AppsDynamiteSharedOrganizationInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoConsumerInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoCustomerInfo;
@@ -103,10 +76,6 @@
 @class GTLRCloudSearch_AppsDynamiteSharedRetentionSettings;
 @class GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount;
 @class GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts;
-@class GTLRCloudSearch_AppsDynamiteSharedSelectionInput;
-@class GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem;
-@class GTLRCloudSearch_AppsDynamiteSharedSuggestions;
-@class GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem;
 @class GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationData;
 @class GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataAssigneeChange;
 @class GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCompletionChange;
@@ -115,11 +84,42 @@
 @class GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataTaskProperties;
 @class GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataUserDefinedMessage;
 @class GTLRCloudSearch_AppsDynamiteSharedTasksMessageIntegrationPayload;
-@class GTLRCloudSearch_AppsDynamiteSharedTextInput;
-@class GTLRCloudSearch_AppsDynamiteSharedTextParagraph;
 @class GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship;
 @class GTLRCloudSearch_AppsDynamiteSharedVideoReference;
-@class GTLRCloudSearch_AppsDynamiteSharedWidget;
+@class GTLRCloudSearch_AppsDynamiteStorageAction;
+@class GTLRCloudSearch_AppsDynamiteStorageActionActionParameter;
+@class GTLRCloudSearch_AppsDynamiteStorageBorderStyle;
+@class GTLRCloudSearch_AppsDynamiteStorageButton;
+@class GTLRCloudSearch_AppsDynamiteStorageButtonList;
+@class GTLRCloudSearch_AppsDynamiteStorageCard;
+@class GTLRCloudSearch_AppsDynamiteStorageCardCardAction;
+@class GTLRCloudSearch_AppsDynamiteStorageCardCardHeader;
+@class GTLRCloudSearch_AppsDynamiteStorageCardSection;
+@class GTLRCloudSearch_AppsDynamiteStorageColumns;
+@class GTLRCloudSearch_AppsDynamiteStorageColumnsColumn;
+@class GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets;
+@class GTLRCloudSearch_AppsDynamiteStorageDateTimePicker;
+@class GTLRCloudSearch_AppsDynamiteStorageDecoratedText;
+@class GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl;
+@class GTLRCloudSearch_AppsDynamiteStorageDivider;
+@class GTLRCloudSearch_AppsDynamiteStorageGrid;
+@class GTLRCloudSearch_AppsDynamiteStorageGridGridItem;
+@class GTLRCloudSearch_AppsDynamiteStorageIcon;
+@class GTLRCloudSearch_AppsDynamiteStorageImage;
+@class GTLRCloudSearch_AppsDynamiteStorageImageComponent;
+@class GTLRCloudSearch_AppsDynamiteStorageImageCropStyle;
+@class GTLRCloudSearch_AppsDynamiteStorageOnClick;
+@class GTLRCloudSearch_AppsDynamiteStorageOpenLink;
+@class GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri;
+@class GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent;
+@class GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData;
+@class GTLRCloudSearch_AppsDynamiteStorageSelectionInput;
+@class GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem;
+@class GTLRCloudSearch_AppsDynamiteStorageSuggestions;
+@class GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem;
+@class GTLRCloudSearch_AppsDynamiteStorageTextInput;
+@class GTLRCloudSearch_AppsDynamiteStorageTextParagraph;
+@class GTLRCloudSearch_AppsDynamiteStorageWidget;
 @class GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action;
 @class GTLRCloudSearch_AppsDynamiteV1ApiCompatV1ActionConfirm;
 @class GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Attachment;
@@ -950,38 +950,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesAp
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedAction.interaction
-
-/**
- *  Default value if interaction is not specified.
- *
- *  Value: "INTERACTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_InteractionUnspecified;
-/**
- *  A dialog opens by clicking the button.
- *
- *  Value: "OPEN_DIALOG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_OpenDialog;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedAction.loadIndicator
-
-/**
- *  Nothing is displayed.
- *
- *  Value: "NONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_None;
-/**
- *  Displays a spinner to indicate that content is loading.
- *
- *  Value: "SPINNER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_Spinner;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo.updaterCountDisplayType
 
 /**
@@ -1196,6 +1164,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUpl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin;
 /**
+ *  Scanning was skipped because the message was sent while the space is in
+ *  migration mode. See go/migration-mode for details.
+ *
+ *  Value: "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration;
+/**
  *  Rule fetch and evaluation are skipped because there is no message to scan.
  *  Deprecated: this should not happen since there must be message or attachment
  *  for DLP scan.
@@ -1301,28 +1276,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUpl
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_UnknownVirusScanResult;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedBorderStyle.type
-
-/**
- *  No value specified.
- *
- *  Value: "BORDER_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_BorderTypeUnspecified;
-/**
- *  No border.
- *
- *  Value: "NO_BORDER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_NoBorder;
-/**
- *  Outline.
- *
- *  Value: "STROKE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_Stroke;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData.callStatus
 
 /**
@@ -1349,22 +1302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnota
  *  Value: "CALL_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStatusUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedCardCardHeader.imageType
-
-/**
- *  Applies a circular mask to the image.
- *
- *  Value: "CIRCLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Circle;
-/**
- *  Applies no cropping to the image.
- *
- *  Value: "SQUARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Square;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge.nudgeType
@@ -1431,7 +1368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemAc
 /**
  *  Represents an Activity Feed space. These groups are modeled like flat rooms
  *  and contain items for users to catch up on important things. Each user
- *  should only have one group of this type. See go/activity-feed.
+ *  should only have one group of this type. See go/activity-feed. Deprecated:
+ *  The go/activity-feed project is cancelled and this should no longer be used.
  *  LINT.ThenChange(//depot/google3/logs/proto/apps_dynamite/dynamite_visual_element_entry.proto:LoggingGroupType,//depot/google3/java/com/google/apps/dynamite/v1/web/ui/group/groups.js:LoggingGroupType)
  *
  *  Value: "ACTIVITY_FEED"
@@ -1491,106 +1429,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGr
  *  Value: "THREADED_ROOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ThreadedRoom;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedColumns.wrapStyle
-
-/**
- *  Column widgets don't wrap.
- *
- *  Value: "NOWRAP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Nowrap;
-/**
- *  Column Widgets wrap.
- *
- *  Value: "WRAP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Wrap;
-/**
- *  Unspecified.
- *
- *  Value: "WRAP_STYLE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_WrapStyleUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.horizontalAlignment
-
-/**
- *  Alignment to the center position.
- *
- *  Value: "CENTER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Center;
-/**
- *  Alignment to the end position.
- *
- *  Value: "END"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_End;
-/**
- *  Unspecified alignment.
- *
- *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified;
-/**
- *  Alignment to the start position.
- *
- *  Value: "START"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Start;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.horizontalSizeStyle
-
-/**
- *  Fills up the available horizontal width. Default value if unspecified.
- *
- *  Value: "FILL_AVAILABLE_SPACE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillAvailableSpace;
-/**
- *  Fills up the minimum horizontal width.
- *
- *  Value: "FILL_MINIMUM_SPACE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillMinimumSpace;
-/**
- *  Unspecified.
- *
- *  Value: "HORIZONTAL_SIZE_STYLE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.verticalAlignment
-
-/**
- *  Aligns the widget at the bottom of the column.
- *
- *  Value: "BOTTOM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Bottom;
-/**
- *  Aligns the widget in the center of the column. Default value if unspecified.
- *
- *  Value: "CENTER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Center;
-/**
- *  Aligns the widget at the top of the column.
- *
- *  Value: "TOP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Top;
-/**
- *  Unspecified.
- *
- *  Value: "VERTICAL_ALIGNMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedContentReportType.systemViolation
@@ -1699,42 +1537,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoj
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiSystemDisabled;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedDateTimePicker.type
-
-/**
- *  The user can select a date and time.
- *
- *  Value: "DATE_AND_TIME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateAndTime;
-/**
- *  The user can only select a date.
- *
- *  Value: "DATE_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateOnly;
-/**
- *  The user can only select a time.
- *
- *  Value: "TIME_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_TimeOnly;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl.controlType
-
-/** Value: "CHECK_BOX" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_CheckBox;
-/**
- *  Deprecated in favor of `CHECK_BOX`.
- *
- *  Value: "CHECKBOX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Checkbox;
-/** Value: "SWITCH" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Switch;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata.dlpStatus
 
 /**
@@ -1787,56 +1589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetrics
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpStatusUnknown;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedGridGridItem.layout
-
-/**
- *  No layout specified.
- *
- *  Value: "GRID_ITEM_LAYOUT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_GridItemLayoutUnspecified;
-/**
- *  The title and subtitle are shown above the grid item's image.
- *
- *  Value: "TEXT_ABOVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextAbove;
-/**
- *  The title and subtitle are shown below the grid item's image.
- *
- *  Value: "TEXT_BELOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextBelow;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedGridGridItem.textAlignment
-
-/**
- *  Alignment to the center position.
- *
- *  Value: "CENTER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Center;
-/**
- *  Alignment to the end position.
- *
- *  Value: "END"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_End;
-/**
- *  Unspecified alignment.
- *
- *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_HorizontalAlignmentUnspecified;
-/**
- *  Alignment to the start position.
- *
- *  Value: "START"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Start;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedGroupVisibility.state
 
 /**
@@ -1857,56 +1609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisib
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedIcon.imageType
-
-/**
- *  Applies a circular mask to the image.
- *
- *  Value: "CIRCLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Circle;
-/**
- *  Applies no cropping to the image.
- *
- *  Value: "SQUARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Square;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedImageCropStyle.type
-
-/**
- *  Applies a circular crop.
- *
- *  Value: "CIRCLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Circle;
-/**
- *  No value specified.
- *
- *  Value: "IMAGE_CROP_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_ImageCropTypeUnspecified;
-/**
- *  Applies a rectangular crop with a 4:3 aspect ratio.
- *
- *  Value: "RECTANGLE_4_3"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Rectangle43;
-/**
- *  Applies a rectangular crop with a custom aspect ratio.
- *
- *  Value: "RECTANGLE_CUSTOM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_RectangleCustom;
-/**
- *  Applies a square crop.
- *
- *  Value: "SQUARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Square;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedJustification.actionType
@@ -1991,39 +1693,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInt
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_Tasks;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedOpenLink.onClose
-
-/**
- *  Doesn’t reload the card after the child window closes. Reloads the card
- *  after the child window closes. If used in conjunction with
- *  [OpenAs.OVERLAY](/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
- *  the child window acts as a modal dialog and the main card is blocked until
- *  the child window closes.
- *
- *  Value: "NOTHING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Nothing;
-/** Value: "RELOAD" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Reload;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedOpenLink.openAs
-
-/**
- *  The link opens as a full size window (if that's the frame used by the
- *  client.
- *
- *  Value: "FULL_SIZE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_FullSize;
-/**
- *  The link opens as an overlay, such as a pop-up.
- *
- *  Value: "OVERLAY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_Overlay;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedRetentionSettings.state
 
 /**
@@ -2100,34 +1769,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedM
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_RosterMember;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedSelectionInput.type
-
-/**
- *  The selection type is a checkbox.
- *
- *  Value: "CHECK_BOX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_CheckBox;
-/**
- *  The selection type is a dropdown.
- *
- *  Value: "DROPDOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Dropdown;
-/**
- *  The selection type is a radio button.
- *
- *  Value: "RADIO_BUTTON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_RadioButton;
-/**
- *  The selection type is a switch.
- *
- *  Value: "SWITCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Switch;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedSpaceInfo.userMembershipState
 
 /**
@@ -2164,22 +1805,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberUnknown;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedTextInput.type
-
-/**
- *  The text is put into multiple lines.
- *
- *  Value: "MULTIPLE_LINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_MultipleLine;
-/**
- *  The text is put into a single line.
- *
- *  Value: "SINGLE_LINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_SingleLine;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
 
 /** Value: "ERROR" */
@@ -2196,32 +1821,415 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoRefer
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteSharedWidget.horizontalAlignment
+// GTLRCloudSearch_AppsDynamiteStorageAction.interaction
+
+/**
+ *  Default value if interaction is not specified.
+ *
+ *  Value: "INTERACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_InteractionUnspecified;
+/**
+ *  A dialog opens by clicking the button.
+ *
+ *  Value: "OPEN_DIALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_OpenDialog;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageAction.loadIndicator
+
+/**
+ *  Nothing is displayed.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_None;
+/**
+ *  Displays a spinner to indicate that content is loading.
+ *
+ *  Value: "SPINNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_Spinner;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageBorderStyle.type
+
+/**
+ *  No value specified.
+ *
+ *  Value: "BORDER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_BorderTypeUnspecified;
+/**
+ *  No border.
+ *
+ *  Value: "NO_BORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_NoBorder;
+/**
+ *  Outline.
+ *
+ *  Value: "STROKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_Stroke;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageCardCardHeader.imageType
+
+/**
+ *  Applies a circular mask to the image.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Circle;
+/**
+ *  Applies no cropping to the image.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Square;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageColumns.wrapStyle
+
+/**
+ *  Column widgets don't wrap.
+ *
+ *  Value: "NOWRAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Nowrap;
+/**
+ *  Column Widgets wrap.
+ *
+ *  Value: "WRAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Wrap;
+/**
+ *  Unspecified.
+ *
+ *  Value: "WRAP_STYLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_WrapStyleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalAlignment
 
 /**
  *  Alignment to the center position.
  *
  *  Value: "CENTER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Center;
 /**
  *  Alignment to the end position.
  *
  *  Value: "END"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_End;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_End;
 /**
  *  Unspecified alignment.
  *
  *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_HorizontalAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified;
 /**
  *  Alignment to the start position.
  *
  *  Value: "START"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Start;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Start;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalSizeStyle
+
+/**
+ *  Fills up the available horizontal width. Default value if unspecified.
+ *
+ *  Value: "FILL_AVAILABLE_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillAvailableSpace;
+/**
+ *  Fills up the minimum horizontal width.
+ *
+ *  Value: "FILL_MINIMUM_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillMinimumSpace;
+/**
+ *  Unspecified.
+ *
+ *  Value: "HORIZONTAL_SIZE_STYLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.verticalAlignment
+
+/**
+ *  Aligns the widget at the bottom of the column.
+ *
+ *  Value: "BOTTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Bottom;
+/**
+ *  Aligns the widget in the center of the column. Default value if unspecified.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Center;
+/**
+ *  Aligns the widget at the top of the column.
+ *
+ *  Value: "TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Top;
+/**
+ *  Unspecified.
+ *
+ *  Value: "VERTICAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageDateTimePicker.type
+
+/**
+ *  The user can select a date and time.
+ *
+ *  Value: "DATE_AND_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateAndTime;
+/**
+ *  The user can only select a date.
+ *
+ *  Value: "DATE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateOnly;
+/**
+ *  The user can only select a time.
+ *
+ *  Value: "TIME_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_TimeOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl.controlType
+
+/** Value: "CHECK_BOX" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_CheckBox;
+/**
+ *  Deprecated in favor of `CHECK_BOX`.
+ *
+ *  Value: "CHECKBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Checkbox;
+/** Value: "SWITCH" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Switch;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageGridGridItem.layout
+
+/**
+ *  No layout specified.
+ *
+ *  Value: "GRID_ITEM_LAYOUT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_GridItemLayoutUnspecified;
+/**
+ *  The title and subtitle are shown above the grid item's image.
+ *
+ *  Value: "TEXT_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextAbove;
+/**
+ *  The title and subtitle are shown below the grid item's image.
+ *
+ *  Value: "TEXT_BELOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextBelow;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageGridGridItem.textAlignment
+
+/**
+ *  Alignment to the center position.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Center;
+/**
+ *  Alignment to the end position.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_End;
+/**
+ *  Unspecified alignment.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Alignment to the start position.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Start;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageIcon.imageType
+
+/**
+ *  Applies a circular mask to the image.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Circle;
+/**
+ *  Applies no cropping to the image.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Square;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageImageCropStyle.type
+
+/**
+ *  Applies a circular crop.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Circle;
+/**
+ *  No value specified.
+ *
+ *  Value: "IMAGE_CROP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_ImageCropTypeUnspecified;
+/**
+ *  Applies a rectangular crop with a 4:3 aspect ratio.
+ *
+ *  Value: "RECTANGLE_4_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Rectangle43;
+/**
+ *  Applies a rectangular crop with a custom aspect ratio.
+ *
+ *  Value: "RECTANGLE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_RectangleCustom;
+/**
+ *  Applies a square crop.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Square;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageOpenLink.onClose
+
+/**
+ *  Doesn’t reload the card after the child window closes. Reloads the card
+ *  after the child window closes. If used in conjunction with
+ *  [OpenAs.OVERLAY](/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
+ *  the child window acts as a modal dialog and the main card is blocked until
+ *  the child window closes.
+ *
+ *  Value: "NOTHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Nothing;
+/** Value: "RELOAD" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Reload;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageOpenLink.openAs
+
+/**
+ *  The link opens as a full size window (if that's the frame used by the
+ *  client.
+ *
+ *  Value: "FULL_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_FullSize;
+/**
+ *  The link opens as an overlay, such as a pop-up.
+ *
+ *  Value: "OVERLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_Overlay;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageSelectionInput.type
+
+/**
+ *  The selection type is a checkbox.
+ *
+ *  Value: "CHECK_BOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_CheckBox;
+/**
+ *  The selection type is a dropdown.
+ *
+ *  Value: "DROPDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown;
+/**
+ *  The selection type is a radio button.
+ *
+ *  Value: "RADIO_BUTTON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_RadioButton;
+/**
+ *  The selection type is a switch.
+ *
+ *  Value: "SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Switch;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageTextInput.type
+
+/**
+ *  The text is put into multiple lines.
+ *
+ *  Value: "MULTIPLE_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_MultipleLine;
+/**
+ *  The text is put into a single line.
+ *
+ *  Value: "SINGLE_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_SingleLine;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteStorageWidget.horizontalAlignment
+
+/**
+ *  Alignment to the center position.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Center;
+/**
+ *  Alignment to the end position.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_End;
+/**
+ *  Unspecified alignment.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Alignment to the start position.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup.features
@@ -2480,6 +2488,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy
  *  Value: "PUBLIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Public;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_CallInfo.availableAccessTypes
+
+/**
+ *  Anyone with meeting join information (url, phone access...) can join, no
+ *  knocking required. (Subject to organization policies)
+ *
+ *  Value: "ACCESS_TYPE_OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeOpen;
+/**
+ *  Only participants invited by a host can automatically join, everyone else
+ *  must knock and be admitted. (Subject to organization policies) Participants
+ *  cannot dial out from the meeting. And only hosts can accept knocks.
+ *
+ *  Value: "ACCESS_TYPE_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeRestricted;
+/**
+ *  Members of the Host's organization, invited external users, and dial-in
+ *  users can join without knocking, everyone else must knock. (Subject to
+ *  organization policies)
+ *
+ *  Value: "ACCESS_TYPE_TRUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeTrusted;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_CallSettings.accessType
@@ -2784,6 +2825,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_S
  *  Value: "SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin;
+/**
+ *  Scanning was skipped because the message was sent while the space is in
+ *  migration mode. See go/migration-mode for details.
+ *
+ *  Value: "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration;
 /**
  *  Rule fetch and evaluation are skipped because there is no message to scan.
  *  Deprecated: this should not happen since there must be message or attachment
@@ -6360,6 +6408,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin;
 /**
+ *  Scanning was skipped because the message was sent while the space is in
+ *  migration mode. See go/migration-mode for details.
+ *
+ *  Value: "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration;
+/**
  *  Rule fetch and evaluation are skipped because there is no message to scan.
  *  Deprecated: this should not happen since there must be message or attachment
  *  for DLP scan.
@@ -8947,7 +9002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  go/message-quoting-client-to-server for details. LINT.ThenChange(
  *  //depot/google3/java/com/google/apps/dynamite/v1/allshared/parser/AnnotationSanitizer.java,
  *  //depot/google3/java/com/google/apps/dynamite/v1/backend/action/common/SystemMessageHelper.java,
- *  //depot/google3/java/com/google/caribou/eli/mediation/chat/AnnotationTranslator.java
+ *  //depot/google3/java/com/google/caribou/eli/mediation/chat/AnnotationConverter.java
  *  )
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_RequiredMessageFeaturesMetadata *requiredMessageFeaturesMetadata;
@@ -9112,65 +9167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
-
-@end
-
-
-/**
- *  An action that describes the behavior when the form is submitted. For
- *  example, an Apps Script can be invoked to handle the form.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedAction : GTLRObject
-
-/**
- *  Apps Script function to invoke when the containing element is
- *  clicked/activated.
- */
-@property(nonatomic, copy, nullable) NSString *function;
-
-/**
- *  interaction
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_InteractionUnspecified
- *        Default value if interaction is not specified. (Value:
- *        "INTERACTION_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_OpenDialog A
- *        dialog opens by clicking the button. (Value: "OPEN_DIALOG")
- */
-@property(nonatomic, copy, nullable) NSString *interaction;
-
-/**
- *  loadIndicator
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_None
- *        Nothing is displayed. (Value: "NONE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_Spinner
- *        Displays a spinner to indicate that content is loading. (Value:
- *        "SPINNER")
- */
-@property(nonatomic, copy, nullable) NSString *loadIndicator;
-
-/** List of action parameters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedActionActionParameter *> *parameters;
-
-@end
-
-
-/**
- *  List of string parameters to supply when the action method is invoked. For
- *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
- *  next week. You might use action method = snooze(), passing the snooze type
- *  and snooze time in the list of string parameters.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedActionActionParameter : GTLRObject
-
-/** The name of the parameter for the action script. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/** The value of the parameter. */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -9494,6 +9490,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin
  *        Scanning was skipped because the message originated from Interop or
  *        Babel. (Value: "SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration
+ *        Scanning was skipped because the message was sent while the space is
+ *        in migration mode. See go/migration-mode for details. (Value:
+ *        "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNoMessage
  *        Rule fetch and evaluation are skipped because there is no message to
  *        scan. Deprecated: this should not happen since there must be message
@@ -9556,6 +9556,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /** GroupId to which this attachment is uploaded. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GroupId *groupId;
 
+/**
+ *  If the uploaded file is a video that has been transcoded on the client side
+ *  Next tag: 18
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isClientSideTranscodedVideo;
+
 /** Original dimension of the content. Only set for image attachments. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDimension *originalDimension;
 
@@ -9617,81 +9625,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "UNKNOWN_VIRUS_SCAN_RESULT"
  */
 @property(nonatomic, copy, nullable) NSString *virusScanResult;
-
-@end
-
-
-/**
- *  Represents the complete border style applied to widgets.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedBorderStyle : GTLRObject
-
-/**
- *  The corner radius for the border.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cornerRadius;
-
-/** The colors to use when the type is `BORDER_TYPE_STROKE`. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_Color *strokeColor;
-
-/**
- *  The border type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_BorderTypeUnspecified
- *        No value specified. (Value: "BORDER_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_NoBorder No
- *        border. (Value: "NO_BORDER")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_Stroke
- *        Outline. (Value: "STROKE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  A button. Can be a text button or an image button.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedButton : GTLRObject
-
-/**
- *  The alternative text used for accessibility. Has no effect when an icon is
- *  set; use `icon.alt_text` instead.
- */
-@property(nonatomic, copy, nullable) NSString *altText;
-
-/** If set, the button is filled with a solid background. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_Color *color;
-
-/**
- *  If true, the button is displayed in a disabled state and doesn't respond to
- *  user actions.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disabled;
-
-/** The icon image. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedIcon *icon;
-
-/** The action to perform when the button is clicked. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOnClick *onClick;
-
-/** The text of the button. */
-@property(nonatomic, copy, nullable) NSString *text;
-
-@end
-
-
-/**
- *  A list of buttons layed out horizontally.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedButtonList : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedButton *> *buttons;
 
 @end
 
@@ -9801,107 +9734,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  A card is a UI element that can contain UI widgets such as text and images.
- *  For more information, see Cards . For example, the following JSON creates a
- *  card that has a header with the name, position, icons, and link for a
- *  contact, followed by a section with contact information like email and phone
- *  number. ``` { "header": { "title": "Heba Salam", "subtitle": "Software
- *  Engineer", "imageStyle": "ImageStyle.AVATAR", "imageUrl":
- *  "https://example.com/heba_salam.png", "imageAltText": "Avatar for Heba
- *  Salam" }, "sections" : [ { "header": "Contact Info", "widgets": [ {
- *  "decorated_text": { "icon": { "knownIcon": "EMAIL" }, "content":
- *  "heba.salam\@example.com" } }, { "decoratedText": { "icon": { "knownIcon":
- *  "PERSON" }, "content": "Online" } }, { "decoratedText": { "icon": {
- *  "knownIcon": "PHONE" }, "content": "+1 (555) 555-1234" } }, { "buttons": [ {
- *  "textButton": { "text": "Share", }, "onClick": { "openLink": { "url":
- *  "https://example.com/share" } } }, { "textButton": { "text": "Edit", },
- *  "onClick": { "action": { "function": "goToView", "parameters": [ { "key":
- *  "viewType", "value": "EDIT" } ], "loadIndicator": "LoadIndicator.SPINNER" }
- *  } } ] } ], "collapsible": true, "uncollapsibleWidgetsCount": 3 } ],
- *  "cardActions": [ { "actionLabel": "Send Feedback", "onClick": { "openLink":
- *  { "url": "https://example.com/feedback" } } } ], "name":
- *  "contact-card-K3wB6arF2H9L" } ```
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedCard : GTLRObject
-
-/**
- *  The actions of this card. They are added to a card's generated toolbar menu.
- *  For example, the following JSON constructs a card action menu with Settings
- *  and Send Feedback options: ``` "card_actions": [ { "actionLabel": "Setting",
- *  "onClick": { "action": { "functionName": "goToView", "parameters": [ {
- *  "key": "viewType", "value": "SETTING" } ], "loadIndicator":
- *  "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send Feedback", "onClick":
- *  { "openLink": { "url": "https://example.com/feedback" } } } ] ```
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedCardCardAction *> *cardActions;
-
-/** The header of the card. A header usually contains a title and an image. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedCardCardHeader *header;
-
-/**
- *  Name of the card, which is used as a identifier for the card in card
- *  navigation.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Sections are separated by a line divider. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedCardSection *> *sections;
-
-@end
-
-
-/**
- *  A card action is the action associated with the card. For example, an
- *  invoice card might include actions such as delete invoice, email invoice, or
- *  open the invoice in a browser.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedCardCardAction : GTLRObject
-
-/** The label that displays as the action menu item. */
-@property(nonatomic, copy, nullable) NSString *actionLabel;
-
-/** The onclick action for this action item. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOnClick *onClick;
-
-@end
-
-
-/**
- *  GTLRCloudSearch_AppsDynamiteSharedCardCardHeader
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedCardCardHeader : GTLRObject
-
-/** The alternative text of this image which is used for accessibility. */
-@property(nonatomic, copy, nullable) NSString *imageAltText;
-
-/**
- *  The image's type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Circle
- *        Applies a circular mask to the image. (Value: "CIRCLE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Square
- *        Applies no cropping to the image. (Value: "SQUARE")
- */
-@property(nonatomic, copy, nullable) NSString *imageType;
-
-/** The URL of the image in the card header. */
-@property(nonatomic, copy, nullable) NSString *imageUrl;
-
-/** The subtitle of the card header. */
-@property(nonatomic, copy, nullable) NSString *subtitle;
-
-/**
- *  The title of the card header. The title must be specified. The header has a
- *  fixed height: if both a title and subtitle are specified, each takes up one
- *  line. If only the title is specified, it takes up both lines.
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
  *  Card click which identifies one suggestion provided by the app/bot.
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion : GTLRObject
@@ -9915,42 +9747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** The message_id for the message that was posted by the app/bot. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_MessageId *suggestionMessageId;
-
-@end
-
-
-/**
- *  A section contains a collection of widgets that are rendered vertically in
- *  the order that they are specified. Across all platforms, cards have a narrow
- *  fixed width, so there is currently no need for layout properties, for
- *  example, float.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedCardSection : GTLRObject
-
-/**
- *  Indicates whether this section is collapsible. If a section is collapsible,
- *  the description must be given.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *collapsible;
-
-/** The header of the section. Formatted text is supported. */
-@property(nonatomic, copy, nullable) NSString *header;
-
-/**
- *  The number of uncollapsible widgets. For example, when a section contains
- *  five widgets and the `numUncollapsibleWidget` is set to `2`, the first two
- *  widgets are always shown and the last three are collapsed as default. The
- *  `numUncollapsibleWidget` is taken into account only when collapsible is set
- *  to `true`.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *uncollapsibleWidgetsCount;
-
-/** A section must contain at least 1 widget. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedWidget *> *widgets;
 
 @end
 
@@ -10083,7 +9879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Represents an Activity Feed space. These groups are modeled like flat
  *        rooms and contain items for users to catch up on important things.
  *        Each user should only have one group of this type. See
- *        go/activity-feed.
+ *        go/activity-feed. Deprecated: The go/activity-feed project is
+ *        cancelled and this should no longer be used.
  *        LINT.ThenChange(//depot/google3/logs/proto/apps_dynamite/dynamite_visual_element_entry.proto:LoggingGroupType,//depot/google3/java/com/google/apps/dynamite/v1/web/ui/group/groups.js:LoggingGroupType)
  *        (Value: "ACTIVITY_FEED")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_AttributeCheckerGroupTypeUnspecified
@@ -10129,118 +9926,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inlineThreadingEnabled;
-
-@end
-
-
-/**
- *  Represents a Columns widget that displays a single row of columns.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedColumns : GTLRObject
-
-/** Each card supports up to 2 columns. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedColumnsColumn *> *columnItems;
-
-/**
- *  Controls how the column resizes based on screen width.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Nowrap Column
- *        widgets don't wrap. (Value: "NOWRAP")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Wrap Column
- *        Widgets wrap. (Value: "WRAP")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_WrapStyleUnspecified
- *        Unspecified. (Value: "WRAP_STYLE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *wrapStyle;
-
-@end
-
-
-/**
- *  Represents a Column that consists of widgets stacked vertically.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedColumnsColumn : GTLRObject
-
-/**
- *  The horizontal alignment of the column.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Center
- *        Alignment to the center position. (Value: "CENTER")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_End
- *        Alignment to the end position. (Value: "END")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified
- *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Start
- *        Alignment to the start position. (Value: "START")
- */
-@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
-
-/**
- *  Specifies how the column content is sized horizontally.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillAvailableSpace
- *        Fills up the available horizontal width. Default value if unspecified.
- *        (Value: "FILL_AVAILABLE_SPACE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillMinimumSpace
- *        Fills up the minimum horizontal width. (Value: "FILL_MINIMUM_SPACE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified
- *        Unspecified. (Value: "HORIZONTAL_SIZE_STYLE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *horizontalSizeStyle;
-
-/**
- *  The vertical alignment of the column.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Bottom
- *        Aligns the widget at the bottom of the column. (Value: "BOTTOM")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Center
- *        Aligns the widget in the center of the column. Default value if
- *        unspecified. (Value: "CENTER")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Top
- *        Aligns the widget at the top of the column. (Value: "TOP")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified
- *        Unspecified. (Value: "VERTICAL_ALIGNMENT_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *verticalAlignment;
-
-/**
- *  LINT.ThenChange(//google/apps/card/v1/card.proto) Array of widgets included
- *  in the column.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets *> *widgets;
-
-@end
-
-
-/**
- *  LINT.IfChange The `column` widget can contain these widgets.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets : GTLRObject
-
-/** ButtonList widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedButtonList *buttonList;
-
-/** DateTimePicker widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDateTimePicker *dateTimePicker;
-
-/** DecoratedText widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDecoratedText *decoratedText;
-
-/** Image widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedImage *image;
-
-/** SelectionInput widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedSelectionInput *selectionInput;
-
-/** TextInput widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedTextInput *textInput;
-
-/** Text paragraph widget. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedTextParagraph *textParagraph;
 
 @end
 
@@ -10395,150 +10080,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  The widget that lets users to specify a date and time.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedDateTimePicker : GTLRObject
-
-/** The label for the field that displays to the user. */
-@property(nonatomic, copy, nullable) NSString *label;
-
-/**
- *  The name of the text input that's used in formInput, and uniquely identifies
- *  this input.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Triggered when the user clicks Save or Clear from the date/time picker
- *  dialog. This is only triggered if the value changed as a result of the
- *  Save/Clear operation.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *onChangeAction;
-
-/**
- *  The number representing the time zone offset from UTC, in minutes. If set,
- *  the `value_ms_epoch` is displayed in the specified time zone. If not set, it
- *  uses the user's time zone setting on the client side.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *timezoneOffsetDate;
-
-/**
- *  The type of the date/time picker.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateAndTime
- *        The user can select a date and time. (Value: "DATE_AND_TIME")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateOnly
- *        The user can only select a date. (Value: "DATE_ONLY")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_TimeOnly
- *        The user can only select a time. (Value: "TIME_ONLY")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  The value to display as the default value before user input or previous user
- *  input. It is represented in milliseconds (Epoch time). For `DATE_AND_TIME`
- *  type, the full epoch value is used. For `DATE_ONLY` type, only date of the
- *  epoch time is used. For `TIME_ONLY` type, only time of the epoch time is
- *  used. For example, you can set epoch time to `3 * 60 * 60 * 1000` to
- *  represent 3am.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *valueMsEpoch;
-
-@end
-
-
-/**
- *  A widget that displays text with optional decorations such as a label above
- *  or below the text, an icon in front of the text, a selection widget or a
- *  button after the text.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedDecoratedText : GTLRObject
-
-/** The formatted text label that shows below the main text. */
-@property(nonatomic, copy, nullable) NSString *bottomLabel;
-
-/** A button that can be clicked to trigger an action. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedButton *button;
-
-/** An icon displayed after the text. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedIcon *endIcon;
-
-/** Deprecated in favor of start_icon. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedIcon *icon;
-
-/** Only the top and bottom label and content region are clickable. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOnClick *onClick;
-
-/** The icon displayed in front of the text. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedIcon *startIcon;
-
-/**
- *  A switch widget can be clicked to change its state or trigger an action.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl *switchControl;
-
-/**
- *  Required. The main widget formatted text. See Text formatting for details.
- */
-@property(nonatomic, copy, nullable) NSString *text;
-
-/** The formatted text label that shows above the main text. */
-@property(nonatomic, copy, nullable) NSString *topLabel;
-
-/**
- *  The wrap text setting. If `true`, the text is wrapped and displayed in
- *  multiline. Otherwise, the text is truncated.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *wrapText;
-
-@end
-
-
-/**
- *  GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl : GTLRObject
-
-/**
- *  The control type, either switch or checkbox.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_CheckBox
- *        Value "CHECK_BOX"
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Checkbox
- *        Deprecated in favor of `CHECK_BOX`. (Value: "CHECKBOX")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Switch
- *        Value "SWITCH"
- */
-@property(nonatomic, copy, nullable) NSString *controlType;
-
-/** The name of the switch widget that's used in formInput. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The action when the switch state is changed. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *onChangeAction;
-
-/**
- *  If the switch is selected.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *selected;
-
-/** The value is what is passed back in the callback. */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
  *  Dimension for the uploaded attachments.
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedDimension : GTLRObject
@@ -10557,13 +10098,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
 
-@end
-
-
-/**
- *  A divider that appears in between widgets.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedDivider : GTLRObject
 @end
 
 
@@ -10668,101 +10202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Represents a Grid widget that displays items in a configurable grid layout.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedGrid : GTLRCollectionObject
-
-/** The border style to apply to each grid item. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedBorderStyle *borderStyle;
-
-/**
- *  The number of columns to display in the grid. A default value is used if
- *  this field isn't specified, and that default value is different depending on
- *  where the grid is shown (dialog versus companion).
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *columnCount;
-
-/**
- *  The items to display in the grid.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedGridGridItem *> *items;
-
-/**
- *  This callback is reused by each individual grid item, but with the item's
- *  identifier and index in the items list added to the callback's parameters.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOnClick *onClick;
-
-/** The text that displays in the grid header. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
- *  Represents a single item in the grid layout.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedGridGridItem : GTLRObject
-
-/**
- *  A user-specified identifier for this grid item. This identifier is returned
- *  in the parent Grid's onClick callback parameters.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** The image that displays in the grid item. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedImageComponent *image;
-
-/**
- *  The layout to use for the grid item.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_GridItemLayoutUnspecified
- *        No layout specified. (Value: "GRID_ITEM_LAYOUT_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextAbove
- *        The title and subtitle are shown above the grid item's image. (Value:
- *        "TEXT_ABOVE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextBelow
- *        The title and subtitle are shown below the grid item's image. (Value:
- *        "TEXT_BELOW")
- */
-@property(nonatomic, copy, nullable) NSString *layout;
-
-/** The grid item's subtitle. */
-@property(nonatomic, copy, nullable) NSString *subtitle;
-
-/**
- *  The horizontal alignment of the grid item's text.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Center
- *        Alignment to the center position. (Value: "CENTER")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_End
- *        Alignment to the end position. (Value: "END")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_HorizontalAlignmentUnspecified
- *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Start
- *        Alignment to the start position. (Value: "START")
- */
-@property(nonatomic, copy, nullable) NSString *textAlignment;
-
-/** The grid item's title. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
  *  NEXT TAG: 3 A GroupDetails proto will store the information pertaining to
  *  single Group.
  */
@@ -10803,108 +10242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Do not use. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  GTLRCloudSearch_AppsDynamiteSharedIcon
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedIcon : GTLRObject
-
-/**
- *  The description of the icon, used for accessibility. The default value is
- *  provided if you don't specify one.
- */
-@property(nonatomic, copy, nullable) NSString *altText;
-
-/** The icon specified by a URL. */
-@property(nonatomic, copy, nullable) NSString *iconUrl;
-
-/**
- *  The crop style applied to the image. In some cases, applying a `CIRCLE` crop
- *  causes the image to be drawn larger than a standard icon.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Circle Applies a
- *        circular mask to the image. (Value: "CIRCLE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Square Applies
- *        no cropping to the image. (Value: "SQUARE")
- */
-@property(nonatomic, copy, nullable) NSString *imageType;
-
-/** The icon specified by the string name of a list of known icons */
-@property(nonatomic, copy, nullable) NSString *knownIcon;
-
-@end
-
-
-/**
- *  An image that is specified by a URL and can have an onClick action.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedImage : GTLRObject
-
-/** The alternative text of this image, used for accessibility. */
-@property(nonatomic, copy, nullable) NSString *altText;
-
-/** An image URL. */
-@property(nonatomic, copy, nullable) NSString *imageUrl;
-
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOnClick *onClick;
-
-@end
-
-
-/**
- *  GTLRCloudSearch_AppsDynamiteSharedImageComponent
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedImageComponent : GTLRObject
-
-/** The accessibility label for the image. */
-@property(nonatomic, copy, nullable) NSString *altText;
-
-/** The border style to apply to the image. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedBorderStyle *borderStyle;
-
-/** The crop style to apply to the image. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedImageCropStyle *cropStyle;
-
-/** The image URL. */
-@property(nonatomic, copy, nullable) NSString *imageUri;
-
-@end
-
-
-/**
- *  Represents the crop style applied to an image.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedImageCropStyle : GTLRObject
-
-/**
- *  The aspect ratio to use if the crop type is `RECTANGLE_CUSTOM`.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *aspectRatio;
-
-/**
- *  The crop type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Circle
- *        Applies a circular crop. (Value: "CIRCLE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_ImageCropTypeUnspecified
- *        No value specified. (Value: "IMAGE_CROP_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Rectangle43
- *        Applies a rectangular crop with a 4:3 aspect ratio. (Value:
- *        "RECTANGLE_4_3")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_RectangleCustom
- *        Applies a rectangular crop with a custom aspect ratio. (Value:
- *        "RECTANGLE_CUSTOM")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Square
- *        Applies a square crop. (Value: "SQUARE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -11060,139 +10397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "TASKS"
  */
 @property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  GTLRCloudSearch_AppsDynamiteSharedOnClick
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedOnClick : GTLRObject
-
-/** If specified, an action is triggered by this onClick. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *action;
-
-/**
- *  Triggers host app action on click directly without invoking form actions.
- *  This is currently not available to end-users and is used internal only.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_HostAppActionMarkup *hostAppAction;
-
-/**
- *  An add-on triggers this action when the action needs to open a link. This
- *  differs from the open_link above in that this needs to talk to server to get
- *  the link. Thus some preparation work is required for web client to do before
- *  the open link action response comes back.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *openDynamicLinkAction;
-
-/** If specified, this onClick triggers an open link action. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOpenLink *openLink;
-
-@end
-
-
-/**
- *  GTLRCloudSearch_AppsDynamiteSharedOpenLink
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedOpenLink : GTLRObject
-
-/**
- *  Represents the platform specific uri/intent to open on each client. For
- *  example: A companion_url will open in a companion window on the web. An iOS
- *  URL and android intent will open in the corresponding hosting apps. If these
- *  platform specific URLs can't be handled correctly, i.e. if the companion
- *  isn't supported on web and the hosting apps aren't available on the mobile
- *  platforms then the `uri` will open in a new browser window on all the
- *  platforms.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri *appUri;
-
-/**
- *  onClose
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Nothing
- *        Doesn’t reload the card after the child window closes. Reloads the
- *        card after the child window closes. If used in conjunction with
- *        [OpenAs.OVERLAY](/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
- *        the child window acts as a modal dialog and the main card is blocked
- *        until the child window closes. (Value: "NOTHING")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Reload Value
- *        "RELOAD"
- */
-@property(nonatomic, copy, nullable) NSString *onClose;
-
-/**
- *  openAs
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_FullSize The
- *        link opens as a full size window (if that's the frame used by the
- *        client. (Value: "FULL_SIZE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_Overlay The
- *        link opens as an overlay, such as a pop-up. (Value: "OVERLAY")
- */
-@property(nonatomic, copy, nullable) NSString *openAs;
-
-/** The URL to open. */
-@property(nonatomic, copy, nullable) NSString *url;
-
-@end
-
-
-/**
- *  Represents the platform specific uri/intent to open for each client.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri : GTLRObject
-
-/** An intent object to be opened in the corresponding android hosting app. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent *androidIntent;
-
-/**
- *  A companion uri string to be opened in the chat companion window. on the
- *  web.
- */
-@property(nonatomic, copy, nullable) NSString *companionUri;
-
-/** A uri string to be opened in the corresponding iOS hosting app. */
-@property(nonatomic, copy, nullable) NSString *iosUri;
-
-@end
-
-
-/**
- *  Android intent.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent : GTLRObject
-
-/**
- *  A list of extra data for the android intent. For example, for a calendar
- *  event edit intent, the event title information can be passed as extra data.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData *> *extraData;
-
-/**
- *  An android intent action string for the {\@link android.content.Intent}
- *  object. For example: for the view intent action type, a valid value will be
- *  android.content.Intent.ACTION_VIEW.
- */
-@property(nonatomic, copy, nullable) NSString *intentAction;
-
-@end
-
-
-/**
- *  Extra data for an android intent. Valid keys are defined in the hosting app
- *  contract.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData : GTLRObject
-
-/** A key for the intent extra data. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/** Value for the given extra data key. */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -11374,79 +10578,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  A widget that creates a UI item (for example, a drop-down list) with options
- *  for users to select.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedSelectionInput : GTLRCollectionObject
-
-/**
- *  items
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem *> *items;
-
-/** The label displayed ahead of the switch control. */
-@property(nonatomic, copy, nullable) NSString *label;
-
-/** The name of the text input which is used in formInput. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  If specified, the form is submitted when the selection changes. If not
- *  specified, you must specify a separate button.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *onChangeAction;
-
-/**
- *  type
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_CheckBox
- *        The selection type is a checkbox. (Value: "CHECK_BOX")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Dropdown
- *        The selection type is a dropdown. (Value: "DROPDOWN")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_RadioButton
- *        The selection type is a radio button. (Value: "RADIO_BUTTON")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Switch The
- *        selection type is a switch. (Value: "SWITCH")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  The item in the switch control. A radio button, at most one of the items is
- *  selected.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem : GTLRObject
-
-/**
- *  If more than one item is selected for `RADIO_BUTTON` and `DROPDOWN`, the
- *  first selected item is treated as selected and the ones after are ignored.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *selected;
-
-/** The text to be displayed. */
-@property(nonatomic, copy, nullable) NSString *text;
-
-/**
- *  The value associated with this item. The client should use this as a form
- *  input value.
- */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
  *  Defines the representation of a single matching space.
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedSpaceInfo : GTLRObject
@@ -11505,36 +10636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Default state, do not use (Value: "MEMBER_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *userMembershipState;
-
-@end
-
-
-/**
- *  A container wrapping elements necessary for showing suggestion items used in
- *  text input autocomplete.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedSuggestions : GTLRCollectionObject
-
-/**
- *  A list of suggestions items which will be used in are used in autocomplete.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem *> *items;
-
-@end
-
-
-/**
- *  A suggestion item. Only supports text for now.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -11668,64 +10769,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  A text input is a UI item where users can input text. A text input can also
- *  have an onChange action and suggestions.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedTextInput : GTLRObject
-
-/**
- *  The refresh function that returns suggestions based on the user's input
- *  text. If the callback is not specified, autocomplete is done in client side
- *  based on the initial suggestion items.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *autoCompleteAction;
-
-/** The hint text. */
-@property(nonatomic, copy, nullable) NSString *hintText;
-
-/** The initial suggestions made before any user input. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedSuggestions *initialSuggestions;
-
-/** At least one of label and hintText must be specified. */
-@property(nonatomic, copy, nullable) NSString *label;
-
-/** The name of the text input which is used in formInput. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The onChange action, for example, invoke a function. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *onChangeAction;
-
-/**
- *  The style of the text, for example, a single line or multiple lines.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_MultipleLine The
- *        text is put into multiple lines. (Value: "MULTIPLE_LINE")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_SingleLine The
- *        text is put into a single line. (Value: "SINGLE_LINE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/** The default value when there is no input from the user. */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  A paragraph of text that supports formatting. See [Text
- *  formatting](workspace/add-ons/concepts/widgets#text_formatting") for
- *  details.
- */
-@interface GTLRCloudSearch_AppsDynamiteSharedTextParagraph : GTLRObject
-
-/** The text that's shown in the widget. */
-@property(nonatomic, copy, nullable) NSString *text;
-
-@end
-
-
-/**
  *  User-block relationship
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship : GTLRObject
@@ -11783,9 +10826,1034 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  An action that describes the behavior when the form is submitted. For
+ *  example, an Apps Script can be invoked to handle the form.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageAction : GTLRObject
+
+/**
+ *  Apps Script function to invoke when the containing element is
+ *  clicked/activated.
+ */
+@property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  interaction
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_InteractionUnspecified
+ *        Default value if interaction is not specified. (Value:
+ *        "INTERACTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_OpenDialog
+ *        A dialog opens by clicking the button. (Value: "OPEN_DIALOG")
+ */
+@property(nonatomic, copy, nullable) NSString *interaction;
+
+/**
+ *  loadIndicator
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_None
+ *        Nothing is displayed. (Value: "NONE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_Spinner
+ *        Displays a spinner to indicate that content is loading. (Value:
+ *        "SPINNER")
+ */
+@property(nonatomic, copy, nullable) NSString *loadIndicator;
+
+/** List of action parameters. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageActionActionParameter *> *parameters;
+
+@end
+
+
+/**
+ *  List of string parameters to supply when the action method is invoked. For
+ *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
+ *  next week. You might use action method = snooze(), passing the snooze type
+ *  and snooze time in the list of string parameters.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageActionActionParameter : GTLRObject
+
+/** The name of the parameter for the action script. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The value of the parameter. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Represents the complete border style applied to widgets.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageBorderStyle : GTLRObject
+
+/**
+ *  The corner radius for the border.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cornerRadius;
+
+/** The colors to use when the type is `BORDER_TYPE_STROKE`. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Color *strokeColor;
+
+/**
+ *  The border type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_BorderTypeUnspecified
+ *        No value specified. (Value: "BORDER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_NoBorder No
+ *        border. (Value: "NO_BORDER")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_Stroke
+ *        Outline. (Value: "STROKE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A button. Can be a text button or an image button.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageButton : GTLRObject
+
+/**
+ *  The alternative text used for accessibility. Has no effect when an icon is
+ *  set; use `icon.alt_text` instead.
+ */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** If set, the button is filled with a solid background. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Color *color;
+
+/**
+ *  If true, the button is displayed in a disabled state and doesn't respond to
+ *  user actions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** The icon image. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageIcon *icon;
+
+/** The action to perform when the button is clicked. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOnClick *onClick;
+
+/** The text of the button. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A list of buttons layed out horizontally.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageButtonList : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageButton *> *buttons;
+
+@end
+
+
+/**
+ *  A card is a UI element that can contain UI widgets such as text and images.
+ *  For more information, see Cards . For example, the following JSON creates a
+ *  card that has a header with the name, position, icons, and link for a
+ *  contact, followed by a section with contact information like email and phone
+ *  number. ``` { "header": { "title": "Heba Salam", "subtitle": "Software
+ *  Engineer", "imageStyle": "ImageStyle.AVATAR", "imageUrl":
+ *  "https://example.com/heba_salam.png", "imageAltText": "Avatar for Heba
+ *  Salam" }, "sections" : [ { "header": "Contact Info", "widgets": [ {
+ *  "decorated_text": { "icon": { "knownIcon": "EMAIL" }, "content":
+ *  "heba.salam\@example.com" } }, { "decoratedText": { "icon": { "knownIcon":
+ *  "PERSON" }, "content": "Online" } }, { "decoratedText": { "icon": {
+ *  "knownIcon": "PHONE" }, "content": "+1 (555) 555-1234" } }, { "buttons": [ {
+ *  "textButton": { "text": "Share", }, "onClick": { "openLink": { "url":
+ *  "https://example.com/share" } } }, { "textButton": { "text": "Edit", },
+ *  "onClick": { "action": { "function": "goToView", "parameters": [ { "key":
+ *  "viewType", "value": "EDIT" } ], "loadIndicator": "LoadIndicator.SPINNER" }
+ *  } } ] } ], "collapsible": true, "uncollapsibleWidgetsCount": 3 } ],
+ *  "cardActions": [ { "actionLabel": "Send Feedback", "onClick": { "openLink":
+ *  { "url": "https://example.com/feedback" } } } ], "name":
+ *  "contact-card-K3wB6arF2H9L" } ```
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageCard : GTLRObject
+
+/**
+ *  The actions of this card. They are added to a card's generated toolbar menu.
+ *  For example, the following JSON constructs a card action menu with Settings
+ *  and Send Feedback options: ``` "card_actions": [ { "actionLabel": "Setting",
+ *  "onClick": { "action": { "functionName": "goToView", "parameters": [ {
+ *  "key": "viewType", "value": "SETTING" } ], "loadIndicator":
+ *  "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send Feedback", "onClick":
+ *  { "openLink": { "url": "https://example.com/feedback" } } } ] ```
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageCardCardAction *> *cardActions;
+
+/** The header of the card. A header usually contains a title and an image. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageCardCardHeader *header;
+
+/**
+ *  Name of the card, which is used as a identifier for the card in card
+ *  navigation.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Sections are separated by a line divider. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageCardSection *> *sections;
+
+@end
+
+
+/**
+ *  A card action is the action associated with the card. For example, an
+ *  invoice card might include actions such as delete invoice, email invoice, or
+ *  open the invoice in a browser.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageCardCardAction : GTLRObject
+
+/** The label that displays as the action menu item. */
+@property(nonatomic, copy, nullable) NSString *actionLabel;
+
+/** The onclick action for this action item. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOnClick *onClick;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteStorageCardCardHeader
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageCardCardHeader : GTLRObject
+
+/** The alternative text of this image which is used for accessibility. */
+@property(nonatomic, copy, nullable) NSString *imageAltText;
+
+/**
+ *  The image's type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Circle
+ *        Applies a circular mask to the image. (Value: "CIRCLE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Square
+ *        Applies no cropping to the image. (Value: "SQUARE")
+ */
+@property(nonatomic, copy, nullable) NSString *imageType;
+
+/** The URL of the image in the card header. */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/** The subtitle of the card header. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/**
+ *  The title of the card header. The title must be specified. The header has a
+ *  fixed height: if both a title and subtitle are specified, each takes up one
+ *  line. If only the title is specified, it takes up both lines.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A section contains a collection of widgets that are rendered vertically in
+ *  the order that they are specified. Across all platforms, cards have a narrow
+ *  fixed width, so there is currently no need for layout properties, for
+ *  example, float.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageCardSection : GTLRObject
+
+/**
+ *  Indicates whether this section is collapsible. If a section is collapsible,
+ *  the description must be given.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collapsible;
+
+/** The header of the section. Formatted text is supported. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/**
+ *  The number of uncollapsible widgets. For example, when a section contains
+ *  five widgets and the `numUncollapsibleWidget` is set to `2`, the first two
+ *  widgets are always shown and the last three are collapsed as default. The
+ *  `numUncollapsibleWidget` is taken into account only when collapsible is set
+ *  to `true`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uncollapsibleWidgetsCount;
+
+/** A section must contain at least 1 widget. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageWidget *> *widgets;
+
+@end
+
+
+/**
+ *  Represents a Columns widget that displays a single row of columns.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageColumns : GTLRObject
+
+/** Each card supports up to 2 columns. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageColumnsColumn *> *columnItems;
+
+/**
+ *  Controls how the column resizes based on screen width.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Nowrap
+ *        Column widgets don't wrap. (Value: "NOWRAP")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Wrap Column
+ *        Widgets wrap. (Value: "WRAP")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_WrapStyleUnspecified
+ *        Unspecified. (Value: "WRAP_STYLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wrapStyle;
+
+@end
+
+
+/**
+ *  Represents a Column that consists of widgets stacked vertically.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageColumnsColumn : GTLRObject
+
+/**
+ *  The horizontal alignment of the column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Center
+ *        Alignment to the center position. (Value: "CENTER")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_End
+ *        Alignment to the end position. (Value: "END")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Start
+ *        Alignment to the start position. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+/**
+ *  Specifies how the column content is sized horizontally.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillAvailableSpace
+ *        Fills up the available horizontal width. Default value if unspecified.
+ *        (Value: "FILL_AVAILABLE_SPACE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillMinimumSpace
+ *        Fills up the minimum horizontal width. (Value: "FILL_MINIMUM_SPACE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified
+ *        Unspecified. (Value: "HORIZONTAL_SIZE_STYLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalSizeStyle;
+
+/**
+ *  The vertical alignment of the column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Bottom
+ *        Aligns the widget at the bottom of the column. (Value: "BOTTOM")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Center
+ *        Aligns the widget in the center of the column. Default value if
+ *        unspecified. (Value: "CENTER")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Top
+ *        Aligns the widget at the top of the column. (Value: "TOP")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified
+ *        Unspecified. (Value: "VERTICAL_ALIGNMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verticalAlignment;
+
+/**
+ *  LINT.ThenChange(//depot/google3/google/apps/card/v1/card.proto) Array of
+ *  widgets included in the column.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets *> *widgets;
+
+@end
+
+
+/**
+ *  LINT.IfChange The `column` widget can contain these widgets.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets : GTLRObject
+
+/** ButtonList widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageButtonList *buttonList;
+
+/** DateTimePicker widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageDateTimePicker *dateTimePicker;
+
+/** DecoratedText widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageDecoratedText *decoratedText;
+
+/** Image widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageImage *image;
+
+/** SelectionInput widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageSelectionInput *selectionInput;
+
+/** TextInput widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageTextInput *textInput;
+
+/** Text paragraph widget. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageTextParagraph *textParagraph;
+
+@end
+
+
+/**
+ *  The widget that lets users to specify a date and time.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageDateTimePicker : GTLRObject
+
+/** The label for the field that displays to the user. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  The name of the text input that's used in formInput, and uniquely identifies
+ *  this input.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Triggered when the user clicks Save or Clear from the date/time picker
+ *  dialog. This is only triggered if the value changed as a result of the
+ *  Save/Clear operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *onChangeAction;
+
+/**
+ *  The number representing the time zone offset from UTC, in minutes. If set,
+ *  the `value_ms_epoch` is displayed in the specified time zone. If not set, it
+ *  uses the user's time zone setting on the client side.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timezoneOffsetDate;
+
+/**
+ *  The type of the date/time picker.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateAndTime
+ *        The user can select a date and time. (Value: "DATE_AND_TIME")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateOnly
+ *        The user can only select a date. (Value: "DATE_ONLY")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_TimeOnly
+ *        The user can only select a time. (Value: "TIME_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The value to display as the default value before user input or previous user
+ *  input. It is represented in milliseconds (Epoch time). For `DATE_AND_TIME`
+ *  type, the full epoch value is used. For `DATE_ONLY` type, only date of the
+ *  epoch time is used. For `TIME_ONLY` type, only time of the epoch time is
+ *  used. For example, you can set epoch time to `3 * 60 * 60 * 1000` to
+ *  represent 3am.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueMsEpoch;
+
+@end
+
+
+/**
+ *  A widget that displays text with optional decorations such as a label above
+ *  or below the text, an icon in front of the text, a selection widget or a
+ *  button after the text.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageDecoratedText : GTLRObject
+
+/** The formatted text label that shows below the main text. */
+@property(nonatomic, copy, nullable) NSString *bottomLabel;
+
+/** A button that can be clicked to trigger an action. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageButton *button;
+
+/** An icon displayed after the text. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageIcon *endIcon;
+
+/** Deprecated in favor of start_icon. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageIcon *icon;
+
+/** Only the top and bottom label and content region are clickable. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOnClick *onClick;
+
+/** The icon displayed in front of the text. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageIcon *startIcon;
+
+/**
+ *  A switch widget can be clicked to change its state or trigger an action.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl *switchControl;
+
+/**
+ *  Required. The main widget formatted text. See Text formatting for details.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** The formatted text label that shows above the main text. */
+@property(nonatomic, copy, nullable) NSString *topLabel;
+
+/**
+ *  The wrap text setting. If `true`, the text is wrapped and displayed in
+ *  multiline. Otherwise, the text is truncated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wrapText;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl : GTLRObject
+
+/**
+ *  The control type, either switch or checkbox.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_CheckBox
+ *        Value "CHECK_BOX"
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Checkbox
+ *        Deprecated in favor of `CHECK_BOX`. (Value: "CHECKBOX")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Switch
+ *        Value "SWITCH"
+ */
+@property(nonatomic, copy, nullable) NSString *controlType;
+
+/** The name of the switch widget that's used in formInput. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The action when the switch state is changed. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *onChangeAction;
+
+/**
+ *  If the switch is selected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selected;
+
+/** The value is what is passed back in the callback. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A divider that appears in between widgets.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageDivider : GTLRObject
+@end
+
+
+/**
+ *  Represents a Grid widget that displays items in a configurable grid layout.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageGrid : GTLRCollectionObject
+
+/** The border style to apply to each grid item. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageBorderStyle *borderStyle;
+
+/**
+ *  The number of columns to display in the grid. A default value is used if
+ *  this field isn't specified, and that default value is different depending on
+ *  where the grid is shown (dialog versus companion).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnCount;
+
+/**
+ *  The items to display in the grid.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageGridGridItem *> *items;
+
+/**
+ *  This callback is reused by each individual grid item, but with the item's
+ *  identifier and index in the items list added to the callback's parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOnClick *onClick;
+
+/** The text that displays in the grid header. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Represents a single item in the grid layout.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageGridGridItem : GTLRObject
+
+/**
+ *  A user-specified identifier for this grid item. This identifier is returned
+ *  in the parent Grid's onClick callback parameters.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The image that displays in the grid item. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageImageComponent *image;
+
+/**
+ *  The layout to use for the grid item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_GridItemLayoutUnspecified
+ *        No layout specified. (Value: "GRID_ITEM_LAYOUT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextAbove
+ *        The title and subtitle are shown above the grid item's image. (Value:
+ *        "TEXT_ABOVE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextBelow
+ *        The title and subtitle are shown below the grid item's image. (Value:
+ *        "TEXT_BELOW")
+ */
+@property(nonatomic, copy, nullable) NSString *layout;
+
+/** The grid item's subtitle. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/**
+ *  The horizontal alignment of the grid item's text.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Center
+ *        Alignment to the center position. (Value: "CENTER")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_End
+ *        Alignment to the end position. (Value: "END")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_HorizontalAlignmentUnspecified
+ *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Start
+ *        Alignment to the start position. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *textAlignment;
+
+/** The grid item's title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteStorageIcon
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageIcon : GTLRObject
+
+/**
+ *  The description of the icon, used for accessibility. The default value is
+ *  provided if you don't specify one.
+ */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** The icon specified by a URL. */
+@property(nonatomic, copy, nullable) NSString *iconUrl;
+
+/**
+ *  The crop style applied to the image. In some cases, applying a `CIRCLE` crop
+ *  causes the image to be drawn larger than a standard icon.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Circle Applies
+ *        a circular mask to the image. (Value: "CIRCLE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Square Applies
+ *        no cropping to the image. (Value: "SQUARE")
+ */
+@property(nonatomic, copy, nullable) NSString *imageType;
+
+/** The icon specified by the string name of a list of known icons */
+@property(nonatomic, copy, nullable) NSString *knownIcon;
+
+@end
+
+
+/**
+ *  An image that is specified by a URL and can have an onClick action.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageImage : GTLRObject
+
+/** The alternative text of this image, used for accessibility. */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** An image URL. */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOnClick *onClick;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteStorageImageComponent
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageImageComponent : GTLRObject
+
+/** The accessibility label for the image. */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** The border style to apply to the image. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageBorderStyle *borderStyle;
+
+/** The crop style to apply to the image. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageImageCropStyle *cropStyle;
+
+/** The image URL. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+@end
+
+
+/**
+ *  Represents the crop style applied to an image.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageImageCropStyle : GTLRObject
+
+/**
+ *  The aspect ratio to use if the crop type is `RECTANGLE_CUSTOM`.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aspectRatio;
+
+/**
+ *  The crop type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Circle
+ *        Applies a circular crop. (Value: "CIRCLE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_ImageCropTypeUnspecified
+ *        No value specified. (Value: "IMAGE_CROP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Rectangle43
+ *        Applies a rectangular crop with a 4:3 aspect ratio. (Value:
+ *        "RECTANGLE_4_3")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_RectangleCustom
+ *        Applies a rectangular crop with a custom aspect ratio. (Value:
+ *        "RECTANGLE_CUSTOM")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Square
+ *        Applies a square crop. (Value: "SQUARE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteStorageOnClick
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageOnClick : GTLRObject
+
+/** If specified, an action is triggered by this onClick. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *action;
+
+/**
+ *  Triggers host app action on click directly without invoking form actions.
+ *  This is currently not available to end-users and is used internal only.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_HostAppActionMarkup *hostAppAction;
+
+/**
+ *  An add-on triggers this action when the action needs to open a link. This
+ *  differs from the open_link above in that this needs to talk to server to get
+ *  the link. Thus some preparation work is required for web client to do before
+ *  the open link action response comes back.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *openDynamicLinkAction;
+
+/** If specified, this onClick triggers an open link action. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOpenLink *openLink;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteStorageOpenLink
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageOpenLink : GTLRObject
+
+/**
+ *  Represents the platform specific uri/intent to open on each client. For
+ *  example: A companion_url will open in a companion window on the web. An iOS
+ *  URL and android intent will open in the corresponding hosting apps. If these
+ *  platform specific URLs can't be handled correctly, i.e. if the companion
+ *  isn't supported on web and the hosting apps aren't available on the mobile
+ *  platforms then the `uri` will open in a new browser window on all the
+ *  platforms.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri *appUri;
+
+/**
+ *  onClose
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Nothing
+ *        Doesn’t reload the card after the child window closes. Reloads the
+ *        card after the child window closes. If used in conjunction with
+ *        [OpenAs.OVERLAY](/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
+ *        the child window acts as a modal dialog and the main card is blocked
+ *        until the child window closes. (Value: "NOTHING")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Reload Value
+ *        "RELOAD"
+ */
+@property(nonatomic, copy, nullable) NSString *onClose;
+
+/**
+ *  openAs
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_FullSize The
+ *        link opens as a full size window (if that's the frame used by the
+ *        client. (Value: "FULL_SIZE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_Overlay The
+ *        link opens as an overlay, such as a pop-up. (Value: "OVERLAY")
+ */
+@property(nonatomic, copy, nullable) NSString *openAs;
+
+/** The URL to open. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents the platform specific uri/intent to open for each client.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri : GTLRObject
+
+/** An intent object to be opened in the corresponding android hosting app. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent *androidIntent;
+
+/**
+ *  A companion uri string to be opened in the chat companion window. on the
+ *  web.
+ */
+@property(nonatomic, copy, nullable) NSString *companionUri;
+
+/** A uri string to be opened in the corresponding iOS hosting app. */
+@property(nonatomic, copy, nullable) NSString *iosUri;
+
+@end
+
+
+/**
+ *  Android intent.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent : GTLRObject
+
+/**
+ *  A list of extra data for the android intent. For example, for a calendar
+ *  event edit intent, the event title information can be passed as extra data.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData *> *extraData;
+
+/**
+ *  An android intent action string for the {\@link android.content.Intent}
+ *  object. For example: for the view intent action type, a valid value will be
+ *  android.content.Intent.ACTION_VIEW.
+ */
+@property(nonatomic, copy, nullable) NSString *intentAction;
+
+@end
+
+
+/**
+ *  Extra data for an android intent. Valid keys are defined in the hosting app
+ *  contract.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData : GTLRObject
+
+/** A key for the intent extra data. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Value for the given extra data key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A widget that creates a UI item (for example, a drop-down list) with options
+ *  for users to select.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageSelectionInput : GTLRCollectionObject
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem *> *items;
+
+/** The label displayed ahead of the switch control. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The name of the text input which is used in formInput. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If specified, the form is submitted when the selection changes. If not
+ *  specified, you must specify a separate button.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *onChangeAction;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_CheckBox
+ *        The selection type is a checkbox. (Value: "CHECK_BOX")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown
+ *        The selection type is a dropdown. (Value: "DROPDOWN")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_RadioButton
+ *        The selection type is a radio button. (Value: "RADIO_BUTTON")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Switch The
+ *        selection type is a switch. (Value: "SWITCH")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The item in the switch control. A radio button, at most one of the items is
+ *  selected.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem : GTLRObject
+
+/**
+ *  If more than one item is selected for `RADIO_BUTTON` and `DROPDOWN`, the
+ *  first selected item is treated as selected and the ones after are ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selected;
+
+/** The text to be displayed. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  The value associated with this item. The client should use this as a form
+ *  input value.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A container wrapping elements necessary for showing suggestion items used in
+ *  text input autocomplete.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageSuggestions : GTLRCollectionObject
+
+/**
+ *  A list of suggestions items which will be used in are used in autocomplete.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem *> *items;
+
+@end
+
+
+/**
+ *  A suggestion item. Only supports text for now.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A text input is a UI item where users can input text. A text input can also
+ *  have an onChange action and suggestions.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageTextInput : GTLRObject
+
+/**
+ *  The refresh function that returns suggestions based on the user's input
+ *  text. If the callback is not specified, autocomplete is done in client side
+ *  based on the initial suggestion items.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *autoCompleteAction;
+
+/** The hint text. */
+@property(nonatomic, copy, nullable) NSString *hintText;
+
+/** The initial suggestions made before any user input. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageSuggestions *initialSuggestions;
+
+/** At least one of label and hintText must be specified. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The name of the text input which is used in formInput. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The onChange action, for example, invoke a function. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageAction *onChangeAction;
+
+/**
+ *  The style of the text, for example, a single line or multiple lines.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_MultipleLine
+ *        The text is put into multiple lines. (Value: "MULTIPLE_LINE")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_SingleLine The
+ *        text is put into a single line. (Value: "SINGLE_LINE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The default value when there is no input from the user. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A paragraph of text that supports formatting. See [Text
+ *  formatting](workspace/add-ons/concepts/widgets#text_formatting") for
+ *  details.
+ */
+@interface GTLRCloudSearch_AppsDynamiteStorageTextParagraph : GTLRObject
+
+/** The text that's shown in the widget. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  A widget is a UI element that presents texts, images, etc.
  */
-@interface GTLRCloudSearch_AppsDynamiteSharedWidget : GTLRObject
+@interface GTLRCloudSearch_AppsDynamiteStorageWidget : GTLRObject
 
 /**
  *  A list of buttons. For example, the following JSON creates two buttons. The
@@ -11795,7 +11863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "icon": { "knownIcon": "INVITE" "altText": "check calendar" }, "onClick": {
  *  "openLink": { "url": "https://example.com/calendar" } } }, ] } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedButtonList *buttonList;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageButtonList *buttonList;
 
 /**
  *  Displays a single row of columns with widgets stacked vertically in each
@@ -11808,7 +11876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "CENTER", "verticalAlignment" : "CENTER", "widgets": [ { "textParagraph": {
  *  "text": "Second column text paragraph", } } ] }, ] } } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedColumns *columns;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageColumns *columns;
 
 /**
  *  Displays a selection/input widget for date/time. For example, the following
@@ -11817,7 +11885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  appointment at:", "type": "DateTimePickerType.DATE_AND_TIME",
  *  "valueMsEpoch": "796435200000" } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDateTimePicker *dateTimePicker;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageDateTimePicker *dateTimePicker;
 
 /**
  *  Displays a decorated text item in this widget. For example, the following
@@ -11828,13 +11896,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "has_send_welcome_email_to_heba_salam", "selected": false, "controlType":
  *  "ControlType.CHECKBOX" } } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDecoratedText *decoratedText;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageDecoratedText *decoratedText;
 
 /**
  *  Displays a divider. For example, the following JSON creates a divider: ```
  *  "divider": { } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDivider *divider;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageDivider *divider;
 
 /**
  *  Displays a grid with a collection of items. For example, the following JSON
@@ -11846,19 +11914,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "CENTER" ], "onClick": { "openLink": { "url":"https://www.example.com" } } }
  *  ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedGrid *grid;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageGrid *grid;
 
 /**
  *  The horizontal alignment of this widget.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Center
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Center
  *        Alignment to the center position. (Value: "CENTER")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_End
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_End
  *        Alignment to the end position. (Value: "END")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_HorizontalAlignmentUnspecified
  *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Start
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Start
  *        Alignment to the start position. (Value: "START")
  */
 @property(nonatomic, copy, nullable) NSString *horizontalAlignment;
@@ -11869,7 +11937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "https://example.com/heba_salam.png" "altText": "Avatar for Heba Salam" }
  *  ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedImage *image;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageImage *image;
 
 /**
  *  Displays a switch control in this widget. For example, the following JSON
@@ -11879,7 +11947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "medium", "selected": true }, { "text": "L", "value": "large", "selected":
  *  false }, { "text": "XL", "value": "extra_large", "selected": false } ] } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedSelectionInput *selectionInput;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageSelectionInput *selectionInput;
 
 /**
  *  Displays a text input in this widget. For example, the following JSON
@@ -11891,13 +11959,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  "C++" }, { "text": "Java" }, { "text": "JavaScript" }, { "text": "Python" }
  *  ] } } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedTextInput *textInput;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageTextInput *textInput;
 
 /**
  *  Displays a text paragraph in this widget. For example, the following JSON
  *  creates a bolded text: ``` "textParagraph": { "text": " *bold text*" } ```
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedTextParagraph *textParagraph;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageTextParagraph *textParagraph;
 
 @end
 
@@ -12285,7 +12353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /**
  *  Card AddOn attachment with the possibility for specifying editable widgets.
  */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedCard *cardAddOnData;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageCard *cardAddOnData;
 
 /** Deprecated version of Gmail AddOn attachment. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ContextualAddOnMarkup *deprecatedAddOnData;
@@ -12828,6 +12896,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** Output only. Documents attached to an ongoing conference. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DocumentInfo *> *attachedDocuments;
+
+/** List of available access types of the conference. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableAccessTypes;
 
 /**
  *  Output only. The set of reactions that clients are allowed to send and can
@@ -14610,6 +14681,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin
  *        Scanning was skipped because the message originated from Interop or
  *        Babel. (Value: "SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN")
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration
+ *        Scanning was skipped because the message was sent while the space is
+ *        in migration mode. See go/migration-mode for details. (Value:
+ *        "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION")
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNoMessage
  *        Rule fetch and evaluation are skipped because there is no message to
  *        scan. Deprecated: this should not happen since there must be message
@@ -15033,6 +15108,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_DynamiteMessagesScoringInfo : GTLRObject
 
 /**
+ *  commonContactCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commonContactCount;
+
+/**
+ *  commonCountToContactListCountRatio
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commonCountToContactListCountRatio;
+
+/**
+ *  commonCountToMembershipCountRatio
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commonCountToMembershipCountRatio;
+
+/**
+ *  creatorGaiaId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creatorGaiaId;
+
+/**
+ *  creatorInSearcherContactList
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creatorInSearcherContactList;
+
+/**
+ *  dasContactCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dasContactCount;
+
+/**
  *  finalScore
  *
  *  Uses NSNumber of doubleValue.
@@ -15061,11 +15178,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *messageAgeInDays;
 
 /**
+ *  messageSenderAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageSenderAffinityScore;
+
+/**
+ *  spaceId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spaceId;
+
+/**
+ *  spaceMembershipCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spaceMembershipCount;
+
+/**
  *  topicalityScore
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *topicalityScore;
+
+/**
+ *  unjoinedSpaceAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unjoinedSpaceAffinityScore;
 
 @end
 
@@ -20071,6 +20216,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin
  *        Scanning was skipped because the message originated from Interop or
  *        Babel. (Value: "SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN")
+ *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration
+ *        Scanning was skipped because the message was sent while the space is
+ *        in migration mode. See go/migration-mode for details. (Value:
+ *        "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION")
  *    @arg @c kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNoMessage Rule
  *        fetch and evaluation are skipped because there is no message to scan.
  *        Deprecated: this should not happen since there must be message or
@@ -21493,7 +21642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  google3/java/com/google/security/credentials/Principal.java
  *  google3/security/credentials/go/principal.go unless direct proto access is
  *  essential. If you update this protocol buffer, please update the wrapper
- *  classes as well.
+ *  classes as well. LINT.IfChange
  */
 @interface GTLRCloudSearch_PrincipalProto : GTLRObject
 
@@ -21719,7 +21868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /**
  *  Indicates that the property can be used for generating facets. Cannot be
  *  true for properties whose type is object. IsReturnable must be true to set
- *  this option. Only supported for boolean, enum, and text properties.
+ *  this option. Only supported for boolean, enum, integer, and text properties.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -22401,8 +22550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  Principal associated with a given RBAC role. This principal is used by
- *  Sphinx Provisioning Service for RBAC (go/cedi-auth) provisionable
- *  (go/sphinx-rbacz-design).
+ *  Sphinx Provisioning Service for RBAC provisionable (go/sphinx-rbacz).
  */
 @interface GTLRCloudSearch_RbacRoleProto : GTLRObject
 
@@ -22413,9 +22561,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *rbacNamespace;
 
 /**
- *  Format: "RbacNamespaceName.RbacRoleName(/field=value)*", e.g.,
- *  "hr.v1.Reader",
- *  "hr.v1.Reader/language=EN_US/country=USA/room=NYC-9th-11A201".
+ *  Format: "role/z?" - "role" is the Sphinx globally unique name of the Sphinx
+ *  role that provisions the RBAC role. - "/z?" suffix indicates which Zanzibar
+ *  environment stores the role membership data ("/zd": dev, "/zs": staging,
+ *  "/zp": prod, "/zt": local test instance). Example: "mysystem_myrole/zp"
  */
 @property(nonatomic, copy, nullable) NSString *rbacRoleName;
 
@@ -22424,8 +22573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  Principal associated with a given RBAC subject. This principal is used by
- *  Sphinx Provisioning Service for RBAC (go/cedi-auth) provisionable
- *  (go/sphinx-rbacz-design).
+ *  Sphinx Provisioning Service for RBAC provisionable (go/sphinx-rbacz).
  */
 @interface GTLRCloudSearch_RbacSubjectProto : GTLRObject
 
@@ -26863,12 +27011,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_YouTubeLiveBroadcastEvent : GTLRObject
 
 /**
+ *  Input only. If the channel_id is for a YouTube Channel owned by a Brand
+ *  Account, client is required to populate this field with the obfuscated gaia
+ *  id of the Brand account when starting the broadcast.
+ */
+@property(nonatomic, copy, nullable) NSString *brandAccountGaiaId;
+
+/**
  *  Input only. The broadcast id, used to control the lifecycle of the event on
  *  YouTube
  */
 @property(nonatomic, copy, nullable) NSString *broadcastId;
 
-/** YouTube channel associated with the broadcast. */
+/** YouTube Channel associated with the broadcast. */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /**

@@ -801,7 +801,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent (project and location) where the Memberships will be
- *  listed. Specified in the format `projects/ * /locations/ *`.
+ *  listed. Specified in the format `projects/ * /locations/ *`. `projects/ *
+ *  /locations/-` list memberships in all the regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -812,7 +813,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The parent (project and location) where the
  *    Memberships will be listed. Specified in the format `projects/ *
- *    /locations/ *`.
+ *    /locations/ *`. `projects/ * /locations/-` list memberships in all the
+ *    regions.
  *
  *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsList
  *

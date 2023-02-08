@@ -25,11 +25,16 @@ NSString * const kGTLRBigQueryReservation_Assignment_State_Active = @"ACTIVE";
 NSString * const kGTLRBigQueryReservation_Assignment_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBigQueryReservation_CapacityCommitment.edition
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise = @"ENTERPRISE";
+
 // GTLRBigQueryReservation_CapacityCommitment.plan
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual = @"ANNUAL";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex = @"FLEX";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly = @"MONTHLY";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_None = @"NONE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial = @"TRIAL";
 
 // GTLRBigQueryReservation_CapacityCommitment.renewalPlan
@@ -37,6 +42,7 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual 
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex = @"FLEX";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly = @"MONTHLY";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None = @"NONE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial = @"TRIAL";
 
 // GTLRBigQueryReservation_CapacityCommitment.state
@@ -45,6 +51,10 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed = @"FA
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBigQueryReservation_Reservation.edition
+NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise = @"ENTERPRISE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBigQueryReservation_Assignment
@@ -52,6 +62,16 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 
 @implementation GTLRBigQueryReservation_Assignment
 @dynamic assignee, jobType, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Autoscale
+//
+
+@implementation GTLRBigQueryReservation_Autoscale
+@dynamic currentSlots, maxSlots;
 @end
 
 
@@ -79,7 +99,7 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_CapacityCommitment
-@dynamic commitmentEndTime, commitmentStartTime, failureStatus,
+@dynamic commitmentEndTime, commitmentStartTime, edition, failureStatus,
          multiRegionAuxiliary, name, plan, renewalPlan, slotCount, state;
 @end
 
@@ -193,8 +213,8 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_Reservation
-@dynamic concurrency, creationTime, ignoreIdleSlots, multiRegionAuxiliary, name,
-         slotCapacity, updateTime;
+@dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots,
+         multiRegionAuxiliary, name, slotCapacity, updateTime;
 @end
 
 

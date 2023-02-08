@@ -100,9 +100,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert is associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert is associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -140,9 +142,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert is associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert is associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -183,9 +187,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert feedback are associated with. Inferred from the
- *  caller identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert is associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -228,9 +234,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert is associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert is associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -263,9 +271,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert metadata is associated with. Inferred from the
- *  caller identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert metadata is associated with. The `customer_id` must have
+ *  the initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -295,9 +305,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAlertCenterQuery_AlertsList : GTLRAlertCenterQuery
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alerts are associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alerts are associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -395,9 +407,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAlertCenterQuery_V1beta1GetSettings : GTLRAlertCenterQuery
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert settings are associated with. Inferred from the
- *  caller identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert settings are associated with. The `customer_id` must/
+ *  have the initial "C" stripped (for example, `046psxkn`). Inferred from the
+ *  caller identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -423,9 +437,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAlertCenterQuery_V1beta1UpdateSettings : GTLRAlertCenterQuery
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert settings are associated with. Inferred from the
- *  caller identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert settings are associated with. The `customer_id` must have
+ *  the initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 

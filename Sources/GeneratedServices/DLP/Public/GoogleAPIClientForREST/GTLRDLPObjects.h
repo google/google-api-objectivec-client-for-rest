@@ -590,24 +590,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Exc
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified;
-/** Value: "LIKELY" */
+/**
+ *  Low chance of a false positive.
+ *
+ *  Value: "LIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely;
 /**
- *  Some matching elements.
+ *  Some matching signals. The default value.
  *
  *  Value: "POSSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Possible;
-/** Value: "UNLIKELY" */
+/**
+ *  High chance of a false positive.
+ *
+ *  Value: "UNLIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely;
 /**
- *  Many matching elements.
+ *  Confidence level is high. Lowest chance of a false positive.
  *
  *  Value: "VERY_LIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryLikely;
 /**
- *  Few matching elements.
+ *  Highest chance of a false positive.
  *
  *  Value: "VERY_UNLIKELY"
  */
@@ -950,24 +958,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_Logica
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_LikelihoodUnspecified;
-/** Value: "LIKELY" */
+/**
+ *  Low chance of a false positive.
+ *
+ *  Value: "LIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely;
 /**
- *  Some matching elements.
+ *  Some matching signals. The default value.
  *
  *  Value: "POSSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Possible;
-/** Value: "UNLIKELY" */
+/**
+ *  High chance of a false positive.
+ *
+ *  Value: "UNLIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely;
 /**
- *  Many matching elements.
+ *  Confidence level is high. Lowest chance of a false positive.
  *
  *  Value: "VERY_LIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely;
 /**
- *  Few matching elements.
+ *  Highest chance of a false positive.
  *
  *  Value: "VERY_UNLIKELY"
  */
@@ -1366,24 +1382,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_Cont
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified;
-/** Value: "LIKELY" */
+/**
+ *  Low chance of a false positive.
+ *
+ *  Value: "LIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely;
 /**
- *  Some matching elements.
+ *  Some matching signals. The default value.
  *
  *  Value: "POSSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Possible;
-/** Value: "UNLIKELY" */
+/**
+ *  High chance of a false positive.
+ *
+ *  Value: "UNLIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Unlikely;
 /**
- *  Many matching elements.
+ *  Confidence level is high. Lowest chance of a false positive.
  *
  *  Value: "VERY_LIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryLikely;
 /**
- *  Few matching elements.
+ *  Highest chance of a false positive.
  *
  *  Value: "VERY_UNLIKELY"
  */
@@ -1426,24 +1450,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified;
-/** Value: "LIKELY" */
+/**
+ *  Low chance of a false positive.
+ *
+ *  Value: "LIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Likely;
 /**
- *  Some matching elements.
+ *  Some matching signals. The default value.
  *
  *  Value: "POSSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Possible;
-/** Value: "UNLIKELY" */
+/**
+ *  High chance of a false positive.
+ *
+ *  Value: "UNLIKELY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Unlikely;
 /**
- *  Many matching elements.
+ *  Confidence level is high. Lowest chance of a false positive.
  *
  *  Value: "VERY_LIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely;
 /**
- *  Few matching elements.
+ *  Highest chance of a false positive.
  *
  *  Value: "VERY_UNLIKELY"
  */
@@ -3264,16 +3296,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified
  *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely Value
- *        "LIKELY"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely Low
+ *        chance of a false positive. (Value: "LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Possible Some
- *        matching elements. (Value: "POSSIBLE")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely
- *        Value "UNLIKELY"
+ *        matching signals. The default value. (Value: "POSSIBLE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely High
+ *        chance of a false positive. (Value: "UNLIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryLikely
- *        Many matching elements. (Value: "VERY_LIKELY")
+ *        Confidence level is high. Lowest chance of a false positive. (Value:
+ *        "VERY_LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely
- *        Few matching elements. (Value: "VERY_UNLIKELY")
+ *        Highest chance of a false positive. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *likelihood;
 
@@ -4291,16 +4324,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_LikelihoodUnspecified
  *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely Value
- *        "LIKELY"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely Low chance of
+ *        a false positive. (Value: "LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Possible Some
- *        matching elements. (Value: "POSSIBLE")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely Value
- *        "UNLIKELY"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely Many
- *        matching elements. (Value: "VERY_LIKELY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely Few
- *        matching elements. (Value: "VERY_UNLIKELY")
+ *        matching signals. The default value. (Value: "POSSIBLE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely High chance
+ *        of a false positive. (Value: "UNLIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely
+ *        Confidence level is high. Lowest chance of a false positive. (Value:
+ *        "VERY_LIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely Highest
+ *        chance of a false positive. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *likelihood;
 
@@ -5127,16 +5161,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified
  *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely
- *        Value "LIKELY"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely Low
+ *        chance of a false positive. (Value: "LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Possible
- *        Some matching elements. (Value: "POSSIBLE")
+ *        Some matching signals. The default value. (Value: "POSSIBLE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Unlikely
- *        Value "UNLIKELY"
+ *        High chance of a false positive. (Value: "UNLIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryLikely
- *        Many matching elements. (Value: "VERY_LIKELY")
+ *        Confidence level is high. Lowest chance of a false positive. (Value:
+ *        "VERY_LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryUnlikely
- *        Few matching elements. (Value: "VERY_UNLIKELY")
+ *        Highest chance of a false positive. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *minLikelihood;
 
@@ -5856,15 +5891,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified
  *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Likely
- *        Value "LIKELY"
+ *        Low chance of a false positive. (Value: "LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Possible
- *        Some matching elements. (Value: "POSSIBLE")
+ *        Some matching signals. The default value. (Value: "POSSIBLE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Unlikely
- *        Value "UNLIKELY"
+ *        High chance of a false positive. (Value: "UNLIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely
- *        Many matching elements. (Value: "VERY_LIKELY")
+ *        Confidence level is high. Lowest chance of a false positive. (Value:
+ *        "VERY_LIKELY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely
- *        Few matching elements. (Value: "VERY_UNLIKELY")
+ *        Highest chance of a false positive. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *fixedLikelihood;
 

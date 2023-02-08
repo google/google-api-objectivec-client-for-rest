@@ -16,6 +16,7 @@
 
 @class GTLRWorkflowExecutions_Error;
 @class GTLRWorkflowExecutions_Execution;
+@class GTLRWorkflowExecutions_Execution_Labels;
 @class GTLRWorkflowExecutions_Position;
 @class GTLRWorkflowExecutions_PubsubMessage;
 @class GTLRWorkflowExecutions_PubsubMessage_Attributes;
@@ -157,6 +158,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Error *error;
 
 /**
+ *  Labels associated with this execution. Labels can contain at most 64
+ *  entries. Keys and values can be no longer than 63 characters and can only
+ *  contain lowercase letters, numeric characters, underscores and dashes. Label
+ *  keys must start with a letter. International characters are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Execution_Labels *labels;
+
+/**
  *  Output only. The resource name of the execution. Format:
  *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
  */
@@ -197,6 +206,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 /** Output only. Revision of the workflow this execution is using. */
 @property(nonatomic, copy, nullable) NSString *workflowRevisionId;
 
+@end
+
+
+/**
+ *  Labels associated with this execution. Labels can contain at most 64
+ *  entries. Keys and values can be no longer than 63 characters and can only
+ *  contain lowercase letters, numeric characters, underscores and dashes. Label
+ *  keys must start with a letter. International characters are allowed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkflowExecutions_Execution_Labels : GTLRObject
 @end
 
 

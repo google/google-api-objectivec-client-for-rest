@@ -310,7 +310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
 /**
- *  Chrome actions Delete web protect evidence file
+ *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
  */
@@ -372,7 +372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
 /**
- *  Chrome actions Delete web protect evidence file
+ *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
  */
@@ -727,7 +727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The unique identifier of the Google account of the customer.
+ *  Output only. The unique identifier of the Google Workspace account of the
+ *  customer.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -825,7 +826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The unique identifier of the Google account of the customer.
+ *  Output only. The unique identifier of the Google Workspace account of the
+ *  customer.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -866,7 +868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 @property(nonatomic, copy, nullable) NSString *assignee;
 
 /**
- *  Output only. The unique identifier of the Google account of the customer.
+ *  Output only. The unique identifier of the Google Workspace account of the
+ *  customer.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -1049,12 +1052,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  */
 @interface GTLRAlertCenter_BatchDeleteAlertsRequest : GTLRObject
 
-/** Required. list of alert IDs. */
+/** Required. The list of alert IDs to delete. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alerts are associated with.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alerts are associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -1066,7 +1072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  */
 @interface GTLRAlertCenter_BatchDeleteAlertsResponse : GTLRObject
 
-/** The status details for each failed alert_id. */
+/** The status details for each failed `alert_id`. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus *failedAlertStatus;
 
 /** The successful list of alert IDs. */
@@ -1076,7 +1082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  The status details for each failed alert_id.
+ *  The status details for each failed `alert_id`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRAlertCenter_Status. Use @c -additionalJSONKeys and @c
@@ -1092,12 +1098,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  */
 @interface GTLRAlertCenter_BatchUndeleteAlertsRequest : GTLRObject
 
-/** Required. list of alert IDs. */
+/** Required. The list of alert IDs to undelete. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alerts are associated with.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alerts are associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -1109,7 +1118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  */
 @interface GTLRAlertCenter_BatchUndeleteAlertsResponse : GTLRObject
 
-/** The status details for each failed alert_id. */
+/** The status details for each failed `alert_id`. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus *failedAlertStatus;
 
 /** The successful list of alert IDs. */
@@ -1119,7 +1128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  The status details for each failed alert_id.
+ *  The status details for each failed `alert_id`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRAlertCenter_Status. Use @c -additionalJSONKeys and @c
@@ -2077,9 +2086,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 @interface GTLRAlertCenter_UndeleteAlertRequest : GTLRObject
 
 /**
- *  Optional. The unique identifier of the Google Workspace organization account
- *  of the customer the alert is associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace account of the
+ *  customer the alert is associated with. The `customer_id` must have the
+ *  initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+ *  identity if not provided. [Find your customer
+ *  ID](https://support.google.com/cloudidentity/answer/10070793).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 

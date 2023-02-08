@@ -179,8 +179,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the parent that the listed assets belong to. Its
- *  format is "organizations/[organization_id], "folders/[folder_id]", or
+ *  Required. The name of the parent resource that contains the assets. The
+ *  value that you can specify on parent depends on the method in which you
+ *  specify parent. You can specify one of the following values:
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -198,9 +200,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Required. The name of the parent that the listed assets belong
- *    to. Its format is "organizations/[organization_id], "folders/[folder_id]",
- *    or "projects/[project_id]".
+ *  @param parent Required. The name of the parent resource that contains the
+ *    assets. The value that you can specify on parent depends on the method in
+ *    which you specify parent. You can specify one of the following values:
+ *    "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersAssetsList
  *
@@ -1411,7 +1415,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id], "folders/[folder_id]", or
+ *  be "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1422,7 +1426,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id], "folders/[folder_id]",
+ *    format should be "organizations/[organization_id]", "folders/[folder_id]",
  *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesList
@@ -1580,8 +1584,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the parent that the listed assets belong to. Its
- *  format is "organizations/[organization_id], "folders/[folder_id]", or
+ *  Required. The name of the parent resource that contains the assets. The
+ *  value that you can specify on parent depends on the method in which you
+ *  specify parent. You can specify one of the following values:
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1599,9 +1605,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Required. The name of the parent that the listed assets belong
- *    to. Its format is "organizations/[organization_id], "folders/[folder_id]",
- *    or "projects/[project_id]".
+ *  @param parent Required. The name of the parent resource that contains the
+ *    assets. The value that you can specify on parent depends on the method in
+ *    which you specify parent. You can specify one of the following values:
+ *    "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsList
  *
@@ -3181,7 +3189,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id], "folders/[folder_id]", or
+ *  be "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3192,7 +3200,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id], "folders/[folder_id]",
+ *    format should be "organizations/[organization_id]", "folders/[folder_id]",
  *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesList
@@ -3508,8 +3516,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the parent that the listed assets belong to. Its
- *  format is "organizations/[organization_id], "folders/[folder_id]", or
+ *  Required. The name of the parent resource that contains the assets. The
+ *  value that you can specify on parent depends on the method in which you
+ *  specify parent. You can specify one of the following values:
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3527,9 +3537,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Required. The name of the parent that the listed assets belong
- *    to. Its format is "organizations/[organization_id], "folders/[folder_id]",
- *    or "projects/[project_id]".
+ *  @param parent Required. The name of the parent resource that contains the
+ *    assets. The value that you can specify on parent depends on the method in
+ *    which you specify parent. You can specify one of the following values:
+ *    "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsAssetsList
  *
@@ -4740,7 +4752,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id], "folders/[folder_id]", or
+ *  be "organizations/[organization_id]", "folders/[folder_id]", or
  *  "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4751,7 +4763,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id], "folders/[folder_id]",
+ *    format should be "organizations/[organization_id]", "folders/[folder_id]",
  *    or "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesList

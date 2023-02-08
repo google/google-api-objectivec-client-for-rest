@@ -127,10 +127,11 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudWorkstations_Empty
+//   GTLRCloudWorkstations_CustomerEncryptionKey
 //
 
-@implementation GTLRCloudWorkstations_Empty
+@implementation GTLRCloudWorkstations_CustomerEncryptionKey
+@dynamic kmsKey, kmsKeyServiceAccount;
 @end
 
 
@@ -215,6 +216,15 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_GenerateAccessTokenResponse
 @dynamic accessToken, expireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_GoogleProtobufEmpty
+//
+
+@implementation GTLRCloudWorkstations_GoogleProtobufEmpty
 @end
 
 
@@ -409,8 +419,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_OperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
-         verb;
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
 @end
 
 
@@ -453,7 +463,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_PrivateClusterConfig
-@dynamic clusterHostname, enablePrivateEndpoint, serviceAttachmentUri;
+@dynamic allowedProjects, clusterHostname, enablePrivateEndpoint,
+         serviceAttachmentUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedProjects" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -668,7 +687,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_WorkstationConfig
 @dynamic annotations, conditions, container, createTime, degraded, deleteTime,
-         displayName, ETag, host, idleTimeout, labels, name,
+         displayName, encryptionKey, ETag, host, idleTimeout, labels, name,
          persistentDirectories, reconciling, runningTimeout, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

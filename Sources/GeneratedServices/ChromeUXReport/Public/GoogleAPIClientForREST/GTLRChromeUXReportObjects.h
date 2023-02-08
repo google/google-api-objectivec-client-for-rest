@@ -18,11 +18,17 @@
 @class GTLRChromeUXReport_Bin;
 @class GTLRChromeUXReport_CollectionPeriod;
 @class GTLRChromeUXReport_Date;
+@class GTLRChromeUXReport_HistoryKey;
+@class GTLRChromeUXReport_HistoryRecord;
+@class GTLRChromeUXReport_HistoryRecord_Metrics;
 @class GTLRChromeUXReport_Key;
 @class GTLRChromeUXReport_Metric;
+@class GTLRChromeUXReport_MetricTimeseries;
 @class GTLRChromeUXReport_Percentiles;
 @class GTLRChromeUXReport_Record;
 @class GTLRChromeUXReport_Record_Metrics;
+@class GTLRChromeUXReport_TimeseriesBin;
+@class GTLRChromeUXReport_TimeseriesPercentiles;
 @class GTLRChromeUXReport_UrlNormalization;
 
 // Generated comments include content from the discovery document; avoid them
@@ -34,6 +40,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRChromeUXReport_HistoryKey.formFactor
+
+/**
+ *  The default value, representing all device classes.
+ *
+ *  Value: "ALL_FORM_FACTORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_HistoryKey_FormFactor_AllFormFactors;
+/**
+ *  The device class representing a "desktop"/"laptop" type full size client.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_HistoryKey_FormFactor_Desktop;
+/**
+ *  The device class representing a "mobile"/"phone" sized client.
+ *
+ *  Value: "PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_HistoryKey_FormFactor_Phone;
+/**
+ *  The device class representing a "tablet" type client.
+ *
+ *  Value: "TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_HistoryKey_FormFactor_Tablet;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeUXReport_Key.formFactor
@@ -62,6 +96,34 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_Key_FormFactor_Phone;
  *  Value: "TABLET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_Key_FormFactor_Tablet;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeUXReport_QueryHistoryRequest.formFactor
+
+/**
+ *  The default value, representing all device classes.
+ *
+ *  Value: "ALL_FORM_FACTORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_AllFormFactors;
+/**
+ *  The device class representing a "desktop"/"laptop" type full size client.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_Desktop;
+/**
+ *  The device class representing a "mobile"/"phone" sized client.
+ *
+ *  Value: "PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_Phone;
+/**
+ *  The device class representing a "tablet" type client.
+ *
+ *  Value: "TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_Tablet;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeUXReport_QueryRequest.formFactor
@@ -187,6 +249,96 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 /**
  *  Key defines all the dimensions that identify this record as unique.
  */
+@interface GTLRChromeUXReport_HistoryKey : GTLRObject
+
+/**
+ *  The form factor is the device class that all users used to access the site
+ *  for this record. If the form factor is unspecified, then aggregated data
+ *  over all form factors will be returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeUXReport_HistoryKey_FormFactor_AllFormFactors The
+ *        default value, representing all device classes. (Value:
+ *        "ALL_FORM_FACTORS")
+ *    @arg @c kGTLRChromeUXReport_HistoryKey_FormFactor_Desktop The device class
+ *        representing a "desktop"/"laptop" type full size client. (Value:
+ *        "DESKTOP")
+ *    @arg @c kGTLRChromeUXReport_HistoryKey_FormFactor_Phone The device class
+ *        representing a "mobile"/"phone" sized client. (Value: "PHONE")
+ *    @arg @c kGTLRChromeUXReport_HistoryKey_FormFactor_Tablet The device class
+ *        representing a "tablet" type client. (Value: "TABLET")
+ */
+@property(nonatomic, copy, nullable) NSString *formFactor;
+
+/**
+ *  Origin specifies the origin that this record is for. Note: When specifying
+ *  an origin, data for loads under this origin over all pages are aggregated
+ *  into origin level user experience data.
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
+ *  Url specifies a specific url that this record is for. This url should be
+ *  normalized, following the normalization actions taken in the request to
+ *  increase the chances of successful lookup. Note: When specifying a "url"
+ *  only data for that specific url will be aggregated.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  HistoryRecord is a timeseries of Chrome UX Report data. It contains user
+ *  experience statistics for a single url pattern and a set of dimensions.
+ */
+@interface GTLRChromeUXReport_HistoryRecord : GTLRObject
+
+/**
+ *  The collection periods indicate when each of the data points reflected in
+ *  the time series data in metrics was collected. Note that all the time series
+ *  share the same collection periods, and it is enforced in the CrUX pipeline
+ *  that every time series has the same number of data points.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeUXReport_CollectionPeriod *> *collectionPeriods;
+
+/**
+ *  Key defines all of the unique querying parameters needed to look up a user
+ *  experience history record.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_HistoryKey *key;
+
+/**
+ *  Metrics is the map of user experience time series data available for the
+ *  record defined in the key field. Metrics are keyed on the metric name.
+ *  Allowed key values: ["first_contentful_paint", "first_input_delay",
+ *  "largest_contentful_paint", "cumulative_layout_shift",
+ *  "experimental_time_to_first_byte", "experimental_interaction_to_next_paint"]
+ */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_HistoryRecord_Metrics *metrics;
+
+@end
+
+
+/**
+ *  Metrics is the map of user experience time series data available for the
+ *  record defined in the key field. Metrics are keyed on the metric name.
+ *  Allowed key values: ["first_contentful_paint", "first_input_delay",
+ *  "largest_contentful_paint", "cumulative_layout_shift",
+ *  "experimental_time_to_first_byte", "experimental_interaction_to_next_paint"]
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRChromeUXReport_MetricTimeseries. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRChromeUXReport_HistoryRecord_Metrics : GTLRObject
+@end
+
+
+/**
+ *  Key defines all the dimensions that identify this record as unique.
+ */
 @interface GTLRChromeUXReport_Key : GTLRObject
 
 /**
@@ -247,10 +399,36 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeUXReport_Bin *> *histogram;
 
 /**
- *  Common useful percentiles of the Metric. The value type for the percentiles
- *  will be the same as the value types given for the Histogram bins.
+ *  Commonly useful percentiles of the Metric. The value type for the
+ *  percentiles will be the same as the value types given for the Histogram
+ *  bins.
  */
 @property(nonatomic, strong, nullable) GTLRChromeUXReport_Percentiles *percentiles;
+
+@end
+
+
+/**
+ *  A `metric timeseries` is a set of user experience data for a single web
+ *  performance metric, like "first contentful paint". It contains a summary
+ *  histogram of real world Chrome usage as a series of `bins`, where each bin
+ *  has density values for a particular time period.
+ */
+@interface GTLRChromeUXReport_MetricTimeseries : GTLRObject
+
+/**
+ *  The histogram of user experiences for a metric. The histogram will have at
+ *  least one bin and the densities of all bins will add up to ~1, for each
+ *  timeseries entry.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeUXReport_TimeseriesBin *> *histogramTimeseries;
+
+/**
+ *  Commonly useful percentiles of the Metric. The value type for the
+ *  percentiles will be the same as the value types given for the Histogram
+ *  bins.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_TimeseriesPercentiles *percentilesTimeseries;
 
 @end
 
@@ -268,6 +446,79 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id p75;
+
+@end
+
+
+/**
+ *  Request payload sent by a physical web client. This request includes all
+ *  necessary context to load a particular user experience history record.
+ */
+@interface GTLRChromeUXReport_QueryHistoryRequest : GTLRObject
+
+/**
+ *  The form factor is a query dimension that specifies the device class that
+ *  the record's data should belong to. Note: If no form factor is specified,
+ *  then a special record with aggregated data over all form factors will be
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_AllFormFactors
+ *        The default value, representing all device classes. (Value:
+ *        "ALL_FORM_FACTORS")
+ *    @arg @c kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_Desktop The
+ *        device class representing a "desktop"/"laptop" type full size client.
+ *        (Value: "DESKTOP")
+ *    @arg @c kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_Phone The
+ *        device class representing a "mobile"/"phone" sized client. (Value:
+ *        "PHONE")
+ *    @arg @c kGTLRChromeUXReport_QueryHistoryRequest_FormFactor_Tablet The
+ *        device class representing a "tablet" type client. (Value: "TABLET")
+ */
+@property(nonatomic, copy, nullable) NSString *formFactor;
+
+/**
+ *  The metrics that should be included in the response. If none are specified
+ *  then any metrics found will be returned. Allowed values:
+ *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
+ *  "cumulative_layout_shift", "experimental_time_to_first_byte",
+ *  "experimental_interaction_to_next_paint"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/**
+ *  The url pattern "origin" refers to a url pattern that is the origin of a
+ *  website. Examples: "https://example.com", "https://cloud.google.com"
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
+ *  The url pattern "url" refers to a url pattern that is any arbitrary url.
+ *  Examples: "https://example.com/",
+ *  "https://cloud.google.com/why-google-cloud/"
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Response payload sent back to a physical web client. This response contains
+ *  the record found based on the identiers present in a `QueryHistoryRequest`.
+ *  The returned response will have a history record, and sometimes details on
+ *  normalization actions taken on the request that were necessary to make the
+ *  request successful.
+ */
+@interface GTLRChromeUXReport_QueryHistoryResponse : GTLRObject
+
+/** The record that was found. */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_HistoryRecord *record;
+
+/**
+ *  These are details about automated normalization actions that were taken in
+ *  order to make the requested `url_pattern` valid.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_UrlNormalization *urlNormalizationDetails;
 
 @end
 
@@ -376,7 +627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  Metrics is the map of user experience data available for the record defined
  *  in the key field. Metrics are keyed on the metric name. Allowed key values:
  *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
- *  "cumulative_layout_shift"]
+ *  "cumulative_layout_shift", "experimental_time_to_first_byte",
+ *  "experimental_interaction_to_next_paint"]
  */
 @property(nonatomic, strong, nullable) GTLRChromeUXReport_Record_Metrics *metrics;
 
@@ -387,7 +639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  Metrics is the map of user experience data available for the record defined
  *  in the key field. Metrics are keyed on the metric name. Allowed key values:
  *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
- *  "cumulative_layout_shift"]
+ *  "cumulative_layout_shift", "experimental_time_to_first_byte",
+ *  "experimental_interaction_to_next_paint"]
  *
  *  @note This class is documented as having more properties of
  *        GTLRChromeUXReport_Metric. Use @c -additionalJSONKeys and @c
@@ -395,6 +648,68 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRChromeUXReport_Record_Metrics : GTLRObject
+@end
+
+
+/**
+ *  A bin is a discrete portion of data spanning from start to end, or if no end
+ *  is given, then from start to +inf. A bin's start and end values are given in
+ *  the value type of the metric it represents. For example, "first contentful
+ *  paint" is measured in milliseconds and exposed as ints, therefore its metric
+ *  bins will use int32s for its start and end types. However, "cumulative
+ *  layout shift" is measured in unitless decimals and is exposed as a decimal
+ *  encoded as a string, therefore its metric bins will use strings for its
+ *  value type.
+ */
+@interface GTLRChromeUXReport_TimeseriesBin : GTLRObject
+
+/**
+ *  The proportion of users that experienced this bin's value for the given
+ *  metric in a given collection period; the index for each of these entries
+ *  corresponds to an entry in the CollectionPeriods field in the HistoryRecord
+ *  message, which describes when the density was observed in the field. Thus,
+ *  the length of this list of densities is equal to the length of the
+ *  CollectionPeriods field in the HistoryRecord message.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *densities;
+
+/**
+ *  End is the end of the data bin. If end is not populated, then the bin has no
+ *  end and is valid from start to +inf.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id end;
+
+/**
+ *  Start is the beginning of the data bin.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id start;
+
+@end
+
+
+/**
+ *  Percentiles contains synthetic values of a metric at a given statistical
+ *  percentile. These are used for estimating a metric's value as experienced by
+ *  a percentage of users out of the total number of users.
+ */
+@interface GTLRChromeUXReport_TimeseriesPercentiles : GTLRObject
+
+/**
+ *  75% of users experienced the given metric at or below this value. The length
+ *  of this list of densities is equal to the length of the CollectionPeriods
+ *  field in the HistoryRecord message, which describes when the density was
+ *  observed in the field.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *p75s;
+
 @end
 
 

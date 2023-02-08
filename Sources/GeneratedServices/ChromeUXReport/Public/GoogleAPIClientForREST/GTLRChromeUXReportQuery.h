@@ -35,6 +35,33 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Queries the Chrome User Experience Report for a timeseries `history record`
+ *  for a given site. Returns a `history record` that contains one or more
+ *  `metric timeseries` corresponding to performance data about the requested
+ *  site.
+ *
+ *  Method: chromeuxreport.records.queryHistoryRecord
+ */
+@interface GTLRChromeUXReportQuery_RecordsQueryHistoryRecord : GTLRChromeUXReportQuery
+
+/**
+ *  Fetches a @c GTLRChromeUXReport_QueryHistoryResponse.
+ *
+ *  Queries the Chrome User Experience Report for a timeseries `history record`
+ *  for a given site. Returns a `history record` that contains one or more
+ *  `metric timeseries` corresponding to performance data about the requested
+ *  site.
+ *
+ *  @param object The @c GTLRChromeUXReport_QueryHistoryRequest to include in
+ *    the query.
+ *
+ *  @return GTLRChromeUXReportQuery_RecordsQueryHistoryRecord
+ */
++ (instancetype)queryWithObject:(GTLRChromeUXReport_QueryHistoryRequest *)object;
+
+@end
+
+/**
  *  Queries the Chrome User Experience for a single `record` for a given site.
  *  Returns a `record` that contains one or more `metrics` corresponding to
  *  performance data about the requested site.

@@ -282,3 +282,41 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 }
 
 @end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryUsersGet
+
+@dynamic name, readMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersTelemetryUsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser class];
+  query.loggingName = @"chromemanagement.customers.telemetry.users.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryUsersList
+
+@dynamic filter, pageSize, pageToken, parent, readMask;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/telemetry/users";
+  GTLRChromeManagementQuery_CustomersTelemetryUsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryUsersResponse class];
+  query.loggingName = @"chromemanagement.customers.telemetry.users.list";
+  return query;
+}
+
+@end

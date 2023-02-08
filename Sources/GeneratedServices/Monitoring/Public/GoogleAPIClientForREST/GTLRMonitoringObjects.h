@@ -2823,7 +2823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  The specific AlertPolicy names for the alert that should be snoozed. The
  *  format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID] There
- *  is a limit of 10 policies per snooze. This limit is checked during snooze
+ *  is a limit of 16 policies per snooze. This limit is checked during snooze
  *  creation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *policies;
@@ -4837,7 +4837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  When this field is present, the MetricThreshold condition forecasts whether
  *  the time series is predicted to violate the threshold within the
- *  forecast_horizion. When this field is not set, the MetricThreshold tests the
+ *  forecast_horizon. When this field is not set, the MetricThreshold tests the
  *  current value of the timeseries against the threshold.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_ForecastOptions *forecastOptions;

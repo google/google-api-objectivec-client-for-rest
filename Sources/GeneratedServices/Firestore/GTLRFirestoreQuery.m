@@ -195,7 +195,7 @@
 
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDelete
 
-@dynamic allowMissing, ETag, name, validateOnly;
+@dynamic allowMissing, ETag, freeId, name, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"ETag" : @"etag" };

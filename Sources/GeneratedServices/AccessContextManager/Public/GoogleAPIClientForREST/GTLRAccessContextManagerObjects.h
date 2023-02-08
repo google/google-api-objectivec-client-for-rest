@@ -4,8 +4,8 @@
 // API:
 //   Access Context Manager API (accesscontextmanager/v1)
 // Description:
-//   An API for setting attribute based access control to requests to GCP
-//   services.
+//   An API for setting attribute based access control to requests to Google
+//   Cloud services.
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
@@ -90,7 +90,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuditLogConfig_LogT
 // GTLRAccessContextManager_AuthorizedOrgsDesc.assetType
 
 /**
- *  credential strength asset type.
+ *  Credential strength asset type.
  *
  *  Value: "ASSET_TYPE_CREDENTIAL_STRENGTH"
  */
@@ -112,13 +112,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_
 // GTLRAccessContextManager_AuthorizedOrgsDesc.authorizationDirection
 
 /**
- *  Specified orgs' traffic will be evaluated.
+ *  The traffic of the specified organizations can be evaluated by this
+ *  organization.
  *
  *  Value: "AUTHORIZATION_DIRECTION_FROM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionFrom;
 /**
- *  Specified orgs will evaluate traffic.
+ *  The specified organizations are authorized to evaluate traffic in this
+ *  organization.
  *
  *  Value: "AUTHORIZATION_DIRECTION_TO"
  */
@@ -515,18 +517,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
- *  `AuthorizedOrgsDesc` is a resource that contains a list of organizations for
- *  a authorization type and asset type and its authorization direction.
+ *  `AuthorizedOrgsDesc` contains data for an organization's authorization
+ *  policy.
  */
 @interface GTLRAccessContextManager_AuthorizedOrgsDesc : GTLRObject
 
 /**
- *  The asset type of this authorized orgs desc. e.g. device, credential
- *  strength.
+ *  The asset type of this authorized orgs desc. Valid values are
+ *  `ASSET_TYPE_DEVICE`, and `ASSET_TYPE_CREDENTIAL_STRENGTH`.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeCredentialStrength
- *        credential strength asset type. (Value:
+ *        Credential strength asset type. (Value:
  *        "ASSET_TYPE_CREDENTIAL_STRENGTH")
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AssetType_AssetTypeDevice
  *        Device asset type. (Value: "ASSET_TYPE_DEVICE")
@@ -536,33 +538,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
- *  Authorization direction of this authorization relationship. i.e. Whether to
- *  allow specified orgs to evaluate this org's traffic, or allow specified
- *  orgs' traffic to be evaluated by this org. Orgs specified as
- *  `AUTHORIZATION_DIRECTION_TO` in this
- *  AuthorizedOrgsDesc[com.google.identity.accesscontextmanager.v1.AuthorizedOrgsDesc]
- *  must also specify this org as the `AUTHORIZATION_DIRECTION_FROM` in their
- *  own AuthorizedOrgsDesc in order for this relationship to take effect. Orgs
- *  specified as `AUTHORIZATION_DIRECTION_FROM` in this
- *  AuthorizedOrgsDesc[com.google.identity.accesscontextmanager.v1.AuthorizedOrgsDesc]
- *  must also specify this org as the `AUTHORIZATION_DIRECTION_TO` in their own
- *  AuthorizedOrgsDesc in order for this relationship to take effect.
+ *  The direction of the authorization relationship between this organization
+ *  and the organizations listed in the `orgs` field. The valid values for this
+ *  field include the following: `AUTHORIZATION_DIRECTION_FROM`: Allows this
+ *  organization to evaluate traffic in the organizations listed in the `orgs`
+ *  field. `AUTHORIZATION_DIRECTION_TO`: Allows the organizations listed in the
+ *  `orgs` field to evaluate the traffic in this organization. For the
+ *  authorization relationship to take effect, all of the organizations must
+ *  authorize and specify the appropriate relationship direction. For example,
+ *  if organization A authorized organization B and C to evaluate its traffic,
+ *  by specifying `AUTHORIZATION_DIRECTION_TO` as the authorization direction,
+ *  organizations B and C must specify `AUTHORIZATION_DIRECTION_FROM` as the
+ *  authorization direction in their `AuthorizedOrgsDesc` resource.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionFrom
- *        Specified orgs' traffic will be evaluated. (Value:
- *        "AUTHORIZATION_DIRECTION_FROM")
+ *        The traffic of the specified organizations can be evaluated by this
+ *        organization. (Value: "AUTHORIZATION_DIRECTION_FROM")
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionTo
- *        Specified orgs will evaluate traffic. (Value:
- *        "AUTHORIZATION_DIRECTION_TO")
+ *        The specified organizations are authorized to evaluate traffic in this
+ *        organization. (Value: "AUTHORIZATION_DIRECTION_TO")
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationDirection_AuthorizationDirectionUnspecified
  *        No direction specified. (Value: "AUTHORIZATION_DIRECTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *authorizationDirection;
 
 /**
- *  The authorization type of this authorized orgs desc. e.g.authorization,
- *  troubleshooting or logging.
+ *  A granular control type for authorization levels. Valid value is
+ *  `AUTHORIZATION_TYPE_TRUST`.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_AuthorizedOrgsDesc_AuthorizationType_AuthorizationTypeTrust
@@ -575,15 +578,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *authorizationType;
 
 /**
- *  Assigned by the server during creation. The last segment has an arbitrary
- *  length and has only URI unreserved characters (as defined by [RFC 3986
- *  Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should not
- *  be specified by the client during creation. Example:
- *  "accessPolicies/122256/authorizedOrgs/b3-BhcX_Ud5N"
+ *  Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
+ *  The `authorized_orgs_desc` component must begin with a letter, followed by
+ *  alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
+ *  you cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The list of organization ids in this AuthorizedOrgsDesc. */
+/**
+ *  The list of organization ids in this AuthorizedOrgsDesc. Format:
+ *  `organizations/` Example: `organizations/123456`
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *orgs;
 
 @end
@@ -649,8 +655,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -665,9 +673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1188,7 +1194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
  *  only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC format:
+ *  `projects/{project_number}` VPC network format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The
  *  project may be in any Google Cloud organization, not just the organization
  *  that the perimeter is defined in. `*` is not allowed, the case of allowing
@@ -1289,7 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @interface GTLRAccessContextManager_ListAuthorizedOrgsDescsResponse : GTLRCollectionObject
 
 /**
- *  List of the Authorized Orgs Desc instances.
+ *  List of all the Authorized Orgs Desc instances.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1706,10 +1712,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  `ServicePerimeter` has a target outside of the `ServicePerimeter`, the
  *  request will be blocked. Otherwise the request is allowed. There are two
  *  types of Service Perimeter - Regular and Bridge. Regular Service Perimeters
- *  cannot overlap, a single Google Cloud project can only belong to a single
- *  regular Service Perimeter. Service Perimeter Bridges can contain only Google
- *  Cloud projects as members, a single Google Cloud project may belong to
- *  multiple Service Perimeter Bridges.
+ *  cannot overlap, a single Google Cloud project or VPC network can only belong
+ *  to a single regular Service Perimeter. Service Perimeter Bridges can contain
+ *  only Google Cloud projects as members, a single Google Cloud project may
+ *  belong to multiple Service Perimeter Bridges.
  */
 @interface GTLRAccessContextManager_ServicePerimeter : GTLRObject
 
@@ -1730,11 +1736,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Perimeter type indicator. A single project is allowed to be a member of
- *  single regular perimeter, but multiple service perimeter bridges. A project
- *  cannot be a included in a perimeter bridge without being included in regular
- *  perimeter. For perimeter bridges, the restricted service list as well as
- *  access level lists must be empty.
+ *  Perimeter type indicator. A single project or VPC network is allowed to be a
+ *  member of single regular perimeter, but multiple service perimeter bridges.
+ *  A project cannot be a included in a perimeter bridge without being included
+ *  in regular perimeter. For perimeter bridges, the restricted service list as
+ *  well as access level lists must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge
@@ -1818,7 +1824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.
  *  Currently only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC format:
+ *  `projects/{project_number}` VPC network format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;

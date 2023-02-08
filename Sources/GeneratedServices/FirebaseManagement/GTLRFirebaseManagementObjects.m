@@ -131,8 +131,8 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_AndroidApp
-@dynamic apiKeyId, appId, displayName, ETag, name, packageName, projectId,
-         sha1Hashes, sha256Hashes, state;
+@dynamic apiKeyId, appId, displayName, ETag, expireTime, name, packageName,
+         projectId, sha1Hashes, sha256Hashes, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -194,7 +194,8 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_FirebaseAppInfo
-@dynamic apiKeyId, appId, displayName, name, namespaceProperty, platform, state;
+@dynamic apiKeyId, appId, displayName, expireTime, name, namespaceProperty,
+         platform, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"namespaceProperty" : @"namespace" };
@@ -239,8 +240,8 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_IosApp
-@dynamic apiKeyId, appId, appStoreId, bundleId, displayName, ETag, name,
-         projectId, state, teamId;
+@dynamic apiKeyId, appId, appStoreId, bundleId, displayName, ETag, expireTime,
+         name, projectId, state, teamId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -476,6 +477,24 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseManagement_ProductMetadata
+//
+
+@implementation GTLRFirebaseManagement_ProductMetadata
+@dynamic warningMessages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warningMessages" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseManagement_ProjectInfo
 //
 
@@ -674,8 +693,8 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_WebApp
-@dynamic apiKeyId, appId, appUrls, displayName, ETag, name, projectId, state,
-         webId;
+@dynamic apiKeyId, appId, appUrls, displayName, ETag, expireTime, name,
+         projectId, state, webId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

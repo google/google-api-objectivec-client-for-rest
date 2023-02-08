@@ -188,9 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  returned Operations will be obsolete after 1 day, and GetOperation API will
  *  return NOT_FOUND afterwards. If conflicting updates are issued, the
  *  Operations associated with the stale updates will not be marked as done
- *  until being obsolete. This feature is only available for users who have
- *  Retail Search enabled. Enable Retail Search on Cloud Console before using
- *  this feature.
+ *  until being obsolete.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces
  *
@@ -219,9 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  returned Operations will be obsolete after 1 day, and GetOperation API will
  *  return NOT_FOUND afterwards. If conflicting updates are issued, the
  *  Operations associated with the stale updates will not be marked as done
- *  until being obsolete. This feature is only available for users who have
- *  Retail Search enabled. Enable Retail Search on Cloud Console before using
- *  this feature.
+ *  until being obsolete.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest to include
@@ -251,9 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  on local inventories. The returned Operations will be obsolete after 1 day,
  *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
  *  updates are issued, the Operations associated with the stale updates will
- *  not be marked as done until being obsolete. This feature is only available
- *  for users who have Retail Search enabled. Enable Retail Search on Cloud
- *  Console before using this feature.
+ *  not be marked as done until being obsolete.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addLocalInventories
  *
@@ -285,9 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  on local inventories. The returned Operations will be obsolete after 1 day,
  *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
  *  updates are issued, the Operations associated with the stale updates will
- *  not be marked as done until being obsolete. This feature is only available
- *  for users who have Retail Search enabled. Enable Retail Search on Cloud
- *  Console before using this feature.
+ *  not be marked as done until being obsolete.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest to include
@@ -618,9 +610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The returned Operations will be obsolete after 1 day, and GetOperation API
  *  will return NOT_FOUND afterwards. If conflicting updates are issued, the
  *  Operations associated with the stale updates will not be marked as done
- *  until being obsolete. This feature is only available for users who have
- *  Retail Search enabled. Enable Retail Search on Cloud Console before using
- *  this feature.
+ *  until being obsolete.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces
  *
@@ -649,9 +639,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The returned Operations will be obsolete after 1 day, and GetOperation API
  *  will return NOT_FOUND afterwards. If conflicting updates are issued, the
  *  Operations associated with the stale updates will not be marked as done
- *  until being obsolete. This feature is only available for users who have
- *  Retail Search enabled. Enable Retail Search on Cloud Console before using
- *  this feature.
+ *  until being obsolete.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest to
@@ -679,9 +667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  on local inventories. The returned Operations will be obsolete after 1 day,
  *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
  *  updates are issued, the Operations associated with the stale updates will
- *  not be marked as done until being obsolete. This feature is only available
- *  for users who have Retail Search enabled. Enable Retail Search on Cloud
- *  Console before using this feature.
+ *  not be marked as done until being obsolete.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeLocalInventories
  *
@@ -711,9 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  on local inventories. The returned Operations will be obsolete after 1 day,
  *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
  *  updates are issued, the Operations associated with the stale updates will
- *  not be marked as done until being obsolete. This feature is only available
- *  for users who have Retail Search enabled. Enable Retail Search on Cloud
- *  Console before using this feature.
+ *  not be marked as done until being obsolete.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest to
@@ -752,9 +736,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete
  *  after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If
  *  conflicting updates are issued, the Operations associated with the stale
- *  updates are not marked as done until they are obsolete. This feature is only
- *  available for users who have Retail Search enabled. Enable Retail Search on
- *  Cloud Console before using this feature.
+ *  updates are not marked as done until they are obsolete.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.setInventory
  *
@@ -793,9 +775,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete
  *  after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If
  *  conflicting updates are issued, the Operations associated with the stale
- *  updates are not marked as done until they are obsolete. This feature is only
- *  available for users who have Retail Search enabled. Enable Retail Search on
- *  Cloud Console before using this feature.
+ *  updates are not marked as done until they are obsolete.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
  *    to include in the query.
@@ -1293,6 +1273,271 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new model.
+ *
+ *  Method: retail.projects.locations.catalogs.models.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsCreate : GTLRCloudRetailQuery
+
+/**
+ *  Optional. Whether to run a dry run to validate the request (without actually
+ *  creating the model).
+ */
+@property(nonatomic, assign) BOOL dryRun;
+
+/**
+ *  Required. The parent resource under which to create the model. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Creates a new model.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2Model to include in
+ *    the query.
+ *  @param parent Required. The parent resource under which to create the model.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Model *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing model.
+ *
+ *  Method: retail.projects.locations.catalogs.models.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsDelete : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the Model to delete. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleProtobufEmpty.
+ *
+ *  Deletes an existing model.
+ *
+ *  @param name Required. The resource name of the Model to delete. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the models linked to this event store.
+ *
+ *  Method: retail.projects.locations.catalogs.models.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsList : GTLRCloudRetailQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  50. Max allowed value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListModels` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list models. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ListModelsResponse.
+ *
+ *  Lists all the models linked to this event store.
+ *
+ *  @param parent Required. The parent for which to list models. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update of model metadata. Only fields that currently can be updated are:
+ *  `filtering_option` and `periodic_tuning_state`. If other values are
+ *  provided, this API method ignores them.
+ *
+ *  Method: retail.projects.locations.catalogs.models.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPatch : GTLRCloudRetailQuery
+
+/**
+ *  Required. The fully qualified resource name of the model. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *  catalog_id has char limit of 50. recommendation_model_id has char limit of
+ *  40.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates which fields in the provided 'model' to update. If not
+ *  set, by default updates all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Model.
+ *
+ *  Update of model metadata. Only fields that currently can be updated are:
+ *  `filtering_option` and `periodic_tuning_state`. If other values are
+ *  provided, this API method ignores them.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2Model to include in
+ *    the query.
+ *  @param name Required. The fully qualified resource name of the model.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *    catalog_id has char limit of 50. recommendation_model_id has char limit of
+ *    40.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Model *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Pauses the training of an existing model.
+ *
+ *  Method: retail.projects.locations.catalogs.models.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPause : GTLRCloudRetailQuery
+
+/**
+ *  Required. The name of the model to pause. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Model.
+ *
+ *  Pauses the training of an existing model.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest to
+ *    include in the query.
+ *  @param name Required. The name of the model to pause. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPause
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Resumes the training of an existing model.
+ *
+ *  Method: retail.projects.locations.catalogs.models.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsResume : GTLRCloudRetailQuery
+
+/**
+ *  Required. The name of the model to resume. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Model.
+ *
+ *  Resumes the training of an existing model.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2ResumeModelRequest
+ *    to include in the query.
+ *  @param name Required. The name of the model to resume. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsResume
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ResumeModelRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Tunes an existing model.
+ *
+ *  Method: retail.projects.locations.catalogs.models.tune
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsTune : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the model to tune. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Tunes an existing model.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2TuneModelRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the model to tune. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsTune
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2TuneModelRequest *)object
+                           name:(NSString *)name;
 
 @end
 

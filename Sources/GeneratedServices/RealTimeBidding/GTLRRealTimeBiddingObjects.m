@@ -163,15 +163,8 @@ NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_
 // GTLRRealTimeBidding_Endpoint.bidProtocol
 NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_BidProtocolUnspecified = @"BID_PROTOCOL_UNSPECIFIED";
 NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_GoogleRtb = @"GOOGLE_RTB";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb22 = @"OPENRTB_2_2";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb23 = @"OPENRTB_2_3";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb24 = @"OPENRTB_2_4";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb25 = @"OPENRTB_2_5";
 NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbJson = @"OPENRTB_JSON";
 NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf = @"OPENRTB_PROTOBUF";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf23 = @"OPENRTB_PROTOBUF_2_3";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf24 = @"OPENRTB_PROTOBUF_2_4";
-NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf25 = @"OPENRTB_PROTOBUF_2_5";
 
 // GTLRRealTimeBidding_Endpoint.tradingLocation
 NSString * const kGTLRRealTimeBidding_Endpoint_TradingLocation_Asia = @"ASIA";

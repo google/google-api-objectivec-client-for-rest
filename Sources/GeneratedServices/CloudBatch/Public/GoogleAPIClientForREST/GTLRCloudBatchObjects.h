@@ -432,6 +432,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_Type_TaskStateChanged
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBatch_StatusEvent.taskState
+
+/**
+ *  The Task is assigned to at least one VM.
+ *
+ *  Value: "ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Assigned;
+/**
+ *  The Task has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Failed;
+/**
+ *  The Task is created and waiting for resources.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Pending;
+/**
+ *  The Task is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Running;
+/**
+ *  unknown state
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_StateUnspecified;
+/**
+ *  The Task has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBatch_TaskStatus.state
 
 /**
@@ -881,8 +921,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -897,9 +939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1263,6 +1303,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  VM instance status.
  */
 @interface GTLRCloudBatch_InstanceStatus : GTLRObject
+
+/** The VM boot disk. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_Disk *bootDisk;
 
 /** The Compute Engine machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
@@ -2140,10 +2183,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  */
 @interface GTLRCloudBatch_Script : GTLRObject
 
-/** Script file path on the host VM. */
+/**
+ *  Script file path on the host VM. To specify an interpreter, please add a
+ *  `#!`(also known as [shebang
+ *  line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of
+ *  the file.(For example, to execute the script using bash, `#!/bin/bash`
+ *  should be the first line of the file. To execute the script using`Python3`,
+ *  `#!/usr/bin/env python3` should be the first line of the file.) Otherwise,
+ *  the file will by default be excuted by `/bin/sh`.
+ */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** Shell script text. */
+/**
+ *  Shell script text. To specify an interpreter, please add a `#!\\n` at the
+ *  beginning of the text.(For example, to execute the script using bash,
+ *  `#!/bin/bash\\n` should be added. To execute the script using`Python3`,
+ *  `#!/usr/bin/env python3\\n` should be added.) Otherwise, the script will by
+ *  default be excuted by `/bin/sh`.
+ */
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
@@ -2161,6 +2218,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
  *  and it has to match the email field here.
  */
 @property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  List of scopes to be enabled for this service account on the VM, in addition
+ *  to the cloud-platform API scope that will be added by default.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 @end
 
@@ -2251,6 +2314,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded;
 
 /** Task Execution */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskExecution *taskExecution;
+
+/**
+ *  Task State
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Assigned The Task is
+ *        assigned to at least one VM. (Value: "ASSIGNED")
+ *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Failed The Task has failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Pending The Task is created
+ *        and waiting for resources. (Value: "PENDING")
+ *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Running The Task is running.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_StateUnspecified unknown
+ *        state (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Succeeded The Task has
+ *        succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *taskState;
 
 /** Type of the event. */
 @property(nonatomic, copy, nullable) NSString *type;

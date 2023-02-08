@@ -79,6 +79,27 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenP
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Missing = @"MISSING";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnknownInvalidReason = @"UNKNOWN_INVALID_REASON";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent.eventType
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Authorization = @"AUTHORIZATION";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_AuthorizationDecline = @"AUTHORIZATION_DECLINE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Cancel = @"CANCEL";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Chargeback = @"CHARGEBACK";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackAlert = @"CHARGEBACK_ALERT";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackInquiry = @"CHARGEBACK_INQUIRY";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackRepresentment = @"CHARGEBACK_REPRESENTMENT";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackReverse = @"CHARGEBACK_REVERSE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_FraudNotification = @"FRAUD_NOTIFICATION";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ManualReview = @"MANUAL_REVIEW";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantApprove = @"MERCHANT_APPROVE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantDeny = @"MERCHANT_DENY";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCapture = @"PAYMENT_CAPTURE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCaptureDecline = @"PAYMENT_CAPTURE_DECLINE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Refund = @"REFUND";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundDecline = @"REFUND_DECLINE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundRequest = @"REFUND_REQUEST";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundReverse = @"REFUND_REVERSE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_TransactionEventTypeUnspecified = @"TRANSACTION_EVENT_TYPE_UNSPECIFIED";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafFeature
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ActionToken = @"ACTION_TOKEN";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage = @"CHALLENGE_PAGE";
@@ -161,7 +182,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest
-@dynamic annotation, hashedAccountId, reasons;
+@dynamic annotation, hashedAccountId, reasons, transactionEvent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -527,6 +548,16 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties
 @dynamic action, androidPackageName, createTime, hostname, invalidReason,
          iosBundleId, valid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent
+@dynamic eventTime, eventType, reason, value;
 @end
 
 

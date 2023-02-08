@@ -228,7 +228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Returns a membership. Requires
  *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
  *  supports [service account
@@ -259,7 +258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Membership.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Returns a membership. Requires
  *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
  *  supports [service account
@@ -283,8 +281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
- *  memberships in a space. Requires
+ *  Lists memberships in a space. Requires
  *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
  *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
@@ -330,8 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_ListMembershipsResponse.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
- *  memberships in a space. Requires
+ *  Lists memberships in a space. Requires
  *  [authentication](https://developers.google.com/chat/api/guides/auth/). Fully
  *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
@@ -359,7 +355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Gets the metadata of a message attachment. The attachment data is fetched
- *  using the media API. Requires [service account
+ *  using the [media
+ *  API](https://developers.google.com/chat/api/reference/rest/v1/media/download).
+ *  Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.attachments.get
@@ -376,7 +374,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_Attachment.
  *
  *  Gets the metadata of a message attachment. The attachment data is fetched
- *  using the media API. Requires [service account
+ *  using the [media
+ *  API](https://developers.google.com/chat/api/reference/rest/v1/media/download).
+ *  Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the attachment, in the form "spaces/
@@ -460,7 +460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  identifier. To start or add to a thread, create a message and specify a
  *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
  *  message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ *  thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 

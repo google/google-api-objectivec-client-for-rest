@@ -914,6 +914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Expo
  *  Value: "DATA_FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified;
+/**
+ *  Agent content will be exported in JSON Package format.
+ *
+ *  Value: "JSON_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_JsonPackage;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
@@ -7065,6 +7071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Agent content will be exported as raw bytes. (Value: "BLOB")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified
  *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_JsonPackage
+ *        Agent content will be exported in JSON Package format. (Value:
+ *        "JSON_PACKAGE")
  */
 @property(nonatomic, copy, nullable) NSString *dataFormat;
 

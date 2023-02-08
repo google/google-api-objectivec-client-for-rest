@@ -18,6 +18,7 @@
 @class GTLRArtifactRegistry_AptArtifact;
 @class GTLRArtifactRegistry_Binding;
 @class GTLRArtifactRegistry_DockerImage;
+@class GTLRArtifactRegistry_DockerRepository;
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
 @class GTLRArtifactRegistry_Hash;
@@ -29,21 +30,27 @@
 @class GTLRArtifactRegistry_Location_Labels;
 @class GTLRArtifactRegistry_Location_Metadata;
 @class GTLRArtifactRegistry_MavenArtifact;
+@class GTLRArtifactRegistry_MavenRepository;
 @class GTLRArtifactRegistry_MavenRepositoryConfig;
 @class GTLRArtifactRegistry_NpmPackage;
+@class GTLRArtifactRegistry_NpmRepository;
 @class GTLRArtifactRegistry_Operation;
 @class GTLRArtifactRegistry_Operation_Metadata;
 @class GTLRArtifactRegistry_Operation_Response;
 @class GTLRArtifactRegistry_Package;
 @class GTLRArtifactRegistry_Policy;
 @class GTLRArtifactRegistry_PythonPackage;
+@class GTLRArtifactRegistry_PythonRepository;
+@class GTLRArtifactRegistry_RemoteRepositoryConfig;
 @class GTLRArtifactRegistry_Repository;
 @class GTLRArtifactRegistry_Repository_Labels;
 @class GTLRArtifactRegistry_Status;
 @class GTLRArtifactRegistry_Status_Details_Item;
 @class GTLRArtifactRegistry_Tag;
+@class GTLRArtifactRegistry_UpstreamPolicy;
 @class GTLRArtifactRegistry_Version;
 @class GTLRArtifactRegistry_Version_Metadata;
+@class GTLRArtifactRegistry_VirtualRepositoryConfig;
 @class GTLRArtifactRegistry_YumArtifact;
 
 // Generated comments include content from the discovery document; avoid them
@@ -79,6 +86,22 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Source;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_DockerRepository.publicRepository
+
+/**
+ *  Docker Hub.
+ *
+ *  Value: "DOCKER_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_DockerRepository_PublicRepository_DockerHub;
+/**
+ *  Unspecified repository.
+ *
+ *  Value: "PUBLIC_REPOSITORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_DockerRepository_PublicRepository_PublicRepositoryUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Hash.type
 
 /**
@@ -99,6 +122,22 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Hash_Type_Md5;
  *  Value: "SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_MavenRepository.publicRepository
+
+/**
+ *  Maven Central.
+ *
+ *  Value: "MAVEN_CENTRAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_MavenRepository_PublicRepository_MavenCentral;
+/**
+ *  Unspecified repository.
+ *
+ *  Value: "PUBLIC_REPOSITORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_MavenRepository_PublicRepository_PublicRepositoryUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_MavenRepositoryConfig.versionPolicy
@@ -122,6 +161,22 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_MavenRepositoryConfig_V
  *  Value: "VERSION_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_MavenRepositoryConfig_VersionPolicy_VersionPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_NpmRepository.publicRepository
+
+/**
+ *  npmjs.
+ *
+ *  Value: "NPMJS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_NpmRepository_PublicRepository_Npmjs;
+/**
+ *  Unspecified repository.
+ *
+ *  Value: "PUBLIC_REPOSITORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_NpmRepository_PublicRepository_PublicRepositoryUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_ProjectSettings.legacyRedirectionState
@@ -150,6 +205,22 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyR
  *  Value: "REDIRECTION_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_PythonRepository.publicRepository
+
+/**
+ *  Unspecified repository.
+ *
+ *  Value: "PUBLIC_REPOSITORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PythonRepository_PublicRepository_PublicRepositoryUnspecified;
+/**
+ *  PyPI.
+ *
+ *  Value: "PYPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PythonRepository_PublicRepository_Pypi;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Repository.format
@@ -202,6 +273,60 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Pytho
  *  Value: "YUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_Repository.mode
+
+/**
+ *  Unspecified mode.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified;
+/**
+ *  A remote repository to serve artifacts from a remote source.
+ *
+ *  Value: "REMOTE_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_RemoteRepository;
+/**
+ *  A standard repository storing artifacts.
+ *
+ *  Value: "STANDARD_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_StandardRepository;
+/**
+ *  A virtual repository to serve artifacts from one or more sources.
+ *
+ *  Value: "VIRTUAL_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
+
+/**
+ *  VPCSC_ALLOW - repository will allow the requests to the Upstreams for the
+ *  Remote Repositories if the resource is in the perimeter.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Allow;
+/**
+ *  VPCSC_DENY - repository will block the requests to the Upstreams for the
+ *  Remote Repositories if the resource is in the perimeter.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Deny;
+/**
+ *  VPCSC_POLICY_UNSPECIFIED - the VPS SC policy is not defined. When VPS SC
+ *  policy is not defined - the Service will use the default behavior
+ *  (VPCSC_DENY).
+ *
+ *  Value: "VPCSC_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_VpcscPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_YumArtifact.packageType
@@ -311,8 +436,10 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -327,9 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -404,6 +529,26 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Configuration for a Docker remote repository.
+ */
+@interface GTLRArtifactRegistry_DockerRepository : GTLRObject
+
+/**
+ *  One of the publicly available Docker repositories supported by Artifact
+ *  Registry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_DockerRepository_PublicRepository_DockerHub
+ *        Docker Hub. (Value: "DOCKER_HUB")
+ *    @arg @c kGTLRArtifactRegistry_DockerRepository_PublicRepository_PublicRepositoryUnspecified
+ *        Unspecified repository. (Value: "PUBLIC_REPOSITORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *publicRepository;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -470,6 +615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The time when the File was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The time when the last attempt to refresh the file's data was
+ *  made. Only set when the repository is remote.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *fetchTime;
 
 /** The hashes of the file content. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Hash *> *hashes;
@@ -1043,6 +1194,26 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Configuration for a Maven remote repository.
+ */
+@interface GTLRArtifactRegistry_MavenRepository : GTLRObject
+
+/**
+ *  One of the publicly available Maven repositories supported by Artifact
+ *  Registry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_MavenRepository_PublicRepository_MavenCentral
+ *        Maven Central. (Value: "MAVEN_CENTRAL")
+ *    @arg @c kGTLRArtifactRegistry_MavenRepository_PublicRepository_PublicRepositoryUnspecified
+ *        Unspecified repository. (Value: "PUBLIC_REPOSITORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *publicRepository;
+
+@end
+
+
+/**
  *  MavenRepositoryConfig is maven related repository details. Provides
  *  additional configuration details for repositories of the maven format type.
  */
@@ -1105,6 +1276,26 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Version of this package. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a Npm remote repository.
+ */
+@interface GTLRArtifactRegistry_NpmRepository : GTLRObject
+
+/**
+ *  One of the publicly available Npm repositories supported by Artifact
+ *  Registry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_NpmRepository_PublicRepository_Npmjs npmjs.
+ *        (Value: "NPMJS")
+ *    @arg @c kGTLRArtifactRegistry_NpmRepository_PublicRepository_PublicRepositoryUnspecified
+ *        Unspecified repository. (Value: "PUBLIC_REPOSITORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *publicRepository;
 
 @end
 
@@ -1380,6 +1571,53 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Configuration for a Python remote repository.
+ */
+@interface GTLRArtifactRegistry_PythonRepository : GTLRObject
+
+/**
+ *  One of the publicly available Python repositories supported by Artifact
+ *  Registry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_PythonRepository_PublicRepository_PublicRepositoryUnspecified
+ *        Unspecified repository. (Value: "PUBLIC_REPOSITORY_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_PythonRepository_PublicRepository_Pypi PyPI.
+ *        (Value: "PYPI")
+ */
+@property(nonatomic, copy, nullable) NSString *publicRepository;
+
+@end
+
+
+/**
+ *  Remote repository configuration.
+ */
+@interface GTLRArtifactRegistry_RemoteRepositoryConfig : GTLRObject
+
+/**
+ *  The description of the remote source.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Specific settings for a Docker remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_DockerRepository *dockerRepository;
+
+/** Specific settings for a Maven remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_MavenRepository *mavenRepository;
+
+/** Specific settings for an Npm remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_NpmRepository *npmRepository;
+
+/** Specific settings for a Python remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PythonRepository *pythonRepository;
+
+@end
+
+
+/**
  *  A Repository for storing artifacts with a specific format.
  */
 @interface GTLRArtifactRegistry_Repository : GTLRObject
@@ -1440,10 +1678,30 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_MavenRepositoryConfig *mavenConfig;
 
 /**
+ *  The mode of the repository.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified Unspecified
+ *        mode. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_RemoteRepository A remote
+ *        repository to serve artifacts from a remote source. (Value:
+ *        "REMOTE_REPOSITORY")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_StandardRepository A
+ *        standard repository storing artifacts. (Value: "STANDARD_REPOSITORY")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_VirtualRepository A virtual
+ *        repository to serve artifacts from one or more sources. (Value:
+ *        "VIRTUAL_REPOSITORY")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
  *  The name of the repository, for example:
  *  "projects/p1/locations/us-central1/repositories/repo1".
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Configuration specific for a Remote Repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_RemoteRepositoryConfig *remoteRepositoryConfig;
 
 /**
  *  Output only. If set, the repository satisfies physical zone separation.
@@ -1463,6 +1721,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The time when the repository was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Configuration specific for a Virtual Repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_VirtualRepositoryConfig *virtualRepositoryConfig;
 
 @end
 
@@ -1706,6 +1967,34 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Artifact policy configuration for the repository contents.
+ */
+@interface GTLRArtifactRegistry_UpstreamPolicy : GTLRObject
+
+/**
+ *  The user-provided ID of the upstream policy.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Entries with a greater priority value take precedence in the pull order.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  A reference to the repository resource, for example:
+ *  "projects/p1/locations/us-central1/repository/repo1".
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  The body of a version resource. A version resource represents a collection
  *  of components, such as files and other data. This may correspond to a
  *  version in many package management schemes.
@@ -1759,6 +2048,53 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRArtifactRegistry_Version_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Virtual repository configuration.
+ */
+@interface GTLRArtifactRegistry_VirtualRepositoryConfig : GTLRObject
+
+/**
+ *  Policies that configure the upstream artifacts distributed by the Virtual
+ *  Repository. Upstream policies cannot be set on a standard repository.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_UpstreamPolicy *> *upstreamPolicies;
+
+@end
+
+
+/**
+ *  The Artifact Registry VPC SC config that apply to a Project.
+ */
+@interface GTLRArtifactRegistry_VPCSCConfig : GTLRObject
+
+/**
+ *  The name of the project's VPC SC Config. Always of the form:
+ *  projects/{projectID}/locations/{location}/vpcscConfig In update request:
+ *  never set In response: always set
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The project per location VPC SC policy that defines the VPC SC behavior for
+ *  the Remote Repository (Allow/Deny).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Allow VPCSC_ALLOW -
+ *        repository will allow the requests to the Upstreams for the Remote
+ *        Repositories if the resource is in the perimeter. (Value: "ALLOW")
+ *    @arg @c kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Deny VPCSC_DENY -
+ *        repository will block the requests to the Upstreams for the Remote
+ *        Repositories if the resource is in the perimeter. (Value: "DENY")
+ *    @arg @c kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_VpcscPolicyUnspecified
+ *        VPCSC_POLICY_UNSPECIFIED - the VPS SC policy is not defined. When VPS
+ *        SC policy is not defined - the Service will use the default behavior
+ *        (VPCSC_DENY). (Value: "VPCSC_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vpcscPolicy;
+
 @end
 
 

@@ -834,6 +834,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Reconciles tags created with a given tag template on a given Entry.
+ *  Reconciliation is an operation that given a list of tags creates or updates
+ *  them on the entry. Additionally, the operation is also able to delete tags
+ *  not mentioned in the tag list. It can be achieved by setting
+ *  force_delete_missing parameter. Reconciliation is a long-running operation
+ *  done in the background, so this method returns long-running operation
+ *  resource. The resource can be queried with Operations.GetOperation which
+ *  contains metadata and response.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.tags.reconcile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsReconcile : GTLRDataCatalogQuery
+
+/** Required. Name of Entry to be tagged. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_Operation.
+ *
+ *  Reconciles tags created with a given tag template on a given Entry.
+ *  Reconciliation is an operation that given a list of tags creates or updates
+ *  them on the entry. Additionally, the operation is also able to delete tags
+ *  not mentioned in the tag list. It can be achieved by setting
+ *  force_delete_missing parameter. Reconciliation is a long-running operation
+ *  done in the background, so this method returns long-running operation
+ *  resource. The resource can be queried with Operations.GetOperation which
+ *  contains metadata and response.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest to include in
+ *    the query.
+ *  @param parent Required. Name of Entry to be tagged.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsReconcile
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets your permissions on a resource. Returns an empty set of permissions if
  *  the resource doesn't exist. Supported resources are: - Tag templates - Entry
  *  groups Note: This method gets policies only within Data Catalog and can't be
@@ -2270,6 +2314,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesList : GTLRDataCatalogQuery
+
+/**
+ *  Supported field for filter is 'service' and value is 'dataplex'. Eg:
+ *  service=dataplex.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of items to return. Must be a value between 1 and 1000

@@ -64,6 +64,39 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
+ *  Commits a new schema revision to an existing schema.
+ *
+ *  Method: pubsub.projects.schemas.commit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasCommit : GTLRPubsubQuery
+
+/**
+ *  Required. The name of the schema we are revising. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Commits a new schema revision to an existing schema.
+ *
+ *  @param object The @c GTLRPubsub_CommitSchemaRequest to include in the query.
+ *  @param name Required. The name of the schema we are revising. Format is
+ *    `projects/{project}/schemas/{schema}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasCommit
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_CommitSchemaRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a schema.
  *
  *  Method: pubsub.projects.schemas.create
@@ -130,6 +163,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    `projects/{project}/schemas/{schema}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSchemasDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a specific schema revision.
+ *
+ *  Method: pubsub.projects.schemas.deleteRevision
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasDeleteRevision : GTLRPubsubQuery
+
+/**
+ *  Required. The name of the schema revision to be deleted, with a revision ID
+ *  explicitly included. Example: `projects/123/schemas/my-schema\@c7cfa2a8`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The revision ID to roll back to. It must be a revision of the same
+ *  schema. Example: c7cfa2a8
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Deletes a specific schema revision.
+ *
+ *  @param name Required. The name of the schema revision to be deleted, with a
+ *    revision ID explicitly included. Example:
+ *    `projects/123/schemas/my-schema\@c7cfa2a8`
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasDeleteRevision
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -289,6 +360,92 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all schema revisions for the named schema.
+ *
+ *  Method: pubsub.projects.schemas.listRevisions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasListRevisions : GTLRPubsubQuery
+
+/** Required. The name of the schema to list revisions for. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The maximum number of revisions to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The page token, received from a previous ListSchemaRevisions call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The set of Schema fields to return in the response. If not set, returns
+ *  Schemas with `name` and `type`, but not `definition`. Set to `FULL` to
+ *  retrieve all fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubViewSchemaViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRPubsubViewBasic Include the name and type of the schema, but
+ *        not the definition. (Value: "BASIC")
+ *    @arg @c kGTLRPubsubViewFull Include all Schema object fields. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRPubsub_ListSchemaRevisionsResponse.
+ *
+ *  Lists all schema revisions for the named schema.
+ *
+ *  @param name Required. The name of the schema to list revisions for.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasListRevisions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new schema revision that is a copy of the provided revision_id.
+ *
+ *  Method: pubsub.projects.schemas.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasRollback : GTLRPubsubQuery
+
+/** Required. The schema being rolled back with revision id. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Creates a new schema revision that is a copy of the provided revision_id.
+ *
+ *  @param object The @c GTLRPubsub_RollbackSchemaRequest to include in the
+ *    query.
+ *  @param name Required. The schema being rolled back with revision id.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasRollback
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_RollbackSchemaRequest *)object
+                           name:(NSString *)name;
 
 @end
 

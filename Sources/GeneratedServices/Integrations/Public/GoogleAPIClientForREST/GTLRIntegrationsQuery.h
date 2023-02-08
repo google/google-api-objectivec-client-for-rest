@@ -697,6 +697,32 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
+ *  Delete the selected integration and all versions inside
+ *
+ *  Method: integrations.projects.locations.integrations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIntegrationsCloudPlatform
+ */
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsDelete : GTLRIntegrationsQuery
+
+/** Required. The location resource of the request. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIntegrations_GoogleProtobufEmpty.
+ *
+ *  Delete the selected integration and all versions inside
+ *
+ *  @param name Required. The location resource of the request.
+ *
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Executes integrations synchronously by passing the trigger id in the request
  *  body. The request is not returned until the requested executions are either
  *  fulfilled or experienced an error. If the integration name is not specified
@@ -856,6 +882,135 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
+ *  * Lifts suspension for advanced suspension task. Fetch corresponding
+ *  suspension with provided suspension Id, resolve suspension, and set up
+ *  suspension result for the Suspension Task.
+ *
+ *  Method: integrations.projects.locations.integrations.executions.suspensions.lift
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIntegrationsCloudPlatform
+ */
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsLift : GTLRIntegrationsQuery
+
+/**
+ *  Required. The resource that the suspension belongs to.
+ *  "projects/{project}/locations/{location}/products/{product}/integrations/{integration}/executions/{execution}/suspensions/{suspenion}"
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaLiftSuspensionResponse.
+ *
+ *  * Lifts suspension for advanced suspension task. Fetch corresponding
+ *  suspension with provided suspension Id, resolve suspension, and set up
+ *  suspension result for the Suspension Task.
+ *
+ *  @param object The @c
+ *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaLiftSuspensionRequest to
+ *    include in the query.
+ *  @param name Required. The resource that the suspension belongs to.
+ *    "projects/{project}/locations/{location}/products/{product}/integrations/{integration}/executions/{execution}/suspensions/{suspenion}"
+ *    format.
+ *
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsLift
+ */
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaLiftSuspensionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  * Lists suspensions associated with a specific execution. Only those with
+ *  permissions to resolve the relevant suspensions will be able to view them.
+ *
+ *  Method: integrations.projects.locations.integrations.executions.suspensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIntegrationsCloudPlatform
+ */
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsList : GTLRIntegrationsQuery
+
+/** Standard filter field. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Field name to order by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum number of entries in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to retrieve a specific page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required.
+ *  projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaListSuspensionsResponse.
+ *
+ *  * Lists suspensions associated with a specific execution. Only those with
+ *  permissions to resolve the relevant suspensions will be able to view them.
+ *
+ *  @param parent Required.
+ *    projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}
+ *
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  * Resolves (lifts/rejects) any number of suspensions. If the integration is
+ *  already running, only the status of the suspension is updated. Otherwise,
+ *  the suspended integration will begin execution again.
+ *
+ *  Method: integrations.projects.locations.integrations.executions.suspensions.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIntegrationsCloudPlatform
+ */
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsResolve : GTLRIntegrationsQuery
+
+/**
+ *  Required.
+ *  projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}/suspensions/{suspension_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaResolveSuspensionResponse.
+ *
+ *  * Resolves (lifts/rejects) any number of suspensions. If the integration is
+ *  already running, only the status of the suspension is updated. Otherwise,
+ *  the suspended integration will begin execution again.
+ *
+ *  @param object The @c
+ *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaResolveSuspensionRequest to
+ *    include in the query.
+ *  @param name Required.
+ *    projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}/suspensions/{suspension_id}
+ *
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsResolve
+ */
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaResolveSuspensionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns the list of all integrations in the specified project.
  *
  *  Method: integrations.projects.locations.integrations.list
@@ -948,57 +1103,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Soft-deletes the integration. Changes the status of the integration to
- *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
- *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
- *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
- *  throws an exception if the version being archived is DRAFT, and if the
- *  `locked_by` user is not the same as the user performing the Archive. Audit
- *  fields updated include last_modified_timestamp, last_modified_by. Any
- *  existing lock is released when Archiving a integration. Currently, there is
- *  no unarchive mechanism.
- *
- *  Method: integrations.projects.locations.integrations.versions.archive
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsArchive : GTLRIntegrationsQuery
-
-/**
- *  Required. The version to archive. Format:
- *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse.
- *
- *  Soft-deletes the integration. Changes the status of the integration to
- *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
- *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
- *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
- *  throws an exception if the version being archived is DRAFT, and if the
- *  `locked_by` user is not the same as the user performing the Archive. Audit
- *  fields updated include last_modified_timestamp, last_modified_by. Any
- *  existing lock is released when Archiving a integration. Currently, there is
- *  no unarchive mechanism.
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest
- *    to include in the query.
- *  @param name Required. The version to archive. Format:
- *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsArchive
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Create a integration with a draft version in the specified project.
  *
  *  Method: integrations.projects.locations.integrations.versions.create
@@ -1044,45 +1148,92 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
- *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
- *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
- *  version being snapshot is not ACTIVE. Audit fields added include action,
- *  action_by, action_timestamp.
+ *  Soft-deletes the integration. Changes the status of the integration to
+ *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
+ *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
+ *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
+ *  throws an exception if the version being deleted is DRAFT, and if the
+ *  `locked_by` user is not the same as the user performing the Delete. Audit
+ *  fields updated include last_modified_timestamp, last_modified_by. Any
+ *  existing lock is released when Deleting a integration. Currently, there is
+ *  no undelete mechanism.
  *
- *  Method: integrations.projects.locations.integrations.versions.deactivate
+ *  Method: integrations.projects.locations.integrations.versions.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeIntegrationsCloudPlatform
  */
-@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDeactivate : GTLRIntegrationsQuery
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDelete : GTLRIntegrationsQuery
 
 /**
- *  Required. The version to deactivate. Format:
+ *  Required. The version to delete. Format:
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIntegrations_GoogleProtobufEmpty.
+ *
+ *  Soft-deletes the integration. Changes the status of the integration to
+ *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
+ *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
+ *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
+ *  throws an exception if the version being deleted is DRAFT, and if the
+ *  `locked_by` user is not the same as the user performing the Delete. Audit
+ *  fields updated include last_modified_timestamp, last_modified_by. Any
+ *  existing lock is released when Deleting a integration. Currently, there is
+ *  no undelete mechanism.
+ *
+ *  @param name Required. The version to delete. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
+ *
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Downloads an integration. Retrieves the `IntegrationVersion` for a given
+ *  `integration_id` and returns the response as a string.
+ *
+ *  Method: integrations.projects.locations.integrations.versions.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIntegrationsCloudPlatform
+ */
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDownload : GTLRIntegrationsQuery
+
+/**
+ *  File format for download request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrationsFileFormatFileFormatUnspecified Unspecified file
+ *        format (Value: "FILE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRIntegrationsFileFormatJson JSON File Format (Value: "JSON")
+ *    @arg @c kGTLRIntegrationsFileFormatYaml YAML File Format (Value: "YAML")
+ */
+@property(nonatomic, copy, nullable) NSString *fileFormat;
+
+/**
+ *  Required. The version to download. Format:
  *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse.
+ *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaDownloadIntegrationVersionResponse.
  *
- *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
- *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
- *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
- *  version being snapshot is not ACTIVE. Audit fields added include action,
- *  action_by, action_timestamp.
+ *  Downloads an integration. Retrieves the `IntegrationVersion` for a given
+ *  `integration_id` and returns the response as a string.
  *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest
- *    to include in the query.
- *  @param name Required. The version to deactivate. Format:
+ *  @param name Required. The version to download. Format:
  *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDeactivate
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDownload
  */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1346,74 +1497,85 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Validates the given integration. If the id doesn't exist, a
- *  NotFoundException is thrown. If validation fails a CanonicalCodeException is
- *  thrown. If there was no failure an empty response is returned.
+ *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
+ *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
+ *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
+ *  version being snapshot is not ACTIVE. Audit fields added include action,
+ *  action_by, action_timestamp.
  *
- *  Method: integrations.projects.locations.integrations.versions.validate
+ *  Method: integrations.projects.locations.integrations.versions.unpublish
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeIntegrationsCloudPlatform
  */
-@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsValidate : GTLRIntegrationsQuery
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUnpublish : GTLRIntegrationsQuery
 
 /**
- *  Required. The version to validate. Format:
+ *  Required. The version to deactivate. Format:
  *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse.
+ *  Fetches a @c GTLRIntegrations_GoogleProtobufEmpty.
  *
- *  Validates the given integration. If the id doesn't exist, a
- *  NotFoundException is thrown. If validation fails a CanonicalCodeException is
- *  thrown. If there was no failure an empty response is returned.
+ *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
+ *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
+ *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
+ *  version being snapshot is not ACTIVE. Audit fields added include action,
+ *  action_by, action_timestamp.
  *
  *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest
+ *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest
  *    to include in the query.
- *  @param name Required. The version to validate. Format:
+ *  @param name Required. The version to deactivate. Format:
  *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsValidate
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUnpublish
  */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest *)object
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  This is a UI only method and will be moved away. Returns a list of common
- *  tasks.
+ *  Uploads an integration. The content can be a previously downloaded
+ *  integration. Performs the same function as CreateDraftIntegrationVersion,
+ *  but accepts input in a string format, which holds the complete
+ *  representation of the IntegrationVersion content.
  *
- *  Method: integrations.projects.locations.listTaskEntities
+ *  Method: integrations.projects.locations.integrations.versions.upload
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeIntegrationsCloudPlatform
  */
-@interface GTLRIntegrationsQuery_ProjectsLocationsListTaskEntities : GTLRIntegrationsQuery
+@interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUpload : GTLRIntegrationsQuery
 
 /**
- *  Required. The location resource of the request. This is not going to be used
- *  but preserve the field for future.
+ *  Required. The version to upload. Format:
+ *  projects/{project}/locations/{location}/integrations/{integration}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse.
+ *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse.
  *
- *  This is a UI only method and will be moved away. Returns a list of common
- *  tasks.
+ *  Uploads an integration. The content can be a previously downloaded
+ *  integration. Performs the same function as CreateDraftIntegrationVersion,
+ *  but accepts input in a string format, which holds the complete
+ *  representation of the IntegrationVersion content.
  *
- *  @param parent Required. The location resource of the request. This is not
- *    going to be used but preserve the field for future.
+ *  @param object The @c
+ *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest
+ *    to include in the query.
+ *  @param parent Required. The version to upload. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsListTaskEntities
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUpload
  */
-+ (instancetype)queryWithParent:(NSString *)parent;
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -1890,76 +2052,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. Create a bundle.
- *
- *  Method: integrations.projects.locations.products.createBundle
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsCreateBundle : GTLRIntegrationsQuery
-
-/** Required. The location resource of the request. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleResponse.
- *
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. Create a bundle.
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleRequest to
- *    include in the query.
- *  @param parent Required. The location resource of the request.
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsCreateBundle
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. Soft-deletes the bundle.
- *
- *  Method: integrations.projects.locations.products.integrations.archiveBundle
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsArchiveBundle : GTLRIntegrationsQuery
-
-/**
- *  Required. The bundle to archive. Format:
- *  projects/{project}/locations/{location}/integrations/{integration}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleResponse.
- *
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. Soft-deletes the bundle.
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest to
- *    include in the query.
- *  @param name Required. The bundle to archive. Format:
- *    projects/{project}/locations/{location}/integrations/{integration}
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsArchiveBundle
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Executes integrations synchronously by passing the trigger id in the request
  *  body. The request is not returned until the requested executions are either
  *  fulfilled or experienced an error. If the integration name is not specified
@@ -2178,60 +2270,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    execution.
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsList
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Lists the snapshots of a given integration executions. This RPC is not being
- *  used.
- *
- *  Method: integrations.projects.locations.products.integrations.executionsnapshots.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsnapshotsList : GTLRIntegrationsQuery
-
-/**
- *  Currently supports filter by `execution_info_id` or `execution_snapshot_id`.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Number of entries to be returned in a page. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The token used to retrieve the next page results. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. The parent resource name of the integration execution. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  View mask for the response data. If set, only the field specified will be
- *  returned as part of the result. If not set, all fields in event execution
- *  snapshot will be filled and returned.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *readMask;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse.
- *
- *  Lists the snapshots of a given integration executions. This RPC is not being
- *  used.
- *
- *  @param parent Required. The parent resource name of the integration
- *    execution.
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsnapshotsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -2459,57 +2497,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Soft-deletes the integration. Changes the status of the integration to
- *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
- *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
- *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
- *  throws an exception if the version being archived is DRAFT, and if the
- *  `locked_by` user is not the same as the user performing the Archive. Audit
- *  fields updated include last_modified_timestamp, last_modified_by. Any
- *  existing lock is released when Archiving a integration. Currently, there is
- *  no unarchive mechanism.
- *
- *  Method: integrations.projects.locations.products.integrations.versions.archive
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsArchive : GTLRIntegrationsQuery
-
-/**
- *  Required. The version to archive. Format:
- *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse.
- *
- *  Soft-deletes the integration. Changes the status of the integration to
- *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
- *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
- *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
- *  throws an exception if the version being archived is DRAFT, and if the
- *  `locked_by` user is not the same as the user performing the Archive. Audit
- *  fields updated include last_modified_timestamp, last_modified_by. Any
- *  existing lock is released when Archiving a integration. Currently, there is
- *  no unarchive mechanism.
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest
- *    to include in the query.
- *  @param name Required. The version to archive. Format:
- *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsArchive
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Create a integration with a draft version in the specified project.
  *
  *  Method: integrations.projects.locations.products.integrations.versions.create
@@ -2555,45 +2542,48 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
- *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
- *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
- *  version being snapshot is not ACTIVE. Audit fields added include action,
- *  action_by, action_timestamp.
+ *  Soft-deletes the integration. Changes the status of the integration to
+ *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
+ *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
+ *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
+ *  throws an exception if the version being deleted is DRAFT, and if the
+ *  `locked_by` user is not the same as the user performing the Delete. Audit
+ *  fields updated include last_modified_timestamp, last_modified_by. Any
+ *  existing lock is released when Deleting a integration. Currently, there is
+ *  no undelete mechanism.
  *
- *  Method: integrations.projects.locations.products.integrations.versions.deactivate
+ *  Method: integrations.projects.locations.products.integrations.versions.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeIntegrationsCloudPlatform
  */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDeactivate : GTLRIntegrationsQuery
+@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDelete : GTLRIntegrationsQuery
 
 /**
- *  Required. The version to deactivate. Format:
+ *  Required. The version to delete. Format:
  *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse.
+ *  Fetches a @c GTLRIntegrations_GoogleProtobufEmpty.
  *
- *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
- *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
- *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
- *  version being snapshot is not ACTIVE. Audit fields added include action,
- *  action_by, action_timestamp.
+ *  Soft-deletes the integration. Changes the status of the integration to
+ *  ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is
+ *  removed from this snapshot and set to the previous non-ARCHIVED snapshot.
+ *  The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC
+ *  throws an exception if the version being deleted is DRAFT, and if the
+ *  `locked_by` user is not the same as the user performing the Delete. Audit
+ *  fields updated include last_modified_timestamp, last_modified_by. Any
+ *  existing lock is released when Deleting a integration. Currently, there is
+ *  no undelete mechanism.
  *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest
- *    to include in the query.
- *  @param name Required. The version to deactivate. Format:
+ *  @param name Required. The version to delete. Format:
  *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDeactivate
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDelete
  */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2667,35 +2657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. RPC to get details of the Bundle
- *
- *  Method: integrations.projects.locations.products.integrations.versions.getBundle
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsGetBundle : GTLRIntegrationsQuery
-
-/** Required. The bundle name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaGetBundleResponse.
- *
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. RPC to get details of the Bundle
- *
- *  @param name Required. The bundle name.
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsGetBundle
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2930,32 +2891,43 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
- *  THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. RPC to update the Bundle
+ *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
+ *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
+ *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
+ *  version being snapshot is not ACTIVE. Audit fields added include action,
+ *  action_by, action_timestamp.
  *
- *  Method: integrations.projects.locations.products.integrations.versions.updateBundle
+ *  Method: integrations.projects.locations.products.integrations.versions.unpublish
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeIntegrationsCloudPlatform
  */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUpdateBundle : GTLRIntegrationsQuery
+@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUnpublish : GTLRIntegrationsQuery
 
-/** Required. Bundle name */
+/**
+ *  Required. The version to deactivate. Format:
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleResponse.
+ *  Fetches a @c GTLRIntegrations_GoogleProtobufEmpty.
  *
- *  THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. RPC to update the Bundle
+ *  Sets the status of the ACTIVE integration to SNAPSHOT with a new tag
+ *  "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and
+ *  "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the
+ *  version being snapshot is not ACTIVE. Audit fields added include action,
+ *  action_by, action_timestamp.
  *
  *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleRequest to
- *    include in the query.
- *  @param name Required. Bundle name
+ *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest
+ *    to include in the query.
+ *  @param name Required. The version to deactivate. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUpdateBundle
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUnpublish
  */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleRequest *)object
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -2998,45 +2970,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  */
 + (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest *)object
                          parent:(NSString *)parent;
-
-@end
-
-/**
- *  Validates the given integration. If the id doesn't exist, a
- *  NotFoundException is thrown. If validation fails a CanonicalCodeException is
- *  thrown. If there was no failure an empty response is returned.
- *
- *  Method: integrations.projects.locations.products.integrations.versions.validate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsValidate : GTLRIntegrationsQuery
-
-/**
- *  Required. The version to validate. Format:
- *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse.
- *
- *  Validates the given integration. If the id doesn't exist, a
- *  NotFoundException is thrown. If validation fails a CanonicalCodeException is
- *  thrown. If there was no failure an empty response is returned.
- *
- *  @param object The @c
- *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest
- *    to include in the query.
- *  @param name Required. The version to validate. Format:
- *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsValidate
- */
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest *)object
-                           name:(NSString *)name;
 
 @end
 
@@ -3159,39 +3092,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  This is a UI only method and will be moved away. Returns a list of common
- *  tasks.
- *
- *  Method: integrations.projects.locations.products.listTaskEntities
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeIntegrationsCloudPlatform
- */
-@interface GTLRIntegrationsQuery_ProjectsLocationsProductsListTaskEntities : GTLRIntegrationsQuery
-
-/**
- *  Required. The location resource of the request. This is not going to be used
- *  but preserve the field for future.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse.
- *
- *  This is a UI only method and will be moved away. Returns a list of common
- *  tasks.
- *
- *  @param parent Required. The location resource of the request. This is not
- *    going to be used but preserve the field for future.
- *
- *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsListTaskEntities
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

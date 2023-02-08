@@ -118,6 +118,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Retrieves the VPCSC Config for the Project.
+ *
+ *  Method: artifactregistry.projects.locations.getVpcscConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsGetVpcscConfig : GTLRArtifactRegistryQuery
+
+/** Required. The name of the VPCSCConfig resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_VPCSCConfig.
+ *
+ *  Retrieves the VPCSC Config for the Project.
+ *
+ *  @param name Required. The name of the VPCSCConfig resource.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsGetVpcscConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: artifactregistry.projects.locations.list
@@ -1457,6 +1484,48 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadYumArtifactRequest *)object
                          parent:(NSString *)parent
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Updates the VPCSC Config for the Project.
+ *
+ *  Method: artifactregistry.projects.locations.updateVpcscConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsUpdateVpcscConfig : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the project's VPC SC Config. Always of the form:
+ *  projects/{projectID}/locations/{location}/vpcscConfig In update request:
+ *  never set In response: always set
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask to support partial updates.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_VPCSCConfig.
+ *
+ *  Updates the VPCSC Config for the Project.
+ *
+ *  @param object The @c GTLRArtifactRegistry_VPCSCConfig to include in the
+ *    query.
+ *  @param name The name of the project's VPC SC Config. Always of the form:
+ *    projects/{projectID}/locations/{location}/vpcscConfig In update request:
+ *    never set In response: always set
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsUpdateVpcscConfig
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_VPCSCConfig *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -455,6 +455,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Output only. Timestamp of when the App will be considered expired and cannot
+ *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
  *  The resource name of the AndroidApp, in the format: projects/
  *  PROJECT_IDENTIFIER/androidApps/APP_ID * PROJECT_IDENTIFIER: the parent
  *  Project's
@@ -640,6 +647,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 
 /** The user-assigned display name of the Firebase App. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Timestamp of when the App will be considered expired and cannot
+ *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  The resource name of the Firebase App, in the format: projects/PROJECT_ID
@@ -857,6 +871,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  etag is strongly validated.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Timestamp of when the App will be considered expired and cannot
+ *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  The resource name of the IosApp, in the format: projects/PROJECT_IDENTIFIER
@@ -1236,6 +1257,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRFirebaseManagement_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Metadata about a long-running Product operation.
+ */
+@interface GTLRFirebaseManagement_ProductMetadata : GTLRObject
+
+/** List of warnings related to the associated operation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warningMessages;
+
 @end
 
 
@@ -1715,6 +1747,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  etag is strongly validated.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Timestamp of when the App will be considered expired and cannot
+ *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  The resource name of the WebApp, in the format: projects/PROJECT_IDENTIFIER

@@ -320,6 +320,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Optional. The revision of the workflow to retrieve. If the
+ *  revision_id is empty, the latest revision is retrieved. The format is
+ *  "000001-a4d", where the first 6 characters define the zero-padded decimal
+ *  revision number. They are followed by a hyphen and 3 hexadecimal characters.
+ *  (go/wf_adr_clh_1)
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
  *  Fetches a @c GTLRWorkflows_Workflow.
  *
  *  Gets details of a single workflow.

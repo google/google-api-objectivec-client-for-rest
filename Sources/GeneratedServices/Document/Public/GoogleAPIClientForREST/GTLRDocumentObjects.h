@@ -27,6 +27,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1Barcode;
@@ -171,6 +172,13 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange;
+@class GTLRDocument_GoogleCloudDocumentaiV1Evaluation;
+@class GTLRDocument_GoogleCloudDocumentaiV1Evaluation_EntityMetrics;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationCounters;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix;
@@ -182,6 +190,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
+@class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData;
 @class GTLRDocument_GoogleCloudDocumentaiV1Vertex;
 @class GTLRDocument_GoogleCloudLocationLocation;
 @class GTLRDocument_GoogleCloudLocationLocation_Labels;
@@ -380,6 +390,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3R
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus_DocumentInconsistencyType_DocumentInconsistencyTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef.revisionCase
+
+/**
+ *  The first (OCR) revision.
+ *
+ *  Value: "BASE_OCR_REVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_BaseOcrRevision;
+/**
+ *  The latest revision made by a human.
+ *
+ *  Value: "LATEST_HUMAN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestHumanReview;
+/**
+ *  The latest revision based on timestamp.
+ *
+ *  Value: "LATEST_TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestTimestamp;
+/**
+ *  Unspecified case, fallback to read the LATEST_HUMAN_REVIEW.
+ *
+ *  Value: "REVISION_CASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_RevisionCaseUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference.revisionCase
 
 /**
@@ -395,7 +433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3R
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestTimestamp;
 /**
- *  Unspecified case, fallback to read the first (OCR) revision.
+ *  Unspecified case, fallback to read the LATEST_HUMAN_REVIEW.
  *
  *  Value: "REVISION_CASE_UNSPECIFIED"
  */
@@ -574,20 +612,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Add;
 /**
- *  Element is reviewed and approved at human review, confidence will be set to
- *  1.0.
+ *  Deprecated. Element is reviewed and approved at human review, confidence
+ *  will be set to 1.0.
  *
  *  Value: "EVAL_APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved;
 /**
- *  Request human review for the element identified by `parent`.
+ *  Deprecated. Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested;
 /**
- *  Element is skipped in the validation process.
+ *  Deprecated. Element is skipped in the validation process.
  *
  *  Value: "EVAL_SKIPPED"
  */
@@ -606,11 +644,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Remove;
 /**
- *  Replace an element identified by `parent`.
+ *  Currently unused. Replace an element identified by `parent`.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Replace;
+/**
+ *  Updates any fields within the given provenance scope of the message. It
+ *  'overwrites' the fields rather than replacing them. This is especially
+ *  relevant when we just want to update a field value of an entity without also
+ *  affecting all the child properties.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta1OperationMetadata.state
@@ -785,20 +832,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Add;
 /**
- *  Element is reviewed and approved at human review, confidence will be set to
- *  1.0.
+ *  Deprecated. Element is reviewed and approved at human review, confidence
+ *  will be set to 1.0.
  *
  *  Value: "EVAL_APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved;
 /**
- *  Request human review for the element identified by `parent`.
+ *  Deprecated. Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested;
 /**
- *  Element is skipped in the validation process.
+ *  Deprecated. Element is skipped in the validation process.
  *
  *  Value: "EVAL_SKIPPED"
  */
@@ -817,11 +864,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Remove;
 /**
- *  Replace an element identified by `parent`.
+ *  Currently unused. Replace an element identified by `parent`.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Replace;
+/**
+ *  Updates any fields within the given provenance scope of the message. It
+ *  'overwrites' the fields rather than replacing them. This is especially
+ *  relevant when we just want to update a field value of an entity without also
+ *  affecting all the child properties.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata.state
@@ -1221,20 +1277,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Add;
 /**
- *  Element is reviewed and approved at human review, confidence will be set to
- *  1.0.
+ *  Deprecated. Element is reviewed and approved at human review, confidence
+ *  will be set to 1.0.
  *
  *  Value: "EVAL_APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved;
 /**
- *  Request human review for the element identified by `parent`.
+ *  Deprecated. Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested;
 /**
- *  Element is skipped in the validation process.
+ *  Deprecated. Element is skipped in the validation process.
  *
  *  Value: "EVAL_SKIPPED"
  */
@@ -1253,11 +1309,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove;
 /**
- *  Replace an element identified by `parent`.
+ *  Currently unused. Replace an element identified by `parent`.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace;
+/**
+ *  Updates any fields within the given provenance scope of the message. It
+ *  'overwrites' the fields rather than replacing them. This is especially
+ *  relevant when we just want to update a field value of an entity without also
+ *  affecting all the child properties.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
@@ -1292,6 +1357,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  *  Value: "REQUIRED_ONCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics.metricsType
+
+/**
+ *  Indicates whether metrics for this particular label type represent an
+ *  aggregate of metrics for other types instead of being based on actual
+ *  TP/FP/FN values for the label type. Metrics for parent (i.e., non-leaf)
+ *  entity types are an aggregate of metrics for their children.
+ *
+ *  Value: "AGGREGATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_Aggregate;
+/**
+ *  The metrics type is unspecified. By default, metrics without a particular
+ *  specification are for leaf entity types (i.e., top-level entity types
+ *  without child types, or child types which are not parent types themselves).
+ *
+ *  Value: "METRICS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_MetricsTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
@@ -1723,17 +1809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for DeleteDataLabelingJob.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteDataLabelingJobOperationMetadata : GTLRObject
-
-/** The basic metadata of the long running operation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
-
-@end
-
-
-/**
  *  The long running operation metadata for DeleteLabelerPool.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata : GTLRObject
@@ -1809,6 +1884,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId *gcsManagedDocId;
+
+/** Points to a specific revision of the document if set. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef *revisionRef;
 
 /** Points to a specific revision of the document if set. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference *revisionReference;
@@ -2039,6 +2117,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  The long running operation metadata for the ImportProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata for the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The response message for the ImportProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportProcessorVersionResponse : GTLRObject
+
+/** The destination processor version name. */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
+
+@end
+
+
+/**
  *  The metadata proto of ResyncDataset method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata : GTLRObject
@@ -2132,6 +2232,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  The revision reference specifies which revision on the document to read.
  */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef : GTLRObject
+
+/**
+ *  Reads the revision generated by the processor version. The format takes the
+ *  full resource name of processor version.
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+ */
+@property(nonatomic, copy, nullable) NSString *latestProcessorVersion;
+
+/**
+ *  Reads the revision by the predefined case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_BaseOcrRevision
+ *        The first (OCR) revision. (Value: "BASE_OCR_REVISION")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestHumanReview
+ *        The latest revision made by a human. (Value: "LATEST_HUMAN_REVIEW")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestTimestamp
+ *        The latest revision based on timestamp. (Value: "LATEST_TIMESTAMP")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_RevisionCaseUnspecified
+ *        Unspecified case, fallback to read the LATEST_HUMAN_REVIEW. (Value:
+ *        "REVISION_CASE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *revisionCase;
+
+/** Reads the revision given by the id. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
+ *  The revision reference specifies which revision on the document to read.
+ */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference : GTLRObject
 
 /** Reads the revision generated by the processor version. */
@@ -2146,7 +2280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestTimestamp
  *        The latest revision based on timestamp. (Value: "LATEST_TIMESTAMP")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_RevisionCaseUnspecified
- *        Unspecified case, fallback to read the first (OCR) revision. (Value:
+ *        Unspecified case, fallback to read the LATEST_HUMAN_REVIEW. (Value:
  *        "REVISION_CASE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *revisionCase;
@@ -3376,13 +3510,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Add
  *        Add an element. (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved
- *        Element is reviewed and approved at human review, confidence will be
- *        set to 1.0. (Value: "EVAL_APPROVED")
+ *        Deprecated. Element is reviewed and approved at human review,
+ *        confidence will be set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested
- *        Request human review for the element identified by `parent`. (Value:
- *        "EVAL_REQUESTED")
+ *        Deprecated. Request human review for the element identified by
+ *        `parent`. (Value: "EVAL_REQUESTED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped
- *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
+ *        Deprecated. Element is skipped in the validation process. (Value:
+ *        "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_OperationTypeUnspecified
  *        Operation type unspecified. If no operation is specified a provenance
  *        entry is simply used to match against a `parent`. (Value:
@@ -3390,7 +3525,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Remove
  *        Remove an element identified by `parent`. (Value: "REMOVE")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Replace
- *        Replace an element identified by `parent`. (Value: "REPLACE")
+ *        Currently unused. Replace an element identified by `parent`. (Value:
+ *        "REPLACE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Update
+ *        Updates any fields within the given provenance scope of the message.
+ *        It 'overwrites' the fields rather than replacing them. This is
+ *        especially relevant when we just want to update a field value of an
+ *        entity without also affecting all the child properties. (Value:
+ *        "UPDATE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4790,13 +4932,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Add
  *        Add an element. (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved
- *        Element is reviewed and approved at human review, confidence will be
- *        set to 1.0. (Value: "EVAL_APPROVED")
+ *        Deprecated. Element is reviewed and approved at human review,
+ *        confidence will be set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested
- *        Request human review for the element identified by `parent`. (Value:
- *        "EVAL_REQUESTED")
+ *        Deprecated. Request human review for the element identified by
+ *        `parent`. (Value: "EVAL_REQUESTED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped
- *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
+ *        Deprecated. Element is skipped in the validation process. (Value:
+ *        "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_OperationTypeUnspecified
  *        Operation type unspecified. If no operation is specified a provenance
  *        entry is simply used to match against a `parent`. (Value:
@@ -4804,7 +4947,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Remove
  *        Remove an element identified by `parent`. (Value: "REMOVE")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Replace
- *        Replace an element identified by `parent`. (Value: "REPLACE")
+ *        Currently unused. Replace an element identified by `parent`. (Value:
+ *        "REPLACE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Update
+ *        Updates any fields within the given provenance scope of the message.
+ *        It 'overwrites' the fields rather than replacing them. This is
+ *        especially relevant when we just want to update a field value of an
+ *        entity without also affecting all the child properties. (Value:
+ *        "UPDATE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6751,13 +6901,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Add
  *        Add an element. (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved
- *        Element is reviewed and approved at human review, confidence will be
- *        set to 1.0. (Value: "EVAL_APPROVED")
+ *        Deprecated. Element is reviewed and approved at human review,
+ *        confidence will be set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested
- *        Request human review for the element identified by `parent`. (Value:
- *        "EVAL_REQUESTED")
+ *        Deprecated. Request human review for the element identified by
+ *        `parent`. (Value: "EVAL_REQUESTED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped
- *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
+ *        Deprecated. Element is skipped in the validation process. (Value:
+ *        "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_OperationTypeUnspecified
  *        Operation type unspecified. If no operation is specified a provenance
  *        entry is simply used to match against a `parent`. (Value:
@@ -6765,7 +6916,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove
  *        Remove an element identified by `parent`. (Value: "REMOVE")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace
- *        Replace an element identified by `parent`. (Value: "REPLACE")
+ *        Currently unused. Replace an element identified by `parent`. (Value:
+ *        "REPLACE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Update
+ *        Updates any fields within the given provenance scope of the message.
+ *        It 'overwrites' the fields rather than replacing them. This is
+ *        especially relevant when we just want to update a field value of an
+ *        entity without also affecting all the child properties. (Value:
+ *        "UPDATE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7214,6 +7372,316 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  Metadata of the EvaluateProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Evaluates the given ProcessorVersion against the supplied documents.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest : GTLRObject
+
+/**
+ *  Optional. The documents used in the evaluation. If unspecified, use the
+ *  processor's dataset as evaluation input.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *evaluationDocuments;
+
+@end
+
+
+/**
+ *  Metadata of the EvaluateProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionResponse : GTLRObject
+
+/** The resource name of the created evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
+
+@end
+
+
+/**
+ *  An evaluation of a ProcessorVersion's performance.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Evaluation : GTLRObject
+
+/** Metrics for all the entities in aggregate. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics *allEntitiesMetrics;
+
+/** The time that the evaluation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Counters for the documents used in the evaluation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationCounters *documentCounters;
+
+/** Metrics across confidence levels, for different entities. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Evaluation_EntityMetrics *entityMetrics;
+
+/** The KMS key name used for encryption. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/** The KMS key version with which data is encrypted. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
+
+/**
+ *  The resource name of the evaluation. Format:
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}/evaluations/{evaluation}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Metrics across confidence levels, for different entities.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Evaluation_EntityMetrics : GTLRObject
+@end
+
+
+/**
+ *  Evaluations metrics, at a specific confidence level.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics : GTLRObject
+
+/**
+ *  The confidence level.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceLevel;
+
+/** The metrics at the specific confidence level. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics *metrics;
+
+@end
+
+
+/**
+ *  Evaluation counters for the documents that were used.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationCounters : GTLRObject
+
+/**
+ *  How many documents were used in the evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evaluatedDocumentsCount;
+
+/**
+ *  How many documents were not included in the evaluation as Document AI failed
+ *  to process them.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedDocumentsCount;
+
+/**
+ *  How many documents were sent for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputDocumentsCount;
+
+/**
+ *  How many documents were not included in the evaluation as they didn't pass
+ *  validation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invalidDocumentsCount;
+
+@end
+
+
+/**
+ *  Evaluation metrics, either in aggregate or about a specific entity.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics : GTLRObject
+
+/**
+ *  The calculated f1 score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *f1Score;
+
+/**
+ *  The amount of false negatives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falseNegativesCount;
+
+/**
+ *  The amount of false positives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falsePositivesCount;
+
+/**
+ *  The amount of documents with a ground truth occurrence.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *groundTruthDocumentCount;
+
+/**
+ *  The amount of occurrences in ground truth documents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *groundTruthOccurrencesCount;
+
+/**
+ *  The calculated precision.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  The amount of documents with a predicted occurrence.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedDocumentCount;
+
+/**
+ *  The amount of occurrences in predicted documents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedOccurrencesCount;
+
+/**
+ *  The calculated recall.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recall;
+
+/**
+ *  The amount of documents that had an occurrence of this label.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDocumentsCount;
+
+/**
+ *  The amount of true positives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *truePositivesCount;
+
+@end
+
+
+/**
+ *  Metrics across multiple confidence levels.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics : GTLRObject
+
+/**
+ *  The calculated area under the precision recall curve (AUPRC), computed by
+ *  integrating over all confidence thresholds.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auprc;
+
+/**
+ *  The AUPRC for metrics with fuzzy matching disabled, i.e., exact matching
+ *  only.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auprcExact;
+
+/** Metrics across confidence levels with fuzzy matching enabled. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics *> *confidenceLevelMetrics;
+
+/** Metrics across confidence levels with only exact matching. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics *> *confidenceLevelMetricsExact;
+
+/**
+ *  The Estimated Calibration Error (ECE) of the confidence of the predicted
+ *  entities.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedCalibrationError;
+
+/**
+ *  The ECE for the predicted entities with fuzzy matching disabled, i.e., exact
+ *  matching only.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedCalibrationErrorExact;
+
+/**
+ *  The metrics type for the label.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_Aggregate
+ *        Indicates whether metrics for this particular label type represent an
+ *        aggregate of metrics for other types instead of being based on actual
+ *        TP/FP/FN values for the label type. Metrics for parent (i.e.,
+ *        non-leaf) entity types are an aggregate of metrics for their children.
+ *        (Value: "AGGREGATE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_MetricsTypeUnspecified
+ *        The metrics type is unspecified. By default, metrics without a
+ *        particular specification are for leaf entity types (i.e., top-level
+ *        entity types without child types, or child types which are not parent
+ *        types themselves). (Value: "METRICS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metricsType;
+
+@end
+
+
+/**
+ *  Gives a short summary of an evaluation, and links to the evaluation itself.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference : GTLRObject
+
+/**
+ *  An aggregate of the statistics for the evaluation with fuzzy matching on.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics *aggregateMetrics;
+
+/**
+ *  An aggregate of the statistics for the evaluation with fuzzy matching off.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics *aggregateMetricsExact;
+
+/** The resource name of the evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
+
+/** The resource name of the Long Running Operation for the evaluation. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+@end
+
+
+/**
  *  Response message for fetch processor types.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse : GTLRObject
@@ -7298,6 +7766,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** A message providing more details about the human review state. */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
+ *  The response from ListEvaluations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "evaluations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ListEvaluationsResponse : GTLRCollectionObject
+
+/**
+ *  The evaluations requested.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1Evaluation *> *evaluations;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -7601,6 +8096,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The KMS key version with which data is encrypted. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
+/** The most recently invoked evaluation for the processor version. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference *latestEvaluation;
+
 /**
  *  The resource name of the processor version. Format:
  *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
@@ -7830,6 +8328,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Response message for set default processor version method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The metadata that represents a processor version being created.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+/** The test dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation *testDatasetValidation;
+
+/** The training dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation *trainingDatasetValidation;
+
+@end
+
+
+/**
+ *  The dataset validation information. This includes any and all errors with
+ *  documents and the dataset.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation : GTLRObject
+
+/**
+ *  The total number of dataset errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetErrorCount;
+
+/**
+ *  Error information for the dataset as a whole. A maximum of 10 dataset errors
+ *  will be returned. A single dataset error is terminal for training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *datasetErrors;
+
+/**
+ *  The total number of document errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentErrorCount;
+
+/**
+ *  Error information pertaining to specific documents. A maximum of 10 document
+ *  errors will be returned. Any document with errors will not be used
+ *  throughout training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *documentErrors;
+
+@end
+
+
+/**
+ *  Request message for the create processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest : GTLRObject
+
+/**
+ *  Optional. The processor version to use as a base for training. This
+ *  processor version must be a child of `parent`. Format:
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`.
+ */
+@property(nonatomic, copy, nullable) NSString *baseProcessorVersion;
+
+/** Optional. The schema the processor version will be trained with. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
+
+/** Optional. The input data used to train the `ProcessorVersion`. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData *inputData;
+
+/** Required. The processor version to be created. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion *processorVersion;
+
+@end
+
+
+/**
+ *  The input data used to train a new `ProcessorVersion`.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData : GTLRObject
+
+/** The documents used for testing the trained version. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *testDocuments;
+
+/** The documents used for training the new version. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *trainingDocuments;
+
+@end
+
+
+/**
+ *  The response for the TrainProcessorVersion method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionResponse : GTLRObject
+
+/** The resource name of the processor version produced by training. */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
+
 @end
 
 

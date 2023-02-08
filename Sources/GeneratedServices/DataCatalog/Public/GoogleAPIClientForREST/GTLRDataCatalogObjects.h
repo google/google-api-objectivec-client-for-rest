@@ -59,6 +59,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_Errors;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Schema;
@@ -77,6 +78,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange;
@@ -578,6 +580,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Impo
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata.state
+
+/**
+ *  The reconciliation has been finished.
+ *
+ *  Value: "RECONCILIATION_DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationDone;
+/**
+ *  The reconciliation is in progress.
+ *
+ *  Value: "RECONCILIATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationInProgress;
+/**
+ *  The reconciliation has been queued and awaits for execution.
+ *
+ *  Value: "RECONCILIATION_QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationQueued;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RECONCILIATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec.routineType
 
 /**
@@ -735,6 +765,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService.name
+
+/**
+ *  Dataplex.
+ *
+ *  Value: "MANAGING_SYSTEM_DATAPLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemDataplex;
+/**
+ *  Other
+ *
+ *  Value: "MANAGING_SYSTEM_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemOther;
+/**
+ *  Default value
+ *
+ *  Value: "MANAGING_SYSTEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemUnspecified;
+
 /**
  *  Associates `members`, or principals, with a `role`.
  */
@@ -767,8 +819,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -783,9 +837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2318,6 +2370,112 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Metadata message for long-running operation returned by the ReconcileTags.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata : GTLRObject
+
+/**
+ *  Map that maps name of each tagged column (or empty string in case of sole
+ *  entry) to tagging operation status.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_Errors *errors;
+
+/**
+ *  State of the reconciliation operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationDone
+ *        The reconciliation has been finished. (Value: "RECONCILIATION_DONE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationInProgress
+ *        The reconciliation is in progress. (Value:
+ *        "RECONCILIATION_IN_PROGRESS")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationQueued
+ *        The reconciliation has been queued and awaits for execution. (Value:
+ *        "RECONCILIATION_QUEUED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RECONCILIATION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Map that maps name of each tagged column (or empty string in case of sole
+ *  entry) to tagging operation status.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataCatalog_Status. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_Errors : GTLRObject
+@end
+
+
+/**
+ *  Request message for ReconcileTags.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest : GTLRObject
+
+/**
+ *  If set to true deletes from the entry tags related to given tag template and
+ *  not mentioned in the tags source. If set to false only creates and updates
+ *  of the tags mentioned in the source will take place. Other tags in that
+ *  entry using the same tag template will be retained instead of being deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forceDeleteMissing;
+
+/**
+ *  A list of tags to be applied on a given entry. Individual tags may specify
+ *  tag template, but it must be the same as the one in the
+ *  ReconcileTagsRequest. The sole entry and each of its columns must be
+ *  mentioned at most once.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *tags;
+
+/**
+ *  Required. The name of the tag template, that will be used for
+ *  reconciliation.
+ */
+@property(nonatomic, copy, nullable) NSString *tagTemplate;
+
+@end
+
+
+/**
+ *  Request message for long-running operation returned by the ReconcileTags.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse : GTLRObject
+
+/**
+ *  Number of tags created in the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdTagsCount;
+
+/**
+ *  Number of tags deleted in the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedTagsCount;
+
+/**
+ *  Number of tags updated in the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedTagsCount;
+
+@end
+
+
+/**
  *  Request message for RenameTagTemplateFieldEnumValue.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest : GTLRObject
@@ -3161,8 +3319,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, strong, nullable) NSNumber *policyTagCount;
 
+/**
+ *  Output only. Identity of the service which owns the Taxonomy. This field is
+ *  only populated when the taxonomy is created by a GCP service. Currently only
+ *  'DATAPLEX' is supported.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService *service;
+
 /** Output only. Creation and modification timestamps of this taxonomy. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *taxonomyTimestamps;
+
+@end
+
+
+/**
+ *  The source system of the Taxonomy.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService : GTLRObject
+
+/** P4SA Identity of the service. */
+@property(nonatomic, copy, nullable) NSString *identity;
+
+/**
+ *  The GCP service name.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemDataplex
+ *        Dataplex. (Value: "MANAGING_SYSTEM_DATAPLEX")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemOther
+ *        Other (Value: "MANAGING_SYSTEM_OTHER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemUnspecified
+ *        Default value (Value: "MANAGING_SYSTEM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

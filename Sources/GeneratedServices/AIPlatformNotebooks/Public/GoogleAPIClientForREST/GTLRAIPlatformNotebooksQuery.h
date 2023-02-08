@@ -315,7 +315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 
 /**
  *  Filter applied to resulting executions. Currently only supports filtering
- *  executions by a specified schedule_id. Format: `schedule_id=`
+ *  executions by a specified `schedule_id`. Format: `schedule_id=`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -740,6 +740,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReport
  */
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ReportInstanceInfoRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Reports and processes an instance event.
+ *
+ *  Method: notebooks.projects.locations.instances.reportEvent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportEvent : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Reports and processes an instance event.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_ReportInstanceEventRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportEvent
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ReportInstanceEventRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1689,9 +1722,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  "kernels": [{ 'repository':
  *  'gcr.io/deeplearning-platform-release/pytorch-gpu', 'tag': 'latest' }], } }
  *  Currently, only the following fields can be updated: -
- *  software_config.kernels - software_config.post_startup_script -
- *  software_config.custom_gpu_driver_path - software_config.idle_shutdown -
- *  software_config.idle_shutdown_timeout - software_config.disable_terminal
+ *  `software_config.kernels` - `software_config.post_startup_script` -
+ *  `software_config.custom_gpu_driver_path` - `software_config.idle_shutdown` -
+ *  `software_config.idle_shutdown_timeout` - `software_config.disable_terminal`
+ *  - `labels`
  *
  *  String format is a comma-separated list of fields.
  */

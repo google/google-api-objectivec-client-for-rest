@@ -34,6 +34,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics_ActionMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings;
 
@@ -419,6 +420,158 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnknownInvalidReason;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent.eventType
+
+/**
+ *  Indicates that the authorization attempt with the card issuer succeeded.
+ *
+ *  Value: "AUTHORIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Authorization;
+/**
+ *  Indicates that the authorization attempt with the card issuer failed. The
+ *  accompanying reasons can include Visa's '54' indicating that the card is
+ *  expired or '82' indicating that the CVV is incorrect.
+ *
+ *  Value: "AUTHORIZATION_DECLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_AuthorizationDecline;
+/**
+ *  Indicates that the transaction has been canceled. Specify the reason for the
+ *  cancellation. For example, 'INSUFFICIENT_INVENTORY'.
+ *
+ *  Value: "CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Cancel;
+/**
+ *  Indicates that the merchant is informed by the payment network that the
+ *  transaction has entered the chargeback process. Reason code examples include
+ *  Discover's '4553' and '6041'. For partial chargebacks, we recommend that you
+ *  include an amount in the `value` field.
+ *
+ *  Value: "CHARGEBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Chargeback;
+/**
+ *  Indicates that the merchant has received a chargeback alert for the
+ *  transaction. The process of resolving the dispute without involving the
+ *  payment network is started.
+ *
+ *  Value: "CHARGEBACK_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackAlert;
+/**
+ *  Indicates that the merchant has received a chargeback inquiry for the
+ *  transaction, requesting additional information before a chargeback is
+ *  officially issued and a formal chargeback notification is sent.
+ *
+ *  Value: "CHARGEBACK_INQUIRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackInquiry;
+/**
+ *  Indicates that the transaction has entered the chargeback process, and that
+ *  the merchant has chosen to enter representment. Reason examples include
+ *  Discover's '4553' and '6041'. For partial chargebacks, we recommend that you
+ *  include an amount in the `value` field.
+ *
+ *  Value: "CHARGEBACK_REPRESENTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackRepresentment;
+/**
+ *  Indicates that the transaction has had a chargeback which was illegitimate
+ *  and was reversed as a result. For partial chargebacks, we recommend that you
+ *  include an amount in the `value` field.
+ *
+ *  Value: "CHARGEBACK_REVERSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackReverse;
+/**
+ *  Indicates that a fraud notification is issued for the transaction, sent by
+ *  the payment instrument's issuing bank because the transaction appears to be
+ *  fraudulent. We recommend including TC40 or SAFE data in the `reason` field
+ *  for this event type. For partial chargebacks, we recommend that you include
+ *  an amount in the `value` field.
+ *
+ *  Value: "FRAUD_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_FraudNotification;
+/**
+ *  Indicates that the transaction is being evaluated by a human, due to
+ *  suspicion or risk.
+ *
+ *  Value: "MANUAL_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ManualReview;
+/**
+ *  Indicates that the transaction is approved by the merchant's risk engine.
+ *  The accompanying reasons can include 'INHOUSE', 'ACCERTIFY', or 'RECAPTCHA'.
+ *
+ *  Value: "MERCHANT_APPROVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantApprove;
+/**
+ *  Indicates that the transaction is denied and concluded due to risks detected
+ *  by the merchant's risk engine. The accompanying reasons can include
+ *  'INHOUSE', 'ACCERTIFY', 'MANUAL_REVIEW', or 'RECAPTCHA'.
+ *
+ *  Value: "MERCHANT_DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantDeny;
+/**
+ *  Indicates that the transaction is completed because the funds were settled.
+ *
+ *  Value: "PAYMENT_CAPTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCapture;
+/**
+ *  Indicates that the transaction could not be completed because the funds were
+ *  not settled.
+ *
+ *  Value: "PAYMENT_CAPTURE_DECLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCaptureDecline;
+/**
+ *  Indicates that the completed transaction was refunded by the merchant. For
+ *  partial refunds, we recommend that you include an amount in the `value`
+ *  field. Reason example: 'TAX_EXEMPT' (partial refund of exempt tax)
+ *
+ *  Value: "REFUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Refund;
+/**
+ *  Indicates that the merchant has received a refund request for this
+ *  transaction, but that they have declined it. For partial refunds, we
+ *  recommend that you include an amount in the `value` field. Reason example:
+ *  'TAX_EXEMPT' (partial refund of exempt tax)
+ *
+ *  Value: "REFUND_DECLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundDecline;
+/**
+ *  Indicates that the merchant has received a refund for a completed
+ *  transaction. For partial refunds, we recommend that you include an amount in
+ *  the `value` field. Reason example: 'TAX_EXEMPT' (partial refund of exempt
+ *  tax)
+ *
+ *  Value: "REFUND_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundRequest;
+/**
+ *  Indicates that the completed transaction was refunded by the merchant, and
+ *  that this refund was reversed. For partial refunds, we recommend that you
+ *  include an amount in the `value` field.
+ *
+ *  Value: "REFUND_REVERSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundReverse;
+/**
+ *  Default, unspecified event type.
+ *
+ *  Value: "TRANSACTION_EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_TransactionEventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafFeature
 
 /**
@@ -669,6 +822,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
 
+/**
+ *  Optional. If the Assessment is part of a Payment Transaction, provide
+ *  details on Payment Lifecycle Events that occur in the Transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent *transactionEvent;
+
 @end
 
 
@@ -680,7 +839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  A recaptcha assessment resource.
+ *  A reCAPTCHA Enterprise assessment resource.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment : GTLRObject
 
@@ -811,14 +970,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *hashedAccountId;
 
 /**
- *  Optional. The site key that was used to invoke reCAPTCHA on your site and
- *  generate the token.
+ *  Optional. The site key that was used to invoke reCAPTCHA Enterprise on your
+ *  site and generate the token.
  */
 @property(nonatomic, copy, nullable) NSString *siteKey;
 
 /**
- *  Optional. The user response token provided by the reCAPTCHA client-side
- *  integration on your site.
+ *  Optional. The user response token provided by the reCAPTCHA Enterprise
+ *  client-side integration on your site.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -1382,6 +1541,129 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *valid;
+
+@end
+
+
+/**
+ *  Describes an event in the lifecycle of a payment transaction.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent : GTLRObject
+
+/**
+ *  Optional. Timestamp when this transaction event occurred; otherwise assumed
+ *  to be the time of the API call.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Optional. The type of this transaction event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Authorization
+ *        Indicates that the authorization attempt with the card issuer
+ *        succeeded. (Value: "AUTHORIZATION")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_AuthorizationDecline
+ *        Indicates that the authorization attempt with the card issuer failed.
+ *        The accompanying reasons can include Visa's '54' indicating that the
+ *        card is expired or '82' indicating that the CVV is incorrect. (Value:
+ *        "AUTHORIZATION_DECLINE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Cancel
+ *        Indicates that the transaction has been canceled. Specify the reason
+ *        for the cancellation. For example, 'INSUFFICIENT_INVENTORY'. (Value:
+ *        "CANCEL")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Chargeback
+ *        Indicates that the merchant is informed by the payment network that
+ *        the transaction has entered the chargeback process. Reason code
+ *        examples include Discover's '4553' and '6041'. For partial
+ *        chargebacks, we recommend that you include an amount in the `value`
+ *        field. (Value: "CHARGEBACK")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackAlert
+ *        Indicates that the merchant has received a chargeback alert for the
+ *        transaction. The process of resolving the dispute without involving
+ *        the payment network is started. (Value: "CHARGEBACK_ALERT")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackInquiry
+ *        Indicates that the merchant has received a chargeback inquiry for the
+ *        transaction, requesting additional information before a chargeback is
+ *        officially issued and a formal chargeback notification is sent.
+ *        (Value: "CHARGEBACK_INQUIRY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackRepresentment
+ *        Indicates that the transaction has entered the chargeback process, and
+ *        that the merchant has chosen to enter representment. Reason examples
+ *        include Discover's '4553' and '6041'. For partial chargebacks, we
+ *        recommend that you include an amount in the `value` field. (Value:
+ *        "CHARGEBACK_REPRESENTMENT")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackReverse
+ *        Indicates that the transaction has had a chargeback which was
+ *        illegitimate and was reversed as a result. For partial chargebacks, we
+ *        recommend that you include an amount in the `value` field. (Value:
+ *        "CHARGEBACK_REVERSE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_FraudNotification
+ *        Indicates that a fraud notification is issued for the transaction,
+ *        sent by the payment instrument's issuing bank because the transaction
+ *        appears to be fraudulent. We recommend including TC40 or SAFE data in
+ *        the `reason` field for this event type. For partial chargebacks, we
+ *        recommend that you include an amount in the `value` field. (Value:
+ *        "FRAUD_NOTIFICATION")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ManualReview
+ *        Indicates that the transaction is being evaluated by a human, due to
+ *        suspicion or risk. (Value: "MANUAL_REVIEW")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantApprove
+ *        Indicates that the transaction is approved by the merchant's risk
+ *        engine. The accompanying reasons can include 'INHOUSE', 'ACCERTIFY',
+ *        or 'RECAPTCHA'. (Value: "MERCHANT_APPROVE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantDeny
+ *        Indicates that the transaction is denied and concluded due to risks
+ *        detected by the merchant's risk engine. The accompanying reasons can
+ *        include 'INHOUSE', 'ACCERTIFY', 'MANUAL_REVIEW', or 'RECAPTCHA'.
+ *        (Value: "MERCHANT_DENY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCapture
+ *        Indicates that the transaction is completed because the funds were
+ *        settled. (Value: "PAYMENT_CAPTURE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCaptureDecline
+ *        Indicates that the transaction could not be completed because the
+ *        funds were not settled. (Value: "PAYMENT_CAPTURE_DECLINE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Refund
+ *        Indicates that the completed transaction was refunded by the merchant.
+ *        For partial refunds, we recommend that you include an amount in the
+ *        `value` field. Reason example: 'TAX_EXEMPT' (partial refund of exempt
+ *        tax) (Value: "REFUND")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundDecline
+ *        Indicates that the merchant has received a refund request for this
+ *        transaction, but that they have declined it. For partial refunds, we
+ *        recommend that you include an amount in the `value` field. Reason
+ *        example: 'TAX_EXEMPT' (partial refund of exempt tax) (Value:
+ *        "REFUND_DECLINE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundRequest
+ *        Indicates that the merchant has received a refund for a completed
+ *        transaction. For partial refunds, we recommend that you include an
+ *        amount in the `value` field. Reason example: 'TAX_EXEMPT' (partial
+ *        refund of exempt tax) (Value: "REFUND_REQUEST")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_RefundReverse
+ *        Indicates that the completed transaction was refunded by the merchant,
+ *        and that this refund was reversed. For partial refunds, we recommend
+ *        that you include an amount in the `value` field. (Value:
+ *        "REFUND_REVERSE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_TransactionEventTypeUnspecified
+ *        Default, unspecified event type. (Value:
+ *        "TRANSACTION_EVENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Optional. The reason or standardized code which corresponds with this
+ *  transaction event, if one exists. E.g. a CHARGEBACK Event with code 4553.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  Optional. The value that corresponds with this transaction event, if one
+ *  exists. E.g. A refund event where $5.00 was refunded. Currency is obtained
+ *  from the original transaction data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 

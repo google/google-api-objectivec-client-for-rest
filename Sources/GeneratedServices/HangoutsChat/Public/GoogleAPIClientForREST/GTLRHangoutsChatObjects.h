@@ -971,7 +971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Role_MembershipR
 /**
  *  A space manager. The user has all basic permissions plus administrative
  *  permissions that allow them to manage the space, like adding or removing
- *  members. Only supports SpaceType.SPACE.
+ *  members. Only supported in SpaceType.SPACE.
  *
  *  Value: "ROLE_MANAGER"
  */
@@ -1150,7 +1150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Parameters that a Chat app can use to configure how it's response is posted.
+ *  Parameters that a Chat app can use to configure how its response is posted.
  */
 @interface GTLRHangoutsChat_ActionResponse : GTLRObject
 
@@ -1320,7 +1320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  plain-text message body: ``` Hello \@FooBot how are you!" ``` The
  *  corresponding annotations metadata: ``` "annotations":[{
  *  "type":"USER_MENTION", "startIndex":6, "length":7, "userMention": { "user":
- *  { "name":"users/107946847022116401880", "displayName":"FooBot",
+ *  { "name":"users/{user}", "displayName":"FooBot",
  *  "avatarUrl":"https://goo.gl/aeDtrS", "type":"BOT" }, "type":"MENTION" } }]
  *  ```
  */
@@ -1524,8 +1524,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_CardWithId : GTLRObject
 
 /**
- *  Card proto that allows Chat apps to specify UI elements and editable
- *  widgets.
+ *  Cards support a defined layout, interactive UI elements like buttons, and
+ *  rich media like images. Use this card to present detailed information,
+ *  gather information from users, and guide users to take a next step.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Card *card;
 
@@ -1840,9 +1841,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The URL the Chat app should redirect the user to after they have completed
- *  an authorization or configuration flow outside of Google Chat. See the
- *  [Authorizing access to 3p services guide](/chat/how-tos/auth-3p) for more
- *  information.
+ *  an authorization or configuration flow outside of Google Chat. For more
+ *  information, see [Connect a Chat app with other services &
+ *  tools](https://developers.google.com/chat/how-tos/connect-web-services-tools).
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
 
@@ -1886,9 +1887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 /**
- *  The Chat app-defined key for the thread related to the event. See the
- *  thread_key field of the `spaces.message.create` request for more
- *  information.
+ *  The Chat app-defined key for the thread related to the event. See
+ *  [`spaces.messages.thread.threadKey`](/chat/api/reference/rest/v1/spaces.messages#Thread.FIELDS.thread_key)
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -2135,7 +2136,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A text, icon, or text + icon button that users can click. To make an image a
  *  clickable button, specify an Image (not an ImageComponent) and set an
- *  `onClick` action.
+ *  `onClick` action. Currently supported in Chat apps (including [dialogs]
+ *  (https://developers.google.com/chat/how-tos/dialogs) and [card messages]
+ *  (https://developers.google.com/chat/api/guides/message-formats/cards)) and
+ *  Google Workspace Add-ons.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Button : GTLRObject
 
@@ -2143,8 +2147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  The alternative text used for accessibility. Set descriptive text that lets
  *  users know what the button does. For example, if a button opens a hyperlink,
  *  you might write: "Opens a new browser tab and navigates to the Google Chat
- *  developer documentation at https://developers.google.com/chat". Has no
- *  effect when an icon is set; use `icon.alt_text` instead.
+ *  developer documentation at https://developers.google.com/chat".
  */
 @property(nonatomic, copy, nullable) NSString *altText;
 
@@ -2175,14 +2178,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
- *  The icon image. If both `icon` and `text` are set, then the icon appears in
- *  place of the text. Support for both an icon and text is coming soon.
+ *  The icon image. If both `icon` and `text` are set, then the icon appears
+ *  before the text.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
 
 /**
- *  The action to perform when the button is clicked, such as opening a
- *  hyperlink or running a custom function.
+ *  Required. The action to perform when the button is clicked, such as opening
+ *  a hyperlink or running a custom function.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
 
@@ -2631,14 +2634,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Optional. A description of the icon used for accessibility. If unspecified,
- *  a default value is provided. As a best practice, you should set a helpful
- *  description. For example, if an icon displays a user's account portrait, you
- *  could describe it as "A user's account portrait." If the icon displays in a
- *  Button, this alt text takes precedence and overwrites the button's alt text,
- *  so you should write alt text for the button: Set descriptive text that lets
- *  users know what the button does. For example, if a button opens a hyperlink,
- *  you might write: "Opens a new browser tab and navigates to the Google Chat
- *  developer documentation at https://developers.google.com/chat".
+ *  the default value "Button" is provided. As a best practice, you should set a
+ *  helpful description for what the icon displays, and if applicable, what it
+ *  does. For example, `A user's account portrait`, or `Opens a new browser tab
+ *  and navigates to the Google Chat developer documentation at
+ *  https://developers.google.com/chat`. If the icon is set in a Button, the
+ *  `altText` appears as helper text when the user hovers over the button.
+ *  However, if the button also sets `text`, the icon's `altText` is ignored.
  */
 @property(nonatomic, copy, nullable) NSString *altText;
 
@@ -3103,9 +3105,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *autoCompleteAction;
 
 /**
- *  Text that appears inside the text input field meant to assist users by
- *  prompting them to enter a certain value. This text is not visible after
- *  users begin typing. Required if `label` is unspecified. Otherwise, optional.
+ *  Text that appears below the text input field meant to assist users by
+ *  prompting them to enter a certain value. This text is always visible.
+ *  Required if `label` is unspecified. Otherwise, optional.
  */
 @property(nonatomic, copy, nullable) NSString *hintText;
 
@@ -3587,19 +3589,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  A Google Chat user or app. Format: `users/{user}` or `users/app` When
- *  `users/{user}`, represents a
- *  [person](https://developers.google.com/people/api/rest/v1/people) in the
- *  People API or a
- *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
- *  in the Admin SDK Directory API. When `users/app`, represents a Chat app
- *  creating membership for itself.
- */
+/** The Google Chat user or app the membership corresponds to. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
 /**
- *  Resource name of the membership. Format: spaces/{space}/members/{member}
+ *  Resource name of the membership, assigned by the server. Format:
+ *  spaces/{space}/members/{member}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3614,7 +3609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_Membership_Role_RoleManager A space manager. The
  *        user has all basic permissions plus administrative permissions that
  *        allow them to manage the space, like adding or removing members. Only
- *        supports SpaceType.SPACE. (Value: "ROLE_MANAGER")
+ *        supported in SpaceType.SPACE. (Value: "ROLE_MANAGER")
  *    @arg @c kGTLRHangoutsChat_Membership_Role_RoleMember A member of the
  *        space. The user has basic permissions, like sending messages to the
  *        space. In 1:1 and unnamed group conversations, everyone has this role.
@@ -3659,7 +3654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** Plain-text body of the message with all Chat app mentions stripped out. */
 @property(nonatomic, copy, nullable) NSString *argumentText;
 
-/** User uploaded attachment. */
+/** User-uploaded attachment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Attachment *> *attachment;
 
 /**
@@ -3673,12 +3668,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Richly formatted and interactive cards that display UI elements and editable
  *  widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes
- *  - Radio buttons - Input widgets. Cards are usually displayed below the
- *  text-body of a Chat message, but can situationally appear other places, such
- *  as [dialogs](https://developers.google.com/chat/how-tos/dialogs). The
- *  `cardId` is a unique identifier among cards in the same message and for
- *  identifying user input values. Currently supported widgets include: -
- *  `TextParagraph` - `DecoratedText` - `Image` - `ButtonList` - `Divider`
+ *  - Radio buttons - Input widgets. Cards are usually displayed below the text
+ *  body of a Chat message, but can situationally appear other places, such as
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). The `cardId`
+ *  is a unique identifier among cards in the same message and for identifying
+ *  user input values. Currently supported widgets include: - `TextParagraph` -
+ *  `DecoratedText` - `Image` - `ButtonList` - `Divider`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
 
@@ -3744,7 +3739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The thread the message belongs to. For example usage, see [Start or reply to
  *  a message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ *  thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Thread *thread;
 
@@ -3869,7 +3864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The space's display name. Required when [creating a
  *  space](https://developers.google.com/chat/api/reference/rest/v1/spaces/create).
- *  For direct messages, this field may be empty.
+ *  For direct messages, this field may be empty. Supports up to 128 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3938,13 +3933,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Optional. A description of the space. It could describe the space's
- *  discussion topic, functional purpose, or participants.
+ *  discussion topic, functional purpose, or participants. Supports up to 150
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Optional. The space's rules, expectations, and etiquette. */
+/**
+ *  Optional. The space's rules, expectations, and etiquette. Supports up to
+ *  5,000 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *guidelines;
 
 @end
@@ -4044,7 +4043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Optional. Opaque thread identifier. To start or add to a thread, create a
  *  message and specify a `threadKey` or the thread.name. For example usage, see
  *  [Start or reply to a message
- *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ *  thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  *  For other requests, this is an output only field.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
@@ -4119,9 +4118,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *isAnonymous;
 
 /**
- *  Resource name for a Google Chat user. For human users, represents a person
- *  in the People API or a user in the Admin SDK Directory API. Format:
- *  `users/{user}`
+ *  Resource name for a Google Chat user. Format: `users/{user}`. `users/app`
+ *  can be used as an alias for the calling app bot user. For human users,
+ *  `{user}` is the same user identifier as: - the `{person_id`} for the
+ *  [Person](https://developers.google.com/people/api/rest/v1/people) in the
+ *  People API, where the Person `resource_name` is `people/{person_id}`. For
+ *  example, `users/123456789` in Chat API represents the same person as
+ *  `people/123456789` in People API. - the `id` for a
+ *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
+ *  in the Admin SDK Directory API.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

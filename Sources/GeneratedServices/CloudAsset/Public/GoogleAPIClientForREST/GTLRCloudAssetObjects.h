@@ -1482,8 +1482,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -1498,9 +1500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -3524,7 +3524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
  *  only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC format:
+ *  `projects/{project_number}` VPC network format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The
  *  project may be in any Google Cloud organization, not just the organization
  *  that the perimeter is defined in. `*` is not allowed, the case of allowing
@@ -3635,10 +3635,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `ServicePerimeter` has a target outside of the `ServicePerimeter`, the
  *  request will be blocked. Otherwise the request is allowed. There are two
  *  types of Service Perimeter - Regular and Bridge. Regular Service Perimeters
- *  cannot overlap, a single Google Cloud project can only belong to a single
- *  regular Service Perimeter. Service Perimeter Bridges can contain only Google
- *  Cloud projects as members, a single Google Cloud project may belong to
- *  multiple Service Perimeter Bridges.
+ *  cannot overlap, a single Google Cloud project or VPC network can only belong
+ *  to a single regular Service Perimeter. Service Perimeter Bridges can contain
+ *  only Google Cloud projects as members, a single Google Cloud project may
+ *  belong to multiple Service Perimeter Bridges.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter : GTLRObject
 
@@ -3659,11 +3659,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Perimeter type indicator. A single project is allowed to be a member of
- *  single regular perimeter, but multiple service perimeter bridges. A project
- *  cannot be a included in a perimeter bridge without being included in regular
- *  perimeter. For perimeter bridges, the restricted service list as well as
- *  access level lists must be empty.
+ *  Perimeter type indicator. A single project or VPC network is allowed to be a
+ *  member of single regular perimeter, but multiple service perimeter bridges.
+ *  A project cannot be a included in a perimeter bridge without being included
+ *  in regular perimeter. For perimeter bridges, the restricted service list as
+ *  well as access level lists must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge
@@ -3747,7 +3747,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.
  *  Currently only projects and VPCs are allowed. Project format:
- *  `projects/{project_number}` VPC format:
+ *  `projects/{project_number}` VPC network format:
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
@@ -5132,7 +5132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A result of Resource Search, containing information of a cloud resource.
- *  Next ID: 31
+ *  Next ID: 32
  */
 @interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
 

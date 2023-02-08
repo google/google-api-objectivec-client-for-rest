@@ -612,12 +612,13 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata
-@dynamic collectionIds, endTime, operationState, outputUriPrefix, progressBytes,
-         progressDocuments, startTime;
+@dynamic collectionIds, endTime, namespaceIds, operationState, outputUriPrefix,
+         progressBytes, progressDocuments, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"collectionIds" : [NSString class]
+    @"collectionIds" : [NSString class],
+    @"namespaceIds" : [NSString class]
   };
   return map;
 }
@@ -689,12 +690,13 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata
-@dynamic collectionIds, endTime, inputUriPrefix, operationState, progressBytes,
-         progressDocuments, startTime;
+@dynamic collectionIds, endTime, inputUriPrefix, namespaceIds, operationState,
+         progressBytes, progressDocuments, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"collectionIds" : [NSString class]
+    @"collectionIds" : [NSString class],
+    @"namespaceIds" : [NSString class]
   };
   return map;
 }

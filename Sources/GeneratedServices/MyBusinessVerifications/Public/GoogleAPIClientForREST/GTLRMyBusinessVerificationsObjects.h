@@ -107,9 +107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Met
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Method_VerificationMethodUnspecified;
 /**
- *  Used for vetted
- *  [partners](https://support.google.com/business/answer/7674102). This option
- *  may not be available for all locations.
+ *  This option may not be available for all locations.
  *
  *  Value: "VETTED_PARTNER"
  */
@@ -188,9 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VerificationMethodUnspecified;
 /**
- *  Used for vetted
- *  [partners](https://support.google.com/business/answer/7674102). This option
- *  may not be available for all locations.
+ *  This option may not be available for all locations.
  *
  *  Value: "VETTED_PARTNER"
  */
@@ -241,9 +237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VerificationMethodUnspecified;
 /**
- *  Used for vetted
- *  [partners](https://support.google.com/business/answer/7674102). This option
- *  may not be available for all locations.
+ *  This option may not be available for all locations.
  *
  *  Value: "VETTED_PARTNER"
  */
@@ -634,6 +628,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  */
 @interface GTLRMyBusinessVerifications_Verification : GTLRObject
 
+/**
+ *  Optional. Response announcement set only if the method is VETTED_PARTNER.
+ */
+@property(nonatomic, copy, nullable) NSString *announcement;
+
 /** The timestamp when the verification is requested. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -660,9 +659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRMyBusinessVerifications_Verification_Method_VettedPartner
- *        Used for vetted
- *        [partners](https://support.google.com/business/answer/7674102). This
- *        option may not be available for all locations. (Value:
+ *        This option may not be available for all locations. (Value:
  *        "VETTED_PARTNER")
  */
 @property(nonatomic, copy, nullable) NSString *method;
@@ -698,6 +695,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
 /** Set only if the method is MAIL. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_AddressVerificationData *addressData;
 
+/** Set only if the method is VETTED_PARTNER. */
+@property(nonatomic, copy, nullable) NSString *announcement;
+
 /** Set only if the method is EMAIL. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_EmailVerificationData *emailData;
 
@@ -732,9 +732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VettedPartner
- *        Used for vetted
- *        [partners](https://support.google.com/business/answer/7674102). This
- *        option may not be available for all locations. (Value:
+ *        This option may not be available for all locations. (Value:
  *        "VETTED_PARTNER")
  */
 @property(nonatomic, copy, nullable) NSString *verificationMethod;
@@ -832,9 +830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VettedPartner
- *        Used for vetted
- *        [partners](https://support.google.com/business/answer/7674102). This
- *        option may not be available for all locations. (Value:
+ *        This option may not be available for all locations. (Value:
  *        "VETTED_PARTNER")
  */
 @property(nonatomic, copy, nullable) NSString *method;

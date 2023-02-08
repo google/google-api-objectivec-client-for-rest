@@ -118,14 +118,6 @@ NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp = @"SHEETS_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp = @"SLIDES_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp = @"TASKS_APP";
 
-// GTLRCloudSearch_AppsDynamiteSharedAction.interaction
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_InteractionUnspecified = @"INTERACTION_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_OpenDialog = @"OPEN_DIALOG";
-
-// GTLRCloudSearch_AppsDynamiteSharedAction.loadIndicator
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_None = @"NONE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_Spinner = @"SPINNER";
-
 // GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo.updaterCountDisplayType
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_ExactCount = @"EXACT_COUNT";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_NonzeroCount = @"NONZERO_COUNT";
@@ -166,6 +158,7 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpSca
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
@@ -186,20 +179,11 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusS
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_PolicyViolation = @"POLICY_VIOLATION";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_UnknownVirusScanResult = @"UNKNOWN_VIRUS_SCAN_RESULT";
 
-// GTLRCloudSearch_AppsDynamiteSharedBorderStyle.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_BorderTypeUnspecified = @"BORDER_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_NoBorder = @"NO_BORDER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_Stroke = @"STROKE";
-
 // GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData.callStatus
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallEnded = @"CALL_ENDED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallMissed = @"CALL_MISSED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStarted = @"CALL_STARTED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStatusUnspecified = @"CALL_STATUS_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedCardCardHeader.imageType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Square = @"SQUARE";
 
 // GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge.nudgeType
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_FollowUp = @"FOLLOW_UP";
@@ -227,28 +211,6 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeC
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_PostRoom = @"POST_ROOM";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ThreadedRoom = @"THREADED_ROOM";
 
-// GTLRCloudSearch_AppsDynamiteSharedColumns.wrapStyle
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Nowrap = @"NOWRAP";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Wrap = @"WRAP";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_WrapStyleUnspecified = @"WRAP_STYLE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.horizontalAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Start = @"START";
-
-// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.horizontalSizeStyle
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillAvailableSpace = @"FILL_AVAILABLE_SPACE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillMinimumSpace = @"FILL_MINIMUM_SPACE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified = @"HORIZONTAL_SIZE_STYLE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.verticalAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Bottom = @"BOTTOM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Top = @"TOP";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified = @"VERTICAL_ALIGNMENT_UNSPECIFIED";
-
 // GTLRCloudSearch_AppsDynamiteSharedContentReportType.systemViolation
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ConfidentialInformation = @"CONFIDENTIAL_INFORMATION";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Discrimination = @"DISCRIMINATION";
@@ -269,16 +231,6 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiHidde
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiStateUnspecified = @"EMOJI_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiSystemDisabled = @"EMOJI_SYSTEM_DISABLED";
 
-// GTLRCloudSearch_AppsDynamiteSharedDateTimePicker.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateOnly = @"DATE_ONLY";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_TimeOnly = @"TIME_ONLY";
-
-// GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl.controlType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_CheckBox = @"CHECK_BOX";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Checkbox = @"CHECKBOX";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Switch = @"SWITCH";
-
 // GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata.dlpStatus
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpDisabled = @"DLP_DISABLED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledNoRuleFetch = @"DLP_ENABLED_NO_RULE_FETCH";
@@ -289,32 +241,10 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledScanTimeout = @"DLP_ENABLED_SCAN_TIMEOUT";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpStatusUnknown = @"DLP_STATUS_UNKNOWN";
 
-// GTLRCloudSearch_AppsDynamiteSharedGridGridItem.layout
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_GridItemLayoutUnspecified = @"GRID_ITEM_LAYOUT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextAbove = @"TEXT_ABOVE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextBelow = @"TEXT_BELOW";
-
-// GTLRCloudSearch_AppsDynamiteSharedGridGridItem.textAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Start = @"START";
-
 // GTLRCloudSearch_AppsDynamiteSharedGroupVisibility.state
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Private = @"PRIVATE";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Public = @"PUBLIC";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_AppsDynamiteSharedIcon.imageType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Square = @"SQUARE";
-
-// GTLRCloudSearch_AppsDynamiteSharedImageCropStyle.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_ImageCropTypeUnspecified = @"IMAGE_CROP_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Square = @"SQUARE";
 
 // GTLRCloudSearch_AppsDynamiteSharedJustification.actionType
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
@@ -335,14 +265,6 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_Mess
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_PayloadTypeUnspecified = @"PAYLOAD_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_Tasks = @"TASKS";
 
-// GTLRCloudSearch_AppsDynamiteSharedOpenLink.onClose
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Nothing = @"NOTHING";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Reload = @"RELOAD";
-
-// GTLRCloudSearch_AppsDynamiteSharedOpenLink.openAs
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_FullSize = @"FULL_SIZE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_Overlay = @"OVERLAY";
-
 // GTLRCloudSearch_AppsDynamiteSharedRetentionSettings.state
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_EphemeralOneDay = @"EPHEMERAL_ONE_DAY";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_Permanent = @"PERMANENT";
@@ -360,22 +282,12 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_Mem
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_MemberTypeUnspecified = @"MEMBER_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_RosterMember = @"ROSTER_MEMBER";
 
-// GTLRCloudSearch_AppsDynamiteSharedSelectionInput.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_CheckBox = @"CHECK_BOX";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Dropdown = @"DROPDOWN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_RadioButton = @"RADIO_BUTTON";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Switch = @"SWITCH";
-
 // GTLRCloudSearch_AppsDynamiteSharedSpaceInfo.userMembershipState
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberFailed = @"MEMBER_FAILED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberInvited = @"MEMBER_INVITED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberJoined = @"MEMBER_JOINED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
-
-// GTLRCloudSearch_AppsDynamiteSharedTextInput.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_MultipleLine = @"MULTIPLE_LINE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_SingleLine = @"SINGLE_LINE";
 
 // GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error = @"ERROR";
@@ -385,11 +297,100 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Succes
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_ThumbnailSuccess = @"THUMBNAIL_SUCCESS";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus = @"UNKNOWN_STATUS";
 
-// GTLRCloudSearch_AppsDynamiteSharedWidget.horizontalAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Start = @"START";
+// GTLRCloudSearch_AppsDynamiteStorageAction.interaction
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_InteractionUnspecified = @"INTERACTION_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_OpenDialog = @"OPEN_DIALOG";
+
+// GTLRCloudSearch_AppsDynamiteStorageAction.loadIndicator
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_None = @"NONE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_Spinner = @"SPINNER";
+
+// GTLRCloudSearch_AppsDynamiteStorageBorderStyle.type
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_BorderTypeUnspecified = @"BORDER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_NoBorder = @"NO_BORDER";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_Stroke = @"STROKE";
+
+// GTLRCloudSearch_AppsDynamiteStorageCardCardHeader.imageType
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Square = @"SQUARE";
+
+// GTLRCloudSearch_AppsDynamiteStorageColumns.wrapStyle
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Nowrap = @"NOWRAP";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Wrap = @"WRAP";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_WrapStyleUnspecified = @"WRAP_STYLE_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Start = @"START";
+
+// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalSizeStyle
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillAvailableSpace = @"FILL_AVAILABLE_SPACE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillMinimumSpace = @"FILL_MINIMUM_SPACE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified = @"HORIZONTAL_SIZE_STYLE_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.verticalAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Bottom = @"BOTTOM";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Top = @"TOP";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified = @"VERTICAL_ALIGNMENT_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteStorageDateTimePicker.type
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateOnly = @"DATE_ONLY";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_TimeOnly = @"TIME_ONLY";
+
+// GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl.controlType
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Checkbox = @"CHECKBOX";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Switch = @"SWITCH";
+
+// GTLRCloudSearch_AppsDynamiteStorageGridGridItem.layout
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_GridItemLayoutUnspecified = @"GRID_ITEM_LAYOUT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextAbove = @"TEXT_ABOVE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextBelow = @"TEXT_BELOW";
+
+// GTLRCloudSearch_AppsDynamiteStorageGridGridItem.textAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Start = @"START";
+
+// GTLRCloudSearch_AppsDynamiteStorageIcon.imageType
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Square = @"SQUARE";
+
+// GTLRCloudSearch_AppsDynamiteStorageImageCropStyle.type
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_ImageCropTypeUnspecified = @"IMAGE_CROP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Square = @"SQUARE";
+
+// GTLRCloudSearch_AppsDynamiteStorageOpenLink.onClose
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Nothing = @"NOTHING";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Reload = @"RELOAD";
+
+// GTLRCloudSearch_AppsDynamiteStorageOpenLink.openAs
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_FullSize = @"FULL_SIZE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_Overlay = @"OVERLAY";
+
+// GTLRCloudSearch_AppsDynamiteStorageSelectionInput.type
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown = @"DROPDOWN";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_RadioButton = @"RADIO_BUTTON";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Switch = @"SWITCH";
+
+// GTLRCloudSearch_AppsDynamiteStorageTextInput.type
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_MultipleLine = @"MULTIPLE_LINE";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_SingleLine = @"SINGLE_LINE";
+
+// GTLRCloudSearch_AppsDynamiteStorageWidget.horizontalAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Start = @"START";
 
 // GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup.features
 NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_Toll = @"TOLL";
@@ -451,6 +452,12 @@ NSString * const kGTLRCloudSearch_BotResponse_ResponseType_UnknownResponseType =
 NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_BroadcastingAccessPolicyUnspecified = @"BROADCASTING_ACCESS_POLICY_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Organization = @"ORGANIZATION";
 NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Public = @"PUBLIC";
+
+// GTLRCloudSearch_CallInfo.availableAccessTypes
+NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
+NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
+NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
+NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
 
 // GTLRCloudSearch_CallSettings.accessType
 NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
@@ -521,6 +528,7 @@ NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationS
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
@@ -1631,6 +1639,7 @@ NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkipp
 NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
 NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
 NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
 NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
 NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
 NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
@@ -2278,34 +2287,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedAction
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAction
-@dynamic function, interaction, loadIndicator, parameters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRCloudSearch_AppsDynamiteSharedActionActionParameter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedActionActionParameter
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedActionActionParameter
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData
 //
 
@@ -2430,47 +2411,9 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata
 @dynamic blobPath, contentName, contentSize, contentType, dlpScanOutcome,
-         dlpScanSummary, groupId, originalDimension, quoteReplyMessageId,
-         sha256, uploadIp, uploadTimestampUsec, videoId, videoThumbnailBlobId,
-         virusScanResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedBorderStyle
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedBorderStyle
-@dynamic cornerRadius, strokeColor, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedButton
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedButton
-@dynamic altText, color, disabled, icon, onClick, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedButtonList
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedButtonList
-@dynamic buttons;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"buttons" : [GTLRCloudSearch_AppsDynamiteSharedButton class]
-  };
-  return map;
-}
-
+         dlpScanSummary, groupId, isClientSideTranscodedVideo,
+         originalDimension, quoteReplyMessageId, sha256, uploadIp,
+         uploadTimestampUsec, videoId, videoThumbnailBlobId, virusScanResult;
 @end
 
 
@@ -2535,68 +2478,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedCard
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCard
-@dynamic cardActions, header, name, sections;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cardActions" : [GTLRCloudSearch_AppsDynamiteSharedCardCardAction class],
-    @"sections" : [GTLRCloudSearch_AppsDynamiteSharedCardSection class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCardCardAction
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCardCardAction
-@dynamic actionLabel, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCardCardHeader
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCardCardHeader
-@dynamic imageAltText, imageType, imageUrl, subtitle, title;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion
 @dynamic actionId, suggestionMessageId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCardSection
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCardSection
-@dynamic collapsible, header, uncollapsibleWidgetsCount, widgets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"widgets" : [GTLRCloudSearch_AppsDynamiteSharedWidget class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -2681,53 +2567,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedColumns
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedColumns
-@dynamic columnItems, wrapStyle;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"columnItems" : [GTLRCloudSearch_AppsDynamiteSharedColumnsColumn class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedColumnsColumn
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedColumnsColumn
-@dynamic horizontalAlignment, horizontalSizeStyle, verticalAlignment, widgets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"widgets" : [GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets
-@dynamic buttonList, dateTimePicker, decoratedText, image, selectionInput,
-         textInput, textParagraph;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedContentReportType
 //
 
@@ -2750,51 +2589,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedDateTimePicker
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDateTimePicker
-@dynamic label, name, onChangeAction, timezoneOffsetDate, type, valueMsEpoch;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedDecoratedText
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDecoratedText
-@dynamic bottomLabel, button, endIcon, icon, onClick, startIcon, switchControl,
-         text, topLabel, wrapText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl
-@dynamic controlType, name, onChangeAction, selected, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedDimension
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedDimension
 @dynamic height, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedDivider
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDivider
 @end
 
 
@@ -2848,39 +2647,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedGrid
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedGrid
-@dynamic borderStyle, columnCount, items, onClick, title;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AppsDynamiteSharedGridGridItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedGridGridItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedGridGridItem
-@dynamic identifier, image, layout, subtitle, textAlignment, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedGroupDetails
 //
 
@@ -2901,46 +2667,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedGroupVisibility
 @dynamic state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedIcon
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedIcon
-@dynamic altText, iconUrl, imageType, knownIcon;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedImage
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedImage
-@dynamic altText, imageUrl, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedImageComponent
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedImageComponent
-@dynamic altText, borderStyle, cropStyle, imageUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedImageCropStyle
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedImageCropStyle
-@dynamic aspectRatio, type;
 @end
 
 
@@ -2999,64 +2725,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload
 @dynamic projectNumber, tasksMessageIntegrationPayload, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOnClick
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOnClick
-@dynamic action, hostAppAction, openDynamicLinkAction, openLink;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOpenLink
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLink
-@dynamic appUri, onClose, openAs, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri
-@dynamic androidIntent, companionUri, iosUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent
-@dynamic extraData, intentAction;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraData" : [GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData
-@dynamic key, value;
 @end
 
 
@@ -3159,34 +2827,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedSelectionInput
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSelectionInput
-@dynamic items, label, name, onChangeAction, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem
-@dynamic selected, text, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedSpaceInfo
 //
 
@@ -3198,34 +2838,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedSuggestions
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSuggestions
-@dynamic items;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem
-@dynamic text;
 @end
 
 
@@ -3313,27 +2925,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedTextInput
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTextInput
-@dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
-         onChangeAction, type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTextParagraph
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTextParagraph
-@dynamic text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship
 //
 
@@ -3362,10 +2953,428 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AppsDynamiteSharedWidget
+//   GTLRCloudSearch_AppsDynamiteStorageAction
 //
 
-@implementation GTLRCloudSearch_AppsDynamiteSharedWidget
+@implementation GTLRCloudSearch_AppsDynamiteStorageAction
+@dynamic function, interaction, loadIndicator, parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRCloudSearch_AppsDynamiteStorageActionActionParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageActionActionParameter
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageActionActionParameter
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageBorderStyle
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageBorderStyle
+@dynamic cornerRadius, strokeColor, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageButton
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageButton
+@dynamic altText, color, disabled, icon, onClick, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageButtonList
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageButtonList
+@dynamic buttons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRCloudSearch_AppsDynamiteStorageButton class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageCard
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageCard
+@dynamic cardActions, header, name, sections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardActions" : [GTLRCloudSearch_AppsDynamiteStorageCardCardAction class],
+    @"sections" : [GTLRCloudSearch_AppsDynamiteStorageCardSection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageCardCardAction
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageCardCardAction
+@dynamic actionLabel, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageCardCardHeader
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageCardCardHeader
+@dynamic imageAltText, imageType, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageCardSection
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageCardSection
+@dynamic collapsible, header, uncollapsibleWidgetsCount, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRCloudSearch_AppsDynamiteStorageWidget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageColumns
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageColumns
+@dynamic columnItems, wrapStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnItems" : [GTLRCloudSearch_AppsDynamiteStorageColumnsColumn class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageColumnsColumn
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageColumnsColumn
+@dynamic horizontalAlignment, horizontalSizeStyle, verticalAlignment, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets
+@dynamic buttonList, dateTimePicker, decoratedText, image, selectionInput,
+         textInput, textParagraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageDateTimePicker
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageDateTimePicker
+@dynamic label, name, onChangeAction, timezoneOffsetDate, type, valueMsEpoch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageDecoratedText
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageDecoratedText
+@dynamic bottomLabel, button, endIcon, icon, onClick, startIcon, switchControl,
+         text, topLabel, wrapText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl
+@dynamic controlType, name, onChangeAction, selected, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageDivider
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageDivider
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageGrid
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageGrid
+@dynamic borderStyle, columnCount, items, onClick, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AppsDynamiteStorageGridGridItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageGridGridItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageGridGridItem
+@dynamic identifier, image, layout, subtitle, textAlignment, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageIcon
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageIcon
+@dynamic altText, iconUrl, imageType, knownIcon;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageImage
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageImage
+@dynamic altText, imageUrl, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageImageComponent
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageImageComponent
+@dynamic altText, borderStyle, cropStyle, imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageImageCropStyle
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageImageCropStyle
+@dynamic aspectRatio, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageOnClick
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageOnClick
+@dynamic action, hostAppAction, openDynamicLinkAction, openLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageOpenLink
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLink
+@dynamic appUri, onClose, openAs, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri
+@dynamic androidIntent, companionUri, iosUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent
+@dynamic extraData, intentAction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraData" : [GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageSelectionInput
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageSelectionInput
+@dynamic items, label, name, onChangeAction, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem
+@dynamic selected, text, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageSuggestions
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageSuggestions
+@dynamic items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageTextInput
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageTextInput
+@dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
+         onChangeAction, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageTextParagraph
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageTextParagraph
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageWidget
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageWidget
 @dynamic buttonList, columns, dateTimePicker, decoratedText, divider, grid,
          horizontalAlignment, image, selectionInput, textInput, textParagraph;
 @end
@@ -3839,15 +3848,16 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_CallInfo
 @dynamic abuseReportingConfig, artifactOwner, attachedDocuments,
-         availableReactions, broadcastSessionInfo, calendarEventId, coActivity,
-         collaboration, cseInfo, maxJoinedDevices, organizationName,
-         paygateInfo, presenter, recordingInfo, recordingSessionInfo, settings,
-         streamingSessions, transcriptionSessionInfo, viewerCount,
-         youTubeBroadcastSessionInfos;
+         availableAccessTypes, availableReactions, broadcastSessionInfo,
+         calendarEventId, coActivity, collaboration, cseInfo, maxJoinedDevices,
+         organizationName, paygateInfo, presenter, recordingInfo,
+         recordingSessionInfo, settings, streamingSessions,
+         transcriptionSessionInfo, viewerCount, youTubeBroadcastSessionInfos;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"attachedDocuments" : [GTLRCloudSearch_DocumentInfo class],
+    @"availableAccessTypes" : [NSString class],
     @"availableReactions" : [GTLRCloudSearch_ReactionInfo class],
     @"streamingSessions" : [GTLRCloudSearch_StreamingSessionInfo class],
     @"youTubeBroadcastSessionInfos" : [GTLRCloudSearch_YouTubeBroadcastSessionInfo class]
@@ -4755,8 +4765,12 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_DynamiteMessagesScoringInfo
-@dynamic finalScore, freshnessScore, joinedSpaceAffinityScore, messageAgeInDays,
-         topicalityScore;
+@dynamic commonContactCount, commonCountToContactListCountRatio,
+         commonCountToMembershipCountRatio, creatorGaiaId,
+         creatorInSearcherContactList, dasContactCount, finalScore,
+         freshnessScore, joinedSpaceAffinityScore, messageAgeInDays,
+         messageSenderAffinityScore, spaceId, spaceMembershipCount,
+         topicalityScore, unjoinedSpaceAffinityScore;
 @end
 
 
@@ -9488,7 +9502,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_YouTubeLiveBroadcastEvent
-@dynamic broadcastId, channelId, viewUrl;
+@dynamic brandAccountGaiaId, broadcastId, channelId, viewUrl;
 @end
 
 

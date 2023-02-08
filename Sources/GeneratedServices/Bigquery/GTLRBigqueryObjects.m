@@ -510,7 +510,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_BiEngineStatistics
-@dynamic biEngineMode, biEngineReasons;
+@dynamic accelerationMode, biEngineMode, biEngineReasons;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

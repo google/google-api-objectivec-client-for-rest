@@ -25,7 +25,10 @@
 @class GTLRApigeeRegistry_ApiVersion_Annotations;
 @class GTLRApigeeRegistry_ApiVersion_Labels;
 @class GTLRApigeeRegistry_Artifact;
+@class GTLRApigeeRegistry_Artifact_Annotations;
+@class GTLRApigeeRegistry_Artifact_Labels;
 @class GTLRApigeeRegistry_Binding;
+@class GTLRApigeeRegistry_Build;
 @class GTLRApigeeRegistry_Config;
 @class GTLRApigeeRegistry_Expr;
 @class GTLRApigeeRegistry_HttpBody_Extensions_Item;
@@ -222,7 +225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 /**
  *  The full resource name (including revision ID) of the spec of the API being
  *  served by the deployment. Changes to this value will update the revision.
- *  Format: `apis/{api}/deployments/{deployment}`
+ *  Format:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec\@revision}`
  */
 @property(nonatomic, copy, nullable) NSString *apiSpecRevision;
 
@@ -524,6 +528,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The primary spec for this version. Format:
+ *  projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}
+ */
+@property(nonatomic, copy, nullable) NSString *primarySpec;
+
+/**
  *  A user-definable description of the lifecycle phase of this API version.
  *  Format: free-form, but we expect single words that describe API maturity,
  *  e.g., "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION",
@@ -584,6 +594,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 @interface GTLRApigeeRegistry_Artifact : GTLRObject
 
 /**
+ *  Annotations attach non-identifying metadata to resources. Annotation keys
+ *  and values are less restricted than those of labels, but should be generally
+ *  used for small values of broad interest. Larger, topic- specific metadata
+ *  should be stored in Artifacts.
+ */
+@property(nonatomic, strong, nullable) GTLRApigeeRegistry_Artifact_Annotations *annotations;
+
+/**
  *  Input only. The contents of the artifact. Provided by API callers when
  *  artifacts are created or replaced. To access the contents of an artifact,
  *  use GetArtifactContents.
@@ -603,6 +621,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
 @property(nonatomic, copy, nullable) NSString *hashProperty;
+
+/**
+ *  Labels attach identifying metadata to resources. Identifying metadata can be
+ *  used to filter list operations. Label keys and values can be no longer than
+ *  64 characters (Unicode codepoints), can only contain lowercase letters,
+ *  numeric characters, underscores and dashes. International characters are
+ *  allowed. No more than 64 user labels can be associated with one resource
+ *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
+ *  and examples of labels. System reserved label keys are prefixed with
+ *  "registry.googleapis.com/" and cannot be changed.
+ */
+@property(nonatomic, strong, nullable) GTLRApigeeRegistry_Artifact_Labels *labels;
 
 /**
  *  A content type specifier for the artifact. Content type specifiers are Media
@@ -627,6 +657,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 /** Output only. Last update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Annotations attach non-identifying metadata to resources. Annotation keys
+ *  and values are less restricted than those of labels, but should be generally
+ *  used for small values of broad interest. Larger, topic- specific metadata
+ *  should be stored in Artifacts.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRApigeeRegistry_Artifact_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Labels attach identifying metadata to resources. Identifying metadata can be
+ *  used to filter list operations. Label keys and values can be no longer than
+ *  64 characters (Unicode codepoints), can only contain lowercase letters,
+ *  numeric characters, underscores and dashes. International characters are
+ *  allowed. No more than 64 user labels can be associated with one resource
+ *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
+ *  and examples of labels. System reserved label keys are prefixed with
+ *  "registry.googleapis.com/" and cannot be changed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRApigeeRegistry_Artifact_Labels : GTLRObject
 @end
 
 
@@ -662,8 +726,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -678,9 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -689,6 +753,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Build information of the Instance if it's in `ACTIVE` state.
+ */
+@interface GTLRApigeeRegistry_Build : GTLRObject
+
+/** Output only. Commit ID of the latest commit in the build. */
+@property(nonatomic, copy, nullable) NSString *commitId;
+
+/** Output only. Commit time of the latest commit in the build. */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
+
+/**
+ *  Output only. Path of the open source repository: github.com/apigee/registry.
+ */
+@property(nonatomic, copy, nullable) NSString *repo;
 
 @end
 
@@ -838,6 +921,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  only one instance is allowed for each project.
  */
 @interface GTLRApigeeRegistry_Instance : GTLRObject
+
+/** Output only. Build info of the Instance if it's in `ACTIVE` state. */
+@property(nonatomic, strong, nullable) GTLRApigeeRegistry_Build *build;
 
 /** Required. Config of the Instance. */
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_Config *config;

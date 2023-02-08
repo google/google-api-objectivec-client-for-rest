@@ -297,6 +297,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion;
 /**
+ *  Target ads to a serve it in a certain position of a session. Only supported
+ *  for the AdGroup of YouTube Programmatic Reservation line item.
+ *
+ *  Value: "TARGETING_TYPE_SESSION_POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition;
+/**
  *  Purchase impressions from specific sub-exchanges.
  *
  *  Value: "TARGETING_TYPE_SUB_EXCHANGE"
@@ -339,6 +346,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Value: "TARGETING_TYPE_VIEWABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability;
+/**
+ *  Target ads to a specific YouTube channel.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel;
+/**
+ *  Target ads to a specific YouTube video.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -916,6 +935,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1086,6 +1114,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1308,6 +1345,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1476,6 +1522,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
  *
@@ -2753,6 +2808,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2929,6 +2993,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -3122,6 +3195,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3297,6 +3379,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -3475,6 +3566,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3633,6 +3733,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -3842,6 +3951,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3998,6 +4116,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
  *
@@ -4758,6 +4885,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4919,6 +5055,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -5096,6 +5241,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5256,6 +5410,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -5433,6 +5596,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5591,6 +5763,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -5799,6 +5980,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5954,6 +6144,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -7426,6 +7625,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7583,6 +7791,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -7754,6 +7971,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7910,6 +8136,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -8084,6 +8319,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8241,6 +8485,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -8443,6 +8696,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8598,6 +8860,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -8606,6 +8877,1058 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                        targetingType:(NSString *)targetingType;
+
+@end
+
+/**
+ *  Gets a YouTube ad group ad.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroupAds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsGet : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser this ad group ad belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the ad group ad to fetch. */
+@property(nonatomic, assign) long long youtubeAdGroupAdId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_YoutubeAdGroupAd.
+ *
+ *  Gets a YouTube ad group ad.
+ *
+ *  @param advertiserId Required. The ID of the advertiser this ad group ad
+ *    belongs to.
+ *  @param youtubeAdGroupAdId Required. The ID of the ad group ad to fetch.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsGet
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                   youtubeAdGroupAdId:(long long)youtubeAdGroupAdId;
+
+@end
+
+/**
+ *  Lists YouTube ad group ads.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroupAds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsList : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the ad groups belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by custom YouTube ad group ad fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by `AND` and `OR`. Only the restrictions for * the same
+ *  field can be combined by `OR`. A sequence of restrictions * implicitly uses
+ *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
+ *  operator must be `EQUALS (=)`. * Supported properties: - `adGroupId` -
+ *  `displayName` - `entityStatus` - `adGroupAdId` Examples: * All ad group ads
+ *  under an ad group: `adGroupId="1234"` and its * entityStatus is
+ *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`:
+ *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  entityStatus="ENTITY_STATUS_PAUSED") AND adGroupId="12345"` The length of
+ *  this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `displayName`
+ *  (default) * `entityStatus` The default sorting order is ascending. To
+ *  specify descending order for a field, a suffix "desc" should be added to the
+ *  field name. Example: `displayName desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `ListYoutubeAdGroupAds` method. If not specified, the first page of results
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListYoutubeAdGroupAdsResponse.
+ *
+ *  Lists YouTube ad group ads.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the ad groups belongs
+ *    to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Lists assigned targeting options for multiple YouTube ad groups across
+ *  targeting types.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroups.bulkListAdGroupAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsBulkListAdGroupAssignedTargetingOptions : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the line items belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned targeting option properties. Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR` on the same field. * A
+ *  restriction has the form of `{field} {operator} {value}`. * The operator
+ *  must be `EQUALS (=)`. * Supported fields: - `targetingType` Examples: *
+ *  AssignedTargetingOptions of targeting type TARGETING_TYPE_YOUTUBE_VIDEO or
+ *  TARGETING_TYPE_YOUTUBE_CHANNEL `targetingType="TARGETING_TYPE_YOUTUBE_VIDEO"
+ *  OR targetingType="TARGETING_TYPE_YOUTUBE_CHANNEL"` The length of this field
+ *  should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `youtubeAdGroupId`
+ *  (default) * `assignedTargetingOption.targetingType` The default sorting
+ *  order is ascending. To specify descending order for a field, a suffix "desc"
+ *  should be added to the field name. Example: `targetingType desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. The size must be an integer between `1` and `5000`. If
+ *  unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token that lets the client fetch the next page of results. Typically, this
+ *  is the value of next_page_token returned from the previous call to the
+ *  `BulkListAdGroupAssignedTargetingOptions` method. If not specified, the
+ *  first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The IDs of the youtube ad groups to list assigned targeting
+ *  options for.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *youtubeAdGroupIds;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkListAdGroupAssignedTargetingOptionsResponse.
+ *
+ *  Lists assigned targeting options for multiple YouTube ad groups across
+ *  targeting types.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the line items
+ *    belongs to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsBulkListAdGroupAssignedTargetingOptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Gets a YouTube ad group.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsGet : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser this ad group belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the ad group to fetch. */
+@property(nonatomic, assign) long long youtubeAdGroupId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_YoutubeAdGroup.
+ *
+ *  Gets a YouTube ad group.
+ *
+ *  @param advertiserId Required. The ID of the advertiser this ad group belongs
+ *    to.
+ *  @param youtubeAdGroupId Required. The ID of the ad group to fetch.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsGet
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     youtubeAdGroupId:(long long)youtubeAdGroupId;
+
+@end
+
+/**
+ *  Lists YouTube ad groups.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsList : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the ad groups belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by custom YouTube ad group fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by `AND` and `OR`. Only the restrictions for * the same
+ *  field can be combined by `OR`. A sequence of restrictions * implicitly uses
+ *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
+ *  operator must be `EQUALS (=)`. * Supported properties: - `adGroupId` -
+ *  `displayName` - `entityStatus` - `lineItemId` - `adGroupFormat` Examples: *
+ *  All ad groups under an line item: `lineItemId="1234"` * All
+ *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and
+ *  `YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_IN_STREAM` ad groups under an
+ *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  entityStatus="ENTITY_STATUS_PAUSED") AND
+ *  adGroupFormat="YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_IN_STREAM"` The length
+ *  of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `displayName`
+ *  (default) * `entityStatus` The default sorting order is ascending. To
+ *  specify descending order for a field, a suffix "desc" should be added to the
+ *  field name. Example: `displayName desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `ListYoutubeAdGroups` method. If not specified, the first page of results
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListYoutubeAdGroupsResponse.
+ *
+ *  Lists YouTube ad groups.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the ad groups belongs
+ *    to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Gets a single targeting option assigned to a YouTube ad group. Inherited
+ *  targeting is not included.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsGet : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the ad group belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. An identifier unique to the targeting type in this line item that
+ *  identifies the assigned targeting option being requested.
+ */
+@property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
+
+/**
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types include: * `TARGETING_TYPE_GENDER` *
+ *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY`
+ *  * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
+ *  `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
+ *        value when type is not specified or is unknown in this version.
+ *        (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Target a
+ *        channel (a custom group of related websites or apps). (Value:
+ *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Target an
+ *        app category (for example, education or puzzle games). (Value:
+ *        "TARGETING_TYPE_APP_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Target a specific
+ *        app (for example, Angry Birds). (Value: "TARGETING_TYPE_APP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Target a specific
+ *        url (for example, quora.com). (Value: "TARGETING_TYPE_URL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Target ads
+ *        during a chosen time period on a specific day. (Value:
+ *        "TARGETING_TYPE_DAY_AND_TIME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Target ads to
+ *        a specific age range (for example, 18-24). (Value:
+ *        "TARGETING_TYPE_AGE_RANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Target ads to the specified regions on a regional location list.
+ *        (Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Target ads to the specified points of interest on a proximity location
+ *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Target ads to a
+ *        specific gender (for example, female or male). (Value:
+ *        "TARGETING_TYPE_GENDER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Target
+ *        a specific video player size for video ads. (Value:
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Target user rewarded content for video ads. (Value:
+ *        "TARGETING_TYPE_USER_REWARDED_CONTENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Target
+ *        ads to a specific parental status (for example, parent or not a
+ *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Target video or audio ads in a specific content instream position (for
+ *        example, pre-roll, mid-roll, or post-roll). (Value:
+ *        "TARGETING_TYPE_CONTENT_INSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Target ads in a specific content outstream position. (Value:
+ *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Target ads
+ *        to a specific device type (for example, tablet or connected TV).
+ *        (Value: "TARGETING_TYPE_DEVICE_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Target
+ *        ads to an audience or groups of audiences. Singleton field, at most
+ *        one can exist on a single Lineitem at a time. (Value:
+ *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Target ads to
+ *        specific web browsers (for example, Chrome). (Value:
+ *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Target
+ *        ads to a specific household income range (for example, top 10%).
+ *        (Value: "TARGETING_TYPE_HOUSEHOLD_INCOME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Target
+ *        ads in a specific on screen position. (Value:
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Filter web sites through third party verification (for example, IAS or
+ *        DoubleVerify). (Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Filter web sites by specific digital content label ratings (for
+ *        example, DL-MA: suitable only for mature audiences). (Value:
+ *        "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Filter website content by sensitive categories (for example, adult).
+ *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Target ads
+ *        to a specific environment (for example, web or app). (Value:
+ *        "TARGETING_TYPE_ENVIRONMENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Target
+ *        ads to a specific network carrier or internet service provider (ISP)
+ *        (for example, Comcast or Orange). (Value:
+ *        "TARGETING_TYPE_CARRIER_AND_ISP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Target
+ *        ads to a specific operating system (for example, macOS). (Value:
+ *        "TARGETING_TYPE_OPERATING_SYSTEM")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Target
+ *        ads to a specific device make or model (for example, Roku or Samsung).
+ *        (Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Target ads to a
+ *        specific keyword (for example, dog or retriever). (Value:
+ *        "TARGETING_TYPE_KEYWORD")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Target ads to a specific negative keyword list. (Value:
+ *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Target ads
+ *        to a specific viewability (for example, 80% viewable). (Value:
+ *        "TARGETING_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Target ads to
+ *        a specific content category (for example, arts & entertainment).
+ *        (Value: "TARGETING_TYPE_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource
+ *        Purchase impressions from specific deals and auction packages. (Value:
+ *        "TARGETING_TYPE_INVENTORY_SOURCE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Target ads to
+ *        a specific language (for example, English or Japanese). (Value:
+ *        "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Target ads to ads.txt authorized sellers. (Value:
+ *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
+ *        a specific regional location (for example, a city or state). (Value:
+ *        "TARGETING_TYPE_GEO_REGION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Purchase impressions from a group of deals and auction packages.
+ *        (Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Purchase
+ *        impressions from specific exchanges. (Value:
+ *        "TARGETING_TYPE_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
+ *        impressions from specific sub-exchanges. (Value:
+ *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
+ *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Required. The ID of the ad group the assigned targeting option belongs to.
+ */
+@property(nonatomic, assign) long long youtubeAdGroupId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AssignedTargetingOption.
+ *
+ *  Gets a single targeting option assigned to a YouTube ad group. Inherited
+ *  targeting is not included.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the ad group belongs
+ *    to.
+ *  @param youtubeAdGroupId Required. The ID of the ad group the assigned
+ *    targeting option belongs to.
+ *  @param targetingType Required. Identifies the type of this assigned
+ *    targeting option. Supported targeting types include: *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_AGE_RANGE` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *    `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_URL` *
+ *    `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
+ *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
+ *    `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *  @param assignedTargetingOptionId Required. An identifier unique to the
+ *    targeting type in this line item that identifies the assigned targeting
+ *    option being requested.
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
+ *        value when type is not specified or is unknown in this version.
+ *        (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Target a
+ *        channel (a custom group of related websites or apps). (Value:
+ *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Target an
+ *        app category (for example, education or puzzle games). (Value:
+ *        "TARGETING_TYPE_APP_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Target a specific
+ *        app (for example, Angry Birds). (Value: "TARGETING_TYPE_APP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Target a specific
+ *        url (for example, quora.com). (Value: "TARGETING_TYPE_URL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Target ads
+ *        during a chosen time period on a specific day. (Value:
+ *        "TARGETING_TYPE_DAY_AND_TIME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Target ads to
+ *        a specific age range (for example, 18-24). (Value:
+ *        "TARGETING_TYPE_AGE_RANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Target ads to the specified regions on a regional location list.
+ *        (Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Target ads to the specified points of interest on a proximity location
+ *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Target ads to a
+ *        specific gender (for example, female or male). (Value:
+ *        "TARGETING_TYPE_GENDER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Target
+ *        a specific video player size for video ads. (Value:
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Target user rewarded content for video ads. (Value:
+ *        "TARGETING_TYPE_USER_REWARDED_CONTENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Target
+ *        ads to a specific parental status (for example, parent or not a
+ *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Target video or audio ads in a specific content instream position (for
+ *        example, pre-roll, mid-roll, or post-roll). (Value:
+ *        "TARGETING_TYPE_CONTENT_INSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Target ads in a specific content outstream position. (Value:
+ *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Target ads
+ *        to a specific device type (for example, tablet or connected TV).
+ *        (Value: "TARGETING_TYPE_DEVICE_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Target
+ *        ads to an audience or groups of audiences. Singleton field, at most
+ *        one can exist on a single Lineitem at a time. (Value:
+ *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Target ads to
+ *        specific web browsers (for example, Chrome). (Value:
+ *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Target
+ *        ads to a specific household income range (for example, top 10%).
+ *        (Value: "TARGETING_TYPE_HOUSEHOLD_INCOME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Target
+ *        ads in a specific on screen position. (Value:
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Filter web sites through third party verification (for example, IAS or
+ *        DoubleVerify). (Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Filter web sites by specific digital content label ratings (for
+ *        example, DL-MA: suitable only for mature audiences). (Value:
+ *        "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Filter website content by sensitive categories (for example, adult).
+ *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Target ads
+ *        to a specific environment (for example, web or app). (Value:
+ *        "TARGETING_TYPE_ENVIRONMENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Target
+ *        ads to a specific network carrier or internet service provider (ISP)
+ *        (for example, Comcast or Orange). (Value:
+ *        "TARGETING_TYPE_CARRIER_AND_ISP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Target
+ *        ads to a specific operating system (for example, macOS). (Value:
+ *        "TARGETING_TYPE_OPERATING_SYSTEM")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Target
+ *        ads to a specific device make or model (for example, Roku or Samsung).
+ *        (Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Target ads to a
+ *        specific keyword (for example, dog or retriever). (Value:
+ *        "TARGETING_TYPE_KEYWORD")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Target ads to a specific negative keyword list. (Value:
+ *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Target ads
+ *        to a specific viewability (for example, 80% viewable). (Value:
+ *        "TARGETING_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Target ads to
+ *        a specific content category (for example, arts & entertainment).
+ *        (Value: "TARGETING_TYPE_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource
+ *        Purchase impressions from specific deals and auction packages. (Value:
+ *        "TARGETING_TYPE_INVENTORY_SOURCE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Target ads to
+ *        a specific language (for example, English or Japanese). (Value:
+ *        "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Target ads to ads.txt authorized sellers. (Value:
+ *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
+ *        a specific regional location (for example, a city or state). (Value:
+ *        "TARGETING_TYPE_GEO_REGION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Purchase impressions from a group of deals and auction packages.
+ *        (Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Purchase
+ *        impressions from specific exchanges. (Value:
+ *        "TARGETING_TYPE_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
+ *        impressions from specific sub-exchanges. (Value:
+ *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
+ *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsGet
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     youtubeAdGroupId:(long long)youtubeAdGroupId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId;
+
+@end
+
+/**
+ *  Lists the targeting options assigned to a YouTube ad group. Inherited
+ *  targeting is not included.
+ *
+ *  Method: displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsList : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the ad group belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned targeting option properties. Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR`. * A restriction has the form
+ *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
+ *  Supported fields: - `assignedTargetingOptionId` Examples: *
+ *  AssignedTargetingOptions with ID 1 or 2 `assignedTargetingOptionId="1" OR
+ *  assignedTargetingOptionId="2"` The length of this field should be no more
+ *  than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: *
+ *  `assignedTargetingOptionId` (default) The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix "desc" should
+ *  be added to the field name. Example: `assignedTargetingOptionId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `5000`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `ListYoutubeAdGroupAssignedTargetingOptions` method. If not specified, the
+ *  first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Identifies the type of assigned targeting options to list.
+ *  Supported targeting types include: * `TARGETING_TYPE_GENDER` *
+ *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY`
+ *  * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
+ *  `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
+ *        value when type is not specified or is unknown in this version.
+ *        (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Target a
+ *        channel (a custom group of related websites or apps). (Value:
+ *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Target an
+ *        app category (for example, education or puzzle games). (Value:
+ *        "TARGETING_TYPE_APP_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Target a specific
+ *        app (for example, Angry Birds). (Value: "TARGETING_TYPE_APP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Target a specific
+ *        url (for example, quora.com). (Value: "TARGETING_TYPE_URL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Target ads
+ *        during a chosen time period on a specific day. (Value:
+ *        "TARGETING_TYPE_DAY_AND_TIME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Target ads to
+ *        a specific age range (for example, 18-24). (Value:
+ *        "TARGETING_TYPE_AGE_RANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Target ads to the specified regions on a regional location list.
+ *        (Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Target ads to the specified points of interest on a proximity location
+ *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Target ads to a
+ *        specific gender (for example, female or male). (Value:
+ *        "TARGETING_TYPE_GENDER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Target
+ *        a specific video player size for video ads. (Value:
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Target user rewarded content for video ads. (Value:
+ *        "TARGETING_TYPE_USER_REWARDED_CONTENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Target
+ *        ads to a specific parental status (for example, parent or not a
+ *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Target video or audio ads in a specific content instream position (for
+ *        example, pre-roll, mid-roll, or post-roll). (Value:
+ *        "TARGETING_TYPE_CONTENT_INSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Target ads in a specific content outstream position. (Value:
+ *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Target ads
+ *        to a specific device type (for example, tablet or connected TV).
+ *        (Value: "TARGETING_TYPE_DEVICE_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Target
+ *        ads to an audience or groups of audiences. Singleton field, at most
+ *        one can exist on a single Lineitem at a time. (Value:
+ *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Target ads to
+ *        specific web browsers (for example, Chrome). (Value:
+ *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Target
+ *        ads to a specific household income range (for example, top 10%).
+ *        (Value: "TARGETING_TYPE_HOUSEHOLD_INCOME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Target
+ *        ads in a specific on screen position. (Value:
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Filter web sites through third party verification (for example, IAS or
+ *        DoubleVerify). (Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Filter web sites by specific digital content label ratings (for
+ *        example, DL-MA: suitable only for mature audiences). (Value:
+ *        "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Filter website content by sensitive categories (for example, adult).
+ *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Target ads
+ *        to a specific environment (for example, web or app). (Value:
+ *        "TARGETING_TYPE_ENVIRONMENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Target
+ *        ads to a specific network carrier or internet service provider (ISP)
+ *        (for example, Comcast or Orange). (Value:
+ *        "TARGETING_TYPE_CARRIER_AND_ISP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Target
+ *        ads to a specific operating system (for example, macOS). (Value:
+ *        "TARGETING_TYPE_OPERATING_SYSTEM")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Target
+ *        ads to a specific device make or model (for example, Roku or Samsung).
+ *        (Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Target ads to a
+ *        specific keyword (for example, dog or retriever). (Value:
+ *        "TARGETING_TYPE_KEYWORD")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Target ads to a specific negative keyword list. (Value:
+ *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Target ads
+ *        to a specific viewability (for example, 80% viewable). (Value:
+ *        "TARGETING_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Target ads to
+ *        a specific content category (for example, arts & entertainment).
+ *        (Value: "TARGETING_TYPE_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource
+ *        Purchase impressions from specific deals and auction packages. (Value:
+ *        "TARGETING_TYPE_INVENTORY_SOURCE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Target ads to
+ *        a specific language (for example, English or Japanese). (Value:
+ *        "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Target ads to ads.txt authorized sellers. (Value:
+ *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
+ *        a specific regional location (for example, a city or state). (Value:
+ *        "TARGETING_TYPE_GEO_REGION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Purchase impressions from a group of deals and auction packages.
+ *        (Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Purchase
+ *        impressions from specific exchanges. (Value:
+ *        "TARGETING_TYPE_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
+ *        impressions from specific sub-exchanges. (Value:
+ *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
+ *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Required. The ID of the ad group to list assigned targeting options for.
+ */
+@property(nonatomic, assign) long long youtubeAdGroupId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_ListYoutubeAdGroupAssignedTargetingOptionsResponse.
+ *
+ *  Lists the targeting options assigned to a YouTube ad group. Inherited
+ *  targeting is not included.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the ad group belongs
+ *    to.
+ *  @param youtubeAdGroupId Required. The ID of the ad group to list assigned
+ *    targeting options for.
+ *  @param targetingType Required. Identifies the type of assigned targeting
+ *    options to list. Supported targeting types include: *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_AGE_RANGE` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *    `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_URL` *
+ *    `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
+ *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
+ *    `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
+ *        value when type is not specified or is unknown in this version.
+ *        (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Target a
+ *        channel (a custom group of related websites or apps). (Value:
+ *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Target an
+ *        app category (for example, education or puzzle games). (Value:
+ *        "TARGETING_TYPE_APP_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Target a specific
+ *        app (for example, Angry Birds). (Value: "TARGETING_TYPE_APP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Target a specific
+ *        url (for example, quora.com). (Value: "TARGETING_TYPE_URL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Target ads
+ *        during a chosen time period on a specific day. (Value:
+ *        "TARGETING_TYPE_DAY_AND_TIME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Target ads to
+ *        a specific age range (for example, 18-24). (Value:
+ *        "TARGETING_TYPE_AGE_RANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Target ads to the specified regions on a regional location list.
+ *        (Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Target ads to the specified points of interest on a proximity location
+ *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Target ads to a
+ *        specific gender (for example, female or male). (Value:
+ *        "TARGETING_TYPE_GENDER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Target
+ *        a specific video player size for video ads. (Value:
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Target user rewarded content for video ads. (Value:
+ *        "TARGETING_TYPE_USER_REWARDED_CONTENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Target
+ *        ads to a specific parental status (for example, parent or not a
+ *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Target video or audio ads in a specific content instream position (for
+ *        example, pre-roll, mid-roll, or post-roll). (Value:
+ *        "TARGETING_TYPE_CONTENT_INSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Target ads in a specific content outstream position. (Value:
+ *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Target ads
+ *        to a specific device type (for example, tablet or connected TV).
+ *        (Value: "TARGETING_TYPE_DEVICE_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Target
+ *        ads to an audience or groups of audiences. Singleton field, at most
+ *        one can exist on a single Lineitem at a time. (Value:
+ *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Target ads to
+ *        specific web browsers (for example, Chrome). (Value:
+ *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Target
+ *        ads to a specific household income range (for example, top 10%).
+ *        (Value: "TARGETING_TYPE_HOUSEHOLD_INCOME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Target
+ *        ads in a specific on screen position. (Value:
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Filter web sites through third party verification (for example, IAS or
+ *        DoubleVerify). (Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Filter web sites by specific digital content label ratings (for
+ *        example, DL-MA: suitable only for mature audiences). (Value:
+ *        "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Filter website content by sensitive categories (for example, adult).
+ *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Target ads
+ *        to a specific environment (for example, web or app). (Value:
+ *        "TARGETING_TYPE_ENVIRONMENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Target
+ *        ads to a specific network carrier or internet service provider (ISP)
+ *        (for example, Comcast or Orange). (Value:
+ *        "TARGETING_TYPE_CARRIER_AND_ISP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Target
+ *        ads to a specific operating system (for example, macOS). (Value:
+ *        "TARGETING_TYPE_OPERATING_SYSTEM")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Target
+ *        ads to a specific device make or model (for example, Roku or Samsung).
+ *        (Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Target ads to a
+ *        specific keyword (for example, dog or retriever). (Value:
+ *        "TARGETING_TYPE_KEYWORD")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Target ads to a specific negative keyword list. (Value:
+ *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Target ads
+ *        to a specific viewability (for example, 80% viewable). (Value:
+ *        "TARGETING_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Target ads to
+ *        a specific content category (for example, arts & entertainment).
+ *        (Value: "TARGETING_TYPE_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource
+ *        Purchase impressions from specific deals and auction packages. (Value:
+ *        "TARGETING_TYPE_INVENTORY_SOURCE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Target ads to
+ *        a specific language (for example, English or Japanese). (Value:
+ *        "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Target ads to ads.txt authorized sellers. (Value:
+ *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
+ *        a specific regional location (for example, a city or state). (Value:
+ *        "TARGETING_TYPE_GEO_REGION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Purchase impressions from a group of deals and auction packages.
+ *        (Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Purchase
+ *        impressions from specific exchanges. (Value:
+ *        "TARGETING_TYPE_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
+ *        impressions from specific sub-exchanges. (Value:
+ *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
+ *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     youtubeAdGroupId:(long long)youtubeAdGroupId
                         targetingType:(NSString *)targetingType;
 
 @end
@@ -11286,6 +12609,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11441,6 +12773,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -11610,6 +12951,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11764,6 +13114,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -11936,6 +13295,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12091,6 +13459,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -12291,6 +13668,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12443,6 +13829,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -12696,6 +14091,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12864,6 +14268,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -13083,6 +14496,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13249,6 +14671,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -13416,6 +14847,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13571,6 +15011,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
+ *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
+ *        ads to a specific YouTube channel. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
+ *        ads to a serve it in a certain position of a session. Only supported
+ *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

@@ -84,6 +84,7 @@ NSString * const kGTLRDriveActivity_Restore_Type_Untrash       = @"UNTRASH";
 NSString * const kGTLRDriveActivity_RestrictionChange_Feature_DirectSharing = @"DIRECT_SHARING";
 NSString * const kGTLRDriveActivity_RestrictionChange_Feature_DriveFileStream = @"DRIVE_FILE_STREAM";
 NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
+NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders = @"FILE_ORGANIZER_CAN_SHARE_FOLDERS";
 NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication = @"ITEM_DUPLICATION";
 NSString * const kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain = @"SHARING_OUTSIDE_DOMAIN";
 

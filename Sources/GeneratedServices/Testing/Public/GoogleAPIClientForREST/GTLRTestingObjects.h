@@ -62,6 +62,8 @@
 @class GTLRTesting_NetworkConfigurationCatalog;
 @class GTLRTesting_ObbFile;
 @class GTLRTesting_Orientation;
+@class GTLRTesting_PerAndroidVersionInfo;
+@class GTLRTesting_PerIosVersionInfo;
 @class GTLRTesting_ProvidedSoftwareCatalog;
 @class GTLRTesting_RegularFile;
 @class GTLRTesting_ResultStorage;
@@ -337,6 +339,106 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
  *  Value: "WEARABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
+
+// ----------------------------------------------------------------------------
+// GTLRTesting_PerAndroidVersionInfo.deviceCapacity
+
+/**
+ *  Devices that are high in capacity (The lab has a large number of these
+ *  devices). These devices are generally suggested for running a large number
+ *  of simultaneous tests (e.g. more than 100 tests). Please note that high
+ *  capacity devices do not guarantee short wait times due to several factors:
+ *  1. Traffic (how heavily they are used at any given moment) 2. High capacity
+ *  devices are prioritized for certain usages, which may cause user tests to be
+ *  slower than selecting other similar device types.
+ *
+ *  Value: "DEVICE_CAPACITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityHigh;
+/**
+ *  Devices that are low in capacity (The lab has a small number of these
+ *  devices). These devices may be used if users need to test on this specific
+ *  device model and version. Please note that due to low capacity, the tests
+ *  may take much longer to finish, especially if a large number of tests are
+ *  invoked at once. These devices are not suitable for test sharding.
+ *
+ *  Value: "DEVICE_CAPACITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityLow;
+/**
+ *  Devices that are medium in capacity (The lab has a decent number of these
+ *  devices, though not as many as high capacity devices). These devices are
+ *  suitable for fewer test runs (e.g. fewer than 100 tests) and only for low
+ *  shard counts (e.g. less than 10 shards).
+ *
+ *  Value: "DEVICE_CAPACITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityMedium;
+/**
+ *  Devices that are completely missing from the lab. These devices are
+ *  unavailable either temporarily or permanently and should not be requested.
+ *  If the device is also marked as deprecated, this state is very likely
+ *  permanent.
+ *
+ *  Value: "DEVICE_CAPACITY_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityNone;
+/**
+ *  The value of device capacity is unknown or unset.
+ *
+ *  Value: "DEVICE_CAPACITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTesting_PerIosVersionInfo.deviceCapacity
+
+/**
+ *  Devices that are high in capacity (The lab has a large number of these
+ *  devices). These devices are generally suggested for running a large number
+ *  of simultaneous tests (e.g. more than 100 tests). Please note that high
+ *  capacity devices do not guarantee short wait times due to several factors:
+ *  1. Traffic (how heavily they are used at any given moment) 2. High capacity
+ *  devices are prioritized for certain usages, which may cause user tests to be
+ *  slower than selecting other similar device types.
+ *
+ *  Value: "DEVICE_CAPACITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityHigh;
+/**
+ *  Devices that are low in capacity (The lab has a small number of these
+ *  devices). These devices may be used if users need to test on this specific
+ *  device model and version. Please note that due to low capacity, the tests
+ *  may take much longer to finish, especially if a large number of tests are
+ *  invoked at once. These devices are not suitable for test sharding.
+ *
+ *  Value: "DEVICE_CAPACITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityLow;
+/**
+ *  Devices that are medium in capacity (The lab has a decent number of these
+ *  devices, though not as many as high capacity devices). These devices are
+ *  suitable for fewer test runs (e.g. fewer than 100 tests) and only for low
+ *  shard counts (e.g. less than 10 shards).
+ *
+ *  Value: "DEVICE_CAPACITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityMedium;
+/**
+ *  Devices that are completely missing from the lab. These devices are
+ *  unavailable either temporarily or permanently and should not be requested.
+ *  If the device is also marked as deprecated, this state is very likely
+ *  permanent.
+ *
+ *  Value: "DEVICE_CAPACITY_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityNone;
+/**
+ *  The value of device capacity is unknown or unset.
+ *
+ *  Value: "DEVICE_CAPACITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_RoboDirective.actionType
@@ -1079,6 +1181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  5", "Galaxy S5".
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Version-specific information of an Android model. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_PerAndroidVersionInfo *> *perVersionInfo;
 
 /**
  *  Screen density in DPI. This corresponds to ro.sf.lcd_density
@@ -1843,6 +1948,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Version-specific information of an iOS model. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_PerIosVersionInfo *> *perVersionInfo;
+
 /**
  *  Screen density in DPI.
  *
@@ -2158,6 +2266,102 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** Tags for this dimension. Example: "default". */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  A version-specific information of an Android model.
+ */
+@interface GTLRTesting_PerAndroidVersionInfo : GTLRObject
+
+/**
+ *  The number of online devices for an Android version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityHigh
+ *        Devices that are high in capacity (The lab has a large number of these
+ *        devices). These devices are generally suggested for running a large
+ *        number of simultaneous tests (e.g. more than 100 tests). Please note
+ *        that high capacity devices do not guarantee short wait times due to
+ *        several factors: 1. Traffic (how heavily they are used at any given
+ *        moment) 2. High capacity devices are prioritized for certain usages,
+ *        which may cause user tests to be slower than selecting other similar
+ *        device types. (Value: "DEVICE_CAPACITY_HIGH")
+ *    @arg @c kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityLow
+ *        Devices that are low in capacity (The lab has a small number of these
+ *        devices). These devices may be used if users need to test on this
+ *        specific device model and version. Please note that due to low
+ *        capacity, the tests may take much longer to finish, especially if a
+ *        large number of tests are invoked at once. These devices are not
+ *        suitable for test sharding. (Value: "DEVICE_CAPACITY_LOW")
+ *    @arg @c kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityMedium
+ *        Devices that are medium in capacity (The lab has a decent number of
+ *        these devices, though not as many as high capacity devices). These
+ *        devices are suitable for fewer test runs (e.g. fewer than 100 tests)
+ *        and only for low shard counts (e.g. less than 10 shards). (Value:
+ *        "DEVICE_CAPACITY_MEDIUM")
+ *    @arg @c kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityNone
+ *        Devices that are completely missing from the lab. These devices are
+ *        unavailable either temporarily or permanently and should not be
+ *        requested. If the device is also marked as deprecated, this state is
+ *        very likely permanent. (Value: "DEVICE_CAPACITY_NONE")
+ *    @arg @c kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityUnspecified
+ *        The value of device capacity is unknown or unset. (Value:
+ *        "DEVICE_CAPACITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceCapacity;
+
+/** An Android version. */
+@property(nonatomic, copy, nullable) NSString *versionId;
+
+@end
+
+
+/**
+ *  A version-specific information of an iOS model.
+ */
+@interface GTLRTesting_PerIosVersionInfo : GTLRObject
+
+/**
+ *  The number of online devices for an iOS version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityHigh
+ *        Devices that are high in capacity (The lab has a large number of these
+ *        devices). These devices are generally suggested for running a large
+ *        number of simultaneous tests (e.g. more than 100 tests). Please note
+ *        that high capacity devices do not guarantee short wait times due to
+ *        several factors: 1. Traffic (how heavily they are used at any given
+ *        moment) 2. High capacity devices are prioritized for certain usages,
+ *        which may cause user tests to be slower than selecting other similar
+ *        device types. (Value: "DEVICE_CAPACITY_HIGH")
+ *    @arg @c kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityLow
+ *        Devices that are low in capacity (The lab has a small number of these
+ *        devices). These devices may be used if users need to test on this
+ *        specific device model and version. Please note that due to low
+ *        capacity, the tests may take much longer to finish, especially if a
+ *        large number of tests are invoked at once. These devices are not
+ *        suitable for test sharding. (Value: "DEVICE_CAPACITY_LOW")
+ *    @arg @c kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityMedium
+ *        Devices that are medium in capacity (The lab has a decent number of
+ *        these devices, though not as many as high capacity devices). These
+ *        devices are suitable for fewer test runs (e.g. fewer than 100 tests)
+ *        and only for low shard counts (e.g. less than 10 shards). (Value:
+ *        "DEVICE_CAPACITY_MEDIUM")
+ *    @arg @c kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityNone
+ *        Devices that are completely missing from the lab. These devices are
+ *        unavailable either temporarily or permanently and should not be
+ *        requested. If the device is also marked as deprecated, this state is
+ *        very likely permanent. (Value: "DEVICE_CAPACITY_NONE")
+ *    @arg @c kGTLRTesting_PerIosVersionInfo_DeviceCapacity_DeviceCapacityUnspecified
+ *        The value of device capacity is unknown or unset. (Value:
+ *        "DEVICE_CAPACITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceCapacity;
+
+/** An iOS version. */
+@property(nonatomic, copy, nullable) NSString *versionId;
 
 @end
 

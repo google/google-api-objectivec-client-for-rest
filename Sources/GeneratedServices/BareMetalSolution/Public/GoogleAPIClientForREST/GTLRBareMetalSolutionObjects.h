@@ -2935,6 +2935,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Input only. Name of the storage aggregate pool to allocate the volume in.
+ *  Can be used only for VOLUME_PERFORMANCE_TIER_ASSIGNED volumes.
+ */
+@property(nonatomic, copy, nullable) NSString *storageAggregatePool;
+
+/**
  *  The storage type for this volume.
  *
  *  Likely values:
@@ -3052,6 +3058,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *snapshotsEnabled;
+
+/**
+ *  Input only. Name of the storage aggregate pool to allocate the volume in.
+ *  Can be used only for VOLUME_PERFORMANCE_TIER_ASSIGNED volumes.
+ */
+@property(nonatomic, copy, nullable) NSString *storageAggregatePool;
 
 /**
  *  The type of this Volume.

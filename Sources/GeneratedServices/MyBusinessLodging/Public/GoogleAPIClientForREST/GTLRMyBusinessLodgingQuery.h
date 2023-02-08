@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Google identifier for this location in the form:
- *  `accounts/{account_id}/locations/{location_id}/lodging`
+ *  `locations/{location_id}/lodging`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the Google updated Lodging of a specific location.
  *
  *  @param name Required. Google identifier for this location in the form:
- *    `accounts/{account_id}/locations/{location_id}/lodging`
+ *    `locations/{location_id}/lodging`
  *
  *  @return GTLRMyBusinessLodgingQuery_LocationsLodgingGetGoogleUpdated
  */

@@ -701,10 +701,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 /**
  *  The relative resource name of the metastore that is being federated. The
  *  formats of the relative resource names for the currently supported
- *  metastores are listed below: Dataplex
- *  projects/{project_id}/locations/{location}/lakes/{lake_id} BigQuery
- *  projects/{project_id} Dataproc Metastore
- *  projects/{project_id}/locations/{location}/services/{service_id}
+ *  metastores are listed below: BigQuery projects/{project_id} Dataproc
+ *  Metastore projects/{project_id}/locations/{location}/services/{service_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -795,11 +793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, my-project.svc.id.goog[my-namespace/my-kubernetes-sa].
  *  group:{emailid}: An email address that represents a Google group. For
- *  example, admins\@example.com. deleted:user:{emailid}?uid={uniqueid}: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example, alice\@example.com?uid=123456789012345678901.
- *  If the user is recovered, this value reverts to user:{emailid} and the
- *  recovered user retains the role in the binding.
+ *  example, admins\@example.com. domain:{domain}: The G Suite domain (primary)
+ *  that represents all the users of that domain. For example, google.com or
+ *  example.com. deleted:user:{emailid}?uid={uniqueid}: An email address (plus
+ *  unique identifier) representing a user that has been recently deleted. For
+ *  example, alice\@example.com?uid=123456789012345678901. If the user is
+ *  recovered, this value reverts to user:{emailid} and the recovered user
+ *  retains the role in the binding.
  *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
  *  unique identifier) representing a service account that has been recently
  *  deleted. For example,
@@ -810,9 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  identifier) representing a Google group that has been recently deleted. For
  *  example, admins\@example.com?uid=123456789012345678901. If the group is
  *  recovered, this value reverts to group:{emailid} and the recovered group
- *  retains the role in the binding. domain:{domain}: The G Suite domain
- *  (primary) that represents all the users of that domain. For example,
- *  google.com or example.com.
+ *  retains the role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

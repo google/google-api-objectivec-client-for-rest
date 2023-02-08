@@ -428,6 +428,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  If set, will free the database_id associated with this database. uid will be
+ *  used as the resource id to identify this deleted database.
+ */
+@property(nonatomic, assign) BOOL freeId;
+
+/**
  *  Required. A name of the form `projects/{project_id}/databases/{database_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
