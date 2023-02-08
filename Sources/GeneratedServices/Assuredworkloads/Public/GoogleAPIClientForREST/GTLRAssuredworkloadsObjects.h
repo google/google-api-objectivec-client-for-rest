@@ -58,6 +58,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
 /**
+ *  Assured Workloads for Canada Protected B regime
+ *
+ *  Value: "CA_PROTECTED_B"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB;
+/**
  *  Assured Workloads For Canada Regions and Support controls
  *
  *  Value: "CA_REGIONS_AND_SUPPORT"
@@ -245,6 +251,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport;
+/**
+ *  Assured Workloads for Canada Protected B regime
+ *
+ *  Value: "CA_PROTECTED_B"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB;
 /**
  *  Assured Workloads For Canada Regions and Support controls
  *
@@ -538,6 +550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Assured Workloads for Australia Regions and Support controls Available
  *        for public preview consumption. Don't create production workloads.
  *        (Value: "AU_REGIONS_AND_US_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB
+ *        Assured Workloads for Canada Protected B regime (Value:
+ *        "CA_PROTECTED_B")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -909,6 +924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Assured Workloads for Australia Regions and Support controls Available
  *        for public preview consumption. Don't create production workloads.
  *        (Value: "AU_REGIONS_AND_US_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB
+ *        Assured Workloads for Canada Protected B regime (Value:
+ *        "CA_PROTECTED_B")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")

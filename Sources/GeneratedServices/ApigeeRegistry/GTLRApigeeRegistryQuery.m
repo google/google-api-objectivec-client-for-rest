@@ -525,7 +525,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsListRevisions
 
-@dynamic name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1541,7 +1541,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsListRevisions
 
-@dynamic name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

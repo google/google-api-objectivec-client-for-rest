@@ -344,6 +344,25 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIntegrations_GoogleProtobufEmpty class];
+  query.loggingName = @"integrations.projects.locations.integrations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecute
 
 @dynamic name;
@@ -422,6 +441,79 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsLift
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaLiftSuspensionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:lift";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsLift *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaLiftSuspensionResponse class];
+  query.loggingName = @"integrations.projects.locations.integrations.executions.suspensions.lift";
+  return query;
+}
+
+@end
+
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/suspensions";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaListSuspensionsResponse class];
+  query.loggingName = @"integrations.projects.locations.integrations.executions.suspensions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsResolve
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaResolveSuspensionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:resolve";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsSuspensionsResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaResolveSuspensionResponse class];
+  query.loggingName = @"integrations.projects.locations.integrations.executions.suspensions.resolve";
+  return query;
+}
+
+@end
+
 @implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -468,33 +560,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsArchive
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:archive";
-  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsArchive *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse class];
-  query.loggingName = @"integrations.projects.locations.integrations.versions.archive";
-  return query;
-}
-
-@end
-
 @implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsCreate
 
 @dynamic newIntegration, parent;
@@ -522,28 +587,39 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDeactivate
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDelete
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
++ (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:deactivate";
-  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDeactivate *query =
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse class];
-  query.loggingName = @"integrations.projects.locations.integrations.versions.deactivate";
+  query.expectedObjectClass = [GTLRIntegrations_GoogleProtobufEmpty class];
+  query.loggingName = @"integrations.projects.locations.integrations.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDownload
+
+@dynamic fileFormat, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:download";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaDownloadIntegrationVersionResponse class];
+  query.loggingName = @"integrations.projects.locations.integrations.versions.download";
   return query;
 }
 
@@ -668,11 +744,11 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsValidate
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUnpublish
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest *)object
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -681,34 +757,42 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:validate";
-  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsValidate *query =
+  NSString *pathURITemplate = @"v1alpha/{+name}:unpublish";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUnpublish *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse class];
-  query.loggingName = @"integrations.projects.locations.integrations.versions.validate";
+  query.expectedObjectClass = [GTLRIntegrations_GoogleProtobufEmpty class];
+  query.loggingName = @"integrations.projects.locations.integrations.versions.unpublish";
   return query;
 }
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsListTaskEntities
+@implementation GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUpload
 
 @dynamic parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent {
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}:listTaskEntities";
-  GTLRIntegrationsQuery_ProjectsLocationsListTaskEntities *query =
+  NSString *pathURITemplate = @"v1alpha/{+parent}/versions:upload";
+  GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse class];
-  query.loggingName = @"integrations.projects.locations.listTaskEntities";
+  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse class];
+  query.loggingName = @"integrations.projects.locations.integrations.versions.upload";
   return query;
 }
 
@@ -956,60 +1040,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsCreateBundle
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}:createBundle";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsCreateBundle *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleResponse class];
-  query.loggingName = @"integrations.projects.locations.products.createBundle";
-  return query;
-}
-
-@end
-
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsArchiveBundle
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:archiveBundle";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsArchiveBundle *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.archiveBundle";
-  return query;
-}
-
-@end
-
 @implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecute
 
 @dynamic name;
@@ -1134,25 +1164,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsnapshotsList
-
-@dynamic filter, pageSize, pageToken, parent, readMask;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/executionsnapshots";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsnapshotsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.executionsnapshots.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsSuspensionsLift
 
 @dynamic name;
@@ -1272,33 +1283,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsArchive
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:archive";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsArchive *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.versions.archive";
-  return query;
-}
-
-@end
-
 @implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsCreate
 
 @dynamic newIntegration, parent;
@@ -1326,28 +1310,20 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDeactivate
+@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDelete
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
++ (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:deactivate";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDeactivate *query =
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.versions.deactivate";
+  query.expectedObjectClass = [GTLRIntegrations_GoogleProtobufEmpty class];
+  query.loggingName = @"integrations.projects.locations.products.integrations.versions.delete";
   return query;
 }
 
@@ -1386,25 +1362,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
   query.name = name;
   query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion class];
   query.loggingName = @"integrations.projects.locations.products.integrations.versions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsGetBundle
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:getBundle";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsGetBundle *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaGetBundleResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.versions.getBundle";
   return query;
 }
 
@@ -1510,11 +1467,11 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUpdateBundle
+@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUnpublish
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleRequest *)object
++ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1523,15 +1480,15 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:updateBundle";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUpdateBundle *query =
+  NSString *pathURITemplate = @"v1alpha/{+name}:unpublish";
+  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUnpublish *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.versions.updateBundle";
+  query.expectedObjectClass = [GTLRIntegrations_GoogleProtobufEmpty class];
+  query.loggingName = @"integrations.projects.locations.products.integrations.versions.unpublish";
   return query;
 }
 
@@ -1559,33 +1516,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
   query.parent = parent;
   query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse class];
   query.loggingName = @"integrations.projects.locations.products.integrations.versions.upload";
-  return query;
-}
-
-@end
-
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsValidate
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}:validate";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsValidate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse class];
-  query.loggingName = @"integrations.projects.locations.products.integrations.versions.validate";
   return query;
 }
 
@@ -1651,25 +1581,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
   query.parent = parent;
   query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaListIntegrationTemplateVersionsResponse class];
   query.loggingName = @"integrations.projects.locations.products.integrationtemplates.versions.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsListTaskEntities
-
-@dynamic parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}:listTaskEntities";
-  GTLRIntegrationsQuery_ProjectsLocationsProductsListTaskEntities *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse class];
-  query.loggingName = @"integrations.projects.locations.products.listTaskEntities";
   return query;
 }
 

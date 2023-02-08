@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Identity and Access Management (IAM) API (iam/v1)
+//   Identity and Access Management (IAM) API (iam/v2)
 // Description:
 //   Manages identity and access control for Google Cloud Platform resources,
 //   including the creation of service accounts, which you can use to
@@ -15,519 +15,27 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRIam_AuditLogConfig.logType
-NSString * const kGTLRIam_AuditLogConfig_LogType_AdminRead     = @"ADMIN_READ";
-NSString * const kGTLRIam_AuditLogConfig_LogType_DataRead      = @"DATA_READ";
-NSString * const kGTLRIam_AuditLogConfig_LogType_DataWrite     = @"DATA_WRITE";
-NSString * const kGTLRIam_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// GTLRIam_BindingDelta.action
-NSString * const kGTLRIam_BindingDelta_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
-NSString * const kGTLRIam_BindingDelta_Action_Add              = @"ADD";
-NSString * const kGTLRIam_BindingDelta_Action_Remove           = @"REMOVE";
-
-// GTLRIam_CreateServiceAccountKeyRequest.keyAlgorithm
-NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa1024 = @"KEY_ALG_RSA_1024";
-NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa2048 = @"KEY_ALG_RSA_2048";
-NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgUnspecified = @"KEY_ALG_UNSPECIFIED";
-
-// GTLRIam_CreateServiceAccountKeyRequest.privateKeyType
-NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeGoogleCredentialsFile = @"TYPE_GOOGLE_CREDENTIALS_FILE";
-NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypePkcs12File = @"TYPE_PKCS12_FILE";
-NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRIam_LintResult.level
-NSString * const kGTLRIam_LintResult_Level_Condition        = @"CONDITION";
-NSString * const kGTLRIam_LintResult_Level_LevelUnspecified = @"LEVEL_UNSPECIFIED";
-
-// GTLRIam_LintResult.severity
-NSString * const kGTLRIam_LintResult_Severity_Deprecated       = @"DEPRECATED";
-NSString * const kGTLRIam_LintResult_Severity_Error            = @"ERROR";
-NSString * const kGTLRIam_LintResult_Severity_Info             = @"INFO";
-NSString * const kGTLRIam_LintResult_Severity_Notice           = @"NOTICE";
-NSString * const kGTLRIam_LintResult_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
-NSString * const kGTLRIam_LintResult_Severity_Warning          = @"WARNING";
-
-// GTLRIam_Permission.customRolesSupportLevel
-NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported = @"NOT_SUPPORTED";
-NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Supported = @"SUPPORTED";
-NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Testing = @"TESTING";
-
-// GTLRIam_Permission.stage
-NSString * const kGTLRIam_Permission_Stage_Alpha      = @"ALPHA";
-NSString * const kGTLRIam_Permission_Stage_Beta       = @"BETA";
-NSString * const kGTLRIam_Permission_Stage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRIam_Permission_Stage_Ga         = @"GA";
-
-// GTLRIam_QueryGrantableRolesRequest.view
-NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Basic = @"BASIC";
-NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full = @"FULL";
-
-// GTLRIam_Role.stage
-NSString * const kGTLRIam_Role_Stage_Alpha      = @"ALPHA";
-NSString * const kGTLRIam_Role_Stage_Beta       = @"BETA";
-NSString * const kGTLRIam_Role_Stage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRIam_Role_Stage_Disabled   = @"DISABLED";
-NSString * const kGTLRIam_Role_Stage_Eap        = @"EAP";
-NSString * const kGTLRIam_Role_Stage_Ga         = @"GA";
-
-// GTLRIam_ServiceAccountKey.keyAlgorithm
-NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024 = @"KEY_ALG_RSA_1024";
-NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048 = @"KEY_ALG_RSA_2048";
-NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspecified = @"KEY_ALG_UNSPECIFIED";
-
-// GTLRIam_ServiceAccountKey.keyOrigin
-NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_GoogleProvided = @"GOOGLE_PROVIDED";
-NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecified = @"ORIGIN_UNSPECIFIED";
-NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided = @"USER_PROVIDED";
-
-// GTLRIam_ServiceAccountKey.keyType
-NSString * const kGTLRIam_ServiceAccountKey_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
-NSString * const kGTLRIam_ServiceAccountKey_KeyType_SystemManaged = @"SYSTEM_MANAGED";
-NSString * const kGTLRIam_ServiceAccountKey_KeyType_UserManaged = @"USER_MANAGED";
-
-// GTLRIam_ServiceAccountKey.privateKeyType
-NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeGoogleCredentialsFile = @"TYPE_GOOGLE_CREDENTIALS_FILE";
-NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypePkcs12File = @"TYPE_PKCS12_FILE";
-NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRIam_WorkloadIdentityPool.state
-NSString * const kGTLRIam_WorkloadIdentityPool_State_Active    = @"ACTIVE";
-NSString * const kGTLRIam_WorkloadIdentityPool_State_Deleted   = @"DELETED";
-NSString * const kGTLRIam_WorkloadIdentityPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRIam_WorkloadIdentityPoolProvider.state
-NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_Active = @"ACTIVE";
-NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_Deleted = @"DELETED";
-NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRIam_GoogleIamV1BindingDelta.action
+NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_Add   = @"ADD";
+NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_Remove = @"REMOVE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_AdminAuditData
+//   GTLRIam_GoogleIamAdminV1AuditData
 //
 
-@implementation GTLRIam_AdminAuditData
+@implementation GTLRIam_GoogleIamAdminV1AuditData
 @dynamic permissionDelta;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_AuditableService
+//   GTLRIam_GoogleIamAdminV1AuditDataPermissionDelta
 //
 
-@implementation GTLRIam_AuditableService
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_AuditConfig
-//
-
-@implementation GTLRIam_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRIam_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_AuditData
-//
-
-@implementation GTLRIam_AuditData
-@dynamic policyDelta;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_AuditLogConfig
-//
-
-@implementation GTLRIam_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Aws
-//
-
-@implementation GTLRIam_Aws
-@dynamic accountId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Binding
-//
-
-@implementation GTLRIam_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_BindingDelta
-//
-
-@implementation GTLRIam_BindingDelta
-@dynamic action, condition, member, role;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_CreateRoleRequest
-//
-
-@implementation GTLRIam_CreateRoleRequest
-@dynamic role, roleId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_CreateServiceAccountKeyRequest
-//
-
-@implementation GTLRIam_CreateServiceAccountKeyRequest
-@dynamic keyAlgorithm, privateKeyType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_CreateServiceAccountRequest
-//
-
-@implementation GTLRIam_CreateServiceAccountRequest
-@dynamic accountId, serviceAccount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_DisableServiceAccountKeyRequest
-//
-
-@implementation GTLRIam_DisableServiceAccountKeyRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_DisableServiceAccountRequest
-//
-
-@implementation GTLRIam_DisableServiceAccountRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Empty
-//
-
-@implementation GTLRIam_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_EnableServiceAccountKeyRequest
-//
-
-@implementation GTLRIam_EnableServiceAccountKeyRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_EnableServiceAccountRequest
-//
-
-@implementation GTLRIam_EnableServiceAccountRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Expr
-//
-
-@implementation GTLRIam_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_LintPolicyRequest
-//
-
-@implementation GTLRIam_LintPolicyRequest
-@dynamic condition, fullResourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_LintPolicyResponse
-//
-
-@implementation GTLRIam_LintPolicyResponse
-@dynamic lintResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lintResults" : [GTLRIam_LintResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_LintResult
-//
-
-@implementation GTLRIam_LintResult
-@dynamic debugMessage, fieldName, level, locationOffset, severity,
-         validationUnitName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_ListRolesResponse
-//
-
-@implementation GTLRIam_ListRolesResponse
-@dynamic nextPageToken, roles;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"roles" : [GTLRIam_Role class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"roles";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_ListServiceAccountKeysResponse
-//
-
-@implementation GTLRIam_ListServiceAccountKeysResponse
-@dynamic keys;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"keys" : [GTLRIam_ServiceAccountKey class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_ListServiceAccountsResponse
-//
-
-@implementation GTLRIam_ListServiceAccountsResponse
-@dynamic accounts, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"accounts" : [GTLRIam_ServiceAccount class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"accounts";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_ListWorkloadIdentityPoolProvidersResponse
-//
-
-@implementation GTLRIam_ListWorkloadIdentityPoolProvidersResponse
-@dynamic nextPageToken, workloadIdentityPoolProviders;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"workloadIdentityPoolProviders" : [GTLRIam_WorkloadIdentityPoolProvider class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"workloadIdentityPoolProviders";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_ListWorkloadIdentityPoolsResponse
-//
-
-@implementation GTLRIam_ListWorkloadIdentityPoolsResponse
-@dynamic nextPageToken, workloadIdentityPools;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"workloadIdentityPools" : [GTLRIam_WorkloadIdentityPool class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"workloadIdentityPools";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Oidc
-//
-
-@implementation GTLRIam_Oidc
-@dynamic allowedAudiences, issuerUri;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedAudiences" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Operation
-//
-
-@implementation GTLRIam_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Operation_Metadata
-//
-
-@implementation GTLRIam_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Operation_Response
-//
-
-@implementation GTLRIam_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_PatchServiceAccountRequest
-//
-
-@implementation GTLRIam_PatchServiceAccountRequest
-@dynamic serviceAccount, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Permission
-//
-
-@implementation GTLRIam_Permission
-@dynamic apiDisabled, customRolesSupportLevel, descriptionProperty, name,
-         onlyInPredefinedRoles, primaryPermission, stage, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_PermissionDelta
-//
-
-@implementation GTLRIam_PermissionDelta
+@implementation GTLRIam_GoogleIamAdminV1AuditDataPermissionDelta
 @dynamic addedPermissions, removedPermissions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -543,11 +51,103 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_Policy
+//   GTLRIam_GoogleIamV1betaWorkloadIdentityPoolOperationMetadata
 //
 
-@implementation GTLRIam_Policy
-@dynamic auditConfigs, bindings, ETag, version;
+@implementation GTLRIam_GoogleIamV1betaWorkloadIdentityPoolOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV1BindingDelta
+//
+
+@implementation GTLRIam_GoogleIamV1BindingDelta
+@dynamic action, condition, member, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV1LoggingAuditData
+//
+
+@implementation GTLRIam_GoogleIamV1LoggingAuditData
+@dynamic policyDelta;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV1PolicyDelta
+//
+
+@implementation GTLRIam_GoogleIamV1PolicyDelta
+@dynamic bindingDeltas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindingDeltas" : [GTLRIam_GoogleIamV1BindingDelta class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV2DenyRule
+//
+
+@implementation GTLRIam_GoogleIamV2DenyRule
+@dynamic denialCondition, deniedPermissions, deniedPrincipals,
+         exceptionPermissions, exceptionPrincipals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deniedPermissions" : [NSString class],
+    @"deniedPrincipals" : [NSString class],
+    @"exceptionPermissions" : [NSString class],
+    @"exceptionPrincipals" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV2ListPoliciesResponse
+//
+
+@implementation GTLRIam_GoogleIamV2ListPoliciesResponse
+@dynamic nextPageToken, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRIam_GoogleIamV2Policy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV2Policy
+//
+
+@implementation GTLRIam_GoogleIamV2Policy
+@dynamic annotations, createTime, deleteTime, displayName, ETag, kind, name,
+         rules, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -555,28 +155,15 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRIam_AuditConfig class],
-    @"bindings" : [GTLRIam_Binding class]
+    @"rules" : [GTLRIam_GoogleIamV2PolicyRule class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_PolicyDelta
-//
-
-@implementation GTLRIam_PolicyDelta
-@dynamic bindingDeltas;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bindingDeltas" : [GTLRIam_BindingDelta class]
-  };
-  return map;
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -584,27 +171,13 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_QueryAuditableServicesRequest
+//   GTLRIam_GoogleIamV2Policy_Annotations
 //
 
-@implementation GTLRIam_QueryAuditableServicesRequest
-@dynamic fullResourceName;
-@end
+@implementation GTLRIam_GoogleIamV2Policy_Annotations
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_QueryAuditableServicesResponse
-//
-
-@implementation GTLRIam_QueryAuditableServicesResponse
-@dynamic services;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRIam_AuditableService class]
-  };
-  return map;
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -612,90 +185,24 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_QueryGrantableRolesRequest
+//   GTLRIam_GoogleIamV2PolicyOperationMetadata
 //
 
-@implementation GTLRIam_QueryGrantableRolesRequest
-@dynamic fullResourceName, pageSize, pageToken, view;
+@implementation GTLRIam_GoogleIamV2PolicyOperationMetadata
+@dynamic createTime;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_QueryGrantableRolesResponse
+//   GTLRIam_GoogleIamV2PolicyRule
 //
 
-@implementation GTLRIam_QueryGrantableRolesResponse
-@dynamic nextPageToken, roles;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"roles" : [GTLRIam_Role class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"roles";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_QueryTestablePermissionsRequest
-//
-
-@implementation GTLRIam_QueryTestablePermissionsRequest
-@dynamic fullResourceName, pageSize, pageToken;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_QueryTestablePermissionsResponse
-//
-
-@implementation GTLRIam_QueryTestablePermissionsResponse
-@dynamic nextPageToken, permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [GTLRIam_Permission class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"permissions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Role
-//
-
-@implementation GTLRIam_Role
-@dynamic deleted, descriptionProperty, ETag, includedPermissions, name, stage,
-         title;
+@implementation GTLRIam_GoogleIamV2PolicyRule
+@dynamic denyRule, descriptionProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"ETag" : @"etag"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"includedPermissions" : [NSString class]
-  };
-  return map;
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -703,119 +210,20 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_Saml
+//   GTLRIam_GoogleLongrunningOperation
 //
 
-@implementation GTLRIam_Saml
-@dynamic idpMetadataXml;
+@implementation GTLRIam_GoogleLongrunningOperation
+@dynamic done, error, metadata, name, response;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_ServiceAccount
+//   GTLRIam_GoogleLongrunningOperation_Metadata
 //
 
-@implementation GTLRIam_ServiceAccount
-@dynamic descriptionProperty, disabled, displayName, email, ETag, name,
-         oauth2ClientId, projectId, uniqueId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"ETag" : @"etag"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_ServiceAccountKey
-//
-
-@implementation GTLRIam_ServiceAccountKey
-@dynamic disabled, keyAlgorithm, keyOrigin, keyType, name, privateKeyData,
-         privateKeyType, publicKeyData, validAfterTime, validBeforeTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_SetIamPolicyRequest
-//
-
-@implementation GTLRIam_SetIamPolicyRequest
-@dynamic policy, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_SignBlobRequest
-//
-
-@implementation GTLRIam_SignBlobRequest
-@dynamic bytesToSign;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_SignBlobResponse
-//
-
-@implementation GTLRIam_SignBlobResponse
-@dynamic keyId, signature;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_SignJwtRequest
-//
-
-@implementation GTLRIam_SignJwtRequest
-@dynamic payload;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_SignJwtResponse
-//
-
-@implementation GTLRIam_SignJwtResponse
-@dynamic keyId, signedJwt;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Status
-//
-
-@implementation GTLRIam_Status
-@dynamic code, details, message;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRIam_Status_Details_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_Status_Details_Item
-//
-
-@implementation GTLRIam_Status_Details_Item
+@implementation GTLRIam_GoogleLongrunningOperation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -826,151 +234,60 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_TestIamPermissionsRequest
+//   GTLRIam_GoogleLongrunningOperation_Response
 //
 
-@implementation GTLRIam_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_TestIamPermissionsResponse
-//
-
-@implementation GTLRIam_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_UndeleteRoleRequest
-//
-
-@implementation GTLRIam_UndeleteRoleRequest
-@dynamic ETag;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_UndeleteServiceAccountRequest
-//
-
-@implementation GTLRIam_UndeleteServiceAccountRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_UndeleteServiceAccountResponse
-//
-
-@implementation GTLRIam_UndeleteServiceAccountResponse
-@dynamic restoredAccount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest
-//
-
-@implementation GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_UndeleteWorkloadIdentityPoolRequest
-//
-
-@implementation GTLRIam_UndeleteWorkloadIdentityPoolRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_UploadServiceAccountKeyRequest
-//
-
-@implementation GTLRIam_UploadServiceAccountKeyRequest
-@dynamic publicKeyData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_WorkloadIdentityPool
-//
-
-@implementation GTLRIam_WorkloadIdentityPool
-@dynamic descriptionProperty, disabled, displayName, name, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_WorkloadIdentityPoolOperationMetadata
-//
-
-@implementation GTLRIam_WorkloadIdentityPoolOperationMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_WorkloadIdentityPoolProvider
-//
-
-@implementation GTLRIam_WorkloadIdentityPoolProvider
-@dynamic attributeCondition, attributeMapping, aws, descriptionProperty,
-         disabled, displayName, name, oidc, saml, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_WorkloadIdentityPoolProvider_AttributeMapping
-//
-
-@implementation GTLRIam_WorkloadIdentityPoolProvider_AttributeMapping
+@implementation GTLRIam_GoogleLongrunningOperation_Response
 
 + (Class)classForAdditionalProperties {
-  return [NSString class];
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleRpcStatus
+//
+
+@implementation GTLRIam_GoogleRpcStatus
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRIam_GoogleRpcStatus_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleRpcStatus_Details_Item
+//
+
+@implementation GTLRIam_GoogleRpcStatus_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleTypeExpr
+//
+
+@implementation GTLRIam_GoogleTypeExpr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

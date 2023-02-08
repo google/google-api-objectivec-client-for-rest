@@ -60,6 +60,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypePoi = @"TARGETING_TY
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList = @"TARGETING_TYPE_PROXIMITY_LOCATION_LIST";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList = @"TARGETING_TYPE_REGIONAL_LOCATION_LIST";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion = @"TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition = @"TARGETING_TYPE_SESSION_POSITION";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange = @"TARGETING_TYPE_SUB_EXCHANGE";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier = @"TARGETING_TYPE_THIRD_PARTY_VERIFIER";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified = @"TARGETING_TYPE_UNSPECIFIED";
@@ -67,6 +68,8 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUrl = @"TARGETING_TY
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent = @"TARGETING_TYPE_USER_REWARDED_CONTENT";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize = @"TARGETING_TYPE_VIDEO_PLAYER_SIZE";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARGETING_TYPE_VIEWABILITY";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -2254,6 +2257,171 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.targetingType = targetingType;
   query.expectedObjectClass = [GTLRDisplayVideo_ListAdvertiserAssignedTargetingOptionsResponse class];
   query.loggingName = @"displayvideo.advertisers.targetingTypes.assignedTargetingOptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsGet
+
+@dynamic advertiserId, youtubeAdGroupAdId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                   youtubeAdGroupAdId:(long long)youtubeAdGroupAdId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"youtubeAdGroupAdId"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroupAds/{+youtubeAdGroupAdId}";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.youtubeAdGroupAdId = youtubeAdGroupAdId;
+  query.expectedObjectClass = [GTLRDisplayVideo_YoutubeAdGroupAd class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroupAds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsList
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroupAds";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupAdsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListYoutubeAdGroupAdsResponse class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroupAds.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsBulkListAdGroupAssignedTargetingOptions
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken, youtubeAdGroupIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"youtubeAdGroupIds" : [NSNumber class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroups:bulkListAdGroupAssignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsBulkListAdGroupAssignedTargetingOptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_BulkListAdGroupAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroups.bulkListAdGroupAssignedTargetingOptions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsGet
+
+@dynamic advertiserId, youtubeAdGroupId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     youtubeAdGroupId:(long long)youtubeAdGroupId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"youtubeAdGroupId"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroups/{+youtubeAdGroupId}";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.youtubeAdGroupId = youtubeAdGroupId;
+  query.expectedObjectClass = [GTLRDisplayVideo_YoutubeAdGroup class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsList
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroups";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListYoutubeAdGroupsResponse class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsGet
+
+@dynamic advertiserId, assignedTargetingOptionId, targetingType,
+         youtubeAdGroupId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     youtubeAdGroupId:(long long)youtubeAdGroupId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"assignedTargetingOptionId", @"targetingType",
+    @"youtubeAdGroupId"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroups/{+youtubeAdGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.youtubeAdGroupId = youtubeAdGroupId;
+  query.targetingType = targetingType;
+  query.assignedTargetingOptionId = assignedTargetingOptionId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsList
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken, targetingType,
+         youtubeAdGroupId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     youtubeAdGroupId:(long long)youtubeAdGroupId
+                        targetingType:(NSString *)targetingType {
+  NSArray *pathParams = @[
+    @"advertiserId", @"targetingType", @"youtubeAdGroupId"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/youtubeAdGroups/{+youtubeAdGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.youtubeAdGroupId = youtubeAdGroupId;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListYoutubeAdGroupAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.list";
   return query;
 }
 

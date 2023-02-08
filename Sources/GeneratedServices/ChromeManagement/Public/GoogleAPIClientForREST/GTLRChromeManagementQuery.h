@@ -459,13 +459,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Query string to filter results, AND-separated fields in EBNF syntax. Note:
  *  OR operations are not supported in this filter. Supported filter fields: *
  *  app_name * app_type * install_type * number_of_permissions *
- *  total_install_count * latest_profile_active_date * permission_name
+ *  total_install_count * latest_profile_active_date * permission_name * app_id
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field used to order results. Supported order by fields: * app_name *
- *  app_type * install_type * number_of_permissions * total_install_count
+ *  app_type * install_type * number_of_permissions * total_install_count *
+ *  app_id
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -680,8 +681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 /**
  *  Optional. Only include resources that match the filter. Supported filter
- *  fields: * device_id * user_id * device_org_unit_id * user_org_unit_id *
- *  timestamp * event_type
+ *  fields: - device_id - user_id - device_org_unit_id - user_org_unit_id -
+ *  timestamp - event_type The "timestamp" filter accepts either Epoch
+ *  milliseconds or RFC 3339 formatted time surrounded by simple double quotes.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -717,6 +719,96 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    associated to the account making the request.
  *
  *  @return GTLRChromeManagementQuery_CustomersTelemetryEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get telemetry user.
+ *
+ *  Method: chromemanagement.customers.telemetry.users.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementTelemetryReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersTelemetryUsersGet : GTLRChromeManagementQuery
+
+/** Required. Name of the `TelemetryUser` to return. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Read mask to specify which fields to return.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser.
+ *
+ *  Get telemetry user.
+ *
+ *  @param name Required. Name of the `TelemetryUser` to return.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersTelemetryUsersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all telemetry users.
+ *
+ *  Method: chromemanagement.customers.telemetry.users.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementTelemetryReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersTelemetryUsersList : GTLRChromeManagementQuery
+
+/**
+ *  Only include resources that match the filter. Supported filter fields: -
+ *  user_id - user_org_unit_id
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Maximum number of results to return. Default value is 100. Maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Customer id or "my_customer" to use the customer associated to the
+ *  account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Read mask to specify which fields to return.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryUsersResponse.
+ *
+ *  List all telemetry users.
+ *
+ *  @param parent Required. Customer id or "my_customer" to use the customer
+ *    associated to the account making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersTelemetryUsersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

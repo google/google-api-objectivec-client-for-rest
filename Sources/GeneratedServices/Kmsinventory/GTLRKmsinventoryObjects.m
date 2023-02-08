@@ -137,8 +137,16 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 //
 
 @implementation GTLRKmsinventory_GoogleCloudKmsInventoryV1ProtectedResource
-@dynamic cloudProduct, createTime, cryptoKeyVersion, labels, location, name,
-         project, projectId, resourceType;
+@dynamic cloudProduct, createTime, cryptoKeyVersion, cryptoKeyVersions, labels,
+         location, name, project, projectId, resourceType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cryptoKeyVersions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

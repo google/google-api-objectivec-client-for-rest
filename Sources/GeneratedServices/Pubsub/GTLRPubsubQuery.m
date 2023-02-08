@@ -29,6 +29,33 @@ NSString * const kGTLRPubsubViewSchemaViewUnspecified = @"SCHEMA_VIEW_UNSPECIFIE
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsSchemasCommit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsub_CommitSchemaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:commit";
+  GTLRPubsubQuery_ProjectsSchemasCommit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Schema class];
+  query.loggingName = @"pubsub.projects.schemas.commit";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsSchemasCreate
 
 @dynamic parent, schemaId;
@@ -70,6 +97,25 @@ NSString * const kGTLRPubsubViewSchemaViewUnspecified = @"SCHEMA_VIEW_UNSPECIFIE
   query.name = name;
   query.expectedObjectClass = [GTLRPubsub_Empty class];
   query.loggingName = @"pubsub.projects.schemas.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasDeleteRevision
+
+@dynamic name, revisionId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deleteRevision";
+  GTLRPubsubQuery_ProjectsSchemasDeleteRevision *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Schema class];
+  query.loggingName = @"pubsub.projects.schemas.deleteRevision";
   return query;
 }
 
@@ -131,6 +177,52 @@ NSString * const kGTLRPubsubViewSchemaViewUnspecified = @"SCHEMA_VIEW_UNSPECIFIE
   query.parent = parent;
   query.expectedObjectClass = [GTLRPubsub_ListSchemasResponse class];
   query.loggingName = @"pubsub.projects.schemas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasListRevisions
+
+@dynamic name, pageSize, pageToken, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:listRevisions";
+  GTLRPubsubQuery_ProjectsSchemasListRevisions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_ListSchemaRevisionsResponse class];
+  query.loggingName = @"pubsub.projects.schemas.listRevisions";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasRollback
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsub_RollbackSchemaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:rollback";
+  GTLRPubsubQuery_ProjectsSchemasRollback *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Schema class];
+  query.loggingName = @"pubsub.projects.schemas.rollback";
   return query;
 }
 

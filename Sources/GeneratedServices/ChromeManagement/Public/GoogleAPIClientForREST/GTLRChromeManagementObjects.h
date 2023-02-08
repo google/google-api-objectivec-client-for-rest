@@ -48,6 +48,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus;
+@class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
@@ -57,6 +58,8 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo;
@@ -667,12 +670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "EVENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified;
-/**
- *  Triggered immediately on any changes to a network connection.
- *
- *  Value: "NETWORK_CONNECTION_STATE_CHANGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkConnectionStateChange;
 /**
  *  Triggered when a new HTTPS latency problem was detected or the device has
  *  recovered form an existing HTTPS latency problem.
@@ -2063,10 +2060,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  and this will change over time as the device is utilized. * Data for this
  *  field is controlled via policy:
  *  [ReportDeviceGraphicsInfo](https://chromeenterprise.google/policies/#ReportDeviceGraphicsInfo)
- *  * Data Collection Frequency: Only at Upload * Default Data Reporting
- *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
- *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  * Data Collection Frequency: 3 hours. * Default Data Reporting Frequency: 3
+ *  hours - Policy Controlled: Yes * Cache: If the device is offline, the
+ *  collected data is stored locally, and will be reported when the device is
+ *  next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport : GTLRObject
 
@@ -2266,6 +2263,30 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent *> *telemetryEvents;
+
+@end
+
+
+/**
+ *  Response message for listing telemetry users for a customer.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "telemetryUsers" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryUsersResponse : GTLRCollectionObject
+
+/** Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Telemetry users returned in the response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser *> *telemetryUsers;
 
 @end
 
@@ -2614,6 +2635,20 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Peripherals report.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport : GTLRObject
+
+/** Output only. Timestamp of when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Reports of all usb connected devices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport *> *usbPeripheralReport;
+
+@end
+
+
+/**
  *  Status data for storage. * This field is telemetry information and this will
  *  change over time as the device is utilized. * Data for this field is
  *  controlled via policy:
@@ -2778,6 +2813,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus *> *osUpdateStatus;
 
 /**
+ *  Output only. Peripherals reports collected periodically sorted in a
+ *  decreasing order of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport *> *peripheralsReport;
+
+/**
  *  Output only. Device serial number. This value is the same as the Admin
  *  Console's Serial Number in the ChromeOS Devices tab.
  */
@@ -2835,9 +2876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        seconds. (Value: "AUDIO_SEVERE_UNDERRUN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified
  *        Event type unknown. (Value: "EVENT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkConnectionStateChange
- *        Triggered immediately on any changes to a network connection. (Value:
- *        "NETWORK_CONNECTION_STATE_CHANGE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange
  *        Triggered when a new HTTPS latency problem was detected or the device
  *        has recovered form an existing HTTPS latency problem. (Value:
@@ -2908,6 +2946,58 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** List of usb devices that were either added or removed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport *> *usbPeripheralReport;
+
+@end
+
+
+/**
+ *  Telemetry data collected from a managed user.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser : GTLRObject
+
+/** G Suite Customer whose enterprise enrolled the device. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Resource name of the user. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Organization unit of the user. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/** Telemetry data collected from a managed user and device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice *> *userDevice;
+
+/** Email address of the user. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/** Directory ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Telemetry data collected for a managed user and device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice : GTLRObject
+
+/**
+ *  Output only. Audio reports collected periodically sorted in a decreasing
+ *  order of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport *> *audioStatusReport;
+
+/**
+ *  The unique Directory API ID of the device. This value is the same as the
+ *  Admin Console's Directory API ID in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Output only. Peripherals reports collected periodically sorted in a
+ *  decreasing order of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport *> *peripheralsReport;
 
 @end
 

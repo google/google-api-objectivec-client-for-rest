@@ -141,7 +141,7 @@
 
 @implementation GTLROrgPolicyAPIQuery_FoldersPoliciesPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy *)object
                            name:(NSString *)name {
@@ -401,7 +401,7 @@
 
 @implementation GTLROrgPolicyAPIQuery_OrganizationsPoliciesPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy *)object
                            name:(NSString *)name {
@@ -550,7 +550,7 @@
 
 @implementation GTLROrgPolicyAPIQuery_ProjectsPoliciesPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy *)object
                            name:(NSString *)name {

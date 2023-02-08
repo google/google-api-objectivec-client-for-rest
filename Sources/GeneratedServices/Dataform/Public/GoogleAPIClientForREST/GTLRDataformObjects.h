@@ -47,6 +47,7 @@
 @class GTLRDataform_WorkflowInvocation;
 @class GTLRDataform_WorkflowInvocationAction;
 @class GTLRDataform_Workspace;
+@class GTLRDataform_WorkspaceCompilationOverrides;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1574,6 +1575,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *npmrcEnvironmentVariablesSecretVersion;
 
+/**
+ *  Optional. If set, fields of `workspace_compilation_overrides` override the
+ *  default compilation settings that are specified in dataform.json when
+ *  creating workspace-scoped compilation results. See documentation for
+ *  `WorkspaceCompilationOverrides` for more information.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_WorkspaceCompilationOverrides *workspaceCompilationOverrides;
+
 @end
 
 
@@ -1898,6 +1907,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Configures workspace compilation overrides for a repository. Primarily used
+ *  by the UI (`console.cloud.google.com`). `schema_suffix` and `table_prefix`
+ *  can have a special expression - `${workspaceName}`, which refers to the
+ *  workspace name from which the compilation results will be created. API
+ *  callers are expected to resolve the expression in these overrides and
+ *  provide them explicitly in `code_compilation_config`
+ *  (https://cloud.google.com/dataform/reference/rest/v1beta1/projects.locations.repositories.compilationResults#codecompilationconfig)
+ *  when creating workspace-scoped compilation results.
+ */
+@interface GTLRDataform_WorkspaceCompilationOverrides : GTLRObject
+
+/** Optional. The default database (Google Cloud project ID). */
+@property(nonatomic, copy, nullable) NSString *defaultDatabase;
+
+/**
+ *  Optional. The suffix that should be appended to all schema (BigQuery dataset
+ *  ID) names.
+ */
+@property(nonatomic, copy, nullable) NSString *schemaSuffix;
+
+/** Optional. The prefix that should be prepended to all table names. */
+@property(nonatomic, copy, nullable) NSString *tablePrefix;
 
 @end
 

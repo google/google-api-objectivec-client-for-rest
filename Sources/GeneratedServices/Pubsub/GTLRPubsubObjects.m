@@ -89,6 +89,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_CommitSchemaRequest
+//
+
+@implementation GTLRPubsub_CommitSchemaRequest
+@dynamic schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_CreateSnapshotRequest
 //
 
@@ -159,6 +169,28 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ListSchemaRevisionsResponse
+//
+
+@implementation GTLRPubsub_ListSchemaRevisionsResponse
+@dynamic nextPageToken, schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRPubsub_Schema class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"schemas";
 }
 
 @end
@@ -495,6 +527,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_RetryPolicy
 @dynamic maximumBackoff, minimumBackoff;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_RollbackSchemaRequest
+//
+
+@implementation GTLRPubsub_RollbackSchemaRequest
+@dynamic revisionId;
 @end
 
 

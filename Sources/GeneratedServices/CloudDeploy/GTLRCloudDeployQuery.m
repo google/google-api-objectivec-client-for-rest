@@ -273,7 +273,7 @@
 
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate
 
-@dynamic parent, requestId, rolloutId, validateOnly;
+@dynamic parent, requestId, rolloutId, startingPhaseId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudDeploy_Rollout *)object
                          parent:(NSString *)parent {

@@ -50,8 +50,22 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 //
 
 @implementation GTLRWorkflowExecutions_Execution
-@dynamic argument, callLogLevel, duration, endTime, error, name, result,
+@dynamic argument, callLogLevel, duration, endTime, error, labels, name, result,
          startTime, state, status, workflowRevisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_Execution_Labels
+//
+
+@implementation GTLRWorkflowExecutions_Execution_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

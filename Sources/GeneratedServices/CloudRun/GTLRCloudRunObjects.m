@@ -1166,6 +1166,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleLongrunningWaitOperationRequest
+//
+
+@implementation GTLRCloudRun_GoogleLongrunningWaitOperationRequest
+@dynamic timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleProtobufEmpty
 //
 

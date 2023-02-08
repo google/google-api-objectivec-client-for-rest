@@ -295,8 +295,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -311,9 +313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -322,6 +322,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Request for CommitSchema method.
+ */
+@interface GTLRPubsub_CommitSchemaRequest : GTLRObject
+
+/** Required. The schema revision to commit. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
 
 @end
 
@@ -482,6 +493,33 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Response for the `ListSchemaRevisions` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "schemas" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPubsub_ListSchemaRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The revisions of the schema.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Schema *> *schemas;
 
 @end
 
@@ -1062,6 +1100,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  should be between 0 and 600 seconds. Defaults to 10 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minimumBackoff;
+
+@end
+
+
+/**
+ *  Request for the `RollbackSchema` method.
+ */
+@interface GTLRPubsub_RollbackSchemaRequest : GTLRObject
+
+/**
+ *  Required. The revision ID to roll back to. It must be a revision of the same
+ *  schema. Example: c7cfa2a8
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 @end
 

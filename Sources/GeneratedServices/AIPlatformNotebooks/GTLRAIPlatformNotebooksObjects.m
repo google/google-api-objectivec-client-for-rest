@@ -930,6 +930,16 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ReportInstanceEventRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_ReportInstanceEventRequest
+@dynamic event, vmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_ReportInstanceInfoRequest
 //
 
@@ -1015,8 +1025,22 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_Runtime
-@dynamic accessConfig, createTime, healthState, metrics, name, softwareConfig,
-         state, updateTime, virtualMachine;
+@dynamic accessConfig, createTime, healthState, labels, metrics, name,
+         softwareConfig, state, updateTime, virtualMachine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_Runtime_Labels
+//
+
+@implementation GTLRAIPlatformNotebooks_Runtime_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

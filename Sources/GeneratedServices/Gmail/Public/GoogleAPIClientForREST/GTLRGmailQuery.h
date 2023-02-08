@@ -1287,7 +1287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc`
- *  headers.
+ *  headers. For example usage, see [Sending
+ *  email](https://developers.google.com/gmail/api/guides/sending).
  *
  *  Method: gmail.users.messages.send
  *
@@ -1312,7 +1313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_Message.
  *
  *  Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc`
- *  headers.
+ *  headers. For example usage, see [Sending
+ *  email](https://developers.google.com/gmail/api/guides/sending).
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -1417,7 +1419,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  to send mail from the user account. Google publishes the S/MIME certificate
  *  to a shared domain-wide directory so that people within a Google Workspace
  *  organization can encrypt and send mail to the identity.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.identities.create
  *
@@ -1442,7 +1443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  to send mail from the user account. Google publishes the S/MIME certificate
  *  to a shared domain-wide directory so that people within a Google Workspace
  *  organization can encrypt and send mail to the identity.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param object The @c GTLRGmail_CseIdentity to include in the query.
  *  @param userId The requester's primary email address. To indicate the
@@ -1460,7 +1460,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  longer use the identity to send encrypted messages. You cannot restore the
  *  identity after you delete it. Instead, use the CreateCseIdentity method to
  *  create another identity with the same configuration.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.identities.delete
  *
@@ -1492,7 +1491,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  longer use the identity to send encrypted messages. You cannot restore the
  *  identity after you delete it. Instead, use the CreateCseIdentity method to
  *  create another identity with the same configuration.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param userId The requester's primary email address. To indicate the
  *    authenticated user, you can use the special value `me`. (Default me)
@@ -1508,7 +1506,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Retrieves a client-side encryption identity configuration.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.identities.get
  *
@@ -1539,7 +1536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_CseIdentity.
  *
  *  Retrieves a client-side encryption identity configuration.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param userId The requester's primary email address. To indicate the
  *    authenticated user, you can use the special value `me`. (Default me)
@@ -1555,7 +1551,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Lists the client-side encrypted identities for an authenticated user.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.identities.list
  *
@@ -1594,7 +1589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_ListCseIdentitiesResponse.
  *
  *  Lists the client-side encrypted identities for an authenticated user.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param userId The requester's primary email address. To indicate the
  *    authenticated user, you can use the special value `me`. (Default me)
@@ -1613,7 +1607,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Associates a different key pair with an existing client-side encryption
  *  identity. The updated key pair must validate against Google's [S/MIME
  *  certificate profiles](https://support.google.com/a/answer/7300887).
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.identities.patch
  *
@@ -1640,7 +1633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Associates a different key pair with an existing client-side encryption
  *  identity. The updated key pair must validate against Google's [S/MIME
  *  certificate profiles](https://support.google.com/a/answer/7300887).
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param object The @c GTLRGmail_CseIdentity to include in the query.
  *  @param userId The requester's primary email address. To indicate the
@@ -1659,7 +1651,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Creates and uploads a client-side encryption S/MIME public key certificate
  *  chain and private key metadata for the authenticated user.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.keypairs.create
  *
@@ -1682,7 +1673,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Creates and uploads a client-side encryption S/MIME public key certificate
  *  chain and private key metadata for the authenticated user.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param object The @c GTLRGmail_CseKeyPair to include in the query.
  *  @param userId The requester's primary email address. To indicate the
@@ -1701,7 +1691,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the
  *  key pair. After 30 days, you can permanently delete the key pair by using
  *  the ObliterateCseKeyPair method.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.keypairs.disable
  *
@@ -1730,7 +1719,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the
  *  key pair. After 30 days, you can permanently delete the key pair by using
  *  the ObliterateCseKeyPair method.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param object The @c GTLRGmail_DisableCseKeyPairRequest to include in the
  *    query.
@@ -1749,7 +1737,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Turns on a client-side encryption key pair that was turned off. The key pair
  *  becomes active again for any associated client-side encryption identities.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.keypairs.enable
  *
@@ -1775,7 +1762,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Turns on a client-side encryption key pair that was turned off. The key pair
  *  becomes active again for any associated client-side encryption identities.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param object The @c GTLRGmail_EnableCseKeyPairRequest to include in the
  *    query.
@@ -1793,7 +1779,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Retrieves an existing client-side encryption key pair.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.keypairs.get
  *
@@ -1821,7 +1806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_CseKeyPair.
  *
  *  Retrieves an existing client-side encryption key pair.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param userId The requester's primary email address. To indicate the
  *    authenticated user, you can use the special value `me`. (Default me)
@@ -1836,7 +1820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Lists client-side encryption key pairs for an authenticated user.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.keypairs.list
  *
@@ -1875,7 +1858,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_ListCseKeyPairsResponse.
  *
  *  Lists client-side encryption key pairs for an authenticated user.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param userId The requester's primary email address. To indicate the
  *    authenticated user, you can use the special value `me`. (Default me)
@@ -1897,7 +1879,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Gmail can't restore or decrypt any messages that were encrypted by an
  *  obliterated key. Authenticated users and Google Workspace administrators
  *  lose access to reading the encrypted messages.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  Method: gmail.users.settings.cse.keypairs.obliterate
  *
@@ -1928,7 +1909,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Gmail can't restore or decrypt any messages that were encrypted by an
  *  obliterated key. Authenticated users and Google Workspace administrators
  *  lose access to reading the encrypted messages.
- *  [Beta](https://workspace.google.com/terms/service-terms/index.html).
  *
  *  @param object The @c GTLRGmail_ObliterateCseKeyPairRequest to include in the
  *    query.

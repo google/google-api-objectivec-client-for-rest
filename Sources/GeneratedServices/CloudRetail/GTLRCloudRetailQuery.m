@@ -632,6 +632,179 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsCreate
+
+@dynamic dryRun, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Model *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/models";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleProtobufEmpty class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/models";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ListModelsResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Model *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Model class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPause
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:pause";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsPause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Model class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsResume
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ResumeModelRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:resume";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Model class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.resume";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsTune
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2TuneModelRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:tune";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsTune *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.tune";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsOperationsGet
 
 @dynamic name;

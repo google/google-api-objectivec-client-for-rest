@@ -625,6 +625,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *rolloutId;
 
 /**
+ *  Optional. The starting phase ID for the `Rollout`. If empty the `Rollout`
+ *  will start at the first phase.
+ */
+@property(nonatomic, copy, nullable) NSString *startingPhaseId;
+
+/**
  *  Optional. If set to true, the request is validated and the user is provided
  *  with an expected result, but no actual change is made.
  */

@@ -2,11 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Idea Hub API (ideahub/v1beta)
-// Description:
-//   This is an invitation-only API.
+//   Advisory Notifications API (advisorynotifications/v1)
 // Documentation:
-//   https://console.cloud.google.com/apis/library/ideahub.googleapis.com
+//   https://cloud.google.com/advisory-notifications
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -21,18 +19,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
 /**
- *  Service for executing Idea Hub API queries.
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
- *  This is an invitation-only API.
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-@interface GTLRIdeahubService : GTLRService
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdvisorynotificationsCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRAdvisorynotificationsService
+//
+
+/**
+ *  Service for executing Advisory Notifications API queries.
+ */
+@interface GTLRAdvisorynotificationsService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRIdeahubQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRAdvisorynotificationsQuery.h. The query can the be sent with
+// GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

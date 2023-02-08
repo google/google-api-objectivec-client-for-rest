@@ -443,6 +443,33 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportEvent
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ReportInstanceEventRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:reportEvent";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportEvent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.reportEvent";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReset
 
 @dynamic name;

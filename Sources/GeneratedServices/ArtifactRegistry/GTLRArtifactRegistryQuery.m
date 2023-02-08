@@ -67,6 +67,25 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsGetVpcscConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsGetVpcscConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_VPCSCConfig class];
+  query.loggingName = @"artifactregistry.projects.locations.getVpcscConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -844,6 +863,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRArtifactRegistry_UploadYumArtifactMediaResponse class];
   query.loggingName = @"artifactregistry.projects.locations.repositories.yumArtifacts.upload";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsUpdateVpcscConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_VPCSCConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsUpdateVpcscConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_VPCSCConfig class];
+  query.loggingName = @"artifactregistry.projects.locations.updateVpcscConfig";
   return query;
 }
 

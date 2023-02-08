@@ -169,7 +169,6 @@
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegration;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationAlertConfig;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationAlertConfigThresholdValue;
-@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationParameter;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion;
@@ -4297,7 +4296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /**
  *  Attributes are additional options that can be associated with each event
  *  property. For more information, see
- *  go/integration-platform/event_bus/attributes_registry.md. Next available: 8
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoAttributes : GTLRObject
 
@@ -4340,7 +4338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  */
 @property(nonatomic, strong, nullable) NSNumber *isSearchable;
 
-/** See go/integration-platform/analytics/logging_task.md for details. */
+/** See */
 @property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoLogSettings *logSettings;
 
 /**
@@ -4396,8 +4394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  also, the duration threshold value should be specified in the
  *  threshold_duration_ms member below. For *AVERAGE_DURATION metrics, these
  *  fields should not be set at all. A different member, threshold_duration_ms,
- *  must be set in the EventAlertConfig or the TaskAlertConfig. See
- *  go/eventbus-alert-config-examples
+ *  must be set in the EventAlertConfig or the TaskAlertConfig.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue : GTLRObject
 
@@ -4967,8 +4964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  LINT.IfChange This message is used for storing key value pair properties for
- *  each Event / Task in the EventBus. Please see
- *  go/cloud-crm-eng/platform/event_bus.md for more details.
+ *  each Event / Task in the EventBus.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoEventBusProperties : GTLRObject
 
@@ -5159,7 +5155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /**
  *  LINT.IfChange This message is used for processing and persisting (when
  *  applicable) key value pair parameters for each event in the event bus.
- *  Please see go/integration-platform/event_bus.md for more details. Next id: 4
+ *  Please see
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoEventParameters : GTLRObject
 
@@ -5299,7 +5295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Information about the value and type of the field. Next Id: 8
+ *  Information about the value and type of the field.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoField : GTLRObject
 
@@ -5318,8 +5314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  This holds the default values for the fields. This value is supplied by user
- *  so may or may not contain PII or SPII data. This field will be scrubbed
- *  using DatapolScrubber#maybeScrub() with go/proto-sanitizer#level3
+ *  so may or may not contain PII or SPII data.
  */
 @property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoParameterValueType *defaultValue;
 
@@ -5388,14 +5383,14 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  This is the transform expression to fetch the input field value. for e.g.
- *  $param1$.CONCAT('test'). See go/transform-functions-design for more details.
- *  Keep points - 1. Only input field can have a transform expression. 2. If a
- *  transform expression is provided, reference_key will be ignored. 3. If no
- *  value is returned after evaluation of transform expression, default_value
- *  can be mapped if provided. 4. The field_type should be the type of the final
- *  object returned after the transform expression is evaluated. Scrubs the
- *  transform expression before logging as value provided by user so may or may
- *  not contain PII or SPII data.
+ *  $param1$.CONCAT('test'). Keep points - 1. Only input field can have a
+ *  transform expression. 2. If a transform expression is provided,
+ *  reference_key will be ignored. 3. If no value is returned after evaluation
+ *  of transform expression, default_value can be mapped if provided. 4. The
+ *  field_type should be the type of the final object returned after the
+ *  transform expression is evaluated. Scrubs the transform expression before
+ *  logging as value provided by user so may or may not contain PII or SPII
+ *  data.
  */
 @property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoTransformExpression *transformExpression;
 
@@ -5404,7 +5399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  Field Mapping Config to map multiple output fields values from input fields
- *  values. Next id: 2
+ *  values.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoFieldMappingConfig : GTLRObject
 
@@ -5647,8 +5642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /**
  *  The LogSettings define the logging attributes for an event property. These
  *  attributes are used to map the property to the parameter in the log proto.
- *  Also used to define scrubbing/truncation behavior and PII information. See
- *  go/integration-platform/analytics/logging_task.md for details.
+ *  Also used to define scrubbing/truncation behavior and PII information.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoLogSettings : GTLRObject
 
@@ -5757,7 +5751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Mapped field is a pair of input field and output field. Next Id: 3
+ *  Mapped field is a pair of input field and output field.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoMappedField : GTLRObject
 
@@ -6725,8 +6719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  Message to be used to configure alerting in the {\@code TaskConfig} protos
- *  for tasks in an event. See go/eventbus-alert-config-examples for examples of
- *  the different alerts that can be configured.
+ *  for tasks in an event.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoTaskAlertConfig : GTLRObject
 
@@ -6925,7 +6918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  TaskMetadata are attributes that are associated to every common Task we
- *  have. Next available: 26
+ *  have.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata : GTLRObject
 
@@ -7051,7 +7044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /**
  *  URL to gstatic image icon for this task. This icon shows up on the task list
  *  panel along with the task name in the Workflow Editor screen. Use the 24p,
- *  2x, gray color icon image format. See go/icons.
+ *  2x, gray color icon image format.
  */
 @property(nonatomic, copy, nullable) NSString *iconLink;
 
@@ -7148,7 +7141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  Task authors would use this type to configure the UI for a particular task
  *  by specifying what UI config modules should be included to compose the UI.
  *  Learn more about config module framework:
- *  go/integration-platform-config-module-framework
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoTaskUiConfig : GTLRObject
 
@@ -7365,8 +7357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  Message to be used to configure custom alerting in the {\@code EventConfig}
- *  protos for an event. See go/eventbus-alert-config-examples for examples of
- *  the different alerts that can be configured.
+ *  protos for an event.
  */
 @interface GTLRIntegrations_EnterpriseCrmEventbusProtoWorkflowAlertConfig : GTLRObject
 
@@ -7488,10 +7479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  */
 @property(nonatomic, copy, nullable) NSString *thresholdType;
 
-/**
- *  The metric value, above or below which the alert should be triggered. See
- *  go/eventbus-alert-config-examples.
- */
+/** The metric value, above or below which the alert should be triggered. */
 @property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue *thresholdValue;
 
 @property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList *warningEnumList;
@@ -7870,7 +7858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /**
  *  LINT.IfChange This message is used for processing and persisting (when
  *  applicable) key value pair parameters for each event in the event bus.
- *  Please see go/integration-platform/event_bus.md for more details. Next id: 4
+ *  Please see
  */
 @interface GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoEventParameters : GTLRObject
 
@@ -8348,7 +8336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /**
  *  The task configuration details. This is not the implementation of Task.
- *  There might be multiple TaskConfigs for the same Task. Next available id: 27
+ *  There might be multiple TaskConfigs for the same Task.
  */
 @interface GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig : GTLRObject
 
@@ -8525,8 +8513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /**
  *  A string template that allows user to configure task parameters (with either
  *  literal default values or tokens which will be resolved at execution time)
- *  for the task. It will eventually replace the old "parameters" field. Please
- *  refer to go/eventbus-task-spec-example for detailed usage example.
+ *  for the task. It will eventually replace the old "parameters" field.
  */
 @property(nonatomic, copy, nullable) NSString *taskSpec;
 
@@ -8843,7 +8830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @property(nonatomic, copy, nullable) NSString *inOutType;
 
 /**
- *  Whether this parameter is a transient parameter. go/ip-transient-parameters
+ *  Whether this parameter is a transient parameter.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9497,34 +9484,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Request for ArchiveBundle.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest : GTLRObject
-@end
-
-
-/**
- *  Response for ArchiveBundle.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleResponse : GTLRObject
-@end
-
-
-/**
- *  Request for ArchiveIntegrationVersion.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest : GTLRObject
-@end
-
-
-/**
- *  Response for ArchiveIntegrationVersion.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse : GTLRObject
-@end
-
-
-/**
  *  Status for the execution attempt.
  */
 @interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaAttemptStats : GTLRObject
@@ -9921,43 +9880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE
- *  SERVICE. Request to create a new Bundle.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleRequest : GTLRObject
-
-/** Required. name of the bundle that will be created */
-@property(nonatomic, copy, nullable) NSString *bundleId;
-
-/** A list of integrations that can be executed by the bundle */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *integrations;
-
-/**
- *  Optional. The prefix for the SA, it should be in the format "o". This is an
- *  optional field, and if empty service account will be created per project,
- *  where we are creating bundle. This should only be used as the org ID for
- *  which we want to run the integrations in the bundle.
- */
-@property(nonatomic, copy, nullable) NSString *secondaryCustomerOrgId;
-
-@end
-
-
-/**
- *  Response for create bundle.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateBundleResponse : GTLRObject
-
-/** It contains the bundle data */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig *config;
-
-/** trigger_id of the bundle task */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-@end
-
-
-/**
  *  Defines parameters for a single, canonical credential.
  */
 @interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaCredential : GTLRObject
@@ -10025,20 +9947,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /** Username and password credential */
 @property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaUsernameAndPassword *usernameAndPassword;
 
-@end
-
-
-/**
- *  Request for DeactivateIntegrationVersion.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest : GTLRObject
-@end
-
-
-/**
- *  Response for DeactivateIntegrationVersion.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse : GTLRObject
 @end
 
 
@@ -10492,17 +10400,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Response for GetBundle.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaGetBundleResponse : GTLRObject
-
-/** It contains the bundle data */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig *config;
-
-@end
-
-
-/**
  *  The integration definition.
  */
 @interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegration : GTLRObject
@@ -10679,25 +10576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *percentage;
-
-@end
-
-
-/**
- *  This proto holds the core runner data in the bundle task. It is not expected
- *  to be directly edited by the user. Instead, a default value will be provided
- *  at the task creation time.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig : GTLRObject
-
-/** A bundle of integrations that can be executed by the task at runtime. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *integrations;
-
-/**
- *  Output only. The service account created and owned by IP and added to the
- *  customers GCP project.
- */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -11263,30 +11141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Response for listing the integration execution snapshot.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "executionSnapshots" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse : GTLRCollectionObject
-
-/**
- *  Required. The detailed information for the execution snapshot.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmEventbusProtoEventExecutionSnapshot *> *executionSnapshots;
-
-/** The token returned in the previous response. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Response for listing the integration execution data.
  */
 @interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaListExecutionsResponse : GTLRObject
@@ -11505,18 +11359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_GoogleCloudIntegrationsV1alphaSuspension *> *suspensions;
-
-@end
-
-
-/**
- *  This is a UI only method and will be moved away. Response for
- *  ListTaskEntities.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse : GTLRObject
-
-/** The list of the tasks. */
-@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskEntity *> *taskEntities;
 
 @end
 
@@ -12574,25 +12416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. Request message for Bundle
- *  update
+ *  Request for UnpublishIntegrationVersion.
  */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleRequest : GTLRObject
-
-/** It contains the updated bundle data */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig *config;
-
-@end
-
-
-/**
- *  Response message for Bundle update
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaUpdateBundleResponse : GTLRObject
-
-/** Contains updated bundle config */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationBundleConfig *config;
-
+@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest : GTLRObject
 @end
 
 
@@ -12642,20 +12468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 /** Username to be used */
 @property(nonatomic, copy, nullable) NSString *username;
 
-@end
-
-
-/**
- *  Request for ValidateIntegrationVersion.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest : GTLRObject
-@end
-
-
-/**
- *  Response for ValidateIntegrationVersion.
- */
-@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse : GTLRObject
 @end
 
 

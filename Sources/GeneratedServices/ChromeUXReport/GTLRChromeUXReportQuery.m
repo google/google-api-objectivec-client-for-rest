@@ -17,6 +17,28 @@
 
 @end
 
+@implementation GTLRChromeUXReportQuery_RecordsQueryHistoryRecord
+
++ (instancetype)queryWithObject:(GTLRChromeUXReport_QueryHistoryRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/records:queryHistoryRecord";
+  GTLRChromeUXReportQuery_RecordsQueryHistoryRecord *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRChromeUXReport_QueryHistoryResponse class];
+  query.loggingName = @"chromeuxreport.records.queryHistoryRecord";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeUXReportQuery_RecordsQueryRecord
 
 + (instancetype)queryWithObject:(GTLRChromeUXReport_QueryRequest *)object {

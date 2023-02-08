@@ -51,17 +51,10 @@
 @class GTLRCloudBuild_GitRepoSource;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
-@class GTLRCloudBuild_HTTPDelivery;
 @class GTLRCloudBuild_InlineSecret;
 @class GTLRCloudBuild_InlineSecret_EnvMap;
 @class GTLRCloudBuild_MavenArtifact;
 @class GTLRCloudBuild_NetworkConfig;
-@class GTLRCloudBuild_Notification;
-@class GTLRCloudBuild_Notification_StructDelivery;
-@class GTLRCloudBuild_NotifierMetadata;
-@class GTLRCloudBuild_NotifierSecret;
-@class GTLRCloudBuild_NotifierSecretRef;
-@class GTLRCloudBuild_NotifierSpec;
 @class GTLRCloudBuild_Operation_Metadata;
 @class GTLRCloudBuild_Operation_Response;
 @class GTLRCloudBuild_PoolOption;
@@ -79,8 +72,6 @@
 @class GTLRCloudBuild_SecretManagerSecret;
 @class GTLRCloudBuild_Secrets;
 @class GTLRCloudBuild_ServiceDirectoryConfig;
-@class GTLRCloudBuild_SlackDelivery;
-@class GTLRCloudBuild_SMTPDelivery;
 @class GTLRCloudBuild_Source;
 @class GTLRCloudBuild_SourceProvenance;
 @class GTLRCloudBuild_SourceProvenance_FileHashes;
@@ -567,6 +558,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_CloudS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Github;
 /**
+ *  A GitLab-hosted repo.
+ *
+ *  Value: "GITLAB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Gitlab;
+/**
  *  The default, unknown repo type.
  *
  *  Value: "UNKNOWN"
@@ -595,6 +592,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudS
  *  Value: "GITHUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github;
+/**
+ *  A GitLab-hosted repo.
+ *
+ *  Value: "GITLAB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Gitlab;
 /**
  *  The default, unknown repo type.
  *
@@ -1443,7 +1446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  Amount of time that this build should be allowed to run, to second
  *  granularity. If this amount of time elapses, work on the build will cease
  *  and the build status will be `TIMEOUT`. `timeout` starts ticking from
- *  `startTime`. Default time is ten minutes.
+ *  `startTime`. Default time is 60 minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -2409,6 +2412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_Github A GitHub-hosted repo
  *        not necessarily on "github.com" (i.e. GitHub Enterprise). (Value:
  *        "GITHUB")
+ *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_Gitlab A GitLab-hosted
+ *        repo. (Value: "GITLAB")
  *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_Unknown The default,
  *        unknown repo type. (Value: "UNKNOWN")
  */
@@ -2789,6 +2794,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Github A GitHub-hosted repo
  *        not necessarily on "github.com" (i.e. GitHub Enterprise). (Value:
  *        "GITHUB")
+ *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Gitlab A GitLab-hosted
+ *        repo. (Value: "GITLAB")
  *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Unknown The default,
  *        unknown repo type. (Value: "UNKNOWN")
  */
@@ -2882,17 +2889,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudBuild_HttpBody_Extensions_Item : GTLRObject
-@end
-
-
-/**
- *  HTTPDelivery is the delivery configuration for an HTTP notification.
- */
-@interface GTLRCloudBuild_HTTPDelivery : GTLRObject
-
-/** The URI to which JSON-containing HTTP POST requests should be sent. */
-@property(nonatomic, copy, nullable) NSString *uri;
-
 @end
 
 
@@ -3218,140 +3214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *peeredNetworkIpRange;
-
-@end
-
-
-/**
- *  Notification is the container which holds the data that is relevant to this
- *  particular notification.
- */
-@interface GTLRCloudBuild_Notification : GTLRObject
-
-/**
- *  The filter string to use for notification filtering. Currently, this is
- *  assumed to be a CEL program. See https://opensource.google/projects/cel for
- *  more.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Configuration for HTTP delivery. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_HTTPDelivery *httpDelivery;
-
-/** Configuration for Slack delivery. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_SlackDelivery *slackDelivery;
-
-/** Configuration for SMTP (email) delivery. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_SMTPDelivery *smtpDelivery;
-
-/** Escape hatch for users to supply custom delivery configs. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Notification_StructDelivery *structDelivery;
-
-@end
-
-
-/**
- *  Escape hatch for users to supply custom delivery configs.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudBuild_Notification_StructDelivery : GTLRObject
-@end
-
-
-/**
- *  NotifierConfig is the top-level configuration message.
- */
-@interface GTLRCloudBuild_NotifierConfig : GTLRObject
-
-/** The API version of this configuration format. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** The type of notifier to use (e.g. SMTPNotifier). */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Metadata for referring to/handling/deploying this notifier. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierMetadata *metadata;
-
-/** The actual configuration for this notifier. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierSpec *spec;
-
-@end
-
-
-/**
- *  NotifierMetadata contains the data which can be used to reference or
- *  describe this notifier.
- */
-@interface GTLRCloudBuild_NotifierMetadata : GTLRObject
-
-/**
- *  The human-readable and user-given name for the notifier. For example:
- *  "repo-merge-email-notifier".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The string representing the name and version of notifier to deploy. Expected
- *  to be of the form of "/:". For example:
- *  "gcr.io/my-project/notifiers/smtp:1.2.34".
- */
-@property(nonatomic, copy, nullable) NSString *notifier;
-
-@end
-
-
-/**
- *  NotifierSecret is the container that maps a secret name (reference) to its
- *  Google Cloud Secret Manager resource path.
- */
-@interface GTLRCloudBuild_NotifierSecret : GTLRObject
-
-/**
- *  Name is the local name of the secret, such as the verbatim string
- *  "my-smtp-password".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Value is interpreted to be a resource path for fetching the actual
- *  (versioned) secret data for this secret. For example, this would be a Google
- *  Cloud Secret Manager secret version resource path like:
- *  "projects/my-project/secrets/my-secret/versions/latest".
- */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  NotifierSecretRef contains the reference to a secret stored in the
- *  corresponding NotifierSpec.
- */
-@interface GTLRCloudBuild_NotifierSecretRef : GTLRObject
-
-/**
- *  The value of `secret_ref` should be a `name` that is registered in a
- *  `Secret` in the `secrets` list of the `Spec`.
- */
-@property(nonatomic, copy, nullable) NSString *secretRef;
-
-@end
-
-
-/**
- *  NotifierSpec is the configuration container for notifications.
- */
-@interface GTLRCloudBuild_NotifierSpec : GTLRObject
-
-/** The configuration of this particular notifier. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Notification *notification;
-
-/** Configurations for secret resources used by this particular notifier. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_NotifierSecret *> *secrets;
 
 @end
 
@@ -3989,54 +3851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
- *  SlackDelivery is the delivery configuration for delivering Slack messages
- *  via webhooks. See Slack webhook documentation at:
- *  https://api.slack.com/messaging/webhooks.
- */
-@interface GTLRCloudBuild_SlackDelivery : GTLRObject
-
-/**
- *  The secret reference for the Slack webhook URI for sending messages to a
- *  channel.
- */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierSecretRef *webhookUri;
-
-@end
-
-
-/**
- *  SMTPDelivery is the delivery configuration for an SMTP (email) notification.
- */
-@interface GTLRCloudBuild_SMTPDelivery : GTLRObject
-
-/**
- *  This is the SMTP account/email that appears in the `From:` of the email. If
- *  empty, it is assumed to be sender.
- */
-@property(nonatomic, copy, nullable) NSString *fromAddress;
-
-/** The SMTP sender's password. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierSecretRef *password;
-
-/** The SMTP port of the server. */
-@property(nonatomic, copy, nullable) NSString *port;
-
-/**
- *  This is the list of addresses to which we send the email (i.e. in the `To:`
- *  of the email).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *recipientAddresses;
-
-/** This is the SMTP account/email that is used to send the message. */
-@property(nonatomic, copy, nullable) NSString *senderAddress;
-
-/** The address of the SMTP server. */
-@property(nonatomic, copy, nullable) NSString *server;
-
-@end
-
-
-/**
  *  Location of the source in a supported storage service.
  */
 @interface GTLRCloudBuild_Source : GTLRObject
@@ -4434,7 +4248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 /**
  *  Size of the disk attached to the worker, in GB. See [Worker pool config
  *  file](https://cloud.google.com/build/docs/private-pools/worker-pool-config-file-schema).
- *  Specify a value of up to 1000. If `0` is specified, Cloud Build will use a
+ *  Specify a value of up to 2000. If `0` is specified, Cloud Build will use a
  *  standard disk size.
  *
  *  Uses NSNumber of longLongValue.

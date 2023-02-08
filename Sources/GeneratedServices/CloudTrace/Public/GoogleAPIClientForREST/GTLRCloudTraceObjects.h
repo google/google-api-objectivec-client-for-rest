@@ -380,7 +380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
  *  form a trace tree. Often, a trace contains a root span that describes the
  *  end-to-end latency, and one or more subspans for its sub-operations. A trace
  *  can also contain multiple root spans, or none at all. Spans do not need to
- *  be contiguous—there might be gaps or overlaps between spans in a trace.
+ *  be contiguous. There might be gaps or overlaps between spans in a trace.
  */
 @interface GTLRCloudTrace_Span : GTLRObject
 
@@ -533,8 +533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Module *loadModule;
 
 /**
- *  An un-mangled function name, if `function_name` is
- *  [mangled](http://www.avabodh.com/cxxin/namemangling.html). The name can be
+ *  An un-mangled function name, if `function_name` is mangled. To get
+ *  information about name mangling, run [this
+ *  search](https://www.google.com/search?q=cxx+name+mangling). The name can be
  *  fully-qualified (up to 1024 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *originalFunctionName;

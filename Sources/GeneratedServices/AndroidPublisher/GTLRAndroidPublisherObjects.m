@@ -638,11 +638,12 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_DeviceTierConfig
-@dynamic deviceGroups, deviceTierConfigId, deviceTierSet;
+@dynamic deviceGroups, deviceTierConfigId, deviceTierSet, userCountrySets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"deviceGroups" : [GTLRAndroidPublisher_DeviceGroup class]
+    @"deviceGroups" : [GTLRAndroidPublisher_DeviceGroup class],
+    @"userCountrySets" : [GTLRAndroidPublisher_UserCountrySet class]
   };
   return map;
 }
@@ -1945,6 +1946,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic androidOsVersion, appVersionCode, appVersionName, device,
          deviceMetadata, lastModified, originalText, reviewerLanguage,
          starRating, text, thumbsDownCount, thumbsUpCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UserCountrySet
+//
+
+@implementation GTLRAndroidPublisher_UserCountrySet
+@dynamic countryCodes, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countryCodes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

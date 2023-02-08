@@ -1256,7 +1256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /**
  *  A list of Chat spaces IDs, as provided by the [Chat
- *  API](https://developers.google.com/hangouts/chat).
+ *  API](https://developers.google.com/chat). There is a limit of exporting from
+ *  500 Chat spaces per request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roomId;
 

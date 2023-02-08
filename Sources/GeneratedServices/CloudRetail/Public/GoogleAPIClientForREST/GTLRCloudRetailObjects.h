@@ -58,6 +58,8 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange;
 @class GTLRCloudRetail_GoogleCloudRetailV2Control;
 @class GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute;
+@class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo;
+@class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment;
 @class GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2GcsSource;
 @class GTLRCloudRetail_GoogleCloudRetailV2Image;
@@ -65,6 +67,8 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2Interval;
 @class GTLRCloudRetail_GoogleCloudRetailV2LocalInventory;
 @class GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes;
+@class GTLRCloudRetail_GoogleCloudRetailV2Model;
+@class GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictResponsePredictionResult;
@@ -687,6 +691,134 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportPro
  *  Value: "RECONCILIATION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Model.dataState
+
+/**
+ *  The model does not have sufficient training data. Error messages can be
+ *  queried via Stackdriver.
+ *
+ *  Value: "DATA_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataError;
+/**
+ *  The model has sufficient training data.
+ *
+ *  Value: "DATA_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataOk;
+/**
+ *  Unspecified default value, should never be explicitly set.
+ *
+ *  Value: "DATA_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Model.filteringOption
+
+/**
+ *  Recommendation filtering is disabled.
+ *
+ *  Value: "RECOMMENDATIONS_FILTERING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringDisabled;
+/**
+ *  Recommendation filtering is enabled.
+ *
+ *  Value: "RECOMMENDATIONS_FILTERING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringEnabled;
+/**
+ *  Value used when unset. In this case, server behavior defaults to
+ *  RECOMMENDATIONS_FILTERING_DISABLED.
+ *
+ *  Value: "RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Model.periodicTuningState
+
+/**
+ *  The model cannot be tuned with periodic tuning OR the `TuneModel` method.
+ *  Hide the options in customer UI and reject any requests through the backend
+ *  self serve API.
+ *
+ *  Value: "ALL_TUNING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_AllTuningDisabled;
+/**
+ *  The model has periodic tuning disabled. Tuning can be reenabled by calling
+ *  the `EnableModelPeriodicTuning` method or by calling the `TuneModel` method.
+ *
+ *  Value: "PERIODIC_TUNING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningDisabled;
+/**
+ *  The model has periodic tuning enabled. Tuning can be disabled by calling the
+ *  `DisableModelPeriodicTuning` method.
+ *
+ *  Value: "PERIODIC_TUNING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningEnabled;
+/**
+ *  Unspecified default value, should never be explicitly set.
+ *
+ *  Value: "PERIODIC_TUNING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Model.servingState
+
+/**
+ *  The model is serving and can be queried.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Active;
+/**
+ *  The model is not serving.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Inactive;
+/**
+ *  Unspecified serving state.
+ *
+ *  Value: "SERVING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_ServingStateUnspecified;
+/**
+ *  The model is trained on tuned hyperparameters and can be queried.
+ *
+ *  Value: "TUNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Tuned;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Model.trainingState
+
+/**
+ *  The model training is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Paused;
+/**
+ *  The model is training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Training;
+/**
+ *  Unspecified training state.
+ *
+ *  Value: "TRAINING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_TrainingStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2Product.availability
@@ -2882,7 +3014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  https://support.google.com/analytics/answer/3437719. * `user_event_ga4`: The
  *  schema is available here:
  *  https://support.google.com/analytics/answer/7029846. Supported values for
- *  auto-completion imports: * `suggestions` (default): One JSON completion
+ *  autocomplete imports: * `suggestions` (default): One JSON completion
  *  suggestion per line. * `denylist`: One JSON deny suggestion per line. *
  *  `allowlist`: One JSON allow suggestion per line.
  */
@@ -3029,10 +3161,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  `attributes.custom_attribute`, such as `attributes.xyz`. To be indexable,
  *  the attribute name can contain only alpha-numeric characters and
  *  underscores. For example, an attribute named `attributes.abc_xyz` can be
- *  indexed, but an attribute named `attributes.abc-xyz` cannot be indexed. For
- *  attributes whoes key start with `attributes.`, we refer them as custom
- *  attributes. Otherwise they are built-in attributes such as `color` and
- *  `brands`.
+ *  indexed, but an attribute named `attributes.abc-xyz` cannot be indexed. If
+ *  the attribute key starts with `attributes.`, then the attribute is a custom
+ *  attribute. Attributes such as `brands`, `patterns`, and `title` are built-in
+ *  and called system attributes.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -3125,7 +3257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
- *  Response of the auto-complete query.
+ *  Response of the autocomplete query.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse : GTLRObject
 
@@ -3453,6 +3585,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Metadata associated with a create operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CreateModelMetadata : GTLRObject
+
+/**
+ *  The resource name of the model that this create applies to. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  A custom attribute that is not explicitly modeled in Product.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute : GTLRObject
@@ -3502,6 +3648,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  be set. Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+@end
+
+
+/**
+ *  Metadata for active A/B testing Experiments.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo : GTLRObject
+
+/**
+ *  The fully qualified resource name of the experiment that provides the
+ *  serving config under test, should an active experiment exist. For example:
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/experiments/experiment_id`
+ */
+@property(nonatomic, copy, nullable) NSString *experimentName;
+
+/** A/B test between existing Cloud Retail Search ServingConfigs. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment *servingConfigExperiment;
+
+@end
+
+
+/**
+ *  Metadata for active serving config A/B tests.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment : GTLRObject
+
+/**
+ *  The fully qualified resource name of the serving config
+ *  VariantArm.serving_config_id responsible for generating the search response.
+ *  For example: `projects/ * /locations/ * /catalogs/ * /servingConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *experimentServingConfig;
+
+/**
+ *  The fully qualified resource name of the original SearchRequest.placement in
+ *  the search request prior to reassignment by experiment API. For example:
+ *  `projects/ * /locations/ * /catalogs/ * /servingConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *originalServingConfig;
 
 @end
 
@@ -3915,6 +4102,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Response to a ListModelRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "models" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ListModelsResponse : GTLRCollectionObject
+
+/**
+ *  List of Models.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Model *> *models;
+
+/** Pagination token, if not returned indicates the last page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ProductService.ListProducts method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4033,6 +4244,206 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Metadata that describes the training and serving parameters of a Model. A
+ *  Model can be associated with a ServingConfig and then queried through the
+ *  Predict API.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2Model : GTLRObject
+
+/** Output only. Timestamp the Recommendation Model was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The state of data requirements for this model: `DATA_OK` and
+ *  `DATA_ERROR`. Recommendation model cannot be trained if the data is in
+ *  `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even if
+ *  serving state is `ACTIVE`: models were trained successfully before, but
+ *  cannot be refreshed because model no longer has sufficient data for
+ *  training.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataError The
+ *        model does not have sufficient training data. Error messages can be
+ *        queried via Stackdriver. (Value: "DATA_ERROR")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataOk The
+ *        model has sufficient training data. (Value: "DATA_OK")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_DataState_DataStateUnspecified
+ *        Unspecified default value, should never be explicitly set. (Value:
+ *        "DATA_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataState;
+
+/**
+ *  Required. The display name of the model. Should be human readable, used to
+ *  display Recommendation Models in the Retail Cloud Console Dashboard. UTF-8
+ *  encoded string with limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+ *  by attributes is enabled for the model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringDisabled
+ *        Recommendation filtering is disabled. (Value:
+ *        "RECOMMENDATIONS_FILTERING_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringEnabled
+ *        Recommendation filtering is enabled. (Value:
+ *        "RECOMMENDATIONS_FILTERING_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_FilteringOption_RecommendationsFilteringOptionUnspecified
+ *        Value used when unset. In this case, server behavior defaults to
+ *        RECOMMENDATIONS_FILTERING_DISABLED. (Value:
+ *        "RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *filteringOption;
+
+/** Output only. The timestamp when the latest successful tune finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastTuneTime;
+
+/**
+ *  Required. The fully qualified resource name of the model. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *  catalog_id has char limit of 50. recommendation_model_id has char limit of
+ *  40.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The optimization objective e.g. `cvr`. Currently supported values:
+ *  `ctr`, `cvr`, `revenue-per-order`. If not specified, we choose default based
+ *  on model type. Default depends on type of recommendation:
+ *  `recommended-for-you` => `ctr` `others-you-may-like` => `ctr`
+ *  `frequently-bought-together` => `revenue_per_order` This field together with
+ *  optimization_objective describe model metadata to use to control model
+ *  training and serving. See https://cloud.google.com/retail/docs/models for
+ *  more details on what the model metadata control and which combination of
+ *  parameters are valid. For invalid combinations of parameters (e.g. type =
+ *  `frequently-bought-together` and optimization_objective = `ctr`), you
+ *  receive an error 400 if you try to create/update a recommendation with this
+ *  set of knobs.
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
+
+/**
+ *  Optional. The state of periodic tuning. The period we use is 3 months - to
+ *  do a one-off tune earlier use the `TuneModel` method. Default value is
+ *  `PERIODIC_TUNING_ENABLED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_AllTuningDisabled
+ *        The model cannot be tuned with periodic tuning OR the `TuneModel`
+ *        method. Hide the options in customer UI and reject any requests
+ *        through the backend self serve API. (Value: "ALL_TUNING_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningDisabled
+ *        The model has periodic tuning disabled. Tuning can be reenabled by
+ *        calling the `EnableModelPeriodicTuning` method or by calling the
+ *        `TuneModel` method. (Value: "PERIODIC_TUNING_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningEnabled
+ *        The model has periodic tuning enabled. Tuning can be disabled by
+ *        calling the `DisableModelPeriodicTuning` method. (Value:
+ *        "PERIODIC_TUNING_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_PeriodicTuningState_PeriodicTuningStateUnspecified
+ *        Unspecified default value, should never be explicitly set. (Value:
+ *        "PERIODIC_TUNING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *periodicTuningState;
+
+/**
+ *  Output only. The list of valid serving configs associated with the
+ *  PageOptimizationConfig.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList *> *servingConfigLists;
+
+/**
+ *  Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Active The
+ *        model is serving and can be queried. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Inactive
+ *        The model is not serving. (Value: "INACTIVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_ServingStateUnspecified
+ *        Unspecified serving state. (Value: "SERVING_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Tuned The
+ *        model is trained on tuned hyperparameters and can be queried. (Value:
+ *        "TUNED")
+ */
+@property(nonatomic, copy, nullable) NSString *servingState;
+
+/**
+ *  Optional. The training state that the model is in (e.g. `TRAINING` or
+ *  `PAUSED`). Since part of the cost of running the service is frequency of
+ *  training - this can be used to determine when to train model in order to
+ *  control cost. If not specified: the default value for `CreateModel` method
+ *  is `TRAINING`. The default value for `UpdateModel` method is to keep the
+ *  state the same as before.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Paused The
+ *        model training is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Training
+ *        The model is training. (Value: "TRAINING")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_TrainingStateUnspecified
+ *        Unspecified training state. (Value: "TRAINING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingState;
+
+/**
+ *  Output only. The tune operation associated with the model. Can be used to
+ *  determine if there is an ongoing tune for this recommendation. Empty field
+ *  implies no tune is goig on.
+ */
+@property(nonatomic, copy, nullable) NSString *tuningOperation;
+
+/**
+ *  Required. The type of model e.g. `home-page`. Currently supported values:
+ *  `recommended-for-you`, `others-you-may-like`, `frequently-bought-together`,
+ *  `page-optimization`, `similar-items`, `buy-it-again`, `on-sale-items`, and
+ *  `recently-viewed`(readonly value). This field together with
+ *  optimization_objective describe model metadata to use to control model
+ *  training and serving. See https://cloud.google.com/retail/docs/models for
+ *  more details on what the model metadata control and which combination of
+ *  parameters are valid. For invalid combinations of parameters (e.g. type =
+ *  `frequently-bought-together` and optimization_objective = `ctr`), you
+ *  receive an error 400 if you try to create/update a recommendation with this
+ *  set of knobs.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. Timestamp the Recommendation Model was last updated. E.g. if a
+ *  Recommendation Model was paused - this would be the time the pause was
+ *  initiated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents an ordered combination of valid serving configs, which can be
+ *  used for `PAGE_OPTIMIZATION` recommendations.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList : GTLRObject
+
+/**
+ *  Optional. A set of valid serving configs that may be used for
+ *  `PAGE_OPTIMIZATION`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servingConfigIds;
+
+@end
+
+
+/**
+ *  Request for pausing training of a model.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest : GTLRObject
+@end
+
+
+/**
  *  Request message for Predict method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2PredictRequest : GTLRObject
@@ -4057,8 +4468,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  "DELETED" regardless of filter choices. If `filterSyntaxV2` is set to true
  *  under the `params` field, then attribute-based expressions are expected
  *  instead of the above described tag-based syntax. Examples: * (colors:
- *  ANY("Red", "Blue")) AND NOT (categories: ANY("Phones")) * (availability:
- *  ANY("IN_STOCK")) AND (colors: ANY("Red") OR categories: ANY("Phones"))
+ *  ANY("Red", "Blue")) AND NOT (categories: ANY("Phones")) * (brands:
+ *  ANY("Pixel")) AND (colors: ANY("Red") OR categories: ANY("Phones")) For more
+ *  information, see [Filter
+ *  recommendations](https://cloud.google.com/retail/docs/filter-recs).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5253,6 +5666,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Request for resuming training of a model.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ResumeModelRequest : GTLRObject
+@end
+
+
+/**
  *  A rule is a condition-action pair * A condition defines when a rule is to be
  *  triggered. * An action specifies what occurs on that trigger. Currently
  *  rules only work for controls with SOLUTION_TYPE_SEARCH.
@@ -6080,6 +6500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  */
 @property(nonatomic, copy, nullable) NSString *correctedQuery;
 
+/**
+ *  Metadata related to A/B testing Experiment associated with this response.
+ *  Only exists when an experiment is triggered.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo *> *experimentInfo;
+
 /** Results of facets requested by user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet *> *facets;
 
@@ -6611,6 +7037,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  meaningful response populated from the ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SetInventoryResponse : GTLRObject
+@end
+
+
+/**
+ *  Metadata associated with a tune operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2TuneModelMetadata : GTLRObject
+
+/**
+ *  The resource name of the model that this tune applies to. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Request to manually start a tuning process now (instead of waiting for the
+ *  periodically scheduled tuning to happen).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2TuneModelRequest : GTLRObject
+@end
+
+
+/**
+ *  Response associated with a tune operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2TuneModelResponse : GTLRObject
 @end
 
 

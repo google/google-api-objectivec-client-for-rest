@@ -135,7 +135,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
-NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkConnectionStateChange = @"NETWORK_CONNECTION_STATE_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded = @"USB_ADDED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved = @"USB_REMOVED";
@@ -693,6 +692,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryUsersResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryUsersResponse
+@dynamic nextPageToken, telemetryUsers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"telemetryUsers" : [GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"telemetryUsers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo
 //
 
@@ -775,6 +796,24 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport
+@dynamic reportTime, usbPeripheralReport;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"usbPeripheralReport" : [GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1StorageInfo
 //
 
@@ -838,8 +877,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
          bootPerformanceReport, cpuInfo, cpuStatusReport, customer, deviceId,
          graphicsInfo, graphicsStatusReport, memoryInfo, memoryStatusReport,
          name, networkDiagnosticsReport, networkInfo, networkStatusReport,
-         orgUnitId, osUpdateStatus, serialNumber, storageInfo,
-         storageStatusReport, thunderboltInfo;
+         orgUnitId, osUpdateStatus, peripheralsReport, serialNumber,
+         storageInfo, storageStatusReport, thunderboltInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -854,6 +893,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
     @"networkDiagnosticsReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport class],
     @"networkStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport class],
     @"osUpdateStatus" : [GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus class],
+    @"peripheralsReport" : [GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport class],
     @"storageStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport class],
     @"thunderboltInfo" : [GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo class]
   };
@@ -905,6 +945,43 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"usbPeripheralReport" : [GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser
+@dynamic customer, name, orgUnitId, userDevice, userEmail, userId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userDevice" : [GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice
+@dynamic audioStatusReport, deviceId, peripheralsReport;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
+    @"peripheralsReport" : [GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport class]
   };
   return map;
 }

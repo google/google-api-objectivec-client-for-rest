@@ -95,6 +95,11 @@ NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Error
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Installed = @"INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled = @"NOT_INSTALLED";
 
+// GTLRGKEHub_ConfigManagementPolicyControllerMigration.stage
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_AcmManaged = @"ACM_MANAGED";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_PocoManaged = @"POCO_MANAGED";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMigration_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
+
 // GTLRGKEHub_ConfigManagementPolicyControllerMonitoring.backends
 NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_CloudMonitoring = @"CLOUD_MONITORING";
 NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_MonitoringBackendUnspecified = @"MONITORING_BACKEND_UNSPECIFIED";
@@ -299,6 +304,15 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_CommonFeatureState
 @dynamic appdevexperience, fleetobservability, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_CommonFleetDefaultMemberConfigSpec
+//
+
+@implementation GTLRGKEHub_CommonFleetDefaultMemberConfigSpec
 @end
 
 
@@ -513,6 +527,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ConfigManagementPolicyControllerMigration
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyControllerMigration
+@dynamic stage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ConfigManagementPolicyControllerMonitoring
 //
 
@@ -535,7 +559,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementPolicyControllerState
-@dynamic deploymentState, version;
+@dynamic deploymentState, migration, version;
 @end
 
 
@@ -636,8 +660,9 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_Feature
-@dynamic createTime, deleteTime, labels, membershipSpecs, membershipStates,
-         name, resourceState, scopeSpecs, scopeStates, spec, state, updateTime;
+@dynamic createTime, deleteTime, fleetDefaultMemberConfig, labels,
+         membershipSpecs, membershipStates, name, resourceState, scopeSpecs,
+         scopeStates, spec, state, updateTime;
 @end
 
 

@@ -755,6 +755,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: run.projects.locations.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsOperationsWait : GTLRCloudRunQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleLongrunningWaitOperationRequest to
+ *    include in the query.
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsOperationsWait
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleLongrunningWaitOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Service in a given project and location.
  *
  *  Method: run.projects.locations.services.create

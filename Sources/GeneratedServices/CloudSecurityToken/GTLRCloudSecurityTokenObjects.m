@@ -136,12 +136,13 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenResponse
-@dynamic accessToken, expiresIn, refreshToken, scope, tokenType;
+@dynamic accessToken, expiresIn, idToken, refreshToken, scope, tokenType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"accessToken" : @"access_token",
     @"expiresIn" : @"expires_in",
+    @"idToken" : @"id_token",
     @"refreshToken" : @"refresh_token",
     @"tokenType" : @"token_type"
   };

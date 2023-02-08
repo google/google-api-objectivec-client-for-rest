@@ -19,6 +19,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource;
@@ -75,6 +76,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource;
@@ -1010,6 +1012,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Output only. Statistics for IngestConversations operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats *ingestConversationsStats;
+
 /**
  *  Output only. Partial errors during ingest operation that might cause the
  *  operation output to be incomplete.
@@ -1018,6 +1023,45 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Output only. The original request for ingest. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest *request;
+
+@end
+
+
+/**
+ *  Statistics for IngestConversations operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats : GTLRObject
+
+/**
+ *  Output only. The number of objects skipped because another conversation with
+ *  the same transcript uri had already been ingested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *duplicatesSkippedCount;
+
+/**
+ *  Output only. The number of objects which were unable to be ingested due to
+ *  errors. The errors are populated in the partial_errors field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedIngestCount;
+
+/**
+ *  Output only. The number of objects processed during the ingest operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processedObjectCount;
+
+/**
+ *  Output only. The number of new conversations added during this ingest
+ *  operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulIngestCount;
 
 @end
 
@@ -2757,6 +2801,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Output only. Statistics for IngestConversations operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats *ingestConversationsStats;
+
 /**
  *  Output only. Partial errors during ingest operation that might cause the
  *  operation output to be incomplete.
@@ -2765,6 +2812,45 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Output only. The original request for ingest. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest *request;
+
+@end
+
+
+/**
+ *  Statistics for IngestConversations operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats : GTLRObject
+
+/**
+ *  Output only. The number of objects skipped because another conversation with
+ *  the same transcript uri had already been ingested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *duplicatesSkippedCount;
+
+/**
+ *  Output only. The number of objects which were unable to be ingested due to
+ *  errors. The errors are populated in the partial_errors field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedIngestCount;
+
+/**
+ *  Output only. The number of objects processed during the ingest operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processedObjectCount;
+
+/**
+ *  Output only. The number of new conversations added during this ingest
+ *  operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulIngestCount;
 
 @end
 

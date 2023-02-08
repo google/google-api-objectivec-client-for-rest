@@ -28,6 +28,7 @@
 @class GTLRAnalyticsHub_Listing;
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
+@class GTLRAnalyticsHub_RestrictedExportConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -245,8 +246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -261,9 +264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -618,6 +619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 @property(nonatomic, copy, nullable) NSString *requestAccess;
 
 /**
+ *  Optional. If set, restricted export configuration will be propagated and
+ *  enforced on the linked dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_RestrictedExportConfig *restrictedExportConfig;
+
+/**
  *  Output only. Current state of the listing.
  *
  *  Likely values:
@@ -821,6 +828,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  Optional. Email or URL of the listing publisher. Max Length: 1000 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *primaryContact;
+
+@end
+
+
+/**
+ *  Restricted export config, used to configure restricted export on linked
+ *  dataset.
+ */
+@interface GTLRAnalyticsHub_RestrictedExportConfig : GTLRObject
+
+/**
+ *  If true, restrict direct table access(read api/tabledata.list) on linked
+ *  table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictDirectTableAccess;
+
+/**
+ *  If true, restrict export of query result derived from restricted linked
+ *  dataset table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictQueryResult;
 
 @end
 

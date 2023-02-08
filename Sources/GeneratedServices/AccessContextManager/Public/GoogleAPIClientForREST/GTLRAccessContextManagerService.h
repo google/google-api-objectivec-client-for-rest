@@ -4,8 +4,8 @@
 // API:
 //   Access Context Manager API (accesscontextmanager/v1)
 // Description:
-//   An API for setting attribute based access control to requests to GCP
-//   services.
+//   An API for setting attribute based access control to requests to Google
+//   Cloud services.
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
@@ -40,8 +40,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAccessContextManagerCloudPlatfo
 /**
  *  Service for executing Access Context Manager API queries.
  *
- *  An API for setting attribute based access control to requests to GCP
- *  services.
+ *  An API for setting attribute based access control to requests to Google
+ *  Cloud services.
  */
 @interface GTLRAccessContextManagerService : GTLRService
 

@@ -67,7 +67,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
  *  Value: "CONFIG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_FailureReason_Config;
-/** Value: "FAILURE_REASON_UNSPECIFIED" */
+/**
+ *  FailureReason is unspecified.
+ *
+ *  Value: "FAILURE_REASON_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_FailureReason_FailureReasonUnspecified;
 /**
  *  Reached a CA or internal rate-limit for the domain, e.g. for certificates
@@ -101,7 +105,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_Failed;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  State is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -208,7 +216,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedCertificate_St
  *  Value: "PROVISIONING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedCertificate_State_Provisioning;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  State is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedCertificate_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -229,7 +241,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  Value: "RATE_LIMITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_RateLimited;
-/** Value: "REASON_UNSPECIFIED" */
+/**
+ *  Reason is unspecified.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecified;
 
 /**
@@ -259,7 +275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        There was a problem with the user's DNS or load balancer configuration
  *        for this domain. (Value: "CONFIG")
  *    @arg @c kGTLRCertificateManager_AuthorizationAttemptInfo_FailureReason_FailureReasonUnspecified
- *        Value "FAILURE_REASON_UNSPECIFIED"
+ *        FailureReason is unspecified. (Value: "FAILURE_REASON_UNSPECIFIED")
  *    @arg @c kGTLRCertificateManager_AuthorizationAttemptInfo_FailureReason_RateLimited
  *        Reached a CA or internal rate-limit for the domain, e.g. for
  *        certificates per top-level private domain. (Value: "RATE_LIMITED")
@@ -281,7 +297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        Certificate from being issued. See `failure_reason` and `details`
  *        fields for more information. (Value: "FAILED")
  *    @arg @c kGTLRCertificateManager_AuthorizationAttemptInfo_State_StateUnspecified
- *        Value "STATE_UNSPECIFIED"
+ *        State is unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1061,7 +1077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        the process takes longer than expected, consult the
  *        `provisioning_issue` field. (Value: "PROVISIONING")
  *    @arg @c kGTLRCertificateManager_ManagedCertificate_State_StateUnspecified
- *        Value "STATE_UNSPECIFIED"
+ *        State is unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1209,7 +1225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        system. Provisioning may take longer to complete. (Value:
  *        "RATE_LIMITED")
  *    @arg @c kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecified
- *        Value "REASON_UNSPECIFIED"
+ *        Reason is unspecified. (Value: "REASON_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 

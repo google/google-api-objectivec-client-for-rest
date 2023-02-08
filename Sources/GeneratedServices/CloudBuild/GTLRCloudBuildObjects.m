@@ -106,12 +106,14 @@ NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildStep = @"USER_BUILD_S
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_BitbucketServer = @"BITBUCKET_SERVER";
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Github = @"GITHUB";
+NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Gitlab = @"GITLAB";
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Unknown = @"UNKNOWN";
 
 // GTLRCloudBuild_GitRepoSource.repoType
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_BitbucketServer = @"BITBUCKET_SERVER";
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github = @"GITHUB";
+NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Gitlab = @"GITLAB";
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Unknown = @"UNKNOWN";
 
 // GTLRCloudBuild_Hash.type
@@ -953,16 +955,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_HTTPDelivery
-//
-
-@implementation GTLRCloudBuild_HTTPDelivery
-@dynamic uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_InlineSecret
 //
 
@@ -1174,95 +1166,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_NetworkConfig
 @dynamic egressOption, peeredNetwork, peeredNetworkIpRange;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Notification
-//
-
-@implementation GTLRCloudBuild_Notification
-@dynamic filter, httpDelivery, slackDelivery, smtpDelivery, structDelivery;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Notification_StructDelivery
-//
-
-@implementation GTLRCloudBuild_Notification_StructDelivery
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NotifierConfig
-//
-
-@implementation GTLRCloudBuild_NotifierConfig
-@dynamic apiVersion, kind, metadata, spec;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NotifierMetadata
-//
-
-@implementation GTLRCloudBuild_NotifierMetadata
-@dynamic name, notifier;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NotifierSecret
-//
-
-@implementation GTLRCloudBuild_NotifierSecret
-@dynamic name, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NotifierSecretRef
-//
-
-@implementation GTLRCloudBuild_NotifierSecretRef
-@dynamic secretRef;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NotifierSpec
-//
-
-@implementation GTLRCloudBuild_NotifierSpec
-@dynamic notification, secrets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"secrets" : [GTLRCloudBuild_NotifierSecret class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1569,34 +1472,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_ServiceDirectoryConfig
 @dynamic service;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_SlackDelivery
-//
-
-@implementation GTLRCloudBuild_SlackDelivery
-@dynamic webhookUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_SMTPDelivery
-//
-
-@implementation GTLRCloudBuild_SMTPDelivery
-@dynamic fromAddress, password, port, recipientAddresses, senderAddress, server;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"recipientAddresses" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

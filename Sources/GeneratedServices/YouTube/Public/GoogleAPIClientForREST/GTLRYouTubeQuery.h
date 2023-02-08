@@ -3751,7 +3751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /** Return the playlists owned by the specified channel ID. */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
-/** Returen content in specified language */
+/** Return content in specified language */
 @property(nonatomic, copy, nullable) NSString *hl;
 
 /**

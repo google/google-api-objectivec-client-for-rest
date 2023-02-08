@@ -112,6 +112,12 @@ NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_DirectAndIndirect
 NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_Indirect = @"INDIRECT";
 NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_RelationTypeUnspecified = @"RELATION_TYPE_UNSPECIFIED";
 
+// GTLRCloudIdentity_InboundSsoAssignment.ssoMode
+NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_DomainWideSamlIfEnabled = @"DOMAIN_WIDE_SAML_IF_ENABLED";
+NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SamlSso = @"SAML_SSO";
+NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SsoModeUnspecified = @"SSO_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SsoOff = @"SSO_OFF";
+
 // GTLRCloudIdentity_MemberRelation.relationType
 NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_Direct = @"DIRECT";
 NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_DirectAndIndirect = @"DIRECT_AND_INDIRECT";
@@ -140,12 +146,35 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_ForwardCompliant
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudIdentity_SignInBehavior.redirectCondition
+NSString * const kGTLRCloudIdentity_SignInBehavior_RedirectCondition_Never = @"NEVER";
+NSString * const kGTLRCloudIdentity_SignInBehavior_RedirectCondition_RedirectConditionUnspecified = @"REDIRECT_CONDITION_UNSPECIFIED";
+
 // GTLRCloudIdentity_UserInvitation.state
 NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted = @"ACCEPTED";
 NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined = @"DECLINED";
 NSString * const kGTLRCloudIdentity_UserInvitation_State_Invited = @"INVITED";
 NSString * const kGTLRCloudIdentity_UserInvitation_State_NotYetSent = @"NOT_YET_SENT";
 NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_AddIdpCredentialOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_AddIdpCredentialOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_AddIdpCredentialRequest
+//
+
+@implementation GTLRCloudIdentity_AddIdpCredentialRequest
+@dynamic pemData;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -177,6 +206,24 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_CreateInboundSsoAssignmentOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_CreateInboundSsoAssignmentOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_CreateMembershipMetadata
 //
 
@@ -195,10 +242,47 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_DeleteIdpCredentialOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_DeleteIdpCredentialOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DeleteInboundSamlSsoProfileOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_DeleteInboundSamlSsoProfileOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DeleteInboundSsoAssignmentOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_DeleteInboundSsoAssignmentOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_DeleteMembershipMetadata
 //
 
 @implementation GTLRCloudIdentity_DeleteMembershipMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DsaPublicKeyInfo
+//
+
+@implementation GTLRCloudIdentity_DsaPublicKeyInfo
+@dynamic keySize;
 @end
 
 
@@ -777,6 +861,37 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_IdpCredential
+//
+
+@implementation GTLRCloudIdentity_IdpCredential
+@dynamic dsaKeyInfo, name, rsaKeyInfo, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_InboundSamlSsoProfile
+//
+
+@implementation GTLRCloudIdentity_InboundSamlSsoProfile
+@dynamic customer, displayName, idpConfig, name, spConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_InboundSsoAssignment
+//
+
+@implementation GTLRCloudIdentity_InboundSsoAssignment
+@dynamic customer, name, rank, samlSsoInfo, signInBehavior, ssoMode,
+         targetGroup, targetOrgUnit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_IsInvitableUserResponse
 //
 
@@ -802,6 +917,72 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 + (NSString *)collectionItemsKey {
   return @"groups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListIdpCredentialsResponse
+//
+
+@implementation GTLRCloudIdentity_ListIdpCredentialsResponse
+@dynamic idpCredentials, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"idpCredentials" : [GTLRCloudIdentity_IdpCredential class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"idpCredentials";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListInboundSamlSsoProfilesResponse
+//
+
+@implementation GTLRCloudIdentity_ListInboundSamlSsoProfilesResponse
+@dynamic inboundSamlSsoProfiles, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inboundSamlSsoProfiles" : [GTLRCloudIdentity_InboundSamlSsoProfile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"inboundSamlSsoProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListInboundSsoAssignmentsResponse
+//
+
+@implementation GTLRCloudIdentity_ListInboundSsoAssignmentsResponse
+@dynamic inboundSsoAssignments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inboundSsoAssignments" : [GTLRCloudIdentity_InboundSsoAssignment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"inboundSsoAssignments";
 }
 
 @end
@@ -1046,6 +1227,46 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_RsaPublicKeyInfo
+//
+
+@implementation GTLRCloudIdentity_RsaPublicKeyInfo
+@dynamic keySize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_SamlIdpConfig
+//
+
+@implementation GTLRCloudIdentity_SamlIdpConfig
+@dynamic changePasswordUri, entityId, logoutRedirectUri, singleSignOnServiceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_SamlSpConfig
+//
+
+@implementation GTLRCloudIdentity_SamlSpConfig
+@dynamic assertionConsumerServiceUri, entityId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_SamlSsoInfo
+//
+
+@implementation GTLRCloudIdentity_SamlSsoInfo
+@dynamic inboundSamlSsoProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_SearchGroupsResponse
 //
 
@@ -1131,6 +1352,16 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_SignInBehavior
+//
+
+@implementation GTLRCloudIdentity_SignInBehavior
+@dynamic redirectCondition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_Status
 //
 
@@ -1177,6 +1408,24 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_UpdateGroupMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UpdateInboundSsoAssignmentOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_UpdateInboundSsoAssignmentOperationMetadata
 @end
 
 

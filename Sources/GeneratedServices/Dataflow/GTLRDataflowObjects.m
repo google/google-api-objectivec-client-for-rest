@@ -187,10 +187,6 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription = 
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic = @"PUBSUB_TOPIC";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text = @"TEXT";
 
-// GTLRDataflow_QueryInfo.queryProperty
-NSString * const kGTLRDataflow_QueryInfo_QueryProperty_HasUnboundedSource = @"HAS_UNBOUNDED_SOURCE";
-NSString * const kGTLRDataflow_QueryInfo_QueryProperty_QueryPropertyUnspecified = @"QUERY_PROPERTY_UNSPECIFIED";
-
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
@@ -1838,24 +1834,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_QueryInfo
-//
-
-@implementation GTLRDataflow_QueryInfo
-@dynamic queryProperty;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"queryProperty" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_ReadInstruction
 //
 
@@ -2994,16 +2972,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
   return NO;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_ValidateResponse
-//
-
-@implementation GTLRDataflow_ValidateResponse
-@dynamic errorMessage, queryInfo;
 @end
 
 

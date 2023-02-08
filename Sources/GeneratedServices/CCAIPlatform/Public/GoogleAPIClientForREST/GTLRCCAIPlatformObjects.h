@@ -92,6 +92,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUn
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified;
 /**
+ *  Instance Size STANDARD_2XLARGE.
+ *
+ *  Value: "STANDARD_2XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge;
+/**
+ *  Instance Size STANDARD_3XLARGE.
+ *
+ *  Value: "STANDARD_3XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge;
+/**
  *  Instance Size STANDARD_LARGE.
  *
  *  Value: "STANDARD_LARGE"
@@ -109,6 +121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  *  Value: "STANDARD_SMALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardSmall;
+/**
+ *  Instance Size STANDARD_XLARGE.
+ *
+ *  Value: "STANDARD_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge;
 
 /**
  *  The request message for Operations.CancelOperation.
@@ -246,12 +264,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge
+ *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge
+ *        Instance Size STANDARD_3XLARGE. (Value: "STANDARD_3XLARGE")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardLarge
  *        Instance Size STANDARD_LARGE. (Value: "STANDARD_LARGE")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardMedium
  *        Instance Size STANDARD_MEDIUM. (Value: "STANDARD_MEDIUM")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardSmall
  *        Instance Size STANDARD_SMALL. (Value: "STANDARD_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge
+ *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
  */
 @property(nonatomic, copy, nullable) NSString *instanceSize;
 

@@ -950,6 +950,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsListRevisions : GTLRApigeeRegistryQuery
 
+/**
+ *  An expression that can be used to filter the list. Filters use the Common
+ *  Expression Language and can refer to all message fields.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** Required. The name of the deployment to list revisions for. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2748,6 +2754,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeApigeeRegistryCloudPlatform
  */
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsListRevisions : GTLRApigeeRegistryQuery
+
+/**
+ *  An expression that can be used to filter the list. Filters use the Common
+ *  Expression Language and can refer to all message fields.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Required. The name of the spec to list revisions for. */
 @property(nonatomic, copy, nullable) NSString *name;

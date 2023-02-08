@@ -2763,7 +2763,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  */
 @interface GTLRClassroom_UserProfile : GTLRObject
 
-/** Email address of the user. Read-only. */
+/**
+ *  Email address of the user. Must request
+ *  `https://www.googleapis.com/auth/classroom.profile.emails` scope for this
+ *  field to be populated in a response body. Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
@@ -2779,13 +2783,18 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 /** Global permissions of the user. Read-only. */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_GlobalPermission *> *permissions;
 
-/** URL of user's profile photo. Read-only. */
+/**
+ *  URL of user's profile photo. Must request
+ *  `https://www.googleapis.com/auth/classroom.profile.photos` scope for this
+ *  field to be populated in a response body. Read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *photoUrl;
 
 /**
- *  Represents whether a G Suite for Education user's domain administrator has
- *  explicitly verified them as being a teacher. If the user is not a member of
- *  a G Suite for Education domain, than this field is always false. Read-only
+ *  Represents whether a Google Workspace for Education user's domain
+ *  administrator has explicitly verified them as being a teacher. This field is
+ *  always false if the user is not a member of a Google Workspace for Education
+ *  domain. Read-only
  *
  *  Uses NSNumber of boolValue.
  */

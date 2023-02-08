@@ -2518,10 +2518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  Output only. The percentage progress of the current running replication
- *  cycle.
- */
+/** Output only. Details of the current running replication cycle. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ReplicationCycle *currentSyncInfo;
 
 /**

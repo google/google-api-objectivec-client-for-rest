@@ -167,7 +167,7 @@ NSString * const kGTLRApigeeRegistry_Instance_State_Updating   = @"UPDATING";
 
 @implementation GTLRApigeeRegistry_ApiVersion
 @dynamic annotations, createTime, descriptionProperty, displayName, labels,
-         name, state, updateTime;
+         name, primarySpec, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -210,11 +210,39 @@ NSString * const kGTLRApigeeRegistry_Instance_State_Updating   = @"UPDATING";
 //
 
 @implementation GTLRApigeeRegistry_Artifact
-@dynamic contents, createTime, hashProperty, mimeType, name, sizeBytes,
-         updateTime;
+@dynamic annotations, contents, createTime, hashProperty, labels, mimeType,
+         name, sizeBytes, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"hashProperty" : @"hash" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigeeRegistry_Artifact_Annotations
+//
+
+@implementation GTLRApigeeRegistry_Artifact_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigeeRegistry_Artifact_Labels
+//
+
+@implementation GTLRApigeeRegistry_Artifact_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -235,6 +263,16 @@ NSString * const kGTLRApigeeRegistry_Instance_State_Updating   = @"UPDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigeeRegistry_Build
+//
+
+@implementation GTLRApigeeRegistry_Build
+@dynamic commitId, commitTime, repo;
 @end
 
 
@@ -319,7 +357,7 @@ NSString * const kGTLRApigeeRegistry_Instance_State_Updating   = @"UPDATING";
 //
 
 @implementation GTLRApigeeRegistry_Instance
-@dynamic config, createTime, name, state, stateMessage, updateTime;
+@dynamic build, config, createTime, name, state, stateMessage, updateTime;
 @end
 
 

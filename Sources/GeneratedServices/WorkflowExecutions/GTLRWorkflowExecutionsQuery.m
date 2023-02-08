@@ -103,7 +103,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 @implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

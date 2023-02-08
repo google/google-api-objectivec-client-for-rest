@@ -100,6 +100,7 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn
 
 // GTLRDataproc_Metric.metricSource
 NSString * const kGTLRDataproc_Metric_MetricSource_Hdfs        = @"HDFS";
+NSString * const kGTLRDataproc_Metric_MetricSource_Hivemetastore = @"HIVEMETASTORE";
 NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2 = @"HIVESERVER2";
 NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified = @"METRIC_SOURCE_UNSPECIFIED";
 NSString * const kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults = @"MONITORING_AGENT_DEFAULTS";

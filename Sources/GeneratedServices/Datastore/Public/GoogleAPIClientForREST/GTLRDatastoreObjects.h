@@ -647,7 +647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan;
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual;
 /**
  *  Limit the result set to the given entity and its descendants. Requires: *
- *  That `value` is an entity key.
+ *  That `value` is an entity key. * No other `HAS_ANCESTOR` is in the same
+ *  query.
  *
  *  Value: "HAS_ANCESTOR"
  */
@@ -1048,6 +1049,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  `NON_TRANSACTIONAL`, no two mutations may affect a single entity.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Mutation *> *mutations;
+
+/**
+ *  Options for beginning a new transaction for this request. The transaction is
+ *  committed when the request completes. If specified, TransactionOptions.mode
+ *  must be TransactionOptions.ReadWrite.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_TransactionOptions *singleUseTransaction;
 
 /**
  *  The identifier of the transaction associated with the commit. A transaction
@@ -2334,6 +2342,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /** The time at which these entities were read or found missing. */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
+/**
+ *  The identifier of the transaction that was started as part of this Lookup
+ *  request. Set only when ReadOptions.new_transaction was set in
+ *  LookupRequest.read_options.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *transaction;
+
 @end
 
 
@@ -2525,7 +2543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        "GREATER_THAN_OR_EQUAL")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_HasAncestor Limit the result set
  *        to the given entity and its descendants. Requires: * That `value` is
- *        an entity key. (Value: "HAS_ANCESTOR")
+ *        an entity key. * No other `HAS_ANCESTOR` is in the same query. (Value:
+ *        "HAS_ANCESTOR")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_In The given `property` is equal
  *        to at least one value in the given array. Requires: * That `value` is
  *        a non-empty `ArrayValue` with at most 10 values. * No other `IN` or
@@ -2785,6 +2804,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_ReadOptions : GTLRObject
 
 /**
+ *  Options for beginning a new transaction for this request. The new
+ *  transaction identifier will be returned in the corresponding response as
+ *  either LookupResponse.transaction or RunQueryResponse.transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
+
+/**
  *  The non-transactional read consistency to use.
  *
  *  Likely values:
@@ -2931,6 +2957,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
 @property(nonatomic, strong, nullable) GTLRDatastore_AggregationQuery *query;
 
+/**
+ *  The identifier of the transaction that was started as part of this
+ *  RunAggregationQuery request. Set only when ReadOptions.new_transaction was
+ *  set in RunAggregationQueryRequest.read_options.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *transaction;
+
 @end
 
 
@@ -2974,6 +3010,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Query *query;
+
+/**
+ *  The identifier of the transaction that was started as part of this RunQuery
+ *  request. Set only when ReadOptions.new_transaction was set in
+ *  RunQueryRequest.read_options.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *transaction;
 
 @end
 

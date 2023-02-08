@@ -22,9 +22,12 @@ NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUnspecified = @"STAT
 
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardLarge = @"STANDARD_LARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardMedium = @"STANDARD_MEDIUM";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardSmall = @"STANDARD_SMALL";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = @"STANDARD_XLARGE";
 
 // ----------------------------------------------------------------------------
 //

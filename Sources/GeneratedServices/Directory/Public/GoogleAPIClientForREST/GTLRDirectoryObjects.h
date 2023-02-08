@@ -112,49 +112,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_Seve
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
 
 /**
- *  Different model replacement.
+ *  The device was replaced by a device with a different model.
  *
  *  Value: "deprovisionReasonDifferentModelReplacement"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement;
 /**
- *  Domain move.
+ *  The device's domain was changed.
  *
  *  Value: "deprovisionReasonDomainMove"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove;
 /**
- *  No reason required, i.e. licenses returned to customer's license pool.
+ *  A reason was not required. For example, the licenses were returned to the
+ *  customer's license pool.
  *
  *  Value: "deprovisionReasonNotRequired"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired;
 /**
- *  Other.
+ *  The device was deprovisioned for a legacy reason that is no longer
+ *  supported.
  *
  *  Value: "deprovisionReasonOther"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther;
 /**
- *  Deprovisioned by a RMA (service center) caller.
+ *  The device was deprovisioned by a repair service center.
  *
  *  Value: "deprovisionReasonRepairCenter"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter;
 /**
- *  Retiring device.
+ *  The device was retired.
  *
  *  Value: "deprovisionReasonRetiringDevice"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice;
 /**
- *  Same model replacement.
+ *  The device was replaced by a device with the same model.
  *
  *  Value: "deprovisionReasonSameModelReplacement"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement;
 /**
- *  Service expiration.
+ *  Service expired for the device.
  *
  *  Value: "deprovisionReasonServiceExpiration"
  */
@@ -166,13 +168,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReas
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified;
 /**
- *  Device upgrade.
+ *  The device was upgraded.
  *
  *  Value: "deprovisionReasonUpgrade"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade;
 /**
- *  Transferring perpetual upgrade to a new device.
+ *  The device's perpetual upgrade was transferred to a new device.
  *
  *  Value: "deprovisionReasonUpgradeTransfer"
  */
@@ -1377,33 +1379,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *
  *  Likely values:
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement
- *        Different model replacement. (Value:
+ *        The device was replaced by a device with a different model. (Value:
  *        "deprovisionReasonDifferentModelReplacement")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove
- *        Domain move. (Value: "deprovisionReasonDomainMove")
+ *        The device's domain was changed. (Value:
+ *        "deprovisionReasonDomainMove")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired
- *        No reason required, i.e. licenses returned to customer's license pool.
- *        (Value: "deprovisionReasonNotRequired")
+ *        A reason was not required. For example, the licenses were returned to
+ *        the customer's license pool. (Value: "deprovisionReasonNotRequired")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther
- *        Other. (Value: "deprovisionReasonOther")
+ *        The device was deprovisioned for a legacy reason that is no longer
+ *        supported. (Value: "deprovisionReasonOther")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter
- *        Deprovisioned by a RMA (service center) caller. (Value:
+ *        The device was deprovisioned by a repair service center. (Value:
  *        "deprovisionReasonRepairCenter")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice
- *        Retiring device. (Value: "deprovisionReasonRetiringDevice")
+ *        The device was retired. (Value: "deprovisionReasonRetiringDevice")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement
- *        Same model replacement. (Value:
+ *        The device was replaced by a device with the same model. (Value:
  *        "deprovisionReasonSameModelReplacement")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration
- *        Service expiration. (Value: "deprovisionReasonServiceExpiration")
+ *        Service expired for the device. (Value:
+ *        "deprovisionReasonServiceExpiration")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified
  *        The deprovision reason is unknown. (Value:
  *        "deprovisionReasonUnspecified")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade
- *        Device upgrade. (Value: "deprovisionReasonUpgrade")
+ *        The device was upgraded. (Value: "deprovisionReasonUpgrade")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgradeTransfer
- *        Transferring perpetual upgrade to a new device. (Value:
- *        "deprovisionReasonUpgradeTransfer")
+ *        The device's perpetual upgrade was transferred to a new device.
+ *        (Value: "deprovisionReasonUpgradeTransfer")
  */
 @property(nonatomic, copy, nullable) NSString *deprovisionReason;
 
@@ -2018,8 +2023,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The payload for the command result. The following commands respond with a
- *  payload: - DEVICE_START_CRD_SESSION: Payload is a stringified JSON object in
- *  the form: { "url": url }. The URL provides a link to the CRD session.
+ *  payload: * `DEVICE_START_CRD_SESSION`: Payload is a stringified JSON object
+ *  in the form: { "url": url }. The URL provides a link to the Chrome Remote
+ *  Desktop session.
  */
 @property(nonatomic, copy, nullable) NSString *commandResultPayload;
 
@@ -2090,14 +2096,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The payload for the command, provide it only if command supports it. The
- *  following commands support adding payload: - SET_VOLUME: Payload is a
+ *  following commands support adding payload: * `SET_VOLUME`: Payload is a
  *  stringified JSON object in the form: { "volume": 50 }. The volume has to be
- *  an integer in the range [0,100]. - DEVICE_START_CRD_SESSION: Payload is
+ *  an integer in the range [0,100]. * `DEVICE_START_CRD_SESSION`: Payload is
  *  optionally a stringified JSON object in the form: { "ackedUserPresence":
- *  true }. ackedUserPresence is a boolean. If a device is being used,
- *  ackedUserPresence must be set to true to acknowledge that you want to start
- *  a CRD session anyways. It is false by default, so a CRD command will fail if
- *  used on an active device without this field.
+ *  true }. `ackedUserPresence` is a boolean. By default, `ackedUserPresence` is
+ *  set to `false`. To start a Chrome Remote Desktop session for an active
+ *  device, set `ackedUserPresence` to `true`.
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 

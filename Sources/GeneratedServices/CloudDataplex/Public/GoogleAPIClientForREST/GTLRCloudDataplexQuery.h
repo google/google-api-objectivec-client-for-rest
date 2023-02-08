@@ -88,6 +88,125 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Create a DataAttributeBinding resource.
+ *
+ *  Method: dataplex.projects.locations.dataAttributeBindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. DataAttributeBinding identifier. * Must contain only lowercase
+ *  letters, numbers and hyphens. * Must start with a letter. * Must be between
+ *  1-63 characters. * Must end with a number or a letter. * Must be unique
+ *  within the Location.
+ */
+@property(nonatomic, copy, nullable) NSString *dataAttributeBindingId;
+
+/**
+ *  Required. The resource name of the parent data taxonomy
+ *  projects/{project_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Create a DataAttributeBinding resource.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding to include in
+ *    the query.
+ *  @param parent Required. The resource name of the parent data taxonomy
+ *    projects/{project_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataAttributeBinding resource. All attributes within the
+ *  DataAttributeBinding must be deleted before the DataAttributeBinding can be
+ *  deleted.
+ *
+ *  Method: dataplex.projects.locations.dataAttributeBindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. If the client provided etag value does not match the current etag
+ *  value, the DeleteDataAttributeBindingRequest method returns an ABORTED error
+ *  response. Etags must be used when calling the DeleteDataAttributeBinding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The resource name of the DataAttributeBinding:
+ *  projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a DataAttributeBinding resource. All attributes within the
+ *  DataAttributeBinding must be deleted before the DataAttributeBinding can be
+ *  deleted.
+ *
+ *  @param name Required. The resource name of the DataAttributeBinding:
+ *    projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a DataAttributeBinding resource.
+ *
+ *  Method: dataplex.projects.locations.dataAttributeBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataAttributeBinding:
+ *  projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding.
+ *
+ *  Retrieves a DataAttributeBinding resource.
+ *
+ *  @param name Required. The resource name of the DataAttributeBinding:
+ *    projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -134,6 +253,117 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists DataAttributeBinding resources in a project and location.
+ *
+ *  Method: dataplex.projects.locations.dataAttributeBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter request. Filter using resource:
+ *  filter=resource:"resource-name" Filter using attribute:
+ *  filter=attributes:"attribute-name" Filter using attribute in paths list:
+ *  filter=paths.attributes:"attribute-name"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of DataAttributeBindings to return. The service may
+ *  return fewer than this value. If unspecified, at most 10
+ *  DataAttributeBindings will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous ListDataAttributeBindings
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to ListDataAttributeBindings must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location:
+ *  projects/{project_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributeBindingsResponse.
+ *
+ *  Lists DataAttributeBinding resources in a project and location.
+ *
+ *  @param parent Required. The resource name of the Location:
+ *    projects/{project_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DataAttributeBinding resource.
+ *
+ *  Method: dataplex.projects.locations.dataAttributeBindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. The relative resource name of the Data Attribute Binding, of
+ *  the form:
+ *  projects/{project_number}/locations/{location}/dataAttributeBindings/{data_attribute_binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a DataAttributeBinding resource.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding to include in
+ *    the query.
+ *  @param name Output only. The relative resource name of the Data Attribute
+ *    Binding, of the form:
+ *    projects/{project_number}/locations/{location}/dataAttributeBindings/{data_attribute_binding_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -721,6 +951,119 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Create a DataAttribute resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.attributes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. DataAttribute identifier. * Must contain only lowercase letters,
+ *  numbers and hyphens. * Must start with a letter. * Must be between 1-63
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the DataTaxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *dataAttributeId;
+
+/**
+ *  Required. The resource name of the parent data taxonomy
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Create a DataAttribute resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent data taxonomy
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Data Attribute resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.attributes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. If the client provided etag value does not match the current etag
+ *  value, the DeleteDataAttribute method returns an ABORTED error response.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The resource name of the DataAttribute:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a Data Attribute resource.
+ *
+ *  @param name Required. The resource name of the DataAttribute:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a Data Attribute resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.attributes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the dataAttribute:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute.
+ *
+ *  Retrieves a Data Attribute resource.
+ *
+ *  @param name Required. The resource name of the dataAttribute:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -767,6 +1110,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Data Attribute resources in a DataTaxonomy.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.attributes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesList : GTLRCloudDataplexQuery
+
+/** Optional. Filter request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of DataAttributes to return. The service may return
+ *  fewer than this value. If unspecified, at most 10 dataAttributes will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous ListDataAttributes call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to ListDataAttributes must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the DataTaxonomy:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributesResponse.
+ *
+ *  Lists Data Attribute resources in a DataTaxonomy.
+ *
+ *  @param parent Required. The resource name of the DataTaxonomy:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DataAttribute resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.attributes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. The relative resource name of the dataAttribute, of the form:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a DataAttribute resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute to
+ *    include in the query.
+ *  @param name Output only. The relative resource name of the dataAttribute, of
+ *    the form:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -855,6 +1302,123 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Create a DataTaxonomy resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. DataTaxonomy identifier. * Must contain only lowercase letters,
+ *  numbers and hyphens. * Must start with a letter. * Must be between 1-63
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the Project.
+ */
+@property(nonatomic, copy, nullable) NSString *dataTaxonomyId;
+
+/**
+ *  Required. The resource name of the data taxonomy location, of the form:
+ *  projects/{project_number}/locations/{location_id} where location_id refers
+ *  to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Create a DataTaxonomy resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy to
+ *    include in the query.
+ *  @param parent Required. The resource name of the data taxonomy location, of
+ *    the form: projects/{project_number}/locations/{location_id} where
+ *    location_id refers to a GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy must
+ *  be deleted before the DataTaxonomy can be deleted.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. If the client provided etag value does not match the current etag
+ *  value,the DeleteDataTaxonomy method returns an ABORTED error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The resource name of the DataTaxonomy:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy must
+ *  be deleted before the DataTaxonomy can be deleted.
+ *
+ *  @param name Required. The resource name of the DataTaxonomy:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a DataTaxonomy resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataTaxonomy:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy.
+ *
+ *  Retrieves a DataTaxonomy resource.
+ *
+ *  @param name Required. The resource name of the DataTaxonomy:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -901,6 +1465,112 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists DataTaxonomy resources in a project and location.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesList : GTLRCloudDataplexQuery
+
+/** Optional. Filter request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of DataTaxonomies to return. The service may return
+ *  fewer than this value. If unspecified, at most 10 DataTaxonomies will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous ListDataTaxonomies call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to ListDataTaxonomies must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the DataTaxonomy location, of the form:
+ *  projects/{project_number}/locations/{location_id} where location_id refers
+ *  to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListDataTaxonomiesResponse.
+ *
+ *  Lists DataTaxonomy resources in a project and location.
+ *
+ *  @param parent Required. The resource name of the DataTaxonomy location, of
+ *    the form: projects/{project_number}/locations/{location_id} where
+ *    location_id refers to a GCP region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DataTaxonomy resource.
+ *
+ *  Method: dataplex.projects.locations.dataTaxonomies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. The relative resource name of the DataTaxonomy, of the form:
+ *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a DataTaxonomy resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy to
+ *    include in the query.
+ *  @param name Output only. The relative resource name of the DataTaxonomy, of
+ *    the form:
+ *    projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy *)object
+                           name:(NSString *)name;
 
 @end
 

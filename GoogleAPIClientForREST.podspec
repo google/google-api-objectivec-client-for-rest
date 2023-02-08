@@ -94,6 +94,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AdSenseHost/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AdSenseHost/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Advisorynotifications' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Advisorynotifications/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Advisorynotifications/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'AIPlatformNotebooks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AIPlatformNotebooks/**/*.{h,m}'
@@ -834,11 +839,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/IAMCredentials/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/IAMCredentials/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'Ideahub' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/Ideahub/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/Ideahub/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'IdentityToolkit' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/IdentityToolkit/**/*.{h,m}'
@@ -1088,6 +1088,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/ResourceSettings/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/ResourceSettings/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'SA360' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/SA360/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/SA360/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Safebrowsing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

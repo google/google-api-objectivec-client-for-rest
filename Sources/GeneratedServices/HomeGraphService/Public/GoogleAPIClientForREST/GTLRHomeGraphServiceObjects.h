@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Third-party device definition. Next ID = 14
+ *  Third-party device definition.
  */
 @interface GTLRHomeGraphService_Device : GTLRObject
 

@@ -17,6 +17,7 @@
 @class GTLRCloudWorkstations_Binding;
 @class GTLRCloudWorkstations_Container;
 @class GTLRCloudWorkstations_Container_Env;
+@class GTLRCloudWorkstations_CustomerEncryptionKey;
 @class GTLRCloudWorkstations_Expr;
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
 @class GTLRCloudWorkstations_GceInstance;
@@ -236,8 +237,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -252,9 +255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -320,12 +321,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ *  A customer-specified encryption key for the Compute Engine resources of this
+ *  workstation configuration.
  */
-@interface GTLRCloudWorkstations_Empty : GTLRObject
+@interface GTLRCloudWorkstations_CustomerEncryptionKey : GTLRObject
+
+/**
+ *  The name of the encryption key that is stored in Google Cloud KMS, for
+ *  example,
+ *  `projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  The service account being used for the encryption request for the given KMS
+ *  key. If absent, the Compute Engine default service account is used. However,
+ *  it is recommended to use a separate service account and to follow KMS best
+ *  practices mentioned at
+ *  https://cloud.google.com/kms/docs/separation-of-duties
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyServiceAccount;
+
 @end
 
 
@@ -544,13 +560,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 /**
  *  The generated bearer access token. To use this token, include it in an
  *  Authorization header of an HTTP request sent to the associated workstation's
- *  hostname, e.g. "Authorization: Bearer ".
+ *  hostname, for example, `Authorization: Bearer `.
  */
 @property(nonatomic, copy, nullable) NSString *accessToken;
 
 /** Time at which the generated token will expire. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRCloudWorkstations_GoogleProtobufEmpty : GTLRObject
 @end
 
 
@@ -820,31 +846,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Represents the metadata of the long-running operation.
+ *  Metadata for long-running operations.
  */
 @interface GTLRCloudWorkstations_OperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
+/** Output only. Time that the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Time that the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  operation.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
 
 /** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusDetail;
+@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /**
  *  Output only. Server-defined resource path for the target of the operation.
@@ -967,6 +991,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_PrivateClusterConfig : GTLRObject
 
 /**
+ *  Additional projects that are allowed to attach to the workstation cluster's
+ *  service attachment. By default, the workstation cluster's project and the
+ *  VPC host project (if different) are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedProjects;
+
+/**
  *  Output only. Hostname for the workstation cluster. This field will be
  *  populated only when private endpoint is enabled. To access workstations in
  *  the cluster, create a new DNS zone mapping this domain name to an internal
@@ -986,8 +1017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Output only. Service attachment URI for the workstation cluster. The service
  *  attachemnt is created when private endpoint is enabled. To access
  *  workstations in the cluster, configure access to the managed service using
- *  (Private Service
- *  Connect)[https://cloud.google.com/vpc/docs/configure-private-service-connect-services].
+ *  [Private Service
+ *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
  */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
 
@@ -1163,7 +1194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Output only. Host to which clients can send HTTPS traffic that will be
  *  received by the workstation. Authorized traffic will be received to the
  *  workstation as HTTP on port 80. To send traffic to a different port, clients
- *  may prefix the host with the destination port in the format "{port}-{host}".
+ *  may prefix the host with the destination port in the format `{port}-{host}`.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -1377,6 +1408,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /** Human-readable name for this resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Encrypts resources of this workstation configuration using a
+ *  customer-specified encryption key. If specified, the boot disk of the
+ *  Compute Engine instance and the persistent disk will be encrypted using this
+ *  encryption key. If this field is not set, the disks will be encrypted using
+ *  a generated key. Customer-specified encryption keys do not protect disk
+ *  metadata. If the customer-specified encryption key is rotated, when the
+ *  workstation instance is stopped, the system will attempt to recreate the
+ *  persistent disk with the new version of the key. Be sure to keep older
+ *  versions of the key until the persistent disk is recreated. Otherwise, data
+ *  on the persistent disk will be lost. If the encryption key is revoked, the
+ *  workstation session will automatically be stopped within 7 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_CustomerEncryptionKey *encryptionKey;
 
 /**
  *  Checksum computed by the server. May be sent on update and delete requests

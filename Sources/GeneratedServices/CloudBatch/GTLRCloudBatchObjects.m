@@ -84,6 +84,14 @@ NSString * const kGTLRCloudBatch_Message_Type_JobStateChanged  = @"JOB_STATE_CHA
 NSString * const kGTLRCloudBatch_Message_Type_TaskStateChanged = @"TASK_STATE_CHANGED";
 NSString * const kGTLRCloudBatch_Message_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudBatch_StatusEvent.taskState
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Assigned = @"ASSIGNED";
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Failed  = @"FAILED";
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Pending = @"PENDING";
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Running = @"RUNNING";
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudBatch_TaskStatus.state
 NSString * const kGTLRCloudBatch_TaskStatus_State_Assigned     = @"ASSIGNED";
 NSString * const kGTLRCloudBatch_TaskStatus_State_Failed       = @"FAILED";
@@ -461,7 +469,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_InstanceStatus
-@dynamic machineType, provisioningModel, taskPack;
+@dynamic bootDisk, machineType, provisioningModel, taskPack;
 @end
 
 
@@ -892,7 +900,15 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_ServiceAccount
-@dynamic email;
+@dynamic email, scopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -944,7 +960,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_StatusEvent
-@dynamic descriptionProperty, eventTime, taskExecution, type;
+@dynamic descriptionProperty, eventTime, taskExecution, taskState, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

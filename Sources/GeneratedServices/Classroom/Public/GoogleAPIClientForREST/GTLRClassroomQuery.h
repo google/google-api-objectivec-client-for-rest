@@ -2024,8 +2024,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  permitted to create courses or for access errors. * `NOT_FOUND` if the
  *  primary teacher is not a valid user. * `FAILED_PRECONDITION` if the course
  *  owner's account is disabled or for the following request errors: *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if an alias was
- *  specified in the `id` and already exists.
+ *  UserCannotOwnCourse * UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if
+ *  an alias was specified in the `id` and already exists.
  *
  *  Method: classroom.courses.create
  *
@@ -2045,8 +2045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  permitted to create courses or for access errors. * `NOT_FOUND` if the
  *  primary teacher is not a valid user. * `FAILED_PRECONDITION` if the course
  *  owner's account is disabled or for the following request errors: *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if an alias was
- *  specified in the `id` and already exists.
+ *  UserCannotOwnCourse * UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if
+ *  an alias was specified in the `id` and already exists.
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *

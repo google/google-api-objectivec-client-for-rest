@@ -296,7 +296,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadata
-@dynamic createTime, endTime, partialErrors, request;
+@dynamic createTime, endTime, ingestConversationsStats, partialErrors, request;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -305,6 +305,17 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats
+@dynamic duplicatesSkippedCount, failedIngestCount, processedObjectCount,
+         successfulIngestCount;
 @end
 
 
@@ -1133,7 +1144,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadata
-@dynamic createTime, endTime, partialErrors, request;
+@dynamic createTime, endTime, ingestConversationsStats, partialErrors, request;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1142,6 +1153,17 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats
+@dynamic duplicatesSkippedCount, failedIngestCount, processedObjectCount,
+         successfulIngestCount;
 @end
 
 

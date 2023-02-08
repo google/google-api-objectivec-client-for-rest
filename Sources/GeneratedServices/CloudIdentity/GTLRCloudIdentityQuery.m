@@ -935,3 +935,295 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 }
 
 @end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSamlSsoProfile *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/inboundSamlSsoProfiles";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_InboundSamlSsoProfile class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsAdd
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_AddIdpCredentialRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/idpCredentials:add";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsAdd *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.idpCredentials.add";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.idpCredentials.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_IdpCredential class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.idpCredentials.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/idpCredentials";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_ListIdpCredentialsResponse class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.idpCredentials.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/inboundSamlSsoProfiles";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_ListInboundSamlSsoProfilesResponse class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSamlSsoProfile *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSamlSsoProfilesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSamlSsoProfiles.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSsoAssignmentsCreate
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSsoAssignment *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/inboundSsoAssignments";
+  GTLRCloudIdentityQuery_InboundSsoAssignmentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSsoAssignments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSsoAssignmentsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSsoAssignmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSsoAssignments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSsoAssignmentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSsoAssignmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_InboundSsoAssignment class];
+  query.loggingName = @"cloudidentity.inboundSsoAssignments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSsoAssignmentsList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/inboundSsoAssignments";
+  GTLRCloudIdentityQuery_InboundSsoAssignmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_ListInboundSsoAssignmentsResponse class];
+  query.loggingName = @"cloudidentity.inboundSsoAssignments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundSsoAssignmentsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSsoAssignment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundSsoAssignmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundSsoAssignments.patch";
+  return query;
+}
+
+@end

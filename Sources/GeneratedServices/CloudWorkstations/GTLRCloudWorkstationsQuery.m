@@ -34,7 +34,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudWorkstations_Empty class];
+  query.expectedObjectClass = [GTLRCloudWorkstations_GoogleProtobufEmpty class];
   query.loggingName = @"workstations.projects.locations.operations.cancel";
   return query;
 }
@@ -53,7 +53,7 @@
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudWorkstations_Empty class];
+  query.expectedObjectClass = [GTLRCloudWorkstations_GoogleProtobufEmpty class];
   query.loggingName = @"workstations.projects.locations.operations.delete";
   return query;
 }

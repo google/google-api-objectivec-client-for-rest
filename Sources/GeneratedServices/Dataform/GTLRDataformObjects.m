@@ -871,7 +871,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Repository
-@dynamic gitRemoteSettings, name, npmrcEnvironmentVariablesSecretVersion;
+@dynamic gitRemoteSettings, name, npmrcEnvironmentVariablesSecretVersion,
+         workspaceCompilationOverrides;
 @end
 
 
@@ -1013,6 +1014,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_Workspace
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_WorkspaceCompilationOverrides
+//
+
+@implementation GTLRDataform_WorkspaceCompilationOverrides
+@dynamic defaultDatabase, schemaSuffix, tablePrefix;
 @end
 
 

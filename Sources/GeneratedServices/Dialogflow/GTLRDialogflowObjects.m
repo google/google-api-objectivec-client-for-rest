@@ -119,6 +119,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest.dataFormat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_Blob = @"BLOB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_JsonPackage = @"JSON_PACKAGE";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest_DataFormat_Blob = @"BLOB";

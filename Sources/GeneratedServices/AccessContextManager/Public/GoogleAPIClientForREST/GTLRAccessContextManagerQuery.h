@@ -4,8 +4,8 @@
 // API:
 //   Access Context Manager API (accesscontextmanager/v1)
 // Description:
-//   An API for setting attribute based access control to requests to GCP
-//   services.
+//   An API for setting attribute based access control to requests to Google
+//   Cloud services.
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
@@ -389,8 +389,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Creates a authorized orgs desc. The long-running operation from this RPC has
- *  a successful status after the authorized orgs desc propagates to
+ *  Creates an authorized orgs desc. The long-running operation from this RPC
+ *  has a successful status after the authorized orgs desc propagates to
  *  long-lasting storage. If a authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. The name of this
  *  `AuthorizedOrgsDesc` will be assigned during creation.
@@ -411,8 +411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Creates a authorized orgs desc. The long-running operation from this RPC has
- *  a successful status after the authorized orgs desc propagates to
+ *  Creates an authorized orgs desc. The long-running operation from this RPC
+ *  has a successful status after the authorized orgs desc propagates to
  *  long-lasting storage. If a authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. The name of this
  *  `AuthorizedOrgsDesc` will be assigned during creation.
@@ -430,7 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Deletes a authorized orgs desc based on the resource name. The long-running
+ *  Deletes an authorized orgs desc based on the resource name. The long-running
  *  operation from this RPC has a successful status after the authorized orgs
  *  desc is removed from long-lasting storage.
  *
@@ -450,7 +450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Deletes a authorized orgs desc based on the resource name. The long-running
+ *  Deletes an authorized orgs desc based on the resource name. The long-running
  *  operation from this RPC has a successful status after the authorized orgs
  *  desc is removed from long-lasting storage.
  *
@@ -464,7 +464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Gets a authorized orgs desc based on the resource name.
+ *  Gets an authorized orgs desc based on the resource name.
  *
  *  Method: accesscontextmanager.accessPolicies.authorizedOrgsDescs.get
  *
@@ -482,7 +482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_AuthorizedOrgsDesc.
  *
- *  Gets a authorized orgs desc based on the resource name.
+ *  Gets an authorized orgs desc based on the resource name.
  *
  *  @param name Required. Resource name for the Authorized Orgs Desc. Format:
  *    `accessPolicies/{policy_id}/authorizedOrgsDescs/{authorized_orgs_descs_id}`
@@ -537,8 +537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Updates a authorized orgs desc. The long-running operation from this RPC has
- *  a successful status after the authorized orgs desc propagates to
+ *  Updates an authorized orgs desc. The long-running operation from this RPC
+ *  has a successful status after the authorized orgs desc propagates to
  *  long-lasting storage. If a authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. Only the organization
  *  list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type,
@@ -552,11 +552,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Assigned by the server during creation. The last segment has an arbitrary
- *  length and has only URI unreserved characters (as defined by [RFC 3986
- *  Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should not
- *  be specified by the client during creation. Example:
- *  "accessPolicies/122256/authorizedOrgs/b3-BhcX_Ud5N"
+ *  Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
+ *  The `authorized_orgs_desc` component must begin with a letter, followed by
+ *  alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
+ *  you cannot change its `name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -570,8 +570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Updates a authorized orgs desc. The long-running operation from this RPC has
- *  a successful status after the authorized orgs desc propagates to
+ *  Updates an authorized orgs desc. The long-running operation from this RPC
+ *  has a successful status after the authorized orgs desc propagates to
  *  long-lasting storage. If a authorized orgs desc contains errors, an error
  *  response is returned for the first error encountered. Only the organization
  *  list in `AuthorizedOrgsDesc` can be updated. The name, authorization_type,
@@ -579,11 +579,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AuthorizedOrgsDesc to include
  *    in the query.
- *  @param name Assigned by the server during creation. The last segment has an
- *    arbitrary length and has only URI unreserved characters (as defined by
- *    [RFC 3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)).
- *    Should not be specified by the client during creation. Example:
- *    "accessPolicies/122256/authorizedOrgs/b3-BhcX_Ud5N"
+ *  @param name Resource name for the `AuthorizedOrgsDesc`. Format:
+ *    `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
+ *    The `authorized_orgs_desc` component must begin with a letter, followed by
+ *    alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
+ *    you cannot change its `name`.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch
  */

@@ -649,6 +649,119 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec
+@dynamic readers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"readers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute
+@dynamic attributeCount, createTime, dataAccessSpec, descriptionProperty,
+         displayName, ETag, labels, name, parentId, resourceAccessSpec, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding
+@dynamic attributes, createTime, descriptionProperty, displayName, ETag, labels,
+         name, paths, resource, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [NSString class],
+    @"paths" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath
+@dynamic attributes, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult
 //
 
@@ -1046,6 +1159,40 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy
+@dynamic attributeCount, createTime, descriptionProperty, displayName, ETag,
+         labels, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent
 //
 
@@ -1414,6 +1561,52 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributeBindingsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributeBindingsResponse
+@dynamic dataAttributeBindings, nextPageToken, unreachableLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataAttributeBindings" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding class],
+    @"unreachableLocations" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataAttributeBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributesResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributesResponse
+@dynamic dataAttributes, nextPageToken, unreachableLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataAttributes" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute class],
+    @"unreachableLocations" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataAttributes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataScanJobsResponse
 //
 
@@ -1452,6 +1645,29 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 + (NSString *)collectionItemsKey {
   return @"dataScans";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataTaxonomiesResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataTaxonomiesResponse
+@dynamic dataTaxonomies, nextPageToken, unreachableLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTaxonomies" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy class],
+    @"unreachableLocations" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataTaxonomies";
 }
 
 @end
@@ -1661,6 +1877,26 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec
+@dynamic owners, readers, writers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"owners" : [NSString class],
+    @"readers" : [NSString class],
+    @"writers" : [NSString class]
   };
   return map;
 }

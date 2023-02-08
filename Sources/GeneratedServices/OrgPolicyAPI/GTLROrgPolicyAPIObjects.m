@@ -171,7 +171,7 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 //
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy
-@dynamic alternate, name, spec;
+@dynamic alternate, dryRunSpec, name, spec;
 @end
 
 

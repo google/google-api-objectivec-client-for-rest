@@ -99,6 +99,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Login;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified;
 /**
+ *  Deprecated, no longer accepted by IAP APIs.
+ *
+ *  Value: "PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Password;
+/**
  *  User must use their secure key 2nd factor device.
  *
  *  Value: "SECURE_KEY"
@@ -214,11 +220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 /** Customization for Access Denied page. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AccessDeniedPageSettings *accessDeniedPageSettings;
 
-/**
- *  Settings to configure attribute propagation to customer application. These
- *  attributes may come from SAML/SessionStorage integration, or other sources
- *  in the future.
- */
+/** Settings to configure attribute propagation. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AttributePropagationSettings *attributePropagationSettings;
 
 /**
@@ -234,9 +236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  Configuration for propagating attributes to customer applications protected
- *  by IAP. These attributes may be SAML attributes from a 3rd party IdP, or
- *  potentially other sources in the future.
+ *  Configuration for propagating attributes to applications protected by IAP.
  */
 @interface GTLRCloudIAP_AttributePropagationSettings : GTLRObject
 
@@ -250,11 +250,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
 /**
- *  Raw string CEL expression. Expression should be of the form
- *  attributes.saml_attributes.filter(attribute, attribute.name in
- *  [{attribute_list}]). An example expression to select the attributes
- *  "my_attr" and "other_attr": attributes.saml_attributes.filter(attribute,
- *  attribute.name in ["my_attr", "other_attr"])
+ *  Raw string CEL expression. Must return a list of attributes. Maximum of 45
+ *  attributes can be selected. Expressions can select different attribute types
+ *  from `attributes`: `attributes.saml_attributes`,
+ *  `attributes.iap_attributes`. Limited functions are supported: - filter:
+ *  .filter(, ) -> returns a subset of where is true for every item - in: in ->
+ *  returns true if contains - selectByName: .selectByName() -> returns the
+ *  attribute in with the given name, otherwise returns empty. - emitAs:
+ *  .emitAs() -> sets the name field to the given for propagation in selected
+ *  output credentials. - strict: .strict() -> ignore the `x-goog-iap-attr-`
+ *  prefix for the provided attribute when propagating via the `HEADER` output
+ *  credential, i.e. request headers. - append: .append() OR .append() -> append
+ *  the provided or onto the end of Example expression:
+ *  attributes.saml_attributes.filter(x, x.name in
+ *  ['test']).append(attributes.iap_attributes.selectByName('exact').emitAs('custom').strict())
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
@@ -300,8 +309,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -316,9 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -804,6 +813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *        in again. (Value: "LOGIN")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified
  *        Reauthentication disabled. (Value: "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Password Deprecated, no longer
+ *        accepted by IAP APIs. (Value: "PASSWORD")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_SecureKey User must use their
  *        secure key 2nd factor device. (Value: "SECURE_KEY")
  */

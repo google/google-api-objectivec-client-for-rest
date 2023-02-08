@@ -107,6 +107,7 @@
 @class GTLRAndroidPublisher_UpgradeTargetingRule;
 @class GTLRAndroidPublisher_User;
 @class GTLRAndroidPublisher_UserComment;
+@class GTLRAndroidPublisher_UserCountrySet;
 @class GTLRAndroidPublisher_UserInitiatedCancellation;
 @class GTLRAndroidPublisher_UsesPermission;
 @class GTLRAndroidPublisher_Variant;
@@ -1631,6 +1632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /** Definition of the set of device tiers for the app. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceTierSet *deviceTierSet;
 
+/** Definition of user country sets for the app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UserCountrySet *> *userCountrySets;
+
 @end
 
 
@@ -3059,7 +3063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  Required. A string representing version of the available regions being used
- *  for the specified resource. The current version is 2022/01.
+ *  for the specified resource. The current version is 2022/02.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -4406,6 +4410,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *thumbsUpCount;
+
+@end
+
+
+/**
+ *  A set of user countries. A country set determines what variation of app
+ *  content gets served to a specific location.
+ */
+@interface GTLRAndroidPublisher_UserCountrySet : GTLRObject
+
+/**
+ *  List of country codes representing countries. A Country code is represented
+ *  in ISO 3166 alpha-2 format. For Example:- "IT" for Italy, "GE" for Georgia.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countryCodes;
+
+/** Country set name. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

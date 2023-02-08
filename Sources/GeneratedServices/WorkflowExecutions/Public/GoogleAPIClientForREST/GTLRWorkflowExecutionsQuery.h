@@ -190,6 +190,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsList : GTLRWorkflowExecutionsQuery
 
 /**
+ *  Optional. Filters applied to the [Executions.ListExecutions] results. The
+ *  following fields are supported for filtering: executionID, state, startTime,
+ *  endTime, duration, workflowRevisionID, stepName, and label.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The orderding applied to the [Executions.ListExecutions] results.
+ *  By default the ordering is based on descending start time. The following
+ *  fields are supported for order by: executionID, startTime, endTime,
+ *  duration, state, and workflowRevisionID.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Maximum number of executions to return per call. Max supported value depends
  *  on the selected Execution view: it's 1000 for BASIC and 100 for FULL. The
  *  default value used if the field is not specified is 100, regardless of the

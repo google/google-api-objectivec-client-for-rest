@@ -69,6 +69,178 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 @end
 
 /**
+ *  Deletes a product certification by its name. This method can only be called
+ *  by certification bodies.
+ *
+ *  Method: manufacturers.accounts.languages.productCertifications.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
+ */
+@interface GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsDelete : GTLRManufacturerCenterQuery
+
+/**
+ *  Required. The name of the product certification to delete. Format:
+ *  accounts/{account}/languages/{language_code}/productCertifications/{id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManufacturerCenter_Empty.
+ *
+ *  Deletes a product certification by its name. This method can only be called
+ *  by certification bodies.
+ *
+ *  @param name Required. The name of the product certification to delete.
+ *    Format:
+ *    accounts/{account}/languages/{language_code}/productCertifications/{id}
+ *
+ *  @return GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a product certification by its name. This method can only be called by
+ *  certification bodies.
+ *
+ *  Method: manufacturers.accounts.languages.productCertifications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
+ */
+@interface GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsGet : GTLRManufacturerCenterQuery
+
+/**
+ *  Required. The name of the product certification to get. Format:
+ *  accounts/{account}/languages/{language_code}/productCertifications/{id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRManufacturerCenter_ProductCertification.
+ *
+ *  Gets a product certification by its name. This method can only be called by
+ *  certification bodies.
+ *
+ *  @param name Required. The name of the product certification to get. Format:
+ *    accounts/{account}/languages/{language_code}/productCertifications/{id}
+ *
+ *  @return GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists product certifications from a specified certification body. This
+ *  method can only be called by certification bodies.
+ *
+ *  Method: manufacturers.accounts.languages.productCertifications.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
+ */
+@interface GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsList : GTLRManufacturerCenterQuery
+
+/**
+ *  Optional. The maximum number of product certifications to return. The
+ *  service may return fewer than this value. If unspecified, at most 50 product
+ *  certifications will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListProductCertifications`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListProductCertifications` must match the call
+ *  that provided the page token. Required if requesting the second or higher
+ *  page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of product certifications.
+ *  Format: accounts/{account}/languages/{language_code}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRManufacturerCenter_ListProductCertificationsResponse.
+ *
+ *  Lists product certifications from a specified certification body. This
+ *  method can only be called by certification bodies.
+ *
+ *  @param parent Required. The parent, which owns this collection of product
+ *    certifications. Format: accounts/{account}/languages/{language_code}
+ *
+ *  @return GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates (or creates if allow_missing = true) a product certification which
+ *  links certifications with products. This method can only be called by
+ *  certification bodies.
+ *
+ *  Method: manufacturers.accounts.languages.productCertifications.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
+ */
+@interface GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsPatch : GTLRManufacturerCenterQuery
+
+/**
+ *  Required. The unique name identifier of a product certification Format:
+ *  accounts/{account}/languages/{language_code}/productCertifications/{id}
+ *  Where `id` is a some unique identifier and `language_code` is a 2-letter ISO
+ *  639-1 code of a Shopping supported language according to
+ *  https://support.google.com/merchants/answer/160637.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update according to aip.dev/134. However,
+ *  only full update is supported as of right now. Therefore, it can be either
+ *  ignored or set to "*". Setting any other values will returns UNIMPLEMENTED
+ *  error.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRManufacturerCenter_ProductCertification.
+ *
+ *  Updates (or creates if allow_missing = true) a product certification which
+ *  links certifications with products. This method can only be called by
+ *  certification bodies.
+ *
+ *  @param object The @c GTLRManufacturerCenter_ProductCertification to include
+ *    in the query.
+ *  @param name Required. The unique name identifier of a product certification
+ *    Format:
+ *    accounts/{account}/languages/{language_code}/productCertifications/{id}
+ *    Where `id` is a some unique identifier and `language_code` is a 2-letter
+ *    ISO 639-1 code of a Shopping supported language according to
+ *    https://support.google.com/merchants/answer/160637.
+ *
+ *  @return GTLRManufacturerCenterQuery_AccountsLanguagesProductCertificationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRManufacturerCenter_ProductCertification *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes the product from a Manufacturer Center account.
  *
  *  Method: manufacturers.accounts.products.delete

@@ -1512,7 +1512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Upgr
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_BlueGreen;
 /**
- *  Default value.
+ *  Default value if unset. GKE internally defaults the update strategy to SURGE
+ *  for unspecified strategies.
  *
  *  Value: "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED"
  */
@@ -1787,7 +1788,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
-/** The image type to use for NAP created node. */
+/**
+ *  The image type to use for NAP created node. Please see
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
+ *  available image types.
+ */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /** Specifies the node management options for NAP created node-pools. */
@@ -1801,8 +1806,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  read [how to specify min CPU
  *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
  *  This field is deprecated, min_cpu_platform should be specified using
- *  https://cloud.google.com/requested-min-cpu-platform label selector on the
- *  pod. To unset the min cpu platform field pass "automatic" as field value.
+ *  `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To
+ *  unset the min cpu platform field pass "automatic" as field value.
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -3484,6 +3489,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *servicesIpv4CidrBlock;
 
 /**
+ *  Output only. [Output only] The services IPv6 CIDR block for the cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *servicesIpv6CidrBlock;
+
+/**
  *  The name of the secondary range to be used as for the services CIDR block.
  *  The secondary range will be used for service ClusterIPs. This must be an
  *  existing secondary range associated with the cluster subnetwork. This field
@@ -3505,6 +3515,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "STACK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *stackType;
+
+/**
+ *  Output only. [Output only] The subnet's IPv6 CIDR block used by nodes and
+ *  pods.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetIpv6CidrBlock;
 
 /**
  *  A custom subnetwork name to be used if `create_subnetwork` is true. If this
@@ -4324,7 +4340,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The image type to use for this node. Note that for a given image type, the
- *  latest version of it will be used.
+ *  latest version of it will be used. Please see
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
+ *  available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -4843,7 +4861,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Upgrade settings control disruption and speed of the upgrade. */
 @property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
 
-/** The version of the Kubernetes of this node. */
+/**
+ *  The version of Kubernetes running on this NodePool's nodes. If unspecified,
+ *  it defaults as described
+ *  [here](https://cloud.google.com/kubernetes-engine/versioning#specifying_node_version).
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -6723,7 +6745,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Enable or disable gvnic on the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
 
-/** Required. The desired image type for the node pool. */
+/**
+ *  Required. The desired image type for the node pool. Please see
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
+ *  available image types.
+ */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /** Node kubelet configs. */
@@ -6968,7 +6994,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_BlueGreen blue-green
  *        upgrade. (Value: "BLUE_GREEN")
  *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_NodePoolUpdateStrategyUnspecified
- *        Default value. (Value: "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED")
+ *        Default value if unset. GKE internally defaults the update strategy to
+ *        SURGE for unspecified strategies. (Value:
+ *        "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED")
  *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_Surge SURGE is the
  *        traditional way of upgrade a node pool. max_surge and max_unavailable
  *        determines the level of upgrade parallelism. (Value: "SURGE")

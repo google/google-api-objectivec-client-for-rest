@@ -160,7 +160,7 @@
 
 @implementation GTLRWorkflowsQuery_ProjectsLocationsWorkflowsGet
 
-@dynamic name;
+@dynamic name, revisionId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

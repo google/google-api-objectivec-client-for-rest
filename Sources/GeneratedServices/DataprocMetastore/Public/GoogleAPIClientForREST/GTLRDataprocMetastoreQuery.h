@@ -35,51 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  Code.CANCELLED.
- *
- *  Method: metastore.operations.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
- */
-@interface GTLRDataprocMetastoreQuery_OperationsCancel : GTLRDataprocMetastoreQuery
-
-/** The name of the operation resource to be cancelled. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDataprocMetastore_Empty.
- *
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  Code.CANCELLED.
- *
- *  @param object The @c GTLRDataprocMetastore_CancelOperationRequest to include
- *    in the query.
- *  @param name The name of the operation resource to be cancelled.
- *
- *  @return GTLRDataprocMetastoreQuery_OperationsCancel
- */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Creates a metastore federation in a project and location.
  *
  *  Method: metastore.projects.locations.federations.create
@@ -538,6 +493,51 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  Method: metastore.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsCancel : GTLRDataprocMetastoreQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
+                           name:(NSString *)name;
 
 @end
 

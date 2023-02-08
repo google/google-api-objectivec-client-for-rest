@@ -741,15 +741,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy for a resource. Replaces any existing policy.
- *  You can set ACL with condition for projects only. Supported operators are:
- *  `=`, `!=`, `<`, `<=`, `>`, and `>=` where the left of the operator is
- *  `DocumentSchemaId` or property name and the right of the operator is a
- *  number or a quoted string. You must escape backslash (\\\\) and quote (\\")
- *  characters. Boolean expressions (AND/OR) are supported up to 3 levels of
- *  nesting (for example, "((A AND B AND C) OR D) AND E"), a maximum of 10
- *  comparisons are allowed in the expression. The expression must be < 6000
- *  bytes in length. Sample condition: `"DocumentSchemaId = \\"some schema id\\"
- *  " OR SchemaId.floatPropertyName >= 10`
  *
  *  Method: contentwarehouse.projects.locations.documents.setAcl
  *
@@ -771,15 +762,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRContentwarehouse_GoogleCloudContentwarehouseV1SetAclResponse.
  *
  *  Sets the access control policy for a resource. Replaces any existing policy.
- *  You can set ACL with condition for projects only. Supported operators are:
- *  `=`, `!=`, `<`, `<=`, `>`, and `>=` where the left of the operator is
- *  `DocumentSchemaId` or property name and the right of the operator is a
- *  number or a quoted string. You must escape backslash (\\\\) and quote (\\")
- *  characters. Boolean expressions (AND/OR) are supported up to 3 levels of
- *  nesting (for example, "((A AND B AND C) OR D) AND E"), a maximum of 10
- *  comparisons are allowed in the expression. The expression must be < 6000
- *  bytes in length. Sample condition: `"DocumentSchemaId = \\"some schema id\\"
- *  " OR SchemaId.floatPropertyName >= 10`
  *
  *  @param object The @c
  *    GTLRContentwarehouse_GoogleCloudContentwarehouseV1SetAclRequest to include
@@ -1042,6 +1024,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Run a predefined pipeline.
+ *
+ *  Method: contentwarehouse.projects.locations.runPipeline
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContentwarehouseCloudPlatform
+ */
+@interface GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline : GTLRContentwarehouseQuery
+
+/**
+ *  Required. The resource name which owns the resources of the pipeline.
+ *  Format: projects/{project_number}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContentwarehouse_GoogleLongrunningOperation.
+ *
+ *  Run a predefined pipeline.
+ *
+ *  @param object The @c
+ *    GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest to
+ *    include in the query.
+ *  @param name Required. The resource name which owns the resources of the
+ *    pipeline. Format: projects/{project_number}/locations/{location}.
+ *
+ *  @return GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline
+ */
++ (instancetype)queryWithObject:(GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a SynonymSet for a single context. Throws an ALREADY_EXISTS
  *  exception if a synonymset already exists for the context.
  *
@@ -1229,15 +1245,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy for a resource. Replaces any existing policy.
- *  You can set ACL with condition for projects only. Supported operators are:
- *  `=`, `!=`, `<`, `<=`, `>`, and `>=` where the left of the operator is
- *  `DocumentSchemaId` or property name and the right of the operator is a
- *  number or a quoted string. You must escape backslash (\\\\) and quote (\\")
- *  characters. Boolean expressions (AND/OR) are supported up to 3 levels of
- *  nesting (for example, "((A AND B AND C) OR D) AND E"), a maximum of 10
- *  comparisons are allowed in the expression. The expression must be < 6000
- *  bytes in length. Sample condition: `"DocumentSchemaId = \\"some schema id\\"
- *  " OR SchemaId.floatPropertyName >= 10`
  *
  *  Method: contentwarehouse.projects.setAcl
  *
@@ -1259,15 +1266,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRContentwarehouse_GoogleCloudContentwarehouseV1SetAclResponse.
  *
  *  Sets the access control policy for a resource. Replaces any existing policy.
- *  You can set ACL with condition for projects only. Supported operators are:
- *  `=`, `!=`, `<`, `<=`, `>`, and `>=` where the left of the operator is
- *  `DocumentSchemaId` or property name and the right of the operator is a
- *  number or a quoted string. You must escape backslash (\\\\) and quote (\\")
- *  characters. Boolean expressions (AND/OR) are supported up to 3 levels of
- *  nesting (for example, "((A AND B AND C) OR D) AND E"), a maximum of 10
- *  comparisons are allowed in the expression. The expression must be < 6000
- *  bytes in length. Sample condition: `"DocumentSchemaId = \\"some schema id\\"
- *  " OR SchemaId.floatPropertyName >= 10`
  *
  *  @param object The @c
  *    GTLRContentwarehouse_GoogleCloudContentwarehouseV1SetAclRequest to include

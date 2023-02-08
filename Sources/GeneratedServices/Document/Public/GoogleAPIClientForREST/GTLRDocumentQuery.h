@@ -711,6 +711,120 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Evaluates a ProcessorVersion against annotated documents, producing an
+ *  Evaluation.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.evaluateProcessorVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluateProcessorVersion : GTLRDocumentQuery
+
+/**
+ *  Required. The resource name of the ProcessorVersion to evaluate.
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+ */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Evaluates a ProcessorVersion against annotated documents, producing an
+ *  Evaluation.
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest to
+ *    include in the query.
+ *  @param processorVersion Required. The resource name of the ProcessorVersion
+ *    to evaluate.
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluateProcessorVersion
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest *)object
+               processorVersion:(NSString *)processorVersion;
+
+@end
+
+/**
+ *  Retrieves a specific evaluation.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.evaluations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluationsGet : GTLRDocumentQuery
+
+/**
+ *  Required. The resource name of the Evaluation to get.
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}/evaluations/{evaluation}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1Evaluation.
+ *
+ *  Retrieves a specific evaluation.
+ *
+ *  @param name Required. The resource name of the Evaluation to get.
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}/evaluations/{evaluation}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a set of evaluations for a given processor version.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.evaluations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluationsList : GTLRDocumentQuery
+
+/**
+ *  The standard list page size. If unspecified, at most 5 evaluations will be
+ *  returned. The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListEvaluations` call. Provide this
+ *  to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the ProcessorVersion to list evaluations for.
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ListEvaluationsResponse.
+ *
+ *  Retrieves a set of evaluations for a given processor version.
+ *
+ *  @param parent Required. The resource name of the ProcessorVersion to list
+ *    evaluations for.
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets a processor version detail.
  *
  *  Method: documentai.projects.locations.processors.processorVersions.get
@@ -821,6 +935,44 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Trains a new processor version. Operation metadata is returned as
+ *  cloud_documentai_core.TrainProcessorVersionMetadata.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.train
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsTrain : GTLRDocumentQuery
+
+/**
+ *  Required. The parent (project, location and processor) to create the new
+ *  version for. Format:
+ *  `projects/{project}/locations/{location}/processors/{processor}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Trains a new processor version. Operation metadata is returned as
+ *  cloud_documentai_core.TrainProcessorVersionMetadata.
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest to
+ *    include in the query.
+ *  @param parent Required. The parent (project, location and processor) to
+ *    create the new version for. Format:
+ *    `projects/{project}/locations/{location}/processors/{processor}`.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsTrain
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

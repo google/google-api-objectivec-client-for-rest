@@ -17,33 +17,6 @@
 
 @end
 
-@implementation GTLRDataprocMetastoreQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLRDataprocMetastoreQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataprocMetastore_Empty class];
-  query.loggingName = @"metastore.operations.cancel";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate
 
 @dynamic federationId, parent, requestId;
@@ -265,6 +238,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataprocMetastore_ListLocationsResponse class];
   query.loggingName = @"metastore.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Empty class];
+  query.loggingName = @"metastore.projects.locations.operations.cancel";
   return query;
 }
 
