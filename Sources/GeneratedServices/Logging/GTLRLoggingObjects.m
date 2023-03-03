@@ -13,6 +13,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRLogging_BucketMetadata.state
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateRunning = @"OPERATION_STATE_RUNNING";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateScheduled = @"OPERATION_STATE_SCHEDULED";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStateWaitingForPermissions = @"OPERATION_STATE_WAITING_FOR_PERMISSIONS";
+
 // GTLRLogging_CopyLogEntriesMetadata.state
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
@@ -32,10 +41,30 @@ NSString * const kGTLRLogging_LabelDescriptor_ValueType_Bool   = @"BOOL";
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64  = @"INT64";
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_String = @"STRING";
 
+// GTLRLogging_Link.lifecycleState
+NSString * const kGTLRLogging_Link_LifecycleState_Active       = @"ACTIVE";
+NSString * const kGTLRLogging_Link_LifecycleState_Creating     = @"CREATING";
+NSString * const kGTLRLogging_Link_LifecycleState_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRLogging_Link_LifecycleState_Failed       = @"FAILED";
+NSString * const kGTLRLogging_Link_LifecycleState_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRLogging_Link_LifecycleState_Updating     = @"UPDATING";
+
+// GTLRLogging_LinkMetadata.state
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateRunning = @"OPERATION_STATE_RUNNING";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateScheduled = @"OPERATION_STATE_SCHEDULED";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStateWaitingForPermissions = @"OPERATION_STATE_WAITING_FOR_PERMISSIONS";
+
 // GTLRLogging_LogBucket.lifecycleState
 NSString * const kGTLRLogging_LogBucket_LifecycleState_Active  = @"ACTIVE";
+NSString * const kGTLRLogging_LogBucket_LifecycleState_Creating = @"CREATING";
 NSString * const kGTLRLogging_LogBucket_LifecycleState_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRLogging_LogBucket_LifecycleState_Failed  = @"FAILED";
 NSString * const kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRLogging_LogBucket_LifecycleState_Updating = @"UPDATING";
 
 // GTLRLogging_LogEntry.severity
 NSString * const kGTLRLogging_LogEntry_Severity_Alert     = @"ALERT";
@@ -120,11 +149,31 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_BigQueryDataset
+//
+
+@implementation GTLRLogging_BigQueryDataset
+@dynamic datasetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_BigQueryOptions
 //
 
 @implementation GTLRLogging_BigQueryOptions
 @dynamic usePartitionedTables, usesTimestampColumnPartitioning;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_BucketMetadata
+//
+
+@implementation GTLRLogging_BucketMetadata
+@dynamic createBucketRequest, endTime, startTime, state, updateBucketRequest;
 @end
 
 
@@ -185,6 +234,36 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_CopyLogEntriesResponse
 @dynamic logEntriesCopiedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_CreateBucketRequest
+//
+
+@implementation GTLRLogging_CreateBucketRequest
+@dynamic bucket, bucketId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_CreateLinkRequest
+//
+
+@implementation GTLRLogging_CreateLinkRequest
+@dynamic link, linkId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_DeleteLinkRequest
+//
+
+@implementation GTLRLogging_DeleteLinkRequest
+@dynamic name;
 @end
 
 
@@ -274,6 +353,31 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_Link
+//
+
+@implementation GTLRLogging_Link
+@dynamic bigqueryDataset, createTime, descriptionProperty, lifecycleState, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_LinkMetadata
+//
+
+@implementation GTLRLogging_LinkMetadata
+@dynamic createLinkRequest, deleteLinkRequest, endTime, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_ListBucketsResponse
 //
 
@@ -311,6 +415,28 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (NSString *)collectionItemsKey {
   return @"exclusions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_ListLinksResponse
+//
+
+@implementation GTLRLogging_ListLinksResponse
+@dynamic links, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRLogging_Link class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"links";
 }
 
 @end
@@ -547,13 +673,23 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_LocationMetadata
+//
+
+@implementation GTLRLogging_LocationMetadata
+@dynamic logAnalyticsEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_LogBucket
 //
 
 @implementation GTLRLogging_LogBucket
-@dynamic cmekSettings, createTime, descriptionProperty, indexConfigs,
-         lifecycleState, locked, name, restrictedFields, retentionDays,
-         updateTime;
+@dynamic analyticsEnabled, cmekSettings, createTime, descriptionProperty,
+         indexConfigs, lifecycleState, locked, name, restrictedFields,
+         retentionDays, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1051,6 +1187,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_UndeleteBucketRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_UpdateBucketRequest
+//
+
+@implementation GTLRLogging_UpdateBucketRequest
+@dynamic bucket, name, updateMask;
 @end
 
 

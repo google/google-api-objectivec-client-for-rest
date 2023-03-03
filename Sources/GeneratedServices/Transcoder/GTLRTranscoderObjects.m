@@ -107,8 +107,8 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_AudioStream
-@dynamic bitrateBps, channelCount, channelLayout, codec, mapping,
-         sampleRateHertz;
+@dynamic bitrateBps, channelCount, channelLayout, codec, displayName,
+         languageCode, mapping, sampleRateHertz;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -559,7 +559,7 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_TextStream
-@dynamic codec, mapping;
+@dynamic codec, displayName, languageCode, mapping;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

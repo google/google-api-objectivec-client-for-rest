@@ -320,6 +320,7 @@
 @class GTLRCloudSearch_IntegrationConfigMutation;
 @class GTLRCloudSearch_IntegrationConfigUpdatedMetadata;
 @class GTLRCloudSearch_Interaction;
+@class GTLRCloudSearch_InteractionData;
 @class GTLRCloudSearch_InviteAcceptedEvent;
 @class GTLRCloudSearch_InviteeInfo;
 @class GTLRCloudSearch_Item;
@@ -546,6 +547,9 @@
 @class GTLRCloudSearch_VPCSettings;
 @class GTLRCloudSearch_WhiteboardInfo;
 @class GTLRCloudSearch_WidgetMarkup;
+@class GTLRCloudSearch_WonderCardDelete;
+@class GTLRCloudSearch_WonderCardDelete_MessageMappings;
+@class GTLRCloudSearch_WonderMessageMapping;
 @class GTLRCloudSearch_WrappedResourceKey;
 @class GTLRCloudSearch_YouTubeBroadcastSessionInfo;
 @class GTLRCloudSearch_YouTubeBroadcastStats;
@@ -761,14 +765,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AffectedMembership_TargetMem
 /** Value: "CHIP_RENDER_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_ChipRenderTypeUnspecified;
 /**
- *  Client should not render the annotation as a chip.
+ *  Client should not render the annotation as a preview chip.
  *
  *  Value: "DO_NOT_RENDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_DoNotRender;
 /**
- *  Clients must render the annotation as a chip, and if they cannot render this
- *  many Annotations, show a fallback card.
+ *  Clients must render the annotation as a preview chip, and if they cannot
+ *  render this many Annotations, show a fallback card.
  *
  *  Value: "RENDER"
  */
@@ -779,6 +783,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_Re
  *  Value: "RENDER_IF_POSSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_RenderIfPossible;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_Annotation.inlineRenderFormat
+
+/** Value: "INLINE_RENDER_FORMAT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Annotation_InlineRenderFormat_InlineRenderFormatUnspecified;
+/** Value: "SMART_CHIP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Annotation_InlineRenderFormat_SmartChip;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_Annotation.type
@@ -2175,6 +2187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelection
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown;
 /**
+ *  The selection type is multi-select
+ *
+ *  Value: "MULTI_SELECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_MultiSelect;
+/**
  *  The selection type is a radio button.
  *
  *  Value: "RADIO_BUTTON"
@@ -2636,6 +2654,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ChatContentExtension_EventOt
  *  Value: "CO_ACTIVITY_APP_GQUEUES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppGqueues;
+/**
+ *  .
+ *
+ *  Value: "CO_ACTIVITY_APP_HAPPY_AARDVARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHappyAardvark;
 /**
  *  HeadsUp game.
  *
@@ -6662,6 +6686,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingTy
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_None;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_MessageInfo.authorUserType
+
+/** Value: "BOT" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MessageInfo_AuthorUserType_Bot;
+/**
+ *  Notes on HUMAN type: 1) Leaving UserId.UserType field empty will return
+ *  HUMAN as default value. This is expected because all the existing UserIds
+ *  are without explicitly setting UserType, most of which are HUMAN Ids. For
+ *  Bot Ids we will always set BOT in UserType field. 2) DO NOT explicitly set
+ *  HUMAN as type. This is a proto2 issue, that a UserId with explicitly set
+ *  default value HUMAN as type is NOT equal to an id without setting the field.
+ *  aka. UserId id1 = UserId.newBuilder()
+ *  .setId("dummy").setType(UserType.HUMAN).build(); UserId id2 =
+ *  UserId.newBuilder().setId("dummy").build(); AssertThat(id1).isNotEqual(id2);
+ *  AssertThat(id2.getType()).isEqualTo(UserType.HUMAN);
+ *
+ *  Value: "HUMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MessageInfo_AuthorUserType_Human;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_MessageInfo.searcherMembershipState
 
 /**
@@ -8582,6 +8627,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Typ
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_UserMentionMetadata.userMentionError
+
+/**
+ *  Failure caused by adding user to a room that is full
+ *
+ *  Value: "MEMBERSHIP_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_UserMentionError_MembershipLimitExceeded;
+/** Value: "USER_MENTION_ERROR_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_UserMentionError_UserMentionErrorUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_VoicePhoneNumberI18nData.validationResult
 
 /** Value: "INVALID_COUNTRY_CODE" */
@@ -8919,7 +8976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /**
  *  NOTE WHEN ADDING NEW PROTO FIELDS: Be sure to add datapol annotations to new
  *  fields with potential PII, so they get scrubbed when logging protos for
- *  errors. NEXT TAG: 29
+ *  errors. NEXT TAG: 31
  */
 @interface GTLRCloudSearch_Annotation : GTLRObject
 
@@ -8931,17 +8988,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_CardCapabilityMetadata *cardCapabilityMetadata;
 
 /**
- *  Whether the annotation should be rendered as a chip. If this is missing or
- *  unspecified, fallback to should_not_render on the metadata.
+ *  Whether the annotation should be rendered as a preview chip. If this is
+ *  missing or unspecified, fallback to should_not_render on the metadata.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_Annotation_ChipRenderType_ChipRenderTypeUnspecified
  *        Value "CHIP_RENDER_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudSearch_Annotation_ChipRenderType_DoNotRender Client
- *        should not render the annotation as a chip. (Value: "DO_NOT_RENDER")
+ *        should not render the annotation as a preview chip. (Value:
+ *        "DO_NOT_RENDER")
  *    @arg @c kGTLRCloudSearch_Annotation_ChipRenderType_Render Clients must
- *        render the annotation as a chip, and if they cannot render this many
- *        Annotations, show a fallback card. (Value: "RENDER")
+ *        render the annotation as a preview chip, and if they cannot render
+ *        this many Annotations, show a fallback card. (Value: "RENDER")
  *    @arg @c kGTLRCloudSearch_Annotation_ChipRenderType_RenderIfPossible Client
  *        can render the annotation if it has room to render it. (Value:
  *        "RENDER_IF_POSSIBLE")
@@ -8969,9 +9027,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_IncomingWebhookChangedMetadata *incomingWebhookChangedMetadata;
 
 /**
+ *  The inline render format of this annotation. go/drive-smart-chips-chat-v2.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_Annotation_InlineRenderFormat_InlineRenderFormatUnspecified
+ *        Value "INLINE_RENDER_FORMAT_UNSPECIFIED"
+ *    @arg @c kGTLRCloudSearch_Annotation_InlineRenderFormat_SmartChip Value
+ *        "SMART_CHIP"
+ */
+@property(nonatomic, copy, nullable) NSString *inlineRenderFormat;
+
+/**
  *  LINT.ThenChange(//depot/google3/java/com/google/apps/dynamite/v1/backend/action/common/SystemMessageHelper.java)
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_IntegrationConfigUpdatedMetadata *integrationConfigUpdated;
+
+/** Additional interaction data for this annotation. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_InteractionData *interactionData;
 
 /**
  *  Length of the text_body substring beginning from start_index the Annotation
@@ -8982,9 +9054,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *length;
 
 /**
- *  A unique client-assigned ID for this annotation. This is helpful in matching
- *  the back-filled annotations to the original annotations on client side,
- *  without having to re-parse the message.
+ *  * A client-assigned ID for this annotation. This is helpful in matching the
+ *  back-filled annotations to the original annotations on client side, without
+ *  having to re-parse the message. There is no guarantee an annotation has a
+ *  local_id, it's a purely client used and controlled field with no guarantee
+ *  of uniqueness.
  */
 @property(nonatomic, copy, nullable) NSString *localId;
 
@@ -9090,8 +9164,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  A unique server-assigned ID for this annotation. This is helpful in matching
- *  annotation objects when fetched from service.
+ *  * A unique server-assigned ID for this annotation. This is helpful in
+ *  matching annotation objects when fetched from service. All uploads should
+ *  have a unique_id after the message they are attached to is successfully
+ *  sent. Url annotations that originally were uploads (i.e. policy violations)
+ *  will have a unique_id after the message they are attached to is successfully
+ *  sent. No other url annotations should have a unique_id. All drive
+ *  annotations should have a unique_id after the message they are attached to
+ *  is successfully sent.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
@@ -10611,11 +10691,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  numMembers
+ *  Deprecated. Use segmented_membership_counts instead which also includes
+ *  other counts such as rosters.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numMembers;
+
+/** Member counts object with types of members and their respective counts. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts *segmentedMembershipCounts;
 
 /**
  *  searching user's membership state in this space
@@ -10863,6 +10947,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** List of action parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageActionActionParameter *> *parameters;
+
+/**
+ *  Indicates whether form values persist after the action. The default value is
+ *  `false`. If `true`, form values remain after the action is triggered. When
+ *  using
+ *  [LoadIndicator.NONE](workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  for actions, `persist_values` = `true`is recommended, as it ensures that any
+ *  changes made by the user after form or on change actions are sent to the
+ *  server are not overwritten by the response. If `false`, the form values are
+ *  cleared when the action is triggered. When `persist_values` is set to
+ *  `false`, it is strongly recommended that the card use
+ *  [LoadIndicator.SPINNER](workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  for all actions, as this locks the UI to ensure no changes are made by the
+ *  user while the action is being processed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *persistValues;
 
 @end
 
@@ -11726,6 +11828,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        The selection type is a checkbox. (Value: "CHECK_BOX")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown
  *        The selection type is a dropdown. (Value: "DROPDOWN")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_MultiSelect
+ *        The selection type is multi-select (Value: "MULTI_SELECT")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_RadioButton
  *        The selection type is a radio button. (Value: "RADIO_BUTTON")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Switch The
@@ -13627,6 +13731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppGqueues
  *        GQueues task manager. (Value: "CO_ACTIVITY_APP_GQUEUES")
+ *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHappyAardvark
+ *        . (Value: "CO_ACTIVITY_APP_HAPPY_AARDVARK")
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHeadsup
  *        HeadsUp game. (Value: "CO_ACTIVITY_APP_HEADSUP")
  *    @arg @c kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppKahoot
@@ -15169,6 +15275,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *joinedSpaceAffinityScore;
+
+/**
+ *  lastReadTimestampAgeInDays
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastReadTimestampAgeInDays;
 
 /**
  *  messageAgeInDays
@@ -18648,6 +18761,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Interaction data for an annotation, which may be supplemental to the
+ *  metadata oneof. For example, this will contain the fully built navigation
+ *  target for smart chips. NEXT TAG: 2
+ */
+@interface GTLRCloudSearch_InteractionData : GTLRObject
+
+/**
+ *  A general navigation target associated with the annotation this message is
+ *  contained in. For smart chips, this will be the destination of the tap/click
+ *  target and will be returned by the server. For scenarios where the chip
+ *  originated from a user-provided url, this value will be provided by clients;
+ *  otherwise it will be built by the corresponding metadata parts.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SafeUrlProto *url;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_InviteAcceptedEvent
  */
 @interface GTLRCloudSearch_InviteAcceptedEvent : GTLRObject
@@ -20589,6 +20721,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MultiKey *> *messageKeys;
 
+/**
+ *  Value of coproc's message delete history record extension that exports
+ *  /wonder/message_mapping/{vertical} attribute of deleted messages which have
+ *  smartmail label (eg. ^cob_sm_invoice, etc).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_WonderCardDelete *> *wonderCardMappings;
+
 @end
 
 
@@ -20613,6 +20752,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  GTLRCloudSearch_MessageInfo
  */
 @interface GTLRCloudSearch_MessageInfo : GTLRObject
+
+/**
+ *  Message author’s user type (human/bot).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_MessageInfo_AuthorUserType_Bot Value "BOT"
+ *    @arg @c kGTLRCloudSearch_MessageInfo_AuthorUserType_Human Notes on HUMAN
+ *        type: 1) Leaving UserId.UserType field empty will return HUMAN as
+ *        default value. This is expected because all the existing UserIds are
+ *        without explicitly setting UserType, most of which are HUMAN Ids. For
+ *        Bot Ids we will always set BOT in UserType field. 2) DO NOT explicitly
+ *        set HUMAN as type. This is a proto2 issue, that a UserId with
+ *        explicitly set default value HUMAN as type is NOT equal to an id
+ *        without setting the field. aka. UserId id1 = UserId.newBuilder()
+ *        .setId("dummy").setType(UserType.HUMAN).build(); UserId id2 =
+ *        UserId.newBuilder().setId("dummy").build();
+ *        AssertThat(id1).isNotEqual(id2);
+ *        AssertThat(id2.getType()).isEqualTo(UserType.HUMAN); (Value: "HUMAN")
+ */
+@property(nonatomic, copy, nullable) NSString *authorUserType;
 
 /** The content of a matching message. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Message *message;
@@ -26128,8 +26287,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_UploadMetadata : GTLRObject
 
 /**
- *  Opaque token. Clients shall simply pass it back to the Backend. This field
- *  will NOT be saved into storage.
+ *  Opaque token. Clients shall simply pass it back to the Backend. There is no
+ *  guarantee the attachment_token returned on subsequent reads is the same even
+ *  if nothing has changed. This field will NOT be saved into storage.
  */
 @property(nonatomic, copy, nullable) NSString *attachmentToken;
 
@@ -26688,6 +26848,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/**
+ *  Specific reason for the user mention failing, for fine-grained processing by
+ *  clients (i.e. specific error message for space limit exceeded case)
+ *  IMPORTANT: Set this only for FAILED_TO_ADD case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_UserMentionMetadata_UserMentionError_MembershipLimitExceeded
+ *        Failure caused by adding user to a room that is full (Value:
+ *        "MEMBERSHIP_LIMIT_EXCEEDED")
+ *    @arg @c kGTLRCloudSearch_UserMentionMetadata_UserMentionError_UserMentionErrorUnspecified
+ *        Value "USER_MENTION_ERROR_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *userMentionError;
+
 @end
 
 
@@ -26948,6 +27122,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** Read-only Widgets */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_TextParagraph *textParagraph;
+
+@end
+
+
+/**
+ *  Message delete history record extension that exports
+ *  /wonder/message_mapping/{vertical} attribute of deleted messages which have
+ *  any smartmail label (eg. ^cob_sm_invoice). go/how-dd-card-deletion
+ */
+@interface GTLRCloudSearch_WonderCardDelete : GTLRObject
+
+/**
+ *  Contains <{\@code WonderCardType} enum value, value of
+ *  /wonder/message_mapping/{vertical} attribute of deleted message> pairs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_WonderCardDelete_MessageMappings *messageMappings;
+
+/**
+ *  Message ID of the original deleted message
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *msgId;
+
+@end
+
+
+/**
+ *  Contains <{\@code WonderCardType} enum value, value of
+ *  /wonder/message_mapping/{vertical} attribute of deleted message> pairs.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudSearch_WonderMessageMapping. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudSearch_WonderCardDelete_MessageMappings : GTLRObject
+@end
+
+
+/**
+ *  Card mapping attached to original message as an attribute stored at
+ *  /wonder/message_mapping/{vertical} Next ID: 2
+ */
+@interface GTLRCloudSearch_WonderMessageMapping : GTLRObject
+
+/**
+ *  List of wonder card (client-generated) message IDs generated based on the
+ *  original message.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *wonderCardMessageId;
 
 @end
 

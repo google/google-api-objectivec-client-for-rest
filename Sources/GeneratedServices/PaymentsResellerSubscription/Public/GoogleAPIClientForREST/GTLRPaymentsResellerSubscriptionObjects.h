@@ -1246,6 +1246,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem : GTLRObject
 
 /**
+ *  Output only. The price of the product/service in this line item. The amount
+ *  could be the wholesale price, or it can include a cost of sale based on the
+ *  contract.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount *amount;
+
+/**
  *  Output only. Description of this line item.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1253,10 +1260,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. It is set only if the line item has its own free trial applied.
- *  End time of the line item free trial period, in ISO 8061 format. For
- *  example, "2019-08-31T17:28:54.564Z". It will be set the same as createTime
- *  if no free trial promotion is specified.
+ *  Output only. The free trial end time will be populated after the line item
+ *  is successfully processed. End time of the line item free trial period, in
+ *  ISO 8061 format. For example, "2019-08-31T17:28:54.564Z". It will be set the
+ *  same as createTime if no free trial promotion is specified.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lineItemFreeTrialEndTime;
 

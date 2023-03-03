@@ -283,10 +283,12 @@
 @implementation GTLRDrive_Drive_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
          canChangeDomainUsersOnlyRestriction, canChangeDriveBackground,
-         canChangeDriveMembersOnlyRestriction, canComment, canCopy,
-         canDeleteChildren, canDeleteDrive, canDownload, canEdit,
-         canListChildren, canManageMembers, canReadRevisions, canRename,
-         canRenameDrive, canResetDriveRestrictions, canShare, canTrashChildren;
+         canChangeDriveMembersOnlyRestriction,
+         canChangeSharingFoldersRequiresOrganizerPermissionRestriction,
+         canComment, canCopy, canDeleteChildren, canDeleteDrive, canDownload,
+         canEdit, canListChildren, canManageMembers, canReadRevisions,
+         canRename, canRenameDrive, canResetDriveRestrictions, canShare,
+         canTrashChildren;
 @end
 
 
@@ -297,7 +299,8 @@
 
 @implementation GTLRDrive_Drive_Restrictions
 @dynamic adminManagedRestrictions, copyRequiresWriterPermission,
-         domainUsersOnly, driveMembersOnly;
+         domainUsersOnly, driveMembersOnly,
+         sharingFoldersRequiresOrganizerPermission;
 @end
 
 
@@ -924,12 +927,13 @@
 
 @implementation GTLRDrive_TeamDrive_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
-         canChangeDomainUsersOnlyRestriction, canChangeTeamDriveBackground,
-         canChangeTeamMembersOnlyRestriction, canComment, canCopy,
-         canDeleteChildren, canDeleteTeamDrive, canDownload, canEdit,
-         canListChildren, canManageMembers, canReadRevisions, canRemoveChildren,
-         canRename, canRenameTeamDrive, canResetTeamDriveRestrictions, canShare,
-         canTrashChildren;
+         canChangeDomainUsersOnlyRestriction,
+         canChangeSharingFoldersRequiresOrganizerPermissionRestriction,
+         canChangeTeamDriveBackground, canChangeTeamMembersOnlyRestriction,
+         canComment, canCopy, canDeleteChildren, canDeleteTeamDrive,
+         canDownload, canEdit, canListChildren, canManageMembers,
+         canReadRevisions, canRemoveChildren, canRename, canRenameTeamDrive,
+         canResetTeamDriveRestrictions, canShare, canTrashChildren;
 @end
 
 
@@ -940,7 +944,8 @@
 
 @implementation GTLRDrive_TeamDrive_Restrictions
 @dynamic adminManagedRestrictions, copyRequiresWriterPermission,
-         domainUsersOnly, teamMembersOnly;
+         domainUsersOnly, sharingFoldersRequiresOrganizerPermission,
+         teamMembersOnly;
 @end
 
 

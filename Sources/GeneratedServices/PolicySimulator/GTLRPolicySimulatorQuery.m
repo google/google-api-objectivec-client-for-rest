@@ -22,6 +22,25 @@
 
 @end
 
+@implementation GTLRPolicySimulatorQuery_FoldersLocationsOrgPolicyViolationsPreviewsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPolicySimulatorQuery_FoldersLocationsOrgPolicyViolationsPreviewsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleLongrunningOperation class];
+  query.loggingName = @"policysimulator.folders.locations.orgPolicyViolationsPreviews.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRPolicySimulatorQuery_FoldersLocationsReplaysCreate
 
 @dynamic parent;
@@ -163,6 +182,25 @@
 
 @end
 
+@implementation GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleLongrunningOperation class];
+  query.loggingName = @"policysimulator.organizations.locations.orgPolicyViolationsPreviews.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRPolicySimulatorQuery_OrganizationsLocationsReplaysCreate
 
 @dynamic parent;
@@ -261,6 +299,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse class];
   query.loggingName = @"policysimulator.organizations.locations.replays.results.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPolicySimulatorQuery_ProjectsLocationsOrgPolicyViolationsPreviewsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPolicySimulatorQuery_ProjectsLocationsOrgPolicyViolationsPreviewsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleLongrunningOperation class];
+  query.loggingName = @"policysimulator.projects.locations.orgPolicyViolationsPreviews.operations.get";
   return query;
 }
 

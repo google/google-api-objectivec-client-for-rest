@@ -298,7 +298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeRe
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion;
 /**
  *  Target ads to a serve it in a certain position of a session. Only supported
- *  for the AdGroup of YouTube Programmatic Reservation line item.
+ *  for Ad Group resources under YouTube Programmatic Reservation line items.
+ *  Targeting of this type cannot be created or updated using the API.
  *
  *  Value: "TARGETING_TYPE_SESSION_POSITION"
  */
@@ -347,13 +348,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability;
 /**
- *  Target ads to a specific YouTube channel.
+ *  Target ads to a specific YouTube channel. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel;
 /**
- *  Target ads to a specific YouTube video.
+ *  Target ads to a specific YouTube video. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_VIDEO"
  */
@@ -936,14 +943,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1115,14 +1128,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1346,14 +1365,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1523,14 +1548,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
  *
@@ -2809,14 +2840,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2994,14 +3031,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -3196,14 +3239,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3380,14 +3429,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -3424,7 +3479,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long insertionOrderId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP`
+ *  * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -3567,14 +3648,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3588,7 +3675,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param insertionOrderId Required. The ID of the insertion order the assigned
  *    targeting option belongs to.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types include: *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *    `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *    `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *    `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *    `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *    `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *    `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *    `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this insertion order that identifies the assigned
  *    targeting option being requested.
@@ -3734,14 +3847,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -3810,6 +3929,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Required. Identifies the type of assigned targeting options to list.
+ *  Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` *
+ *  `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
+ *  `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -3952,14 +4097,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3974,7 +4125,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param insertionOrderId Required. The ID of the insertion order to list
  *    assigned targeting options for.
  *  @param targetingType Required. Identifies the type of assigned targeting
- *    options to list.
+ *    options to list. Supported targeting types include: *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *    `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *    `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *    `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *    `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *    `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *    `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *    `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -4117,14 +4294,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
  *
@@ -4336,7 +4519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Requested page size. The size must be an integer between `1` and `5000`. If
- *  unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if
+ *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
  *  an invalid value is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -4743,7 +4926,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long lineItemId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP`
+ *  * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -4886,14 +5095,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4913,7 +5128,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param lineItemId Required. The ID of the line item the assigned targeting
  *    option will belong to.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types include: *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *    `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *    `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *    `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *    `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *    `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *    `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *    `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -5056,14 +5297,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -5099,7 +5346,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long lineItemId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP`
+ *  * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -5242,14 +5515,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5266,7 +5545,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param lineItemId Required. The ID of the line item the assigned targeting
  *    option belongs to.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types include: *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *    `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *    `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *    `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *    `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *    `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *    `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *    `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  *  @param assignedTargetingOptionId Required. The ID of the assigned targeting
  *    option to delete.
  *
@@ -5411,14 +5716,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -5454,7 +5765,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long lineItemId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP`
+ *  * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
+ *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -5597,14 +5938,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5618,7 +5965,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param lineItemId Required. The ID of the line item the assigned targeting
  *    option belongs to.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types include: *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *    `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *    `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *    `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *    `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *    `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *    `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *    `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
+ *    `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
+ *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this line item that identifies the assigned targeting
  *    option being requested.
@@ -5764,14 +6141,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -5839,6 +6222,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Required. Identifies the type of assigned targeting options to list.
+ *  Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` *
+ *  `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
+ *  `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
+ *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -5981,14 +6394,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6002,7 +6421,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param lineItemId Required. The ID of the line item to list assigned
  *    targeting options for.
  *  @param targetingType Required. Identifies the type of assigned targeting
- *    options to list.
+ *    options to list. Supported targeting types include: *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *    `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *    `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *    `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *    `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *    `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *    `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *    `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
+ *    `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
+ *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -6145,14 +6594,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -7626,14 +8081,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7792,14 +8253,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -7972,14 +8439,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8137,14 +8610,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -8177,7 +8656,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8320,14 +8800,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8340,7 +8826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this advertiser that identifies the assigned targeting
  *    option being requested.
@@ -8486,14 +8973,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -8554,7 +9047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Required. Identifies the type of assigned targeting options to list.
  *  Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8697,14 +9191,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8718,7 +9218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param targetingType Required. Identifies the type of assigned targeting
  *    options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8861,14 +9362,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -8985,7 +9492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Lists assigned targeting options for multiple YouTube ad groups across
- *  targeting types.
+ *  targeting types. Inherieted assigned targeting options are not included.
  *
  *  Method: displayvideo.advertisers.youtubeAdGroups.bulkListAdGroupAssignedTargetingOptions
  *
@@ -9020,7 +9527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Requested page size. The size must be an integer between `1` and `5000`. If
- *  unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if
+ *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
  *  an invalid value is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -9046,7 +9553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  GTLRDisplayVideo_BulkListAdGroupAssignedTargetingOptionsResponse.
  *
  *  Lists assigned targeting options for multiple YouTube ad groups across
- *  targeting types.
+ *  targeting types. Inherieted assigned targeting options are not included.
  *
  *  @param advertiserId Required. The ID of the advertiser the line items
  *    belongs to.
@@ -9167,7 +9674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Gets a single targeting option assigned to a YouTube ad group. Inherited
- *  targeting is not included.
+ *  assigned targeting options are not included.
  *
  *  Method: displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.get
  *
@@ -9187,12 +9694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Required. Identifies the type of this assigned targeting option. Supported
- *  targeting types include: * `TARGETING_TYPE_GENDER` *
- *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
- *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_AUDIENCE_GROUP` *
- *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY`
- *  * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
- *  `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *  targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP`
+ *  * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO`
  *
  *  Likely values:
@@ -9336,14 +9843,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9356,7 +9869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_AssignedTargetingOption.
  *
  *  Gets a single targeting option assigned to a YouTube ad group. Inherited
- *  targeting is not included.
+ *  assigned targeting options are not included.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad group belongs
  *    to.
@@ -9364,12 +9877,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    targeting option belongs to.
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types include: *
- *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_AGE_RANGE` *
- *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
- *    `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_URL` *
- *    `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
- *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
- *    `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this line item that identifies the assigned targeting
@@ -9516,14 +10029,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -9536,7 +10055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Lists the targeting options assigned to a YouTube ad group. Inherited
- *  targeting is not included.
+ *  assigned targeting options are not included.
  *
  *  Method: displayvideo.advertisers.youtubeAdGroups.targetingTypes.assignedTargetingOptions.list
  *
@@ -9585,13 +10104,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Required. Identifies the type of assigned targeting options to list.
- *  Supported targeting types include: * `TARGETING_TYPE_GENDER` *
- *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
- *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_AUDIENCE_GROUP` *
- *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY`
- *  * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
- *  `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *  Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` *
+ *  `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
+ *  `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_URL` *
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9734,14 +10253,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9755,7 +10280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  GTLRDisplayVideo_ListYoutubeAdGroupAssignedTargetingOptionsResponse.
  *
  *  Lists the targeting options assigned to a YouTube ad group. Inherited
- *  targeting is not included.
+ *  assigned targeting options are not included.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad group belongs
  *    to.
@@ -9763,12 +10288,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    targeting options for.
  *  @param targetingType Required. Identifies the type of assigned targeting
  *    options to list. Supported targeting types include: *
- *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_AGE_RANGE` *
- *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
- *    `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_URL` *
- *    `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
- *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CATEGORY` *
- *    `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO`
  *
  *  Likely values for @c targetingType:
@@ -9912,14 +10437,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersYoutubeAdGroupsTargetingTypesAssignedTargetingOptionsList
  *
@@ -12610,14 +13141,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12774,14 +13311,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -12952,14 +13495,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13115,14 +13664,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -13296,14 +13851,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13460,14 +14021,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -13669,14 +14236,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13830,14 +14403,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -14092,14 +14671,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -14269,14 +14854,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -14497,14 +15088,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -14672,14 +15269,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -14848,14 +15451,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -15012,14 +15621,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
  *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo Target ads
- *        to a specific YouTube video. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        to a specific YouTube video. Targeting of this type cannot be created
+ *        or updated using the API. Although this targeting is inherited by
+ *        child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel Target
- *        ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        ads to a specific YouTube channel. Targeting of this type cannot be
+ *        created or updated using the API. Although this targeting is inherited
+ *        by child resources, **inherited targeting of this type will not be
+ *        retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSessionPosition Target
  *        ads to a serve it in a certain position of a session. Only supported
- *        for the AdGroup of YouTube Programmatic Reservation line item. (Value:
- *        "TARGETING_TYPE_SESSION_POSITION")
+ *        for Ad Group resources under YouTube Programmatic Reservation line
+ *        items. Targeting of this type cannot be created or updated using the
+ *        API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

@@ -626,6 +626,25 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsFetchStaticIps
+
+@dynamic name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchStaticIps";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsFetchStaticIps *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_FetchStaticIpsResponse class];
+  query.loggingName = @"datamigration.projects.locations.fetchStaticIps";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsGet
 
 @dynamic name;

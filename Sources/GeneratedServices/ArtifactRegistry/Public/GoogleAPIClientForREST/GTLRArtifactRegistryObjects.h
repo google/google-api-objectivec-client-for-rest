@@ -613,7 +613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File : GTLRObject
 
-/** The time when the File was created. */
+/** Output only. The time when the File was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -642,7 +642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeBytes;
 
-/** The time when the File was last updated. */
+/** Output only. The time when the File was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1987,7 +1987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  A reference to the repository resource, for example:
- *  "projects/p1/locations/us-central1/repository/repo1".
+ *  "projects/p1/locations/us-central1/repositories/repo1".
  */
 @property(nonatomic, copy, nullable) NSString *repository;
 

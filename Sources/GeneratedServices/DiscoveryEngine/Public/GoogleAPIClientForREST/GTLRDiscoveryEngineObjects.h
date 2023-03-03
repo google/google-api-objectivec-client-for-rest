@@ -16,8 +16,6 @@
 
 @class GTLRDiscoveryEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
@@ -171,64 +169,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /** A message describing the error. */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/**
- *  The API request payload, represented as a protocol buffer. Most API request
- *  types are supported. For example:
- *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.DocumentService.CreateDocumentRequest"
- *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEventRequest"
- */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload *requestPayload;
-
-/**
- *  The API response payload, represented as a protocol buffer. This is used to
- *  log some "soft errors", where the response is valid but we consider there
- *  are some quality issues like unjoined events. The following API responses
- *  are supported and no PII is included:
- *  "google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend"
- *  "google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEvent"
- *  "google.cloud.discoveryengine.v1alpha.UserEventService.CollectUserEvent"
- */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload *responsePayload;
-
 /** The service context in which this error has occurred. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext *serviceContext;
 
 /** The RPC status associated with the error log. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *status;
 
-@end
-
-
-/**
- *  The API request payload, represented as a protocol buffer. Most API request
- *  types are supported. For example:
- *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.DocumentService.CreateDocumentRequest"
- *  "type.googleapis.com/google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEventRequest"
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload : GTLRObject
-@end
-
-
-/**
- *  The API response payload, represented as a protocol buffer. This is used to
- *  log some "soft errors", where the response is valid but we consider there
- *  are some quality issues like unjoined events. The following API responses
- *  are supported and no PII is included:
- *  "google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend"
- *  "google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEvent"
- *  "google.cloud.discoveryengine.v1alpha.UserEventService.CollectUserEvent"
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload : GTLRObject
 @end
 
 
@@ -248,9 +194,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
- *  The error payload that is populated on LRO import APIs. Including:
- *  "google.cloud.discoveryengine.v1alpha.DocumentService.ImportDocuments"
- *  "google.cloud.discoveryengine.v1alpha.UserEventService.ImportUserEvents"
+ *  The error payload that is populated on LRO import APIs, including the
+ *  following: *
+ *  `google.cloud.discoveryengine.v1alpha.DocumentService.ImportDocuments` *
+ *  `google.cloud.discoveryengine.v1alpha.UserEventService.ImportUserEvents`
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext : GTLRObject
 
@@ -284,7 +231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext : GTLRObject
 
 /**
- *  An identifier of the service. For example, "discoveryengine.googleapis.com".
+ *  An identifier of the service—for example, `discoveryengine.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -298,8 +245,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation : GTLRObject
 
 /**
- *  Human-readable name of a function or method. For example, "
- *  google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend".
+ *  Human-readable name of a function or method—for example,
+ *  `google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend`.
  */
 @property(nonatomic, copy, nullable) NSString *functionName;
 
@@ -551,7 +498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  Immutable. The full resource name of the document. Format:
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
  */
@@ -604,7 +551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  Required. The Document resource full name, of the form:
- *  projects//locations//dataStores//branches//documents/
+ *  projects/{project\\_id}/locations/{location}/collections/{collection\\_id}/dataStores/{data\\_store\\_id}/branches/{branch\\_id}/documents/{document\\_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

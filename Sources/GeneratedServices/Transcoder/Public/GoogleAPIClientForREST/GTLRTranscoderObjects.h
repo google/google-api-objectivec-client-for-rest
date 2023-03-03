@@ -367,6 +367,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, copy, nullable) NSString *codec;
 
+/**
+ *  The name for this particular audio stream that will be added to the HLS/DASH
+ *  manifest.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
+ *  information, see
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
 /** The mapping for the `Job.edit_list` atoms with audio `EditAtom.inputs`. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AudioMapping *> *mapping;
 
@@ -1680,6 +1693,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  codecs: - `srt` - `ttml` - `cea608` - `cea708` - `webvtt`
  */
 @property(nonatomic, copy, nullable) NSString *codec;
+
+/**
+ *  The name for this particular text stream that will be added to the HLS/DASH
+ *  manifest.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
+ *  information, see
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /** The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TextMapping *> *mapping;

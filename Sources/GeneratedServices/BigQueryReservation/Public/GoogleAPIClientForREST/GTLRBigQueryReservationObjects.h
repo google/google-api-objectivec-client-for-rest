@@ -95,13 +95,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Sta
 // GTLRBigQueryReservation_CapacityCommitment.edition
 
 /**
- *  Default value, only for legacy reservations and capacity commitments.
+ *  Do not use.
  *
  *  Value: "EDITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified;
 /**
- *  Enterprise edition.
+ *  Do not use.
  *
  *  Value: "ENTERPRISE"
  */
@@ -142,12 +142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
 /**
- *  Should only be used for `renewal_plan` and is only meaningful if edition is
- *  specified to values other than EDITION_UNSPECIFIED. Otherwise
- *  CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest will be
- *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. If the
- *  renewal_plan is NONE, capacity commitment will be removed at the end of its
- *  commitment period.
+ *  Do not use.
  *
  *  Value: "NONE"
  */
@@ -197,12 +192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
 /**
- *  Should only be used for `renewal_plan` and is only meaningful if edition is
- *  specified to values other than EDITION_UNSPECIFIED. Otherwise
- *  CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest will be
- *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. If the
- *  renewal_plan is NONE, capacity commitment will be removed at the end of its
- *  commitment period.
+ *  Do not use.
  *
  *  Value: "NONE"
  */
@@ -251,13 +241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 // GTLRBigQueryReservation_Reservation.edition
 
 /**
- *  Default value, only for legacy reservations and capacity commitments.
+ *  Do not use.
  *
  *  Value: "EDITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified;
 /**
- *  Enterprise edition.
+ *  Do not use.
  *
  *  Value: "ENTERPRISE"
  */
@@ -396,14 +386,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
 
 /**
- *  Edition of the capacity commitment.
+ *  Do not use.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified
- *        Default value, only for legacy reservations and capacity commitments.
- *        (Value: "EDITION_UNSPECIFIED")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise
- *        Enterprise edition. (Value: "ENTERPRISE")
+ *        Do not use. (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise Do
+ *        not use. (Value: "ENTERPRISE")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
 
@@ -452,13 +441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *        commitments have a committed period of 30 days after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
  *        removed any time. (Value: "MONTHLY")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_None Should only
- *        be used for `renewal_plan` and is only meaningful if edition is
- *        specified to values other than EDITION_UNSPECIFIED. Otherwise
- *        CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest
- *        will be rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
- *        If the renewal_plan is NONE, capacity commitment will be removed at
- *        the end of its commitment period. (Value: "NONE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_None Do not use.
+ *        (Value: "NONE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial Trial
  *        commitments have a committed period of 182 days after becoming ACTIVE.
  *        After that, they are converted to a new commitment based on the
@@ -490,14 +474,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *        Monthly commitments have a committed period of 30 days after becoming
  *        ACTIVE. After that, they are not in a committed period anymore and can
  *        be removed any time. (Value: "MONTHLY")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None
- *        Should only be used for `renewal_plan` and is only meaningful if
- *        edition is specified to values other than EDITION_UNSPECIFIED.
- *        Otherwise CreateCapacityCommitmentRequest or
- *        UpdateCapacityCommitmentRequest will be rejected with error code
- *        `google.rpc.Code.INVALID_ARGUMENT`. If the renewal_plan is NONE,
- *        capacity commitment will be removed at the end of its commitment
- *        period. (Value: "NONE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None Do
+ *        not use. (Value: "NONE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial
  *        Trial commitments have a committed period of 182 days after becoming
  *        ACTIVE. After that, they are converted to a new commitment based on
@@ -686,14 +664,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Edition of the reservation.
+ *  Do not use.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified
- *        Default value, only for legacy reservations and capacity commitments.
- *        (Value: "EDITION_UNSPECIFIED")
- *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Enterprise
- *        edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified Do
+ *        not use. (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Do not
+ *        use. (Value: "ENTERPRISE")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
 

@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Advisory Notifications API (advisorynotifications/v1)
+// Description:
+//   An API for accessing Advisory Notifications in Google Cloud
 // Documentation:
 //   https://cloud.google.com/advisory-notifications
 
@@ -36,6 +38,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdvisorynotificationsCloudPlatf
 
 /**
  *  Service for executing Advisory Notifications API queries.
+ *
+ *  An API for accessing Advisory Notifications in Google Cloud
  */
 @interface GTLRAdvisorynotificationsService : GTLRService
 

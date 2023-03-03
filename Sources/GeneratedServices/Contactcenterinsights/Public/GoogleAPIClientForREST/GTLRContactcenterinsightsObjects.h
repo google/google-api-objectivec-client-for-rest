@@ -3673,6 +3673,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *runtimeIntegrationAnalysisPercentage;
 
+/**
+ *  Percentage of conversations created using the UploadConversation endpoint to
+ *  analyze automatically, between [0, 100].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uploadConversationAnalysisPercentage;
+
 @end
 
 

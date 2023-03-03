@@ -729,6 +729,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_ContentType_TypeUns
  *  Value: "URL_ENCODED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_ContentType_UrlEncoded;
+/**
+ *  body is in custom_content_type form. Equivalent to setting the Content-Type
+ *  to the contents of custom_content_type in the HTTP request.
+ *
+ *  Value: "USER_PROVIDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_ContentType_UserProvided;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_HttpCheck.requestMethod
@@ -1681,6 +1688,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedReg
  *  Value: "USA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Usa;
+/**
+ *  Allows checks to run from locations within the central United States of
+ *  America
+ *
+ *  Value: "USA_IOWA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_UsaIowa;
+/**
+ *  Allows checks to run from locations within the western United States of
+ *  America
+ *
+ *  Value: "USA_OREGON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_UsaOregon;
+/**
+ *  Allows checks to run from locations within the eastern United States of
+ *  America
+ *
+ *  Value: "USA_VIRGINIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_UsaVirginia;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_UptimeCheckIp.region
@@ -1717,6 +1745,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_SouthAme
  *  Value: "USA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
+/**
+ *  Allows checks to run from locations within the central United States of
+ *  America
+ *
+ *  Value: "USA_IOWA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_UsaIowa;
+/**
+ *  Allows checks to run from locations within the western United States of
+ *  America
+ *
+ *  Value: "USA_OREGON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_UsaOregon;
+/**
+ *  Allows checks to run from locations within the eastern United States of
+ *  America
+ *
+ *  Value: "USA_VIRGINIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_UsaVirginia;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ValueDescriptor.metricKind
@@ -3515,8 +3564,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        URL-encoded form. Equivalent to setting the Content-Type to
  *        application/x-www-form-urlencoded in the HTTP request. (Value:
  *        "URL_ENCODED")
+ *    @arg @c kGTLRMonitoring_HttpCheck_ContentType_UserProvided body is in
+ *        custom_content_type form. Equivalent to setting the Content-Type to
+ *        the contents of custom_content_type in the HTTP request. (Value:
+ *        "USER_PROVIDED")
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  A user provided content type header to use for the check. The invalid
+ *  configurations outlined in the content_type field apply to
+ *  custom_content_type, as well as the following: 1. content_type is
+ *  URL_ENCODED and custom_content_type is set. 2. content_type is USER_PROVIDED
+ *  and custom_content_type is not set.
+ */
+@property(nonatomic, copy, nullable) NSString *customContentType;
 
 /**
  *  The list of headers to send as part of the Uptime check request. If two
@@ -6581,6 +6643,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        "SOUTH_AMERICA")
  *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_Usa Allows checks to run from
  *        locations within the United States of America. (Value: "USA")
+ *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_UsaIowa Allows checks to run
+ *        from locations within the central United States of America (Value:
+ *        "USA_IOWA")
+ *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_UsaOregon Allows checks to
+ *        run from locations within the western United States of America (Value:
+ *        "USA_OREGON")
+ *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_UsaVirginia Allows checks to
+ *        run from locations within the eastern United States of America (Value:
+ *        "USA_VIRGINIA")
  */
 @property(nonatomic, copy, nullable) NSString *region;
 

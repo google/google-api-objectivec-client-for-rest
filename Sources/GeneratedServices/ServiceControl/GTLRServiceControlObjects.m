@@ -14,11 +14,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRServiceControl_EsfMigrationServerOverride.overrideMode
-NSString * const kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_DryRun = @"DRY_RUN";
-NSString * const kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_EsfMigrationOverrideModeUnspecified = @"ESF_MIGRATION_OVERRIDE_MODE_UNSPECIFIED";
-NSString * const kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_NoOverride = @"NO_OVERRIDE";
-
 // GTLRServiceControl_V2LogEntry.severity
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Alert = @"ALERT";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Critical = @"CRITICAL";
@@ -271,7 +266,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_CheckResponse
-@dynamic esfMigrationServerOverride, headers, status;
+@dynamic headers, status;
 @end
 
 
@@ -286,16 +281,6 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_EsfMigrationServerOverride
-//
-
-@implementation GTLRServiceControl_EsfMigrationServerOverride
-@dynamic overrideMode;
 @end
 
 

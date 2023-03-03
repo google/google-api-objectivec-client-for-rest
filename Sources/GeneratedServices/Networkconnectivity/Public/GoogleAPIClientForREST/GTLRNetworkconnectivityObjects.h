@@ -87,13 +87,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Active;
 /**
- *  The resource's create operation is in progress
+ *  The resource's create operation is in progress.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Creating;
 /**
- *  The resource's Delete operation is in progress
+ *  The resource's delete operation is in progress.
  *
  *  Value: "DELETING"
  */
@@ -105,7 +105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_StateUnspecified;
 /**
- *  The resource's Update operation is in progress
+ *  The resource's update operation is in progress.
  *
  *  Value: "UPDATING"
  */
@@ -229,13 +229,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_Loc
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Active;
 /**
- *  The resource's create operation is in progress
+ *  The resource's create operation is in progress.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Creating;
 /**
- *  The resource's Delete operation is in progress
+ *  The resource's delete operation is in progress.
  *
  *  Value: "DELETING"
  */
@@ -247,7 +247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified;
 /**
- *  The resource's Update operation is in progress
+ *  The resource's update operation is in progress.
  *
  *  Value: "UPDATING"
  */
@@ -351,8 +351,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -367,9 +369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -644,13 +644,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Active The resource is active
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Creating The resource's create
- *        operation is in progress (Value: "CREATING")
- *    @arg @c kGTLRNetworkconnectivity_Hub_State_Deleting The resource's Delete
- *        operation is in progress (Value: "DELETING")
+ *        operation is in progress. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Deleting The resource's delete
+ *        operation is in progress. (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_StateUnspecified No state
  *        information available (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRNetworkconnectivity_Hub_State_Updating The resource's Update
- *        operation is in progress (Value: "UPDATING")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Updating The resource's update
+ *        operation is in progress. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1338,13 +1338,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Active The resource is active
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Creating The resource's
- *        create operation is in progress (Value: "CREATING")
+ *        create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Deleting The resource's
- *        Delete operation is in progress (Value: "DELETING")
+ *        delete operation is in progress. (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_StateUnspecified No state
  *        information available (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Updating The resource's
- *        Update operation is in progress (Value: "UPDATING")
+ *        update operation is in progress. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

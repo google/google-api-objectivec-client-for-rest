@@ -5150,7 +5150,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  for data profiling. When redacting sensitive data from images, finding
  *  limits don't apply. They can cause unexpected or inconsistent results, where
  *  only some data is redacted. Don't include finding limits in RedactImage
- *  requests. Otherwise, Cloud DLP returns an error.
+ *  requests. Otherwise, Cloud DLP returns an error. When set within
+ *  `InspectJobConfig`, the specified maximum values aren't hard limits. If an
+ *  inspection job reaches these limits, the job ends gradually, not abruptly.
+ *  Therefore, the actual number of findings that Cloud DLP returns can be
+ *  multiple times higher than these maximum values.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FindingLimits *limits;
 

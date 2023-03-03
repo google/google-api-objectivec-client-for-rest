@@ -476,7 +476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEvent
 // GTLRHangoutsChat_DeprecatedEvent.type
 
 /**
- *  The Chat app was added to a space.
+ *  The Chat app was added to a space by a Chat user or Workspace administrator.
  *
  *  Value: "ADDED_TO_SPACE"
  */
@@ -494,7 +494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardCl
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message;
 /**
- *  The Chat app was removed from a space.
+ *  The Chat app was removed from a space by a Chat user or Workspace
+ *  administrator.
  *
  *  Value: "REMOVED_FROM_SPACE"
  */
@@ -746,44 +747,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_Op
 
 /**
  *  A set of checkboxes. Users can select multiple check boxes per selection
- *  input. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon.
+ *  input.
  *
  *  Value: "CHECK_BOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox;
 /**
  *  A dropdown menu. Users can select one dropdown menu item per selection
- *  input. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon.
+ *  input.
  *
  *  Value: "DROPDOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown;
 /**
  *  A set of radio buttons. Users can select one radio button per selection
- *  input. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon.
+ *  input.
  *
  *  Value: "RADIO_BUTTON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton;
 /**
  *  A set of switches. Users can turn on multiple switches at once per selection
- *  input. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon.
+ *  input.
  *
  *  Value: "SWITCH"
  */
@@ -1910,13 +1895,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace The Chat app
- *        was added to a space. (Value: "ADDED_TO_SPACE")
+ *        was added to a space by a Chat user or Workspace administrator.
+ *        (Value: "ADDED_TO_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked The Chat app's
  *        interactive card was clicked. (Value: "CARD_CLICKED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Message A message was sent
  *        in a space. (Value: "MESSAGE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace The Chat
- *        app was removed from a space. (Value: "REMOVED_FROM_SPACE")
+ *        app was removed from a space by a Chat user or Workspace
+ *        administrator. (Value: "REMOVED_FROM_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified Default value
  *        for the enum. DO NOT USE. (Value: "UNSPECIFIED")
  */
@@ -2009,7 +1996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  An action that describes the behavior when the form is submitted. For
- *  example, an Apps Script can be invoked to handle the form.
+ *  example, an Apps Script can be invoked to handle the form. If the action is
+ *  triggered, the form values are sent to the server.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Action : GTLRObject
 
@@ -2065,17 +2053,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Indicates whether form values persist after the action. The default value is
- *  `false`. If `true`, form values remain after the action is triggered. When
- *  using
- *  [LoadIndicator.NONE](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
- *  for actions, `persist_values` = `true`is recommended, as it ensures that any
- *  changes made by the user after form or on change actions are sent to the
- *  server are not overwritten by the response. If `false`, the form values are
- *  cleared when the action is triggered. When `persist_values` is set to
- *  `false`, it is strongly recommended that the card use
- *  [LoadIndicator.SPINNER](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
- *  for all actions, as this locks the UI to ensure no changes are made by the
- *  user while the action is being processed. Not supported by Chat apps.
+ *  `false`. If `true`, form values remain after the action is triggered. To let
+ *  the user make changes while the action is being processed, set
+ *  [LoadIndicator](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  to `NONE`. For [card
+ *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
+ *  in Chat apps, you must also set the action's
+ *  [ResponseType](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#responsetype)
+ *  to `UPDATE_MESSAGE` and use the same
+ *  [`card_id`](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#CardWithId)
+ *  from the card that contained the action. If `false`, the form values are
+ *  cleared when the action is triggered. To prevent the user from making
+ *  changes while the action is being processed, set
+ *  [LoadIndicator](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  to `SPINNER`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2461,10 +2452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1DecoratedText : GTLRObject
 
-/**
- *  The text that appears below `text`. Always truncates. Supports simple
- *  formatting. See Text formatting for formatting details.
- */
+/** The text that appears below `text`. Always truncates. */
 @property(nonatomic, copy, nullable) NSString *bottomLabel;
 
 /** A button that can be clicked to trigger an action. */
@@ -2472,7 +2460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  An icon displayed after the text. Supports
- *  [standard](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons)
+ *  [built-in](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons)
  *  and
  *  [custom](https://developers.google.com/chat/api/guides/message-formats/cards#customicons)
  *  icons.
@@ -2490,11 +2478,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A switch widget can be clicked to change its state and trigger an action.
- *  Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1SwitchControl *switchControl;
 
@@ -2504,10 +2487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
-/**
- *  The text that appears above `text`. Always truncates. Supports simple
- *  formatting. See Text formatting for formatting details.
- */
+/** The text that appears above `text`. Always truncates. */
 @property(nonatomic, copy, nullable) NSString *topLabel;
 
 /**
@@ -2524,7 +2504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Displays a divider between widgets, a horizontal line. For example, the
- *  following JSON creates a divider: ``` "divider": { } ```
+ *  following JSON creates a divider: ``` "divider": {} ```
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Divider : GTLRObject
 @end
@@ -2534,17 +2514,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Displays a grid with a collection of items. A grid supports any number of
  *  columns and items. The number of rows is determined by items divided by
  *  columns. A grid with 10 items and 2 columns has 5 rows. A grid with 11 items
- *  and 2 columns has 6 rows. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon. For example, the following JSON creates a 2 column grid with
- *  a single item: ``` "grid": { "title": "A fine collection of items",
- *  "numColumns": 2, "borderStyle": { "type": "STROKE", "cornerRadius": 4.0 },
- *  "items": [ "image": { "imageUri": "https://www.example.com/image.png",
- *  "cropStyle": { "type": "SQUARE" }, "borderStyle": { "type": "STROKE" } },
- *  "title": "An item", "textAlignment": "CENTER" ], "onClick": { "openLink": {
- *  "url":"https://www.example.com" } } } ```
+ *  and 2 columns has 6 rows. For example, the following JSON creates a 2 column
+ *  grid with a single item: ``` "grid": { "title": "A fine collection of
+ *  items", "columnCount": 2, "borderStyle": { "type": "STROKE", "cornerRadius":
+ *  4 }, "items": [ { "image": { "imageUri":
+ *  "https://www.example.com/image.png", "cropStyle": { "type": "SQUARE" },
+ *  "borderStyle": { "type": "STROKE" } }, "title": "An item", "textAlignment":
+ *  "CENTER" } ], "onClick": { "openLink": { "url": "https://www.example.com" }
+ *  } } ```
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -2625,7 +2602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  An icon displayed in a widget on a card. Supports
- *  [standard](https://developers.google.com/chat/api/guides/message-formats/cards)
+ *  [built-in](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons)
  *  and
  *  [custom](https://developers.google.com/chat/api/guides/message-formats/cards#customicons)
  *  icons.
@@ -2653,7 +2630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The crop style applied to the image. In some cases, applying a `CIRCLE` crop
- *  causes the image to be drawn larger than a standard icon.
+ *  causes the image to be drawn larger than a built-in icon.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Circle Applies a
@@ -2666,10 +2643,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  Display one of the standard icons provided by Google Workspace. For example,
+ *  Display one of the built-in icons provided by Google Workspace. For example,
  *  to display an airplane icon, specify `AIRPLANE`. For a bus, specify `BUS`.
- *  For a full list of supported icons, see [standard
- *  icons](https://developers.google.com/chat/api/guides/message-formats/cards).
+ *  For a full list of supported icons, see [built-in
+ *  icons](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons).
  */
 @property(nonatomic, copy, nullable) NSString *knownIcon;
 
@@ -2870,11 +2847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
  *  When you need to collect data from users that matches options you set, use a
  *  selection input. To collect abstract data from users, use the text input
- *  widget instead. Only supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  coming soon.
+ *  widget instead.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -2922,32 +2895,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox A
  *        set of checkboxes. Users can select multiple check boxes per selection
- *        input. Currently supported in
- *        [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support
- *        for [card
- *        messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *        is coming soon. (Value: "CHECK_BOX")
+ *        input. (Value: "CHECK_BOX")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown A
  *        dropdown menu. Users can select one dropdown menu item per selection
- *        input. Currently supported in
- *        [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support
- *        for [card
- *        messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *        is coming soon. (Value: "DROPDOWN")
+ *        input. (Value: "DROPDOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton
  *        A set of radio buttons. Users can select one radio button per
- *        selection input. Currently supported in
- *        [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support
- *        for [card
- *        messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *        is coming soon. (Value: "RADIO_BUTTON")
+ *        selection input. (Value: "RADIO_BUTTON")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Switch A set
  *        of switches. Users can turn on multiple switches at once per selection
- *        input. Currently supported in
- *        [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support
- *        for [card
- *        messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *        is coming soon. (Value: "SWITCH")
+ *        input. (Value: "SWITCH")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3027,11 +2984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Either a toggle-style switch or a checkbox inside a `decoratedText` widget.
- *  Only supported on the `decoratedText` widget. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon.
+ *  Only supported on the `decoratedText` widget.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1SwitchControl : GTLRObject
 
@@ -3086,11 +3039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
  *  When you need to collect abstract data from users, use a text input. To
  *  collect defined data from users, use the selection input widget instead.
- *  Only supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  coming soon.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1TextInput : GTLRObject
 
@@ -3196,11 +3144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A list of buttons. For example, the following JSON creates two buttons. The
  *  first is a blue text button and the second is an image button that opens a
- *  link: ``` "buttonList": { "buttons": [ "button": { "text": "Edit", "color":
- *  { "red": 0, "green": 0, "blue": 1, "alpha": 1 } "disabled": true },
- *  "button": { "icon": { "knownIcon": "INVITE" "altText": "check calendar" },
- *  "onClick": { "openLink": { "url": "https://example.com/calendar" } } }, ] }
- *  ```
+ *  link: ``` "buttonList": { "buttons": [ { "text": "Edit", "color": { "red":
+ *  0, "green": 0, "blue": 1, "alpha": 1 }, "disabled": true, }, { "icon": {
+ *  "knownIcon": "INVITE", "altText": "check calendar" }, "onClick": {
+ *  "openLink": { "url": "https://example.com/calendar" } } } ] } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
 
@@ -3208,9 +3155,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Displays a selection/input widget for date, time, or date and time. Not
  *  supported by Chat apps. Support by Chat apps is coming soon. For example,
  *  the following JSON creates a datetime picker to schedule an appointment: ```
- *  "date_time_picker": { "name": "appointment_time", "label": "Book your
- *  appointment at:", "type": "DateTimePickerType.DATE_AND_TIME",
- *  "valueMsEpoch": "796435200000" } ```
+ *  "dateTimePicker": { "name": "appointment_time", "label": "Book your
+ *  appointment at:", "type": "DATE_AND_TIME", "valueMsEpoch": "796435200000" }
+ *  ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker *dateTimePicker;
 
@@ -3219,8 +3166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  decorated text widget showing email address: ``` "decoratedText": { "icon":
  *  { "knownIcon": "EMAIL" }, "topLabel": "Email Address", "text":
  *  "sasha\@example.com", "bottomLabel": "This is a new Email address!",
- *  "switchWidget": { "name": "has_send_welcome_email_to_sasha", "selected":
- *  false, "controlType": "ControlType.CHECKBOX" } } ```
+ *  "switchControl": { "name": "has_send_welcome_email_to_sasha", "selected":
+ *  false, "controlType": "CHECKBOX" } } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DecoratedText *decoratedText;
 
@@ -3234,57 +3181,46 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Displays a grid with a collection of items. A grid supports any number of
  *  columns and items. The number of rows is determined by the upper bounds of
  *  the number items divided by the number of columns. A grid with 10 items and
- *  2 columns has 5 rows. A grid with 11 items and 2 columns has 6 rows.
- *  Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon. For example, the following JSON creates a 2 column grid with
- *  a single item: ``` "grid": { "title": "A fine collection of items",
- *  "numColumns": 2, "borderStyle": { "type": "STROKE", "cornerRadius": 4.0 },
- *  "items": [ "image": { "imageUri": "https://www.example.com/image.png",
- *  "cropStyle": { "type": "SQUARE" }, "borderStyle": { "type": "STROKE" } },
- *  "title": "An item", "textAlignment": "CENTER" ], "onClick": { "openLink": {
- *  "url":"https://www.example.com" } } } ```
+ *  2 columns has 5 rows. A grid with 11 items and 2 columns has 6 rows. For
+ *  example, the following JSON creates a 2 column grid with a single item: ```
+ *  "grid": { "title": "A fine collection of items", "columnCount": 2,
+ *  "borderStyle": { "type": "STROKE", "cornerRadius": 4 }, "items": [ {
+ *  "image": { "imageUri": "https://www.example.com/image.png", "cropStyle": {
+ *  "type": "SQUARE" }, "borderStyle": { "type": "STROKE" } }, "title": "An
+ *  item", "textAlignment": "CENTER" } ], "onClick": { "openLink": { "url":
+ *  "https://www.example.com" } } } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Grid *grid;
 
 /**
  *  Displays an image. For example, the following JSON creates an image with
  *  alternative text: ``` "image": { "imageUrl":
- *  "https://developers.google.com/chat/images/quickstart-app-avatar.png"
+ *  "https://developers.google.com/chat/images/quickstart-app-avatar.png",
  *  "altText": "Chat app avatar" } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Image *image;
 
 /**
  *  Displays a selection control that lets users select items. Selection
- *  controls can be check boxes, radio buttons, switches, or dropdown menus.
- *  Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon. For example, the following JSON creates a dropdown menu that
- *  lets users choose a size: ``` "selectionInput": { "name": "size", "label":
- *  "Size" "type": "SelectionType.DROPDOWN", "items": [ { "text": "S", "value":
- *  "small", "selected": false }, { "text": "M", "value": "medium", "selected":
- *  true }, { "text": "L", "value": "large", "selected": false }, { "text":
- *  "XL", "value": "extra_large", "selected": false } ] } ```
+ *  controls can be check boxes, radio buttons, switches, or dropdown menus. For
+ *  example, the following JSON creates a dropdown menu that lets users choose a
+ *  size: ``` "selectionInput": { "name": "size", "label": "Size" "type":
+ *  "DROPDOWN", "items": [ { "text": "S", "value": "small", "selected": false },
+ *  { "text": "M", "value": "medium", "selected": true }, { "text": "L",
+ *  "value": "large", "selected": false }, { "text": "XL", "value":
+ *  "extra_large", "selected": false } ] } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1SelectionInput *selectionInput;
 
 /**
- *  Displays a text box that users can type into. Currently supported in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Support for
- *  [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
- *  is coming soon. For example, the following JSON creates a text input for an
- *  email address: ``` "textInput": { "name": "mailing_address", "label":
- *  "Mailing Address" } ``` As another example, the following JSON creates a
- *  text input for a programming language with static suggestions: ```
- *  "textInput": { "name": "preferred_programing_language", "label": "Preferred
- *  Language", "initialSuggestions": { "items": [ { "text": "C++" }, { "text":
- *  "Java" }, { "text": "JavaScript" }, { "text": "Python" } ] } } ```
+ *  Displays a text box that users can type into. For example, the following
+ *  JSON creates a text input for an email address: ``` "textInput": { "name":
+ *  "mailing_address", "label": "Mailing Address" } ``` As another example, the
+ *  following JSON creates a text input for a programming language with static
+ *  suggestions: ``` "textInput": { "name": "preferred_programing_language",
+ *  "label": "Preferred Language", "initialSuggestions": { "items": [ { "text":
+ *  "C++" }, { "text": "Java" }, { "text": "JavaScript" }, { "text": "Python" }
+ *  ] } } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextInput *textInput;
 
@@ -3651,7 +3587,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** Output only. Annotations associated with the text in this message. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Annotation *> *annotations;
 
-/** Plain-text body of the message with all Chat app mentions stripped out. */
+/**
+ *  Output only. Plain-text body of the message with all Chat app mentions
+ *  stripped out.
+ */
 @property(nonatomic, copy, nullable) NSString *argumentText;
 
 /** User-uploaded attachment. */
@@ -3661,7 +3600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards
  *  that can be used to display UI elements such as: formatted texts, buttons,
  *  clickable images. Cards are normally displayed below the plain-text body of
- *  the message.
+ *  the message. `cards` and `cards_v2` can have a maximum size of 32 KB.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards;
 
@@ -3670,10 +3609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes
  *  - Radio buttons - Input widgets. Cards are usually displayed below the text
  *  body of a Chat message, but can situationally appear other places, such as
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). The `cardId`
- *  is a unique identifier among cards in the same message and for identifying
- *  user input values. Currently supported widgets include: - `TextParagraph` -
- *  `DecoratedText` - `Image` - `ButtonList` - `Divider`
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). `cards_v2`
+ *  and `cards` can have a maximum size of 32 KB. The `cardId` is a unique
+ *  identifier among cards in the same message and for identifying user input
+ *  values. Currently supported widgets include: - `TextParagraph` -
+ *  `DecoratedText` - `Image` - `ButtonList` - `Divider` - `TextInput` -
+ *  `SelectionInput` (CHECKBOX, RADIO_BUTTON, SWITCH, DROPDOWN) - `Grid`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
 
@@ -3860,6 +3801,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  or 1:1 messages between a user and a Chat app.
  */
 @interface GTLRHangoutsChat_Space : GTLRObject
+
+/**
+ *  Output only. Whether the Chat app was installed by a Google Workspace
+ *  administrator. Administrators can install a Chat app for their domain,
+ *  organizational unit, or a group of users. Administrators can only install
+ *  Chat apps for direct messaging between users and the app. To support admin
+ *  install, your app must feature direct messaging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adminInstalled;
 
 /**
  *  The space's display name. Required when [creating a

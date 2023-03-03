@@ -35,6 +35,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo;
@@ -49,6 +50,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus;
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
@@ -63,7 +65,10 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice;
+@class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -1495,6 +1500,35 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing counts for browsers that need attention.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse : GTLRObject
+
+/**
+ *  Number of browsers that haven’t had any recent activity
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noRecentActivityCount;
+
+/**
+ *  Number of browsers that are pending an OS update
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pendingBrowserUpdateCount;
+
+/**
+ *  Number of browsers that have been recently enrolled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recentlyEnrolledCount;
+
+@end
+
+
+/**
  *  Response containing a list of devices expiring in each month of a selected
  *  time frame. Counts are grouped by model and Auto Update Expiration date.
  */
@@ -1645,6 +1679,71 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a summary printing report for each printer from the
+ *  specified organizational unit for the requested time interval.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "printerReports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse : GTLRCollectionObject
+
+/** Pagination token for requesting the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of PrinterReports matching request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PrinterReport *> *printerReports;
+
+/**
+ *  Total number of printers matching request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a summary printing report for each user that has
+ *  initiated a print job with a printer from the specified organizational unit
+ *  during the requested time interval.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userPrintReports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse : GTLRCollectionObject
+
+/** Pagination token for requesting the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total number of users matching request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
+ *  List of UserPrintReports matching request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport *> *userPrintReports;
 
 @end
 
@@ -1939,6 +2038,55 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Information of a display device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice : GTLRObject
+
+/**
+ *  Output only. Display height in millimeters.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayHeightMm;
+
+/** Output only. Display device name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Display width in millimeters.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayWidthMm;
+
+/**
+ *  Output only. Is display internal or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *internal;
+
+/** Output only. Three letter manufacturer ID. */
+@property(nonatomic, copy, nullable) NSString *manufacturerId;
+
+/**
+ *  Output only. Year of manufacture.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manufactureYear;
+
+/**
+ *  Output only. Manufacturer product code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modelId;
+
+@end
+
+
+/**
  *  Information for a display.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo : GTLRObject
@@ -1949,6 +2097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
+
+/** Output only. Display device name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Output only. Indicates if display is internal or not.
@@ -2051,6 +2202,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Information about the graphics adapter (GPU). */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo *adapterInfo;
+
+/** Output only. Information about the display(s) of the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice *> *displayDevices;
+
+/**
+ *  Output only. Is ePrivacy screen supported or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eprivacySupported;
+
+/**
+ *  Output only. Information about the internal touch screen(s) of the device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo *touchScreenInfo;
 
 @end
 
@@ -2649,6 +2815,48 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Report for CountPrintJobsByPrinter, contains statistics on printer usage.
+ *  Contains the total number of print jobs initiated with this printer, the
+ *  number of users and the number of devices that have initiated at least one
+ *  print job with this printer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1PrinterReport : GTLRObject
+
+/**
+ *  Number of chrome devices that have been used to send print jobs to the
+ *  specified printer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceCount;
+
+/**
+ *  Number of print jobs sent to the printer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobCount;
+
+/** Printer name. */
+@property(nonatomic, copy, nullable) NSString *printer;
+
+/** Printer API ID. */
+@property(nonatomic, copy, nullable) NSString *printerId;
+
+/** Printer model. */
+@property(nonatomic, copy, nullable) NSString *printerModel;
+
+/**
+ *  Number of users that have sent print jobs to the printer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userCount;
+
+@end
+
+
+/**
  *  Status data for storage. * This field is telemetry information and this will
  *  change over time as the device is utilized. * Data for this field is
  *  controlled via policy:
@@ -3135,6 +3343,45 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Information of an internal touch screen device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice : GTLRObject
+
+/** Output only. Touch screen device display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Touch screen device is stylus capable or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stylusCapable;
+
+/**
+ *  Output only. Number of touch points supported on the device.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *touchPointCount;
+
+@end
+
+
+/**
+ *  Information on the device touch screen.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo : GTLRObject
+
+/** Output only. List of the internal touch screen devices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice *> *devices;
+
+/** Output only. Touchpad library name used by the input stack. */
+@property(nonatomic, copy, nullable) NSString *touchpadLibrary;
+
+@end
+
+
+/**
  *  USB connected peripheral report.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport : GTLRObject
@@ -3181,6 +3428,44 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vid;
+
+@end
+
+
+/**
+ *  Report for CountPrintJobsByUser, contains printing statistics for a user.
+ *  Contains the number of printers, the number of devices used to initiate
+ *  print jobs, and the number of print jobs initiated.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport : GTLRObject
+
+/**
+ *  Number of chrome devices that have been used to initiate print jobs by the
+ *  user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceCount;
+
+/**
+ *  Number of print jobs initiated by the user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobCount;
+
+/**
+ *  Number of printers used by the user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *printerCount;
+
+/** The primary e-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/** The unique Directory API ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

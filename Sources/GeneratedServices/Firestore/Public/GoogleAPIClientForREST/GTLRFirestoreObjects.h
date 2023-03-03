@@ -1624,6 +1624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
+/** Output only. The timestamp at which this database was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  This checksum is computed by the server based on the value of other fields,
  *  and may be sent on update and delete requests to ensure the client has an
@@ -1667,6 +1670,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Firestore Native Mode (Value: "FIRESTORE_NATIVE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The system-generated UUID4 for this Database. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp at which this database was most recently updated.
+ *  Note this only includes updates to the database resource and not data
+ *  contained by the database.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

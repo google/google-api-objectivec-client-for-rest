@@ -227,7 +227,8 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_EffectiveTag
-@dynamic inherited, namespacedTagKey, namespacedTagValue, tagKey, tagValue;
+@dynamic inherited, namespacedTagKey, namespacedTagValue, tagKey,
+         tagKeyParentName, tagValue;
 @end
 
 

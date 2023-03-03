@@ -452,7 +452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesGet : GTLRArtifactRegistryQuery
 
-/** The name of the file to retrieve. */
+/** Required. The name of the file to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -460,7 +460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *
  *  Gets a file.
  *
- *  @param name The name of the file to retrieve.
+ *  @param name Required. The name of the file to retrieve.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesGet
  */
@@ -502,8 +502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the repository whose files will be listed. For example:
- *  "projects/p1/locations/us-central1/repositories/repo1
+ *  Required. The name of the repository whose files will be listed. For
+ *  example: "projects/p1/locations/us-central1/repositories/repo1
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -512,8 +512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *
  *  Lists files.
  *
- *  @param parent The name of the repository whose files will be listed. For
- *    example: "projects/p1/locations/us-central1/repositories/repo1
+ *  @param parent Required. The name of the repository whose files will be
+ *    listed. For example: "projects/p1/locations/us-central1/repositories/repo1
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesList
  *

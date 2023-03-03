@@ -1224,6 +1224,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *includeObjects;
 
 /**
+ *  Maximum number of concurrent backfill tasks. The number should be non
+ *  negative. If not set (or set to 0), the system's default value will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentBackfillTasks;
+
+/**
  *  Maximum number of concurrent CDC tasks. The number should be non negative.
  *  If not set (or set to 0), the system's default value will be used.
  *
@@ -1576,8 +1584,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *includeObjects;
 
 /**
- *  Maximum number of concurrent CDC tasks. The number should be non negative.
- *  If not set (or set to 0), the system's default value will be used.
+ *  Maximum number of concurrent backfill tasks. The number should be
+ *  non-negative. If not set (or set to 0), the system's default value is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentBackfillTasks;
+
+/**
+ *  Maximum number of concurrent CDC tasks. The number should be non-negative.
+ *  If not set (or set to 0), the system's default value is used.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1740,6 +1756,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** PostgreSQL objects to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *includeObjects;
+
+/**
+ *  Maximum number of concurrent backfill tasks. The number should be non
+ *  negative. If not set (or set to 0), the system's default value will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentBackfillTasks;
 
 /**
  *  Required. The name of the publication that includes the set of all tables

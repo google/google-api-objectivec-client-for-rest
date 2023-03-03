@@ -564,7 +564,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceStatus
-@dynamic message, state, updateTime;
+@dynamic managedAccessIdentity, message, state, updateTime;
 @end
 
 

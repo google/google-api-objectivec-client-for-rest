@@ -1006,7 +1006,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Listens to changes.
+ *  Listens to changes. This method is only available via the gRPC API (not
+ *  REST).
  *
  *  Method: firestore.projects.databases.documents.listen
  *
@@ -1025,7 +1026,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_ListenResponse.
  *
- *  Listens to changes.
+ *  Listens to changes. This method is only available via the gRPC API (not
+ *  REST).
  *
  *  @param object The @c GTLRFirestore_ListenRequest to include in the query.
  *  @param database Required. The database name. In the format:
@@ -1257,7 +1259,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Streams batches of document updates and deletes, in order.
+ *  Streams batches of document updates and deletes, in order. This method is
+ *  only available via the gRPC API (not REST).
  *
  *  Method: firestore.projects.databases.documents.write
  *
@@ -1277,7 +1280,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_WriteResponse.
  *
- *  Streams batches of document updates and deletes, in order.
+ *  Streams batches of document updates and deletes, in order. This method is
+ *  only available via the gRPC API (not REST).
  *
  *  @param object The @c GTLRFirestore_WriteRequest to include in the query.
  *  @param database Required. The database name. In the format:

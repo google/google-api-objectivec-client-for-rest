@@ -143,6 +143,7 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Druid = @"DRUID
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink = @"FLINK";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hbase = @"HBASE";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi = @"HUDI";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger = @"RANGER";
@@ -582,6 +583,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiagnoseClusterRequest
+@dynamic diagnosisInterval, job, yarnApplicationId;
 @end
 
 
@@ -630,7 +632,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_EncryptionConfig
-@dynamic gcePdKmsKeyName;
+@dynamic gcePdKmsKeyName, kmsKey;
 @end
 
 
@@ -675,7 +677,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ExecutionConfig
 @dynamic idleTtl, kmsKey, networkTags, networkUri, serviceAccount,
-         subnetworkUri;
+         stagingBucket, subnetworkUri, ttl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1031,6 +1033,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Interval
+//
+
+@implementation GTLRDataproc_Interval
+@dynamic endTime, startTime;
 @end
 
 

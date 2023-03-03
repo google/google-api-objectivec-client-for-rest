@@ -893,6 +893,23 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_Maintainer
+//
+
+@implementation GTLROnDemandScanning_Maintainer
+@dynamic kind, name;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Material
 //
 
@@ -999,8 +1016,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic cpeUri, dependencyChain, fileLocation, hashDigest, os, osVersion,
-         package, packageType, patchedCve, unused, version;
+@dynamic cpeUri, dependencyChain, fileLocation, hashDigest, maintainer, os,
+         osVersion, package, packageType, patchedCve, unused, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1426,9 +1443,9 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
-@dynamic cvssScore, cvssv3, cvssVersion, effectiveSeverity, fixAvailable,
-         longDescription, packageIssue, relatedUrls, severity, shortDescription,
-         type;
+@dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
+         fixAvailable, longDescription, packageIssue, relatedUrls, severity,
+         shortDescription, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

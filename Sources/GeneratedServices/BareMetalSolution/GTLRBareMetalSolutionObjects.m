@@ -54,6 +54,7 @@ NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_Linux = @"LINUX";
 NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_MultiprotocolTypeUnspecified = @"MULTIPROTOCOL_TYPE_UNSPECIFIED";
 
 // GTLRBareMetalSolution_Lun.state
+NSString * const kGTLRBareMetalSolution_Lun_State_CoolOff      = @"COOL_OFF";
 NSString * const kGTLRBareMetalSolution_Lun_State_Creating     = @"CREATING";
 NSString * const kGTLRBareMetalSolution_Lun_State_Deleting     = @"DELETING";
 NSString * const kGTLRBareMetalSolution_Lun_State_Ready        = @"READY";
@@ -147,6 +148,7 @@ NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_Oldest
 NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_SnapshotAutoDeleteBehaviorUnspecified = @"SNAPSHOT_AUTO_DELETE_BEHAVIOR_UNSPECIFIED";
 
 // GTLRBareMetalSolution_Volume.state
+NSString * const kGTLRBareMetalSolution_Volume_State_CoolOff   = @"COOL_OFF";
 NSString * const kGTLRBareMetalSolution_Volume_State_Creating  = @"CREATING";
 NSString * const kGTLRBareMetalSolution_Volume_State_Deleting  = @"DELETING";
 NSString * const kGTLRBareMetalSolution_Volume_State_Ready     = @"READY";
@@ -234,6 +236,24 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_EnableInteractiveSerialConsoleRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_EvictLunRequest
+//
+
+@implementation GTLRBareMetalSolution_EvictLunRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_EvictVolumeRequest
+//
+
+@implementation GTLRBareMetalSolution_EvictVolumeRequest
 @end
 
 
@@ -655,8 +675,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Lun
-@dynamic bootLun, identifier, multiprotocolType, name, shareable, sizeGb, state,
-         storageType, storageVolume, wwid;
+@dynamic bootLun, expireTime, identifier, multiprotocolType, name, shareable,
+         sizeGb, state, storageType, storageVolume, wwid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -941,6 +961,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_RenameInstanceRequest
+//
+
+@implementation GTLRBareMetalSolution_RenameInstanceRequest
+@dynamic newName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_ResetInstanceRequest
 //
 
@@ -1099,7 +1129,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_Volume
 @dynamic autoGrownSizeGib, bootVolume, currentSizeGib, emergencySizeGib,
-         identifier, labels, maxSizeGib, name, notes,
+         expireTime, identifier, labels, maxSizeGib, name, notes,
          originallyRequestedSizeGib, performanceTier, pod, protocol,
          remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
          snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,

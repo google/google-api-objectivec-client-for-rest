@@ -429,9 +429,9 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem
-@dynamic descriptionProperty, lineItemFreeTrialEndTime, lineItemPromotionSpecs,
-         oneTimeRecurrenceDetails, product, productPayload, recurrenceType,
-         state;
+@dynamic amount, descriptionProperty, lineItemFreeTrialEndTime,
+         lineItemPromotionSpecs, oneTimeRecurrenceDetails, product,
+         productPayload, recurrenceType, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -609,6 +609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
+ *  Optional. The available maintenance versions that an instance could update
+ *  to.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableMaintenanceVersions;
+
+/**
  *  Optional. The network connect mode of the Redis instance. If not provided,
  *  the connect mode defaults to DIRECT_PEERING.
  *
@@ -674,6 +680,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  scheduled.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_MaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Optional. The self service update maintenance version. The version is date
+ *  based such as "20210712_00_00".
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
 
 /**
  *  Required. Redis memory size in GiB.

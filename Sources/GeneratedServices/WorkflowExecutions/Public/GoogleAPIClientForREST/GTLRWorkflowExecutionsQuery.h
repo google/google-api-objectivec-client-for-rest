@@ -30,8 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Includes only basic metadata about the execution. Following fields are
- *  returned: name, start_time, end_time, duration, state and
+ *  Includes only basic metadata about the execution. The following fields are
+ *  returned: name, start_time, end_time, duration, state, and
  *  workflow_revision_id.
  *
  *  Value: "BASIC"
@@ -157,8 +157,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *    @arg @c kGTLRWorkflowExecutionsViewExecutionViewUnspecified The default /
  *        unset value. (Value: "EXECUTION_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutionsViewBasic Includes only basic metadata
- *        about the execution. Following fields are returned: name, start_time,
- *        end_time, duration, state and workflow_revision_id. (Value: "BASIC")
+ *        about the execution. The following fields are returned: name,
+ *        start_time, end_time, duration, state, and workflow_revision_id.
+ *        (Value: "BASIC")
  *    @arg @c kGTLRWorkflowExecutionsViewFull Includes all data. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -197,7 +198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The orderding applied to the [Executions.ListExecutions] results.
+ *  Optional. The ordering applied to the [Executions.ListExecutions] results.
  *  By default the ordering is based on descending start time. The following
  *  fields are supported for order by: executionID, startTime, endTime,
  *  duration, state, and workflowRevisionID.
@@ -216,7 +217,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *  A page token, received from a previous `ListExecutions` call. Provide this
  *  to retrieve the subsequent page. When paginating, all other parameters
  *  provided to `ListExecutions` must match the call that provided the page
- *  token.
+ *  token. Note that pagination is applied to dynamic data. The list of
+ *  executions returned can change between page requests.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -234,8 +236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *    @arg @c kGTLRWorkflowExecutionsViewExecutionViewUnspecified The default /
  *        unset value. (Value: "EXECUTION_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutionsViewBasic Includes only basic metadata
- *        about the execution. Following fields are returned: name, start_time,
- *        end_time, duration, state and workflow_revision_id. (Value: "BASIC")
+ *        about the execution. The following fields are returned: name,
+ *        start_time, end_time, duration, state, and workflow_revision_id.
+ *        (Value: "BASIC")
  *    @arg @c kGTLRWorkflowExecutionsViewFull Includes all data. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;

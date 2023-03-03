@@ -21,6 +21,7 @@
 @class GTLRServiceConsumerManagement_AuthRequirement;
 @class GTLRServiceConsumerManagement_Backend;
 @class GTLRServiceConsumerManagement_BackendRule;
+@class GTLRServiceConsumerManagement_BackendRule_OverridesByRequestProtocol;
 @class GTLRServiceConsumerManagement_Billing;
 @class GTLRServiceConsumerManagement_BillingConfig;
 @class GTLRServiceConsumerManagement_BillingDestination;
@@ -1239,6 +1240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, strong, nullable) NSNumber *operationDeadline;
 
+/** The map between request protocol and the backend address. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
+
 /**
  *  pathTranslation
  *
@@ -1294,6 +1298,19 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
+@end
+
+
+/**
+ *  The map between request protocol and the backend address.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRServiceConsumerManagement_BackendRule. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRServiceConsumerManagement_BackendRule_OverridesByRequestProtocol : GTLRObject
 @end
 
 
@@ -3415,6 +3432,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *        Street View Org. (Value: "STREET_VIEW")
  */
 @property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Optional link to proto reference documentation. Example:
+ *  https://cloud.google.com/pubsub/lite/docs/reference/rpc
+ */
+@property(nonatomic, copy, nullable) NSString *protoReferenceDocumentationUri;
 
 @end
 

@@ -186,8 +186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The revision ID to roll back to. It must be a revision of the same
- *  schema. Example: c7cfa2a8
+ *  Optional. This field is deprecated and should not be used for specifying the
+ *  revision ID. The revision ID should be specified via the `name` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 

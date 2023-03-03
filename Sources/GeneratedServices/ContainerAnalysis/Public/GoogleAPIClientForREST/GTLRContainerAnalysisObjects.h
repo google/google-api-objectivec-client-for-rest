@@ -6514,6 +6514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
 
+/** The full description of the v2 CVSS for this vulnerability. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssV2;
+
 /** The full description of the CVSSv3 for this vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSSv3 *cvssV3;
 
@@ -6584,6 +6587,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
+
+/** The cvss v2 score for the vulnerability. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssV2;
 
 /** The cvss v3 score for the vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssv3;

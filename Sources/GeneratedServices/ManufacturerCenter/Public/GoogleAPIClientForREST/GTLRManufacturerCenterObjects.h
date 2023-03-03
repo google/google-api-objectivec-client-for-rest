@@ -1111,8 +1111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 
 /**
- *  The data matches with the vertical specification for product in
- *  http://google3/googlebase/verticals/devel/product_certification
+ *  Product certification data.
  */
 @interface GTLRManufacturerCenter_ProductCertification : GTLRObject
 

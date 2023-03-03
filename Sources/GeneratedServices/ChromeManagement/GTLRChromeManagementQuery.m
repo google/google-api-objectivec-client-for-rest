@@ -111,6 +111,25 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersReportsCountChromeBrowsersNeedingAttention
+
+@dynamic customer, orgUnitId;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countChromeBrowsersNeedingAttention";
+  GTLRChromeManagementQuery_CustomersReportsCountChromeBrowsersNeedingAttention *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countChromeBrowsersNeedingAttention";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesReachingAutoExpirationDate
 
 @dynamic customer, maxAueDate, minAueDate, orgUnitId;
@@ -201,6 +220,44 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountInstalledAppsResponse class];
   query.loggingName = @"chromemanagement.customers.reports.countInstalledApps";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByPrinter
+
+@dynamic customer, filter, orderBy, pageSize, pageToken, printerOrgUnitId;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countPrintJobsByPrinter";
+  GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByPrinter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countPrintJobsByPrinter";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByUser
+
+@dynamic customer, filter, orderBy, pageSize, pageToken, printerOrgUnitId;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countPrintJobsByUser";
+  GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByUser *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countPrintJobsByUser";
   return query;
 }
 

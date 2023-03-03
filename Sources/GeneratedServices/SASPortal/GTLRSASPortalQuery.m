@@ -810,6 +810,28 @@
 
 @end
 
+@implementation GTLRSASPortalQuery_CustomersProvisionDeployment
+
++ (instancetype)queryWithObject:(GTLRSASPortal_ProvisionDeploymentRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1alpha1/customers:provisionDeployment";
+  GTLRSASPortalQuery_CustomersProvisionDeployment *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRSASPortal_ProvisionDeploymentResponse class];
+  query.loggingName = @"sasportal.customers.provisionDeployment";
+  return query;
+}
+
+@end
+
 @implementation GTLRSASPortalQuery_DeploymentsDevicesDelete
 
 @dynamic name;

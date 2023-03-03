@@ -358,7 +358,7 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 //
 
 @implementation GTLRAnalyticsHub_RestrictedExportConfig
-@dynamic restrictDirectTableAccess, restrictQueryResult;
+@dynamic enabled, restrictDirectTableAccess, restrictQueryResult;
 @end
 
 

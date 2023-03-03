@@ -28,6 +28,16 @@ NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_CarrierCo
 NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Fedex = @"FEDEX";
 NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups = @"UPS";
 
+// GTLRShoppingContent_AttributionSettings.attributionModel
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_AdsPreferredLastClick = @"ADS_PREFERRED_LAST_CLICK";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_AttributionModelUnspecified = @"ATTRIBUTION_MODEL_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelDataDriven = @"CROSS_CHANNEL_DATA_DRIVEN";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelFirstClick = @"CROSS_CHANNEL_FIRST_CLICK";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLastClick = @"CROSS_CHANNEL_LAST_CLICK";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLinear = @"CROSS_CHANNEL_LINEAR";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelPositionBased = @"CROSS_CHANNEL_POSITION_BASED";
+NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelTimeDecay = @"CROSS_CHANNEL_TIME_DECAY";
+
 // GTLRShoppingContent_BestSellers.previousRelativeDemand
 NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_High = @"HIGH";
 NSString * const kGTLRShoppingContent_BestSellers_PreviousRelativeDemand_Low = @"LOW";
@@ -82,6 +92,12 @@ NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStag
 NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Duplicate = @"DUPLICATE";
 NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Executed = @"EXECUTED";
 NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified = @"EXECUTION_STATUS_UNSPECIFIED";
+
+// GTLRShoppingContent_ConversionSource.state
+NSString * const kGTLRShoppingContent_ConversionSource_State_Active = @"ACTIVE";
+NSString * const kGTLRShoppingContent_ConversionSource_State_Archived = @"ARCHIVED";
+NSString * const kGTLRShoppingContent_ConversionSource_State_Pending = @"PENDING";
+NSString * const kGTLRShoppingContent_ConversionSource_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRShoppingContent_FreeListingsProgramStatus.globalState
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_Enabled = @"ENABLED";
@@ -324,9 +340,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Account
 @dynamic accountManagement, adsLinks, adultContent, automaticImprovements,
-         automaticLabelIds, businessInformation, cssId, googleMyBusinessLink,
-         identifier, kind, labelIds, name, sellerId, users, websiteUrl,
-         youtubeChannelLinks;
+         automaticLabelIds, businessInformation, conversionSettings, cssId,
+         googleMyBusinessLink, identifier, kind, labelIds, name, sellerId,
+         users, websiteUrl, youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -390,6 +406,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 @implementation GTLRShoppingContent_AccountBusinessInformation
 @dynamic address, customerService, koreanBusinessRegistrationNumber,
          phoneNumber, phoneVerificationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountConversionSettings
+//
+
+@implementation GTLRShoppingContent_AccountConversionSettings
+@dynamic freeListingsAutoTaggingEnabled;
 @end
 
 
@@ -1144,6 +1170,34 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_AttributionSettings
+//
+
+@implementation GTLRShoppingContent_AttributionSettings
+@dynamic attributionLookbackWindowInDays, attributionModel, conversionType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversionType" : [GTLRShoppingContent_AttributionSettingsConversionType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AttributionSettingsConversionType
+//
+
+@implementation GTLRShoppingContent_AttributionSettingsConversionType
+@dynamic includeInReporting, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_BestSellers
 //
 
@@ -1354,6 +1408,17 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ConversionSource
+//
+
+@implementation GTLRShoppingContent_ConversionSource
+@dynamic conversionSourceId, expireTime, googleAnalyticsLink,
+         merchantCenterDestination, state;
 @end
 
 
@@ -1921,6 +1986,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_GoogleAnalyticsLink
+//
+
+@implementation GTLRShoppingContent_GoogleAnalyticsLink
+@dynamic attributionSettings, propertyId, propertyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Headers
 //
 
@@ -2446,6 +2521,28 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ListConversionSourcesResponse
+//
+
+@implementation GTLRShoppingContent_ListConversionSourcesResponse
+@dynamic conversionSources, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversionSources" : [GTLRShoppingContent_ConversionSource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"conversionSources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ListCssesResponse
 //
 
@@ -2714,6 +2811,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_LoyaltyPoints
 @dynamic name, pointsValue, ratio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_MerchantCenterDestination
+//
+
+@implementation GTLRShoppingContent_MerchantCenterDestination
+@dynamic attributionSettings, currencyCode, destinationId, displayName;
 @end
 
 
@@ -6811,6 +6918,15 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_TransitTableTransitTimeRowTransitTimeValue
 @dynamic maxTransitTimeInDays, minTransitTimeInDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_UndeleteConversionSourceRequest
+//
+
+@implementation GTLRShoppingContent_UndeleteConversionSourceRequest
 @end
 
 

@@ -1099,6 +1099,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
 
+/**
+ *  Resource name of a KMS crypto key (managed by the user) used to
+ *  encrypt/decrypt function resources. It must match the pattern
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 /** Labels associated with this Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_Function_Labels *labels;
 
@@ -1181,6 +1188,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  Request of `GenerateSourceUploadUrl` method.
  */
 @interface GTLRCloudFunctions_GenerateUploadUrlRequest : GTLRObject
+
+/**
+ *  Resource name of a KMS crypto key (managed by the user) used to
+ *  encrypt/decrypt function source code objects in intermediate Cloud Storage
+ *  buckets. When you generate an upload url and upload your source code, it
+ *  gets copied to an intermediate Cloud Storage bucket. The source code is then
+ *  copied to a versioned directory in the sources bucket in the consumer
+ *  project during the function deployment. It must match the pattern
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ *  The Google Cloud Functions service account
+ *  (service-{project_number}\@gcf-admin-robot.iam.gserviceaccount.com) must be
+ *  granted the role 'Cloud KMS CryptoKey Encrypter/Decrypter
+ *  (roles/cloudkms.cryptoKeyEncrypterDecrypter)' on the
+ *  Key/KeyRing/Project/Organization (least access preferred).
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 

@@ -77,6 +77,8 @@
 @class GTLRGKEHub_Location_Metadata;
 @class GTLRGKEHub_Membership;
 @class GTLRGKEHub_Membership_Labels;
+@class GTLRGKEHub_MembershipBinding;
+@class GTLRGKEHub_MembershipBindingLifecycleState;
 @class GTLRGKEHub_MembershipEndpoint;
 @class GTLRGKEHub_MembershipFeatureSpec;
 @class GTLRGKEHub_MembershipFeatureState;
@@ -90,8 +92,10 @@
 @class GTLRGKEHub_Policy;
 @class GTLRGKEHub_ResourceManifest;
 @class GTLRGKEHub_ResourceOptions;
+@class GTLRGKEHub_Scope;
 @class GTLRGKEHub_ScopeFeatureSpec;
 @class GTLRGKEHub_ScopeFeatureState;
+@class GTLRGKEHub_ScopeLifecycleState;
 @class GTLRGKEHub_ServiceMeshControlPlaneManagement;
 @class GTLRGKEHub_ServiceMeshDataPlaneManagement;
 @class GTLRGKEHub_ServiceMeshMembershipSpec;
@@ -697,6 +701,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_IdentityServiceMembershipState_St
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Ok;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_MembershipBindingLifecycleState.code
+
+/**
+ *  The code is not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_CodeUnspecified;
+/**
+ *  The membershipbinding is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Creating;
+/**
+ *  The membershipbinding is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Deleting;
+/**
+ *  The membershipbinding active.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Ready;
+/**
+ *  The membershipbinding is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_MembershipState.code
 
 /**
@@ -769,6 +807,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Standal
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ScopeLifecycleState.code
+
+/**
+ *  The code is not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_CodeUnspecified;
+/**
+ *  The scope is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Creating;
+/**
+ *  The scope is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Deleting;
+/**
+ *  The scope active.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Ready;
+/**
+ *  The scope is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
@@ -2832,6 +2904,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  List of MembershipBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "membershipBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGKEHub_ListMembershipBindingsResponse : GTLRCollectionObject
+
+/**
+ *  The list of membership_bindings
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_MembershipBinding *> *membershipBindings;
+
+/**
+ *  A token to request the next page of resources from the
+ *  `ListMembershipBindings` method. The value of an empty string means that
+ *  there are no more resources to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for the `GkeHub.ListMemberships` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2882,6 +2982,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_Operation *> *operations;
+
+@end
+
+
+/**
+ *  List of Scopes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "scopes" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGKEHub_ListScopesResponse : GTLRCollectionObject
+
+/**
+ *  A token to request the next page of resources from the `ListScopes` method.
+ *  The value of an empty string means that there are no more resources to
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Scopes
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_Scope *> *scopes;
 
 @end
 
@@ -3036,6 +3164,79 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  MembershipBinding is a subresource of a Membership, representing what Fleet
+ *  Scopes (or other, future Fleet resources) a Membership is bound to.
+ */
+@interface GTLRGKEHub_MembershipBinding : GTLRObject
+
+/** Output only. When the membership binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the membership binding was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Whether the membershipbinding is Fleet-wide; true means that this Membership
+ *  should be bound to all Namespaces in this entire Fleet.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fleet;
+
+/**
+ *  The resource name for the membershipbinding itself
+ *  `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A Workspace resource name in the format `projects/ * /locations/ * /scopes/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/** Output only. State of the membership binding resource. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_MembershipBindingLifecycleState *state;
+
+/**
+ *  Output only. Google-generated UUID for this resource. This is unique across
+ *  all membershipbinding resources. If a membershipbinding resource is deleted
+ *  and another resource with the same name is created, it gets a different uid.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. When the membership binding was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  MembershipBindingLifecycleState describes the state of a Binding resource.
+ */
+@interface GTLRGKEHub_MembershipBindingLifecycleState : GTLRObject
+
+/**
+ *  Output only. The current state of the MembershipBinding resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_MembershipBindingLifecycleState_Code_CodeUnspecified
+ *        The code is not set. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_MembershipBindingLifecycleState_Code_Creating The
+ *        membershipbinding is being created. (Value: "CREATING")
+ *    @arg @c kGTLRGKEHub_MembershipBindingLifecycleState_Code_Deleting The
+ *        membershipbinding is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRGKEHub_MembershipBindingLifecycleState_Code_Ready The
+ *        membershipbinding active. (Value: "READY")
+ *    @arg @c kGTLRGKEHub_MembershipBindingLifecycleState_Code_Updating The
+ *        membershipbinding is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
  *  MembershipEndpoint contains information needed to contact a Kubernetes API,
  *  endpoint and any additional Kubernetes metadata.
  */
@@ -3049,6 +3250,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Optional. Specific information for a GKE-on-GCP cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_GkeCluster *gkeCluster;
+
+/**
+ *  Output only. Whether the lifecycle of this membership is managed by a google
+ *  cluster platform service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleManaged;
 
 /** Output only. Useful Kubernetes-specific metadata. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_KubernetesMetadata *kubernetesMetadata;
@@ -3509,6 +3718,39 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Scope represents a Scope in a Fleet.
+ */
+@interface GTLRGKEHub_Scope : GTLRObject
+
+/** Output only. When the scope was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the scope was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  The resource name for the scope
+ *  `projects/{project}/locations/{location}/scopes/{scope}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. State of the scope resource. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ScopeLifecycleState *state;
+
+/**
+ *  Output only. Google-generated UUID for this resource. This is unique across
+ *  all scope resources. If a scope resource is deleted and another resource
+ *  with the same name is created, it gets a different uid.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. When the scope was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  ScopeFeatureSpec contains feature specs for a fleet scope.
  */
 @interface GTLRGKEHub_ScopeFeatureSpec : GTLRObject
@@ -3522,6 +3764,31 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Output only. The "running state" of the Feature in this Scope. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FeatureState *state;
+
+@end
+
+
+/**
+ *  ScopeLifecycleState describes the state of a Scope resource.
+ */
+@interface GTLRGKEHub_ScopeLifecycleState : GTLRObject
+
+/**
+ *  Output only. The current state of the scope resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ScopeLifecycleState_Code_CodeUnspecified The code is
+ *        not set. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ScopeLifecycleState_Code_Creating The scope is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRGKEHub_ScopeLifecycleState_Code_Deleting The scope is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRGKEHub_ScopeLifecycleState_Code_Ready The scope active.
+ *        (Value: "READY")
+ *    @arg @c kGTLRGKEHub_ScopeLifecycleState_Code_Updating The scope is being
+ *        updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
 
 @end
 

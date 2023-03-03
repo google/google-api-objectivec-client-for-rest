@@ -21,6 +21,7 @@
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessBookings = @"BUSINESS_BOOKINGS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessConversations = @"BUSINESS_CONVERSATIONS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessDirectionRequests = @"BUSINESS_DIRECTION_REQUESTS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodMenuClicks = @"BUSINESS_FOOD_MENU_CLICKS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodOrders = @"BUSINESS_FOOD_ORDERS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessImpressionsDesktopMaps = @"BUSINESS_IMPRESSIONS_DESKTOP_MAPS";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessImpressionsDesktopSearch = @"BUSINESS_IMPRESSIONS_DESKTOP_SEARCH";

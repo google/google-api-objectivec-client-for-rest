@@ -47,6 +47,9 @@
 @class GTLRCalendar_EventAttendee;
 @class GTLRCalendar_EventDateTime;
 @class GTLRCalendar_EventReminder;
+@class GTLRCalendar_EventWorkingLocationProperties;
+@class GTLRCalendar_EventWorkingLocationProperties_CustomLocation;
+@class GTLRCalendar_EventWorkingLocationProperties_OfficeLocation;
 @class GTLRCalendar_FreeBusyCalendar;
 @class GTLRCalendar_FreeBusyGroup;
 @class GTLRCalendar_FreeBusyRequestItem;
@@ -967,6 +970,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "default" - A regular event or not further specified.
  *  - "outOfOffice" - An out-of-office event.
  *  - "focusTime" - A focus-time event.
+ *  - "workingLocation" - A working location event.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -1188,6 +1192,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  compatibility reasons.
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
+
+/** Working Location event data. Read-only. */
+@property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties *workingLocationProperties;
 
 @end
 
@@ -1661,6 +1668,64 @@ NS_ASSUME_NONNULL_BEGIN
  *  Last modification time of the calendar (as a RFC3339 timestamp). Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
+
+@end
+
+
+/**
+ *  GTLRCalendar_EventWorkingLocationProperties
+ */
+@interface GTLRCalendar_EventWorkingLocationProperties : GTLRObject
+
+/** If present, specifies that the user is working from a custom location. */
+@property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties_CustomLocation *customLocation;
+
+/**
+ *  If present, specifies that the user is working at home.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id homeOffice;
+
+/** If present, specifies that the user is working from an office. */
+@property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties_OfficeLocation *officeLocation;
+
+@end
+
+
+/**
+ *  If present, specifies that the user is working from a custom location.
+ */
+@interface GTLRCalendar_EventWorkingLocationProperties_CustomLocation : GTLRObject
+
+/** An optional extra label for additional information. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+@end
+
+
+/**
+ *  If present, specifies that the user is working from an office.
+ */
+@interface GTLRCalendar_EventWorkingLocationProperties_OfficeLocation : GTLRObject
+
+/**
+ *  An optional building identifier. This should reference a building ID in the
+ *  organization's Resources database.
+ */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/** An optional arbitrary desk identifier. */
+@property(nonatomic, copy, nullable) NSString *deskId;
+
+/** An optional arbitrary floor identifier. */
+@property(nonatomic, copy, nullable) NSString *floorId;
+
+/** An optional arbitrary floor section identifier. */
+@property(nonatomic, copy, nullable) NSString *floorSectionId;
+
+/** An optional extra label for additional information. */
+@property(nonatomic, copy, nullable) NSString *label;
 
 @end
 

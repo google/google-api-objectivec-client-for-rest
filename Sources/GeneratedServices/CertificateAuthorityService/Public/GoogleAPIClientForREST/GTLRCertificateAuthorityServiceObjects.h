@@ -51,6 +51,7 @@
 @class GTLRCertificateAuthorityService_Location;
 @class GTLRCertificateAuthorityService_Location_Labels;
 @class GTLRCertificateAuthorityService_Location_Metadata;
+@class GTLRCertificateAuthorityService_NameConstraints;
 @class GTLRCertificateAuthorityService_ObjectId;
 @class GTLRCertificateAuthorityService_Operation;
 @class GTLRCertificateAuthorityService_Operation_Metadata;
@@ -301,6 +302,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateE
  *  Value: "KNOWN_CERTIFICATE_EXTENSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_KnownCertificateExtensionUnspecified;
+/**
+ *  Refers to Name Constraints extension as described in [RFC 5280 section
+ *  4.2.1.10](https://tools.ietf.org/html/rfc5280#section-4.2.1.10)
+ *
+ *  Value: "NAME_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_NameConstraints;
 /**
  *  Refers to a certificate's Policy object identifiers, as described in [RFC
  *  5280 section 4.2.1.4](https://tools.ietf.org/html/rfc5280#section-4.2.1.4).
@@ -699,7 +707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate
@@ -1549,7 +1557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate
@@ -1610,7 +1618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate
@@ -1738,7 +1746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate
@@ -2284,6 +2292,84 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  Describes the X.509 name constraints extension, per
+ *  https://tools.ietf.org/html/rfc5280#section-4.2.1.10
+ */
+@interface GTLRCertificateAuthorityService_NameConstraints : GTLRObject
+
+/**
+ *  Indicates whether or not the name constraints are marked critical.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *critical;
+
+/**
+ *  Contains excluded DNS names. Any DNS name that can be constructed by simply
+ *  adding zero or more labels to the left-hand side of the name satisfies the
+ *  name constraint. For example, `example.com`, `www.example.com`,
+ *  `www.sub.example.com` would satisfy `example.com` while `example1.com` does
+ *  not.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDnsNames;
+
+/**
+ *  Contains the excluded email addresses. The value can be a particular email
+ *  address, a hostname to indicate all email addresses on that host or a domain
+ *  with a leading period (e.g. `.example.com`) to indicate all email addresses
+ *  in that domain.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedEmailAddresses;
+
+/**
+ *  Contains the excluded IP ranges. For IPv4 addresses, the ranges are
+ *  expressed using CIDR notation as specified in RFC 4632. For IPv6 addresses,
+ *  the ranges are expressed in similar encoding as IPv4 addresses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedIpRanges;
+
+/**
+ *  Contains the excluded URIs that apply to the host part of the name. The
+ *  value can be a hostname or a domain with a leading period (like
+ *  `.example.com`)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedUris;
+
+/**
+ *  Contains permitted DNS names. Any DNS name that can be constructed by simply
+ *  adding zero or more labels to the left-hand side of the name satisfies the
+ *  name constraint. For example, `example.com`, `www.example.com`,
+ *  `www.sub.example.com` would satisfy `example.com` while `example1.com` does
+ *  not.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permittedDnsNames;
+
+/**
+ *  Contains the permitted email addresses. The value can be a particular email
+ *  address, a hostname to indicate all email addresses on that host or a domain
+ *  with a leading period (e.g. `.example.com`) to indicate all email addresses
+ *  in that domain.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permittedEmailAddresses;
+
+/**
+ *  Contains the permitted IP ranges. For IPv4 addresses, the ranges are
+ *  expressed using CIDR notation as specified in RFC 4632. For IPv6 addresses,
+ *  the ranges are expressed in similar encoding as IPv4 addresses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permittedIpRanges;
+
+/**
+ *  Contains the permitted URIs that apply to the host part of the name. The
+ *  value can be a hostname or a domain with a leading period (like
+ *  `.example.com`)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permittedUris;
+
+@end
+
+
+/**
  *  An ObjectId specifies an object identifier (OID). These provide context and
  *  describe types in ASN.1 messages.
  */
@@ -2709,7 +2795,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate
@@ -3056,7 +3142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate
@@ -3125,6 +3211,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  certificate.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_KeyUsage *keyUsage;
+
+/** Optional. Describes the X.509 name constraints extension. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_NameConstraints *nameConstraints;
 
 /**
  *  Optional. Describes the X.509 certificate policy object identifiers, per

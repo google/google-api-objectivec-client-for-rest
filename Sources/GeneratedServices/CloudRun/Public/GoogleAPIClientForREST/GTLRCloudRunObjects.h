@@ -1553,8 +1553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Specifies the desired number of tasks the execution should run. Setting to 1
  *  means that parallelism is limited to 1 and the success of that task signals
- *  the success of the execution. More info:
- *  https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+ *  the success of the execution. Defaults to 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1609,7 +1608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Port number of the gRPC service. Number must be in the range 1 to 65535. If
- *  not specified, defaults to 8080.
+ *  not specified, defaults to the exposed port of the container, which is the
+ *  value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1635,6 +1635,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Path to access on the HTTP server. Defaults to '/'. */
 @property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Port number to access on the container. Must be in the range 1 to 65535. If
+ *  not specified, defaults to the exposed port of the container, which is the
+ *  value of container.ports[0].containerPort.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
 
 @end
 
@@ -3206,6 +3215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Number of retries allowed per Task, before marking this Task failed.
+ *  Defaults to 3.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3223,6 +3233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Max allowed time duration the Task may be active before the system will
  *  actively try to mark it failed and kill associated containers. This applies
  *  per attempt of a task, meaning each retry can run for the full timeout.
+ *  Defaults to 600 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -3245,7 +3256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Port number to access on the container. Must be in the range 1 to 65535. If
- *  not specified, defaults to 8080.
+ *  not specified, defaults to the exposed port of the container, which is the
+ *  value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */

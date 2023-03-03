@@ -19,6 +19,7 @@
 @class GTLRShoppingContent_AccountAdsLink;
 @class GTLRShoppingContent_AccountAutomaticImprovements;
 @class GTLRShoppingContent_AccountBusinessInformation;
+@class GTLRShoppingContent_AccountConversionSettings;
 @class GTLRShoppingContent_AccountCustomerService;
 @class GTLRShoppingContent_AccountGoogleMyBusinessLink;
 @class GTLRShoppingContent_AccountIdentifier;
@@ -47,6 +48,8 @@
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
 @class GTLRShoppingContent_Address;
 @class GTLRShoppingContent_Amount;
+@class GTLRShoppingContent_AttributionSettings;
+@class GTLRShoppingContent_AttributionSettingsConversionType;
 @class GTLRShoppingContent_BestSellers;
 @class GTLRShoppingContent_Brand;
 @class GTLRShoppingContent_BusinessDayConfig;
@@ -57,6 +60,7 @@
 @class GTLRShoppingContent_CollectionStatus;
 @class GTLRShoppingContent_CollectionStatusDestinationStatus;
 @class GTLRShoppingContent_CollectionStatusItemLevelIssue;
+@class GTLRShoppingContent_ConversionSource;
 @class GTLRShoppingContent_Css;
 @class GTLRShoppingContent_CustomAttribute;
 @class GTLRShoppingContent_CustomerReturnReason;
@@ -84,6 +88,7 @@
 @class GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails;
 @class GTLRShoppingContent_GmbAccounts;
 @class GTLRShoppingContent_GmbAccountsGmbAccount;
+@class GTLRShoppingContent_GoogleAnalyticsLink;
 @class GTLRShoppingContent_Headers;
 @class GTLRShoppingContent_HolidayCutoff;
 @class GTLRShoppingContent_HolidaysHoliday;
@@ -106,6 +111,7 @@
 @class GTLRShoppingContent_LocalinventoryCustomBatchResponseEntry;
 @class GTLRShoppingContent_LocationIdSet;
 @class GTLRShoppingContent_LoyaltyPoints;
+@class GTLRShoppingContent_MerchantCenterDestination;
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
 @class GTLRShoppingContent_MerchantRejectionReason;
@@ -359,6 +365,54 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_Car
  *  Value: "UPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_AttributionSettings.attributionModel
+
+/**
+ *  Ads-preferred Last Click model.
+ *
+ *  Value: "ADS_PREFERRED_LAST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_AdsPreferredLastClick;
+/** Value: "ATTRIBUTION_MODEL_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_AttributionModelUnspecified;
+/**
+ *  Cross-channel Data Driven model.
+ *
+ *  Value: "CROSS_CHANNEL_DATA_DRIVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelDataDriven;
+/**
+ *  Cross-channel Frist Click model.
+ *
+ *  Value: "CROSS_CHANNEL_FIRST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelFirstClick;
+/**
+ *  Cross-channel Last Click model.
+ *
+ *  Value: "CROSS_CHANNEL_LAST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLastClick;
+/**
+ *  Cross-channel Linear model.
+ *
+ *  Value: "CROSS_CHANNEL_LINEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLinear;
+/**
+ *  Cross-channel Position Based model.
+ *
+ *  Value: "CROSS_CHANNEL_POSITION_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelPositionBased;
+/**
+ *  Cross-channel Time Decay model.
+ *
+ *  Value: "CROSS_CHANNEL_TIME_DECAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelTimeDecay;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_BestSellers.previousRelativeDemand
@@ -639,6 +693,31 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_Exe
  *  Value: "EXECUTION_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ConversionSource.state
+
+/**
+ *  Conversion source is fully functional.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_Active;
+/**
+ *  Conversion source has been archived in the last 30 days and not currently
+ *  functional. Can be restored using the undelete method.
+ *
+ *  Value: "ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_Archived;
+/**
+ *  Conversion source creation has started but not fully finished yet.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_Pending;
+/** Value: "STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_FreeListingsProgramStatus.globalState
@@ -1855,6 +1934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The business information of the account. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountBusinessInformation *businessInformation;
 
+/** Settings for conversion tracking. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountConversionSettings *conversionSettings;
+
 /**
  *  ID of CSS the account belongs to.
  *
@@ -2046,9 +2128,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *koreanBusinessRegistrationNumber;
 
 /**
- *  The phone number of the business. This can only be updated if a verified
- *  phone number is not already set. To replace a verified phone number use the
- *  `Accounts.requestphoneverification` and `Accounts.verifyphonenumber`.
+ *  The phone number of the business in
+ *  [E.164](https://en.wikipedia.org/wiki/E.164) format. This can only be
+ *  updated if a verified phone number is not already set. To replace a verified
+ *  phone number use the `Accounts.requestphoneverification` and
+ *  `Accounts.verifyphonenumber`.
  */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
@@ -2058,6 +2142,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  values are: - "`verified`" - "`unverified`"
  */
 @property(nonatomic, copy, nullable) NSString *phoneVerificationStatus;
+
+@end
+
+
+/**
+ *  Settings for conversion tracking.
+ */
+@interface GTLRShoppingContent_AccountConversionSettings : GTLRObject
+
+/**
+ *  When enabled, free listing URLs have a parameter to enable conversion
+ *  tracking for products owned by the current merchant account. See
+ *  [auto-tagging](https://support.google.com/merchants/answer/11127659).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeListingsAutoTaggingEnabled;
 
 @end
 
@@ -3389,7 +3490,74 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Fields related to the [Best Sellers
+ *  Represents attribution settings for conversion sources receiving
+ *  pre-attribution data.
+ */
+@interface GTLRShoppingContent_AttributionSettings : GTLRObject
+
+/**
+ *  Required. Lookback windows (in days) used for attribution in this source.
+ *  Supported values are 7, 30, 60, 90.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attributionLookbackWindowInDays;
+
+/**
+ *  Required. Attribution model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_AdsPreferredLastClick
+ *        Ads-preferred Last Click model. (Value: "ADS_PREFERRED_LAST_CLICK")
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_AttributionModelUnspecified
+ *        Value "ATTRIBUTION_MODEL_UNSPECIFIED"
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelDataDriven
+ *        Cross-channel Data Driven model. (Value: "CROSS_CHANNEL_DATA_DRIVEN")
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelFirstClick
+ *        Cross-channel Frist Click model. (Value: "CROSS_CHANNEL_FIRST_CLICK")
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLastClick
+ *        Cross-channel Last Click model. (Value: "CROSS_CHANNEL_LAST_CLICK")
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLinear
+ *        Cross-channel Linear model. (Value: "CROSS_CHANNEL_LINEAR")
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelPositionBased
+ *        Cross-channel Position Based model. (Value:
+ *        "CROSS_CHANNEL_POSITION_BASED")
+ *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelTimeDecay
+ *        Cross-channel Time Decay model. (Value: "CROSS_CHANNEL_TIME_DECAY")
+ */
+@property(nonatomic, copy, nullable) NSString *attributionModel;
+
+/**
+ *  Immutable. Unordered list. List of different conversion types a conversion
+ *  event can be classified as. A standard "purchase" type will be automatically
+ *  created if this list is empty at creation time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AttributionSettingsConversionType *> *conversionType;
+
+@end
+
+
+/**
+ *  Message representing a types of conversion events
+ */
+@interface GTLRShoppingContent_AttributionSettingsConversionType : GTLRObject
+
+/**
+ *  Output only. Option indicating if the type should be included in Merchant
+ *  Center reporting.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeInReporting;
+
+/** Output only. Conversion event name, as it'll be reported by the client. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Fields related to the [Best sellers
  *  reports](https://support.google.com/merchants/answer/9488679).
  */
 @interface GTLRShoppingContent_BestSellers : GTLRObject
@@ -3968,6 +4136,59 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** How this issue affects the serving of the collection. */
 @property(nonatomic, copy, nullable) NSString *servability;
+
+@end
+
+
+/**
+ *  Represents a conversion source owned by a Merchant account. A merchant
+ *  account can have up to 200 conversion sources.
+ */
+@interface GTLRShoppingContent_ConversionSource : GTLRObject
+
+/**
+ *  Output only. Generated by the Content API upon creation of a new
+ *  `ConversionSource`. Format: [a-z]{4}:.+ The four characters before the colon
+ *  represent the type of conversio source. Content after the colon represents
+ *  the ID of the conversion source within that type. The ID of two different
+ *  conversion sources might be the same across different types. The following
+ *  type prefixes are supported: - galk: For GoogleAnalyticsLink sources. -
+ *  mcdn: For MerchantCenterDestination sources.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionSourceId;
+
+/**
+ *  Output only. The time when an archived conversion source becomes permanently
+ *  deleted and is no longer available to undelete.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Immutable. Conversion Source of type "Link to Google Analytics Property".
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_GoogleAnalyticsLink *googleAnalyticsLink;
+
+/** Conversion Source of type "Merchant Center Tag Destination". */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MerchantCenterDestination *merchantCenterDestination;
+
+/**
+ *  Output only. Current state of this conversion source. Can't be edited
+ *  through the API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ConversionSource_State_Active Conversion
+ *        source is fully functional. (Value: "ACTIVE")
+ *    @arg @c kGTLRShoppingContent_ConversionSource_State_Archived Conversion
+ *        source has been archived in the last 30 days and not currently
+ *        functional. Can be restored using the undelete method. (Value:
+ *        "ARCHIVED")
+ *    @arg @c kGTLRShoppingContent_ConversionSource_State_Pending Conversion
+ *        source creation has started but not fully finished yet. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRShoppingContent_ConversionSource_State_StateUnspecified Value
+ *        "STATE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -5200,6 +5421,34 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  "Google Analytics Link" sources can be used to get conversion data from an
+ *  existing Google Analytics property into the linked Merchant Center account.
+ */
+@interface GTLRShoppingContent_GoogleAnalyticsLink : GTLRObject
+
+/**
+ *  Output only. Attribution settings for the linked Google Analytics property.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AttributionSettings *attributionSettings;
+
+/**
+ *  Required. Immutable. ID of the Google Analytics property the merchant is
+ *  linked to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *propertyId;
+
+/**
+ *  Output only. Name of the Google Analytics property the merchant is linked
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *propertyName;
+
+@end
+
+
+/**
  *  A non-empty list of row or column headers for a table. Exactly one of
  *  `prices`, `weights`, `numItems`, `postalCodeGroupNames`, or `location` must
  *  be set.
@@ -5984,6 +6233,30 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Response message for the ListConversionSources method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "conversionSources" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRShoppingContent_ListConversionSourcesResponse : GTLRCollectionObject
+
+/**
+ *  List of conversion sources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ConversionSource *> *conversionSources;
+
+/** Token to be used to fetch the next results page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for the `ListCsses` method
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6351,6 +6624,39 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ratio;
+
+@end
+
+
+/**
+ *  "Merchant Center Destination" sources can be used to send conversion events
+ *  from a website using a Google tag directly to a Merchant Center account
+ *  where the source is created.
+ */
+@interface GTLRShoppingContent_MerchantCenterDestination : GTLRObject
+
+/**
+ *  Required. Attribution settings being used for the Merchant Center
+ *  Destination.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AttributionSettings *attributionSettings;
+
+/**
+ *  Required. Three-letter currency code (ISO 4217). The currency code defines
+ *  in which currency the conversions sent to this destination will be reported
+ *  in Merchant Center.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** Output only. Merchant Center Destination ID. */
+@property(nonatomic, copy, nullable) NSString *destinationId;
+
+/**
+ *  Required. Merchant-specified display name for the destination. This is the
+ *  name that identifies the conversion source within the Merchant Center UI.
+ *  Limited to 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 @end
 
@@ -10275,7 +10581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Price Competitiveness fields requested by the merchant in the query. Field
+ *  Price competitiveness fields requested by the merchant in the query. Field
  *  values are only set if the merchant queries
  *  `PriceCompetitivenessProductView`.
  *  https://support.google.com/merchants/answer/9626903
@@ -10301,7 +10607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Price Insights fields requested by the merchant in the query. Field values
+ *  Price insights fields requested by the merchant in the query. Field values
  *  are only set if the merchant queries `PriceInsightsProductView`.
  *  https://support.google.com/merchants/answer/11916926
  */
@@ -10543,8 +10849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The REST ID of the product. Content API methods that operate on products
- *  take this as their `productId` parameter. The REST ID for a product is of
- *  the form channel:contentLanguage: targetCountry: offerId.
+ *  take this as their `productId` parameter. The REST ID for a product has one
+ *  of the 2 forms channel:contentLanguage: targetCountry: offerId or
+ *  channel:contentLanguage:feedLabel: offerId.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -12655,7 +12962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_ReportRow : GTLRObject
 
 /**
- *  Best Sellers fields requested by the merchant in the query. Field values are
+ *  Best sellers fields requested by the merchant in the query. Field values are
  *  only set if the merchant queries `BestSellersProductClusterView` or
  *  `BestSellersBrandView`.
  */
@@ -12674,14 +12981,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Metrics *metrics;
 
 /**
- *  Price Competitiveness fields requested by the merchant in the query. Field
+ *  Price competitiveness fields requested by the merchant in the query. Field
  *  values are only set if the merchant queries
  *  `PriceCompetitivenessProductView`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PriceCompetitiveness *priceCompetitiveness;
 
 /**
- *  Price Insights fields requested by the merchant in the query. Field values
+ *  Price insights fields requested by the merchant in the query. Field values
  *  are only set if the merchant queries `PriceInsightsProductView`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PriceInsights *priceInsights;
@@ -15365,6 +15672,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *minTransitTimeInDays;
 
+@end
+
+
+/**
+ *  Request message for the UndeleteConversionSource method.
+ */
+@interface GTLRShoppingContent_UndeleteConversionSourceRequest : GTLRObject
 @end
 
 

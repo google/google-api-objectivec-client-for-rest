@@ -50,6 +50,7 @@
 @class GTLRVMMigrationService_Location_Metadata;
 @class GTLRVMMigrationService_MigratingVm;
 @class GTLRVMMigrationService_MigratingVm_Labels;
+@class GTLRVMMigrationService_MigrationWarning;
 @class GTLRVMMigrationService_NetworkInterface;
 @class GTLRVMMigrationService_Operation;
 @class GTLRVMMigrationService_Operation_Metadata;
@@ -756,6 +757,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_U
  *  Value: "UTILIZATION_REPORT_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_UtilizationReportError;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_MigrationWarning.code
+
+/**
+ *  A warning originated from OS Adaptation.
+ *
+ *  Value: "ADAPTATION_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationWarning_Code_AdaptationWarning;
+/**
+ *  Default value. This value is not used.
+ *
+ *  Value: "WARNING_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationWarning_Code_WarningCodeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_ReplicationCycle.state
@@ -2547,6 +2564,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_MigratingVm_Labels *labels;
 
 /**
+ *  Output only. Details of the last replication cycle. This will be updated
+ *  whenever a replication cycle is finished and is not to be confused with
+ *  last_sync which is only updated on successful replication cycles.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ReplicationCycle *lastReplicationCycle;
+
+/**
  *  Output only. The most updated snapshot created time in the source that
  *  finished replication.
  */
@@ -2698,6 +2722,42 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  current error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Link *> *helpLinks;
+
+@end
+
+
+/**
+ *  Represents migration resource warning information that can be used with
+ *  google.rpc.Status message. MigrationWarning is used to present the user with
+ *  warning information in migration operations.
+ */
+@interface GTLRVMMigrationService_MigrationWarning : GTLRObject
+
+/** Suggested action for solving the warning. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_LocalizedMessage *actionItem;
+
+/**
+ *  The warning code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_MigrationWarning_Code_AdaptationWarning A
+ *        warning originated from OS Adaptation. (Value: "ADAPTATION_WARNING")
+ *    @arg @c kGTLRVMMigrationService_MigrationWarning_Code_WarningCodeUnspecified
+ *        Default value. This value is not used. (Value:
+ *        "WARNING_CODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  URL(s) pointing to additional information on handling the current warning.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Link *> *helpLinks;
+
+/** The localized warning message. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_LocalizedMessage *warningMessage;
+
+/** The time the warning occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *warningTime;
 
 @end
 
@@ -2970,6 +3030,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** The accumulated duration the replication cycle was paused. */
 @property(nonatomic, strong, nullable) GTLRDuration *totalPauseDuration;
 
+/** Output only. Warnings that occurred during the cycle. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_MigrationWarning *> *warnings;
+
 @end
 
 
@@ -3209,7 +3272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  you must retry your request, the server will know to ignore the request if
  *  it has already been completed. The server will guarantee that for at least
  *  60 minutes after the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
+ *  you make an initial request and the request times out. If you make the
  *  request again with the same request ID, the server can check if original
  *  operation with the same request ID was received, and if so, will ignore the
  *  second request. This prevents clients from accidentally creating duplicate

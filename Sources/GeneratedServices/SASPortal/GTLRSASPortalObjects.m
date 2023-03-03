@@ -513,6 +513,25 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_ProvisionDeploymentRequest
+//
+
+@implementation GTLRSASPortal_ProvisionDeploymentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_ProvisionDeploymentResponse
+//
+
+@implementation GTLRSASPortal_ProvisionDeploymentResponse
+@dynamic errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_SetPolicyRequest
 //
 

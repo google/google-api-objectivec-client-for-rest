@@ -102,6 +102,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#instanceList" : [GTLRCompute_InstanceList class],
     @"compute#instanceListReferrers" : [GTLRCompute_InstanceListReferrers class],
     @"compute#instanceTemplate" : [GTLRCompute_InstanceTemplate class],
+    @"compute#instanceTemplateAggregatedList" : [GTLRCompute_InstanceTemplateAggregatedList class],
     @"compute#instanceTemplateList" : [GTLRCompute_InstanceTemplateList class],
     @"compute#interconnect" : [GTLRCompute_Interconnect class],
     @"compute#interconnectAttachment" : [GTLRCompute_InterconnectAttachment class],

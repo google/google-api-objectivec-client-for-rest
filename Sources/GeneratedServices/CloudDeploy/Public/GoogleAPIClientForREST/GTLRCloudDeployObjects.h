@@ -50,10 +50,13 @@
 @class GTLRCloudDeploy_Release_Labels;
 @class GTLRCloudDeploy_Release_TargetArtifacts;
 @class GTLRCloudDeploy_Release_TargetRenders;
+@class GTLRCloudDeploy_ReleaseCondition;
+@class GTLRCloudDeploy_ReleaseReadyCondition;
 @class GTLRCloudDeploy_Rollout;
 @class GTLRCloudDeploy_Rollout_Annotations;
 @class GTLRCloudDeploy_Rollout_Labels;
 @class GTLRCloudDeploy_SerialPipeline;
+@class GTLRCloudDeploy_SkaffoldSupportedCondition;
 @class GTLRCloudDeploy_SkaffoldVersion;
 @class GTLRCloudDeploy_Stage;
 @class GTLRCloudDeploy_Standard;
@@ -544,6 +547,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_SkaffoldSupportedCondition.skaffoldSupportState
+
+/**
+ *  This skaffold version is in maintenance mode.
+ *
+ *  Value: "SKAFFOLD_SUPPORT_STATE_MAINTENANCE_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateMaintenanceMode;
+/**
+ *  This skaffold version is currently supported.
+ *
+ *  Value: "SKAFFOLD_SUPPORT_STATE_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateSupported;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SKAFFOLD_SUPPORT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnspecified;
+/**
+ *  This skaffold version is no longer supported.
+ *
+ *  Value: "SKAFFOLD_SUPPORT_STATE_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_TargetNotificationEvent.type
@@ -2117,6 +2148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** List of artifacts to pass through to Skaffold command. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_BuildArtifact *> *buildArtifacts;
 
+/** Output only. Information around the state of the Release. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_ReleaseCondition *condition;
+
 /** Output only. Time at which the `Release` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2275,6 +2309,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  ReleaseCondition contains all conditions relevant to a Release.
+ */
+@interface GTLRCloudDeploy_ReleaseCondition : GTLRObject
+
+/** Details around the Releases's overall status. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_ReleaseReadyCondition *releaseReadyCondition;
+
+/** Details around the support state of the release's skaffold version. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldSupportedCondition *skaffoldSupportedCondition;
+
+@end
+
+
+/**
  *  Payload proto for "clouddeploy.googleapis.com/release_notification" Platform
  *  Log event that describes the failure to send release status change Pub/Sub
  *  notification.
@@ -2305,6 +2353,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  ReleaseReadyCondition contains information around the status of the Release.
+ *  If a release is not ready, you cannot create a rollout with the release.
+ */
+@interface GTLRCloudDeploy_ReleaseReadyCondition : GTLRObject
+
+/**
+ *  True if the Release is in a valid state. Otherwise at least one condition in
+ *  `ReleaseCondition` is in an invalid state. Iterate over those conditions and
+ *  see which condition(s) has status = false to find out what is wrong with the
+ *  Release.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *status;
 
 @end
 
@@ -2629,12 +2696,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  SkaffoldSupportedCondition contains information about when support for the
+ *  release's version of skaffold ends.
+ */
+@interface GTLRCloudDeploy_SkaffoldSupportedCondition : GTLRObject
+
+/**
+ *  The time at which this release's version of skaffold will enter maintenance
+ *  mode.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *maintenanceModeTime;
+
+/**
+ *  The skaffold support state for this release's version of skaffold.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateMaintenanceMode
+ *        This skaffold version is in maintenance mode. (Value:
+ *        "SKAFFOLD_SUPPORT_STATE_MAINTENANCE_MODE")
+ *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateSupported
+ *        This skaffold version is currently supported. (Value:
+ *        "SKAFFOLD_SUPPORT_STATE_SUPPORTED")
+ *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SKAFFOLD_SUPPORT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnsupported
+ *        This skaffold version is no longer supported. (Value:
+ *        "SKAFFOLD_SUPPORT_STATE_UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *skaffoldSupportState;
+
+/**
+ *  True if the version of skaffold used by this release is supported.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *status;
+
+/**
+ *  The time at which this release's version of skaffold will no longer be
+ *  supported.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *supportExpirationTime;
+
+@end
+
+
+/**
  *  Details of a supported Skaffold version.
  */
 @interface GTLRCloudDeploy_SkaffoldVersion : GTLRObject
 
+/** The time at which this version of skaffold will enter maintenance mode. */
+@property(nonatomic, strong, nullable) GTLRDateTime *maintenanceModeTime;
+
 /** Date when this version is expected to no longer be supported. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Date *supportEndDate;
+
+/** The time at which this version of skaffold will no longer be supported. */
+@property(nonatomic, strong, nullable) GTLRDateTime *supportExpirationTime;
 
 /** Release version number. For example, "1.20.3". */
 @property(nonatomic, copy, nullable) NSString *version;

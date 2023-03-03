@@ -21,6 +21,9 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
@@ -34,6 +37,11 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics_ActionMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings;
@@ -329,6 +337,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_LowConfidenceScore;
 /**
+ *  The request matches behavioral characteristics of a carding attack.
+ *
+ *  Value: "SUSPECTED_CARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedCarding;
+/**
+ *  The request matches behavioral characteristics of chargebacks for fraud.
+ *
+ *  Value: "SUSPECTED_CHARGEBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedChargeback;
+/**
  *  Traffic volume from the event source is higher than normal.
  *
  *  Value: "TOO_MUCH_TRAFFIC"
@@ -431,7 +451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Indicates that the authorization attempt with the card issuer failed. The
  *  accompanying reasons can include Visa's '54' indicating that the card is
- *  expired or '82' indicating that the CVV is incorrect.
+ *  expired, or '82' indicating that the CVV is incorrect.
  *
  *  Value: "AUTHORIZATION_DECLINE"
  */
@@ -445,42 +465,43 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Cancel;
 /**
  *  Indicates that the merchant is informed by the payment network that the
- *  transaction has entered the chargeback process. Reason code examples include
- *  Discover's '4553' and '6041'. For partial chargebacks, we recommend that you
- *  include an amount in the `value` field.
+ *  transaction has entered the chargeback process due to fraud. Reason code
+ *  examples include Discover's '6005' and '6041'. For partial chargebacks, we
+ *  recommend that you include an amount in the `value` field.
  *
  *  Value: "CHARGEBACK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Chargeback;
 /**
- *  Indicates that the merchant has received a chargeback alert for the
- *  transaction. The process of resolving the dispute without involving the
+ *  Indicates that the merchant has received a chargeback alert due to fraud for
+ *  the transaction. The process of resolving the dispute without involving the
  *  payment network is started.
  *
  *  Value: "CHARGEBACK_ALERT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackAlert;
 /**
- *  Indicates that the merchant has received a chargeback inquiry for the
- *  transaction, requesting additional information before a chargeback is
- *  officially issued and a formal chargeback notification is sent.
+ *  Indicates that the merchant has received a chargeback inquiry due to fraud
+ *  for the transaction, requesting additional information before a fraud
+ *  chargeback is officially issued and a formal chargeback notification is
+ *  sent.
  *
  *  Value: "CHARGEBACK_INQUIRY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackInquiry;
 /**
- *  Indicates that the transaction has entered the chargeback process, and that
- *  the merchant has chosen to enter representment. Reason examples include
- *  Discover's '4553' and '6041'. For partial chargebacks, we recommend that you
- *  include an amount in the `value` field.
+ *  Indicates that the transaction has entered the chargeback process due to
+ *  fraud, and that the merchant has chosen to enter representment. Reason
+ *  examples include Discover's '6005' and '6041'. For partial chargebacks, we
+ *  recommend that you include an amount in the `value` field.
  *
  *  Value: "CHARGEBACK_REPRESENTMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackRepresentment;
 /**
- *  Indicates that the transaction has had a chargeback which was illegitimate
- *  and was reversed as a result. For partial chargebacks, we recommend that you
- *  include an amount in the `value` field.
+ *  Indicates that the transaction has had a fraud chargeback which was
+ *  illegitimate and was reversed as a result. For partial chargebacks, we
+ *  recommend that you include an amount in the `value` field.
  *
  *  Value: "CHARGEBACK_REVERSE"
  */
@@ -503,16 +524,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ManualReview;
 /**
- *  Indicates that the transaction is approved by the merchant's risk engine.
- *  The accompanying reasons can include 'INHOUSE', 'ACCERTIFY', or 'RECAPTCHA'.
+ *  Indicates that the transaction is approved by the merchant. The accompanying
+ *  reasons can include terms such as 'INHOUSE', 'ACCERTIFY', 'CYBERSOURCE', or
+ *  'MANUAL_REVIEW'.
  *
  *  Value: "MERCHANT_APPROVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantApprove;
 /**
  *  Indicates that the transaction is denied and concluded due to risks detected
- *  by the merchant's risk engine. The accompanying reasons can include
- *  'INHOUSE', 'ACCERTIFY', 'MANUAL_REVIEW', or 'RECAPTCHA'.
+ *  by the merchant. The accompanying reasons can include terms such as
+ *  'INHOUSE', 'ACCERTIFY', 'CYBERSOURCE', or 'MANUAL_REVIEW'.
  *
  *  Value: "MERCHANT_DENY"
  */
@@ -609,6 +631,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "CA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca;
+/**
+ *  Fastly
+ *
+ *  Value: "FASTLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Fastly;
 /**
  *  Undefined WAF
  *
@@ -823,8 +851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
 
 /**
- *  Optional. If the Assessment is part of a Payment Transaction, provide
- *  details on Payment Lifecycle Events that occur in the Transaction.
+ *  Optional. If the assessment is part of a payment transaction, provide
+ *  details on payment lifecycle events that occur in the transaction.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent *transactionEvent;
 
@@ -857,6 +885,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** The event being assessed. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event *event;
+
+/**
+ *  Assessment returned by Fraud Prevention when TransactionData is provided.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment *fraudPreventionAssessment;
 
 /**
  *  Output only. The resource name for the Assessment in the format
@@ -982,6 +1015,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
+ *  Optional. Data describing a payment transaction to be assessed. Sending this
+ *  data enables reCAPTCHA Enterprise Fraud Prevention and the
+ *  FraudPreventionAssessment component in the response.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData *transactionData;
+
+/**
  *  Optional. The user agent present in the request from the user's device
  *  related to this event.
  */
@@ -992,6 +1032,65 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  this event.
  */
 @property(nonatomic, copy, nullable) NSString *userIpAddress;
+
+@end
+
+
+/**
+ *  Assessment for Fraud Prevention.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment : GTLRObject
+
+/**
+ *  Assessment of this transaction for risk of being part of a card testing
+ *  attack.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict *cardTestingVerdict;
+
+/** Assessment of this transaction for risk of a stolen instrument. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict *stolenInstrumentVerdict;
+
+/**
+ *  Probability (0-1) of this transaction being fraudulent. Summarizes the
+ *  combined risk of attack vectors below.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionRisk;
+
+@end
+
+
+/**
+ *  Information about card testing fraud, where an adversary is testing
+ *  fraudulently obtained cards or brute forcing their details.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict : GTLRObject
+
+/**
+ *  Probability (0-1) of this transaction attempt being part of a card testing
+ *  attack.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *risk;
+
+@end
+
+
+/**
+ *  Information about stolen instrument fraud, where the user is not the
+ *  legitimate owner of the instrument being used for the purchase.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict : GTLRObject
+
+/**
+ *  Probability (0-1) of this transaction being executed with a stolen
+ *  instrument.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *risk;
 
 @end
 
@@ -1546,6 +1645,219 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Transaction data associated with a payment protected by reCAPTCHA
+ *  Enterprise. All fields are optional.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData : GTLRCollectionObject
+
+/** Address associated with the payment method when applicable. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress *billingAddress;
+
+/**
+ *  The Bank Identification Number - generally the first 6 or 8 digits of the
+ *  card.
+ */
+@property(nonatomic, copy, nullable) NSString *cardBin;
+
+/** The last four digits of the card. */
+@property(nonatomic, copy, nullable) NSString *cardLastFour;
+
+/** The currency code in ISO-4217 format. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** Information about the payment gateway's response to the transaction. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo *gatewayInfo;
+
+/**
+ *  Items purchased in this transaction.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem *> *items;
+
+/** Information about the user or users fulfilling the transaction. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser *> *merchants;
+
+/**
+ *  The payment method for the transaction. The allowed values are: *
+ *  credit-card * debit-card * gift-card * processor-{name} (If a third-party is
+ *  used, for example, processor-paypal) * custom-{name} (If an alternative
+ *  method is used, for example, custom-crypto)
+ */
+@property(nonatomic, copy, nullable) NSString *paymentMethod;
+
+/**
+ *  Destination address if this transaction involves shipping a physical item.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress *shippingAddress;
+
+/**
+ *  The value of shipping in the specified currency. 0 for free or no shipping.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippingValue;
+
+/**
+ *  Unique identifier for the transaction. This custom identifier can be used to
+ *  reference this transaction in the future, for example, labeling a refund or
+ *  chargeback event. Two attempts at the same transaction should use the same
+ *  transaction id.
+ */
+@property(nonatomic, copy, nullable) NSString *transactionId;
+
+/** Information about the user paying/initiating the transaction. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser *user;
+
+/**
+ *  The decimal value of the transaction in the specified currency.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Structured address format for billing and shipping addresses.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress : GTLRObject
+
+/**
+ *  The first lines of the address. The first line generally contains the street
+ *  name and number, and further lines may include information such as an
+ *  apartment number.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *address;
+
+/** The state, province, or otherwise administrative area of the address. */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/** The town/city of the address. */
+@property(nonatomic, copy, nullable) NSString *locality;
+
+/** The postal or ZIP code of the address. */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/**
+ *  The recipient name, potentially including information such as "care of".
+ */
+@property(nonatomic, copy, nullable) NSString *recipient;
+
+/** The CLDR country/region of the address. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Details about the transaction from the gateway.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo : GTLRObject
+
+/**
+ *  AVS response code from the gateway (available only when reCAPTCHA Enterprise
+ *  is called after authorization).
+ */
+@property(nonatomic, copy, nullable) NSString *avsResponseCode;
+
+/**
+ *  CVV response code from the gateway (available only when reCAPTCHA Enterprise
+ *  is called after authorization).
+ */
+@property(nonatomic, copy, nullable) NSString *cvvResponseCode;
+
+/** Gateway response code describing the state of the transaction. */
+@property(nonatomic, copy, nullable) NSString *gatewayResponseCode;
+
+/** Name of the gateway service (for example, stripe, square, paypal). */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Line items being purchased in this transaction.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem : GTLRObject
+
+/**
+ *  When a merchant is specified, its corresponding account_id. Necessary to
+ *  populate marketplace-style transactions.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantAccountId;
+
+/** The full name of the item. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The quantity of this item that is being purchased.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  The value per item that the user is paying, in the transaction currency,
+ *  after discounts.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Details about a user's account involved in the transaction.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser : GTLRObject
+
+/**
+ *  Unique account identifier for this user. If using account defender, this
+ *  should match the hashed_account_id field. Otherwise, a unique and persistent
+ *  identifier for this account.
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/**
+ *  The epoch milliseconds of the user's account creation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creationMs;
+
+/** The email address of the user. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Whether the email has been verified to be accessible by the user (OTP or
+ *  similar).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *emailVerified;
+
+/** The phone number of the user, with country code. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  Whether the phone number has been verified to be accessible by the user (OTP
+ *  or similar).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *phoneVerified;
+
+@end
+
+
+/**
  *  Describes an event in the lifecycle of a payment transaction.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent : GTLRObject
@@ -1566,7 +1878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_AuthorizationDecline
  *        Indicates that the authorization attempt with the card issuer failed.
  *        The accompanying reasons can include Visa's '54' indicating that the
- *        card is expired or '82' indicating that the CVV is incorrect. (Value:
+ *        card is expired, or '82' indicating that the CVV is incorrect. (Value:
  *        "AUTHORIZATION_DECLINE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Cancel
  *        Indicates that the transaction has been canceled. Specify the reason
@@ -1574,27 +1886,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        "CANCEL")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_Chargeback
  *        Indicates that the merchant is informed by the payment network that
- *        the transaction has entered the chargeback process. Reason code
- *        examples include Discover's '4553' and '6041'. For partial
+ *        the transaction has entered the chargeback process due to fraud.
+ *        Reason code examples include Discover's '6005' and '6041'. For partial
  *        chargebacks, we recommend that you include an amount in the `value`
  *        field. (Value: "CHARGEBACK")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackAlert
- *        Indicates that the merchant has received a chargeback alert for the
- *        transaction. The process of resolving the dispute without involving
- *        the payment network is started. (Value: "CHARGEBACK_ALERT")
+ *        Indicates that the merchant has received a chargeback alert due to
+ *        fraud for the transaction. The process of resolving the dispute
+ *        without involving the payment network is started. (Value:
+ *        "CHARGEBACK_ALERT")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackInquiry
- *        Indicates that the merchant has received a chargeback inquiry for the
- *        transaction, requesting additional information before a chargeback is
- *        officially issued and a formal chargeback notification is sent.
- *        (Value: "CHARGEBACK_INQUIRY")
+ *        Indicates that the merchant has received a chargeback inquiry due to
+ *        fraud for the transaction, requesting additional information before a
+ *        fraud chargeback is officially issued and a formal chargeback
+ *        notification is sent. (Value: "CHARGEBACK_INQUIRY")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackRepresentment
- *        Indicates that the transaction has entered the chargeback process, and
- *        that the merchant has chosen to enter representment. Reason examples
- *        include Discover's '4553' and '6041'. For partial chargebacks, we
- *        recommend that you include an amount in the `value` field. (Value:
- *        "CHARGEBACK_REPRESENTMENT")
+ *        Indicates that the transaction has entered the chargeback process due
+ *        to fraud, and that the merchant has chosen to enter representment.
+ *        Reason examples include Discover's '6005' and '6041'. For partial
+ *        chargebacks, we recommend that you include an amount in the `value`
+ *        field. (Value: "CHARGEBACK_REPRESENTMENT")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_ChargebackReverse
- *        Indicates that the transaction has had a chargeback which was
+ *        Indicates that the transaction has had a fraud chargeback which was
  *        illegitimate and was reversed as a result. For partial chargebacks, we
  *        recommend that you include an amount in the `value` field. (Value:
  *        "CHARGEBACK_REVERSE")
@@ -1609,13 +1922,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        Indicates that the transaction is being evaluated by a human, due to
  *        suspicion or risk. (Value: "MANUAL_REVIEW")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantApprove
- *        Indicates that the transaction is approved by the merchant's risk
- *        engine. The accompanying reasons can include 'INHOUSE', 'ACCERTIFY',
- *        or 'RECAPTCHA'. (Value: "MERCHANT_APPROVE")
+ *        Indicates that the transaction is approved by the merchant. The
+ *        accompanying reasons can include terms such as 'INHOUSE', 'ACCERTIFY',
+ *        'CYBERSOURCE', or 'MANUAL_REVIEW'. (Value: "MERCHANT_APPROVE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_MerchantDeny
  *        Indicates that the transaction is denied and concluded due to risks
- *        detected by the merchant's risk engine. The accompanying reasons can
- *        include 'INHOUSE', 'ACCERTIFY', 'MANUAL_REVIEW', or 'RECAPTCHA'.
+ *        detected by the merchant. The accompanying reasons can include terms
+ *        such as 'INHOUSE', 'ACCERTIFY', 'CYBERSOURCE', or 'MANUAL_REVIEW'.
  *        (Value: "MERCHANT_DENY")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent_EventType_PaymentCapture
  *        Indicates that the transaction is completed because the funds were
@@ -1651,15 +1964,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *eventType;
 
 /**
- *  Optional. The reason or standardized code which corresponds with this
- *  transaction event, if one exists. E.g. a CHARGEBACK Event with code 4553.
+ *  Optional. The reason or standardized code that corresponds with this
+ *  transaction event, if one exists. For example, a CHARGEBACK event with code
+ *  6005.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
  *  Optional. The value that corresponds with this transaction event, if one
- *  exists. E.g. A refund event where $5.00 was refunded. Currency is obtained
- *  from the original transaction data.
+ *  exists. For example, a refund event where $5.00 was refunded. Currency is
+ *  obtained from the original transaction data.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1697,6 +2011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca
  *        Cloud Armor (Value: "CA")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Fastly
+ *        Fastly (Value: "FASTLY")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_WafServiceUnspecified
  *        Undefined WAF (Value: "WAF_SERVICE_UNSPECIFIED")
  */

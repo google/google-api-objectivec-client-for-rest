@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRTPU_AcceleratorConfig.type
+NSString * const kGTLRTPU_AcceleratorConfig_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V2            = @"V2";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V3            = @"V3";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V4            = @"V4";
+
 // GTLRTPU_AttachedDisk.mode
 NSString * const kGTLRTPU_AttachedDisk_Mode_DiskModeUnspecified = @"DISK_MODE_UNSPECIFIED";
 NSString * const kGTLRTPU_AttachedDisk_Mode_ReadOnly           = @"READ_ONLY";
@@ -60,11 +66,29 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_AcceleratorConfig
+//
+
+@implementation GTLRTPU_AcceleratorConfig
+@dynamic topology, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_AcceleratorType
 //
 
 @implementation GTLRTPU_AcceleratorType
-@dynamic name, type;
+@dynamic acceleratorConfigs, name, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceleratorConfigs" : [GTLRTPU_AcceleratorConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -372,11 +396,11 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 //
 
 @implementation GTLRTPU_Node
-@dynamic acceleratorType, apiVersion, cidrBlock, createTime, dataDisks,
-         descriptionProperty, health, healthDescription, identifier, labels,
-         metadata, name, networkConfig, networkEndpoints, runtimeVersion,
-         schedulingConfig, serviceAccount, shieldedInstanceConfig, state,
-         symptoms, tags;
+@dynamic acceleratorConfig, acceleratorType, apiVersion, cidrBlock, createTime,
+         dataDisks, descriptionProperty, health, healthDescription, identifier,
+         labels, metadata, name, networkConfig, networkEndpoints,
+         runtimeVersion, schedulingConfig, serviceAccount,
+         shieldedInstanceConfig, state, symptoms, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

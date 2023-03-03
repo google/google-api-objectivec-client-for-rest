@@ -66,36 +66,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog
-@dynamic context, importPayload, message, requestPayload, responsePayload,
-         serviceContext, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
+@dynamic context, importPayload, message, serviceContext, status;
 @end
 
 

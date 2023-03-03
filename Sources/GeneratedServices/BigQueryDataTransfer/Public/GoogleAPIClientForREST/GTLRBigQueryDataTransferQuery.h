@@ -567,7 +567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional service account name. If this field is set, the transfer config
+ *  Optional service account email. If this field is set, the transfer config
  *  will be created with this service account's credentials. It requires that
  *  the requesting user calling this API has permissions to act as this service
  *  account. Note that not all data sources support service account credentials
@@ -768,7 +768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional service account name. If this field is set, the transfer config
+ *  Optional service account email. If this field is set, the transfer config
  *  will be created with this service account's credentials. It requires that
  *  the requesting user calling this API has permissions to act as this service
  *  account. Note that not all data sources support service account credentials
@@ -1153,7 +1153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional service account name. If this field is set, the transfer config
+ *  Optional service account email. If this field is set, the transfer config
  *  will be created with this service account's credentials. It requires that
  *  the requesting user calling this API has permissions to act as this service
  *  account. Note that not all data sources support service account credentials
@@ -1354,7 +1354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional service account name. If this field is set, the transfer config
+ *  Optional service account email. If this field is set, the transfer config
  *  will be created with this service account's credentials. It requires that
  *  the requesting user calling this API has permissions to act as this service
  *  account. Note that not all data sources support service account credentials

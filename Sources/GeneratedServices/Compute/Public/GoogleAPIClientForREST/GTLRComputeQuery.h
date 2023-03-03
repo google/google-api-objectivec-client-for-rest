@@ -940,8 +940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified autoscaler resource. Gets a list of available
- *  autoscalers by making a list() request.
+ *  Returns the specified autoscaler resource.
  *
  *  Method: compute.autoscalers.get
  *
@@ -968,8 +967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Autoscaler.
  *
- *  Returns the specified autoscaler resource. Gets a list of available
- *  autoscalers by making a list() request.
+ *  Returns the specified autoscaler resource.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -1414,8 +1412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified BackendBucket resource. Gets a list of available
- *  backend buckets by making a list() request.
+ *  Returns the specified BackendBucket resource.
  *
  *  Method: compute.backendBuckets.get
  *
@@ -1435,8 +1432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_BackendBucket.
  *
- *  Returns the specified BackendBucket resource. Gets a list of available
- *  backend buckets by making a list() request.
+ *  Returns the specified BackendBucket resource.
  *
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to return.
@@ -2014,8 +2010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified BackendService resource. Gets a list of available
- *  backend services.
+ *  Returns the specified BackendService resource.
  *
  *  Method: compute.backendServices.get
  *
@@ -2035,8 +2030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_BackendService.
  *
- *  Returns the specified BackendService resource. Gets a list of available
- *  backend services.
+ *  Returns the specified BackendService resource.
  *
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to return.
@@ -2820,8 +2814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns a specified persistent disk. Gets a list of available persistent
- *  disks by making a list() request.
+ *  Returns the specified persistent disk.
  *
  *  Method: compute.disks.get
  *
@@ -2848,8 +2841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Disk.
  *
- *  Returns a specified persistent disk. Gets a list of available persistent
- *  disks by making a list() request.
+ *  Returns the specified persistent disk.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -3349,6 +3341,75 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Updates the specified disk with the data included in the request. The update
+ *  is performed only on selected fields included as part of update-mask. Only
+ *  the following fields can be modified: user_license.
+ *
+ *  Method: compute.disks.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksUpdate : GTLRComputeQuery
+
+/** The disk name for this request. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified disk with the data included in the request. The update
+ *  is performed only on selected fields included as part of update-mask. Only
+ *  the following fields can be modified: user_license.
+ *
+ *  @param object The @c GTLRCompute_Disk to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param disk The disk name for this request.
+ *
+ *  @return GTLRComputeQuery_DisksUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Disk *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                           disk:(NSString *)disk;
+
+@end
+
+/**
  *  Retrieves an aggregated list of disk types.
  *
  *  Method: compute.diskTypes.aggregatedList
@@ -3458,8 +3519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified disk type. Gets a list of available disk types by
- *  making a list() request.
+ *  Returns the specified disk type.
  *
  *  Method: compute.diskTypes.get
  *
@@ -3486,8 +3546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_DiskType.
  *
- *  Returns the specified disk type. Gets a list of available disk types by
- *  making a list() request.
+ *  Returns the specified disk type.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -4334,7 +4393,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Parent ID for this request. */
+/**
+ *  Parent ID for this request. The ID can be either be "folders/[FOLDER_ID]" if
+ *  the parent is a folder or "organizations/[ORGANIZATION_ID]" if the parent is
+ *  an organization.
+ */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
@@ -4402,7 +4465,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
 
-/** The new parent of the firewall policy. */
+/**
+ *  The new parent of the firewall policy. The ID can be either be
+ *  "folders/[FOLDER_ID]" if the parent is a folder or
+ *  "organizations/[ORGANIZATION_ID]" if the parent is an organization.
+ */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
@@ -5560,8 +5627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified address resource. Gets a list of available addresses
- *  by making a list() request.
+ *  Returns the specified address resource.
  *
  *  Method: compute.globalAddresses.get
  *
@@ -5581,8 +5647,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Address.
  *
- *  Returns the specified address resource. Gets a list of available addresses
- *  by making a list() request.
+ *  Returns the specified address resource.
  *
  *  @param project Project ID for this request.
  *  @param address Name of the address resource to return.
@@ -6301,8 +6366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  Returns the specified network endpoint group.
  *
  *  Method: compute.globalNetworkEndpointGroups.get
  *
@@ -6322,8 +6386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
  *
- *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  Returns the specified network endpoint group.
  *
  *  @param project Project ID for this request.
  *  @param networkEndpointGroup The name of the network endpoint group. It
@@ -7532,8 +7595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  Returns the specified HealthCheck resource.
  *
  *  Method: compute.healthChecks.get
  *
@@ -7553,8 +7615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_HealthCheck.
  *
- *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  Returns the specified HealthCheck resource.
  *
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to return.
@@ -7860,8 +7921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified HttpHealthCheck resource. Gets a list of available
- *  HTTP health checks by making a list() request.
+ *  Returns the specified HttpHealthCheck resource.
  *
  *  Method: compute.httpHealthChecks.get
  *
@@ -7881,8 +7941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_HttpHealthCheck.
  *
- *  Returns the specified HttpHealthCheck resource. Gets a list of available
- *  HTTP health checks by making a list() request.
+ *  Returns the specified HttpHealthCheck resource.
  *
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to return.
@@ -8188,8 +8247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified HttpsHealthCheck resource. Gets a list of available
- *  HTTPS health checks by making a list() request.
+ *  Returns the specified HttpsHealthCheck resource.
  *
  *  Method: compute.httpsHealthChecks.get
  *
@@ -8209,8 +8267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_HttpsHealthCheck.
  *
- *  Returns the specified HttpsHealthCheck resource. Gets a list of available
- *  HTTPS health checks by making a list() request.
+ *  Returns the specified HttpsHealthCheck resource.
  *
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to return.
@@ -8609,8 +8666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified image. Gets a list of available images by making a
- *  list() request.
+ *  Returns the specified image.
  *
  *  Method: compute.images.get
  *
@@ -8630,8 +8686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Image.
  *
- *  Returns the specified image. Gets a list of available images by making a
- *  list() request.
+ *  Returns the specified image.
  *
  *  @param project Project ID for this request.
  *  @param image Name of the image resource to return.
@@ -8645,7 +8700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Returns the latest image that is part of an image family and is not
- *  deprecated.
+ *  deprecated. For more information on image families, see Public image
+ *  families documentation.
  *
  *  Method: compute.images.getFromFamily
  *
@@ -8659,16 +8715,21 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /** Name of the image family to search for. */
 @property(nonatomic, copy, nullable) NSString *family;
 
-/** Project ID for this request. */
+/**
+ *  The image project that the image belongs to. For example, to get a CentOS
+ *  image, specify centos-cloud as the image project.
+ */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c GTLRCompute_Image.
  *
  *  Returns the latest image that is part of an image family and is not
- *  deprecated.
+ *  deprecated. For more information on image families, see Public image
+ *  families documentation.
  *
- *  @param project Project ID for this request.
+ *  @param project The image project that the image belongs to. For example, to
+ *    get a CentOS image, specify centos-cloud as the image project.
  *  @param family Name of the image family to search for.
  *
  *  @return GTLRComputeQuery_ImagesGetFromFamily
@@ -9532,8 +9593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns all of the details about the specified managed instance group. Gets
- *  a list of available managed instance groups by making a list() request.
+ *  Returns all of the details about the specified managed instance group.
  *
  *  Method: compute.instanceGroupManagers.get
  *
@@ -9560,8 +9620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManager.
  *
- *  Returns all of the details about the specified managed instance group. Gets
- *  a list of available managed instance groups by making a list() request.
+ *  Returns all of the details about the specified managed instance group.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -11892,8 +11951,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Instance resource. Gets a list of available instances
- *  by making a list() request.
+ *  Returns the specified Instance resource.
  *
  *  Method: compute.instances.get
  *
@@ -11920,8 +11978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Instance.
  *
- *  Returns the specified Instance resource. Gets a list of available instances
- *  by making a list() request.
+ *  Returns the specified Instance resource.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13222,6 +13279,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Sets name of an instance.
+ *
+ *  Method: compute.instances.setName
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetName : GTLRComputeQuery
+
+/** The instance name for this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets name of an instance.
+ *
+ *  @param object The @c GTLRCompute_InstancesSetNameRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance The instance name for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesSetName
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetNameRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Sets an instance's scheduling options. You can only call this method on a
  *  stopped instance, that is, a VM instance that is in a `TERMINATED` state.
  *  See Instance Life Cycle for more information on the possible instance
@@ -14158,6 +14272,117 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Retrieves the list of all InstanceTemplates resources, regional and global,
+ *  available to the specified project.
+ *
+ *  Method: compute.instanceTemplates.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceTemplatesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. If you want to use AIP-160, your expression must specify
+ *  the field name, an operator, and the value that you want to use for
+ *  filtering. The value must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
+ *  are filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:`
+ *  operator can be used with string fields to match substrings. For non-string
+ *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
+ *  to test whether a key has been defined. For example, to find all objects
+ *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
+ *  fields. For example, you could specify `scheduling.automaticRestart = false`
+ *  to include instances only if they are not scheduled for automatic restarts.
+ *  You can use filtering on nested fields to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
+ *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
+ *  against a single un-parenthesized expression with or without quotes or
+ *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceTemplateAggregatedList.
+ *
+ *  Retrieves the list of all InstanceTemplates resources, regional and global,
+ *  available to the specified project.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstanceTemplatesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
  *  Deletes the specified instance template. Deleting an instance template is
  *  permanent and cannot be undone. It is not possible to delete templates that
  *  are already in use by a managed instance group.
@@ -14207,8 +14432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified instance template. Gets a list of available instance
- *  templates by making a list() request.
+ *  Returns the specified instance template.
  *
  *  Method: compute.instanceTemplates.get
  *
@@ -14228,8 +14452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceTemplate.
  *
- *  Returns the specified instance template. Gets a list of available instance
- *  templates by making a list() request.
+ *  Returns the specified instance template.
  *
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template.
@@ -15955,8 +16178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified machine image. Gets a list of available machine images
- *  by making a list() request.
+ *  Returns the specified machine image.
  *
  *  Method: compute.machineImages.get
  *
@@ -15976,8 +16198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_MachineImage.
  *
- *  Returns the specified machine image. Gets a list of available machine images
- *  by making a list() request.
+ *  Returns the specified machine image.
  *
  *  @param project Project ID for this request.
  *  @param machineImage The name of the machine image.
@@ -16367,8 +16588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified machine type. Gets a list of available machine types
- *  by making a list() request.
+ *  Returns the specified machine type.
  *
  *  Method: compute.machineTypes.get
  *
@@ -16395,8 +16615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_MachineType.
  *
- *  Returns the specified machine type. Gets a list of available machine types
- *  by making a list() request.
+ *  Returns the specified machine type.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -17625,8 +17844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  Returns the specified network endpoint group.
  *
  *  Method: compute.networkEndpointGroups.get
  *
@@ -17654,8 +17872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
  *
- *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  Returns the specified network endpoint group.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the network endpoint group is
@@ -18871,8 +19088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified network. Gets a list of available networks by making a
- *  list() request.
+ *  Returns the specified network.
  *
  *  Method: compute.networks.get
  *
@@ -18892,8 +19108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Network.
  *
- *  Returns the specified network. Gets a list of available networks by making a
- *  list() request.
+ *  Returns the specified network.
  *
  *  @param project Project ID for this request.
  *  @param network Name of the network to return.
@@ -20432,8 +20647,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified node template. Gets a list of available node templates
- *  by making a list() request.
+ *  Returns the specified node template.
  *
  *  Method: compute.nodeTemplates.get
  *
@@ -20456,8 +20670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NodeTemplate.
  *
- *  Returns the specified node template. Gets a list of available node templates
- *  by making a list() request.
+ *  Returns the specified node template.
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -20863,8 +21076,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified node type. Gets a list of available node types by
- *  making a list() request.
+ *  Returns the specified node type.
  *
  *  Method: compute.nodeTypes.get
  *
@@ -20891,8 +21103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NodeType.
  *
- *  Returns the specified node type. Gets a list of available node types by
- *  making a list() request.
+ *  Returns the specified node type.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -23791,8 +24002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified commitment resource. Gets a list of available
- *  commitments by making a list() request.
+ *  Returns the specified commitment resource.
  *
  *  Method: compute.regionCommitments.get
  *
@@ -23815,8 +24025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Commitment.
  *
- *  Returns the specified commitment resource. Gets a list of available
- *  commitments by making a list() request.
+ *  Returns the specified commitment resource.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -24706,8 +24915,72 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified regional disk type. Gets a list of available disk
- *  types by making a list() request.
+ *  Update the specified disk with the data included in the request. Update is
+ *  performed only on selected fields included as part of update-mask. Only the
+ *  following fields can be modified: user_license.
+ *
+ *  Method: compute.regionDisks.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksUpdate : GTLRComputeQuery
+
+/** The disk name for this request. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Update the specified disk with the data included in the request. Update is
+ *  performed only on selected fields included as part of update-mask. Only the
+ *  following fields can be modified: user_license.
+ *
+ *  @param object The @c GTLRCompute_Disk to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param disk The disk name for this request.
+ *
+ *  @return GTLRComputeQuery_RegionDisksUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Disk *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                           disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Returns the specified regional disk type.
  *
  *  Method: compute.regionDiskTypes.get
  *
@@ -24730,8 +25003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_DiskType.
  *
- *  Returns the specified regional disk type. Gets a list of available disk
- *  types by making a list() request.
+ *  Returns the specified regional disk type.
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -25217,8 +25489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  Returns the specified HealthCheck resource.
  *
  *  Method: compute.regionHealthChecks.get
  *
@@ -25241,8 +25512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_HealthCheck.
  *
- *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  Returns the specified HealthCheck resource.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -27273,6 +27543,254 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes the specified instance template. Deleting an instance template is
+ *  permanent and cannot be undone.
+ *
+ *  Method: compute.regionInstanceTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesDelete : GTLRComputeQuery
+
+/** The name of the instance template to delete. */
+@property(nonatomic, copy, nullable) NSString *instanceTemplate;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified instance template. Deleting an instance template is
+ *  permanent and cannot be undone.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param instanceTemplate The name of the instance template to delete.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                instanceTemplate:(NSString *)instanceTemplate;
+
+@end
+
+/**
+ *  Returns the specified instance template.
+ *
+ *  Method: compute.regionInstanceTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesGet : GTLRComputeQuery
+
+/** The name of the instance template. */
+@property(nonatomic, copy, nullable) NSString *instanceTemplate;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceTemplate.
+ *
+ *  Returns the specified instance template.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param instanceTemplate The name of the instance template.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                instanceTemplate:(NSString *)instanceTemplate;
+
+@end
+
+/**
+ *  Creates an instance template in the specified project and region using the
+ *  global instance template whose URL is included in the request.
+ *
+ *  Method: compute.regionInstanceTemplates.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates an instance template in the specified project and region using the
+ *  global instance template whose URL is included in the request.
+ *
+ *  @param object The @c GTLRCompute_InstanceTemplate to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceTemplate *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of instance templates that are contained within the
+ *  specified project and region.
+ *
+ *  Method: compute.regionInstanceTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. If you want to use AIP-160, your expression must specify
+ *  the field name, an operator, and the value that you want to use for
+ *  filtering. The value must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
+ *  are filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:`
+ *  operator can be used with string fields to match substrings. For non-string
+ *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
+ *  to test whether a key has been defined. For example, to find all objects
+ *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
+ *  fields. For example, you could specify `scheduling.automaticRestart = false`
+ *  to include instances only if they are not scheduled for automatic restarts.
+ *  You can use filtering on nested fields to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
+ *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
+ *  against a single un-parenthesized expression with or without quotes or
+ *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the regions for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceTemplateList.
+ *
+ *  Retrieves a list of instance templates that are contained within the
+ *  specified project and region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the regions for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
  *  Deletes the specified network endpoint group. Note that the NEG cannot be
  *  deleted if it is configured as a backend of a backend service.
  *
@@ -27333,8 +27851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  Returns the specified network endpoint group.
  *
  *  Method: compute.regionNetworkEndpointGroups.get
  *
@@ -27360,8 +27877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
  *
- *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  Returns the specified network endpoint group.
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region where the network endpoint group is
@@ -29225,14 +29741,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Region resource. Gets a list of available regions by
- *  making a list() request. To decrease latency for this method, you can
- *  optionally omit any unneeded information from the response by using a field
- *  mask. This practice is especially recommended for unused quota information
- *  (the `quotas` field). To exclude one or more fields, set your request's
- *  `fields` query parameter to only include the fields you need. For example,
- *  to only include the `id` and `selfLink` fields, add the query parameter
- *  `?fields=id,selfLink` to your request.
+ *  Returns the specified Region resource. To decrease latency for this method,
+ *  you can optionally omit any unneeded information from the response by using
+ *  a field mask. This practice is especially recommended for unused quota
+ *  information (the `quotas` field). To exclude one or more fields, set your
+ *  request's `fields` query parameter to only include the fields you need. For
+ *  example, to only include the `id` and `selfLink` fields, add the query
+ *  parameter `?fields=id,selfLink` to your request.
  *
  *  Method: compute.regions.get
  *
@@ -29252,14 +29767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Region.
  *
- *  Returns the specified Region resource. Gets a list of available regions by
- *  making a list() request. To decrease latency for this method, you can
- *  optionally omit any unneeded information from the response by using a field
- *  mask. This practice is especially recommended for unused quota information
- *  (the `quotas` field). To exclude one or more fields, set your request's
- *  `fields` query parameter to only include the fields you need. For example,
- *  to only include the `id` and `selfLink` fields, add the query parameter
- *  `?fields=id,selfLink` to your request.
+ *  Returns the specified Region resource. To decrease latency for this method,
+ *  you can optionally omit any unneeded information from the response by using
+ *  a field mask. This practice is especially recommended for unused quota
+ *  information (the `quotas` field). To exclude one or more fields, set your
+ *  request's `fields` query parameter to only include the fields you need. For
+ *  example, to only include the `id` and `selfLink` fields, add the query
+ *  parameter `?fields=id,selfLink` to your request.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region resource to return.
@@ -30105,8 +30619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified TargetHttpProxy resource in the specified region. Gets
- *  a list of available target HTTP proxies by making a list() request.
+ *  Returns the specified TargetHttpProxy resource in the specified region.
  *
  *  Method: compute.regionTargetHttpProxies.get
  *
@@ -30129,8 +30642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetHttpProxy.
  *
- *  Returns the specified TargetHttpProxy resource in the specified region. Gets
- *  a list of available target HTTP proxies by making a list() request.
+ *  Returns the specified TargetHttpProxy resource in the specified region.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -30406,7 +30918,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Returns the specified TargetHttpsProxy resource in the specified region.
- *  Gets a list of available target HTTP proxies by making a list() request.
  *
  *  Method: compute.regionTargetHttpsProxies.get
  *
@@ -30430,7 +30941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_TargetHttpsProxy.
  *
  *  Returns the specified TargetHttpsProxy resource in the specified region.
- *  Gets a list of available target HTTP proxies by making a list() request.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -31058,8 +31568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  Returns the specified UrlMap resource.
  *
  *  Method: compute.regionUrlMaps.get
  *
@@ -31082,8 +31591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_UrlMap.
  *
- *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  Returns the specified UrlMap resource.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -32656,8 +33164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Router resource. Gets a list of available routers by
- *  making a list() request.
+ *  Returns the specified Router resource.
  *
  *  Method: compute.routers.get
  *
@@ -32680,8 +33187,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Router.
  *
- *  Returns the specified Router resource. Gets a list of available routers by
- *  making a list() request.
+ *  Returns the specified Router resource.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -33207,8 +33713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Route resource. Gets a list of available routes by
- *  making a list() request.
+ *  Returns the specified Route resource.
  *
  *  Method: compute.routes.get
  *
@@ -33228,8 +33733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Route.
  *
- *  Returns the specified Route resource. Gets a list of available routes by
- *  making a list() request.
+ *  Returns the specified Route resource.
  *
  *  @param project Project ID for this request.
  *  @param route Name of the Route resource to return.
@@ -34661,8 +35165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Snapshot resource. Gets a list of available snapshots
- *  by making a list() request.
+ *  Returns the specified Snapshot resource.
  *
  *  Method: compute.snapshots.get
  *
@@ -34682,8 +35185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Snapshot.
  *
- *  Returns the specified Snapshot resource. Gets a list of available snapshots
- *  by making a list() request.
+ *  Returns the specified Snapshot resource.
  *
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to return.
@@ -35152,8 +35654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified SslCertificate resource. Gets a list of available SSL
- *  certificates by making a list() request.
+ *  Returns the specified SslCertificate resource.
  *
  *  Method: compute.sslCertificates.get
  *
@@ -35173,8 +35674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_SslCertificate.
  *
- *  Returns the specified SslCertificate resource. Gets a list of available SSL
- *  certificates by making a list() request.
+ *  Returns the specified SslCertificate resource.
  *
  *  @param project Project ID for this request.
  *  @param sslCertificate Name of the SslCertificate resource to return.
@@ -35536,8 +36036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified SSL policy resource. Gets a list of available SSL
- *  policies by making a list() request.
+ *  Returns the specified SSL policy resource.
  *
  *  Method: compute.sslPolicies.insert
  *
@@ -35566,8 +36065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Returns the specified SSL policy resource. Gets a list of available SSL
- *  policies by making a list() request.
+ *  Returns the specified SSL policy resource.
  *
  *  @param object The @c GTLRCompute_SslPolicy to include in the query.
  *  @param project Project ID for this request.
@@ -36047,8 +36545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified subnetwork. Gets a list of available subnetworks
- *  list() request.
+ *  Returns the specified subnetwork.
  *
  *  Method: compute.subnetworks.get
  *
@@ -36071,8 +36568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Subnetwork.
  *
- *  Returns the specified subnetwork. Gets a list of available subnetworks
- *  list() request.
+ *  Returns the specified subnetwork.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -37027,8 +37523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified TargetHttpProxy resource. Gets a list of available
- *  target HTTP proxies by making a list() request.
+ *  Returns the specified TargetHttpProxy resource.
  *
  *  Method: compute.targetHttpProxies.get
  *
@@ -37048,8 +37543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetHttpProxy.
  *
- *  Returns the specified TargetHttpProxy resource. Gets a list of available
- *  target HTTP proxies by making a list() request.
+ *  Returns the specified TargetHttpProxy resource.
  *
  *  @param project Project ID for this request.
  *  @param targetHttpProxy Name of the TargetHttpProxy resource to return.
@@ -37464,8 +37958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified TargetHttpsProxy resource. Gets a list of available
- *  target HTTPS proxies by making a list() request.
+ *  Returns the specified TargetHttpsProxy resource.
  *
  *  Method: compute.targetHttpsProxies.get
  *
@@ -37485,8 +37978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxy.
  *
- *  Returns the specified TargetHttpsProxy resource. Gets a list of available
- *  target HTTPS proxies by making a list() request.
+ *  Returns the specified TargetHttpsProxy resource.
  *
  *  @param project Project ID for this request.
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to return.
@@ -38124,8 +38616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified TargetInstance resource. Gets a list of available
- *  target instances by making a list() request.
+ *  Returns the specified TargetInstance resource.
  *
  *  Method: compute.targetInstances.get
  *
@@ -38152,8 +38643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetInstance.
  *
- *  Returns the specified TargetInstance resource. Gets a list of available
- *  target instances by making a list() request.
+ *  Returns the specified TargetInstance resource.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone scoping this request.
@@ -38599,8 +39089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified target pool. Gets a list of available target pools by
- *  making a list() request.
+ *  Returns the specified target pool.
  *
  *  Method: compute.targetPools.get
  *
@@ -38623,8 +39112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetPool.
  *
- *  Returns the specified target pool. Gets a list of available target pools by
- *  making a list() request.
+ *  Returns the specified target pool.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -39046,8 +39534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified TargetSslProxy resource. Gets a list of available
- *  target SSL proxies by making a list() request.
+ *  Returns the specified TargetSslProxy resource.
  *
  *  Method: compute.targetSslProxies.get
  *
@@ -39067,8 +39554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetSslProxy.
  *
- *  Returns the specified TargetSslProxy resource. Gets a list of available
- *  target SSL proxies by making a list() request.
+ *  Returns the specified TargetSslProxy resource.
  *
  *  @param project Project ID for this request.
  *  @param targetSslProxy Name of the TargetSslProxy resource to return.
@@ -39649,8 +40135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified TargetTcpProxy resource. Gets a list of available
- *  target TCP proxies by making a list() request.
+ *  Returns the specified TargetTcpProxy resource.
  *
  *  Method: compute.targetTcpProxies.get
  *
@@ -39670,8 +40155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetTcpProxy.
  *
- *  Returns the specified TargetTcpProxy resource. Gets a list of available
- *  target TCP proxies by making a list() request.
+ *  Returns the specified TargetTcpProxy resource.
  *
  *  @param project Project ID for this request.
  *  @param targetTcpProxy Name of the TargetTcpProxy resource to return.
@@ -40092,8 +40576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified target VPN gateway. Gets a list of available target
- *  VPN gateways by making a list() request.
+ *  Returns the specified target VPN gateway.
  *
  *  Method: compute.targetVpnGateways.get
  *
@@ -40116,8 +40599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TargetVpnGateway.
  *
- *  Returns the specified target VPN gateway. Gets a list of available target
- *  VPN gateways by making a list() request.
+ *  Returns the specified target VPN gateway.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -40501,8 +40983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  Returns the specified UrlMap resource.
  *
  *  Method: compute.urlMaps.get
  *
@@ -40522,8 +41003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_UrlMap.
  *
- *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  Returns the specified UrlMap resource.
  *
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to return.
@@ -41028,8 +41508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified VPN gateway. Gets a list of available VPN gateways by
- *  making a list() request.
+ *  Returns the specified VPN gateway.
  *
  *  Method: compute.vpnGateways.get
  *
@@ -41052,8 +41531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_VpnGateway.
  *
- *  Returns the specified VPN gateway. Gets a list of available VPN gateways by
- *  making a list() request.
+ *  Returns the specified VPN gateway.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -41519,8 +41997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified VpnTunnel resource. Gets a list of available VPN
- *  tunnels by making a list() request.
+ *  Returns the specified VpnTunnel resource.
  *
  *  Method: compute.vpnTunnels.get
  *
@@ -41543,8 +42020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_VpnTunnel.
  *
- *  Returns the specified VpnTunnel resource. Gets a list of available VPN
- *  tunnels by making a list() request.
+ *  Returns the specified VpnTunnel resource.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -42027,8 +42503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Zone resource. Gets a list of available zones by
- *  making a list() request.
+ *  Returns the specified Zone resource.
  *
  *  Method: compute.zones.get
  *
@@ -42052,8 +42527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Zone.
  *
- *  Returns the specified Zone resource. Gets a list of available zones by
- *  making a list() request.
+ *  Returns the specified Zone resource.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone resource to return.

@@ -56,6 +56,7 @@ NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraint
 NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_CaOptions = @"CA_OPTIONS";
 NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_ExtendedKeyUsage = @"EXTENDED_KEY_USAGE";
 NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_KnownCertificateExtensionUnspecified = @"KNOWN_CERTIFICATE_EXTENSION_UNSPECIFIED";
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_NameConstraints = @"NAME_CONSTRAINTS";
 NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_PolicyIds = @"POLICY_IDS";
 
 // GTLRCertificateAuthorityService_CertificateRevocationList.state
@@ -859,6 +860,33 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_NameConstraints
+//
+
+@implementation GTLRCertificateAuthorityService_NameConstraints
+@dynamic critical, excludedDnsNames, excludedEmailAddresses, excludedIpRanges,
+         excludedUris, permittedDnsNames, permittedEmailAddresses,
+         permittedIpRanges, permittedUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedDnsNames" : [NSString class],
+    @"excludedEmailAddresses" : [NSString class],
+    @"excludedIpRanges" : [NSString class],
+    @"excludedUris" : [NSString class],
+    @"permittedDnsNames" : [NSString class],
+    @"permittedEmailAddresses" : [NSString class],
+    @"permittedIpRanges" : [NSString class],
+    @"permittedUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_ObjectId
 //
 
@@ -1203,7 +1231,8 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_X509Parameters
-@dynamic additionalExtensions, aiaOcspServers, caOptions, keyUsage, policyIds;
+@dynamic additionalExtensions, aiaOcspServers, caOptions, keyUsage,
+         nameConstraints, policyIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

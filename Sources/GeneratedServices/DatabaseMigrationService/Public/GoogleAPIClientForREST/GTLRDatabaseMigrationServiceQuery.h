@@ -30,25 +30,25 @@ NS_ASSUME_NONNULL_BEGIN
 // tree
 
 /**
- *  Unspecified tree type
+ *  Unspecified tree type.
  *
  *  Value: "DB_TREE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified;
 /**
- *  The destination database tree
+ *  The destination database tree.
  *
  *  Value: "DESTINATION_TREE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDestinationTree;
 /**
- *  The draft database tree
+ *  The draft database tree.
  *
  *  Value: "DRAFT_TREE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDraftTree;
 /**
- *  The source database tree
+ *  The source database tree.
  *
  *  Value: "SOURCE_TREE"
  */
@@ -81,15 +81,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 /** Required. The connection profile identifier. */
 @property(nonatomic, copy, nullable) NSString *connectionProfileId;
 
-/**
- *  Required. The parent, which owns this collection of connection profiles.
- */
+/** Required. The parent which owns this collection of connection profiles. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two requests with the same id, then the second request will be ignored. It
- *  is recommended to always set this value to a UUID. The id must contain only
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -115,7 +113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  @param object The @c GTLRDatabaseMigrationService_ConnectionProfile to
  *    include in the query.
- *  @param parent Required. The parent, which owns this collection of connection
+ *  @param parent Required. The parent which owns this collection of connection
  *    profiles.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesCreate
@@ -147,9 +145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -274,7 +272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 /**
  *  The maximum number of connection profiles to return. The service may return
  *  fewer than this value. If unspecified, at most 50 connection profiles will
- *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  be returned. The maximum value is 1000; values above 1000 are coerced to
  *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -287,9 +285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Required. The parent, which owns this collection of connection profiles.
- */
+/** Required. The parent which owns this collection of connection profiles. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -297,7 +293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  Retrieves a list of all connection profiles in a given project and location.
  *
- *  @param parent Required. The parent, which owns this collection of connection
+ *  @param parent Required. The parent which owns this collection of connection
  *    profiles.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesList
@@ -327,9 +323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two requests with the same id, then the second request will be ignored. It
- *  is recommended to always set this value to a UUID. The id must contain only
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -342,8 +338,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, assign) BOOL skipValidation;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  connection profile resource by the update.
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the conversion workspace resource.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -458,7 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @end
 
 /**
- *  Apply draft tree onto a specific destination database
+ *  Applies draft tree onto a specific destination database.
  *
  *  Method: datamigration.projects.locations.conversionWorkspaces.apply
  *
@@ -468,8 +464,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesApply : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Required. Name of the conversion workspace resource to apply draft to
- *  destination for. in the form of:
+ *  Required. The name of the conversion workspace resource for which to apply
+ *  the draft tree. Must be in the form of:
  *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -477,13 +473,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.
  *
- *  Apply draft tree onto a specific destination database
+ *  Applies draft tree onto a specific destination database.
  *
  *  @param object The @c
  *    GTLRDatabaseMigrationService_ApplyConversionWorkspaceRequest to include in
  *    the query.
- *  @param name Required. Name of the conversion workspace resource to apply
- *    draft to destination for. in the form of:
+ *  @param name Required. The name of the conversion workspace resource for
+ *    which to apply the draft tree. Must be in the form of:
  *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesApply
@@ -572,14 +568,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *conversionWorkspaceId;
 
 /**
- *  Required. The parent, which owns this collection of conversion workspaces.
+ *  Required. The parent which owns this collection of conversion workspaces.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -592,7 +588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  @param object The @c GTLRDatabaseMigrationService_ConversionWorkspace to
  *    include in the query.
- *  @param parent Required. The parent, which owns this collection of conversion
+ *  @param parent Required. The parent which owns this collection of conversion
  *    workspaces.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesCreate
@@ -616,9 +612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -647,12 +643,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeConversionWorkspaceRevisions : GTLRDatabaseMigrationServiceQuery
 
-/** Optional. Optional filter to request a specific commit id */
+/** Optional. Optional filter to request a specific commit ID. */
 @property(nonatomic, copy, nullable) NSString *commitId;
 
 /**
  *  Required. Name of the conversion workspace resource whose revisions are
- *  listed. in the form of:
+ *  listed. Must be in the form of:
  *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  */
 @property(nonatomic, copy, nullable) NSString *conversionWorkspace;
@@ -664,7 +660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *  Retrieves a list of committed revisions of a specific conversion workspace.
  *
  *  @param conversionWorkspace Required. Name of the conversion workspace
- *    resource whose revisions are listed. in the form of:
+ *    resource whose revisions are listed. Must be in the form of:
  *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeConversionWorkspaceRevisions
@@ -674,11 +670,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @end
 
 /**
- *  Use this method to describe the database entities tree for a specific
- *  conversion workspace and a specific tree type. The DB Entities are not a
- *  resource like conversion workspace or mapping rule, and they can not be
- *  created, updated or deleted like one. Instead they are simple data objects
- *  describing the structure of the client database.
+ *  Describes the database entities tree for a specific conversion workspace and
+ *  a specific tree type. Database entities are not resources like conversion
+ *  workspaces or mapping rules, and they can't be created, updated or deleted.
+ *  Instead, they are simple data objects describing the structure of the client
+ *  database.
  *
  *  Method: datamigration.projects.locations.conversionWorkspaces.describeDatabaseEntities
  *
@@ -688,14 +684,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeDatabaseEntities : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Request a specific commit id. If not specified, the entities from the latest
+ *  Request a specific commit ID. If not specified, the entities from the latest
  *  commit are returned.
  */
 @property(nonatomic, copy, nullable) NSString *commitId;
 
 /**
- *  Required. Name of the conversion workspace resource whose DB entities are
- *  described in the form of:
+ *  Required. Name of the conversion workspace resource whose database entities
+ *  are described. Must be in the form of:
  *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  */
 @property(nonatomic, copy, nullable) NSString *conversionWorkspace;
@@ -704,8 +700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of entities to return. The service may return fewer than
- *  this value.
+ *  The maximum number of entities to return. The service may return fewer
+ *  entities than the value specifies.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -724,13 +720,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified Unspecified
- *        tree type (Value: "DB_TREE_TYPE_UNSPECIFIED")
+ *        tree type. (Value: "DB_TREE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationServiceTreeSourceTree The source database
- *        tree (Value: "SOURCE_TREE")
- *    @arg @c kGTLRDatabaseMigrationServiceTreeDraftTree The draft database tree
- *        (Value: "DRAFT_TREE")
+ *        tree. (Value: "SOURCE_TREE")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDraftTree The draft database
+ *        tree. (Value: "DRAFT_TREE")
  *    @arg @c kGTLRDatabaseMigrationServiceTreeDestinationTree The destination
- *        database tree (Value: "DESTINATION_TREE")
+ *        database tree. (Value: "DESTINATION_TREE")
  */
 @property(nonatomic, copy, nullable) NSString *tree;
 
@@ -743,14 +739,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_DescribeDatabaseEntitiesResponse.
  *
- *  Use this method to describe the database entities tree for a specific
- *  conversion workspace and a specific tree type. The DB Entities are not a
- *  resource like conversion workspace or mapping rule, and they can not be
- *  created, updated or deleted like one. Instead they are simple data objects
- *  describing the structure of the client database.
+ *  Describes the database entities tree for a specific conversion workspace and
+ *  a specific tree type. Database entities are not resources like conversion
+ *  workspaces or mapping rules, and they can't be created, updated or deleted.
+ *  Instead, they are simple data objects describing the structure of the client
+ *  database.
  *
  *  @param conversionWorkspace Required. Name of the conversion workspace
- *    resource whose DB entities are described in the form of:
+ *    resource whose database entities are described. Must be in the form of:
  *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeDatabaseEntities
@@ -857,14 +853,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *  specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also
  *  filter nested fields. For example, you could specify **source.version =
  *  "12.c.1"** to select all conversion workspaces with source database version
- *  equal to 12.c.1
+ *  equal to 12.c.1.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of conversion workspaces to return. The service may
- *  return fewer than this value. If unspecified, at most 50 sets will be
- *  returned.
+ *  return fewer than this value. If unspecified, at most 50 sets are returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -878,7 +873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which owns this collection of conversion workspaces.
+ *  Required. The parent which owns this collection of conversion workspaces.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -887,7 +882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  Lists conversion workspaces in a given project and location.
  *
- *  @param parent Required. The parent, which owns this collection of conversion
+ *  @param parent Required. The parent which owns this collection of conversion
  *    workspaces.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesList
@@ -954,17 +949,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  conversion workspace resource by the update.
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the conversion workspace resource.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -988,7 +983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @end
 
 /**
- *  Rollbacks a conversion workspace to the last committed spanshot.
+ *  Rolls back a conversion workspace to the last committed snapshot.
  *
  *  Method: datamigration.projects.locations.conversionWorkspaces.rollback
  *
@@ -997,18 +992,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesRollback : GTLRDatabaseMigrationServiceQuery
 
-/** Required. Name of the conversion workspace resource to rollback to. */
+/** Required. Name of the conversion workspace resource to roll back to. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.
  *
- *  Rollbacks a conversion workspace to the last committed spanshot.
+ *  Rolls back a conversion workspace to the last committed snapshot.
  *
  *  @param object The @c
  *    GTLRDatabaseMigrationService_RollbackConversionWorkspaceRequest to include
  *    in the query.
- *  @param name Required. Name of the conversion workspace resource to rollback
+ *  @param name Required. Name of the conversion workspace resource to roll back
  *    to.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesRollback
@@ -1019,10 +1014,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @end
 
 /**
- *  Use this method to search/list the background jobs for a specific conversion
- *  workspace. The background jobs are not a resource like conversion workspace
- *  or mapping rule, and they can not be created, updated or deleted like one.
- *  Instead they are a way to expose the data plane jobs log.
+ *  Searches/lists the background jobs for a specific conversion workspace. The
+ *  background jobs are not resources like conversion workspaces or mapping
+ *  rules, and they can't be created, updated or deleted. Instead, they are a
+ *  way to expose the data plane jobs log.
  *
  *  Method: datamigration.projects.locations.conversionWorkspaces.searchBackgroundJobs
  *
@@ -1032,40 +1027,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSearchBackgroundJobs : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Optional. If supplied, will only return jobs that completed until (not
+ *  Optional. If provided, only returns jobs that completed until (not
  *  including) the given timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *completedUntilTime;
 
 /**
- *  Required. Name of the conversion workspace resource whos jobs are listed. in
- *  the form of:
+ *  Required. Name of the conversion workspace resource whose jobs are listed,
+ *  in the form of:
  *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  */
 @property(nonatomic, copy, nullable) NSString *conversionWorkspace;
 
 /**
  *  Optional. The maximum number of jobs to return. The service may return fewer
- *  than this value. If unspecified, at most 100 jobs will be returned. The
- *  maximum value is 100; values above 100 will be coerced to 100.
+ *  than this value. If unspecified, at most 100 jobs are returned. The maximum
+ *  value is 100; values above 100 are coerced to 100.
  */
 @property(nonatomic, assign) NSInteger maxSize;
 
 /**
- *  Optional. Whether or not to return just the most recent job per job type
+ *  Optional. Whether or not to return just the most recent job per job type,
  */
 @property(nonatomic, assign) BOOL returnMostRecentPerJobType;
 
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_SearchBackgroundJobsResponse.
  *
- *  Use this method to search/list the background jobs for a specific conversion
- *  workspace. The background jobs are not a resource like conversion workspace
- *  or mapping rule, and they can not be created, updated or deleted like one.
- *  Instead they are a way to expose the data plane jobs log.
+ *  Searches/lists the background jobs for a specific conversion workspace. The
+ *  background jobs are not resources like conversion workspaces or mapping
+ *  rules, and they can't be created, updated or deleted. Instead, they are a
+ *  way to expose the data plane jobs log.
  *
  *  @param conversionWorkspace Required. Name of the conversion workspace
- *    resource whos jobs are listed. in the form of:
+ *    resource whose jobs are listed, in the form of:
  *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSearchBackgroundJobs
@@ -1086,7 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 
 /**
  *  Name of the conversion workspace resource to seed with new database
- *  structure. in the form of:
+ *  structure, in the form of:
  *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1100,7 +1095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *    GTLRDatabaseMigrationService_SeedConversionWorkspaceRequest to include in
  *    the query.
  *  @param name Name of the conversion workspace resource to seed with new
- *    database structure. in the form of:
+ *    database structure, in the form of:
  *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSeed
@@ -1195,6 +1190,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @end
 
 /**
+ *  Fetches a set of static IP addresses that need to be allowlisted by the
+ *  customer when using the static-IP connectivity method.
+ *
+ *  Method: datamigration.projects.locations.fetchStaticIps
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsFetchStaticIps : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. The resource name for the location for which static IPs should be
+ *  returned. Must be in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Maximum number of IPs to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token, received from a previous `FetchStaticIps` call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_FetchStaticIpsResponse.
+ *
+ *  Fetches a set of static IP addresses that need to be allowlisted by the
+ *  customer when using the static-IP connectivity method.
+ *
+ *  @param name Required. The resource name for the location for which static
+ *    IPs should be returned. Must be in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsFetchStaticIps
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: datamigration.projects.locations.get
@@ -1282,13 +1315,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 /** Required. The ID of the instance to create. */
 @property(nonatomic, copy, nullable) NSString *migrationJobId;
 
-/** Required. The parent, which owns this collection of migration jobs. */
+/** Required. The parent which owns this collection of migration jobs. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -1301,7 +1334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  @param object The @c GTLRDatabaseMigrationService_MigrationJob to include in
  *    the query.
- *  @param parent Required. The parent, which owns this collection of migration
+ *  @param parent Required. The parent which owns this collection of migration
  *    jobs.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsCreate
@@ -1332,9 +1365,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -1492,7 +1525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 /**
  *  The maximum number of migration jobs to return. The service may return fewer
  *  than this value. If unspecified, at most 50 migration jobs will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  The maximum value is 1000; values above 1000 are coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1505,7 +1538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent, which owns this collection of migrationJobs. */
+/** Required. The parent which owns this collection of migrationJobs. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1513,7 +1546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *
  *  Lists migration jobs in a given project and location.
  *
- *  @param parent Required. The parent, which owns this collection of
+ *  @param parent Required. The parent which owns this collection of
  *    migrationJobs.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsList
@@ -1543,17 +1576,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique id used to identify the request. If the server receives two
- *  requests with the same id, then the second request will be ignored. It is
- *  recommended to always set this value to a UUID. The id must contain only
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  migration job resource by the update.
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the conversion workspace resource.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2023,9 +2056,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *privateConnectionId;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two requests with the same id, then the second request will be ignored. It
- *  is recommended to always set this value to a UUID. The id must contain only
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -2065,9 +2098,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two requests with the same id, then the second request will be ignored. It
- *  is recommended to always set this value to a UUID. The id must contain only
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
  */
@@ -2137,8 +2170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 
 /**
  *  Maximum number of private connections to return. If unspecified, at most 50
- *  private connections that will be returned. The maximum value is 1000; values
- *  above 1000 will be coerced to 1000.
+ *  private connections that are returned. The maximum value is 1000; values
+ *  above 1000 are coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

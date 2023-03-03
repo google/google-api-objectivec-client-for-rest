@@ -1272,7 +1272,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSa
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
 
 /**
- *  The TargetServer uses GRPC.
+ *  GRPC TargetServer to be used in ExternalCallout Policy. Prefer to use
+ *  EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL _CALLOUT
+ *  generally available.
  *
  *  Value: "GRPC"
  */
@@ -1294,7 +1296,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_P
 // GTLRApigee_GoogleCloudApigeeV1TargetServerConfig.protocol
 
 /**
- *  The TargetServer uses GRPC.
+ *  GRPC TargetServer to be used in ExternalCallout Policy. Prefer to use
+ *  EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL _CALLOUT
+ *  generally available.
  *
  *  Value: "GRPC"
  */
@@ -8648,8 +8652,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Immutable. The protocol used by this TargetServer.
  *
  *  Likely values:
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc The
- *        TargetServer uses GRPC. (Value: "GRPC")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc GRPC
+ *        TargetServer to be used in ExternalCallout Policy. Prefer to use
+ *        EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL
+ *        _CALLOUT generally available. (Value: "GRPC")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http The
  *        TargetServer uses HTTP. (Value: "HTTP")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ProtocolUnspecified
@@ -8702,7 +8708,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc
- *        The TargetServer uses GRPC. (Value: "GRPC")
+ *        GRPC TargetServer to be used in ExternalCallout Policy. Prefer to use
+ *        EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL
+ *        _CALLOUT generally available. (Value: "GRPC")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http
  *        The TargetServer uses HTTP. (Value: "HTTP")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ProtocolUnspecified
@@ -9189,8 +9197,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -9205,9 +9215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

@@ -477,6 +477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
  *  Creates a DataScan resource.
@@ -636,7 +642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the DataScanJob:
- *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id}/dataScanJobs/{data_scan_job_id}
+ *  projects/{project}/locations/{location_id}/dataScans/{data_scan_id}/jobs/{data_scan_job_id}
  *  where project refers to a project_id or project_number and location_id
  *  refers to a GCP region.
  */
@@ -660,7 +666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Gets a DataScanJob resource.
  *
  *  @param name Required. The resource name of the DataScanJob:
- *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id}/dataScanJobs/{data_scan_job_id}
+ *    projects/{project}/locations/{location_id}/dataScans/{data_scan_id}/jobs/{data_scan_job_id}
  *    where project refers to a project_id or project_number and location_id
  *    refers to a GCP region.
  *
@@ -808,6 +814,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.

@@ -49,6 +49,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBus
  */
 FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessDirectionRequests;
 /**
+ *  The number of clicks to view or interact with the menu content on the
+ *  business profile. Multiple clicks by a unique user within a single day are
+ *  counted as 1.
+ *
+ *  Value: "BUSINESS_FOOD_MENU_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodMenuClicks;
+/**
  *  The number of food orders received from the business profile.
  *
  *  Value: "BUSINESS_FOOD_ORDERS"
@@ -218,6 +226,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodOrders The
  *        number of food orders received from the business profile. (Value:
  *        "BUSINESS_FOOD_ORDERS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodMenuClicks
+ *        The number of clicks to view or interact with the menu content on the
+ *        business profile. Multiple clicks by a unique user within a single day
+ *        are counted as 1. (Value: "BUSINESS_FOOD_MENU_CLICKS")
  */
 @property(nonatomic, copy, nullable) NSString *dailyMetric;
 

@@ -4983,9 +4983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Kubernetes taint is comprised of three fields: key, value, and effect.
- *  Effect can only be one of three types: NoSchedule, PreferNoSchedule or
- *  NoExecute. See
+ *  Kubernetes taint is composed of three fields: key, value, and effect. Effect
+ *  can only be one of three types: NoSchedule, PreferNoSchedule or NoExecute.
+ *  See
  *  [here](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration)
  *  for more information, including usage and the valid values.
  */

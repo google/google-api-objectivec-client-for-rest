@@ -184,14 +184,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchDocumentOutputConfig *outputConfig;
 
 /**
- *  Required. The BCP-47 language code of the input document if known, for
+ *  Required. The ISO-639 language code of the input document if known, for
  *  example, "en-US" or "sr-Latn". Supported language codes are listed in
  *  [Language Support](https://cloud.google.com/translate/docs/languages).
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
- *  Required. The BCP-47 language code to use for translation of the input
+ *  Required. The ISO-639 language code to use for translation of the input
  *  document. Specify up to 10 language codes here.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetLanguageCodes;
@@ -455,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code of the source content in the request, detected
+ *  The ISO-639 language code of the source content in the request, detected
  *  automatically.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -641,7 +641,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. If true, use the text removal server to remove the shadow text on
- *  background image for native pdf translation.
+ *  background image for native pdf translation. Shadow removal feature can only
+ *  be enabled when is_translate_native_pdf_only: false && pdf_native_only:
+ *  false
  *
  *  Uses NSNumber of boolValue.
  */
@@ -686,7 +688,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  Optional. The BCP-47 language code of the input document if known, for
+ *  Optional. The ISO-639 language code of the input document if known, for
  *  example, "en-US" or "sr-Latn". Supported language codes are listed in
  *  Language Support. If the source language isn't specified, the API attempts
  *  to identify the source language automatically and returns the source
@@ -696,7 +698,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
- *  Required. The BCP-47 language code to use for translation of the input
+ *  Required. The ISO-639 language code to use for translation of the input
  *  document, set to one of the language codes listed in Language Support.
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
@@ -1085,13 +1087,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_LanguageCodePair : GTLRObject
 
 /**
- *  Required. The BCP-47 language code of the input text, for example, "en-US".
+ *  Required. The ISO-639 language code of the input text, for example, "en-US".
  *  Expected to be an exact match for GlossaryTerm.language_code.
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
- *  Required. The BCP-47 language code for translation output, for example,
+ *  Required. The ISO-639 language code for translation output, for example,
  *  "zh-CN". Expected to be an exact match for GlossaryTerm.language_code.
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
@@ -1105,7 +1107,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_LanguageCodesSet : GTLRObject
 
 /**
- *  The BCP-47 language code(s) for terms defined in the glossary. All entries
+ *  The ISO-639 language code(s) for terms defined in the glossary. All entries
  *  are unique. The list contains at least two entries. Expected to be an exact
  *  match for GlossaryTerm.language_code.
  */
@@ -1626,7 +1628,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Supported language code, generally consisting of its ISO 639-1 identifier,
- *  for example, 'en', 'ja'. In certain cases, BCP-47 codes including language
+ *  for example, 'en', 'ja'. In certain cases, ISO-639 codes including language
  *  and region identifiers are returned (for example, 'zh-TW' and 'zh-CN').
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -1736,7 +1738,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  Optional. The BCP-47 language code of the input text if known, for example,
+ *  Optional. The ISO-639 language code of the input text if known, for example,
  *  "en-US" or "sr-Latn". Supported language codes are listed in Language
  *  Support. If the source language isn't specified, the API attempts to
  *  identify the source language automatically and returns the source language
@@ -1745,8 +1747,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
- *  Required. The BCP-47 language code to use for translation of the input text,
- *  set to one of the language codes listed in Language Support.
+ *  Required. The ISO-639 language code to use for translation of the input
+ *  text, set to one of the language codes listed in Language Support.
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
 
@@ -1798,7 +1800,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_Translation : GTLRObject
 
 /**
- *  The BCP-47 language code of source text in the initial request, detected
+ *  The ISO-639 language code of source text in the initial request, detected
  *  automatically, if no source language was passed within the initial request.
  *  If the source language was passed, auto-detection of the language does not
  *  occur and this field is empty.

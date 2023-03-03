@@ -100,6 +100,14 @@ NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_Full =
 NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_MetadataOnly = @"METADATA_ONLY";
 NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_ScalingConfig.instanceSize
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraLarge = @"EXTRA_LARGE";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraSmall = @"EXTRA_SMALL";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Large = @"LARGE";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Medium = @"MEDIUM";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Small = @"SMALL";
+
 // GTLRDataprocMetastore_Service.databaseType
 NSString * const kGTLRDataprocMetastore_Service_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Mysql = @"MYSQL";
@@ -161,6 +169,30 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
     @"exemptedMembers" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AuxiliaryVersionConfig
+//
+
+@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig
+@dynamic configOverrides, networkConfig, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
+//
+
+@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -335,7 +367,21 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_HiveMetastoreConfig
-@dynamic configOverrides, kerberosConfig, version;
+@dynamic auxiliaryVersions, configOverrides, kerberosConfig, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
+//
+
+@implementation GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_AuxiliaryVersionConfig class];
+}
+
 @end
 
 
@@ -732,6 +778,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_ScalingConfig
+//
+
+@implementation GTLRDataprocMetastore_ScalingConfig
+@dynamic instanceSize, scalingFactor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Secret
 //
 
@@ -749,8 +805,8 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 @dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
          endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
          metadataManagementActivity, name, network, networkConfig, port,
-         releaseChannel, state, stateMessage, telemetryConfig, tier, uid,
-         updateTime;
+         releaseChannel, scalingConfig, state, stateMessage, telemetryConfig,
+         tier, uid, updateTime;
 @end
 
 

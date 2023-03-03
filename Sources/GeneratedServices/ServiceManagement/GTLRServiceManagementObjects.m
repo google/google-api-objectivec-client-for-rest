@@ -341,7 +341,22 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, overridesByRequestProtocol, pathTranslation,
+         protocol, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_BackendRule_OverridesByRequestProtocol
+//
+
+@implementation GTLRServiceManagement_BackendRule_OverridesByRequestProtocol
+
++ (Class)classForAdditionalProperties {
+  return [GTLRServiceManagement_BackendRule class];
+}
+
 @end
 
 

@@ -57,11 +57,6 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_Revisio
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestTimestamp = @"LATEST_TIMESTAMP";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_RevisionCaseUnspecified = @"REVISION_CASE_UNSPECIFIED";
 
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference.revisionCase
-NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestHumanReview = @"LATEST_HUMAN_REVIEW";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestTimestamp = @"LATEST_TIMESTAMP";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_RevisionCaseUnspecified = @"REVISION_CASE_UNSPECIFIED";
-
 // GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata_State_Cancelling = @"CANCELLING";
@@ -460,7 +455,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId
-@dynamic gcsManagedDocId, revisionRef, revisionReference;
+@dynamic gcsManagedDocId, revisionRef;
 @end
 
 
@@ -705,16 +700,6 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef
-@dynamic latestProcessorVersion, revisionCase, revisionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference
-//
-
-@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference
 @dynamic latestProcessorVersion, revisionCase, revisionId;
 @end
 

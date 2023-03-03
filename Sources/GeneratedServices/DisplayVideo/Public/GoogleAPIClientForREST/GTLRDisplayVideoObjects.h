@@ -566,7 +566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCatego
 // GTLRDisplayVideo_AdUrl.type
 
 /**
- *  Tracking url to ping when the click event is triggered.
+ *  Tracking URL to ping when the click event is triggered.
  *
  *  Value: "AD_URL_TYPE_BEACON_CLICK"
  */
@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconE
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconImpression;
 /**
- *  Tracking url to ping when the skip event is triggered.
+ *  Tracking URL to ping when the skip event is triggered.
  *
  *  Value: "AD_URL_TYPE_BEACON_SKIP"
  */
@@ -1399,7 +1399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeSensitiveCategoryExclusion;
 /**
  *  Target ads to a serve it in a certain position of a session. Only supported
- *  for the AdGroup of YouTube Programmatic Reservation line item.
+ *  for Ad Group resources under YouTube Programmatic Reservation line items.
+ *  Targeting of this type cannot be created or updated using the API.
  *
  *  Value: "TARGETING_TYPE_SESSION_POSITION"
  */
@@ -1448,13 +1449,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeViewability;
 /**
- *  Target ads to a specific YouTube channel.
+ *  Target ads to a specific YouTube channel. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannel;
 /**
- *  Target ads to a specific YouTube video.
+ *  Target ads to a specific YouTube video. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_VIDEO"
  */
@@ -2645,7 +2652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSensitiveCategoryExclusion;
 /**
  *  Target ads to a serve it in a certain position of a session. Only supported
- *  for the AdGroup of YouTube Programmatic Reservation line item.
+ *  for Ad Group resources under YouTube Programmatic Reservation line items.
+ *  Targeting of this type cannot be created or updated using the API.
  *
  *  Value: "TARGETING_TYPE_SESSION_POSITION"
  */
@@ -2694,13 +2702,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeViewability;
 /**
- *  Target ads to a specific YouTube channel.
+ *  Target ads to a specific YouTube channel. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel;
 /**
- *  Target ads to a specific YouTube video.
+ *  Target ads to a specific YouTube video. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_VIDEO"
  */
@@ -3364,31 +3378,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_S
 // GTLRDisplayVideo_CustomLabel.key
 
 /**
- *  index 0.
+ *  Key index 0.
  *
  *  Value: "CUSTOM_LABEL_KEY_0"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey0;
 /**
- *  index 1.
+ *  Key index 1.
  *
  *  Value: "CUSTOM_LABEL_KEY_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey1;
 /**
- *  index 2.
+ *  Key index 2.
  *
  *  Value: "CUSTOM_LABEL_KEY_2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey2;
 /**
- *  index 3.
+ *  Key index 3.
  *
  *  Value: "CUSTOM_LABEL_KEY_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey3;
 /**
- *  index 4.
+ *  Key index 4.
  *
  *  Value: "CUSTOM_LABEL_KEY_4"
  */
@@ -3722,7 +3736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSensitiveCategoryExclusion;
 /**
  *  Target ads to a serve it in a certain position of a session. Only supported
- *  for the AdGroup of YouTube Programmatic Reservation line item.
+ *  for Ad Group resources under YouTube Programmatic Reservation line items.
+ *  Targeting of this type cannot be created or updated using the API.
  *
  *  Value: "TARGETING_TYPE_SESSION_POSITION"
  */
@@ -3771,13 +3786,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeViewability;
 /**
- *  Target ads to a specific YouTube channel.
+ *  Target ads to a specific YouTube channel. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel;
 /**
- *  Target ads to a specific YouTube video.
+ *  Target ads to a specific YouTube video. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_VIDEO"
  */
@@ -11779,7 +11800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeSensitiveCategoryExclusion;
 /**
  *  Target ads to a serve it in a certain position of a session. Only supported
- *  for the AdGroup of YouTube Programmatic Reservation line item.
+ *  for Ad Group resources under YouTube Programmatic Reservation line items.
+ *  Targeting of this type cannot be created or updated using the API.
  *
  *  Value: "TARGETING_TYPE_SESSION_POSITION"
  */
@@ -11828,13 +11850,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeViewability;
 /**
- *  Target ads to a specific YouTube channel.
+ *  Target ads to a specific YouTube channel. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannel;
 /**
- *  Target ads to a specific YouTube video.
+ *  Target ads to a specific YouTube video. Targeting of this type cannot be
+ *  created or updated using the API. Although this targeting is inherited by
+ *  child resources, **inherited targeting of this type will not be
+ *  retrieveable**.
  *
  *  Value: "TARGETING_TYPE_YOUTUBE_VIDEO"
  */
@@ -12429,7 +12457,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAdGroup_AdGroupForma
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAdGroup_AdGroupFormat_YoutubeAndPartnersAdGroupFormatInStream;
 /**
- *  Video Masthead that is surfaced on the top slot on the YouTube homepage.
+ *  Masthead Ad that is surfaced on the top slot on the YouTube homepage.
  *
  *  Value: "YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_MASTHEAD"
  */
@@ -12816,10 +12844,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AdUrl : GTLRObject
 
 /**
- *  The type of the AD url.
+ *  The type of the Ad URL.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconClick Tracking url to
+ *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconClick Tracking URL to
  *        ping when the click event is triggered. (Value:
  *        "AD_URL_TYPE_BEACON_CLICK")
  *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconExpandableDcmImpression
@@ -12829,7 +12857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconImpression A 1x1
  *        tracking pixel to ping when an impression of a creative is delivered.
  *        (Value: "AD_URL_TYPE_BEACON_IMPRESSION")
- *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconSkip Tracking url to
+ *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconSkip Tracking URL to
  *        ping when the skip event is triggered. (Value:
  *        "AD_URL_TYPE_BEACON_SKIP")
  *    @arg @c kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeUnspecified Unknown or
@@ -12837,7 +12865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The url value of the ad url. */
+/** The URL string value. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -13399,7 +13427,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Media ID of the uploaded asset. This is a unique identifier for the asset.
  *  This ID can be passed to other API calls, e.g. CreateCreative to associate
- *  the asset with a creative.
+ *  the asset with a creative. **On April 5, 2023, the value of this ID will be
+ *  updated. Before this date, we recommend that you stop using any cached media
+ *  IDs when creating or updating creatives, and instead upload assets
+ *  immediately before using them for creative production.** **After April 5,
+ *  you can update cached media IDs to the new values by retrieving them from
+ *  associated creative resources or re-uploading them.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -14037,8 +14070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeSessionPosition
  *        Target ads to a serve it in a certain position of a session. Only
- *        supported for the AdGroup of YouTube Programmatic Reservation line
- *        item. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *        supported for Ad Group resources under YouTube Programmatic
+ *        Reservation line items. Targeting of this type cannot be created or
+ *        updated using the API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeSubExchange
  *        Purchase impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
@@ -14061,11 +14095,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific viewability (for example, 80% viewable).
  *        (Value: "TARGETING_TYPE_VIEWABILITY")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannel
- *        Target ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        Target ads to a specific YouTube channel. Targeting of this type
+ *        cannot be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeVideo
- *        Target ads to a specific YouTube video. (Value:
- *        "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        Target ads to a specific YouTube video. Targeting of this type cannot
+ *        be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -14261,7 +14299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The details for audio ad.
+ *  Details for an audio ad.
  */
 @interface GTLRDisplayVideo_AudioAd : GTLRObject
 
@@ -14273,7 +14311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *finalUrl;
 
-/** The URL address which is loaded in background for tracking purpose. */
+/** The URL address loaded in the background for tracking purposes. */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
 
 /** The YouTube video of the ad. */
@@ -14781,13 +14819,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  The assigned targeting options to create in batch, specified as a list of
- *  CreateAssignedTargetingOptionsRequest.
+ *  CreateAssignedTargetingOptionsRequest. Supported targeting types include: *
+ *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *  `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
 /**
  *  The assigned targeting options to delete in batch, specified as a list of
- *  DeleteAssignedTargetingOptionsRequest.
+ *  DeleteAssignedTargetingOptionsRequest. Supported targeting types include: *
+ *  `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
+ *  `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE` *
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` *
+ *  `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` *
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` *
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` *
+ *  `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
+ *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+ *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -15190,11 +15280,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Ad details for BumperAd.
+ *  Details for a bumper ad.
  */
 @interface GTLRDisplayVideo_BumperAd : GTLRObject
 
-/** Common attributes data model. */
+/** Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
 @end
@@ -15938,7 +16028,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The common attributes for InStreamAd, NonSkippableAd and BumperAd.
+ *  Common attributes for in-stream, non-skippable and bumper ads.
  */
 @interface GTLRDisplayVideo_CommonInStreamAttribute : GTLRObject
 
@@ -15948,7 +16038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** The headline of the call-to-action banner. */
 @property(nonatomic, copy, nullable) NSString *actionHeadline;
 
-/** The image which shows next to the video Ad. */
+/** The image which shows next to the video ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *companionBanner;
 
 /** The webpage address that appears with the ad. */
@@ -15959,7 +16049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *finalUrl;
 
-/** The URL address which is loaded in background for tracking purpose. */
+/** The URL address loaded in the background for tracking purposes. */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
 
 /** The YouTube video of the ad. */
@@ -16611,8 +16701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSessionPosition
  *        Target ads to a serve it in a certain position of a session. Only
- *        supported for the AdGroup of YouTube Programmatic Reservation line
- *        item. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *        supported for Ad Group resources under YouTube Programmatic
+ *        Reservation line items. Targeting of this type cannot be created or
+ *        updated using the API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSubExchange
  *        Purchase impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
@@ -16635,11 +16726,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific viewability (for example, 80% viewable).
  *        (Value: "TARGETING_TYPE_VIEWABILITY")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel
- *        Target ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        Target ads to a specific YouTube channel. Targeting of this type
+ *        cannot be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeVideo
- *        Target ads to a specific YouTube video. (Value:
- *        "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        Target ads to a specific YouTube video. Targeting of this type cannot
+ *        be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -17618,16 +17713,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The key of the label.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey0 index 0. (Value:
- *        "CUSTOM_LABEL_KEY_0")
- *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey1 index 1. (Value:
- *        "CUSTOM_LABEL_KEY_1")
- *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey2 index 2. (Value:
- *        "CUSTOM_LABEL_KEY_2")
- *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey3 index 3. (Value:
- *        "CUSTOM_LABEL_KEY_3")
- *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey4 index 4. (Value:
- *        "CUSTOM_LABEL_KEY_4")
+ *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey0 Key index 0.
+ *        (Value: "CUSTOM_LABEL_KEY_0")
+ *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey1 Key index 1.
+ *        (Value: "CUSTOM_LABEL_KEY_1")
+ *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey2 Key index 2.
+ *        (Value: "CUSTOM_LABEL_KEY_2")
+ *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey3 Key index 3.
+ *        (Value: "CUSTOM_LABEL_KEY_3")
+ *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKey4 Key index 4.
+ *        (Value: "CUSTOM_LABEL_KEY_4")
  *    @arg @c kGTLRDisplayVideo_CustomLabel_Key_CustomLabelKeyUnspecified Not
  *        specified or unknown. (Value: "CUSTOM_LABEL_KEY_UNSPECIFIED")
  */
@@ -17962,8 +18057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSessionPosition
  *        Target ads to a serve it in a certain position of a session. Only
- *        supported for the AdGroup of YouTube Programmatic Reservation line
- *        item. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *        supported for Ad Group resources under YouTube Programmatic
+ *        Reservation line items. Targeting of this type cannot be created or
+ *        updated using the API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSubExchange
  *        Purchase impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
@@ -17986,11 +18082,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific viewability (for example, 80% viewable).
  *        (Value: "TARGETING_TYPE_VIEWABILITY")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel
- *        Target ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        Target ads to a specific YouTube channel. Targeting of this type
+ *        cannot be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeVideo
- *        Target ads to a specific YouTube video. (Value:
- *        "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        Target ads to a specific YouTube video. Targeting of this type cannot
+ *        be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -20974,7 +21074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The meta data of an image asset.
+ *  Meta data of an image asset.
  */
 @interface GTLRDisplayVideo_ImageAsset : GTLRObject
 
@@ -21254,21 +21354,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Ad details for InStreamAd
+ *  Details for an in-stream ad.
  */
 @interface GTLRDisplayVideo_InStreamAd : GTLRObject
 
-/** Common attributes data model. */
+/** Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
-/** The custom parameters to pass custom values to tracking url template. */
+/** The custom parameters to pass custom values to tracking URL template. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InStreamAd_CustomParameters *customParameters;
 
 @end
 
 
 /**
- *  The custom parameters to pass custom values to tracking url template.
+ *  The custom parameters to pass custom values to tracking URL template.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -22572,11 +22672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The [targeting expansion](//support.google.com/displayvideo/answer/10191558)
  *  settings of the line item. This config is only applicable when eligible
- *  audience list targeting is assigned to the line item. Beginning November 7,
- *  2022, these settings may represent the [optimized targeting
- *  feature](//support.google.com/displayvideo/answer/12060859) in place of
- *  targeting expansion. This feature will be rolled out to all partners by
- *  November 9, 2022.
+ *  audience list targeting is assigned to the line item.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetingExpansionConfig *targetingExpansion;
 
@@ -23597,7 +23693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Response message for YoutubeAdGroupAdService.ListYoutubeAdGroupAds.
+ *  GTLRDisplayVideo_ListYoutubeAdGroupAdsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "youtubeAdGroupAds" property. If returned as the result of a
@@ -23827,15 +23923,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The details for masthead ad.
+ *  Details for a Masthead Ad.
  */
 @interface GTLRDisplayVideo_MastheadAd : GTLRObject
 
-/** Video will autoplay for certain period of time. */
+/** The duration of time the video will autoplay. */
 @property(nonatomic, strong, nullable) GTLRDuration *autoplayVideoDuration;
 
 /**
- *  Video will start to play after certain period of time in millisecond.
+ *  The amount of time in milliseconds after which the video will start to play.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -23850,7 +23946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** The tracking URL for the call-to-action button. */
 @property(nonatomic, copy, nullable) NSString *callToActionTrackingUrl;
 
-/** The videos (up to 2) that appear next to the Masthead ad on desktop. */
+/**
+ *  The videos that appear next to the Masthead Ad on desktop. Can be no more
+ *  than two.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_YoutubeVideoDetails *> *companionYoutubeVideos;
 
 /**
@@ -23871,11 +23970,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *showChannelArt;
 
-/** The YouTube video of the ad. */
+/** The YouTube video used by the ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeVideoDetails *video;
 
 /**
- *  Aspect ratio of the autoplaying YouTube video on the Masthead.
+ *  The aspect ratio of the autoplaying YouTube video on the Masthead.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_MastheadAd_VideoAspectRatio_VideoAspectRatioFixed169
@@ -24226,21 +24325,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Ad details for NonSkippableAd
+ *  Details for a non-skippable ad.
  */
 @interface GTLRDisplayVideo_NonSkippableAd : GTLRObject
 
-/** Common attributes data model. */
+/** Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
-/** The custom parameters to pass custom values to tracking url template. */
+/** The custom parameters to pass custom values to tracking URL template. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_NonSkippableAd_CustomParameters *customParameters;
 
 @end
 
 
 /**
- *  The custom parameters to pass custom values to tracking url template.
+ *  The custom parameters to pass custom values to tracking URL template.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -25430,17 +25529,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_ProductFeedData : GTLRObject
 
 /**
- *  True if opt out of showing products.
+ *  Whether the product feed has opted-out of showing products.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isFeedDisabled;
 
-/** A list of dimensions which are used to match products. */
+/** A list of dimensions used to match products. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ProductMatchDimension *> *productMatchDimensions;
 
 /**
- *  The type of the way to select the products.
+ *  How products are selected by the product feed.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ProductFeedData_ProductMatchType_ProductMatchTypeAllProducts
@@ -25461,7 +25560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The dimension which are used to match products.
+ *  A dimension used to match products.
  */
 @interface GTLRDisplayVideo_ProductMatchDimension : GTLRObject
 
@@ -25469,7 +25568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CustomLabel *customLabel;
 
 /**
- *  The ID of the product offer to match the product with the same offer ID.
+ *  The ID of the product offer to match with a product with the same offer ID.
  */
 @property(nonatomic, copy, nullable) NSString *productOfferId;
 
@@ -26221,7 +26320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The ad of which source is DV360 creative.
+ *  The ad sourced from a DV360 creative.
  */
 @interface GTLRDisplayVideo_SourceAd : GTLRObject
 
@@ -26367,11 +26466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Settings that control the targeting expansion of the line item. Targeting
  *  expansion allows the line item to reach a larger audience based on the
- *  original audience list and the targeting expansion level. Beginning November
- *  7, 2022, these settings may represent the [optimized targeting
- *  feature](//support.google.com/displayvideo/answer/12060859) in place of
- *  targeting expansion. This feature will be rolled out to all partners by
- *  November 9, 2022.
+ *  original audience list and the targeting expansion level.
  */
 @interface GTLRDisplayVideo_TargetingExpansionConfig : GTLRObject
 
@@ -26388,16 +26483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. Magnitude of expansion for applicable targeting under this line
- *  item. Beginning November 7, 2022, the behavior of this field will change in
- *  the following ways with the replacement of targeting expansion with
- *  [optimized targeting](//support.google.com/displayvideo/answer/12060859): *
- *  This field will represent the optimized targeting checkbox, with a
- *  `NO_EXPANSION` value representing optimized targeting turned off and a
- *  `LEAST_EXPANSION` value representing optimized targeting turned on. *
- *  `NO_EXPANSION` will be the default value for the field and will be
- *  automatically assigned if you do not set the field. * If you set the field
- *  to any value other than `NO_EXPANSION`, it will automatically be set to
- *  `LEAST_EXPANSION`.
+ *  item.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion
@@ -26659,8 +26745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeSessionPosition
  *        Target ads to a serve it in a certain position of a session. Only
- *        supported for the AdGroup of YouTube Programmatic Reservation line
- *        item. (Value: "TARGETING_TYPE_SESSION_POSITION")
+ *        supported for Ad Group resources under YouTube Programmatic
+ *        Reservation line items. Targeting of this type cannot be created or
+ *        updated using the API. (Value: "TARGETING_TYPE_SESSION_POSITION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeSubExchange
  *        Purchase impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
@@ -26683,11 +26770,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific viewability (for example, 80% viewable).
  *        (Value: "TARGETING_TYPE_VIEWABILITY")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannel
- *        Target ads to a specific YouTube channel. (Value:
- *        "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *        Target ads to a specific YouTube channel. Targeting of this type
+ *        cannot be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeVideo
- *        Target ads to a specific YouTube video. (Value:
- *        "TARGETING_TYPE_YOUTUBE_VIDEO")
+ *        Target ads to a specific YouTube video. Targeting of this type cannot
+ *        be created or updated using the API. Although this targeting is
+ *        inherited by child resources, **inherited targeting of this type will
+ *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -27207,7 +27298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The details for video discovery ad.
+ *  Details for a video discovery ad.
  */
 @interface GTLRDisplayVideo_VideoDiscoveryAd : GTLRObject
 
@@ -27217,11 +27308,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Second text line for the ad. */
 @property(nonatomic, copy, nullable) NSString *description2;
 
-/** The headline of the video discovery ad. */
+/** The headline of ad. */
 @property(nonatomic, copy, nullable) NSString *headline;
 
 /**
- *  Thumbnail image to use in the ad.
+ *  Thumbnail image used in the ad.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_VideoDiscoveryAd_Thumbnail_Thumbnail1 Thumbnail
@@ -27238,36 +27329,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *thumbnail;
 
-/** The YouTube video which the ad wants to promote. */
+/** The YouTube video the ad promotes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeVideoDetails *video;
 
 @end
 
 
 /**
- *  The details for video performance ad.
+ *  Details for a video performance ad.
  */
 @interface GTLRDisplayVideo_VideoPerformanceAd : GTLRObject
 
-/** The list of text assets which show on the call-to-action button. */
+/** The list of text assets shown on the call-to-action button. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actionButtonLabels;
 
-/** The list of companion banners of this ad. */
+/** The list of companion banners used by this ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ImageAsset *> *companionBanners;
 
-/** The custom parameters to pass custom values to tracking url template. */
+/** The custom parameters to pass custom values to tracking URL template. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoPerformanceAd_CustomParameters *customParameters;
 
-/** The list of descriptions which show on the call-to-action banner. */
+/** The list of descriptions shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *descriptions;
 
-/** The first piece after the domain in the display url. */
+/** The first piece after the domain in the display URL. */
 @property(nonatomic, copy, nullable) NSString *displayUrlBreadcrumb1;
 
-/** The second piece after the domain in the display url. */
+/** The second piece after the domain in the display URL. */
 @property(nonatomic, copy, nullable) NSString *displayUrlBreadcrumb2;
 
-/** The domain of the display url */
+/** The domain of the display URL. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
@@ -27275,23 +27366,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *finalUrl;
 
-/** The list of headlines which show on the call-to-action banner. */
+/** The list of headlines shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
 
-/** The list of lone headlines which show on the call-to-action banner. */
+/** The list of lone headlines shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *longHeadlines;
 
-/** The URL address which is loaded in background for tracking purpose. */
+/** The URL address loaded in the background for tracking purposes. */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
 
-/** The list of YouTube video assets in this ad. */
+/** The list of YouTube video assets used by this ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_YoutubeVideoDetails *> *videos;
 
 @end
 
 
 /**
- *  The custom parameters to pass custom values to tracking url template.
+ *  The custom parameters to pass custom values to tracking URL template.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -27478,7 +27569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_YoutubeAdGroup : GTLRObject
 
 /**
- *  The format of the ad group.
+ *  The format of the ads in the ad group.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeAdGroup_AdGroupFormat_YoutubeAndPartnersAdGroupFormatAction
@@ -27494,8 +27585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        In-stream ads. (Value:
  *        "YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_YoutubeAdGroup_AdGroupFormat_YoutubeAndPartnersAdGroupFormatMasthead
- *        Video Masthead that is surfaced on the top slot on the YouTube
- *        homepage. (Value: "YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_MASTHEAD")
+ *        Masthead Ad that is surfaced on the top slot on the YouTube homepage.
+ *        (Value: "YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_MASTHEAD")
  *    @arg @c kGTLRDisplayVideo_YoutubeAdGroup_AdGroupFormat_YoutubeAndPartnersAdGroupFormatNonSkippableInStream
  *        Non-skippable in-stream ads. (Value:
  *        "YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_NON_SKIPPABLE_IN_STREAM")
@@ -27527,7 +27618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
-/** The bidding strategy of the ad group. */
+/** The bidding strategy used by the ad group. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy *biddingStrategy;
 
 /**
@@ -27574,7 +27665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** The resource name of the ad group. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The data to represent the product feed in this ad group. */
+/** The settings of the product feed in this ad group. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ProductFeedData *productFeedData;
 
 /**
@@ -27586,7 +27677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetingExpansionConfig *targetingExpansion;
 
 /**
- *  The IDs of the YouTubeAds associated with the ad group.
+ *  The IDs of the youtube_ad_group_ad resources associated with the ad group.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -27596,58 +27687,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  A single YouTube ad group ad associated with a YouTube ad group.
+ *  A single ad associated with a YouTube ad group.
  */
 @interface GTLRDisplayVideo_YoutubeAdGroupAd : GTLRObject
 
 /**
- *  The unique ID of the ad group ad. Assigned by the system.
+ *  The unique ID of the ad. Assigned by the system.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adGroupAdId;
 
 /**
- *  The unique ID of the ad group that the ad group ad belongs to.
+ *  The unique ID of the ad group that the ad belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adGroupId;
 
-/** The list of ad urls. */
+/** List of URLs used by the ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdUrl *> *adUrls;
 
 /**
- *  The unique ID of the advertiser the ad group ad belongs to.
+ *  The unique ID of the advertiser the ad belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
 /**
- *  Audio ad for reach purpose.
- *  [details](https://support.google.com/displayvideo/answer/6274216)
+ *  Details of an [audio ad](//support.google.com/displayvideo/answer/6274216)
+ *  used for reach marketing objectives.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioAd *audioAd;
 
 /**
- *  Non-skippable short video ad for reach purpose and video length equal to or
- *  less than 6 seconds.
- *  [details](https://support.google.com/displayvideo/answer/6274216)
+ *  Details of a [non-skippable short video
+ *  ad](//support.google.com/displayvideo/answer/6274216), equal to or less than
+ *  6 seconds, used for reach.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BumperAd *bumperAd;
 
 /**
- *  The display name of the ad group ad. Must be UTF-8 encoded with a maximum
- *  size of 255 bytes.
+ *  The display name of the ad. Must be UTF-8 encoded with a maximum size of 255
+ *  bytes.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The ad sourcing DV360 creative. */
+/** Details of an ad sourced from a Display & Video 360 creative. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_SourceAd *displayVideoSourceAd;
 
 /**
- *  The entity status of the ad group ad.
+ *  The entity status of the ad.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeAdGroupAd_EntityStatus_EntityStatusActive
@@ -27673,37 +27764,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
 /**
- *  Skippable in-stream ad after 5 seconds for brand awareness or reach
- *  marketing objectives.
- *  [details](https://support.google.com/displayvideo/answer/6274216)
+ *  Details of an [in-stream ad skippable after 5
+ *  seconds](//support.google.com/displayvideo/answer/6274216), used for brand
+ *  awareness or reach marketing objectives.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InStreamAd *inStreamAd;
 
 /**
- *  The ad which shows on YouTube homepage.
- *  [details](https://support.google.com/google-ads/answer/9709826)
+ *  Details of an [ad served on the YouTube Home
+ *  feed](//support.google.com/google-ads/answer/9709826).
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_MastheadAd *mastheadAd;
 
-/** The resource name of the ad group ad. */
+/** The resource name of the ad. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Non-skippable short in-stream ad for reach marketing objectives, and video
- *  length is between 6 and 15 seconds.
- *  [details](https://support.google.com/displayvideo/answer/6274216)
+ *  Details of a [non-skippable short in-stream video
+ *  ad](//support.google.com/displayvideo/answer/6274216), between 6 and 15
+ *  seconds, used for reach marketing objectives.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_NonSkippableAd *nonSkippableAd;
 
 /**
- *  An ad which shows in places of discovery to promote a video.
- *  [details](https://support.google.com/displayvideo/answer/6274216)
+ *  Details of an [ad promoting a
+ *  video](//support.google.com/displayvideo/answer/6274216) that shows in
+ *  places of discovery.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoDiscoveryAd *videoDiscoverAd;
 
 /**
- *  The ad to drive actions to the business, service or product.
- *  [details](https://support.google.com/google-ads/answer/10147229)
+ *  Details of an [ad used in a video action
+ *  campaign](//support.google.com/google-ads/answer/10147229) to drive actions
+ *  to the business, service or product.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoPerformanceAd *videoPerformanceAd;
 
@@ -28003,12 +28096,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Details of the YouTube video.
+ *  Details of a YouTube video.
  */
 @interface GTLRDisplayVideo_YoutubeVideoDetails : GTLRObject
 
 /**
- *  The ID which can be searched on YouTube webpage.
+ *  The YouTube video ID which can be searched on YouTube webpage.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

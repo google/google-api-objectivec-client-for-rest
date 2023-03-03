@@ -59,6 +59,7 @@
 @class GTLROnDemandScanning_Layer;
 @class GTLROnDemandScanning_License;
 @class GTLROnDemandScanning_Location;
+@class GTLROnDemandScanning_Maintainer;
 @class GTLROnDemandScanning_Material;
 @class GTLROnDemandScanning_Material_Digest;
 @class GTLROnDemandScanning_Metadata;
@@ -1918,6 +1919,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_Maintainer
+ */
+@interface GTLROnDemandScanning_Maintainer : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_Material
  */
 @interface GTLROnDemandScanning_Material : GTLRObject
@@ -2205,6 +2217,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  of type Maven. This field will be unset for non Maven packages.
  */
 @property(nonatomic, copy, nullable) NSString *hashDigest;
+
+/** The maintainer of the package. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Maintainer *maintainer;
 
 /**
  *  The OS affected by a vulnerability Used to generate the cpe_uri for OS
@@ -3066,6 +3081,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
+
+/** The cvss v2 score for the vulnerability. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_CVSS *cvssV2;
 
 /** The cvss v3 score for the vulnerability. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_CVSS *cvssv3;

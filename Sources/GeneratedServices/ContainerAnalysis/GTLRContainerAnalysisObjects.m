@@ -2549,8 +2549,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityNote
-@dynamic cvssScore, cvssV3, cvssVersion, details, severity, sourceUpdateTime,
-         windowsDetails;
+@dynamic cvssScore, cvssV2, cvssV3, cvssVersion, details, severity,
+         sourceUpdateTime, windowsDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2569,9 +2569,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrence
-@dynamic cvssScore, cvssv3, cvssVersion, effectiveSeverity, fixAvailable,
-         longDescription, packageIssue, relatedUrls, severity, shortDescription,
-         type;
+@dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
+         fixAvailable, longDescription, packageIssue, relatedUrls, severity,
+         shortDescription, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

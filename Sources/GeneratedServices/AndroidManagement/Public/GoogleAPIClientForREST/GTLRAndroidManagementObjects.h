@@ -5147,7 +5147,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /** The types of Google Pub/Sub notifications enabled for the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledNotificationTypes;
 
-/** The name of the enterprise displayed to users. */
+/**
+ *  The name of the enterprise displayed to users. This field has a maximum
+ *  length of 100 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *enterpriseDisplayName;
 
 /**

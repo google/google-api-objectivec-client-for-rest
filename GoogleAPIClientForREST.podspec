@@ -69,6 +69,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AccessContextManager/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AccessContextManager/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'ACMEDNS' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/ACMEDNS/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/ACMEDNS/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'AdExchangeBuyerII' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AdExchangeBuyerII/**/*.{h,m}'
@@ -1044,6 +1049,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/PostmasterTools/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/PostmasterTools/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'PublicCertificateAuthority' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/PublicCertificateAuthority/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/PublicCertificateAuthority/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Pubsub/**/*.{h,m}'
@@ -1123,6 +1133,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/SecurityCommandCenter/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/SecurityCommandCenter/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'ServerlessVPCAccess' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/ServerlessVPCAccess/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/ServerlessVPCAccess/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'ServiceConsumerManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -1208,6 +1223,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/StreetViewPublish/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/StreetViewPublish/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'SubscriptionLinking' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/SubscriptionLinking/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/SubscriptionLinking/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'TagManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

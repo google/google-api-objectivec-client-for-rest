@@ -5454,7 +5454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_CellFormat *userEnteredFormat;
 
 /**
- *  The value the user entered in the cell. e.g, `1234`, `'Hello'`, or `=NOW()`
+ *  The value the user entered in the cell. e.g., `1234`, `'Hello'`, or `=NOW()`
  *  Note: Dates, Times and DateTimes are represented as doubles in serial number
  *  format.
  */

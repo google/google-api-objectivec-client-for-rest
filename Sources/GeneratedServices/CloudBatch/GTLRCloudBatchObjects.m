@@ -25,12 +25,6 @@ NSString * const kGTLRCloudBatch_AgentTask_IntendedState_Cancelled = @"CANCELLED
 NSString * const kGTLRCloudBatch_AgentTask_IntendedState_Deleted = @"DELETED";
 NSString * const kGTLRCloudBatch_AgentTask_IntendedState_IntendedStateUnspecified = @"INTENDED_STATE_UNSPECIFIED";
 
-// GTLRCloudBatch_AuditLogConfig.logType
-NSString * const kGTLRCloudBatch_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCloudBatch_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRCloudBatch_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCloudBatch_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
 // GTLRCloudBatch_InstancePolicy.provisioningModel
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified = @"PROVISIONING_MODEL_UNSPECIFIED";
@@ -250,65 +244,11 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBatch_AuditConfig
-//
-
-@implementation GTLRCloudBatch_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudBatch_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBatch_AuditLogConfig
-//
-
-@implementation GTLRCloudBatch_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBatch_Barrier
 //
 
 @implementation GTLRCloudBatch_Barrier
 @dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBatch_Binding
-//
-
-@implementation GTLRCloudBatch_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -403,21 +343,6 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBatch_Expr
-//
-
-@implementation GTLRCloudBatch_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -824,29 +749,6 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBatch_Policy
-//
-
-@implementation GTLRCloudBatch_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRCloudBatch_AuditConfig class],
-    @"bindings" : [GTLRCloudBatch_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBatch_ReportAgentStateRequest
 //
 
@@ -909,16 +811,6 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBatch_SetIamPolicyRequest
-//
-
-@implementation GTLRCloudBatch_SetIamPolicyRequest
-@dynamic policy, updateMask;
 @end
 
 
@@ -1086,42 +978,6 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"statusEvents" : [GTLRCloudBatch_StatusEvent class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBatch_TestIamPermissionsRequest
-//
-
-@implementation GTLRCloudBatch_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBatch_TestIamPermissionsResponse
-//
-
-@implementation GTLRCloudBatch_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
   };
   return map;
 }

@@ -228,7 +228,7 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsDataScansCreate
 
-@dynamic dataScanId, parent;
+@dynamic dataScanId, parent, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataScan *)object
                          parent:(NSString *)parent {
@@ -373,7 +373,7 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsDataScansPatch
 
-@dynamic name, updateMask;
+@dynamic name, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataScan *)object
                            name:(NSString *)name {
