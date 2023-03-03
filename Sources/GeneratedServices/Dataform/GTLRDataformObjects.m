@@ -80,6 +80,24 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_Binding
+//
+
+@implementation GTLRDataform_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_CancelWorkflowInvocationRequest
 //
 
@@ -229,6 +247,21 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Expr
+//
+
+@implementation GTLRDataform_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -657,6 +690,28 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_Policy
+//
+
+@implementation GTLRDataform_Policy
+@dynamic bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindings" : [GTLRDataform_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_PullGitCommitsRequest
 //
 
@@ -916,6 +971,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_SetIamPolicyRequest
+//
+
+@implementation GTLRDataform_SetIamPolicyRequest
+@dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Status
 //
 
@@ -953,6 +1018,42 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_Target
 @dynamic database, name, schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TestIamPermissionsRequest
+//
+
+@implementation GTLRDataform_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TestIamPermissionsResponse
+//
+
+@implementation GTLRDataform_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -1502,6 +1502,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @property(nonatomic, copy, nullable) NSString *androidId;
 
 /**
+ *  The internal hardware codename of the device. This comes from
+ *  android.os.Build.DEVICE. (field named "device" per
+ *  logs/wireless/android/android_checkin.proto)
+ */
+@property(nonatomic, copy, nullable) NSString *device;
+
+/** The build fingerprint of the device if known. */
+@property(nonatomic, copy, nullable) NSString *latestBuildFingerprint;
+
+/**
+ *  The manufacturer of the device. This comes from
+ *  android.os.Build.MANUFACTURER.
+ */
+@property(nonatomic, copy, nullable) NSString *maker;
+
+/**
  *  Identifies the extent to which the device is controlled by a managed Google
  *  Play EMM in various deployment configurations. Possible values include: -
  *  "managedDevice", a device that has the EMM's device policy controller (DPC)
@@ -1524,11 +1540,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
+/** The model name of the device. This comes from android.os.Build.MODEL. */
+@property(nonatomic, copy, nullable) NSString *model;
+
 /** The policy enforced on the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_Policy *policy;
 
+/**
+ *  The product name of the device. This comes from android.os.Build.PRODUCT.
+ */
+@property(nonatomic, copy, nullable) NSString *product;
+
 /** The device report updated with the latest app states. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReport *report;
+
+/**
+ *  Retail brand for the device, if set. See
+ *  https://developer.android.com/reference/android/os/Build.html#BRAND
+ */
+@property(nonatomic, copy, nullable) NSString *retailBrand;
+
+/**
+ *  API compatibility version.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sdkVersion;
 
 @end
 

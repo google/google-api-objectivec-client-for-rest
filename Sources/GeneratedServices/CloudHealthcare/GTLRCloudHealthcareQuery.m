@@ -2154,6 +2154,25 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getFHIRStoreMetrics";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_FhirStoreMetrics class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.getFHIRStoreMetrics";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;

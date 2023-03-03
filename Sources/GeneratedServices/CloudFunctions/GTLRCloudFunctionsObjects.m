@@ -275,8 +275,9 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_Function
-@dynamic buildConfig, descriptionProperty, environment, eventTrigger, labels,
-         name, serviceConfig, state, stateMessages, updateTime;
+@dynamic buildConfig, descriptionProperty, environment, eventTrigger,
+         kmsKeyName, labels, name, serviceConfig, state, stateMessages,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -331,6 +332,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_GenerateUploadUrlRequest
+@dynamic kmsKeyName;
 @end
 
 

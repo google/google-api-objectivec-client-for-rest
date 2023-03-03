@@ -228,6 +228,33 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesRename
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rename";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Instance class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.rename";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReset
 
 @dynamic name;
@@ -726,6 +753,33 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesEvict
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EvictVolumeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:evict";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesEvict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.evict";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesGet
 
 @dynamic name;
@@ -759,6 +813,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRBareMetalSolution_ListVolumesResponse class];
   query.loggingName = @"baremetalsolution.projects.locations.volumes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsEvict
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EvictLunRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:evict";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsEvict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.luns.evict";
   return query;
 }
 

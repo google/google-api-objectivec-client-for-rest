@@ -62,7 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *encodedRequest;
 
 /**
- *  Fetches a @c GTLRSafebrowsing_FindFullHashesResponse.
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesResponse.
  *
  *  @param encodedRequest A serialized FindFullHashesRequest proto.
  *
@@ -97,7 +98,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *encodedRequest;
 
 /**
- *  Fetches a @c GTLRSafebrowsing_FetchThreatListUpdatesResponse.
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse.
  *
  *  @param encodedRequest A serialized FetchThreatListUpdatesRequest proto.
  *
@@ -115,16 +117,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSafebrowsingQuery_FullHashesFind : GTLRSafebrowsingQuery
 
 /**
- *  Fetches a @c GTLRSafebrowsing_FindFullHashesResponse.
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesResponse.
  *
  *  Finds the full hashes that match the requested hash prefixes.
  *
- *  @param object The @c GTLRSafebrowsing_FindFullHashesRequest to include in
- *    the query.
+ *  @param object The @c
+ *    GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesRequest to
+ *    include in the query.
  *
  *  @return GTLRSafebrowsingQuery_FullHashesFind
  */
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_FindFullHashesRequest *)object;
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesRequest *)object;
 
 @end
 
@@ -137,16 +141,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSafebrowsingQuery_ThreatHitsCreate : GTLRSafebrowsingQuery
 
 /**
- *  Fetches a @c GTLRSafebrowsing_Empty.
+ *  Fetches a @c GTLRSafebrowsing_GoogleProtobufEmpty.
  *
  *  Reports a Safe Browsing threat list hit to Google. Only projects with
  *  TRUSTED_REPORTER visibility can use this method.
  *
- *  @param object The @c GTLRSafebrowsing_ThreatHit to include in the query.
+ *  @param object The @c GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit
+ *    to include in the query.
  *
  *  @return GTLRSafebrowsingQuery_ThreatHitsCreate
  */
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_ThreatHit *)object;
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit *)object;
 
 @end
 
@@ -158,7 +163,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSafebrowsingQuery_ThreatListsList : GTLRSafebrowsingQuery
 
 /**
- *  Fetches a @c GTLRSafebrowsing_ListThreatListsResponse.
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ListThreatListsResponse.
  *
  *  Lists the Safe Browsing threat lists available for download.
  *
@@ -177,17 +183,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSafebrowsingQuery_ThreatListUpdatesFetch : GTLRSafebrowsingQuery
 
 /**
- *  Fetches a @c GTLRSafebrowsing_FetchThreatListUpdatesResponse.
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse.
  *
  *  Fetches the most recent threat list updates. A client can request updates
  *  for multiple lists at once.
  *
- *  @param object The @c GTLRSafebrowsing_FetchThreatListUpdatesRequest to
- *    include in the query.
+ *  @param object The @c
+ *    GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest
+ *    to include in the query.
  *
  *  @return GTLRSafebrowsingQuery_ThreatListUpdatesFetch
  */
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_FetchThreatListUpdatesRequest *)object;
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest *)object;
 
 @end
 
@@ -199,16 +207,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSafebrowsingQuery_ThreatMatchesFind : GTLRSafebrowsingQuery
 
 /**
- *  Fetches a @c GTLRSafebrowsing_FindThreatMatchesResponse.
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesResponse.
  *
  *  Finds the threat entries that match the Safe Browsing lists.
  *
- *  @param object The @c GTLRSafebrowsing_FindThreatMatchesRequest to include in
- *    the query.
+ *  @param object The @c
+ *    GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesRequest to
+ *    include in the query.
  *
  *  @return GTLRSafebrowsingQuery_ThreatMatchesFind
  */
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_FindThreatMatchesRequest *)object;
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesRequest *)object;
 
 @end
 

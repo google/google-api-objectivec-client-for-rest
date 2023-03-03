@@ -134,6 +134,13 @@ NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_DeploymentStat
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Error = @"ERROR";
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Ok = @"OK";
 
+// GTLRGKEHub_MembershipBindingLifecycleState.code
+NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Creating = @"CREATING";
+NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Deleting = @"DELETING";
+NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Ready = @"READY";
+NSString * const kGTLRGKEHub_MembershipBindingLifecycleState_Code_Updating = @"UPDATING";
+
 // GTLRGKEHub_MembershipState.code
 NSString * const kGTLRGKEHub_MembershipState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_MembershipState_Code_Creating     = @"CREATING";
@@ -148,6 +155,13 @@ NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_ClustertypeUnspecified = 
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Hybrid  = @"HYBRID";
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Standalone = @"STANDALONE";
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User    = @"USER";
+
+// GTLRGKEHub_ScopeLifecycleState.code
+NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Creating = @"CREATING";
+NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Deleting = @"DELETING";
+NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Ready    = @"READY";
+NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Updating = @"UPDATING";
 
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Active = @"ACTIVE";
@@ -1006,6 +1020,28 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ListMembershipBindingsResponse
+//
+
+@implementation GTLRGKEHub_ListMembershipBindingsResponse
+@dynamic membershipBindings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"membershipBindings" : [GTLRGKEHub_MembershipBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"membershipBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ListMembershipsResponse
 //
 
@@ -1044,6 +1080,28 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ListScopesResponse
+//
+
+@implementation GTLRGKEHub_ListScopesResponse
+@dynamic nextPageToken, scopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [GTLRGKEHub_Scope class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"scopes";
 }
 
 @end
@@ -1120,12 +1178,33 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_MembershipBinding
+//
+
+@implementation GTLRGKEHub_MembershipBinding
+@dynamic createTime, deleteTime, fleet, name, scope, state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MembershipBindingLifecycleState
+//
+
+@implementation GTLRGKEHub_MembershipBindingLifecycleState
+@dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_MembershipEndpoint
 //
 
 @implementation GTLRGKEHub_MembershipEndpoint
-@dynamic applianceCluster, edgeCluster, gkeCluster, kubernetesMetadata,
-         kubernetesResource, multiCloudCluster, onPremCluster;
+@dynamic applianceCluster, edgeCluster, gkeCluster, googleManaged,
+         kubernetesMetadata, kubernetesResource, multiCloudCluster,
+         onPremCluster;
 @end
 
 
@@ -1285,6 +1364,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_Scope
+//
+
+@implementation GTLRGKEHub_Scope
+@dynamic createTime, deleteTime, name, state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ScopeFeatureSpec
 //
 
@@ -1299,6 +1388,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_ScopeFeatureState
 @dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ScopeLifecycleState
+//
+
+@implementation GTLRGKEHub_ScopeLifecycleState
+@dynamic code;
 @end
 
 

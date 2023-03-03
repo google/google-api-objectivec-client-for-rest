@@ -34,6 +34,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AccessContextManager"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ACMEDNS",
+            targets: ["GoogleAPIClientForREST_ACMEDNS"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AdExchangeBuyerII",
             targets: ["GoogleAPIClientForREST_AdExchangeBuyerII"]
         ),
@@ -814,6 +818,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_PostmasterTools"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_PublicCertificateAuthority",
+            targets: ["GoogleAPIClientForREST_PublicCertificateAuthority"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Pubsub",
             targets: ["GoogleAPIClientForREST_Pubsub"]
         ),
@@ -876,6 +884,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             targets: ["GoogleAPIClientForREST_SecurityCommandCenter"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_ServerlessVPCAccess",
+            targets: ["GoogleAPIClientForREST_ServerlessVPCAccess"]
         ),
         .library(
             name: "GoogleAPIClientForREST_ServiceConsumerManagement",
@@ -944,6 +956,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_StreetViewPublish",
             targets: ["GoogleAPIClientForREST_StreetViewPublish"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_SubscriptionLinking",
+            targets: ["GoogleAPIClientForREST_SubscriptionLinking"]
         ),
         .library(
             name: "GoogleAPIClientForREST_TagManager",
@@ -1092,6 +1108,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_AccessContextManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AccessContextManager",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ACMEDNS",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/ACMEDNS",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2265,6 +2287,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_PublicCertificateAuthority",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/PublicCertificateAuthority",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Pubsub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Pubsub",
@@ -2358,6 +2386,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/SecurityCommandCenter",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ServerlessVPCAccess",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/ServerlessVPCAccess",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2460,6 +2494,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_StreetViewPublish",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/StreetViewPublish",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_SubscriptionLinking",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/SubscriptionLinking",
             publicHeadersPath: "Public"
         ),
         .target(

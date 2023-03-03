@@ -137,6 +137,13 @@ NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Pa
 NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Skip = @"SKIP";
 NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_UnexpectedSegmentHandlingModeUnspecified = @"UNEXPECTED_SEGMENT_HANDLING_MODE_UNSPECIFIED";
 
+// GTLRCloudHealthcare_TimePartitioning.type
+NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Day = @"DAY";
+NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Hour = @"HOUR";
+NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Month = @"MONTH";
+NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_PartitionTypeUnspecified = @"PARTITION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Year = @"YEAR";
+
 // GTLRCloudHealthcare_Type.primitive
 NSString * const kGTLRCloudHealthcare_Type_Primitive_PrimitiveUnspecified = @"PRIMITIVE_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_Type_Primitive_String    = @"STRING";
@@ -900,6 +907,34 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_FhirStoreMetric
+//
+
+@implementation GTLRCloudHealthcare_FhirStoreMetric
+@dynamic count, resourceType, structuredStorageSizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_FhirStoreMetrics
+//
+
+@implementation GTLRCloudHealthcare_FhirStoreMetrics
+@dynamic metrics, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRCloudHealthcare_FhirStoreMetric class]
+  };
+  return map;
 }
 
 @end
@@ -1959,7 +1994,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_SchemaConfig
-@dynamic recursiveStructureDepth, schemaType;
+@dynamic lastUpdatedPartitionConfig, recursiveStructureDepth, schemaType;
 @end
 
 
@@ -2218,6 +2253,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_TextSpan
 @dynamic beginOffset, content;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_TimePartitioning
+//
+
+@implementation GTLRCloudHealthcare_TimePartitioning
+@dynamic expirationMs, type;
 @end
 
 

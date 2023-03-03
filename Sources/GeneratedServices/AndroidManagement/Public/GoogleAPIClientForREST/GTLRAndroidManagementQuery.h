@@ -118,6 +118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  Creates an enterprise. This is the last step in the enterprise signup flow.
+ *  See also: SigninDetail
  *
  *  Method: androidmanagement.enterprises.create
  *
@@ -163,6 +164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Fetches a @c GTLRAndroidManagement_Enterprise.
  *
  *  Creates an enterprise. This is the last step in the enterprise signup flow.
+ *  See also: SigninDetail
  *
  *  @param object The @c GTLRAndroidManagement_Enterprise to include in the
  *    query.
@@ -806,7 +808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Updates an enterprise.
+ *  Updates an enterprise. See also: SigninDetail
  *
  *  Method: androidmanagement.enterprises.patch
  *
@@ -829,7 +831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_Enterprise.
  *
- *  Updates an enterprise.
+ *  Updates an enterprise. See also: SigninDetail
  *
  *  @param object The @c GTLRAndroidManagement_Enterprise to include in the
  *    query.

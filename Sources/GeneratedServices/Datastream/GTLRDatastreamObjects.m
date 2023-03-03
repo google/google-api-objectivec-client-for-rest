@@ -589,7 +589,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlSourceConfig
-@dynamic excludeObjects, includeObjects, maxConcurrentCdcTasks;
+@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
+         maxConcurrentCdcTasks;
 @end
 
 
@@ -760,7 +761,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_OracleSourceConfig
 @dynamic dropLargeObjects, excludeObjects, includeObjects,
-         maxConcurrentCdcTasks, streamLargeObjects;
+         maxConcurrentBackfillTasks, maxConcurrentCdcTasks, streamLargeObjects;
 @end
 
 
@@ -855,7 +856,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_PostgresqlSourceConfig
-@dynamic excludeObjects, includeObjects, publication, replicationSlot;
+@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
+         publication, replicationSlot;
 @end
 
 

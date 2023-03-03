@@ -858,8 +858,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -874,9 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -929,15 +929,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Identifies the cluster-scoped resources to restore from the Backup.
+ *  Defines the scope of cluster-scoped resources to restore. Some group kinds
+ *  are not reasonable choices for a restore, and will cause an error if
+ *  selected here. Any scope selection that would restore "all valid" resources
+ *  automatically excludes these group kinds. - gkebackup.gke.io/BackupJob -
+ *  gkebackup.gke.io/RestoreJob - metrics.k8s.io/NodeMetrics -
+ *  migration.k8s.io/StorageState - migration.k8s.io/StorageVersionMigration -
+ *  Node - snapshot.storage.k8s.io/VolumeSnapshotContent -
+ *  storage.k8s.io/CSINode Some group kinds are driven by restore configuration
+ *  elsewhere, and will cause an error if selected here. - Namespace -
+ *  PersistentVolume
  */
 @interface GTLRBackupforGKE_ClusterResourceRestoreScope : GTLRObject
 
 /**
- *  A list of "types" of cluster-scoped resources to be restored from the
- *  Backup. An empty list means that NO cluster-scoped resources will be
- *  restored. Note that Namespaces and PersistentVolume restoration is handled
- *  separately and is not governed by this field.
+ *  A list of cluster-scoped resource group kinds to restore from the backup. If
+ *  specified, only the selected resources will be restored. Mutually exclusive
+ *  to any other field in the message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_GroupKind *> *selectedGroupKinds;
 
@@ -1770,7 +1778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Configuration of a restore. Next id: 9
+ *  Configuration of a restore. Next id: 11
  */
 @interface GTLRBackupforGKE_RestoreConfig : GTLRObject
 
@@ -2087,7 +2095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  fields whose value does not match this expression. If this field is NOT
  *  specified, then ALL fields matched by the target_json_path expression will
  *  undergo substitution. Note that an empty (e.g., "", rather than unspecified)
- *  value for for this field will only match empty fields.
+ *  value for this field will only match empty fields.
  */
 @property(nonatomic, copy, nullable) NSString *originalValuePattern;
 

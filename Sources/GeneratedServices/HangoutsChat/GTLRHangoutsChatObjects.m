@@ -1082,8 +1082,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Space
-@dynamic displayName, name, singleUserBotDm, spaceDetails, spaceThreadingState,
-         threaded, type;
+@dynamic adminInstalled, displayName, name, singleUserBotDm, spaceDetails,
+         spaceThreadingState, threaded, type;
 @end
 
 

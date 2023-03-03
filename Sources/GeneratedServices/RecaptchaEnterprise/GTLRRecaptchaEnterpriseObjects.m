@@ -61,6 +61,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Annota
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_Automation = @"AUTOMATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_ClassificationReasonUnspecified = @"CLASSIFICATION_REASON_UNSPECIFIED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_LowConfidenceScore = @"LOW_CONFIDENCE_SCORE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedCarding = @"SUSPECTED_CARDING";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedChargeback = @"SUSPECTED_CHARGEBACK";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_TooMuchTraffic = @"TOO_MUCH_TRAFFIC";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_UnexpectedEnvironment = @"UNEXPECTED_ENVIRONMENT";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_UnexpectedUsagePatterns = @"UNEXPECTED_USAGE_PATTERNS";
@@ -108,6 +110,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSet
 
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafService
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca = @"CA";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Fastly = @"FASTLY";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_WafServiceUnspecified = @"WAF_SERVICE_UNSPECIFIED";
 
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings.challengeSecurityPreference
@@ -209,8 +212,9 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment
-@dynamic accountDefenderAssessment, accountVerification, event, name,
-         privatePasswordLeakVerification, riskAnalysis, tokenProperties;
+@dynamic accountDefenderAssessment, accountVerification, event,
+         fraudPreventionAssessment, name, privatePasswordLeakVerification,
+         riskAnalysis, tokenProperties;
 @end
 
 
@@ -240,8 +244,38 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event
-@dynamic expectedAction, hashedAccountId, siteKey, token, userAgent,
-         userIpAddress;
+@dynamic expectedAction, hashedAccountId, siteKey, token, transactionData,
+         userAgent, userIpAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment
+@dynamic cardTestingVerdict, stolenInstrumentVerdict, transactionRisk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict
+@dynamic risk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict
+@dynamic risk;
 @end
 
 
@@ -548,6 +582,77 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties
 @dynamic action, androidPackageName, createTime, hostname, invalidReason,
          iosBundleId, valid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData
+@dynamic billingAddress, cardBin, cardLastFour, currencyCode, gatewayInfo,
+         items, merchants, paymentMethod, shippingAddress, shippingValue,
+         transactionId, user, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem class],
+    @"merchants" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress
+@dynamic address, administrativeArea, locality, postalCode, recipient,
+         regionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"address" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo
+@dynamic avsResponseCode, cvvResponseCode, gatewayResponseCode, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem
+@dynamic merchantAccountId, name, quantity, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser
+@dynamic accountId, creationMs, email, emailVerified, phoneNumber,
+         phoneVerified;
 @end
 
 

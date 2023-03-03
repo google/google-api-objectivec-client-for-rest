@@ -185,7 +185,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceRegionalPersistentDisk
-@dynamic diskType, fsType, reclaimPolicy, sizeGb;
+@dynamic diskType, fsType, reclaimPolicy, sizeGb, sourceSnapshot;
 @end
 
 

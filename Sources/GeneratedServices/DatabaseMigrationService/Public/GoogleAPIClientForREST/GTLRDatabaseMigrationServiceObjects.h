@@ -17,6 +17,7 @@
 @class GTLRDatabaseMigrationService_AlloyDbConnectionProfile;
 @class GTLRDatabaseMigrationService_AlloyDbSettings;
 @class GTLRDatabaseMigrationService_AlloyDbSettings_Labels;
+@class GTLRDatabaseMigrationService_ApplyJobDetails;
 @class GTLRDatabaseMigrationService_AuditConfig;
 @class GTLRDatabaseMigrationService_AuditLogConfig;
 @class GTLRDatabaseMigrationService_BackgroundJobLogEntry;
@@ -34,6 +35,7 @@
 @class GTLRDatabaseMigrationService_ConversionWorkspace;
 @class GTLRDatabaseMigrationService_ConversionWorkspace_GlobalSettings;
 @class GTLRDatabaseMigrationService_ConversionWorkspaceInfo;
+@class GTLRDatabaseMigrationService_ConvertJobDetails;
 @class GTLRDatabaseMigrationService_DatabaseEngineInfo;
 @class GTLRDatabaseMigrationService_DatabaseEntity;
 @class GTLRDatabaseMigrationService_DatabaseType;
@@ -148,7 +150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_Failed;
 /**
- *  The status is not specified. This state will be used when job is not yet
+ *  The status is not specified. This state is used when job is not yet
  *  finished.
  *
  *  Value: "JOB_COMPLETION_STATE_UNSPECIFIED"
@@ -165,32 +167,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_BackgroundJobLo
 // GTLRDatabaseMigrationService_BackgroundJobLogEntry.jobType
 
 /**
- *  Job to apply the draft tree onto the destination
+ *  Job to apply the draft tree onto the destination.
  *
  *  Value: "BACKGROUND_JOB_TYPE_APPLY_DESTINATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeApplyDestination;
 /**
- *  Job to convert the source database into a draft of the destination database
+ *  Job to convert the source database into a draft of the destination database.
  *
  *  Value: "BACKGROUND_JOB_TYPE_CONVERT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeConvert;
 /**
  *  Job to import and convert mapping rules from an external source such as an
- *  ora2pg config file
+ *  ora2pg config file.
  *
  *  Value: "BACKGROUND_JOB_TYPE_IMPORT_RULES_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeImportRulesFile;
 /**
- *  Job to seed from the source database
+ *  Job to seed from the source database.
  *
  *  Value: "BACKGROUND_JOB_TYPE_SOURCE_SEED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeSourceSeed;
 /**
- *  Unspecified background job type
+ *  Unspecified background job type.
  *
  *  Value: "BACKGROUND_JOB_TYPE_UNSPECIFIED"
  */
@@ -428,7 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEngineI
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Mysql;
 /**
- *  The source engine is Oracle
+ *  The source engine is Oracle.
  *
  *  Value: "ORACLE"
  */
@@ -444,91 +446,91 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEngineI
 // GTLRDatabaseMigrationService_DatabaseEntity.entityType
 
 /**
- *  Column
+ *  Column.
  *
  *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeColumn;
 /**
- *  Constraint
+ *  Constraint.
  *
  *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeConstraint;
 /**
- *  Package
+ *  Package.
  *
  *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabasePackage;
 /**
- *  Function
+ *  Function.
  *
  *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeFunction;
 /**
- *  Index
+ *  Index.
  *
  *  Value: "DATABASE_ENTITY_TYPE_INDEX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeIndex;
 /**
- *  Material View
+ *  Material View.
  *
  *  Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterialView;
 /**
- *  Schema
+ *  Schema.
  *
  *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSchema;
 /**
- *  Sequence
+ *  Sequence.
  *
  *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSequence;
 /**
- *  Stored Procedure
+ *  Stored Procedure.
  *
  *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeStoredProcedure;
 /**
- *  Synonym
+ *  Synonym.
  *
  *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSynonym;
 /**
- *  Table
+ *  Table.
  *
  *  Value: "DATABASE_ENTITY_TYPE_TABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeTable;
 /**
- *  Trigger
+ *  Trigger.
  *
  *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeTrigger;
 /**
- *  UDT
+ *  UDT.
  *
  *  Value: "DATABASE_ENTITY_TYPE_UDT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeUdt;
 /**
- *  Unspecified database entity type
+ *  Unspecified database entity type.
  *
  *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeUnspecified;
 /**
- *  View
+ *  View.
  *
  *  Value: "DATABASE_ENTITY_TYPE_VIEW"
  */
@@ -556,7 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_Tree_Source;
 /**
- *  Tree Type Unspecified.
+ *  Tree type unspecified.
  *
  *  Value: "TREE_TYPE_UNSPECIFIED"
  */
@@ -578,7 +580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_En
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql;
 /**
- *  The source engine is Oracle
+ *  The source engine is Oracle.
  *
  *  Value: "ORACLE"
  */
@@ -628,19 +630,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Pr
 // GTLRDatabaseMigrationService_ImportMappingRulesRequest.rulesFormat
 
 /**
- *  Harbour Bridge Session file
+ *  HarbourBridge session file.
  *
  *  Value: "IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatHarbourBridgeSessionFile;
 /**
- *  ORA2PG config file
+ *  Ora2Pg configuration file.
  *
  *  Value: "IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatOratopgConfigFile;
 /**
- *  Unspecified Rules Format
+ *  Unspecified rules format.
  *
  *  Value: "IMPORT_RULES_FILE_FORMAT_UNSPECIFIED"
  */
@@ -650,19 +652,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ImportMappingRu
 // GTLRDatabaseMigrationService_ImportRulesJobDetails.fileFormat
 
 /**
- *  Harbour Bridge Session file
+ *  HarbourBridge session file.
  *
  *  Value: "IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatHarbourBridgeSessionFile;
 /**
- *  ORA2PG config file
+ *  Ora2Pg configuration file.
  *
  *  Value: "IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatOratopgConfigFile;
 /**
- *  Unspecified Rules Format
+ *  Unspecified rules format.
  *
  *  Value: "IMPORT_RULES_FILE_FORMAT_UNSPECIFIED"
  */
@@ -1050,91 +1052,91 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 // GTLRDatabaseMigrationService_SynonymEntity.sourceType
 
 /**
- *  Column
+ *  Column.
  *
  *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeColumn;
 /**
- *  Constraint
+ *  Constraint.
  *
  *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeConstraint;
 /**
- *  Package
+ *  Package.
  *
  *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabasePackage;
 /**
- *  Function
+ *  Function.
  *
  *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeFunction;
 /**
- *  Index
+ *  Index.
  *
  *  Value: "DATABASE_ENTITY_TYPE_INDEX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeIndex;
 /**
- *  Material View
+ *  Material View.
  *
  *  Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterialView;
 /**
- *  Schema
+ *  Schema.
  *
  *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSchema;
 /**
- *  Sequence
+ *  Sequence.
  *
  *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSequence;
 /**
- *  Stored Procedure
+ *  Stored Procedure.
  *
  *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeStoredProcedure;
 /**
- *  Synonym
+ *  Synonym.
  *
  *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSynonym;
 /**
- *  Table
+ *  Table.
  *
  *  Value: "DATABASE_ENTITY_TYPE_TABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeTable;
 /**
- *  Trigger
+ *  Trigger.
  *
  *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeTrigger;
 /**
- *  UDT
+ *  UDT.
  *
  *  Value: "DATABASE_ENTITY_TYPE_UDT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUdt;
 /**
- *  Unspecified database entity type
+ *  Unspecified database entity type.
  *
  *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUnspecified;
 /**
- *  View
+ *  View.
  *
  *  Value: "DATABASE_ENTITY_TYPE_VIEW"
  */
@@ -1220,6 +1222,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
+ *  Details regarding an Apply background job.
+ */
+@interface GTLRDatabaseMigrationService_ApplyJobDetails : GTLRObject
+
+/** The connection profile which was used for the apply job. */
+@property(nonatomic, copy, nullable) NSString *connectionProfile;
+
+/** AIP-160 based filter used to specify the entities to apply */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -1290,9 +1306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_BackgroundJobLogEntry : GTLRObject
 
+/** Apply job details. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ApplyJobDetails *applyJobDetails;
+
 /**
  *  Job completion comment, such as how many entities were seeded, how many
- *  warnings were found during conversion and similar information.
+ *  warnings were found during conversion, and similar information.
  */
 @property(nonatomic, copy, nullable) NSString *completionComment;
 
@@ -1303,24 +1322,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_Failed
  *        Error. (Value: "FAILED")
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_JobCompletionStateUnspecified
- *        The status is not specified. This state will be used when job is not
- *        yet finished. (Value: "JOB_COMPLETION_STATE_UNSPECIFIED")
+ *        The status is not specified. This state is used when job is not yet
+ *        finished. (Value: "JOB_COMPLETION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_CompletionState_Succeeded
  *        Success. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *completionState;
 
+/** Convert job details. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ConvertJobDetails *convertJobDetails;
+
 /** The timestamp when the background job was finished. */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
 /**
- *  The background job log entry id
+ *  The background job log entry ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Import rules job details */
+/** Import rules job details. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ImportRulesJobDetails *importRulesJobDetails;
 
 /**
@@ -1328,20 +1350,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeApplyDestination
- *        Job to apply the draft tree onto the destination (Value:
+ *        Job to apply the draft tree onto the destination. (Value:
  *        "BACKGROUND_JOB_TYPE_APPLY_DESTINATION")
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeConvert
  *        Job to convert the source database into a draft of the destination
- *        database (Value: "BACKGROUND_JOB_TYPE_CONVERT")
+ *        database. (Value: "BACKGROUND_JOB_TYPE_CONVERT")
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeImportRulesFile
  *        Job to import and convert mapping rules from an external source such
- *        as an ora2pg config file (Value:
+ *        as an ora2pg config file. (Value:
  *        "BACKGROUND_JOB_TYPE_IMPORT_RULES_FILE")
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeSourceSeed
- *        Job to seed from the source database (Value:
+ *        Job to seed from the source database. (Value:
  *        "BACKGROUND_JOB_TYPE_SOURCE_SEED")
  *    @arg @c kGTLRDatabaseMigrationService_BackgroundJobLogEntry_JobType_BackgroundJobTypeUnspecified
- *        Unspecified background job type (Value:
+ *        Unspecified background job type. (Value:
  *        "BACKGROUND_JOB_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *jobType;
@@ -1354,7 +1376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @property(nonatomic, strong, nullable) NSNumber *requestAutocommit;
 
-/** Seed job details */
+/** Seed job details. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SeedJobDetails *seedJobDetails;
 
 /** The timestamp when the background job was started. */
@@ -1676,97 +1698,97 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @interface GTLRDatabaseMigrationService_ColumnEntity : GTLRObject
 
 /**
- *  Is the column of array type
+ *  Is the column of array type.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *array;
 
 /**
- *  If the column is array, of which length
+ *  If the column is array, of which length.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *arrayLength;
 
 /**
- *  Is the column auto-generated/identity
+ *  Is the column auto-generated/identity.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoGenerated;
 
-/** Charset override - instead of table level charset */
+/** Charset override - instead of table level charset. */
 @property(nonatomic, copy, nullable) NSString *charset;
 
-/** Collation override - instead of table level collation */
+/** Collation override - instead of table level collation. */
 @property(nonatomic, copy, nullable) NSString *collation;
 
-/** Comment associated with the column */
+/** Comment associated with the column. */
 @property(nonatomic, copy, nullable) NSString *comment;
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ColumnEntity_CustomFeatures *customFeatures;
 
-/** Column data type */
+/** Column data type. */
 @property(nonatomic, copy, nullable) NSString *dataType;
 
-/** Default value of the column */
+/** Default value of the column. */
 @property(nonatomic, copy, nullable) NSString *defaultValue;
 
 /**
- *  Column fractional second precision - used for timestamp based datatypes
+ *  Column fractional second precision - used for timestamp based datatypes.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fractionalSecondsPrecision;
 
 /**
- *  Column length - e.g. varchar (50)
+ *  Column length - e.g. varchar (50).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *length;
 
-/** Column name */
+/** Column name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Is the column nullable
+ *  Is the column nullable.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nullable;
 
 /**
- *  Column order in the table
+ *  Column order in the table.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
 
 /**
- *  Column precision - when relevant
+ *  Column precision - when relevant.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *precision;
 
 /**
- *  Column scale - when relevant
+ *  Column scale - when relevant.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scale;
 
 /**
- *  Specifies the list of values allowed in the column. List is empty if set
- *  values is not required
+ *  Specifies the list of values allowed in the column. List is empty if
+ *  setValues is not required.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setValues;
 
 /**
- *  Is the column a UDT
+ *  Is the column a UDT.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1776,7 +1798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1919,29 +1941,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_ConstraintEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ConstraintEntity_CustomFeatures *customFeatures;
 
-/** The name of the table constraint */
+/** The name of the table constraint. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Reference Columns which may be associated with the constraint. eg: if the
- *  constraint is a FOREIGN_KEY, this represents the list of full names of
- *  referenced columns by the foreign key.
+ *  Reference columns which may be associated with the constraint. For example,
+ *  if the constraint is a FOREIGN_KEY, this represents the list of full names
+ *  of referenced columns by the foreign key.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *referenceColumns;
 
 /**
- *  Reference table which may be associated with the constraint. eg: if the
- *  constraint is a FOREIGN_KEY, this represents the list of full name of the
- *  referenced table by the foreign key.
+ *  Reference table which may be associated with the constraint. For example, if
+ *  the constraint is a FOREIGN_KEY, this represents the list of full name of
+ *  the referenced table by the foreign key.
  */
 @property(nonatomic, copy, nullable) NSString *referenceTable;
 
 /**
- *  Table columns used as part of the Constraint for e.g. primary key constraint
- *  should list the columns which constitutes the key
+ *  Table columns used as part of the Constraint, for example primary key
+ *  constraint should list the columns which constitutes the key.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tableColumns;
 
@@ -1954,8 +1976,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, copy, nullable) NSString *tableName;
 
 /**
- *  Type of constraint - e.g. unique, primary key, foreign key (currently only
- *  primary key is supported)
+ *  Type of constraint, for example unique, primary key, foreign key (currently
+ *  only primary key is supported).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1963,7 +1985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1985,7 +2007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 /** Required. The destination engine details. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DatabaseEngineInfo *destination;
 
-/** The display name for the workspace */
+/** The display name for the workspace. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -1999,13 +2021,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 /**
  *  Output only. Whether the workspace has uncommitted changes (changes which
- *  were made after the workspace was committed)
+ *  were made after the workspace was committed).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasUncommittedChanges;
 
-/** Output only. The latest commit id */
+/** Output only. The latest commit ID. */
 @property(nonatomic, copy, nullable) NSString *latestCommitId;
 
 /** Output only. The timestamp when the workspace was committed. */
@@ -2064,8 +2086,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @interface GTLRDatabaseMigrationService_ConvertConversionWorkspaceRequest : GTLRObject
 
 /**
- *  Should the conversion workspace be committed automatically after the
- *  conversion.
+ *  Specifies whether the conversion workspace is to be committed automatically
+ *  after the conversion.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2081,12 +2103,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  The type and version of a source or destination DB.
+ *  Details regarding a Convert background job.
+ */
+@interface GTLRDatabaseMigrationService_ConvertJobDetails : GTLRObject
+
+/** AIP-160 based filter used to specify the entities to convert */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
+ *  The type and version of a source or destination database.
  */
 @interface GTLRDatabaseMigrationService_DatabaseEngineInfo : GTLRObject
 
 /**
- *  Required. Engine Type.
+ *  Required. Engine type.
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_DatabaseEngineUnspecified
@@ -2095,29 +2128,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Mysql The
  *        source engine is MySQL. (Value: "MYSQL")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Oracle The
- *        source engine is Oracle (Value: "ORACLE")
+ *        source engine is Oracle. (Value: "ORACLE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Postgresql
  *        The source engine is PostgreSQL. (Value: "POSTGRESQL")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
-/** Required. Engine named version, for e.g. 12.c.1 */
+/** Required. Engine named version, for example 12.c.1. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
 
 /**
- *  The base entity type for all the database related entities The message
- *  contains the entity name, the name of its parent, its type and the specific
- *  details per its type
+ *  The base entity type for all the database related entities. The message
+ *  contains the entity name, the name of its parent, the entity type, and the
+ *  specific details per entity type.
  */
 @interface GTLRDatabaseMigrationService_DatabaseEntity : GTLRObject
 
-/** Function */
+/** Function. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_FunctionEntity *databaseFunction;
 
-/** Package */
+/** Package. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PackageEntity *databasePackage;
 
 /**
@@ -2125,36 +2158,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeColumn
- *        Column (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeConstraint
- *        Constraint (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabasePackage
- *        Package (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeFunction
- *        Function (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeIndex
- *        Index (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterialView
- *        Material View (Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW")
+ *        Material View. (Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSchema
- *        Schema (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSequence
- *        Sequence (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeStoredProcedure
- *        Stored Procedure (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSynonym
- *        Synonym (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeTable
- *        Table (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeTrigger
- *        Trigger (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeUdt
- *        UDT (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeUnspecified
- *        Unspecified database entity type (Value:
+ *        Unspecified database entity type. (Value:
  *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeView
- *        View (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
@@ -2172,16 +2205,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 /** Schema. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SchemaEntity *schema;
 
-/** Sequence */
+/** Sequence. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SequenceEntity *sequence;
 
 /** The short name (e.g. table name) of the entity. */
 @property(nonatomic, copy, nullable) NSString *shortName;
 
-/** Stored Procedure */
+/** Stored procedure. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_StoredProcedureEntity *storedProcedure;
 
-/** Synonym */
+/** Synonym. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SynonymEntity *synonym;
 
 /** Table. */
@@ -2200,11 +2233,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_Tree_Source Tree of
  *        entities loaded from a source database. (Value: "SOURCE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_Tree_TreeTypeUnspecified
- *        Tree Type Unspecified. (Value: "TREE_TYPE_UNSPECIFIED")
+ *        Tree type unspecified. (Value: "TREE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tree;
 
-/** View */
+/** View. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ViewEntity *view;
 
 @end
@@ -2225,7 +2258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql The source
  *        engine is MySQL. (Value: "MYSQL")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Oracle The
- *        source engine is Oracle (Value: "ORACLE")
+ *        source engine is Oracle. (Value: "ORACLE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql The
  *        source engine is PostgreSQL. (Value: "POSTGRESQL")
  */
@@ -2282,8 +2315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_DatabaseEntity *> *databaseEntities;
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2332,22 +2365,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 /**
  *  Target entity full name. The draft entity can also include a column, index
- *  or constraint using the same naming notation schema.table.column
+ *  or constraint using the same naming notation schema.table.column.
  */
 @property(nonatomic, copy, nullable) NSString *draftEntity;
 
 /**
  *  Entity mapping log entries. Multiple rules can be effective and contribute
- *  changes to a converted entity such as, a rule can handle the entity name,
+ *  changes to a converted entity, such as a rule can handle the entity name,
  *  another rule can handle an entity type. In addition, rules which did not
- *  change the entity are also logged along the with the reason preventing them
- *  to do so.
+ *  change the entity are also logged along with the reason preventing them to
+ *  do so.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_EntityMappingLogEntry *> *mappingLog;
 
 /**
  *  Source entity full name. The source entity can also be a column, index or
- *  constraint using the same naming notation schema.table.column
+ *  constraint using the same naming notation schema.table.column.
  */
 @property(nonatomic, copy, nullable) NSString *sourceEntity;
 
@@ -2362,10 +2395,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 /** Comment. */
 @property(nonatomic, copy, nullable) NSString *mappingComment;
 
-/** Which rule caused it. */
+/** Which rule caused this log entry. */
 @property(nonatomic, copy, nullable) NSString *ruleId;
 
-/** Rule revision id */
+/** Rule revision ID. */
 @property(nonatomic, copy, nullable) NSString *ruleRevisionId;
 
 @end
@@ -2421,6 +2454,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
+ *  Response message for a 'FetchStaticIps' request.
+ */
+@interface GTLRDatabaseMigrationService_FetchStaticIpsResponse : GTLRObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** List of static IPs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *staticIps;
+
+@end
+
+
+/**
  *  Forward SSH Tunnel connectivity.
  */
 @interface GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity : GTLRObject
@@ -2452,17 +2502,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_FunctionEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures *customFeatures;
 
-/** The SQL code which creates the function */
+/** The SQL code which creates the function. */
 @property(nonatomic, copy, nullable) NSString *sqlCode;
 
 @end
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2485,7 +2535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_VmCreationConfig *vmCreationConfig;
 
 /**
- *  The port that will be open on the bastion host
+ *  The port that will be open on the bastion host.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2548,7 +2598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @property(nonatomic, strong, nullable) NSNumber *autoCommit;
 
-/** One or more rules files */
+/** One or more rules files. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_RulesFile *> *rulesFiles;
 
 /**
@@ -2556,13 +2606,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatHarbourBridgeSessionFile
- *        Harbour Bridge Session file (Value:
+ *        HarbourBridge session file. (Value:
  *        "IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE")
  *    @arg @c kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatOratopgConfigFile
- *        ORA2PG config file (Value:
+ *        Ora2Pg configuration file. (Value:
  *        "IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE")
  *    @arg @c kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatUnspecified
- *        Unspecified Rules Format (Value:
+ *        Unspecified rules format. (Value:
  *        "IMPORT_RULES_FILE_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *rulesFormat;
@@ -2571,27 +2621,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Details regarding an Import Rules background job
+ *  Details regarding an Import Rules background job.
  */
 @interface GTLRDatabaseMigrationService_ImportRulesJobDetails : GTLRObject
 
 /**
- *  The requested file format
+ *  The requested file format.
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatHarbourBridgeSessionFile
- *        Harbour Bridge Session file (Value:
+ *        HarbourBridge session file. (Value:
  *        "IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE")
  *    @arg @c kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatOratopgConfigFile
- *        ORA2PG config file (Value:
+ *        Ora2Pg configuration file. (Value:
  *        "IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE")
  *    @arg @c kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatUnspecified
- *        Unspecified Rules Format (Value:
+ *        Unspecified rules format. (Value:
  *        "IMPORT_RULES_FILE_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *fileFormat;
 
-/** File names used for the import rules job */
+/** File names used for the import rules job. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *files;
 
 @end
@@ -2603,23 +2653,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_IndexEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_IndexEntity_CustomFeatures *customFeatures;
 
-/** The name of the index */
+/** The name of the index. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Table columns used as part of the Index for e.g. B-TREE index should list
- *  the columns which constitutes the index.
+ *  Table columns used as part of the Index, for example B-TREE index should
+ *  list the columns which constitutes the index.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tableColumns;
 
-/** Type of index - e.g. B-TREE */
+/** Type of index, for example B-TREE. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  boolean value indicating whether the index is unique
+ *  Boolean value indicating whether the index is unique.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2629,7 +2679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2659,8 +2709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_ConnectionProfile *> *connectionProfiles;
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2689,8 +2739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_ConversionWorkspace *> *conversionWorkspaces;
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2743,8 +2793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_MigrationJob *> *migrationJobs;
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2789,8 +2839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @interface GTLRDatabaseMigrationService_ListPrivateConnectionsResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3355,7 +3405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_PackageEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PackageEntity_CustomFeatures *customFeatures;
 
 /**
@@ -3364,14 +3414,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @property(nonatomic, copy, nullable) NSString *packageBody;
 
-/** The SQL code which creates the package */
+/** The SQL code which creates the package. */
 @property(nonatomic, copy, nullable) NSString *packageSqlCode;
 
 @end
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3634,11 +3684,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateConnection_Labels *labels;
 
-/** The resource's name. */
+/** The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The state of the Private Connection.
+ *  Output only. The state of the private connection.
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_PrivateConnection_State_Created The
@@ -3664,7 +3714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 /** Output only. The last update time of the resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** VPC Peering Config. */
+/** VPC peering configuration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_VpcPeeringConfig *vpcPeeringConfig;
 
 @end
@@ -3777,17 +3827,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Details of a single rules file
+ *  Details of a single rules file.
  */
 @interface GTLRDatabaseMigrationService_RulesFile : GTLRObject
 
-/** The text content of the rules that needs to be converted */
+/** The text content of the rules that needs to be converted. */
 @property(nonatomic, copy, nullable) NSString *rulesContent;
 
 /**
- *  The filename of the rules that needs to be converted. This is used mainly so
- *  future logs of the import rules job will contain this detail and can
- *  therefore be searched by it later
+ *  The filename of the rules that needs to be converted. The filename is used
+ *  mainly so that future logs of the import rules job contain it, and can
+ *  therefore be searched by it.
  */
 @property(nonatomic, copy, nullable) NSString *rulesSourceFilename;
 
@@ -3796,21 +3846,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 /**
  *  Schema typically has no parent entity, but can have a parent entity
- *  DatabaseInstance (for database engines which supports it). For some database
- *  engines the term schema and user can be used interchangeably when they refer
- *  to a namespace or a collection of other database entities. Can store
+ *  DatabaseInstance (for database engines which support it). For some database
+ *  engines, the terms schema and user can be used interchangeably when they
+ *  refer to a namespace or a collection of other database entities. Can store
  *  additional information which is schema specific.
  */
 @interface GTLRDatabaseMigrationService_SchemaEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SchemaEntity_CustomFeatures *customFeatures;
 
 @end
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3855,11 +3905,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Details regarding a Seed background job
+ *  Details regarding a Seed background job.
  */
 @interface GTLRDatabaseMigrationService_SeedJobDetails : GTLRObject
 
-/** The connection profile which was used for the seed job */
+/** The connection profile which was used for the seed job. */
 @property(nonatomic, copy, nullable) NSString *connectionProfile;
 
 @end
@@ -3871,31 +3921,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @interface GTLRDatabaseMigrationService_SequenceEntity : GTLRObject
 
 /**
- *  Indicates number of entries to cache / precreate
+ *  Indicates number of entries to cache / precreate.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cache;
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SequenceEntity_CustomFeatures *customFeatures;
 
 /**
- *  Indicates whether the sequence value should cycle through
+ *  Indicates whether the sequence value should cycle through.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cycle;
 
 /**
- *  Increment value for the sequence
+ *  Increment value for the sequence.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *increment;
 
 /**
- *  Maximum number for the sequence represented as bytes to accommodate large
+ *  Maximum number for the sequence represented as bytes to accommodate large.
  *  numbers
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -3904,7 +3954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, copy, nullable) NSString *maxValue;
 
 /**
- *  Minimum number for the sequence represented as bytes to accommodate large
+ *  Minimum number for the sequence represented as bytes to accommodate large.
  *  numbers
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -3913,7 +3963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, copy, nullable) NSString *minValue;
 
 /**
- *  Start number for the sequence represented as bytes to accommodate large
+ *  Start number for the sequence represented as bytes to accommodate large.
  *  numbers
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -3925,7 +3975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4084,9 +4134,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  The source database will allow incoming connections from the destination
- *  database's public IP. You can retrieve the Cloud SQL instance's public IP
- *  from the Cloud SQL console or using Cloud SQL APIs. No additional
+ *  The source database will allow incoming connections from the public IP of
+ *  the destination database. You can retrieve the public IP of the Cloud SQL
+ *  instance from the Cloud SQL console or using Cloud SQL APIs. No additional
  *  configuration is required.
  */
 @interface GTLRDatabaseMigrationService_StaticIpConnectivity : GTLRObject
@@ -4157,17 +4207,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_StoredProcedureEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_StoredProcedureEntity_CustomFeatures *customFeatures;
 
-/** The SQL code which creates the stored procedure */
+/** The SQL code which creates the stored procedure. */
 @property(nonatomic, copy, nullable) NSString *sqlCode;
 
 @end
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4183,50 +4233,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_SynonymEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SynonymEntity_CustomFeatures *customFeatures;
 
 /**
- *  The name of the entity for which the synonym is being created (the source)
+ *  The name of the entity for which the synonym is being created (the source).
  */
 @property(nonatomic, copy, nullable) NSString *sourceEntity;
 
 /**
  *  The type of the entity for which the synonym is being created (usually a
- *  table or a sequence)
+ *  table or a sequence).
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeColumn
- *        Column (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeConstraint
- *        Constraint (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabasePackage
- *        Package (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeFunction
- *        Function (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeIndex
- *        Index (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterialView
- *        Material View (Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW")
+ *        Material View. (Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSchema
- *        Schema (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSequence
- *        Sequence (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeStoredProcedure
- *        Stored Procedure (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSynonym
- *        Synonym (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeTable
- *        Table (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeTrigger
- *        Trigger (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUdt
- *        UDT (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUnspecified
- *        Unspecified database entity type (Value:
+ *        Unspecified database entity type. (Value:
  *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeView
- *        View (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
  */
 @property(nonatomic, copy, nullable) NSString *sourceType;
 
@@ -4234,7 +4284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4250,19 +4300,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_TableEntity : GTLRObject
 
-/** Table Columns. */
+/** Table columns. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_ColumnEntity *> *columns;
 
-/** Comment associated with the table */
+/** Comment associated with the table. */
 @property(nonatomic, copy, nullable) NSString *comment;
 
-/** Table Constraints. */
+/** Table constraints. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_ConstraintEntity *> *constraints;
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_TableEntity_CustomFeatures *customFeatures;
 
-/** Table Indices. */
+/** Table indices. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_IndexEntity *> *indices;
 
 /** Table triggers. */
@@ -4272,7 +4322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4317,28 +4367,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_TriggerEntity : GTLRObject
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_TriggerEntity_CustomFeatures *customFeatures;
 
-/** The name of the trigger */
+/** The name of the trigger. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The SQL code which creates the trigger */
+/** The SQL code which creates the trigger. */
 @property(nonatomic, copy, nullable) NSString *sqlCode;
 
 /**
- *  The DML, DDL, or database events that fires the trigger, e.g. INSERT, UPDATE
+ *  The DML, DDL, or database events that fire the trigger, for example INSERT,
+ *  UPDATE.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *triggeringEvents;
 
-/** Indicates when the trigger fires, e.g. BEFORE STATEMENT, AFTER EACH ROW */
+/**
+ *  Indicates when the trigger fires, for example BEFORE STATEMENT, AFTER EACH
+ *  ROW.
+ */
 @property(nonatomic, copy, nullable) NSString *triggerType;
 
 @end
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4383,10 +4437,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 @interface GTLRDatabaseMigrationService_ViewEntity : GTLRObject
 
-/** View Constraints. */
+/** View constraints. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_ConstraintEntity *> *constraints;
 
-/** Custom engine specific features */
+/** Custom engine specific features. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ViewEntity_CustomFeatures *customFeatures;
 
 /** The SQL code which creates the view. */
@@ -4396,7 +4450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  Custom engine specific features
+ *  Custom engine specific features.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4436,7 +4490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  The VPC Peering configuration is used to create VPC peering with the
+ *  The VPC peering configuration is used to create VPC peering with the
  *  consumer's VPC.
  */
 @interface GTLRDatabaseMigrationService_VpcPeeringConfig : GTLRObject
@@ -4444,7 +4498,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 /** Required. A free subnet for peering. (CIDR of /29) */
 @property(nonatomic, copy, nullable) NSString *subnet;
 
-/** Required. Fully qualified name of the VPC DMS will peer to. */
+/**
+ *  Required. Fully qualified name of the VPC that Database Migration Service
+ *  will peer to.
+ */
 @property(nonatomic, copy, nullable) NSString *vpcName;
 
 @end

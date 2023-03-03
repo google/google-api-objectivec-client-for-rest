@@ -321,24 +321,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  A customer-specified encryption key for the Compute Engine resources of this
+ *  A customer-managed encryption key for the Compute Engine resources of this
  *  workstation configuration.
  */
 @interface GTLRCloudWorkstations_CustomerEncryptionKey : GTLRObject
 
 /**
- *  The name of the encryption key that is stored in Google Cloud KMS, for
- *  example,
+ *  The name of the Google Cloud KMS encryption key. For example,
  *  `projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
- *  The service account being used for the encryption request for the given KMS
- *  key. If absent, the Compute Engine default service account is used. However,
- *  it is recommended to use a separate service account and to follow KMS best
- *  practices mentioned at
- *  https://cloud.google.com/kms/docs/separation-of-duties
+ *  The service account to use with the specified KMS key. We recommend that you
+ *  use a separate service account and follow KMS best practices. For more
+ *  information, see [Separation of
+ *  duties](https://cloud.google.com/kms/docs/separation-of-duties) and `gcloud
+ *  kms keys add-iam-policy-binding`
+ *  [`--member`](https://cloud.google.com/sdk/gcloud/reference/kms/keys/add-iam-policy-binding#--member).
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyServiceAccount;
 
@@ -497,6 +497,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/**
+ *  Name of the snapshot to use as the source for the disk. If set, size_gb and
+ *  fs_type must be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshot;
 
 @end
 
@@ -695,7 +701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 /**
- *  The requested clusters.
+ *  The requested workstation clusters.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1411,16 +1417,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Encrypts resources of this workstation configuration using a
- *  customer-specified encryption key. If specified, the boot disk of the
- *  Compute Engine instance and the persistent disk will be encrypted using this
- *  encryption key. If this field is not set, the disks will be encrypted using
- *  a generated key. Customer-specified encryption keys do not protect disk
- *  metadata. If the customer-specified encryption key is rotated, when the
- *  workstation instance is stopped, the system will attempt to recreate the
- *  persistent disk with the new version of the key. Be sure to keep older
- *  versions of the key until the persistent disk is recreated. Otherwise, data
- *  on the persistent disk will be lost. If the encryption key is revoked, the
- *  workstation session will automatically be stopped within 7 hours.
+ *  customer-managed encryption key. If specified, the boot disk of the Compute
+ *  Engine instance and the persistent disk are encrypted using this encryption
+ *  key. If this field is not set, the disks are encrypted using a generated
+ *  key. Customer-managed encryption keys do not protect disk metadata. If the
+ *  customer-managed encryption key is rotated, when the workstation instance is
+ *  stopped, the system attempts to recreate the persistent disk with the new
+ *  version of the key. Be sure to keep older versions of the key until the
+ *  persistent disk is recreated. Otherwise, data on the persistent disk will be
+ *  lost. If the encryption key is revoked, the workstation session will
+ *  automatically be stopped within 7 hours.
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_CustomerEncryptionKey *encryptionKey;
 
@@ -1462,8 +1468,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  How long to wait before automatically stopping a workstation after it
- *  started. A value of 0 indicates that workstations using this config should
- *  never time out. Must be greater than 0 and less than 24 hours if
+ *  started. A value of 0 indicates that workstations using this configuration
+ *  should never time out. Must be greater than 0 and less than 24 hours if
  *  encryption_key is set. Defaults to 12 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *runningTimeout;

@@ -361,6 +361,17 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse
+@dynamic noRecentActivityCount, pendingBrowserUpdateCount,
+         recentlyEnrolledCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse
 //
 
@@ -448,6 +459,50 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 + (NSString *)collectionItemsKey {
   return @"installedApps";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse
+@dynamic nextPageToken, printerReports, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printerReports" : [GTLRChromeManagement_GoogleChromeManagementV1PrinterReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"printerReports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse
+@dynamic nextPageToken, totalSize, userPrintReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userPrintReports" : [GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userPrintReports";
 }
 
 @end
@@ -544,11 +599,23 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice
+@dynamic displayHeightMm, displayName, displayWidthMm, internal, manufacturerId,
+         manufactureYear, modelId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo
-@dynamic deviceId, isInternal, refreshRate, resolutionHeight, resolutionWidth;
+@dynamic deviceId, displayName, isInternal, refreshRate, resolutionHeight,
+         resolutionWidth;
 @end
 
 
@@ -590,7 +657,15 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo
-@dynamic adapterInfo;
+@dynamic adapterInfo, displayDevices, eprivacySupported, touchScreenInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"displayDevices" : [GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -814,6 +889,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1PrinterReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1PrinterReport
+@dynamic deviceCount, jobCount, printer, printerId, printerModel, userCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1StorageInfo
 //
 
@@ -1021,6 +1106,34 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice
+@dynamic displayName, stylusCapable, touchPointCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo
+@dynamic devices, touchpadLibrary;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport
 //
 
@@ -1035,6 +1148,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
+@dynamic deviceCount, jobCount, printerCount, userEmail, userId;
 @end
 
 

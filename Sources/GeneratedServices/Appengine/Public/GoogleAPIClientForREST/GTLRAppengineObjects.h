@@ -37,6 +37,7 @@
 @class GTLRAppengine_FeatureSettings;
 @class GTLRAppengine_FileInfo;
 @class GTLRAppengine_FirewallRule;
+@class GTLRAppengine_FlexibleRuntimeSettings;
 @class GTLRAppengine_HealthCheck;
 @class GTLRAppengine_IdentityAwareProxy;
 @class GTLRAppengine_Instance;
@@ -1977,6 +1978,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  address as 2001:db8::/32.
  */
 @property(nonatomic, copy, nullable) NSString *sourceRange;
+
+@end
+
+
+/**
+ *  Runtime settings for the App Engine flexible environment.
+ */
+@interface GTLRAppengine_FlexibleRuntimeSettings : GTLRObject
+
+/** The operating system of the application runtime. */
+@property(nonatomic, copy, nullable) NSString *operatingSystem;
+
+/** The runtime version of an App Engine flexible application. */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 @end
 
@@ -4037,6 +4052,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  requests if view=FULL is set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_ErrorHandler *> *errorHandlers;
+
+/** Settings for App Engine flexible runtimes. */
+@property(nonatomic, strong, nullable) GTLRAppengine_FlexibleRuntimeSettings *flexibleRuntimeSettings;
 
 /**
  *  An ordered list of URL-matching patterns that should be applied to incoming

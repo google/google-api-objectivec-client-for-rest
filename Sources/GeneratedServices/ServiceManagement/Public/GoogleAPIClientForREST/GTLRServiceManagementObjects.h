@@ -26,6 +26,7 @@
 @class GTLRServiceManagement_AuthRequirement;
 @class GTLRServiceManagement_Backend;
 @class GTLRServiceManagement_BackendRule;
+@class GTLRServiceManagement_BackendRule_OverridesByRequestProtocol;
 @class GTLRServiceManagement_Billing;
 @class GTLRServiceManagement_BillingDestination;
 @class GTLRServiceManagement_Binding;
@@ -1395,6 +1396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) NSNumber *operationDeadline;
 
+/** The map between request protocol and the backend address. */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
+
 /**
  *  pathTranslation
  *
@@ -1450,6 +1454,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
+@end
+
+
+/**
+ *  The map between request protocol and the backend address.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRServiceManagement_BackendRule. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceManagement_BackendRule_OverridesByRequestProtocol : GTLRObject
 @end
 
 

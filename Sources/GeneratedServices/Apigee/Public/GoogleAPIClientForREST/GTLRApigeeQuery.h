@@ -5240,10 +5240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsCreate : GTLRApigeeQuery
 
-/**
- *  Optional. Name of the environment. Alternatively, the name may be specified
- *  in the request body in the name field.
- */
+/** Optional. Name of the environment. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

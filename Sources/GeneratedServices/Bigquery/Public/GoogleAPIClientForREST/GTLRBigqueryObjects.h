@@ -2981,6 +2981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultPartitionExpirationMs;
 
+/** [Output-only] The default rounding mode of the dataset. */
+@property(nonatomic, copy, nullable) NSString *defaultRoundingMode;
+
 /**
  *  [Optional] The default lifetime of all tables in the dataset, in
  *  milliseconds. The minimum value is 3600000 milliseconds (one hour). Once
@@ -7965,6 +7968,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /** [Output-only] The default collation of the table. */
 @property(nonatomic, copy, nullable) NSString *defaultCollation;
 
+/** [Output-only] The default rounding mode of the table. */
+@property(nonatomic, copy, nullable) NSString *defaultRoundingMode;
+
 /**
  *  [Optional] A user-friendly description of this table.
  *
@@ -8459,6 +8465,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  Optional. Rounding Mode specification of the field. It only can be set on
+ *  NUMERIC or BIGNUMERIC type fields.
+ */
+@property(nonatomic, copy, nullable) NSString *roundingMode;
 
 /**
  *  [Optional] See documentation for precision.

@@ -102,6 +102,7 @@ NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown  = @"TYPE_UNKNOWN";
 // GTLRMonitoring_HttpCheck.contentType
 NSString * const kGTLRMonitoring_HttpCheck_ContentType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRMonitoring_HttpCheck_ContentType_UrlEncoded = @"URL_ENCODED";
+NSString * const kGTLRMonitoring_HttpCheck_ContentType_UserProvided = @"USER_PROVIDED";
 
 // GTLRMonitoring_HttpCheck.requestMethod
 NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_Get   = @"GET";
@@ -270,6 +271,9 @@ NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Europe = @"EU
 NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_RegionUnspecified = @"REGION_UNSPECIFIED";
 NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_SouthAmerica = @"SOUTH_AMERICA";
 NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Usa = @"USA";
+NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_UsaIowa = @"USA_IOWA";
+NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_UsaOregon = @"USA_OREGON";
+NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_UsaVirginia = @"USA_VIRGINIA";
 
 // GTLRMonitoring_UptimeCheckIp.region
 NSString * const kGTLRMonitoring_UptimeCheckIp_Region_AsiaPacific = @"ASIA_PACIFIC";
@@ -277,6 +281,9 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Europe   = @"EUROPE";
 NSString * const kGTLRMonitoring_UptimeCheckIp_Region_RegionUnspecified = @"REGION_UNSPECIFIED";
 NSString * const kGTLRMonitoring_UptimeCheckIp_Region_SouthAmerica = @"SOUTH_AMERICA";
 NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
+NSString * const kGTLRMonitoring_UptimeCheckIp_Region_UsaIowa  = @"USA_IOWA";
+NSString * const kGTLRMonitoring_UptimeCheckIp_Region_UsaOregon = @"USA_OREGON";
+NSString * const kGTLRMonitoring_UptimeCheckIp_Region_UsaVirginia = @"USA_VIRGINIA";
 
 // GTLRMonitoring_ValueDescriptor.metricKind
 NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -915,9 +922,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_HttpCheck
-@dynamic acceptedResponseStatusCodes, authInfo, body, contentType, headers,
-         maskHeaders, path, pingConfig, port, requestMethod, useSsl,
-         validateSsl;
+@dynamic acceptedResponseStatusCodes, authInfo, body, contentType,
+         customContentType, headers, maskHeaders, path, pingConfig, port,
+         requestMethod, useSsl, validateSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

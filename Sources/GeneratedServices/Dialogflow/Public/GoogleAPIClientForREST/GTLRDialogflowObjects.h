@@ -127,6 +127,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentSetParameterAction;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Intent;
@@ -188,6 +189,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TestError;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TextInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings_SynthesizeSpeechConfigs;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode;
@@ -3244,6 +3247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings : GTLRObject
 
 /**
+ *  If present, incoming audio is exported by Dialogflow to the configured
+ *  Google Cloud Storage destination. Exposed at the following levels: - Agent
+ *  level - Flow level
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination *audioExportGcsDestination;
+
+/**
  *  Settings for logging. Settings for Dialogflow History, Contact Center
  *  messages, StackDriver logs, and speech logging. Exposed at the following
  *  levels: - Agent level.
@@ -3373,6 +3383,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `default_language_code`).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLanguageCodes;
+
+/**
+ *  Settings on instructing the speech synthesizer on how to generate the output
+ *  audio content.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings *textToSpeechSettings;
 
 /**
  *  Required. The time zone of the agent from the [time zone
@@ -3832,9 +3848,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Required. A list of configurations for flow versions. You should include
- *  version configs for all flows that are reachable from `Start Flow` in the
- *  agent. Otherwise, an error will be returned.
+ *  A list of configurations for flow versions. You should include version
+ *  configs for all flows that are reachable from `Start Flow` in the agent.
+ *  Otherwise, an error will be returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig *> *versionConfigs;
 
@@ -6663,9 +6679,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Required. A list of configurations for flow versions. You should include
- *  version configs for all flows that are reachable from `Start Flow` in the
- *  agent. Otherwise, an error will be returned.
+ *  A list of configurations for flow versions. You should include version
+ *  configs for all flows that are reachable from `Start Flow` in the agent.
+ *  Otherwise, an error will be returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig *> *versionConfigs;
 
@@ -7593,6 +7609,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
+ *  Google Cloud Storage location for a Dialogflow operation that writes or
+ *  exports objects (e.g. exported agent or transcripts) outside of Dialogflow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination : GTLRObject
+
+/**
+ *  Required. The Google Cloud Storage URI for the exported objects. A URI is of
+ *  the form: gs://bucket/object-name-or-prefix Whether a full object name, or
+ *  just a prefix, its usage depends on the Dialogflow operation.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -8758,6 +8790,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Request of MatchIntent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest : GTLRObject
+
+/**
+ *  Persist session parameter changes from `query_params`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *persistParameterChanges;
 
 /** Required. The input specification. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput *queryInput;
@@ -10525,6 +10564,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
+@end
+
+
+/**
+ *  Settings related to speech generating.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings : GTLRObject
+
+/**
+ *  Configuration of how speech should be synthesized, mapping from language
+ *  (https://dialogflow.com/docs/reference/language) to SynthesizeSpeechConfig.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings_SynthesizeSpeechConfigs *synthesizeSpeechConfigs;
+
+@end
+
+
+/**
+ *  Configuration of how speech should be synthesized, mapping from language
+ *  (https://dialogflow.com/docs/reference/language) to SynthesizeSpeechConfig.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings_SynthesizeSpeechConfigs : GTLRObject
 @end
 
 

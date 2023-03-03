@@ -36,6 +36,438 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a Document.
  *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The ID to use for the Document, which will become the final
+ *  component of the Document.name. If the caller does not have permission to
+ *  create the Document, regardless of whether or not it exists, a
+ *  PERMISSION_DENIED error is returned. This field must be unique among all
+ *  Documents with the same parent. Otherwise, an ALREADY_EXISTS error is
+ *  returned. This field must conform to
+ *  [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit
+ *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *documentId;
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *
+ *  Creates a Document.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
+ *    the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Document.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of Document, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *  If the caller does not have permission to delete the Document, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  Document to delete does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes a Document.
+ *
+ *  @param name Required. Full resource name of Document, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *    If the caller does not have permission to delete the Document, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    Document to delete does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Document.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of Document, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *  If the caller does not have permission to access the Document, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested Document does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *
+ *  Gets a Document.
+ *
+ *  @param name Required. Full resource name of Document, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *    If the caller does not have permission to access the Document, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    requested Document does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Bulk import of multiple Documents. Request processing may be synchronous.
+ *  Non-existing items will be created. Note: It is possible for a subset of the
+ *  Documents to be successfully updated.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *  Requires create/update permission.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Bulk import of multiple Documents. Request processing may be synchronous.
+ *  Non-existing items will be created. Note: It is possible for a subset of the
+ *  Documents to be successfully updated.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *    Requires create/update permission.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a list of Documents.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Maximum number of Documents to return. If unspecified, defaults to 100. The
+ *  maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If
+ *  this field is negative, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token ListDocumentsResponse.next_page_token, received from a previous
+ *  DocumentService.ListDocuments call. Provide this to retrieve the subsequent
+ *  page. When paginating, all other parameters provided to
+ *  DocumentService.ListDocuments must match the call that provided the page
+ *  token. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *  Use `default_branch` as the branch ID, to list documents under the default
+ *  branch. If the caller does not have permission to list Documentss under this
+ *  branch, regardless of whether or not this branch exists, a PERMISSION_DENIED
+ *  error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDocumentsResponse.
+ *
+ *  Gets a list of Documents.
+ *
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *    Use `default_branch` as the branch ID, to list documents under the default
+ *    branch. If the caller does not have permission to list Documentss under
+ *    this branch, regardless of whether or not this branch exists, a
+ *    PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Document.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  If set to true, and the Document is not found, a new Document will be
+ *  created.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Immutable. The full resource name of the document. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *
+ *  Updates a Document.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
+ *    the query.
+ *  @param name Immutable. The full resource name of the document. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
+ *    This field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Makes a recommendation, which requires a contextual user event.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the format: projects/ *
+ *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
+ *  you can request recommendations from your model, you must create at least
+ *  one serving config for it.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse.
+ *
+ *  Makes a recommendation, which requires a contextual user event.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
+ *    include in the query.
+ *  @param servingConfig Required. Full resource name of the format: projects/ *
+ *    /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
+ *    you can request recommendations from your model, you must create at least
+ *    one serving config for it.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Writes a single user event from the browser. This uses a GET request to due
+ *  to browser restriction of POST-ing to a 3rd party domain. This method is
+ *  used only by the Discovery Engine API JavaScript pixel and Google Tag
+ *  Manager. Users should not call this method directly.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.collect
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsCollect : GTLRDiscoveryEngineQuery
+
+/**
+ *  The event timestamp in milliseconds. This prevents browser caching of
+ *  otherwise identical get requests. The name is abbreviated to reduce the
+ *  payload bytes.
+ */
+@property(nonatomic, assign) long long ets;
+
+/**
+ *  Required. The parent DataStore resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The URL including cgi-parameters but excluding the hash fragment with a
+ *  length limit of 5,000 characters. This is often more useful than the referer
+ *  URL, because many browsers only send the domain for 3rd party requests.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Required. URL encoded UserEvent proto with a length limit of 2,000,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *userEvent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleApiHttpBody.
+ *
+ *  Writes a single user event from the browser. This uses a GET request to due
+ *  to browser restriction of POST-ing to a 3rd party domain. This method is
+ *  used only by the Discovery Engine API JavaScript pixel and Google Tag
+ *  Manager. Users should not call this method directly.
+ *
+ *  @param parent Required. The parent DataStore resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsCollect
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Bulk import of User events. Request processing might be synchronous. Events
+ *  that already exist are skipped. Use this method for backfilling historical
+ *  user events. Operation.response is of type ImportResponse. Note that it is
+ *  possible for a subset of the items to be successfully inserted.
+ *  Operation.metadata is of type ImportMetadata.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Parent DataStore resource name, of the form
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Bulk import of User events. Request processing might be synchronous. Events
+ *  that already exist are skipped. Use this method for backfilling historical
+ *  user events. Operation.response is of type ImportResponse. Note that it is
+ *  possible for a subset of the items to be successfully inserted.
+ *  Operation.metadata is of type ImportMetadata.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest
+ *    to include in the query.
+ *  @param parent Required. Parent DataStore resource name, of the form
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Writes a single user event.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.write
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsWrite : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent DataStore resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent.
+ *
+ *  Writes a single user event.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent to include
+ *    in the query.
+ *  @param parent Required. The parent DataStore resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsWrite
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Document.
+ *
  *  Method: discoveryengine.projects.locations.dataStores.branches.documents.create
  *
  *  Authorization scope(s):
@@ -57,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource name, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -70,7 +502,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
  *    the query.
  *  @param parent Required. The parent resource name, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsCreate
  */
@@ -91,7 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of Document, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *  If the caller does not have permission to delete the Document, regardless of
  *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
  *  Document to delete does not exist, a NOT_FOUND error is returned.
@@ -104,7 +536,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a Document.
  *
  *  @param name Required. Full resource name of Document, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *    If the caller does not have permission to delete the Document, regardless
  *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
  *    Document to delete does not exist, a NOT_FOUND error is returned.
@@ -127,7 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of Document, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *  If the caller does not have permission to access the Document, regardless of
  *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
  *  requested Document does not exist, a NOT_FOUND error is returned.
@@ -140,7 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Document.
  *
  *  @param name Required. Full resource name of Document, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *    If the caller does not have permission to access the Document, regardless
  *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
  *    requested Document does not exist, a NOT_FOUND error is returned.
@@ -165,7 +597,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent branch resource name, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *  Requires create/update permission.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -181,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
  *    to include in the query.
  *  @param parent Required. The parent branch resource name, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *    Requires create/update permission.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsImport
@@ -219,7 +651,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent branch resource name, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *  Use `default_branch` as the branch ID, to list documents under the default
  *  branch. If the caller does not have permission to list Documentss under this
  *  branch, regardless of whether or not this branch exists, a PERMISSION_DENIED
@@ -234,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a list of Documents.
  *
  *  @param parent Required. The parent branch resource name, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *    Use `default_branch` as the branch ID, to list documents under the default
  *    branch. If the caller does not have permission to list Documentss under
  *    this branch, regardless of whether or not this branch exists, a
@@ -268,7 +700,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Immutable. The full resource name of the document. Format:
- *  `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
  *  This field must be a UTF-8 encoded string with a length limit of 1024
  *  characters.
  */
@@ -283,7 +715,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
  *    the query.
  *  @param name Immutable. The full resource name of the document. Format:
- *    `projects/{project}/locations/{location}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
  *    characters.
  *
@@ -561,9 +993,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of the format: projects/ *
- *  /locations/global/dataStores/ * /servingConfigs/ * Before you can request
- *  recommendations from your model, you must create at least one serving config
- *  for it.
+ *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
+ *  you can request recommendations from your model, you must create at least
+ *  one serving config for it.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -577,9 +1009,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
  *    include in the query.
  *  @param servingConfig Required. Full resource name of the format: projects/ *
- *    /locations/global/dataStores/ * /servingConfigs/ * Before you can request
- *    recommendations from your model, you must create at least one serving
- *    config for it.
+ *    /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
+ *    you can request recommendations from your model, you must create at least
+ *    one serving config for it.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend
  */
@@ -610,7 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent DataStore resource name, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -636,7 +1068,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Manager. Users should not call this method directly.
  *
  *  @param parent Required. The parent DataStore resource name, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsCollect
  */
@@ -660,7 +1092,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Parent DataStore resource name, of the form
- *  `projects/{project}/locations/{location}/dataStores/{data_store}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -677,7 +1109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest
  *    to include in the query.
  *  @param parent Required. Parent DataStore resource name, of the form
- *    `projects/{project}/locations/{location}/dataStores/{data_store}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsImport
  */
@@ -698,7 +1130,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent DataStore resource name, such as
- *  `projects/{project}/locations/{location}/dataStores/{data_store}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -711,7 +1143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent to include
  *    in the query.
  *  @param parent Required. The parent DataStore resource name, such as
- *    `projects/{project}/locations/{location}/dataStores/{data_store}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsWrite
  */

@@ -58,10 +58,18 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle
-@dynamic descriptionProperty, endSupport, policyApiLifecycleStage;
+@dynamic deprecatedInFavorOf, descriptionProperty, endSupport,
+         policyApiLifecycleStage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deprecatedInFavorOf" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -362,6 +370,43 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint
 @dynamic maximum, minimum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationError
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationError
+@dynamic errors, fieldErrors, policySchema, policyTargetKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [NSString class],
+    @"fieldErrors" : [GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationFieldError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationErrorDetails
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationErrorDetails
+@dynamic modificationErrors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modificationErrors" : [GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationError class]
+  };
+  return map;
+}
+
 @end
 
 

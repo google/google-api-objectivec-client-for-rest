@@ -210,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The list of fields to be updated. Field names must be in snake
- *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
- *  replace the entire entity, use one path with the string "*" to match all
+ *  case (for example, "field_to_update"). Omitted fields will not be updated.
+ *  To replace the entire entity, use one path with the string "*" to match all
  *  fields.
  *
  *  String format is a comma-separated list of fields.
@@ -341,7 +341,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Acknowledges the terms of user data collection for the specified property.
  *  This acknowledgement must be completed (either in the Google Analytics UI or
- *  via this API) before MeasurementProtocolSecret resources may be created.
+ *  through this API) before MeasurementProtocolSecret resources may be created.
  *
  *  Method: analyticsadmin.properties.acknowledgeUserDataCollection
  *
@@ -359,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Acknowledges the terms of user data collection for the specified property.
  *  This acknowledgement must be completed (either in the Google Analytics UI or
- *  via this API) before MeasurementProtocolSecret resources may be created.
+ *  through this API) before MeasurementProtocolSecret resources may be created.
  *
  *  @param object The @c
  *    GTLRGoogleAnalyticsAdmin_V1betaAcknowledgeUserDataCollectionRequest to

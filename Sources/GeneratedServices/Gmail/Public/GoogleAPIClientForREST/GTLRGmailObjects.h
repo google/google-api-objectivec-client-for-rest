@@ -1924,8 +1924,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 
 /**
  *  Flag that determines whether responses are sent to recipients who are
- *  outside of the user's domain. This feature is only available for G Suite
- *  users.
+ *  outside of the user's domain. This feature is only available for Google
+ *  Workspace users.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -408,13 +408,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Imports entries from some source (e.g. dump in a Cloud Storage bucket) to
- *  the Data Catalog. Dump here is a snapshot of the third-party system state,
- *  that needs to be ingested in the Data Catalog. Import of entries is a sync
- *  operation that reconciles state of the third-party system and Data Catalog.
- *  ImportEntries is a long-running operation done in the background, so this
- *  method returns long-running operation resource. The resource can be queried
- *  with Operations.GetOperation which contains metadata and response.
+ *  Imports entries from a source, such as data previously dumped into a Cloud
+ *  Storage bucket, into Data Catalog. Import of entries is a sync operation
+ *  that reconciles the state of the third-party system with the Data Catalog.
+ *  `ImportEntries` accepts source data snapshots of a third-party system.
+ *  Snapshot should be delivered as a .wire or base65-encoded .txt file
+ *  containing a sequence of Protocol Buffer messages of DumpItem type.
+ *  `ImportEntries` returns a long-running operation resource that can be
+ *  queried with Operations.GetOperation to return ImportEntriesMetadata and an
+ *  ImportEntriesResponse message.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.import
  *
@@ -429,13 +431,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Operation.
  *
- *  Imports entries from some source (e.g. dump in a Cloud Storage bucket) to
- *  the Data Catalog. Dump here is a snapshot of the third-party system state,
- *  that needs to be ingested in the Data Catalog. Import of entries is a sync
- *  operation that reconciles state of the third-party system and Data Catalog.
- *  ImportEntries is a long-running operation done in the background, so this
- *  method returns long-running operation resource. The resource can be queried
- *  with Operations.GetOperation which contains metadata and response.
+ *  Imports entries from a source, such as data previously dumped into a Cloud
+ *  Storage bucket, into Data Catalog. Import of entries is a sync operation
+ *  that reconciles the state of the third-party system with the Data Catalog.
+ *  `ImportEntries` accepts source data snapshots of a third-party system.
+ *  Snapshot should be delivered as a .wire or base65-encoded .txt file
+ *  containing a sequence of Protocol Buffer messages of DumpItem type.
+ *  `ImportEntries` returns a long-running operation resource that can be
+ *  queried with Operations.GetOperation to return ImportEntriesMetadata and an
+ *  ImportEntriesResponse message.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest to include in
@@ -834,14 +838,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Reconciles tags created with a given tag template on a given Entry.
- *  Reconciliation is an operation that given a list of tags creates or updates
- *  them on the entry. Additionally, the operation is also able to delete tags
- *  not mentioned in the tag list. It can be achieved by setting
- *  force_delete_missing parameter. Reconciliation is a long-running operation
- *  done in the background, so this method returns long-running operation
- *  resource. The resource can be queried with Operations.GetOperation which
- *  contains metadata and response.
+ *  `ReconcileTags` creates or updates a list of tags on the entry. If the
+ *  ReconcileTagsRequest.force_delete_missing parameter is set, the operation
+ *  deletes tags not included in the input tag list. `ReconcileTags` returns a
+ *  long-running operation resource that can be queried with
+ *  Operations.GetOperation to return ReconcileTagsMetadata and a
+ *  ReconcileTagsResponse message.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.tags.reconcile
  *
@@ -856,14 +858,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Operation.
  *
- *  Reconciles tags created with a given tag template on a given Entry.
- *  Reconciliation is an operation that given a list of tags creates or updates
- *  them on the entry. Additionally, the operation is also able to delete tags
- *  not mentioned in the tag list. It can be achieved by setting
- *  force_delete_missing parameter. Reconciliation is a long-running operation
- *  done in the background, so this method returns long-running operation
- *  resource. The resource can be queried with Operations.GetOperation which
- *  contains metadata and response.
+ *  `ReconcileTags` creates or updates a list of tags on the entry. If the
+ *  ReconcileTagsRequest.force_delete_missing parameter is set, the operation
+ *  deletes tags not included in the input tag list. `ReconcileTags` returns a
+ *  long-running operation resource that can be queried with
+ *  Operations.GetOperation to return ReconcileTagsMetadata and a
+ *  ReconcileTagsResponse message.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest to include in

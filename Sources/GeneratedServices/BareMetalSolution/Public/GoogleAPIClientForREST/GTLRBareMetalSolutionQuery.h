@@ -323,6 +323,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  RenameInstance sets a new name for an instance.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesRename : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the instance. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Instance.
+ *
+ *  RenameInstance sets a new name for an instance.
+ *
+ *  @param object The @c GTLRBareMetalSolution_RenameInstanceRequest to include
+ *    in the query.
+ *  @param name Required. The `name` field is used to identify the instance.
+ *    Format: projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesRename
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Perform an ungraceful, hard reset on a server. Equivalent to shutting the
  *  power off and then turning it back on.
  *
@@ -1079,6 +1112,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Skips volume's cooloff and deletes it now. Volume must be in cooloff state.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.evict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesEvict : GTLRBareMetalSolutionQuery
+
+/** Required. The name of the Volume. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Skips volume's cooloff and deletes it now. Volume must be in cooloff state.
+ *
+ *  @param object The @c GTLRBareMetalSolution_EvictVolumeRequest to include in
+ *    the query.
+ *  @param name Required. The name of the Volume.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesEvict
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EvictVolumeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Get details of a single storage volume.
  *
  *  Method: baremetalsolution.projects.locations.volumes.get
@@ -1143,6 +1205,35 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Skips lun's cooloff and deletes it now. Lun must be in cooloff state.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.luns.evict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsEvict : GTLRBareMetalSolutionQuery
+
+/** Required. The name of the lun. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Skips lun's cooloff and deletes it now. Lun must be in cooloff state.
+ *
+ *  @param object The @c GTLRBareMetalSolution_EvictLunRequest to include in the
+ *    query.
+ *  @param name Required. The name of the lun.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsEvict
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EvictLunRequest *)object
+                           name:(NSString *)name;
 
 @end
 

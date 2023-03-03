@@ -770,6 +770,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canChangeDriveMembersOnlyRestriction;
 
 /**
+ *  Whether the current user can change the
+ *  sharingFoldersRequiresOrganizerPermission restriction of this shared drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeSharingFoldersRequiresOrganizerPermissionRestriction;
+
+/**
  *  Whether the current user can comment on files in this shared drive.
  *
  *  Uses NSNumber of boolValue.
@@ -919,6 +927,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *driveMembersOnly;
+
+/**
+ *  If true, only users with the organizer role can share folders. If false,
+ *  users with either the organizer role or the file organizer role can share
+ *  folders.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingFoldersRequiresOrganizerPermission;
 
 @end
 
@@ -1247,8 +1264,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
 /**
- *  The size of the file's content in bytes. This is applicable to binary files
- *  in Google Drive and Google Docs files.
+ *  The size of the file's content in bytes. This field is populated for files
+ *  with binary content stored in Google Drive and for Docs Editors files; it is
+ *  not populated for shortcuts or folders.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2279,7 +2297,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A permission for a file. A permission grants a user, group, domain or the
+ *  A permission for a file. A permission grants a user, group, domain, or the
  *  world access to a file or a folder hierarchy.
  */
 @interface GTLRDrive_Permission : GTLRObject
@@ -2303,15 +2321,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The "pretty" name of the value of the permission. The following is a list of
  *  examples for each type of permission:
- *  - user - User's full name, as defined for their Google account, such as "Joe
+ *  - user - User's full name, as defined for their Google Account, such as "Joe
  *  Smith."
  *  - group - Name of the Google Group, such as "The Company Administrators."
- *  - domain - String domain name, such as "thecompany.com."
+ *  - domain - String domain name, such as "your-company.com."
  *  - anyone - No displayName is present.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The domain to which this permission refers. */
+/**
+ *  The domain to which this permission refers. The following options are
+ *  currently allowed:
+ *  - The entire domain, such as "your-company.com."
+ *  - A target audience, such as "ID.audience.googledomains.com."
+ */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /** The email address of the user or group to which this permission refers. */
@@ -2320,10 +2343,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which this permission will expire (RFC 3339 date-time).
  *  Expiration times have the following restrictions:
- *  - They cannot be set on shared drive items
- *  - They can only be set on user and group permissions
- *  - The time must be in the future
- *  - The time cannot be more than a year in the future
+ *  - They cannot be set on shared drive items.
+ *  - They can only be set on user and group permissions.
+ *  - The time must be in the future.
+ *  - The time cannot be more than one year in the future.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
@@ -2344,8 +2367,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the account associated with this permission is a pending owner. Only
- *  populated for user type permissions for files that are not in a shared
- *  drive.
+ *  populated for user type permissions for files that aren't in a shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2353,8 +2375,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Details of whether the permissions on this shared drive item are inherited
- *  or directly on this item. This is an output-only field which is present only
- *  for shared drive items.
+ *  or are directly on this item. This is an output-only field that's present
+ *  only for shared drive items.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_PermissionDetails_Item *> *permissionDetails;
 
@@ -2383,7 +2405,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  - domain
  *  - anyone When creating a permission, if type is user or group, you must
  *  provide an emailAddress for the user or group. When type is domain, you must
- *  provide a domain. There isn't extra information required for a anyone type.
+ *  provide a domain. There isn't extra information required for the anyone
+ *  type.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2417,7 +2440,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The permission type for this user. While new values may be added in future,
- *  the following are currently possible:
+ *  the following are currently allowed:
  *  - file
  *  - member
  */
@@ -2425,7 +2448,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The primary role for this user. While new values may be added in the future,
- *  the following are currently possible:
+ *  the following are currently allowed:
  *  - organizer
  *  - fileOrganizer
  *  - writer
@@ -2898,6 +2921,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
 
 /**
+ *  Whether the current user can change the
+ *  sharingFoldersRequiresOrganizerPermission restriction of this Team Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeSharingFoldersRequiresOrganizerPermissionRestriction;
+
+/**
  *  Whether the current user can change the background of this Team Drive.
  *
  *  Uses NSNumber of boolValue.
@@ -3059,6 +3090,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *domainUsersOnly;
+
+/**
+ *  If true, only users with the organizer role can share folders. If false,
+ *  users with either the organizer role or the file organizer role can share
+ *  folders.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharingFoldersRequiresOrganizerPermission;
 
 /**
  *  Whether access to items inside this Team Drive is restricted to members of

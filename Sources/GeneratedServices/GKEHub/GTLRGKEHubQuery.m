@@ -240,6 +240,117 @@
 
 @end
 
+@implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsCreate
+
+@dynamic membershipBindingId, parent;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bindings";
+  GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.memberships.bindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.memberships.bindings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_MembershipBinding class];
+  query.loggingName = @"gkehub.projects.locations.memberships.bindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bindings";
+  GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListMembershipBindingsResponse class];
+  query.loggingName = @"gkehub.projects.locations.memberships.bindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.memberships.bindings.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsCreate
 
 @dynamic membershipId, parent, requestId;
@@ -269,7 +380,7 @@
 
 @implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsDelete
 
-@dynamic name, requestId;
+@dynamic force, name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -531,6 +642,90 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGKEHub_ListOperationsResponse class];
   query.loggingName = @"gkehub.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesCreate
+
+@dynamic parent, scopeId;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/scopes";
+  GTLRGKEHubQuery_ProjectsLocationsScopesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Scope class];
+  query.loggingName = @"gkehub.projects.locations.scopes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/scopes";
+  GTLRGKEHubQuery_ProjectsLocationsScopesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListScopesResponse class];
+  query.loggingName = @"gkehub.projects.locations.scopes.list";
   return query;
 }
 

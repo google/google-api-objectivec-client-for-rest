@@ -1103,6 +1103,158 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_ConversionsourcesCreate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ConversionSource *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/conversionsources";
+  GTLRShoppingContentQuery_ConversionsourcesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ConversionSource class];
+  query.loggingName = @"content.conversionsources.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ConversionsourcesDelete
+
+@dynamic conversionSourceId, merchantId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                 conversionSourceId:(NSString *)conversionSourceId {
+  NSArray *pathParams = @[
+    @"conversionSourceId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/conversionsources/{conversionSourceId}";
+  GTLRShoppingContentQuery_ConversionsourcesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.conversionSourceId = conversionSourceId;
+  query.loggingName = @"content.conversionsources.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ConversionsourcesGet
+
+@dynamic conversionSourceId, merchantId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                 conversionSourceId:(NSString *)conversionSourceId {
+  NSArray *pathParams = @[
+    @"conversionSourceId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/conversionsources/{conversionSourceId}";
+  GTLRShoppingContentQuery_ConversionsourcesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.conversionSourceId = conversionSourceId;
+  query.expectedObjectClass = [GTLRShoppingContent_ConversionSource class];
+  query.loggingName = @"content.conversionsources.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ConversionsourcesList
+
+@dynamic merchantId, pageSize, pageToken, showDeleted;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/conversionsources";
+  GTLRShoppingContentQuery_ConversionsourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListConversionSourcesResponse class];
+  query.loggingName = @"content.conversionsources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ConversionsourcesPatch
+
+@dynamic conversionSourceId, merchantId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ConversionSource *)object
+                     merchantId:(long long)merchantId
+             conversionSourceId:(NSString *)conversionSourceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"conversionSourceId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/conversionsources/{conversionSourceId}";
+  GTLRShoppingContentQuery_ConversionsourcesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.conversionSourceId = conversionSourceId;
+  query.expectedObjectClass = [GTLRShoppingContent_ConversionSource class];
+  query.loggingName = @"content.conversionsources.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ConversionsourcesUndelete
+
+@dynamic conversionSourceId, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_UndeleteConversionSourceRequest *)object
+                     merchantId:(long long)merchantId
+             conversionSourceId:(NSString *)conversionSourceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"conversionSourceId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/conversionsources/{conversionSourceId}:undelete";
+  GTLRShoppingContentQuery_ConversionsourcesUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.conversionSourceId = conversionSourceId;
+  query.loggingName = @"content.conversionsources.undelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_CssesGet
 
 @dynamic cssDomainId, cssGroupId;

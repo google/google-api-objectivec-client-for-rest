@@ -67,6 +67,7 @@
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters;
+@class GTLRDataproc_Interval;
 @class GTLRDataproc_Job;
 @class GTLRDataproc_Job_Labels;
 @class GTLRDataproc_JobPlacement;
@@ -842,6 +843,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat;
 /**
+ *  Hudi.
+ *
+ *  Value: "HUDI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi;
+/**
  *  The Jupyter Notebook.
  *
  *  Value: "JUPYTER"
@@ -1074,9 +1081,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Full URL, partial URI, or short name of the accelerator type resource to
  *  expose to this instance. See Compute Engine AcceleratorTypes
- *  (https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes).Examples:
- *  https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
- *  projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
+ *  (https://cloud.google.com/compute/docs/reference/v1/acceleratorTypes).Examples:
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]/acceleratorTypes/nvidia-tesla-k80
+ *  projects/[project_id]/zones/[zone]/acceleratorTypes/nvidia-tesla-k80
  *  nvidia-tesla-k80Auto Zone Exception: If you are using the Dataproc Auto Zone
  *  Placement
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement)
@@ -1491,11 +1498,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, my-project.svc.id.goog[my-namespace/my-kubernetes-sa].
  *  group:{emailid}: An email address that represents a Google group. For
- *  example, admins\@example.com. deleted:user:{emailid}?uid={uniqueid}: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example, alice\@example.com?uid=123456789012345678901.
- *  If the user is recovered, this value reverts to user:{emailid} and the
- *  recovered user retains the role in the binding.
+ *  example, admins\@example.com. domain:{domain}: The G Suite domain (primary)
+ *  that represents all the users of that domain. For example, google.com or
+ *  example.com. deleted:user:{emailid}?uid={uniqueid}: An email address (plus
+ *  unique identifier) representing a user that has been recently deleted. For
+ *  example, alice\@example.com?uid=123456789012345678901. If the user is
+ *  recovered, this value reverts to user:{emailid} and the recovered user
+ *  retains the role in the binding.
  *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
  *  unique identifier) representing a service account that has been recently
  *  deleted. For example,
@@ -1506,9 +1515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  identifier) representing a Google group that has been recently deleted. For
  *  example, admins\@example.com?uid=123456789012345678901. If the group is
  *  recovered, this value reverts to group:{emailid} and the recovered group
- *  retains the role in the binding. domain:{domain}: The G Suite domain
- *  (primary) that represents all the users of that domain. For example,
- *  google.com or example.com.
+ *  retains the role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1588,9 +1595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. The virtual cluster config is used when creating a Dataproc
  *  cluster that does not directly control the underlying compute resources, for
  *  example, when creating a Dataproc-on-GKE cluster
- *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke). Dataproc
- *  may set default values, and values may change when clusters are updated.
- *  Exactly one of config or virtual_cluster_config must be specified.
+ *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke-overview).
+ *  Dataproc may set default values, and values may change when clusters are
+ *  updated. Exactly one of config or virtual_cluster_config must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_VirtualClusterConfig *virtualClusterConfig;
 
@@ -1992,6 +1999,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  A request to collect cluster diagnostic information.
  */
 @interface GTLRDataproc_DiagnoseClusterRequest : GTLRObject
+
+/**
+ *  Optional. Time interval in which diagnosis should be carried out on the
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_Interval *diagnosisInterval;
+
+/**
+ *  Optional. DEPRECATED Specifies the job on which diagnosis is to be
+ *  performed. Format: projects/{project}/regions/{region}/jobs/{job}
+ */
+@property(nonatomic, copy, nullable) NSString *job;
+
+/**
+ *  Optional. DEPRECATED Specifies the yarn application on which diagnosis is to
+ *  be performed.
+ */
+@property(nonatomic, copy, nullable) NSString *yarnApplicationId;
+
 @end
 
 
@@ -2096,6 +2122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *gcePdKmsKeyName;
 
+/**
+ *  Optional. The Cloud KMS key name to use for encrypting customer core content
+ *  and cluster PD disk for all instances in the cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
 @end
 
 
@@ -2177,8 +2209,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. Service account that used to execute workload. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
+/**
+ *  Optional. A Cloud Storage bucket used to stage workload dependencies, config
+ *  files, and store workload output and other ephemeral data, such as Spark
+ *  history files. If you do not specify a staging bucket, Cloud Dataproc will
+ *  determine a Cloud Storage location according to the region where your
+ *  workload is running, and then create and manage project-level, per-location
+ *  staging and temporary buckets. This field requires a Cloud Storage bucket
+ *  name, not a gs://... URI to a Cloud Storage bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *stagingBucket;
+
 /** Optional. Subnetwork URI to connect workload to. */
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
+
+/**
+ *  Optional. The duration after which the workload will be terminated. When the
+ *  workload passes this ttl, it will be unconditionally killed without waiting
+ *  for ongoing work to finish. Minimum value is 10 minutes; maximum value is 14
+ *  days (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). If both
+ *  ttl and idle_ttl are specified, the conditions are treated as and OR: the
+ *  workload will be terminated when it has been idle for idle_ttl or when the
+ *  ttl has passed, whichever comes first. If ttl is not specified for a
+ *  session, it defaults to 24h.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
 @end
 
@@ -2270,8 +2326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks
  *  (https://cloud.google.com/compute/docs/subnetworks) for more information).A
  *  full URL, partial URI, or short name are valid. Examples:
- *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default
- *  projects/[project_id]/regions/global/default default
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/global/networks/default
+ *  projects/[project_id]/global/networks/default default
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
@@ -2338,8 +2394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. The Compute Engine subnetwork to be used for machine
  *  communications. Cannot be specified with network_uri.A full URL, partial
  *  URI, or short name are valid. Examples:
- *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/subnetworks/sub0
- *  projects/[project_id]/regions/us-east1/subnetworks/sub0 sub0
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/[region]/subnetworks/sub0
+ *  projects/[project_id]/regions/[region]/subnetworks/sub0 sub0
  */
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
 
@@ -2350,13 +2406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
- *  Optional. The zone where the Compute Engine cluster will be located. On a
- *  create request, it is required in the "global" region. If omitted in a
- *  non-global Dataproc region, the service will pick a zone in the
- *  corresponding Compute Engine region. On a get request, zone will always be
- *  present.A full URL, partial URI, or short name are valid. Examples:
+ *  Optional. The Compute Engine zone where the Dataproc cluster will be
+ *  located. If omitted, the service will pick a zone in the cluster's Compute
+ *  Engine region. On a get request, zone will always be present.A full URL,
+ *  partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]
- *  projects/[project_id]/zones/[zone] us-central1-f
+ *  projects/[project_id]/zones/[zone] [zone]
  */
 @property(nonatomic, copy, nullable) NSString *zoneUri;
 
@@ -2884,10 +2939,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The Compute Engine image resource used for cluster instances.The
  *  URI can represent an image or image family.Image examples:
- *  https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/[image-id]
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/global/images/[image-id]
  *  projects/[project_id]/global/images/[image-id] image-idImage family
  *  examples. Dataproc will use the most recent image from the family:
- *  https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/family/[custom-image-family-name]
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/global/images/family/[custom-image-family-name]
  *  projects/[project_id]/global/images/family/[custom-image-family-name]If the
  *  URI is unspecified, it will be inferred from SoftwareConfig.image_version or
  *  the system default.
@@ -2914,8 +2969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The Compute Engine machine type used for cluster instances.A full
  *  URL, partial URI, or short name are valid. Examples:
- *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
- *  projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]/machineTypes/n1-standard-2
+ *  projects/[project_id]/zones/[zone]/machineTypes/n1-standard-2
  *  n1-standard-2Auto Zone Exception: If you are using the Dataproc Auto Zone
  *  Placement
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement)
@@ -3043,6 +3098,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive).The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRDataproc_Interval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval.If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval.If specified, a Timestamp matching
+ *  this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 
@@ -3986,9 +4064,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/compute/docs/reference/rest/v1/nodeGroups) that
  *  the cluster will be created on.A full URL, partial URI, or node group name
  *  are valid. Examples:
- *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-central1-a/nodeGroups/node-group-1
- *  projects/[project_id]/zones/us-central1-a/nodeGroups/node-group-1
- *  node-group-1
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]/nodeGroups/node-group-1
+ *  projects/[project_id]/zones/[zone]/nodeGroups/node-group-1 node-group-1
  */
 @property(nonatomic, copy, nullable) NSString *nodeGroupUri;
 
@@ -5809,7 +5886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  The Dataproc cluster config for a cluster that does not directly control the
  *  underlying compute resources, such as a Dataproc-on-GKE cluster
- *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+ *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke-overview).
  */
 @interface GTLRDataproc_VirtualClusterConfig : GTLRObject
 

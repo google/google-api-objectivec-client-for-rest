@@ -1643,12 +1643,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  request ID so that if you must retry your request, the server will know to
  *  ignore the request if it has already been completed. The server will
  *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -2150,8 +2150,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -2166,9 +2168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

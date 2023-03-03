@@ -558,6 +558,16 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_FlexibleRuntimeSettings
+//
+
+@implementation GTLRAppengine_FlexibleRuntimeSettings
+@dynamic operatingSystem, runtimeVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_GoogleAppengineV1betaLocationMetadata
 //
 
@@ -1299,10 +1309,10 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 @dynamic apiConfig, appEngineApis, automaticScaling, basicScaling, betaSettings,
          buildEnvVariables, createdBy, createTime, defaultExpiration,
          deployment, diskUsageBytes, endpointsApiService, entrypoint, env,
-         envVariables, errorHandlers, handlers, healthCheck, identifier,
-         inboundServices, instanceClass, libraries, livenessCheck,
-         manualScaling, name, network, nobuildFilesRegex, readinessCheck,
-         resources, runtime, runtimeApiVersion, runtimeChannel,
+         envVariables, errorHandlers, flexibleRuntimeSettings, handlers,
+         healthCheck, identifier, inboundServices, instanceClass, libraries,
+         livenessCheck, manualScaling, name, network, nobuildFilesRegex,
+         readinessCheck, resources, runtime, runtimeApiVersion, runtimeChannel,
          runtimeMainExecutablePath, serviceAccount, servingStatus, threadsafe,
          versionUrl, vm, vpcAccessConnector, zones;
 

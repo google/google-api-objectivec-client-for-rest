@@ -26,6 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/chat.bot
+ *
+ *  Value "https://www.googleapis.com/auth/chat.bot"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatBot;
+/**
  *  Authorization scope: View, add, and remove members from conversations in
  *  Google Chat
  *

@@ -575,6 +575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @property(nonatomic, copy, nullable) NSString *tagKey;
 
+/**
+ *  The parent name of the tag key. Must be in the format
+ *  `organizations/{organization_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *tagKeyParentName;
+
 /** Resource name for TagValue in the format `tagValues/456`. */
 @property(nonatomic, copy, nullable) NSString *tagValue;
 

@@ -549,7 +549,8 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_Device
-@dynamic androidId, managementType, policy, report;
+@dynamic androidId, device, latestBuildFingerprint, maker, managementType,
+         model, policy, product, report, retailBrand, sdkVersion;
 @end
 
 

@@ -25,6 +25,7 @@
 @class GTLRServiceUsage_AuthRequirement;
 @class GTLRServiceUsage_Backend;
 @class GTLRServiceUsage_BackendRule;
+@class GTLRServiceUsage_BackendRule_OverridesByRequestProtocol;
 @class GTLRServiceUsage_Billing;
 @class GTLRServiceUsage_BillingDestination;
 @class GTLRServiceUsage_ClientLibrarySettings;
@@ -1245,6 +1246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSNumber *operationDeadline;
 
+/** The map between request protocol and the backend address. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
+
 /**
  *  pathTranslation
  *
@@ -1300,6 +1304,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
+@end
+
+
+/**
+ *  The map between request protocol and the backend address.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRServiceUsage_BackendRule. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceUsage_BackendRule_OverridesByRequestProtocol : GTLRObject
 @end
 
 
@@ -3955,6 +3971,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        Org. (Value: "STREET_VIEW")
  */
 @property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Optional link to proto reference documentation. Example:
+ *  https://cloud.google.com/pubsub/lite/docs/reference/rpc
+ */
+@property(nonatomic, copy, nullable) NSString *protoReferenceDocumentationUri;
 
 @end
 

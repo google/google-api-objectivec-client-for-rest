@@ -150,6 +150,10 @@ NSString * const kGTLRVMMigrationService_MigrationError_Code_TargetReplicationEr
 NSString * const kGTLRVMMigrationService_MigrationError_Code_UnknownError = @"UNKNOWN_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_UtilizationReportError = @"UTILIZATION_REPORT_ERROR";
 
+// GTLRVMMigrationService_MigrationWarning.code
+NSString * const kGTLRVMMigrationService_MigrationWarning_Code_AdaptationWarning = @"ADAPTATION_WARNING";
+NSString * const kGTLRVMMigrationService_MigrationWarning_Code_WarningCodeUnspecified = @"WARNING_CODE_UNSPECIFIED";
+
 // GTLRVMMigrationService_ReplicationCycle.state
 NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Failed = @"FAILED";
 NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Paused = @"PAUSED";
@@ -987,8 +991,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @implementation GTLRVMMigrationService_MigratingVm
 @dynamic awsSourceVmDetails, computeEngineTargetDefaults, createTime,
          currentSyncInfo, descriptionProperty, displayName, error, group,
-         labels, lastSync, name, policy, recentCloneJobs, recentCutoverJobs,
-         sourceVmId, state, stateTime, updateTime;
+         labels, lastReplicationCycle, lastSync, name, policy, recentCloneJobs,
+         recentCutoverJobs, sourceVmId, state, stateTime, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1026,6 +1030,24 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_MigrationError
 @dynamic actionItem, code, errorMessage, errorTime, helpLinks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"helpLinks" : [GTLRVMMigrationService_Link class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_MigrationWarning
+//
+
+@implementation GTLRVMMigrationService_MigrationWarning
+@dynamic actionItem, code, helpLinks, warningMessage, warningTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1151,11 +1173,12 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ReplicationCycle
 @dynamic cycleNumber, endTime, error, name, progressPercent, startTime, state,
-         steps, totalPauseDuration;
+         steps, totalPauseDuration, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"steps" : [GTLRVMMigrationService_CycleStep class]
+    @"steps" : [GTLRVMMigrationService_CycleStep class],
+    @"warnings" : [GTLRVMMigrationService_MigrationWarning class]
   };
   return map;
 }

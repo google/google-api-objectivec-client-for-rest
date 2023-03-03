@@ -29,8 +29,6 @@
 @class GTLRAlertCenter_CsvRow;
 @class GTLRAlertCenter_DeviceCompromisedSecurityDetail;
 @class GTLRAlertCenter_DomainId;
-@class GTLRAlertCenter_Entity;
-@class GTLRAlertCenter_EntityList;
 @class GTLRAlertCenter_GmailMessageInfo;
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
@@ -508,41 +506,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Value: "RING_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup;
-
-/**
- *  A generic alert for abusive user activity occurring with a customer.
- */
-@interface GTLRAlertCenter_AbuseDetected : GTLRObject
-
-/** List of abusive users/entities to be displayed in a table in the alert. */
-@property(nonatomic, strong, nullable) GTLRAlertCenter_EntityList *additionalDetails;
-
-/**
- *  Displayed after Customer abuse detected - {alert_descriptor}. If missing,
- *  alert name will be displayed as Customer abuse detected.
- */
-@property(nonatomic, copy, nullable) NSString *alertDescriptor;
-
-/**
- *  Customizable text to display in the next steps section of the alert. Will be
- *  parsed as HTML to allow new paragraphs and hyperlinks.
- */
-@property(nonatomic, copy, nullable) NSString *nextSteps;
-
-/** Product that the abuse is originating from. */
-@property(nonatomic, copy, nullable) NSString *product;
-
-/** Unique identifier of each alert that is onboarded. */
-@property(nonatomic, copy, nullable) NSString *subAlertId;
-
-/**
- *  Customizable text to display in the summary section of the alert. Will be
- *  parsed as HTML to allow new paragraphs and hyperlinks.
- */
-@property(nonatomic, copy, nullable) NSString *summary;
-
-@end
-
 
 /**
  *  Details about why an account is receiving an account suspension warning.
@@ -1296,53 +1259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAlertCenter_Empty : GTLRObject
-@end
-
-
-/**
- *  Individual entity affected by, or related to, an alert.
- */
-@interface GTLRAlertCenter_Entity : GTLRObject
-
-/**
- *  Link to a Security Investigation Tool search based on this entity, if
- *  available.
- */
-@property(nonatomic, copy, nullable) NSString *link;
-
-/**
- *  Human-readable name of this entity, such as an email address, file ID, or
- *  device name.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Extra values beyond name. The order of values should align with headers in
- *  EntityList.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
-
-@end
-
-
-/**
- *  EntityList stores entities in a format that can be translated to a table in
- *  the Alert Center UI.
- */
-@interface GTLRAlertCenter_EntityList : GTLRObject
-
-/** List of entities affected by the alert. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_Entity *> *entities;
-
-/**
- *  Headers of the values in entities. If no value is defined in Entity, this
- *  field should be empty.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
-
-/** Name of the key detail used to display this entity list. */
-@property(nonatomic, copy, nullable) NSString *name;
-
 @end
 
 

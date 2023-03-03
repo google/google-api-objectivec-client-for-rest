@@ -596,8 +596,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
-@dynamic appEngineIntegrationMode, concurrencyMode, ETag, keyPrefix, locationId,
-         name, type;
+@dynamic appEngineIntegrationMode, concurrencyMode, createTime, ETag, keyPrefix,
+         locationId, name, type, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

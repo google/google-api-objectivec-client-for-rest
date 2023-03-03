@@ -4581,6 +4581,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Gets metrics associated with the FHIR store.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.getFHIRStoreMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics : GTLRCloudHealthcareQuery
+
+/** The resource name of the FHIR store to get metrics for. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_FhirStoreMetrics.
+ *
+ *  Gets metrics associated with the FHIR store.
+ *
+ *  @param name The resource name of the FHIR store to get metrics for.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *

@@ -205,9 +205,10 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 //
 
 @implementation GTLRCloudRedis_Instance
-@dynamic alternativeLocationId, authEnabled, authorizedNetwork, connectMode,
-         createTime, currentLocationId, customerManagedKey, displayName, host,
-         labels, locationId, maintenancePolicy, maintenanceSchedule,
+@dynamic alternativeLocationId, authEnabled, authorizedNetwork,
+         availableMaintenanceVersions, connectMode, createTime,
+         currentLocationId, customerManagedKey, displayName, host, labels,
+         locationId, maintenancePolicy, maintenanceSchedule, maintenanceVersion,
          memorySizeGb, name, nodes, persistenceConfig, persistenceIamIdentity,
          port, readEndpoint, readEndpointPort, readReplicasMode, redisConfigs,
          redisVersion, replicaCount, reservedIpRange, secondaryIpRange,
@@ -216,6 +217,7 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"availableMaintenanceVersions" : [NSString class],
     @"nodes" : [GTLRCloudRedis_NodeInfo class],
     @"serverCaCerts" : [GTLRCloudRedis_TlsCertificate class],
     @"suspensionReasons" : [NSString class]

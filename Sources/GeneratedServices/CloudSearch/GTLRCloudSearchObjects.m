@@ -67,6 +67,10 @@ NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_DoNotRender = @"DO_N
 NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_Render = @"RENDER";
 NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_RenderIfPossible = @"RENDER_IF_POSSIBLE";
 
+// GTLRCloudSearch_Annotation.inlineRenderFormat
+NSString * const kGTLRCloudSearch_Annotation_InlineRenderFormat_InlineRenderFormatUnspecified = @"INLINE_RENDER_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_Annotation_InlineRenderFormat_SmartChip = @"SMART_CHIP";
+
 // GTLRCloudSearch_Annotation.type
 NSString * const kGTLRCloudSearch_Annotation_Type_BabelPlaceholder = @"BABEL_PLACEHOLDER";
 NSString * const kGTLRCloudSearch_Annotation_Type_CardCapability = @"CARD_CAPABILITY";
@@ -379,6 +383,7 @@ NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_Overlay = @
 // GTLRCloudSearch_AppsDynamiteStorageSelectionInput.type
 NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_CheckBox = @"CHECK_BOX";
 NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown = @"DROPDOWN";
+NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_MultiSelect = @"MULTI_SELECT";
 NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_RadioButton = @"RADIO_BUTTON";
 NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Switch = @"SWITCH";
 
@@ -487,6 +492,7 @@ NSString * const kGTLRCloudSearch_ChatContentExtension_EventOtrStatus_OnTheRecor
 
 // GTLRCloudSearch_CoActivity.coActivityApp
 NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppGqueues = @"CO_ACTIVITY_APP_GQUEUES";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHappyAardvark = @"CO_ACTIVITY_APP_HAPPY_AARDVARK";
 NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHeadsup = @"CO_ACTIVITY_APP_HEADSUP";
 NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppKahoot = @"CO_ACTIVITY_APP_KAHOOT";
 NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSamsungNotes = @"CO_ACTIVITY_APP_SAMSUNG_NOTES";
@@ -1686,6 +1692,10 @@ NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotatio
 NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_Markdown = @"MARKDOWN";
 NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_None = @"NONE";
 
+// GTLRCloudSearch_MessageInfo.authorUserType
+NSString * const kGTLRCloudSearch_MessageInfo_AuthorUserType_Bot = @"BOT";
+NSString * const kGTLRCloudSearch_MessageInfo_AuthorUserType_Human = @"HUMAN";
+
 // GTLRCloudSearch_MessageInfo.searcherMembershipState
 NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberFailed = @"MEMBER_FAILED";
 NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberInvited = @"MEMBER_INVITED";
@@ -2122,6 +2132,10 @@ NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_MentionAll = @"MENTIO
 NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite = @"UNINVITE";
 
+// GTLRCloudSearch_UserMentionMetadata.userMentionError
+NSString * const kGTLRCloudSearch_UserMentionMetadata_UserMentionError_MembershipLimitExceeded = @"MEMBERSHIP_LIMIT_EXCEEDED";
+NSString * const kGTLRCloudSearch_UserMentionMetadata_UserMentionError_UserMentionErrorUnspecified = @"USER_MENTION_ERROR_UNSPECIFIED";
+
 // GTLRCloudSearch_VoicePhoneNumberI18nData.validationResult
 NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_InvalidCountryCode = @"INVALID_COUNTRY_CODE";
 NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_InvalidLength = @"INVALID_LENGTH";
@@ -2262,8 +2276,9 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
          consentedAppUnfurlMetadata, customEmojiMetadata,
          dataLossPreventionMetadata, driveMetadata, formatMetadata,
          groupRetentionSettingsUpdated, gsuiteIntegrationMetadata,
-         incomingWebhookChangedMetadata, integrationConfigUpdated, length,
-         localId, membershipChanged, readReceiptsSettingsMetadata,
+         incomingWebhookChangedMetadata, inlineRenderFormat,
+         integrationConfigUpdated, interactionData, length, localId,
+         membershipChanged, readReceiptsSettingsMetadata,
          requiredMessageFeaturesMetadata, roomUpdated, serverInvalidated,
          slashCommandMetadata, startIndex, type, uniqueId, uploadMetadata,
          urlMetadata, userMentionMetadata, videoCallMetadata, youtubeMetadata;
@@ -2832,7 +2847,8 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedSpaceInfo
 @dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, inviterEmail,
-         isExternal, name, numMembers, userMembershipState;
+         isExternal, name, numMembers, segmentedMembershipCounts,
+         userMembershipState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2957,7 +2973,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteStorageAction
-@dynamic function, interaction, loadIndicator, parameters;
+@dynamic function, interaction, loadIndicator, parameters, persistValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4768,9 +4784,9 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @dynamic commonContactCount, commonCountToContactListCountRatio,
          commonCountToMembershipCountRatio, creatorGaiaId,
          creatorInSearcherContactList, dasContactCount, finalScore,
-         freshnessScore, joinedSpaceAffinityScore, messageAgeInDays,
-         messageSenderAffinityScore, spaceId, spaceMembershipCount,
-         topicalityScore, unjoinedSpaceAffinityScore;
+         freshnessScore, joinedSpaceAffinityScore, lastReadTimestampAgeInDays,
+         messageAgeInDays, messageSenderAffinityScore, spaceId,
+         spaceMembershipCount, topicalityScore, unjoinedSpaceAffinityScore;
 @end
 
 
@@ -6155,6 +6171,16 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_InteractionData
+//
+
+@implementation GTLRCloudSearch_InteractionData
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_InviteAcceptedEvent
 //
 
@@ -6903,12 +6929,13 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_MessageDeleted
-@dynamic imapSyncMappings, messageKeys;
+@dynamic imapSyncMappings, messageKeys, wonderCardMappings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imapSyncMappings" : [GTLRCloudSearch_ImapSyncDelete class],
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class]
+    @"messageKeys" : [GTLRCloudSearch_MultiKey class],
+    @"wonderCardMappings" : [GTLRCloudSearch_WonderCardDelete class]
   };
   return map;
 }
@@ -6932,7 +6959,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_MessageInfo
-@dynamic message, searcherMembershipState;
+@dynamic authorUserType, message, searcherMembershipState;
 @end
 
 
@@ -9349,7 +9376,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_UserMentionMetadata
-@dynamic displayName, gender, identifier, inviteeInfo, type;
+@dynamic displayName, gender, identifier, inviteeInfo, type, userMentionError;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -9458,6 +9485,48 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buttons" : [GTLRCloudSearch_Button class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_WonderCardDelete
+//
+
+@implementation GTLRCloudSearch_WonderCardDelete
+@dynamic messageMappings, msgId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_WonderCardDelete_MessageMappings
+//
+
+@implementation GTLRCloudSearch_WonderCardDelete_MessageMappings
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudSearch_WonderMessageMapping class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_WonderMessageMapping
+//
+
+@implementation GTLRCloudSearch_WonderMessageMapping
+@dynamic wonderCardMessageId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wonderCardMessageId" : [NSString class]
   };
   return map;
 }

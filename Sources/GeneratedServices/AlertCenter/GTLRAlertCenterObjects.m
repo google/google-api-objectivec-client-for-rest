@@ -108,17 +108,6 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_AbuseDetected
-//
-
-@implementation GTLRAlertCenter_AbuseDetected
-@dynamic additionalDetails, alertDescriptor, nextSteps, product, subAlertId,
-         summary;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAlertCenter_AccountSuspensionDetails
 //
 
@@ -542,43 +531,6 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 //
 
 @implementation GTLRAlertCenter_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_Entity
-//
-
-@implementation GTLRAlertCenter_Entity
-@dynamic link, name, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_EntityList
-//
-
-@implementation GTLRAlertCenter_EntityList
-@dynamic entities, headers, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entities" : [GTLRAlertCenter_Entity class],
-    @"headers" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

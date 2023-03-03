@@ -1719,9 +1719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  max_units: The maximum assignable units for a flexible offer OR - num_units:
  *  The total commitment for commitment-based offers The response may
  *  additionally include the following output-only Parameters: - assigned_units:
- *  The number of licenses assigned to users. For GCP billing accounts, the
+ *  The number of licenses assigned to users. For GCP billing subaccounts, the
  *  following Parameter may be accepted as input: - display_name: The display
- *  name of the billing account.
+ *  name of the billing subaccount.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter *> *parameters;
 
@@ -2780,6 +2780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo *cloudIdentityInfo;
 
+/**
+ *  Optional. External CRM ID for the customer. Populated only if a CRM ID
+ *  exists for this customer.
+ */
+@property(nonatomic, copy, nullable) NSString *correlationId;
+
 /** Output only. Time when the customer was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3016,9 +3022,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  max_units: The maximum assignable units for a flexible offer OR - num_units:
  *  The total commitment for commitment-based offers The response may
  *  additionally include the following output-only Parameters: - assigned_units:
- *  The number of licenses assigned to users. For GCP billing accounts, the
+ *  The number of licenses assigned to users. For GCP billing subaccounts, the
  *  following Parameter may be accepted as input: - display_name: The display
- *  name of the billing account.
+ *  name of the billing subaccount.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 

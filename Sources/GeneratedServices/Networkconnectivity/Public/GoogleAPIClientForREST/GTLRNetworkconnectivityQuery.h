@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Sort the results by a certain order. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** The maximum number of results per page that should be returned. */
+/** The maximum number of results per page to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The page token. */
@@ -1551,7 +1551,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Sort the results by a certain order. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** The maximum number of results per page that should be returned. */
+/** The maximum number of results to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The page token. */

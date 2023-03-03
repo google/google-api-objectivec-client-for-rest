@@ -935,7 +935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, strong, nullable) NSNumber *custom;
 
 /**
- *  Output only. If set, this event can currently be deleted via
+ *  Output only. If set, this event can currently be deleted with
  *  DeleteConversionEvent.
  *
  *  Uses NSNumber of boolValue.
@@ -1817,7 +1817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *  Immutable. The property type for this Property resource. When creating a
  *  property, if the type is "PROPERTY_TYPE_UNSPECIFIED", then
  *  "ORDINARY_PROPERTY" will be implied. "SUBPROPERTY" and "ROLLUP_PROPERTY"
- *  types cannot yet be created via Google Analytics Admin API.
+ *  types cannot yet be created with the Google Analytics Admin API.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary
@@ -1914,7 +1914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /**
  *  Redirect URI where the user will be sent after accepting Terms of Service.
- *  Must be configured in Developers Console as a Redirect URI
+ *  Must be configured in Cloud Console as a Redirect URI.
  */
 @property(nonatomic, copy, nullable) NSString *redirectUri;
 

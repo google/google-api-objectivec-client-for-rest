@@ -342,6 +342,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8031;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8032;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -535,6 +541,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_31"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8031;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8032;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -845,6 +857,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8030;
  *  Value: "MYSQL_8_0_31"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8031;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8032;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -2253,6 +2271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8031 The
  *        database major version is MySQL 8.0 and the minor version is 31.
  *        (Value: "MYSQL_8_0_31")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8032 The
+ *        database major version is MySQL 8.0 and the minor version is 32.
+ *        (Value: "MYSQL_8_0_32")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -2469,6 +2490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8031 The
  *        database major version is MySQL 8.0 and the minor version is 31.
  *        (Value: "MYSQL_8_0_31")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8032 The
+ *        database major version is MySQL 8.0 and the minor version is 32.
+ *        (Value: "MYSQL_8_0_32")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -5227,11 +5251,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** This is always `sql#usersList`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  An identifier that uniquely identifies the operation. You can use this
- *  identifier to retrieve the Operations resource that has information about
- *  the operation.
- */
+/** Unused. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

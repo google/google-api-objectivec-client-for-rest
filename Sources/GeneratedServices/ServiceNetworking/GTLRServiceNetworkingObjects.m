@@ -392,7 +392,22 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, overridesByRequestProtocol, pathTranslation,
+         protocol, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_BackendRule_OverridesByRequestProtocol
+//
+
+@implementation GTLRServiceNetworking_BackendRule_OverridesByRequestProtocol
+
++ (Class)classForAdditionalProperties {
+  return [GTLRServiceNetworking_BackendRule class];
+}
+
 @end
 
 
@@ -1435,7 +1450,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 @implementation GTLRServiceNetworking_Publishing
 @dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
          githubLabel, librarySettings, methodSettings, newIssueUri,
-         organization;
+         organization, protoReferenceDocumentationUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

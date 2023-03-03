@@ -31,6 +31,16 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_AdminUser
+//
+
+@implementation GTLRCCAIPlatform_AdminUser
+@dynamic familyName, givenName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_CancelOperationRequest
 //
 
@@ -44,9 +54,9 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = 
 //
 
 @implementation GTLRCCAIPlatform_ContactCenter
-@dynamic ccaipManagedUsers, createTime, customerDomainPrefix, displayName,
-         instanceConfig, labels, name, samlParams, state, updateTime, uris,
-         userEmail;
+@dynamic adminUser, ccaipManagedUsers, createTime, customerDomainPrefix,
+         displayName, instanceConfig, labels, name, samlParams, state,
+         updateTime, uris, userEmail;
 @end
 
 

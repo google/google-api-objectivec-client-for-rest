@@ -1902,6 +1902,231 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Creates a new conversion source.
+ *
+ *  Method: content.conversionsources.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ConversionsourcesCreate : GTLRShoppingContentQuery
+
+/** Required. The ID of the account that owns the new conversion source. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ConversionSource.
+ *
+ *  Creates a new conversion source.
+ *
+ *  @param object The @c GTLRShoppingContent_ConversionSource to include in the
+ *    query.
+ *  @param merchantId Required. The ID of the account that owns the new
+ *    conversion source.
+ *
+ *  @return GTLRShoppingContentQuery_ConversionsourcesCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ConversionSource *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Archives an existing conversion source. It will be recoverable for 30 days.
+ *  This archiving behavior is not typical in the Content API and unique to this
+ *  service.
+ *
+ *  Method: content.conversionsources.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ConversionsourcesDelete : GTLRShoppingContentQuery
+
+/** Required. The ID of the conversion source to be deleted. */
+@property(nonatomic, copy, nullable) NSString *conversionSourceId;
+
+/** Required. The ID of the account that owns the new conversion source. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Archives an existing conversion source. It will be recoverable for 30 days.
+ *  This archiving behavior is not typical in the Content API and unique to this
+ *  service.
+ *
+ *  @param merchantId Required. The ID of the account that owns the new
+ *    conversion source.
+ *  @param conversionSourceId Required. The ID of the conversion source to be
+ *    deleted.
+ *
+ *  @return GTLRShoppingContentQuery_ConversionsourcesDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                 conversionSourceId:(NSString *)conversionSourceId;
+
+@end
+
+/**
+ *  Fetches a conversion source.
+ *
+ *  Method: content.conversionsources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ConversionsourcesGet : GTLRShoppingContentQuery
+
+/** Required. The REST ID of the collection. */
+@property(nonatomic, copy, nullable) NSString *conversionSourceId;
+
+/** Required. The ID of the account that owns the new conversion source. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ConversionSource.
+ *
+ *  Fetches a conversion source.
+ *
+ *  @param merchantId Required. The ID of the account that owns the new
+ *    conversion source.
+ *  @param conversionSourceId Required. The REST ID of the collection.
+ *
+ *  @return GTLRShoppingContentQuery_ConversionsourcesGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                 conversionSourceId:(NSString *)conversionSourceId;
+
+@end
+
+/**
+ *  Retrieves the list of conversion sources the caller has access to.
+ *
+ *  Method: content.conversionsources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ConversionsourcesList : GTLRShoppingContentQuery
+
+/** Required. The ID of the account that owns the new conversion source. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of conversion sources to return in a page. If no
+ *  `page_size` is specified, `100` is used as the default value. The maximum
+ *  value is `200`. Values above `200` will be coerced to `200`. Regardless of
+ *  pagination, at most `200` conversion sources are returned in total.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** If true, also returns archived conversion sources. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListConversionSourcesResponse.
+ *
+ *  Retrieves the list of conversion sources the caller has access to.
+ *
+ *  @param merchantId Required. The ID of the account that owns the new
+ *    conversion source.
+ *
+ *  @return GTLRShoppingContentQuery_ConversionsourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Updates information of an existing conversion source.
+ *
+ *  Method: content.conversionsources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ConversionsourcesPatch : GTLRShoppingContentQuery
+
+/** Required. The ID of the conversion source to be updated. */
+@property(nonatomic, copy, nullable) NSString *conversionSourceId;
+
+/** Required. The ID of the account that owns the new conversion source. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Required. List of fields being updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ConversionSource.
+ *
+ *  Updates information of an existing conversion source.
+ *
+ *  @param object The @c GTLRShoppingContent_ConversionSource to include in the
+ *    query.
+ *  @param merchantId Required. The ID of the account that owns the new
+ *    conversion source.
+ *  @param conversionSourceId Required. The ID of the conversion source to be
+ *    updated.
+ *
+ *  @return GTLRShoppingContentQuery_ConversionsourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ConversionSource *)object
+                     merchantId:(long long)merchantId
+             conversionSourceId:(NSString *)conversionSourceId;
+
+@end
+
+/**
+ *  Re-enables an archived conversion source.
+ *
+ *  Method: content.conversionsources.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ConversionsourcesUndelete : GTLRShoppingContentQuery
+
+/** Required. The ID of the conversion source to be undeleted. */
+@property(nonatomic, copy, nullable) NSString *conversionSourceId;
+
+/** Required. The ID of the account that owns the new conversion source. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Re-enables an archived conversion source.
+ *
+ *  @param object The @c GTLRShoppingContent_UndeleteConversionSourceRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the account that owns the new
+ *    conversion source.
+ *  @param conversionSourceId Required. The ID of the conversion source to be
+ *    undeleted.
+ *
+ *  @return GTLRShoppingContentQuery_ConversionsourcesUndelete
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_UndeleteConversionSourceRequest *)object
+                     merchantId:(long long)merchantId
+             conversionSourceId:(NSString *)conversionSourceId;
+
+@end
+
+/**
  *  Retrieves a single CSS domain by ID.
  *
  *  Method: content.csses.get

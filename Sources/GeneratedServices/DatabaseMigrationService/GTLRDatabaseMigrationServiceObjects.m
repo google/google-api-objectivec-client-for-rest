@@ -263,6 +263,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ApplyJobDetails
+//
+
+@implementation GTLRDatabaseMigrationService_ApplyJobDetails
+@dynamic connectionProfile, filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_AuditConfig
 //
 
@@ -303,9 +313,9 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_BackgroundJobLogEntry
-@dynamic completionComment, completionState, finishTime, identifier,
-         importRulesJobDetails, jobType, requestAutocommit, seedJobDetails,
-         startTime;
+@dynamic applyJobDetails, completionComment, completionState, convertJobDetails,
+         finishTime, identifier, importRulesJobDetails, jobType,
+         requestAutocommit, seedJobDetails, startTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -549,6 +559,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ConvertJobDetails
+//
+
+@implementation GTLRDatabaseMigrationService_ConvertJobDetails
+@dynamic filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_DatabaseEngineInfo
 //
 
@@ -702,6 +722,24 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FetchStaticIpsResponse
+//
+
+@implementation GTLRDatabaseMigrationService_FetchStaticIpsResponse
+@dynamic nextPageToken, staticIps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"staticIps" : [NSString class]
+  };
+  return map;
 }
 
 @end

@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
-/** Required. ID to use for the cluster. */
+/** Required. ID to use for the workstation cluster. */
 @property(nonatomic, copy, nullable) NSString *workstationClusterId;
 
 /**
@@ -242,24 +242,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersDelete : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, the request will be rejected if the latest version of the cluster on
- *  the server does not have this etag.
+ *  If set, the request will be rejected if the latest version of the
+ *  workstation cluster on the server does not have this etag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set, any workstation configurations and workstations in the cluster will
- *  also be deleted. Otherwise, the request will work only if the cluster has no
- *  configurations or workstations.
+ *  If set, any workstation configurations and workstations in the workstation
+ *  cluster are also deleted. Otherwise, the request only works if the
+ *  workstation cluster has no configurations or workstations.
  */
 @property(nonatomic, assign) BOOL force;
 
-/** Required. Name of the cluster to delete. */
+/** Required. Name of the workstation cluster to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  If set, validate the request and preview the review, but do not apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -268,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the specified workstation cluster.
  *
- *  @param name Required. Name of the cluster to delete.
+ *  @param name Required. Name of the workstation cluster to delete.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersDelete
  */
@@ -349,8 +348,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersPatch : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, and the cluster is not found, a new cluster will be created. In this
- *  situation, update_mask is ignored.
+ *  If set, and the workstation cluster is not found, a new workstation cluster
+ *  will be created. In this situation, update_mask is ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
@@ -358,7 +357,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask specifying which fields in the cluster should be updated.
+ *  Required. Mask that specifies which fields in the workstation cluster should
+ *  be updated.
  *
  *  String format is a comma-separated list of fields.
  */

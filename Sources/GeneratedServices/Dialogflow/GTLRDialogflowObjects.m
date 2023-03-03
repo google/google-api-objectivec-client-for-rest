@@ -586,7 +586,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings
-@dynamic loggingSettings;
+@dynamic audioExportGcsDestination, loggingSettings;
 @end
 
 
@@ -609,7 +609,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @dynamic advancedSettings, avatarUri, defaultLanguageCode, descriptionProperty,
          displayName, enableSpellCorrection, enableStackdriverLogging, locked,
          name, securitySettings, speechToTextSettings, startFlow,
-         supportedLanguageCodes, timeZone;
+         supportedLanguageCodes, textToSpeechSettings, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2801,6 +2801,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata
 //
 
@@ -3481,7 +3491,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest
-@dynamic queryInput, queryParams;
+@dynamic persistParameterChanges, queryInput, queryParams;
 @end
 
 
@@ -4249,6 +4259,30 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TextInput
 @dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings
+@dynamic synthesizeSpeechConfigs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings_SynthesizeSpeechConfigs
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings_SynthesizeSpeechConfigs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig class];
+}
+
 @end
 
 

@@ -486,6 +486,191 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a MembershipBinding.
+ *
+ *  Method: gkehub.projects.locations.memberships.bindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsCreate : GTLRGKEHubQuery
+
+/** Required. The ID to use for the MembershipBinding. */
+@property(nonatomic, copy, nullable) NSString *membershipBindingId;
+
+/**
+ *  Required. The parent (project and location) where the MembershipBinding will
+ *  be created. Specified in the format `projects/ * /locations/ * /memberships/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Creates a MembershipBinding.
+ *
+ *  @param object The @c GTLRGKEHub_MembershipBinding to include in the query.
+ *  @param parent Required. The parent (project and location) where the
+ *    MembershipBinding will be created. Specified in the format `projects/ *
+ *    /locations/ * /memberships/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a MembershipBinding.
+ *
+ *  Method: gkehub.projects.locations.memberships.bindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsDelete : GTLRGKEHubQuery
+
+/**
+ *  Required. The MembershipBinding resource name in the format `projects/ *
+ *  /locations/ * /memberships/ * /bindings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Deletes a MembershipBinding.
+ *
+ *  @param name Required. The MembershipBinding resource name in the format
+ *    `projects/ * /locations/ * /memberships/ * /bindings/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the details of a MembershipBinding.
+ *
+ *  Method: gkehub.projects.locations.memberships.bindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsGet : GTLRGKEHubQuery
+
+/**
+ *  Required. The MembershipBinding resource name in the format `projects/ *
+ *  /locations/ * /memberships/ * /bindings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_MembershipBinding.
+ *
+ *  Returns the details of a MembershipBinding.
+ *
+ *  @param name Required. The MembershipBinding resource name in the format
+ *    `projects/ * /locations/ * /memberships/ * /bindings/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists MembershipBindings.
+ *
+ *  Method: gkehub.projects.locations.memberships.bindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList : GTLRGKEHubQuery
+
+/**
+ *  Optional. When requesting a 'page' of resources, `page_size` specifies
+ *  number of resources to return. If unspecified or set to 0, all resources
+ *  will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to `ListMembershipBindings` which
+ *  specifies the position in the list from where to continue listing the
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent Membership for which the MembershipBindings will be
+ *  listed. Specified in the format `projects/ * /locations/ * /memberships/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListMembershipBindingsResponse.
+ *
+ *  Lists MembershipBindings.
+ *
+ *  @param parent Required. The parent Membership for which the
+ *    MembershipBindings will be listed. Specified in the format `projects/ *
+ *    /locations/ * /memberships/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a MembershipBinding.
+ *
+ *  Method: gkehub.projects.locations.memberships.bindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsPatch : GTLRGKEHubQuery
+
+/**
+ *  The resource name for the membershipbinding itself
+ *  `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Updates a MembershipBinding.
+ *
+ *  @param object The @c GTLRGKEHub_MembershipBinding to include in the query.
+ *  @param name The resource name for the membershipbinding itself
+ *    `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}`
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipBinding *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Membership. **This is currently only supported for GKE
  *  clusters on Google Cloud**. To register other clusters, follow the
  *  instructions at
@@ -559,6 +744,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsDelete : GTLRGKEHubQuery
+
+/**
+ *  Optional. If set to true, any subresource from this Membership will also be
+ *  deleted. Otherwise, the request will only work if the Membership has no
+ *  subresource.
+ */
+@property(nonatomic, assign) BOOL force;
 
 /**
  *  Required. The Membership resource name in the format `projects/ *
@@ -1122,6 +1314,148 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Scope.
+ *
+ *  Method: gkehub.projects.locations.scopes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesCreate : GTLRGKEHubQuery
+
+/**
+ *  Required. The parent (project and location) where the Scope will be created.
+ *  Specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
+@property(nonatomic, copy, nullable) NSString *scopeId;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Creates a Scope.
+ *
+ *  @param object The @c GTLRGKEHub_Scope to include in the query.
+ *  @param parent Required. The parent (project and location) where the Scope
+ *    will be created. Specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Scope.
+ *
+ *  Method: gkehub.projects.locations.scopes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesDelete : GTLRGKEHubQuery
+
+/**
+ *  Required. The Scope resource name in the format `projects/ * /locations/ *
+ *  /scopes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Deletes a Scope.
+ *
+ *  @param name Required. The Scope resource name in the format `projects/ *
+ *    /locations/ * /scopes/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the details of a Scope.
+ *
+ *  Method: gkehub.projects.locations.scopes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesGet : GTLRGKEHubQuery
+
+/**
+ *  Required. The Scope resource name in the format `projects/ * /locations/ *
+ *  /scopes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Scope.
+ *
+ *  Returns the details of a Scope.
+ *
+ *  @param name Required. The Scope resource name in the format `projects/ *
+ *    /locations/ * /scopes/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Scopes.
+ *
+ *  Method: gkehub.projects.locations.scopes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesList : GTLRGKEHubQuery
+
+/**
+ *  Optional. When requesting a 'page' of resources, `page_size` specifies
+ *  number of resources to return. If unspecified or set to 0, all resources
+ *  will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to `ListScopes` which specifies
+ *  the position in the list from where to continue listing the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent (project and location) where the Scope will be listed.
+ *  Specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListScopesResponse.
+ *
+ *  Lists Scopes.
+ *
+ *  @param parent Required. The parent (project and location) where the Scope
+ *    will be listed. Specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -72,6 +72,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.media.download
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
  */
@@ -126,6 +127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
  */
@@ -179,6 +181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
  */
@@ -244,6 +247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  */
@@ -297,6 +301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  */
@@ -361,6 +366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.attachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet : GTLRHangoutsChatQuery
 
@@ -410,6 +418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesCreate
  */
@@ -514,6 +523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesDelete : GTLRHangoutsChatQuery
@@ -570,6 +580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
  */
@@ -636,6 +647,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesPatch : GTLRHangoutsChatQuery
@@ -709,6 +721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery

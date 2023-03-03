@@ -124,6 +124,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions;
 /**
+ *  Assured Workloads for Israel Regions
+ *
+ *  Value: "ISR_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport;
+/**
  *  International Traffic in Arms Regulations
  *
  *  Value: "ITAR"
@@ -317,6 +323,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "ISR_REGIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions;
+/**
+ *  Assured Workloads for Israel Regions
+ *
+ *  Value: "ISR_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport;
 /**
  *  International Traffic in Arms Regulations
  *
@@ -577,6 +589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions
  *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport
+ *        Assured Workloads for Israel Regions (Value:
+ *        "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
@@ -951,6 +966,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions
  *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport
+ *        Assured Workloads for Israel Regions (Value:
+ *        "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess

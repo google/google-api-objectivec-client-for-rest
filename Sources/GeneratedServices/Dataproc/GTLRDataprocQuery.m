@@ -292,7 +292,7 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsLocationsBatchesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

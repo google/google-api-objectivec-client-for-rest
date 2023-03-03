@@ -29,7 +29,6 @@
 @class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
 @class GTLRServiceControl_CheckResponse_Headers;
-@class GTLRServiceControl_EsfMigrationServerOverride;
 @class GTLRServiceControl_FirstPartyPrincipal;
 @class GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata;
 @class GTLRServiceControl_OrgPolicyViolationInfo;
@@ -71,29 +70,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRServiceControl_EsfMigrationServerOverride.overrideMode
-
-/**
- *  ESF should send 95% v1 request and 5% dry run request.
- *
- *  Value: "DRY_RUN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_DryRun;
-/**
- *  Default, ESF should use the mode that is determined by the configuration.
- *
- *  Value: "ESF_MIGRATION_OVERRIDE_MODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_EsfMigrationOverrideModeUnspecified;
-/**
- *  Same as ESF_MIGRATION_OVERRIDE_MODE_UNSPECIFIED, remove the override mode.
- *  This is used for safe unpush.
- *
- *  Value: "NO_OVERRIDE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_NoOverride;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_V2LogEntry.severity
@@ -677,12 +653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
  */
 @interface GTLRServiceControl_CheckResponse : GTLRObject
 
-/**
- *  Esf migration server override during check v2 migration. This is temporary
- *  and Chemist internal only.
- */
-@property(nonatomic, strong, nullable) GTLRServiceControl_EsfMigrationServerOverride *esfMigrationServerOverride;
-
 /** Returns a set of request contexts generated from the `CheckRequest`. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_Headers *headers;
 
@@ -705,30 +675,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
  *        fetch them all at once.
  */
 @interface GTLRServiceControl_CheckResponse_Headers : GTLRObject
-@end
-
-
-/**
- *  Esf migration server override during chemist check v2 migration
- */
-@interface GTLRServiceControl_EsfMigrationServerOverride : GTLRObject
-
-/**
- *  Esf migration override mode
- *
- *  Likely values:
- *    @arg @c kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_DryRun
- *        ESF should send 95% v1 request and 5% dry run request. (Value:
- *        "DRY_RUN")
- *    @arg @c kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_EsfMigrationOverrideModeUnspecified
- *        Default, ESF should use the mode that is determined by the
- *        configuration. (Value: "ESF_MIGRATION_OVERRIDE_MODE_UNSPECIFIED")
- *    @arg @c kGTLRServiceControl_EsfMigrationServerOverride_OverrideMode_NoOverride
- *        Same as ESF_MIGRATION_OVERRIDE_MODE_UNSPECIFIED, remove the override
- *        mode. This is used for safe unpush. (Value: "NO_OVERRIDE")
- */
-@property(nonatomic, copy, nullable) NSString *overrideMode;
-
 @end
 
 

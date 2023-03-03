@@ -292,7 +292,22 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 @implementation GTLRServiceConsumerManagement_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, overridesByRequestProtocol, pathTranslation,
+         protocol, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_BackendRule_OverridesByRequestProtocol
+//
+
+@implementation GTLRServiceConsumerManagement_BackendRule_OverridesByRequestProtocol
+
++ (Class)classForAdditionalProperties {
+  return [GTLRServiceConsumerManagement_BackendRule class];
+}
+
 @end
 
 
@@ -1145,7 +1160,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 @implementation GTLRServiceConsumerManagement_Publishing
 @dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
          githubLabel, librarySettings, methodSettings, newIssueUri,
-         organization;
+         organization, protoReferenceDocumentationUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

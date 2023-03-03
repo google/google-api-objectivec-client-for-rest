@@ -17,6 +17,8 @@
 
 @class GTLRDataprocMetastore_AuditConfig;
 @class GTLRDataprocMetastore_AuditLogConfig;
+@class GTLRDataprocMetastore_AuxiliaryVersionConfig;
+@class GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_BackendMetastore;
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
@@ -28,6 +30,7 @@
 @class GTLRDataprocMetastore_Federation_BackendMetastores;
 @class GTLRDataprocMetastore_Federation_Labels;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
+@class GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
@@ -44,6 +47,7 @@
 @class GTLRDataprocMetastore_Operation_Response;
 @class GTLRDataprocMetastore_Policy;
 @class GTLRDataprocMetastore_Restore;
+@class GTLRDataprocMetastore_ScalingConfig;
 @class GTLRDataprocMetastore_Secret;
 @class GTLRDataprocMetastore_Service;
 @class GTLRDataprocMetastore_Service_Labels;
@@ -468,6 +472,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_ScalingConfig.instanceSize
+
+/**
+ *  Extra large instance size, maps to a scaling factor of 6.0.
+ *
+ *  Value: "EXTRA_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraLarge;
+/**
+ *  Extra small instance size, maps to a scaling factor of 0.1.
+ *
+ *  Value: "EXTRA_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraSmall;
+/**
+ *  Unspecified instance size
+ *
+ *  Value: "INSTANCE_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_InstanceSizeUnspecified;
+/**
+ *  Large instance size, maps to a scaling factor of 3.0.
+ *
+ *  Value: "LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Large;
+/**
+ *  Medium instance size, maps to a scaling factor of 1.0.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Medium;
+/**
+ *  Small instance size, maps to a scaling factor of 0.5.
+ *
+ *  Value: "SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Small;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Service.databaseType
 
 /**
@@ -678,6 +722,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  */
 @property(nonatomic, copy, nullable) NSString *logType;
 
+@end
+
+
+/**
+ *  Configuration information for the auxiliary service versions.
+ */
+@interface GTLRDataprocMetastore_AuxiliaryVersionConfig : GTLRObject
+
+/**
+ *  A mapping of Hive metastore configuration key-value pairs to apply to the
+ *  auxiliary Hive metastore (configured in hive-site.xml) in addition to the
+ *  primary version's overrides. If keys are present in both the auxiliary
+ *  version's overrides and the primary version's overrides, the value from the
+ *  auxiliary version's overrides takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides *configOverrides;
+
+/**
+ *  Output only. The network configuration contains the endpoint URI(s) of the
+ *  auxiliary Hive metastore service.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_NetworkConfig *networkConfig;
+
+/**
+ *  The Hive metastore version of the auxiliary service. It must be less than
+ *  the primary Hive metastore service's version.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  A mapping of Hive metastore configuration key-value pairs to apply to the
+ *  auxiliary Hive metastore (configured in hive-site.xml) in addition to the
+ *  primary version's overrides. If keys are present in both the auxiliary
+ *  version's overrides and the primary version's overrides, the value from the
+ *  auxiliary version's overrides takes precedence.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides : GTLRObject
 @end
 
 
@@ -1123,6 +1212,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @interface GTLRDataprocMetastore_HiveMetastoreConfig : GTLRObject
 
 /**
+ *  A mapping of Hive metastore version to the auxiliary version configuration.
+ *  When specified, a secondary Hive metastore service is created along with the
+ *  primary service. All auxiliary versions must be less than the service's
+ *  primary version. The key is the auxiliary service name and it must match the
+ *  regular expression a-z?. This means that the first character must be a
+ *  lowercase letter, and all the following characters must be hyphens,
+ *  lowercase letters, or digits, except the last character, which cannot be a
+ *  hyphen.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions *auxiliaryVersions;
+
+/**
  *  A mapping of Hive metastore configuration key-value pairs to apply to the
  *  Hive metastore (configured in hive-site.xml). The mappings override system
  *  defaults (some keys cannot be overridden). These overrides are also applied
@@ -1143,6 +1244,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 /** Immutable. The Hive metastore schema version. */
 @property(nonatomic, copy, nullable) NSString *version;
 
+@end
+
+
+/**
+ *  A mapping of Hive metastore version to the auxiliary version configuration.
+ *  When specified, a secondary Hive metastore service is created along with the
+ *  primary service. All auxiliary versions must be less than the service's
+ *  primary version. The key is the auxiliary service name and it must match the
+ *  regular expression a-z?. This means that the first character must be a
+ *  lowercase letter, and all the following characters must be hyphens,
+ *  lowercase letters, or digits, except the last character, which cannot be a
+ *  hyphen.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_AuxiliaryVersionConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions : GTLRObject
 @end
 
 
@@ -1927,6 +2048,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Represents the scaling configuration of a metastore service.
+ */
+@interface GTLRDataprocMetastore_ScalingConfig : GTLRObject
+
+/**
+ *  An enum of readable instance sizes, with each instance size mapping to a
+ *  float value (e.g. InstanceSize.EXTRA_SMALL = scaling_factor(0.1))
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraLarge Extra
+ *        large instance size, maps to a scaling factor of 6.0. (Value:
+ *        "EXTRA_LARGE")
+ *    @arg @c kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraSmall Extra
+ *        small instance size, maps to a scaling factor of 0.1. (Value:
+ *        "EXTRA_SMALL")
+ *    @arg @c kGTLRDataprocMetastore_ScalingConfig_InstanceSize_InstanceSizeUnspecified
+ *        Unspecified instance size (Value: "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Large Large
+ *        instance size, maps to a scaling factor of 3.0. (Value: "LARGE")
+ *    @arg @c kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Medium Medium
+ *        instance size, maps to a scaling factor of 1.0. (Value: "MEDIUM")
+ *    @arg @c kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Small Small
+ *        instance size, maps to a scaling factor of 0.5. (Value: "SMALL")
+ */
+@property(nonatomic, copy, nullable) NSString *instanceSize;
+
+/**
+ *  Scaling factor, increments of 0.1 for values less than 1.0, and increments
+ *  of 1.0 for values greater than 1.0.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scalingFactor;
+
+@end
+
+
+/**
  *  A securely stored value.
  */
 @interface GTLRDataprocMetastore_Secret : GTLRObject
@@ -2046,6 +2205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *        been validated for production use. (Value: "STABLE")
  */
 @property(nonatomic, copy, nullable) NSString *releaseChannel;
+
+/** Scaling configuration of the metastore service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ScalingConfig *scalingConfig;
 
 /**
  *  Output only. The current state of the metastore service.

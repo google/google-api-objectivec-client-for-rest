@@ -839,6 +839,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 @interface GTLRAnalyticsHub_RestrictedExportConfig : GTLRObject
 
 /**
+ *  If true, enable restricted export.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
  *  If true, restrict direct table access(read api/tabledata.list) on linked
  *  table.
  *

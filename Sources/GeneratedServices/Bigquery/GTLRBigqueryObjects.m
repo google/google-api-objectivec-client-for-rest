@@ -821,9 +821,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @implementation GTLRBigquery_Dataset
 @dynamic access, creationTime, datasetReference, defaultCollation,
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
-         defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
-         identifier, isCaseInsensitive, kind, labels, lastModifiedTime,
-         location, maxTimeTravelHours, satisfiesPzs, selfLink,
+         defaultRoundingMode, defaultTableExpirationMs, descriptionProperty,
+         ETag, friendlyName, identifier, isCaseInsensitive, kind, labels,
+         lastModifiedTime, location, maxTimeTravelHours, satisfiesPzs, selfLink,
          storageBillingModel, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -2713,15 +2713,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_Table
 @dynamic cloneDefinition, clustering, creationTime, defaultCollation,
-         descriptionProperty, encryptionConfiguration, ETag, expirationTime,
-         externalDataConfiguration, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, materializedView, maxStaleness, model,
-         numActiveLogicalBytes, numActivePhysicalBytes, numLongTermLogicalBytes,
-         numLongTermPhysicalBytes, numPartitions, numTimeTravelPhysicalBytes,
-         numTotalLogicalBytes, numTotalPhysicalBytes, numBytes,
-         numLongTermBytes, numPhysicalBytes, numRows, rangePartitioning,
-         requirePartitionFilter, schema, selfLink, snapshotDefinition,
-         streamingBuffer, tableReference, timePartitioning, type, view;
+         defaultRoundingMode, descriptionProperty, encryptionConfiguration,
+         ETag, expirationTime, externalDataConfiguration, friendlyName,
+         identifier, kind, labels, lastModifiedTime, location, materializedView,
+         maxStaleness, model, numActiveLogicalBytes, numActivePhysicalBytes,
+         numLongTermLogicalBytes, numLongTermPhysicalBytes, numPartitions,
+         numTimeTravelPhysicalBytes, numTotalLogicalBytes,
+         numTotalPhysicalBytes, numBytes, numLongTermBytes, numPhysicalBytes,
+         numRows, rangePartitioning, requirePartitionFilter, schema, selfLink,
+         snapshotDefinition, streamingBuffer, tableReference, timePartitioning,
+         type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2860,7 +2861,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_TableFieldSchema
 @dynamic categories, collation, defaultValueExpression, descriptionProperty,
-         fields, maxLength, mode, name, policyTags, precision, scale, type;
+         fields, maxLength, mode, name, policyTags, precision, roundingMode,
+         scale, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -768,7 +768,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Customer
 @dynamic alternateEmail, channelPartnerId, cloudIdentityId, cloudIdentityInfo,
-         createTime, domain, languageCode, name, orgDisplayName,
+         correlationId, createTime, domain, languageCode, name, orgDisplayName,
          orgPostalAddress, primaryContactInfo, updateTime;
 @end
 

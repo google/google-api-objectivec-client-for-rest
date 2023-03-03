@@ -50,6 +50,7 @@
 @class GTLRCloudHealthcare_FhirFilter;
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_FhirStore_Labels;
+@class GTLRCloudHealthcare_FhirStoreMetric;
 @class GTLRCloudHealthcare_Field;
 @class GTLRCloudHealthcare_FieldMetadata;
 @class GTLRCloudHealthcare_GcsDestination;
@@ -111,6 +112,7 @@
 @class GTLRCloudHealthcare_TagFilterList;
 @class GTLRCloudHealthcare_TextConfig;
 @class GTLRCloudHealthcare_TextSpan;
+@class GTLRCloudHealthcare_TimePartitioning;
 @class GTLRCloudHealthcare_Type;
 @class GTLRCloudHealthcare_UserDataMapping;
 @class GTLRCloudHealthcare_ValidationConfig;
@@ -757,6 +759,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_Unexpected
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_UnexpectedSegmentHandlingModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_TimePartitioning.type
+
+/**
+ *  Data partitioned by day.
+ *
+ *  Value: "DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Day;
+/**
+ *  Data partitioned by hour.
+ *
+ *  Value: "HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Hour;
+/**
+ *  Data partitioned by month.
+ *
+ *  Value: "MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Month;
+/**
+ *  Default unknown time.
+ *
+ *  Value: "PARTITION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_PartitionTypeUnspecified;
+/**
+ *  Data partitioned by year.
+ *
+ *  Value: "YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_TimePartitioning_Type_Year;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_Type.primitive
 
 /**
@@ -1049,8 +1085,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -1065,9 +1103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2494,6 +2530,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        fetch them all at once.
  */
 @interface GTLRCloudHealthcare_FhirStore_Labels : GTLRObject
+@end
+
+
+/**
+ *  Count of resources and total storage size by type for a given FHIR store.
+ */
+@interface GTLRCloudHealthcare_FhirStoreMetric : GTLRObject
+
+/**
+ *  The total count of FHIR resources in the store of this resource type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** The FHIR resource type this metric applies to. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  The total amount of structured storage used by FHIR resources of this
+ *  resource type in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *structuredStorageSizeBytes;
+
+@end
+
+
+/**
+ *  List of metrics for a given FHIR store.
+ */
+@interface GTLRCloudHealthcare_FhirStoreMetrics : GTLRObject
+
+/** List of FhirStoreMetric by resource type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FhirStoreMetric *> *metrics;
+
+/**
+ *  The resource name of the FHIR store to get metrics for, in the format
+ *  `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -4453,6 +4532,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_SchemaConfig : GTLRObject
 
 /**
+ *  The configuration for exported BigQuery tables to be partitioned by FHIR
+ *  resource's last updated time column.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_TimePartitioning *lastUpdatedPartitionConfig;
+
+/**
  *  The depth for all recursive structures in the output analytics schema. For
  *  example, `concept` in the CodeSystem resource is a recursive structure; when
  *  the depth is 2, the CodeSystem table will have a column called
@@ -4953,6 +5038,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /** The original text contained in this span. */
 @property(nonatomic, copy, nullable) NSString *content;
+
+@end
+
+
+/**
+ *  Configuration for FHIR BigQuery time-partitioned tables.
+ */
+@interface GTLRCloudHealthcare_TimePartitioning : GTLRObject
+
+/**
+ *  Number of milliseconds for which to keep the storage for a partition.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expirationMs;
+
+/**
+ *  Type of partitioning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_TimePartitioning_Type_Day Data partitioned by
+ *        day. (Value: "DAY")
+ *    @arg @c kGTLRCloudHealthcare_TimePartitioning_Type_Hour Data partitioned
+ *        by hour. (Value: "HOUR")
+ *    @arg @c kGTLRCloudHealthcare_TimePartitioning_Type_Month Data partitioned
+ *        by month. (Value: "MONTH")
+ *    @arg @c kGTLRCloudHealthcare_TimePartitioning_Type_PartitionTypeUnspecified
+ *        Default unknown time. (Value: "PARTITION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_TimePartitioning_Type_Year Data partitioned
+ *        by year. (Value: "YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

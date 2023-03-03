@@ -1606,7 +1606,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig
-@dynamic annotatorSelector, runtimeIntegrationAnalysisPercentage;
+@dynamic annotatorSelector, runtimeIntegrationAnalysisPercentage,
+         uploadConversationAnalysisPercentage;
 @end
 
 

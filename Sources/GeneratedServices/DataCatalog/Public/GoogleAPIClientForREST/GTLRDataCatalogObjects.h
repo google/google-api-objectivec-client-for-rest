@@ -2370,13 +2370,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
- *  Metadata message for long-running operation returned by the ReconcileTags.
+ *  Long-running operation metadata message returned by the ReconcileTags.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata : GTLRObject
 
 /**
- *  Map that maps name of each tagged column (or empty string in case of sole
- *  entry) to tagging operation status.
+ *  Maps the name of each tagged column (or empty string for a sole entry) to
+ *  tagging operation status.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_Errors *errors;
 
@@ -2402,8 +2402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
- *  Map that maps name of each tagged column (or empty string in case of sole
- *  entry) to tagging operation status.
+ *  Maps the name of each tagged column (or empty string for a sole entry) to
+ *  tagging operation status.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDataCatalog_Status. Use @c -additionalJSONKeys and @c
@@ -2420,26 +2420,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest : GTLRObject
 
 /**
- *  If set to true deletes from the entry tags related to given tag template and
- *  not mentioned in the tags source. If set to false only creates and updates
- *  of the tags mentioned in the source will take place. Other tags in that
- *  entry using the same tag template will be retained instead of being deleted.
+ *  If set to `true`, deletes entry tags related to a tag template not listed in
+ *  the tags source from an entry. If set to `false`, unlisted tags are
+ *  retained.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *forceDeleteMissing;
 
 /**
- *  A list of tags to be applied on a given entry. Individual tags may specify
- *  tag template, but it must be the same as the one in the
- *  ReconcileTagsRequest. The sole entry and each of its columns must be
- *  mentioned at most once.
+ *  A list of tags to apply to an entry. A tag can specify a tag template, which
+ *  must be the template specified in the `ReconcileTagsRequest`. The sole entry
+ *  and each of its columns must be mentioned at most once.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *tags;
 
 /**
- *  Required. The name of the tag template, that will be used for
- *  reconciliation.
+ *  Required. The name of the tag template, which is used for reconciliation.
  */
 @property(nonatomic, copy, nullable) NSString *tagTemplate;
 
@@ -2447,7 +2444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
- *  Request message for long-running operation returned by the ReconcileTags.
+ *  Long-running operation response message returned by ReconcileTags.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsResponse : GTLRObject
 
@@ -2665,8 +2662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequestScope : GTLRObject
 
 /**
- *  If `true`, include Google Cloud Platform (GCP) public datasets in search
- *  results. By default, they are excluded. See [Google Cloud Public
+ *  If `true`, include Google Cloud public datasets in search results. By
+ *  default, they are excluded. See [Google Cloud Public
  *  Datasets](/public-datasets) for more information.
  *
  *  Uses NSNumber of boolValue.
@@ -3150,8 +3147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /**
  *  A tag template defines a tag that can have one or more typed fields. The
- *  template is used to create tags that are attached to GCP resources. [Tag
- *  template roles]
+ *  template is used to create tags that are attached to Google Cloud resources.
+ *  [Tag template roles]
  *  (https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles)
  *  provide permissions to create, edit, and use the template. For example, see
  *  the [TagTemplate User]
@@ -3321,8 +3318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /**
  *  Output only. Identity of the service which owns the Taxonomy. This field is
- *  only populated when the taxonomy is created by a GCP service. Currently only
- *  'DATAPLEX' is supported.
+ *  only populated when the taxonomy is created by a Google Cloud service.
+ *  Currently only 'DATAPLEX' is supported.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService *service;
 
@@ -3341,7 +3338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *identity;
 
 /**
- *  The GCP service name.
+ *  The Google Cloud service name.
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemDataplex

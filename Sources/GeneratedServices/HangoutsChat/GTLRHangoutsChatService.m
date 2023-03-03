@@ -14,6 +14,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeHangoutsChatBot                 = @"https://www.googleapis.com/auth/chat.bot";
 NSString * const kGTLRAuthScopeHangoutsChatMemberships         = @"https://www.googleapis.com/auth/chat.memberships";
 NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly = @"https://www.googleapis.com/auth/chat.memberships.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatMessages            = @"https://www.googleapis.com/auth/chat.messages";

@@ -2251,6 +2251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceStatus : GTLRObject
 
+/** Output only. Service account associated with the BigQuery Connection. */
+@property(nonatomic, copy, nullable) NSString *managedAccessIdentity;
+
 /** Additional information about the current state. */
 @property(nonatomic, copy, nullable) NSString *message;
 
@@ -2601,7 +2604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath *> *paths;
 
 /**
- *  Optional. Immutable. The resource name of the resource that is binded to
+ *  Optional. Immutable. The resource name of the resource that is associated to
  *  attributes. Presently, only entity resource is supported in the form:
  *  projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/entities/{entity_id}
  *  Must belong in the same project and region as the attribute binding, and
@@ -4143,7 +4146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentEndpoints
+ *  URI Endpoints to access sessions associated with the Environment.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentEndpoints : GTLRObject
 
@@ -4252,7 +4255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec
+ *  Configuration for sessions created for this environment.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec : GTLRObject
 
@@ -4276,7 +4279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus
+ *  Status of sessions created for this environment.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus : GTLRObject
 
@@ -5403,7 +5406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  state
+ *  Output only. State of Session
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_ActionRequired

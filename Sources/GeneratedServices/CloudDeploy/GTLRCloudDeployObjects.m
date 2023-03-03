@@ -106,6 +106,12 @@ NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotifi
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudDeploy_SkaffoldSupportedCondition.skaffoldSupportState
+NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateMaintenanceMode = @"SKAFFOLD_SUPPORT_STATE_MAINTENANCE_MODE";
+NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateSupported = @"SKAFFOLD_SUPPORT_STATE_SUPPORTED";
+NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnspecified = @"SKAFFOLD_SUPPORT_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnsupported = @"SKAFFOLD_SUPPORT_STATE_UNSUPPORTED";
+
 // GTLRCloudDeploy_TargetNotificationEvent.type
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -838,7 +844,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Release
-@dynamic abandoned, annotations, buildArtifacts, createTime,
+@dynamic abandoned, annotations, buildArtifacts, condition, createTime,
          deliveryPipelineSnapshot, descriptionProperty, ETag, labels, name,
          renderEndTime, renderStartTime, renderState, skaffoldConfigPath,
          skaffoldConfigUri, skaffoldVersion, targetArtifacts, targetRenders,
@@ -921,6 +927,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_ReleaseCondition
+//
+
+@implementation GTLRCloudDeploy_ReleaseCondition
+@dynamic releaseReadyCondition, skaffoldSupportedCondition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_ReleaseNotificationEvent
 //
 
@@ -931,6 +947,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
   return @{ @"releaseProperty" : @"release" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ReleaseReadyCondition
+//
+
+@implementation GTLRCloudDeploy_ReleaseReadyCondition
+@dynamic status;
 @end
 
 
@@ -1065,11 +1091,22 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_SkaffoldSupportedCondition
+//
+
+@implementation GTLRCloudDeploy_SkaffoldSupportedCondition
+@dynamic maintenanceModeTime, skaffoldSupportState, status,
+         supportExpirationTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_SkaffoldVersion
 //
 
 @implementation GTLRCloudDeploy_SkaffoldVersion
-@dynamic supportEndDate, version;
+@dynamic maintenanceModeTime, supportEndDate, supportExpirationTime, version;
 @end
 
 

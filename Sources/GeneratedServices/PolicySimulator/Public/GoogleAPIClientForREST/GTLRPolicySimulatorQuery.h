@@ -40,6 +40,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.folders.locations.orgPolicyViolationsPreviews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_FoldersLocationsOrgPolicyViolationsPreviewsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_FoldersLocationsOrgPolicyViolationsPreviewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates and starts a Replay using the given ReplayConfig.
  *
  *  Method: policysimulator.folders.locations.replays.create
@@ -336,6 +366,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.organizations.locations.orgPolicyViolationsPreviews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates and starts a Replay using the given ReplayConfig.
  *
  *  Method: policysimulator.organizations.locations.replays.create
@@ -543,6 +603,36 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.projects.locations.orgPolicyViolationsPreviews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_ProjectsLocationsOrgPolicyViolationsPreviewsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_ProjectsLocationsOrgPolicyViolationsPreviewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -27,6 +27,8 @@
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1NetworkSetting;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1NetworkSetting_Value;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint;
+@class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationError;
+@class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationFieldError;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDependencies;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDescription;
@@ -215,6 +217,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle
  */
 @interface GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle : GTLRObject
+
+/**
+ *  In the event that this policy was deprecated in favor of another policy, the
+ *  fully qualified namespace(s) of the new policies as they will show in
+ *  PolicyAPI.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deprecatedInFavorOf;
 
 /**
  *  Description about current life cycle.
@@ -662,6 +671,43 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minimum;
+
+@end
+
+
+/**
+ *  Error information for a modification request of a specific policy on a
+ *  specific target.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationError : GTLRObject
+
+/** Output only. The non-field errors related to the modification. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+/** Output only. The error messages related to the modification. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationFieldError *> *fieldErrors;
+
+/** Output only. The specific policy schema modification that had an error. */
+@property(nonatomic, copy, nullable) NSString *policySchema;
+
+/** Output only. The specific policy target modification that had error. */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyTargetKey *policyTargetKey;
+
+@end
+
+
+/**
+ *  Details of the errors encountered during a policy modification request. This
+ *  message will be returned as part of the details of a google.rpc.Status
+ *  returned to the user when there is an error in their request.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationErrorDetails : GTLRObject
+
+/**
+ *  Output only. List of specific policy modifications errors that may have
+ *  occurred during a modifying request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyModificationError *> *modificationErrors;
 
 @end
 

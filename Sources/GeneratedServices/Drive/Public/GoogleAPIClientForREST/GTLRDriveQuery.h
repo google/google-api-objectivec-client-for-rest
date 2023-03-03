@@ -274,7 +274,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Subscribes to changes for a user.
+ *  Subscribes to changes for a user. To use this method, you must include the
+ *  pageToken query parameter.
  *
  *  Method: drive.changes.watch
  *
@@ -393,7 +394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Channel.
  *
- *  Subscribes to changes for a user.
+ *  Subscribes to changes for a user. To use this method, you must include the
+ *  pageToken query parameter.
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param pageToken The token for continuing a previous list request on the
@@ -1746,7 +1748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a permission for a file or shared drive.
+ *  Creates a permission for a file or shared drive. For more information on
+ *  creating permissions, see Share files, folders & drives.
  *
  *  Method: drive.permissions.create
  *
@@ -1828,7 +1831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Permission.
  *
- *  Creates a permission for a file or shared drive.
+ *  Creates a permission for a file or shared drive. For more information on
+ *  creating permissions, see Share files, folders & drives.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
  *  @param fileId The ID of the file or shared drive.

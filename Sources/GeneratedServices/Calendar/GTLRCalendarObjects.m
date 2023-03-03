@@ -383,7 +383,7 @@
          hangoutLink, htmlLink, iCalUID, identifier, kind, location, locked,
          organizer, originalStartTime, privateCopy, recurrence,
          recurringEventId, reminders, sequence, source, start, status, summary,
-         transparency, updated, visibility;
+         transparency, updated, visibility, workingLocationProperties;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -614,6 +614,36 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_EventWorkingLocationProperties
+//
+
+@implementation GTLRCalendar_EventWorkingLocationProperties
+@dynamic customLocation, homeOffice, officeLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_EventWorkingLocationProperties_CustomLocation
+//
+
+@implementation GTLRCalendar_EventWorkingLocationProperties_CustomLocation
+@dynamic label;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_EventWorkingLocationProperties_OfficeLocation
+//
+
+@implementation GTLRCalendar_EventWorkingLocationProperties_OfficeLocation
+@dynamic buildingId, deskId, floorId, floorSectionId, label;
 @end
 
 

@@ -1162,6 +1162,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new SAS deployment through the GCP workflow. Creates a SAS
+ *  organization if an organization match is not found.
+ *
+ *  Method: sasportal.customers.provisionDeployment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortal
+ */
+@interface GTLRSASPortalQuery_CustomersProvisionDeployment : GTLRSASPortalQuery
+
+/**
+ *  Fetches a @c GTLRSASPortal_ProvisionDeploymentResponse.
+ *
+ *  Creates a new SAS deployment through the GCP workflow. Creates a SAS
+ *  organization if an organization match is not found.
+ *
+ *  @param object The @c GTLRSASPortal_ProvisionDeploymentRequest to include in
+ *    the query.
+ *
+ *  @return GTLRSASPortalQuery_CustomersProvisionDeployment
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_ProvisionDeploymentRequest *)object;
+
+@end
+
+/**
  *  Deletes a device.
  *
  *  Method: sasportal.deployments.devices.delete

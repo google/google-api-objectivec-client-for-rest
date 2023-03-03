@@ -220,6 +220,29 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.repositories.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -372,6 +395,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataform_ReleaseConfig class];
   query.loggingName = @"dataform.projects.locations.repositories.releaseConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.repositories.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_TestIamPermissionsResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.testIamPermissions";
   return query;
 }
 
@@ -767,6 +844,29 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.repositories.workspaces.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesInstallNpmPackages
 
 @dynamic workspace;
@@ -1062,6 +1162,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataform_Empty class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.reset";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.repositories.workspaces.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_TestIamPermissionsResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.workspaces.testIamPermissions";
   return query;
 }
 
