@@ -20,39 +20,55 @@ on:
     - cron:  '12 6 1,15 * *'
 
 jobs:
-  pod-lib-lint:
+  # Test with --no-subspecs because there are so many it takes a really long
+  # time, so this covers the Core spec and tests.
+  pod-lib-lint-core:
+    name: CocoaPods lib lint Core
     runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
-        # Add back watchOS. See CocoaPods/CocoaPods#11558
-        PLATFORM: ["ios", "macos", "tvos"]
-        CONFIGURATION: ["Debug", "Release"]
+        pod_configuration: ["Debug", "Release"]
+        extra_flags: ["", "--use-static-frameworks"]
     steps:
     - uses: actions/checkout@v3
-    # Manually expanding out static frameworks to avoid making to many jobs.
-    - name: Pod lib lint
+    # Need cocoapods 1.12+ for watchOS to work again.
+    - name: Update Cocoapods
+      run: gem update cocoapods
+    - name: "iOS, macOS, and tvOS"
+      run:  |
+        pod lib lint --verbose ${{ matrix.extra_flags }} \
+          --configuration=${{ matrix.pod_configuration }} \
+          --platforms=ios,macos,tvos \
+          --no-subspecs \
+          --test-specs=Tests \
+          GoogleAPIClientForREST.podspec
+    # No test specs, that still fails on CI.
+    - name: "watchOS"
+      run:  |
+        pod lib lint --verbose ${{ matrix.extra_flags }} \
+          --configuration=${{ matrix.pod_configuration }} \
+          --platforms=watchos \
+          --no-subspecs \
+          --skip-tests \
+          GoogleAPIClientForREST.podspec
+  # Repeat the validation just for macOS but allow all the subspecs to be
+  # validated also. Uses --skip-tests since they were done in Core. This is the
+  # longest validation be far, and adding other platforms would just use more
+  # resources without any real gain.
+  pod-lib-lint-subspecs:
+    name: CocoaPods lib lint SubSpecs
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        pod_configuration: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: "macOS"
       run:  |
         pod lib lint --verbose \
-          --fail-fast \
-          --configuration=${{ matrix.CONFIGURATION }} \
-          --platforms=${{ matrix.PLATFORM }} \
-          GoogleAPIClientForREST.podspec
-  pod-lib-lint_StaticFrameworks:
-    needs: pod-lib-lint
-    runs-on: macos-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        # Add back watchOS. See CocoaPods/CocoaPods#11558
-        PLATFORM: ["ios", "macos", "tvos"]
-        CONFIGURATION: ["Debug", "Release"]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Pod lib lint - Use Static Frameworks
-      run:  |
-        pod lib lint --verbose --use-static-frameworks \
-          --fail-fast \
-          --configuration=${{ matrix.CONFIGURATION }} \
-          --platforms=${{ matrix.PLATFORM }} \
+          --configuration=${{ matrix.pod_configuration }} \
+          --platforms=macos \
+          --skip-tests \
           GoogleAPIClientForREST.podspec
