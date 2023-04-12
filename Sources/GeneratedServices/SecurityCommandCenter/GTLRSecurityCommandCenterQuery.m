@@ -451,6 +451,174 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.customModules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.customModules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.customModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.customModules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesListDescendant
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules:listDescendant";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesListDescendant *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.customModules.listDescendant";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.customModules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/effectiveCustomModules";
+  GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch
 
 @dynamic name, updateMask;
@@ -1203,6 +1371,174 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_ListOperationsResponse class];
   query.loggingName = @"securitycenter.organizations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.customModules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.customModules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.customModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.customModules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesListDescendant
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules:listDescendant";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesListDescendant *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.customModules.listDescendant";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.customModules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/effectiveCustomModules";
+  GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.list";
   return query;
 }
 
@@ -2046,6 +2382,174 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
   query.loggingName = @"securitycenter.projects.notificationConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.customModules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.customModules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.customModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.customModules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesListDescendant
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules:listDescendant";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesListDescendant *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.customModules.listDescendant";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.customModules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/effectiveCustomModules";
+  GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse class];
+  query.loggingName = @"securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.list";
   return query;
 }
 

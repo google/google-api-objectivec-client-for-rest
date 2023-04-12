@@ -541,7 +541,7 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 @implementation GTLRAlertCenter_GmailMessageInfo
 @dynamic attachmentsSha256Hash, date, md5HashMessageBody, md5HashSubject,
-         messageBodySnippet, messageId, recipient, subjectText;
+         messageBodySnippet, messageId, recipient, sentTime, subjectText;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

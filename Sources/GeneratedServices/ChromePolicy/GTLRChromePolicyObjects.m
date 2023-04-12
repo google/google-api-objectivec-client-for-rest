@@ -275,7 +275,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1ListGroupPriorityOrderingRequest
-@dynamic policyNamespace, policyTargetKey;
+@dynamic policyNamespace, policySchema, policyTargetKey;
 @end
 
 
@@ -285,7 +285,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1ListGroupPriorityOrderingResponse
-@dynamic groupIds, policyNamespace, policyTargetKey;
+@dynamic groupIds, policyNamespace, policySchema, policyTargetKey;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -428,8 +428,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema
 @dynamic accessRestrictions, additionalTargetKeyNames, categoryTitle,
          definition, fieldDescriptions, name, notices, policyApiLifecycle,
-         policyApiLifeycle, policyDescription, schemaName, supportUri,
-         validTargetResources;
+         policyDescription, schemaName, supportUri, validTargetResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -678,7 +677,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1UpdateGroupPriorityOrderingRequest
-@dynamic groupIds, policyNamespace, policyTargetKey;
+@dynamic groupIds, policyNamespace, policySchema, policyTargetKey;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -36,6 +36,7 @@
 @class GTLRVMMigrationService_ComputeEngineTargetDetails_Labels;
 @class GTLRVMMigrationService_ComputeEngineTargetDetails_Metadata;
 @class GTLRVMMigrationService_ComputeScheduling;
+@class GTLRVMMigrationService_CutoverForecast;
 @class GTLRVMMigrationService_CutoverJob;
 @class GTLRVMMigrationService_CutoverStep;
 @class GTLRVMMigrationService_CycleStep;
@@ -976,6 +977,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** Input only. AWS secret access key. */
 @property(nonatomic, copy, nullable) NSString *secretAccessKey;
 
+/**
+ *  Input only. AWS session token. Used only when AWS security token service
+ *  (STS) is responsible for creating the temporary credentials.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionToken;
+
 @end
 
 
@@ -1787,6 +1794,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  CutoverForecast holds information about future CutoverJobs of a MigratingVm.
+ */
+@interface GTLRVMMigrationService_CutoverForecast : GTLRObject
+
+/** Output only. Estimation of the CutoverJob duration. */
+@property(nonatomic, strong, nullable) GTLRDuration *estimatedCutoverJobDuration;
+
+@end
+
+
+/**
  *  CutoverJob message describes a cutover of a migrating VM. The CutoverJob is
  *  the operation of shutting down the VM, creating a snapshot and clonning the
  *  VM using the replicated snapshot.
@@ -2537,6 +2555,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** Output only. Details of the current running replication cycle. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ReplicationCycle *currentSyncInfo;
+
+/**
+ *  Output only. Provides details of future CutoverJobs of a MigratingVm. Set to
+ *  empty when cutover forecast is unavailable.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_CutoverForecast *cutoverForecast;
 
 /**
  *  The description attached to the migrating VM by the user.

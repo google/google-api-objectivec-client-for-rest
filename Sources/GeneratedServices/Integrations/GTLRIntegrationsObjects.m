@@ -478,6 +478,7 @@ NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutio
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Product_UnspecifiedProduct = @"UNSPECIFIED_PRODUCT";
 
 // GTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo.status
+NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Canceled = @"CANCELED";
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Lifted = @"LIFTED";
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_PendingUnspecified = @"PENDING_UNSPECIFIED";
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Rejected = @"REJECTED";
@@ -519,6 +520,7 @@ NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Catego
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_FlowControl = @"FLOW_CONTROL";
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_Hidden = @"HIDDEN";
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_Scripting = @"SCRIPTING";
+NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_TaskRecommendations = @"TASK_RECOMMENDATIONS";
 NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_UnspecifiedCategory = @"UNSPECIFIED_CATEGORY";
 
 // GTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata.defaultJsonValidationOption
@@ -705,6 +707,11 @@ NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoParamSpecE
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoParamSpecEntry_DataType_StringArray = @"STRING_ARRAY";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoParamSpecEntry_DataType_StringValue = @"STRING_VALUE";
 
+// GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig.externalTaskType
+NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_ErrorTask = @"ERROR_TASK";
+NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_ExternalTaskTypeUnspecified = @"EXTERNAL_TASK_TYPE_UNSPECIFIED";
+NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_NormalTask = @"NORMAL_TASK";
+
 // GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig.jsonValidationOption
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_JsonValidationOption_PostExecution = @"POST_EXECUTION";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_JsonValidationOption_PreExecution = @"PRE_EXECUTION";
@@ -830,12 +837,31 @@ NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1AuthConfig_AuthType_Us
 
 // GTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus.state
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Active = @"ACTIVE";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_AuthorizationRequired = @"AUTHORIZATION_REQUIRED";
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Creating = @"CREATING";
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Error = @"ERROR";
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Inactive = @"INACTIVE";
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Updating = @"UPDATING";
+
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.clientCertType
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ClientCertType_CertTypeUnspecified = @"CERT_TYPE_UNSPECIFIED";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ClientCertType_Pem = @"PEM";
+
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.serverCertType
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ServerCertType_CertTypeUnspecified = @"CERT_TYPE_UNSPECIFIED";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ServerCertType_Pem = @"PEM";
+
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.trustModel
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Insecure = @"INSECURE";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Private = @"PRIVATE";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Public = @"PUBLIC";
+
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.type
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_Mtls = @"MTLS";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_SslTypeUnspecified = @"SSL_TYPE_UNSPECIFIED";
+NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_Tls = @"TLS";
 
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaAuthConfig.credentialType
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaAuthConfig_CredentialType_ApiKey = @"API_KEY";
@@ -1040,6 +1066,11 @@ NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaSuspension_Stat
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaSuspension_State_Pending = @"PENDING";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaSuspension_State_Rejected = @"REJECTED";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaSuspension_State_ResolutionStateUnspecified = @"RESOLUTION_STATE_UNSPECIFIED";
+
+// GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig.externalTaskType
+NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_ErrorTask = @"ERROR_TASK";
+NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_ExternalTaskTypeUnspecified = @"EXTERNAL_TASK_TYPE_UNSPECIFIED";
+NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_NormalTask = @"NORMAL_TASK";
 
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig.jsonValidationOption
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_JsonValidationOption_JsonValidationOptionUnspecified = @"JSON_VALIDATION_OPTION_UNSPECIFIED";
@@ -1259,6 +1290,16 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_EnterpriseCrmEventbusProtoBuganizerNotification
 @dynamic assigneeEmailAddress, componentId, templateId, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIntegrations_EnterpriseCrmEventbusProtoCloudKmsConfig
+//
+
+@implementation GTLRIntegrations_EnterpriseCrmEventbusProtoCloudKmsConfig
+@dynamic gcpProjectId, keyName, keyRingName, keyVersionName, locationName;
 @end
 
 
@@ -2109,9 +2150,10 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo
-@dynamic audit, createdTimestamp, eventExecutionInfoId, externalTraffic,
-         lastModifiedTimestamp, product, status, suspensionConfig, suspensionId,
-         taskNumber, workflowName;
+@dynamic audit, clientId, cloudKmsConfig, createdTimestamp,
+         encryptedSuspensionResolutionInfo, eventExecutionInfoId,
+         externalTraffic, lastModifiedTimestamp, product, status,
+         suspensionConfig, suspensionId, taskNumber, workflowName, wrappedDek;
 @end
 
 
@@ -2689,12 +2731,13 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig
 @dynamic alertConfigs, createTime, creatorEmail, descriptionProperty,
-         disableStrictTypeValidation, failurePolicy, incomingEdgeCount,
-         jsonValidationOption, label, lastModifiedTime, nextTasks,
-         nextTasksExecutionPolicy, parameters, position, precondition,
-         preconditionLabel, rollbackStrategy, successPolicy,
-         synchronousCallFailurePolicy, taskEntity, taskExecutionStrategy,
-         taskName, taskNumber, taskSpec, taskTemplateName, taskType;
+         disableStrictTypeValidation, errorCatcherId, externalTaskType,
+         failurePolicy, incomingEdgeCount, jsonValidationOption, label,
+         lastModifiedTime, nextTasks, nextTasksExecutionPolicy, parameters,
+         position, precondition, preconditionLabel, rollbackStrategy,
+         successPolicy, synchronousCallFailurePolicy, taskEntity,
+         taskExecutionStrategy, taskName, taskNumber, taskSpec,
+         taskTemplateName, taskType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2742,9 +2785,9 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig
 @dynamic alertConfig, cloudSchedulerConfig, descriptionProperty, enabledClients,
-         label, nextTasksExecutionPolicy, pauseWorkflowExecutions, position,
-         properties, startTasks, triggerCriteria, triggerId, triggerNumber,
-         triggerType;
+         errorCatcherId, label, nextTasksExecutionPolicy,
+         pauseWorkflowExecutions, position, properties, startTasks,
+         triggerCriteria, triggerId, triggerNumber, triggerType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2938,7 +2981,7 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 @dynamic authConfig, configVariables, connectorVersion, createTime,
          descriptionProperty, destinationConfigs, envoyImageLocation,
          imageLocation, labels, lockConfig, name, nodeConfig, serviceAccount,
-         serviceDirectory, status, suspended, updateTime;
+         serviceDirectory, sslConfig, status, suspended, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3039,6 +3082,26 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_GoogleCloudConnectorsV1Secret
 @dynamic secretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIntegrations_GoogleCloudConnectorsV1SslConfig
+//
+
+@implementation GTLRIntegrations_GoogleCloudConnectorsV1SslConfig
+@dynamic additionalVariables, clientCertificate, clientCertType,
+         clientPrivateKey, clientPrivateKeyPass, privateServerCertificate,
+         serverCertType, trustModel, type, useSsl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalVariables" : [GTLRIntegrations_GoogleCloudConnectorsV1ConfigVariable class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3193,6 +3256,16 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate
+//
+
+@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate
+@dynamic x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest
 //
 
@@ -3262,6 +3335,29 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"regions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig
+//
+
+@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig
+@dynamic descriptionProperty, errorCatcherId, errorCatcherNumber, label,
+         position, startErrorTasks;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"startErrorTasks" : [GTLRIntegrations_GoogleCloudIntegrationsV1alphaNextTask class]
   };
   return map;
 }
@@ -3533,9 +3629,9 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion
 @dynamic createTime, databasePersistencePolicy, descriptionProperty,
-         lastModifierEmail, name, parentIntegrationVersionId, snapshotNumber,
-         status, taskConfigs, teardown, templateParameters, triggerConfigs,
-         updateTime, userLabel;
+         errorCatcherConfigs, lastModifierEmail, name,
+         parentIntegrationVersionId, snapshotNumber, status, taskConfigs,
+         teardown, templateParameters, triggerConfigs, updateTime, userLabel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3543,6 +3639,7 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"errorCatcherConfigs" : [GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig class],
     @"taskConfigs" : [GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig class],
     @"triggerConfigs" : [GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig class]
   };
@@ -3559,11 +3656,11 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion
 @dynamic createTime, databasePersistencePolicy, descriptionProperty,
-         integrationParameters, integrationParametersInternal,
-         lastModifierEmail, lockHolder, name, origin, parentTemplateId,
-         snapshotNumber, state, status, taskConfigs, taskConfigsInternal,
-         teardown, triggerConfigs, triggerConfigsInternal, updateTime,
-         userLabel;
+         errorCatcherConfigs, integrationParameters,
+         integrationParametersInternal, lastModifierEmail, lockHolder, name,
+         origin, parentTemplateId, runAsServiceAccount, snapshotNumber, state,
+         status, taskConfigs, taskConfigsInternal, teardown, triggerConfigs,
+         triggerConfigsInternal, updateTime, userLabel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3571,6 +3668,7 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"errorCatcherConfigs" : [GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig class],
     @"integrationParameters" : [GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationParameter class],
     @"taskConfigs" : [GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig class],
     @"taskConfigsInternal" : [GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig class],
@@ -4267,8 +4365,9 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig
-@dynamic descriptionProperty, displayName, failurePolicy, jsonValidationOption,
-         nextTasks, nextTasksExecutionPolicy, parameters, successPolicy,
+@dynamic descriptionProperty, displayName, errorCatcherId, externalTaskType,
+         failurePolicy, jsonValidationOption, nextTasks,
+         nextTasksExecutionPolicy, parameters, position, successPolicy,
          synchronousCallFailurePolicy, task, taskExecutionStrategy, taskId,
          taskTemplate;
 
@@ -4324,9 +4423,9 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig
-@dynamic alertConfig, cloudSchedulerConfig, descriptionProperty, label,
-         nextTasksExecutionPolicy, properties, startTasks, triggerId,
-         triggerNumber, triggerType;
+@dynamic alertConfig, cloudSchedulerConfig, descriptionProperty, errorCatcherId,
+         label, nextTasksExecutionPolicy, position, properties, startTasks,
+         triggerId, triggerNumber, triggerType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

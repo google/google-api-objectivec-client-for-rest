@@ -411,7 +411,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 @implementation GTLRTagManager_ContainerVersionHeader
 @dynamic accountId, containerId, containerVersionId, deleted, name, numClients,
          numCustomTemplates, numGtagConfigs, numMacros, numRules, numTags,
-         numTriggers, numVariables, numZones, path;
+         numTransformations, numTriggers, numVariables, numZones, path;
 @end
 
 

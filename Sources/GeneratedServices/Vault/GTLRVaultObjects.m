@@ -79,6 +79,12 @@ NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecifi
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst = @"PST";
 
+// GTLRVault_MailOptions.clientSideEncryptedOption
+NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny = @"CLIENT_SIDE_ENCRYPTED_OPTION_ANY";
+NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionEncrypted = @"CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED";
+NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted = @"CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED";
+NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified = @"CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED";
+
 // GTLRVault_Matter.state
 NSString * const kGTLRVault_Matter_State_Closed           = @"CLOSED";
 NSString * const kGTLRVault_Matter_State_Deleted          = @"DELETED";
@@ -723,7 +729,7 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_MailOptions
-@dynamic excludeDrafts;
+@dynamic clientSideEncryptedOption, excludeDrafts;
 @end
 
 

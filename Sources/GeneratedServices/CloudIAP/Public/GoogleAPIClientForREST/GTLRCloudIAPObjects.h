@@ -56,22 +56,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Header;
 /**
- *  Propagate attributes in the JWT of the form: "additional_claims": {
- *  "my_attribute": ["value1", "value2"] }
+ *  Propagate attributes in the JWT of the form: `"additional_claims": {
+ *  "my_attribute": ["value1", "value2"] }`
  *
  *  Value: "JWT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Jwt;
 /**
- *  No output credential. This is unsupported in IAP, there must be an output
- *  credential.
+ *  An output credential is required.
  *
  *  Value: "OUTPUT_CREDENTIALS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_OutputCredentialsUnspecified;
 /**
- *  Propagate attributes in the RCToken of the form: "additional_claims": {
- *  "my_attribute": ["value1", "value2"] }
+ *  Propagate attributes in the RCToken of the form: `"additional_claims": {
+ *  "my_attribute": ["value1", "value2"] }`
  *
  *  Value: "RCTOKEN"
  */
@@ -98,11 +97,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Login;
  *  Value: "METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified;
-/**
- *  Deprecated, no longer accepted by IAP APIs.
- *
- *  Value: "PASSWORD"
- */
+/** Value: "PASSWORD" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Password;
 /**
  *  User must use their secure key 2nd factor device.
@@ -250,20 +245,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
 /**
- *  Raw string CEL expression. Must return a list of attributes. Maximum of 45
+ *  Raw string CEL expression. Must return a list of attributes. A maximum of 45
  *  attributes can be selected. Expressions can select different attribute types
  *  from `attributes`: `attributes.saml_attributes`,
- *  `attributes.iap_attributes`. Limited functions are supported: - filter:
- *  .filter(, ) -> returns a subset of where is true for every item - in: in ->
- *  returns true if contains - selectByName: .selectByName() -> returns the
- *  attribute in with the given name, otherwise returns empty. - emitAs:
- *  .emitAs() -> sets the name field to the given for propagation in selected
- *  output credentials. - strict: .strict() -> ignore the `x-goog-iap-attr-`
- *  prefix for the provided attribute when propagating via the `HEADER` output
- *  credential, i.e. request headers. - append: .append() OR .append() -> append
- *  the provided or onto the end of Example expression:
- *  attributes.saml_attributes.filter(x, x.name in
- *  ['test']).append(attributes.iap_attributes.selectByName('exact').emitAs('custom').strict())
+ *  `attributes.iap_attributes`. The following functions are supported: - filter
+ *  `.filter(, )`: Returns a subset of `` where `` is true for every item. - in
+ *  ` in `: Returns true if `` contains ``. - selectByName `.selectByName()`:
+ *  Returns the attribute in `` with the given `` name, otherwise returns empty.
+ *  - emitAs `.emitAs()`: Sets the `` name field to the given `` for propagation
+ *  in selected output credentials. - strict `.strict()`: Ignores the
+ *  `x-goog-iap-attr-` prefix for the provided `` when propagating with the
+ *  `HEADER` output credential, such as request headers. - append `.append()` OR
+ *  `.append()`: Appends the provided `` or `` to the end of ``. Example
+ *  expression: `attributes.saml_attributes.filter(x, x.name in
+ *  ['test']).append(attributes.iap_attributes.selectByName('exact').emitAs('custom').strict())`
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
@@ -813,8 +808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *        in again. (Value: "LOGIN")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified
  *        Reauthentication disabled. (Value: "METHOD_UNSPECIFIED")
- *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Password Deprecated, no longer
- *        accepted by IAP APIs. (Value: "PASSWORD")
+ *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Password Value "PASSWORD"
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_SecureKey User must use their
  *        secure key 2nd factor device. (Value: "SECURE_KEY")
  */

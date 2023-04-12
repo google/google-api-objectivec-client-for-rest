@@ -154,6 +154,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_DockerRepositoryConfig
+//
+
+@implementation GTLRArtifactRegistry_DockerRepositoryConfig
+@dynamic immutableTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_Empty
 //
 
@@ -793,8 +803,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_Repository
-@dynamic createTime, descriptionProperty, format, kmsKeyName, labels,
-         mavenConfig, mode, name, remoteRepositoryConfig, satisfiesPzs,
+@dynamic createTime, descriptionProperty, dockerConfig, format, kmsKeyName,
+         labels, mavenConfig, mode, name, remoteRepositoryConfig, satisfiesPzs,
          sizeBytes, updateTime, virtualRepositoryConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

@@ -100,6 +100,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_And;
  *  Value: "OPERATOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified;
+/**
+ *  Documents are required to satisfy at least one of the combined filters.
+ *
+ *  Value: "OR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_FieldFilter.op
@@ -112,8 +118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUns
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
  *  The given `field` is an array that contains any of the values in the given
- *  array. Requires: * That `value` is a non-empty `ArrayValue` with at most 10
- *  values. * No other `IN` or `ARRAY_CONTAINS_ANY` or `NOT_IN`.
+ *  array. Requires: * That `value` is a non-empty `ArrayValue`, subject to
+ *  disjunction limits. * No other `ARRAY_CONTAINS_ANY` filters within the same
+ *  disjunction. * No `NOT_IN` filters in the same query.
  *
  *  Value: "ARRAY_CONTAINS_ANY"
  */
@@ -140,8 +147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan;
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual;
 /**
  *  The given `field` is equal to at least one value in the given array.
- *  Requires: * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *  * No other `IN` or `ARRAY_CONTAINS_ANY` or `NOT_IN`.
+ *  Requires: * That `value` is a non-empty `ArrayValue`, subject to disjunction
+ *  limits. * No `NOT_IN` filters in the same query.
  *
  *  Value: "IN"
  */
@@ -170,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_NotEqual;
 /**
  *  The value of the `field` is not in the given array. Requires: * That `value`
- *  is a non-empty `ArrayValue` with at most 10 values. * No other `IN`,
+ *  is a non-empty `ArrayValue` with at most 10 values. * No other `OR`, `IN`,
  *  `ARRAY_CONTAINS_ANY`, `NOT_IN`, `NOT_EQUAL`, `IS_NOT_NULL`, or `IS_NOT_NAN`.
  *  * That `field` comes first in the `order_by`.
  *
@@ -212,7 +219,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified;
 /**
- *  Appengine has no affect on the ability of this database to serve requests.
+ *  App Engine has no effect on the ability of this database to serve requests.
+ *  This is the default setting for databases created with the Firestore API.
  *
  *  Value: "DISABLED"
  */
@@ -808,7 +816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_OperatorUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
- *  Defines a aggregation that produces a single result.
+ *  Defines an aggregation that produces a single result.
  */
 @interface GTLRFirestore_Aggregation : GTLRObject
 
@@ -816,11 +824,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Optional. Optional name of the field to store the result of the aggregation
  *  into. If not provided, Firestore will pick a default name following the
  *  format `field_`. For example: ``` AGGREGATE COUNT_UP_TO(1) AS count_up_to_1,
- *  COUNT_UP_TO(2), COUNT_UP_TO(3) AS count_up_to_3, COUNT_UP_TO(4) OVER ( ...
- *  ); ``` becomes: ``` AGGREGATE COUNT_UP_TO(1) AS count_up_to_1,
- *  COUNT_UP_TO(2) AS field_1, COUNT_UP_TO(3) AS count_up_to_3, COUNT_UP_TO(4)
- *  AS field_2 OVER ( ... ); ``` Requires: * Must be unique across all
- *  aggregation aliases. * Conform to document field name limitations.
+ *  COUNT_UP_TO(2), COUNT_UP_TO(3) AS count_up_to_3, COUNT(*) OVER ( ... ); ```
+ *  becomes: ``` AGGREGATE COUNT_UP_TO(1) AS count_up_to_1, COUNT_UP_TO(2) AS
+ *  field_1, COUNT_UP_TO(3) AS count_up_to_3, COUNT(*) AS field_2 OVER ( ... );
+ *  ``` Requires: * Must be unique across all aggregation aliases. * Conform to
+ *  document field name limitations.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
@@ -1105,6 +1113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        satisfy all of the combined filters. (Value: "AND")
  *    @arg @c kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_CompositeFilter_Op_Or Documents are required to
+ *        satisfy at least one of the combined filters. (Value: "OR")
  */
 @property(nonatomic, copy, nullable) NSString *op;
 
@@ -1120,7 +1130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Optional. Optional constraint on the maximum number of documents to count.
  *  This provides a way to set an upper bound on the number of documents to
- *  scan, limiting latency and cost. Unspecified is interpreted as no bound.
+ *  scan, limiting latency, and cost. Unspecified is interpreted as no bound.
  *  High-Level Example: ``` AGGREGATE COUNT_UP_TO(1000) OVER ( SELECT * FROM k
  *  ); ``` Requires: * Must be greater than zero when present.
  *
@@ -1416,8 +1426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        an array that contains the given `value`. (Value: "ARRAY_CONTAINS")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContainsAny The given `field`
  *        is an array that contains any of the values in the given array.
- *        Requires: * That `value` is a non-empty `ArrayValue` with at most 10
- *        values. * No other `IN` or `ARRAY_CONTAINS_ANY` or `NOT_IN`. (Value:
+ *        Requires: * That `value` is a non-empty `ArrayValue`, subject to
+ *        disjunction limits. * No other `ARRAY_CONTAINS_ANY` filters within the
+ *        same disjunction. * No `NOT_IN` filters in the same query. (Value:
  *        "ARRAY_CONTAINS_ANY")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal The given `field` is equal to
  *        the given `value`. (Value: "EQUAL")
@@ -1429,8 +1440,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        `field` come first in `order_by`. (Value: "GREATER_THAN_OR_EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_In The given `field` is equal to at
  *        least one value in the given array. Requires: * That `value` is a
- *        non-empty `ArrayValue` with at most 10 values. * No other `IN` or
- *        `ARRAY_CONTAINS_ANY` or `NOT_IN`. (Value: "IN")
+ *        non-empty `ArrayValue`, subject to disjunction limits. * No `NOT_IN`
+ *        filters in the same query. (Value: "IN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThan The given `field` is less
  *        than the given `value`. Requires: * That `field` come first in
  *        `order_by`. (Value: "LESS_THAN")
@@ -1443,7 +1454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        in the `order_by`. (Value: "NOT_EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_NotIn The value of the `field` is
  *        not in the given array. Requires: * That `value` is a non-empty
- *        `ArrayValue` with at most 10 values. * No other `IN`,
+ *        `ArrayValue` with at most 10 values. * No other `OR`, `IN`,
  *        `ARRAY_CONTAINS_ANY`, `NOT_IN`, `NOT_EQUAL`, `IS_NOT_NULL`, or
  *        `IS_NOT_NAN`. * That `field` comes first in the `order_by`. (Value:
  *        "NOT_IN")
@@ -1593,8 +1604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified
  *        Not used. (Value: "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Disabled
- *        Appengine has no affect on the ability of this database to serve
- *        requests. (Value: "DISABLED")
+ *        App Engine has no effect on the ability of this database to serve
+ *        requests. This is the default setting for databases created with the
+ *        Firestore API. (Value: "DISABLED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Enabled
  *        If an App Engine application exists in the same region as this
  *        database, App Engine configuration will impact this database. This
@@ -3047,7 +3059,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_RunAggregationQueryResponse : GTLRObject
 
-/** The time at which the aggregate value is valid for. */
+/**
+ *  The time at which the aggregate result was computed. This is always
+ *  monotonically increasing; in this case, the previous AggregationResult in
+ *  the result stream are guaranteed not to have changed between their
+ *  `read_time` and this one. If the query returns no results, a response with
+ *  `read_time` and no `result` will be sent, and this represents the time at
+ *  which the query was run.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
@@ -3261,7 +3280,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Order *> *orderBy;
 
-/** The projection to return. */
+/**
+ *  Optional sub-set of the fields to return. This acts as a DocumentMask over
+ *  the documents returned from a query. When not set, assumes that the caller
+ *  wants all fields returned.
+ */
 @property(nonatomic, strong, nullable) GTLRFirestore_Projection *select;
 
 /**

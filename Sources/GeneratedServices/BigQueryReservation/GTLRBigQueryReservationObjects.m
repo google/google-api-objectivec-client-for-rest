@@ -28,21 +28,31 @@ NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified = @"
 // GTLRBigQueryReservation_CapacityCommitment.edition
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Standard = @"STANDARD";
 
 // GTLRBigQueryReservation_CapacityCommitment.plan
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual = @"ANNUAL";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_AnnualFlatRate = @"ANNUAL_FLAT_RATE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex = @"FLEX";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_FlexFlatRate = @"FLEX_FLAT_RATE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly = @"MONTHLY";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_MonthlyFlatRate = @"MONTHLY_FLAT_RATE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_None = @"NONE";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_ThreeYear = @"THREE_YEAR";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial = @"TRIAL";
 
 // GTLRBigQueryReservation_CapacityCommitment.renewalPlan
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual = @"ANNUAL";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_AnnualFlatRate = @"ANNUAL_FLAT_RATE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex = @"FLEX";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_FlexFlatRate = @"FLEX_FLAT_RATE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly = @"MONTHLY";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_MonthlyFlatRate = @"MONTHLY_FLAT_RATE";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None = @"NONE";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_ThreeYear = @"THREE_YEAR";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial = @"TRIAL";
 
 // GTLRBigQueryReservation_CapacityCommitment.state
@@ -54,6 +64,8 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 // GTLRBigQueryReservation_Reservation.edition
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
+NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STANDARD";
 
 // ----------------------------------------------------------------------------
 //
@@ -203,7 +215,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise = @"ENT
 //
 
 @implementation GTLRBigQueryReservation_MoveAssignmentRequest
-@dynamic destinationId;
+@dynamic assignmentId, destinationId;
 @end
 
 

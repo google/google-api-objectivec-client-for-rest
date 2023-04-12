@@ -17,6 +17,7 @@
 NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified = @"CALL_LOG_LEVEL_UNSPECIFIED";
 NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls = @"LOG_ALL_CALLS";
 NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly = @"LOG_ERRORS_ONLY";
+NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogNone = @"LOG_NONE";
 
 // GTLRWorkflowExecutions_Execution.state
 NSString * const kGTLRWorkflowExecutions_Execution_State_Active = @"ACTIVE";
@@ -24,6 +25,11 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Cancelled = @"CANCELLED
 NSString * const kGTLRWorkflowExecutions_Execution_State_Failed = @"FAILED";
 NSString * const kGTLRWorkflowExecutions_Execution_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRWorkflowExecutions_Execution_State_Unavailable = @"UNAVAILABLE";
+
+// GTLRWorkflowExecutions_StateError.type
+NSString * const kGTLRWorkflowExecutions_StateError_Type_KmsError = @"KMS_ERROR";
+NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -51,7 +57,7 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 @implementation GTLRWorkflowExecutions_Execution
 @dynamic argument, callLogLevel, duration, endTime, error, labels, name, result,
-         startTime, state, status, workflowRevisionId;
+         startTime, state, stateError, status, workflowRevisionId;
 @end
 
 
@@ -150,6 +156,16 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 @implementation GTLRWorkflowExecutions_StackTraceElement
 @dynamic position, routine, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_StateError
+//
+
+@implementation GTLRWorkflowExecutions_StateError
+@dynamic details, type;
 @end
 
 

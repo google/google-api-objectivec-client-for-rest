@@ -211,6 +211,10 @@
 @class GTLRShoppingContent_PromotionPromotionStatusDestinationStatus;
 @class GTLRShoppingContent_PromotionPromotionStatusPromotionIssue;
 @class GTLRShoppingContent_RateGroup;
+@class GTLRShoppingContent_Recommendation;
+@class GTLRShoppingContent_RecommendationCallToAction;
+@class GTLRShoppingContent_RecommendationCreative;
+@class GTLRShoppingContent_RecommendationDescription;
 @class GTLRShoppingContent_RefundReason;
 @class GTLRShoppingContent_Region;
 @class GTLRShoppingContent_RegionalInventory;
@@ -1350,6 +1354,67 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatus
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Stopped;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RecommendationCreative.type
+
+/**
+ *  Default value. If provided, shall be considered invalid.
+ *
+ *  Value: "CREATIVE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationCreative_Type_CreativeTypeUnspecified;
+/**
+ *  Photo creatives.
+ *
+ *  Value: "PHOTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationCreative_Type_Photo;
+/**
+ *  Video creatives.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationCreative_Type_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RecommendationDescription.type
+
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "DESCRIPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationDescription_Type_DescriptionTypeUnspecified;
+/**
+ *  Long description.
+ *
+ *  Value: "LONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Long;
+/**
+ *  Short description.
+ *
+ *  Value: "SHORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Short;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReportInteractionRequest.interactionType
+
+/**
+ *  When a recommendation is clicked.
+ *
+ *  Value: "INTERACTION_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick;
+/**
+ *  Default value. If provided, the service will throw ApiError with description
+ *  "Required parameter: interactionType".
+ *
+ *  Value: "INTERACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_RepricingProductReport.type
@@ -4870,7 +4935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Feed label for the DatafeedTarget. Either `country` or `feedLabel` is
  *  required. If both `feedLabel` and `country` is specified, the values must
- *  match.
+ *  match. Must be less than or equal to 20 uppercase letters (A-Z), numbers
+ *  (0-9), and dashes (-).
  */
 @property(nonatomic, copy, nullable) NSString *feedLabel;
 
@@ -5374,6 +5440,25 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  reason `IN_COOLDOWN_PERIOD`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *cooldownTime;
+
+@end
+
+
+/**
+ *  Response containing generated recommendations.
+ */
+@interface GTLRShoppingContent_GenerateRecommendationsResponse : GTLRObject
+
+/** Recommendations generated for a request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Recommendation *> *recommendations;
+
+/**
+ *  Output only. Response token is a string created for each
+ *  `GenerateRecommendationsResponse`. This token doesn't expire, and is
+ *  globally unique. This token must be used when reporting interactions for
+ *  recommendations.
+ */
+@property(nonatomic, copy, nullable) NSString *responseToken;
 
 @end
 
@@ -10829,6 +10914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Feed label for the item. Either `targetCountry` or `feedLabel` is required.
+ *  Must be less than or equal to 20 uppercase letters (A-Z), numbers (0-9), and
+ *  dashes (-).
  */
 @property(nonatomic, copy, nullable) NSString *feedLabel;
 
@@ -10897,7 +10984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Additional URLs of lifestyle images of the item, used to explicitly identify
+ *  Additional URLs of lifestyle images of the item. Used to explicitly identify
  *  images that showcase your item in a real-world context. See the Help Center
  *  article for more information.
  */
@@ -11986,8 +12073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Product fields. Values are only set for fields requested explicitly in the
- *  request's search query. Available only to selected merchants. Submit the
- *  [interest form](https://forms.gle/7Uy8htzAN8oNokz9A) to request access.
+ *  request's search query.
  */
 @interface GTLRShoppingContent_ProductView : GTLRObject
 
@@ -12680,6 +12766,170 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Recommendations are suggested ways to improve your merchant account's
+ *  performance. For example, to engage with a feature, or start using a new
+ *  Google product.
+ */
+@interface GTLRShoppingContent_Recommendation : GTLRObject
+
+/** Output only. CTAs of this recommendation. Repeated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RecommendationCallToAction *> *additionalCallToAction;
+
+/**
+ *  Output only. List of additional localized descriptions for a recommendation.
+ *  Localication uses the `languageCode` field in `GenerateRecommendations`
+ *  requests. Not all description types are guaranteed to be present and we
+ *  recommend to rely on default description.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RecommendationDescription *> *additionalDescriptions;
+
+/** Output only. Any creatives attached to the recommendation. Repeated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RecommendationCreative *> *creative;
+
+/** Optional. Default CTA of the recommendation. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RecommendationCallToAction *defaultCallToAction;
+
+/**
+ *  Optional. Localized recommendation description. The localization the {\@link
+ *  `GenerateRecommendationsRequest.language_code`} field in {\@link
+ *  `GenerateRecommendationsRequest`} requests.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultDescription;
+
+/**
+ *  Optional. A numerical score of the impact from the recommendation's
+ *  description. For example, a recommendation might suggest an upward trend in
+ *  sales for a certain product. Higher number means larger impact.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericalImpact;
+
+/**
+ *  Optional. Indicates whether a user needs to pay when they complete the user
+ *  journey suggested by the recommendation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *paid;
+
+/**
+ *  Optional. Localized recommendation name. The localization uses the {\@link
+ *  `GenerateRecommendationsRequest.language_code`} field in {\@link
+ *  `GenerateRecommendationsRequest`} requests.
+ */
+@property(nonatomic, copy, nullable) NSString *recommendationName;
+
+/**
+ *  Optional. Subtype of the recommendations. Only applicable when multiple
+ *  recommendations can be generated per type, and is used as an identifier of
+ *  recommendation under the same recommendation type.
+ */
+@property(nonatomic, copy, nullable) NSString *subType;
+
+/**
+ *  Optional. Localized Recommendation Title. Localization uses the {\@link
+ *  `GenerateRecommendationsRequest.language_code`} field in {\@link
+ *  `GenerateRecommendationsRequest`} requests.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Output only. Type of the recommendation. List of currently available
+ *  recommendation types: - OPPORTUNITY_CREATE_NEW_COLLECTION -
+ *  OPPORTUNITY_CREATE_EMAIL_CAMPAIGN
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Call to action (CTA) that explains how a merchant can implement this
+ *  recommendation
+ */
+@interface GTLRShoppingContent_RecommendationCallToAction : GTLRObject
+
+/**
+ *  Output only. Intent of the action. This value describes the intent (for
+ *  example, `OPEN_CREATE_EMAIL_CAMPAIGN_FLOW`) and can vary from recommendation
+ *  to recommendation. This value can change over time for the same
+ *  recommendation. Currently available intent values: -
+ *  OPEN_CREATE_EMAIL_CAMPAIGN_FLOW: Opens a user journey where they can create
+ *  a marketing email campaign. (No default URL) - OPEN_CREATE_COLLECTION_TAB:
+ *  Opens a user journey where they can [create a
+ *  collection](https://support.google.com/merchants/answer/9703228) for their
+ *  Merchant account. (No default URL)
+ */
+@property(nonatomic, copy, nullable) NSString *intent;
+
+/** Output only. Localized text of the CTA. Optional. */
+@property(nonatomic, copy, nullable) NSString *localizedText;
+
+/**
+ *  Optional. URL of the CTA. This field will only be set for some
+ *  recommendations where there is a suggested landing URL. Otherwise it will be
+ *  set to an empty string. We recommend developers to use their own custom
+ *  landing page according to the description of the intent field above when
+ *  this uri field is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Creative is a multimedia attachment to recommendation that can be used on
+ *  the frontend.
+ */
+@interface GTLRShoppingContent_RecommendationCreative : GTLRObject
+
+/**
+ *  Type of the creative.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RecommendationCreative_Type_CreativeTypeUnspecified
+ *        Default value. If provided, shall be considered invalid. (Value:
+ *        "CREATIVE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RecommendationCreative_Type_Photo Photo
+ *        creatives. (Value: "PHOTO")
+ *    @arg @c kGTLRShoppingContent_RecommendationCreative_Type_Video Video
+ *        creatives. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** URL of the creative. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Google-provided description for the recommendation.
+ */
+@interface GTLRShoppingContent_RecommendationDescription : GTLRObject
+
+/** Output only. Text of the description. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Output only. Type of the description.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RecommendationDescription_Type_DescriptionTypeUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "DESCRIPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RecommendationDescription_Type_Long Long
+ *        description. (Value: "LONG")
+ *    @arg @c kGTLRShoppingContent_RecommendationDescription_Type_Short Short
+ *        description. (Value: "SHORT")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_RefundReason
  */
 @interface GTLRShoppingContent_RefundReason : GTLRObject
@@ -12957,6 +13207,45 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Request to report interactions on a recommendation.
+ */
+@interface GTLRShoppingContent_ReportInteractionRequest : GTLRObject
+
+/**
+ *  Required. Type of the interaction that is reported, for example
+ *  INTERACTION_CLICK.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick
+ *        When a recommendation is clicked. (Value: "INTERACTION_CLICK")
+ *    @arg @c kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionTypeUnspecified
+ *        Default value. If provided, the service will throw ApiError with
+ *        description "Required parameter: interactionType". (Value:
+ *        "INTERACTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *interactionType;
+
+/** Required. Token of the response when recommendation was returned. */
+@property(nonatomic, copy, nullable) NSString *responseToken;
+
+/**
+ *  Optional. Subtype of the recommendations this interaction happened on. This
+ *  field must be set only to the value that is returned by {\@link
+ *  `RecommendationsService.GenerateRecommendations`} call.
+ */
+@property(nonatomic, copy, nullable) NSString *subtype;
+
+/**
+ *  Required. Type of the recommendations on which this interaction happened.
+ *  This field must be set only to the value that is returned by {\@link
+ *  `GenerateRecommendationsResponse`} call.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Result row returned from the search query.
  */
 @interface GTLRShoppingContent_ReportRow : GTLRObject
@@ -13001,9 +13290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Product fields requested by the merchant in the query. Field values are only
- *  set if the merchant queries `ProductView`. Available only to selected
- *  merchants. Submit the [interest form](https://forms.gle/7Uy8htzAN8oNokz9A)
- *  to request access.
+ *  set if the merchant queries `ProductView`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductView *productView;
 

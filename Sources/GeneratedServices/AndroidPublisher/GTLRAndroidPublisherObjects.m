@@ -44,6 +44,16 @@ NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Deobfuscatio
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode = @"nativeCode";
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard = @"proguard";
 
+// GTLRAndroidPublisher_ExternalSubscription.subscriptionType
+NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Prepaid = @"PREPAID";
+NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Recurring = @"RECURRING";
+NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_SubscriptionTypeUnspecified = @"SUBSCRIPTION_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_ExternalTransaction.transactionState
+NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionCanceled = @"TRANSACTION_CANCELED";
+NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionReported = @"TRANSACTION_REPORTED";
+NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionStateUnspecified = @"TRANSACTION_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_Grant.appLevelPermissions
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
@@ -726,6 +736,57 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ExternalSubscription
+//
+
+@implementation GTLRAndroidPublisher_ExternalSubscription
+@dynamic subscriptionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ExternalTransaction
+//
+
+@implementation GTLRAndroidPublisher_ExternalTransaction
+@dynamic createTime, currentPreTaxAmount, currentTaxAmount,
+         externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
+         originalTaxAmount, packageName, recurringTransaction, testPurchase,
+         transactionState, transactionTime, userTaxAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ExternalTransactionAddress
+//
+
+@implementation GTLRAndroidPublisher_ExternalTransactionAddress
+@dynamic regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ExternalTransactionTestPurchase
+//
+
+@implementation GTLRAndroidPublisher_ExternalTransactionTestPurchase
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_FullRefund
+//
+
+@implementation GTLRAndroidPublisher_FullRefund
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_GeneratedApksListResponse
 //
 
@@ -1213,6 +1274,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OneTimeExternalTransaction
+//
+
+@implementation GTLRAndroidPublisher_OneTimeExternalTransaction
+@dynamic externalTransactionToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OtherRegionsBasePlanConfig
 //
 
@@ -1258,6 +1329,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_PageInfo
 @dynamic resultPerPage, startIndex, totalResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PartialRefund
+//
+
+@implementation GTLRAndroidPublisher_PartialRefund
+@dynamic refundId, refundPreTaxAmount;
 @end
 
 
@@ -1328,6 +1409,27 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
 @dynamic developerPayload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RecurringExternalTransaction
+//
+
+@implementation GTLRAndroidPublisher_RecurringExternalTransaction
+@dynamic externalSubscription, externalTransactionToken,
+         initialExternalTransactionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RefundExternalTransactionRequest
+//
+
+@implementation GTLRAndroidPublisher_RefundExternalTransactionRequest
+@dynamic fullRefund, partialRefund, refundTime;
 @end
 
 

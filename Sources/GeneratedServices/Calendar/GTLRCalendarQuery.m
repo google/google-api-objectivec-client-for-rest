@@ -669,13 +669,14 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 @implementation GTLRCalendarQuery_EventsList
 
-@dynamic alwaysIncludeEmail, calendarId, iCalUID, maxAttendees, maxResults,
-         orderBy, pageToken, privateExtendedProperty, q, sharedExtendedProperty,
-         showDeleted, showHiddenInvitations, singleEvents, syncToken, timeMax,
-         timeMin, timeZone, updatedMin;
+@dynamic alwaysIncludeEmail, calendarId, eventTypes, iCalUID, maxAttendees,
+         maxResults, orderBy, pageToken, privateExtendedProperty, q,
+         sharedExtendedProperty, showDeleted, showHiddenInvitations,
+         singleEvents, syncToken, timeMax, timeMin, timeZone, updatedMin;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"eventTypes" : [NSString class],
     @"privateExtendedProperty" : [NSString class],
     @"sharedExtendedProperty" : [NSString class]
   };
@@ -809,13 +810,14 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 @implementation GTLRCalendarQuery_EventsWatch
 
-@dynamic alwaysIncludeEmail, calendarId, iCalUID, maxAttendees, maxResults,
-         orderBy, pageToken, privateExtendedProperty, q, sharedExtendedProperty,
-         showDeleted, showHiddenInvitations, singleEvents, syncToken, timeMax,
-         timeMin, timeZone, updatedMin;
+@dynamic alwaysIncludeEmail, calendarId, eventTypes, iCalUID, maxAttendees,
+         maxResults, orderBy, pageToken, privateExtendedProperty, q,
+         sharedExtendedProperty, showDeleted, showHiddenInvitations,
+         singleEvents, syncToken, timeMax, timeMin, timeZone, updatedMin;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"eventTypes" : [NSString class],
     @"privateExtendedProperty" : [NSString class],
     @"sharedExtendedProperty" : [NSString class]
   };

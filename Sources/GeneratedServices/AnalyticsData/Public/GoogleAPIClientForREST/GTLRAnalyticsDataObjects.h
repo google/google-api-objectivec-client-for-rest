@@ -1652,7 +1652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  The number of unique combinations of dimension values to return in this
  *  pivot. The `limit` parameter is required. A `limit` of 10,000 is common for
  *  single pivot requests. The product of the `limit` for each `pivot` in a
- *  `RunPivotReportRequest` must not exceed 100,000. For example, a two pivot
+ *  `RunPivotReportRequest` must not exceed 250,000. For example, a two pivot
  *  request with `limit: 1000` in each pivot will fail because the product is
  *  `1,000,000`.
  *
@@ -2099,7 +2099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  The number of rows to return. If unspecified, 10,000 rows are returned. The
- *  API returns a maximum of 100,000 rows per request, no matter how many you
+ *  API returns a maximum of 250,000 rows per request, no matter how many you
  *  ask for. `limit` must be positive. The API can also return fewer rows than
  *  the requested `limit`, if there aren't as many dimension values as the
  *  `limit`. For instance, there are fewer than 300 possible values for the
@@ -2253,7 +2253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  The number of rows to return. If unspecified, 10,000 rows are returned. The
- *  API returns a maximum of 100,000 rows per request, no matter how many you
+ *  API returns a maximum of 250,000 rows per request, no matter how many you
  *  ask for. `limit` must be positive. The API can also return fewer rows than
  *  the requested `limit`, if there aren't as many dimension values as the
  *  `limit`. For instance, there are fewer than 300 possible values for the

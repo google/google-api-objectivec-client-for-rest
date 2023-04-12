@@ -7721,6 +7721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubne
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot;
 /** Value: "SEV_CAPABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable;
+/** Value: "SEV_LIVE_MIGRATABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratable;
 /** Value: "SEV_SNP_CAPABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SevSnpCapable;
 /** Value: "UEFI_COMPATIBLE" */
@@ -8526,13 +8528,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_WeightError_WeightN
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthStatusForNetworkEndpoint.healthState
 
-/** Value: "DRAINING" */
+/**
+ *  Endpoint is being drained.
+ *
+ *  Value: "DRAINING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Draining;
-/** Value: "HEALTHY" */
+/**
+ *  Endpoint is healthy.
+ *
+ *  Value: "HEALTHY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Healthy;
-/** Value: "UNHEALTHY" */
+/**
+ *  Endpoint is unhealthy.
+ *
+ *  Value: "UNHEALTHY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unhealthy;
-/** Value: "UNKNOWN" */
+/**
+ *  Health status of the endpoint is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unknown;
 
 // ----------------------------------------------------------------------------
@@ -9317,7 +9335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess
 // GTLRCompute_Instance.status
 
 /**
- *  The Nanny is halted and we are performing tear down tasks like network
+ *  The instance is halted and we are performing tear down tasks like network
  *  deprogramming, releasing quota, IP, tearing down disks etc.
  *
  *  Value: "DEPROVISIONING"
@@ -12398,7 +12416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warn
 // GTLRCompute_InstanceWithNamedPorts.status
 
 /**
- *  The Nanny is halted and we are performing tear down tasks like network
+ *  The instance is halted and we are performing tear down tasks like network
  *  deprogramming, releasing quota, IP, tearing down disks etc.
  *
  *  Value: "DEPROVISIONING"
@@ -15016,7 +15034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Ve
 // GTLRCompute_ManagedInstance.instanceStatus
 
 /**
- *  The Nanny is halted and we are performing tear down tasks like network
+ *  The instance is halted and we are performing tear down tasks like network
  *  deprogramming, releasing quota, IP, tearing down disks etc.
  *
  *  Value: "DEPROVISIONING"
@@ -21680,6 +21698,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2aCpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2Cpus;
 /** Value: "N2D_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2dCpus;
+/** Value: "NET_LB_SECURITY_POLICIES_PER_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetLbSecurityPoliciesPerRegion;
+/** Value: "NET_LB_SECURITY_POLICY_RULE_ATTRIBUTES_PER_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetLbSecurityPolicyRuleAttributesPerRegion;
+/** Value: "NET_LB_SECURITY_POLICY_RULES_PER_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetLbSecurityPolicyRulesPerRegion;
 /** Value: "NETWORK_ATTACHMENTS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetworkAttachments;
 /** Value: "NETWORK_ENDPOINT_GROUPS" */
@@ -21698,6 +21722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaA10080gbGpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaA100Gpus;
 /** Value: "NVIDIA_K80_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus;
+/** Value: "NVIDIA_L4_GPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaL4Gpus;
 /** Value: "NVIDIA_P100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus;
 /** Value: "NVIDIA_P100_VWS_GPUS" */
@@ -21726,6 +21752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA1
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA100Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_K80_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus;
+/** Value: "PREEMPTIBLE_NVIDIA_L4_GPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaL4Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P100_VWS_GPUS" */
@@ -21772,6 +21800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routes;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicies;
 /** Value: "SECURITY_POLICIES_PER_REGION" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPoliciesPerRegion;
+/** Value: "SECURITY_POLICY_ADVANCED_RULES_PER_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyAdvancedRulesPerRegion;
 /** Value: "SECURITY_POLICY_CEVAL_RULES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyCevalRules;
 /** Value: "SECURITY_POLICY_RULES" */
@@ -36157,17 +36187,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AccessConfig : GTLRObject
 
 /**
- *  The first IPv6 address of the external IPv6 range associated with this
- *  instance, prefix length is stored in externalIpv6PrefixLength in
- *  ipv6AccessConfig. To use a static external IP address, it must be unused and
- *  in the same region as the instance's zone. If not specified, Google Cloud
- *  will automatically assign an external IPv6 address from the instance's
- *  subnetwork.
+ *  Applies to ipv6AccessConfigs only. The first IPv6 address of the external
+ *  IPv6 range associated with this instance, prefix length is stored in
+ *  externalIpv6PrefixLength in ipv6AccessConfig. To use a static external IP
+ *  address, it must be unused and in the same region as the instance's zone. If
+ *  not specified, Google Cloud will automatically assign an external IPv6
+ *  address from the instance's subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *externalIpv6;
 
 /**
- *  The prefix length of the external IPv6 range.
+ *  Applies to ipv6AccessConfigs only. The prefix length of the external IPv6
+ *  range.
  *
  *  Uses NSNumber of intValue.
  */
@@ -36180,18 +36211,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of this access configuration. The default and recommended name is
- *  External NAT, but you can use any arbitrary string, such as My external IP
- *  or Network Access.
+ *  The name of this access configuration. In accessConfigs (IPv4), the default
+ *  and recommended name is External NAT, but you can use any arbitrary string,
+ *  such as My external IP or Network Access. In ipv6AccessConfigs, the
+ *  recommend name is External IPv6.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  An external IP address associated with this instance. Specify an unused
- *  static external IP address available to the project or leave this field
- *  undefined to use an IP from a shared ephemeral IP address pool. If you
- *  specify a static external IP address, it must live in the same region as the
- *  zone of the instance.
+ *  Applies to accessConfigs (IPv4) only. An external IP address associated with
+ *  this instance. Specify an unused static external IP address available to the
+ *  project or leave this field undefined to use an IP from a shared ephemeral
+ *  IP address pool. If you specify a static external IP address, it must live
+ *  in the same region as the zone of the instance.
  */
 @property(nonatomic, copy, nullable) NSString *natIP;
 
@@ -36238,7 +36270,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *setPublicPtr;
 
 /**
- *  The type of configuration. The default and only option is ONE_TO_ONE_NAT.
+ *  The type of configuration. In accessConfigs (IPv4), the default and only
+ *  option is ONE_TO_ONE_NAT. In ipv6AccessConfigs, the default and only option
+ *  is DIRECT_IPV6.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_AccessConfig_Type_DirectIpv6 Value "DIRECT_IPV6"
@@ -45860,13 +45894,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_FirewallPolicyRuleMatcher : GTLRObject
 
 /**
+ *  Address groups which should be matched against the traffic destination.
+ *  Maximum number of destination address groups is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destAddressGroups;
+
+/**
+ *  Fully Qualified Domain Name (FQDN) which should be matched against traffic
+ *  destination. Maximum number of destination fqdn allowed is 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destFqdns;
+
+/**
  *  CIDR IP address range. Maximum number of destination CIDR IP ranges allowed
  *  is 5000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destIpRanges;
 
+/**
+ *  Region codes whose IP addresses will be used to match for destination of
+ *  traffic. Should be specified as 2 letter country code defined as per ISO
+ *  3166 alpha-2 country codes. ex."US" Maximum number of dest region codes
+ *  allowed is 5000.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destRegionCodes;
+
+/**
+ *  Names of Network Threat Intelligence lists. The IPs in these lists will be
+ *  matched against traffic destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destThreatIntelligences;
+
 /** Pairs of IP protocols and ports that the rule should match. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_FirewallPolicyRuleMatcherLayer4Config *> *layer4Configs;
+
+/**
+ *  Address groups which should be matched against the traffic source. Maximum
+ *  number of source address groups is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *srcAddressGroups;
+
+/**
+ *  Fully Qualified Domain Name (FQDN) which should be matched against traffic
+ *  source. Maximum number of source fqdn allowed is 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *srcFqdns;
 
 /**
  *  CIDR IP address range. Maximum number of source CIDR IP ranges allowed is
@@ -45875,12 +45947,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
 
 /**
+ *  Region codes whose IP addresses will be used to match for source of traffic.
+ *  Should be specified as 2 letter country code defined as per ISO 3166 alpha-2
+ *  country codes. ex."US" Maximum number of source region codes allowed is
+ *  5000.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *srcRegionCodes;
+
+/**
  *  List of secure tag values, which should be matched at the source of the
  *  traffic. For INGRESS rule, if all the srcSecureTag are INEFFECTIVE, and
  *  there is no srcIpRange, this rule will be ignored. Maximum number of source
  *  tag values allowed is 256.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_FirewallPolicyRuleSecureTag *> *srcSecureTags;
+
+/**
+ *  Names of Network Threat Intelligence lists. The IPs in these lists will be
+ *  matched against traffic source.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *srcThreatIntelligences;
 
 @end
 
@@ -47212,8 +47298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The ID of a supported feature. To add multiple values, use commas to
  *  separate values. Set to one or more of the following values: -
  *  VIRTIO_SCSI_MULTIQUEUE - WINDOWS - MULTI_IP_SUBNET - UEFI_COMPATIBLE - GVNIC
- *  - SEV_CAPABLE - SUSPEND_RESUME_COMPATIBLE - SEV_SNP_CAPABLE For more
- *  information, see Enabling guest operating system features.
+ *  - SEV_CAPABLE - SUSPEND_RESUME_COMPATIBLE - SEV_LIVE_MIGRATABLE -
+ *  SEV_SNP_CAPABLE - TDX_CAPABLE For more information, see Enabling guest
+ *  operating system features.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified Value
@@ -47223,6 +47310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "MULTI_IP_SUBNET"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SecureBoot Value "SECURE_BOOT"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SevCapable Value "SEV_CAPABLE"
+ *    @arg @c kGTLRCompute_GuestOsFeature_Type_SevLiveMigratable Value
+ *        "SEV_LIVE_MIGRATABLE"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SevSnpCapable Value
  *        "SEV_SNP_CAPABLE"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_UefiCompatible Value
@@ -48241,7 +48330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *forwardingRuleIp;
 
 /**
- *  Health state of the instance.
+ *  Health state of the IPv4 address of the instance.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HealthStatus_HealthState_Healthy Value "HEALTHY"
@@ -48347,13 +48436,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Draining
- *        Value "DRAINING"
+ *        Endpoint is being drained. (Value: "DRAINING")
  *    @arg @c kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Healthy
- *        Value "HEALTHY"
+ *        Endpoint is healthy. (Value: "HEALTHY")
  *    @arg @c kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unhealthy
- *        Value "UNHEALTHY"
+ *        Endpoint is unhealthy. (Value: "UNHEALTHY")
  *    @arg @c kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unknown
- *        Value "UNKNOWN"
+ *        Health status of the endpoint is unknown. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *healthState;
 
@@ -48900,7 +48989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The request path of the HTTP health check request. The default value is /.
- *  This field does not support query parameters.
+ *  This field does not support query parameters. Must comply with RFC3986.
  */
 @property(nonatomic, copy, nullable) NSString *requestPath;
 
@@ -49691,7 +49780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The request path of the HTTPS health check request. The default value is
- *  "/".
+ *  "/". Must comply with RFC3986.
  */
 @property(nonatomic, copy, nullable) NSString *requestPath;
 
@@ -50684,7 +50773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Instance life cycle.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_Instance_Status_Deprovisioning The Nanny is halted
+ *    @arg @c kGTLRCompute_Instance_Status_Deprovisioning The instance is halted
  *        and we are performing tear down tasks like network deprogramming,
  *        releasing quota, IP, tearing down disks etc. (Value: "DEPROVISIONING")
  *    @arg @c kGTLRCompute_Instance_Status_Provisioning Resources are being
@@ -52255,7 +52344,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The URLs of one or more instances to delete. This can be a full URL or a
- *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
+ *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. Queued
+ *  instances do not have URL and can be deleted only by name. One cannot
+ *  specify both URLs and names in a single request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
@@ -55115,7 +55206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Deprovisioning The
- *        Nanny is halted and we are performing tear down tasks like network
+ *        instance is halted and we are performing tear down tasks like network
  *        deprogramming, releasing quota, IP, tearing down disks etc. (Value:
  *        "DEPROVISIONING")
  *    @arg @c kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning Resources
@@ -55170,8 +55261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Represents an Interconnect resource. An Interconnect resource is a dedicated
- *  connection between the GCP network and your on-premises network. For more
- *  information, read the Dedicated Interconnect Overview.
+ *  connection between the Google Cloud network and your on-premises network.
+ *  For more information, read the Dedicated Interconnect Overview.
  */
 @interface GTLRCompute_Interconnect : GTLRObject
 
@@ -55579,8 +55670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the IP address specified for this VLAN attachment. If this field is not
  *  specified when creating the VLAN attachment, then later on when creating an
  *  HA VPN gateway on this VLAN attachment, the HA VPN gateway's IP address is
- *  allocated from the regional external IP address pool. Not currently
- *  available publicly.
+ *  allocated from the regional external IP address pool.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipsecInternalAddresses;
 
@@ -58916,7 +59006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ManagedInstance_InstanceStatus_Deprovisioning The
- *        Nanny is halted and we are performing tear down tasks like network
+ *        instance is halted and we are performing tear down tasks like network
  *        deprogramming, releasing quota, IP, tearing down disks etc. (Value:
  *        "DEPROVISIONING")
  *    @arg @c kGTLRCompute_ManagedInstance_InstanceStatus_Provisioning Resources
@@ -59290,7 +59380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] The gateway address for default routing out of the network,
- *  selected by GCP.
+ *  selected by Google Cloud.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayIPv4;
 
@@ -61733,10 +61823,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *queueCount;
 
 /**
- *  The stack type for this network interface to identify whether the IPv6
- *  feature is enabled or not. If not specified, IPV4_ONLY will be used. This
- *  field can be both set at instance creation and update network interface
- *  operations.
+ *  The stack type for this network interface. To assign only IPv4 addresses,
+ *  use IPV4_ONLY. To assign both IPv4 and IPv6 addresses, use IPV4_IPV6. If not
+ *  specified, IPV4_ONLY is used. This field can be both set at instance
+ *  creation and update network interface operations.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_NetworkInterface_StackType_Ipv4Ipv6 The network
@@ -63213,6 +63303,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  node group.
  */
 @property(nonatomic, copy, nullable) NSString *nodeTemplate;
+
+@end
+
+
+/**
+ *  GTLRCompute_NodeGroupsSimulateMaintenanceEventRequest
+ */
+@interface GTLRCompute_NodeGroupsSimulateMaintenanceEventRequest : GTLRObject
+
+/** Names of the nodes to go under maintenance simulation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nodes;
 
 @end
 
@@ -68331,6 +68432,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_N2aCpus Value "N2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2Cpus Value "N2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2dCpus Value "N2D_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NetLbSecurityPoliciesPerRegion Value
+ *        "NET_LB_SECURITY_POLICIES_PER_REGION"
+ *    @arg @c kGTLRCompute_Quota_Metric_NetLbSecurityPolicyRuleAttributesPerRegion
+ *        Value "NET_LB_SECURITY_POLICY_RULE_ATTRIBUTES_PER_REGION"
+ *    @arg @c kGTLRCompute_Quota_Metric_NetLbSecurityPolicyRulesPerRegion Value
+ *        "NET_LB_SECURITY_POLICY_RULES_PER_REGION"
  *    @arg @c kGTLRCompute_Quota_Metric_NetworkAttachments Value
  *        "NETWORK_ATTACHMENTS"
  *    @arg @c kGTLRCompute_Quota_Metric_NetworkEndpointGroups Value
@@ -68344,6 +68451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NVIDIA_A100_80GB_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaA100Gpus Value "NVIDIA_A100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaK80Gpus Value "NVIDIA_K80_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_NvidiaL4Gpus Value "NVIDIA_L4_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaP100Gpus Value "NVIDIA_P100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaP100VwsGpus Value
  *        "NVIDIA_P100_VWS_GPUS"
@@ -68367,6 +68475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "PREEMPTIBLE_NVIDIA_A100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus Value
  *        "PREEMPTIBLE_NVIDIA_K80_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaL4Gpus Value
+ *        "PREEMPTIBLE_NVIDIA_L4_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus Value
  *        "PREEMPTIBLE_NVIDIA_P100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100VwsGpus Value
@@ -68410,6 +68520,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "SECURITY_POLICIES"
  *    @arg @c kGTLRCompute_Quota_Metric_SecurityPoliciesPerRegion Value
  *        "SECURITY_POLICIES_PER_REGION"
+ *    @arg @c kGTLRCompute_Quota_Metric_SecurityPolicyAdvancedRulesPerRegion
+ *        Value "SECURITY_POLICY_ADVANCED_RULES_PER_REGION"
  *    @arg @c kGTLRCompute_Quota_Metric_SecurityPolicyCevalRules Value
  *        "SECURITY_POLICY_CEVAL_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_SecurityPolicyRules Value
@@ -75792,7 +75904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Represents a ServiceAttachment resource. A service attachment represents a
  *  service that a producer has exposed. It encapsulates the load balancer which
  *  fronts the service runs and a list of NAT IP ranges that the producers uses
- *  to represent the consumers connecting to the service. next tag = 20
+ *  to represent the consumers connecting to the service.
  */
 @interface GTLRCompute_ServiceAttachment : GTLRObject
 
@@ -80964,8 +81076,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Optional. A URL referring to a networksecurity.ServerTlsPolicy resource that
  *  describes how the proxy should authenticate inbound traffic. serverTlsPolicy
  *  only applies to a global TargetHttpsProxy attached to globalForwardingRules
- *  with the loadBalancingScheme set to INTERNAL_SELF_MANAGED. If left blank,
- *  communications are not encrypted. Note: This field currently has no impact.
+ *  with the loadBalancingScheme set to INTERNAL_SELF_MANAGED or EXTERNAL or
+ *  EXTERNAL_MANAGED. For details which ServerTlsPolicy resources are accepted
+ *  with INTERNAL_SELF_MANAGED and which with EXTERNAL, EXTERNAL_MANAGED
+ *  loadBalancingScheme consult ServerTlsPolicy documentation. If left blank,
+ *  communications are not encrypted.
  */
 @property(nonatomic, copy, nullable) NSString *serverTlsPolicy;
 

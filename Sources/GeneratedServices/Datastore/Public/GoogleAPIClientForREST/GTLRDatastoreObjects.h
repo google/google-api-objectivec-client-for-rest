@@ -151,6 +151,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_And;
  *  Value: "OPERATOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified;
+/**
+ *  Documents are required to satisfy at least one of the combined filters.
+ *
+ *  Value: "OR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
@@ -647,16 +653,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan;
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual;
 /**
  *  Limit the result set to the given entity and its descendants. Requires: *
- *  That `value` is an entity key. * No other `HAS_ANCESTOR` is in the same
- *  query.
+ *  That `value` is an entity key. * All evaluated disjunctions must have the
+ *  same `HAS_ANCESTOR` filter.
  *
  *  Value: "HAS_ANCESTOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_HasAncestor;
 /**
  *  The given `property` is equal to at least one value in the given array.
- *  Requires: * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *  * No other `IN` or `NOT_IN` is in the same query.
+ *  Requires: * That `value` is a non-empty `ArrayValue`, subject to disjunction
+ *  limits. * No `NOT_IN` is in the same query.
  *
  *  Value: "IN"
  */
@@ -685,9 +691,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThanOrEq
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_NotEqual;
 /**
  *  The value of the `property` is not in the given array. Requires: * That
- *  `value` is a non-empty `ArrayValue` with at most 10 values. * No other `IN`,
- *  `NOT_IN`, `NOT_EQUAL` is in the same query. * That `field` comes first in
- *  the `order_by`.
+ *  `value` is a non-empty `ArrayValue` with at most 10 values. * No other `OR`,
+ *  `IN`, `NOT_IN`, `NOT_EQUAL` is in the same query. * That `field` comes first
+ *  in the `order_by`.
  *
  *  Value: "NOT_IN"
  */
@@ -816,7 +822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_St
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
- *  Defines a aggregation that produces a single result.
+ *  Defines an aggregation that produces a single result.
  */
 @interface GTLRDatastore_Aggregation : GTLRObject
 
@@ -824,12 +830,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Optional. Optional name of the property to store the result of the
  *  aggregation. If not provided, Datastore will pick a default name following
  *  the format `property_`. For example: ``` AGGREGATE COUNT_UP_TO(1) AS
- *  count_up_to_1, COUNT_UP_TO(2), COUNT_UP_TO(3) AS count_up_to_3,
- *  COUNT_UP_TO(4) OVER ( ... ); ``` becomes: ``` AGGREGATE COUNT_UP_TO(1) AS
- *  count_up_to_1, COUNT_UP_TO(2) AS property_1, COUNT_UP_TO(3) AS
- *  count_up_to_3, COUNT_UP_TO(4) AS property_2 OVER ( ... ); ``` Requires: *
- *  Must be unique across all aggregation aliases. * Conform to entity property
- *  name limitations.
+ *  count_up_to_1, COUNT_UP_TO(2), COUNT_UP_TO(3) AS count_up_to_3, COUNT(*)
+ *  OVER ( ... ); ``` becomes: ``` AGGREGATE COUNT_UP_TO(1) AS count_up_to_1,
+ *  COUNT_UP_TO(2) AS property_1, COUNT_UP_TO(3) AS count_up_to_3, COUNT(*) AS
+ *  property_2 OVER ( ... ); ``` Requires: * Must be unique across all
+ *  aggregation aliases. * Conform to entity property name limitations.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
@@ -1114,6 +1119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        satisfy each of the combined filters. (Value: "AND")
  *    @arg @c kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_CompositeFilter_Op_Or Documents are required to
+ *        satisfy at least one of the combined filters. (Value: "OR")
  */
 @property(nonatomic, copy, nullable) NSString *op;
 
@@ -1129,8 +1136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  Optional. Optional constraint on the maximum number of entities to count.
  *  This provides a way to set an upper bound on the number of entities to scan,
- *  limiting latency and cost. Unspecified is interpreted as no bound. If a zero
- *  value is provided, a count result of zero should always be expected.
+ *  limiting latency, and cost. Unspecified is interpreted as no bound. If a
+ *  zero value is provided, a count result of zero should always be expected.
  *  High-Level Example: ``` AGGREGATE COUNT_UP_TO(1000) OVER ( SELECT * FROM k
  *  ); ``` Requires: * Must be non-negative when present.
  *
@@ -1169,8 +1176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The entity's properties. The map's keys are property names. A property name
  *  matching regex `__.*__` is reserved. A reserved property name is forbidden
- *  in certain documented contexts. The name must not contain more than 500
- *  characters. The name cannot be `""`.
+ *  in certain documented contexts. The map keys, represented as UTF-8, must not
+ *  exceed 1,500 bytes and cannot be empty.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity_Properties *properties;
 
@@ -1180,8 +1187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The entity's properties. The map's keys are property names. A property name
  *  matching regex `__.*__` is reserved. A reserved property name is forbidden
- *  in certain documented contexts. The name must not contain more than 500
- *  characters. The name cannot be `""`.
+ *  in certain documented contexts. The map keys, represented as UTF-8, must not
+ *  exceed 1,500 bytes and cannot be empty.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDatastore_Value. Use @c -additionalJSONKeys and @c
@@ -2543,12 +2550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        "GREATER_THAN_OR_EQUAL")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_HasAncestor Limit the result set
  *        to the given entity and its descendants. Requires: * That `value` is
- *        an entity key. * No other `HAS_ANCESTOR` is in the same query. (Value:
- *        "HAS_ANCESTOR")
+ *        an entity key. * All evaluated disjunctions must have the same
+ *        `HAS_ANCESTOR` filter. (Value: "HAS_ANCESTOR")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_In The given `property` is equal
  *        to at least one value in the given array. Requires: * That `value` is
- *        a non-empty `ArrayValue` with at most 10 values. * No other `IN` or
- *        `NOT_IN` is in the same query. (Value: "IN")
+ *        a non-empty `ArrayValue`, subject to disjunction limits. * No `NOT_IN`
+ *        is in the same query. (Value: "IN")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_LessThan The given `property` is
  *        less than the given `value`. Requires: * That `property` comes first
  *        in `order_by`. (Value: "LESS_THAN")
@@ -2562,7 +2569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        `order_by`. (Value: "NOT_EQUAL")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_NotIn The value of the `property`
  *        is not in the given array. Requires: * That `value` is a non-empty
- *        `ArrayValue` with at most 10 values. * No other `IN`, `NOT_IN`,
+ *        `ArrayValue` with at most 10 values. * No other `OR`, `IN`, `NOT_IN`,
  *        `NOT_EQUAL` is in the same query. * That `field` comes first in the
  *        `order_by`. (Value: "NOT_IN")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified Unspecified.
@@ -2626,7 +2633,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The properties to make distinct. The query results will contain the first
  *  result for each distinct combination of values for the given properties (if
- *  empty, all results are returned).
+ *  empty, all results are returned). Requires: * If `order` is specified, the
+ *  set of distinct on properties must appear before the non-distinct on
+ *  properties in `order`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PropertyReference *> *distinctOn;
 

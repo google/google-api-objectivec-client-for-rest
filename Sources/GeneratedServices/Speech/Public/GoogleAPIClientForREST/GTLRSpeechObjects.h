@@ -1342,7 +1342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  If 'true', enables speaker detection for each recognized word in the top
- *  alternative of the recognition result using a speaker_tag provided in the
+ *  alternative of the recognition result using a speaker_label provided in the
  *  WordInfo.
  *
  *  Uses NSNumber of boolValue.
@@ -1463,11 +1463,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
+ *  Output only. A label value assigned for every unique speaker within the
+ *  audio. This field specifies which speaker was detected to have spoken this
+ *  word. For some models, like medical_conversation this can be actual speaker
+ *  role, for example "patient" or "provider", but generally this would be a
+ *  number identifying a speaker. This field is only set if
+ *  enable_speaker_diarization = 'true' and only for the top alternative.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerLabel;
+
+/**
  *  Output only. A distinct integer value is assigned for every speaker within
  *  the audio. This field specifies which one of those speakers was detected to
  *  have spoken this word. Value ranges from '1' to diarization_speaker_count.
- *  speaker_tag is set if enable_speaker_diarization = 'true' and only in the
- *  top alternative.
+ *  speaker_tag is set if enable_speaker_diarization = 'true' and only for the
+ *  top alternative. Note: Use speaker_label instead.
  *
  *  Uses NSNumber of intValue.
  */

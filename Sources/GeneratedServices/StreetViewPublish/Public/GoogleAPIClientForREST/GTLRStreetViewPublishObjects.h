@@ -1274,7 +1274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *  not present, the old Photo metadata is entirely replaced with the new Photo
  *  metadata in this request. The update fails if invalid fields are specified.
  *  Multiple fields can be specified in a comma-delimited list. The following
- *  fields are valid: * `pose.heading` * `pose.latLngPair` * `pose.pitch` *
+ *  fields are valid: * `pose.heading` * `pose.lat_lng_pair` * `pose.pitch` *
  *  `pose.roll` * `pose.level` * `pose.altitude` * `connections` * `places` >
  *  Note: When updateMask contains repeated fields, the entire set of repeated
  *  values get replaced with the new contents. For example, if updateMask

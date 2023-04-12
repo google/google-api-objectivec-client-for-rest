@@ -62,7 +62,10 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_Destro
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_DestroyScheduled = @"DESTROY_SCHEDULED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_Disabled = @"DISABLED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_Enabled = @"ENABLED";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_ExternalDestructionFailed = @"EXTERNAL_DESTRUCTION_FAILED";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_GenerationFailed = @"GENERATION_FAILED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_ImportFailed = @"IMPORT_FAILED";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_PendingExternalDestruction = @"PENDING_EXTERNAL_DESTRUCTION";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_PendingGeneration = @"PENDING_GENERATION";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_PendingImport = @"PENDING_IMPORT";
 
@@ -272,8 +275,9 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 
 @implementation GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion
 @dynamic algorithm, attestation, createTime, destroyEventTime, destroyTime,
-         externalProtectionLevelOptions, generateTime, importFailureReason,
-         importJob, importTime, name, protectionLevel, reimportEligible, state;
+         externalDestructionFailureReason, externalProtectionLevelOptions,
+         generateTime, generationFailureReason, importFailureReason, importJob,
+         importTime, name, protectionLevel, reimportEligible, state;
 @end
 
 

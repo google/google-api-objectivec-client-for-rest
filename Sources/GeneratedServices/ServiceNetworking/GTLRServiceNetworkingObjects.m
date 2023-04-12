@@ -15,6 +15,7 @@
 // Constants
 
 // GTLRServiceNetworking_Api.syntax
+NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -39,6 +40,7 @@ NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_Gith
 NSString * const kGTLRServiceNetworking_CommonLanguageSettings_Destinations_PackageManager = @"PACKAGE_MANAGER";
 
 // GTLRServiceNetworking_Enum.syntax
+NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -75,6 +77,7 @@ NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_Int64 = @"INT6
 NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_String = @"STRING";
 
 // GTLRServiceNetworking_Method.syntax
+NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -131,6 +134,7 @@ NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos = @"PHOTO
 NSString * const kGTLRServiceNetworking_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceNetworking_Type.syntax
+NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -770,7 +774,46 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_DotnetSettings
-@dynamic common;
+@dynamic common, forcedNamespaceAliases, handwrittenSignatures,
+         ignoredResources, renamedResources, renamedServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forcedNamespaceAliases" : [NSString class],
+    @"handwrittenSignatures" : [NSString class],
+    @"ignoredResources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_DotnetSettings_RenamedResources
+//
+
+@implementation GTLRServiceNetworking_DotnetSettings_RenamedResources
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_DotnetSettings_RenamedServices
+//
+
+@implementation GTLRServiceNetworking_DotnetSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -817,7 +860,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Enum
-@dynamic enumvalue, name, options, sourceContext, syntax;
+@dynamic edition, enumvalue, name, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1844,7 +1887,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Type
-@dynamic fields, name, oneofs, options, sourceContext, syntax;
+@dynamic edition, fields, name, oneofs, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

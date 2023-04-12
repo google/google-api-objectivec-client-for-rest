@@ -107,6 +107,196 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA
+ *  Enterprise actions can be executed. A project may have a maximum of 1000
+ *  policies.
+ *
+ *  Method: recaptchaenterprise.projects.firewallpolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the project this policy will apply to, in the format
+ *  "projects/{project}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy.
+ *
+ *  Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA
+ *  Enterprise actions can be executed. A project may have a maximum of 1000
+ *  policies.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy to
+ *    include in the query.
+ *  @param parent Required. The name of the project this policy will apply to,
+ *    in the format "projects/{project}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified firewall policy.
+ *
+ *  Method: recaptchaenterprise.projects.firewallpolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesDelete : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the policy to be deleted, in the format
+ *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecaptchaEnterprise_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified firewall policy.
+ *
+ *  @param name Required. The name of the policy to be deleted, in the format
+ *    "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the specified firewall policy.
+ *
+ *  Method: recaptchaenterprise.projects.firewallpolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesGet : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the requested policy, in the format
+ *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy.
+ *
+ *  Returns the specified firewall policy.
+ *
+ *  @param name Required. The name of the requested policy, in the format
+ *    "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all firewall policies that belong to a project.
+ *
+ *  Method: recaptchaenterprise.projects.firewallpolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesList : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Optional. The maximum number of policies to return. Default is 10. Max limit
+ *  is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous.
+ *  ListFirewallPoliciesRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project to list the policies for, in the format
+ *  "projects/{project}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse.
+ *
+ *  Returns the list of all firewall policies that belong to a project.
+ *
+ *  @param parent Required. The name of the project to list the policies for, in
+ *    the format "projects/{project}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified firewall policy.
+ *
+ *  Method: recaptchaenterprise.projects.firewallpolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  The resource name for the FirewallPolicy in the format
+ *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The mask to control which fields of the policy get updated. If the
+ *  mask is not present, all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy.
+ *
+ *  Updates the specified firewall policy.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy to
+ *    include in the query.
+ *  @param name The resource name for the FirewallPolicy in the format
+ *    "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new reCAPTCHA Enterprise key.
  *
  *  Method: recaptchaenterprise.projects.keys.create

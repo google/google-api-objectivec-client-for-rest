@@ -137,6 +137,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation;
 @class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction;
 @class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityIncident;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig;
@@ -439,6 +440,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_Sta
  *  Value: "RUNTIME_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig.deploymentGroupType
+
+/**
+ *  Unspecified type
+ *
+ *  Value: "DEPLOYMENT_GROUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_DeploymentGroupTypeUnspecified;
+/**
+ *  Extensible Type
+ *
+ *  Value: "EXTENSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_Extensible;
+/**
+ *  Standard type
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.billingType
@@ -1267,6 +1290,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSa
  *  Value: "SAMPLER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityIncident.riskLevel
+
+/**
+ *  Risk level of the incident is low.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Low;
+/**
+ *  Risk level of the incident is moderate.
+ *
+ *  Value: "MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Moderate;
+/**
+ *  Risk Level Unspecified.
+ *
+ *  Value: "RISK_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_RiskLevelUnspecified;
+/**
+ *  Risk level of the incident is severe.
+ *
+ *  Value: "SEVERE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
@@ -3727,6 +3778,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig : GTLRObject
 
 /**
+ *  Type of the deployment group, which will be either Standard or Extensible.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_DeploymentGroupTypeUnspecified
+ *        Unspecified type (Value: "DEPLOYMENT_GROUP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_Extensible
+ *        Extensible Type (Value: "EXTENSIBLE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_Standard
+ *        Standard type (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentGroupType;
+
+/**
  *  Name of the deployment group in the following format:
  *  `organizations/{org}/environments/{env}/deploymentGroups/{group}`.
  */
@@ -5747,6 +5811,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListSecurityIncidents.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityIncidents" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityIncidentsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security incidents in the organization
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityIncident *> *securityIncidents;
+
+@end
+
+
+/**
  *  Response for ListSecurityProfileRevisions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6649,9 +6740,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *analyticsRegion;
 
 /**
- *  Name of the customer project's VPC network. If provided, the network needs
- *  to be peered through Service Networking. If none is provided, the
- *  organization will have access only to the public internet.
+ *  Compute Engine network used for Service Networking to be peered with Apigee
+ *  runtime instances. See [Getting started with the Service Networking
+ *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
+ *  Apigee also supports shared VPC (that is, the host network project is not
+ *  the same as the one that is peering with Apigee). See [Shared VPC
+ *  overview](https://cloud.google.com/vpc/docs/shared-vpc). To use a shared VPC
+ *  network, use the following format:
+ *  `projects/{host-project-id}/{region}/networks/{network-name}`. For example:
+ *  `projects/my-sharedvpc-host/global/networks/mynetwork`
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
@@ -7936,6 +8033,65 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Documentation link for the action. */
 @property(nonatomic, copy, nullable) NSString *documentationLink;
+
+@end
+
+
+/**
+ *  Represents an SecurityIncident resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityIncident : GTLRObject
+
+/**
+ *  Output only. Detection types which are part of the incident. Examples:
+ *  Flooder, OAuth Abuser, Static Content Scraper, Anomaly Detection.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *detectionTypes;
+
+/** Display name of the security incident. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The time when events associated with the incident were first
+ *  detected.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstDetectedTime;
+
+/**
+ *  Output only. The time when events associated with the incident were last
+ *  detected.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastDetectedTime;
+
+/**
+ *  Immutable. Name of the security incident resource. Format:
+ *  organizations/{org}/environments/{environment}/securityIncidents/{incident}
+ *  Example:
+ *  organizations/apigee-org/environments/dev/securityIncidents/1234-5678-9101-1111
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Risk level of the incident.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Low Risk
+ *        level of the incident is low. (Value: "LOW")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Moderate
+ *        Risk level of the incident is moderate. (Value: "MODERATE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_RiskLevelUnspecified
+ *        Risk Level Unspecified. (Value: "RISK_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe
+ *        Risk level of the incident is severe. (Value: "SEVERE")
+ */
+@property(nonatomic, copy, nullable) NSString *riskLevel;
+
+/**
+ *  Total traffic detected as part of the incident.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trafficCount;
 
 @end
 

@@ -941,6 +941,39 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
+ *  Get the application player ids for the currently authenticated player across
+ *  all requested games by the same developer as the calling application. This
+ *  will only return ids for players that actually have an id (scoped or
+ *  otherwise) with that game.
+ *
+ *  Method: games.players.getMultipleApplicationPlayerIds
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGames
+ */
+@interface GTLRGamesQuery_PlayersGetMultipleApplicationPlayerIds : GTLRGamesQuery
+
+/**
+ *  Required. The application IDs from the Google Play developer console for the
+ *  games to return scoped ids for.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicationIds;
+
+/**
+ *  Fetches a @c GTLRGames_GetMultipleApplicationPlayerIdsResponse.
+ *
+ *  Get the application player ids for the currently authenticated player across
+ *  all requested games by the same developer as the calling application. This
+ *  will only return ids for players that actually have an id (scoped or
+ *  otherwise) with that game.
+ *
+ *  @return GTLRGamesQuery_PlayersGetMultipleApplicationPlayerIds
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Retrieves scoped player identifiers for currently authenticated user.
  *
  *  Method: games.players.getScopedPlayerIds

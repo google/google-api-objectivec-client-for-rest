@@ -846,14 +846,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  If true, restrict direct table access(read api/tabledata.list) on linked
- *  table.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *restrictDirectTableAccess;
-
-/**
  *  If true, restrict export of query result derived from restricted linked
  *  dataset table.
  *

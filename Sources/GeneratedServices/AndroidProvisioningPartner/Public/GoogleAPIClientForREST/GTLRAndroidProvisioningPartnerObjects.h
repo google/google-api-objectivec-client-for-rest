@@ -379,8 +379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Optional. Must and can only be set when DeviceProvisioningSectionType is
- *  SECTION_TYPE_SIM_LOCK. The unique identifier of the SimLock profile
- *  (go/simlock/profiles).
+ *  SECTION_TYPE_SIM_LOCK. The unique identifier of the SimLock profile.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1456,6 +1455,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *        Zero-touch enrollment section type. (Value: "SECTION_TYPE_ZERO_TOUCH")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
+
+/**
+ *  Optional. Must and can only be set when DeviceProvisioningSectionType is
+ *  SECTION_TYPE_SIM_LOCK. The unique identifier of the SimLock profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *simlockProfileId;
 
 @end
 

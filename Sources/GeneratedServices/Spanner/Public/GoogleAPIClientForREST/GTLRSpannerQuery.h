@@ -500,14 +500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: spanner.projects.instanceConfigs.operations.list
  *
@@ -533,14 +526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1158,14 +1144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: spanner.projects.instances.backups.operations.list
  *
@@ -1191,14 +1170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -2007,14 +1979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: spanner.projects.instances.databases.operations.list
  *
@@ -2040,14 +2005,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -2058,6 +2016,79 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a Cloud Spanner database. The returned long-running operation can be
+ *  used to track the progress of updating the database. If the named database
+ *  does not exist, returns `NOT_FOUND`. While the operation is pending: * The
+ *  database's reconciling field is set to true. * Cancelling the operation is
+ *  best-effort. If the cancellation succeeds, the operation metadata's
+ *  cancel_time is set, the updates are reverted, and the operation terminates
+ *  with a `CANCELLED` status. * New UpdateDatabase requests will return a
+ *  `FAILED_PRECONDITION` error until the pending operation is done (returns
+ *  successfully or with error). * Reading the database via the API continues to
+ *  give the pre-request values. Upon completion of the returned operation: *
+ *  The new values are in effect and readable via the API. * The database's
+ *  reconciling field becomes false. The returned long-running operation will
+ *  have a name of the format `projects//instances//databases//operations/` and
+ *  can be used to track the database modification. The metadata field type is
+ *  UpdateDatabaseMetadata. The response field type is Database, if successful.
+ *
+ *  Method: spanner.projects.instances.databases.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesPatch : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the database. Values are of the form
+ *  `projects//instances//databases/`, where `` is as specified in the `CREATE
+ *  DATABASE` statement. This name can be passed to other API methods to
+ *  identify the database.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. Currently, only
+ *  `enable_drop_protection` field can be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Updates a Cloud Spanner database. The returned long-running operation can be
+ *  used to track the progress of updating the database. If the named database
+ *  does not exist, returns `NOT_FOUND`. While the operation is pending: * The
+ *  database's reconciling field is set to true. * Cancelling the operation is
+ *  best-effort. If the cancellation succeeds, the operation metadata's
+ *  cancel_time is set, the updates are reverted, and the operation terminates
+ *  with a `CANCELLED` status. * New UpdateDatabase requests will return a
+ *  `FAILED_PRECONDITION` error until the pending operation is done (returns
+ *  successfully or with error). * Reading the database via the API continues to
+ *  give the pre-request values. Upon completion of the returned operation: *
+ *  The new values are in effect and readable via the API. * The database's
+ *  reconciling field becomes false. The returned long-running operation will
+ *  have a name of the format `projects//instances//databases//operations/` and
+ *  can be used to track the database modification. The metadata field type is
+ *  UpdateDatabaseMetadata. The response field type is Database, if successful.
+ *
+ *  @param object The @c GTLRSpanner_Database to include in the query.
+ *  @param name Required. The name of the database. Values are of the form
+ *    `projects//instances//databases/`, where `` is as specified in the `CREATE
+ *    DATABASE` statement. This name can be passed to other API methods to
+ *    identify the database.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_Database *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3163,14 +3194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: spanner.projects.instances.operations.list
  *
@@ -3196,14 +3220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

@@ -486,7 +486,7 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest
-@dynamic requestId;
+@dynamic ignoreDependentResources, requestId;
 @end
 
 

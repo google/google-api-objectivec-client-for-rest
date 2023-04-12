@@ -4001,6 +4001,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
+ *  When set to `true`, fetches indirect role assignments (i.e. role assignment
+ *  via a group) as well as direct ones. Defaults to `false`. You must specify
+ *  `user_key` or the indirect role assignments will not be included.
+ */
+@property(nonatomic, assign) BOOL includeIndirectRoleAssignments;
+
+/**
  *  Maximum number of results to return.
  *
  *  @note The documented range is 1..200.
@@ -4017,8 +4024,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *roleId;
 
 /**
- *  The user's primary email address, alias email address, or unique user ID. If
- *  included in the request, returns role assignments only for this user.
+ *  The primary email address, alias email address, or unique user or group ID.
+ *  If included in the request, returns role assignments only for this user or
+ *  group.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 

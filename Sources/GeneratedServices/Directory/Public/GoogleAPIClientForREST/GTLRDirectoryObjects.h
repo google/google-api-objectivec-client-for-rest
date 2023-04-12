@@ -230,6 +230,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_S
 // GTLRDirectory_ChromeosdevicesCommand.type
 
 /**
+ *  Capture the system logs of a kiosk device. The logs can be downloaded from
+ *  the downloadUrl link present in `deviceFiles` field of
+ *  [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *
+ *  Value: "CAPTURE_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CaptureLogs;
+/**
  *  The command type was unspecified.
  *
  *  Value: "COMMAND_TYPE_UNSPECIFIED"
@@ -312,6 +320,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_R
 // ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeosdevicesIssueCommandRequest.commandType
 
+/**
+ *  Capture the system logs of a kiosk device. The logs can be downloaded from
+ *  the downloadUrl link present in `deviceFiles` field of
+ *  [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *
+ *  Value: "CAPTURE_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CaptureLogs;
 /**
  *  The command type was unspecified.
  *
@@ -719,6 +735,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_RoleAssignment.assigneeType
+
+/**
+ *  A group within the domain.
+ *
+ *  Value: "group"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Group;
+/**
+ *  An individual user within the domain.
+ *
+ *  Value: "user"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User;
 
 /**
  *  JSON template for Alias object in Directory API.
@@ -1985,6 +2017,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  The type of the command.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_CaptureLogs Capture the
+ *        system logs of a kiosk device. The logs can be downloaded from the
+ *        downloadUrl link present in `deviceFiles` field of
+ *        [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *        (Value: "CAPTURE_LOGS")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified
  *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession
@@ -2066,6 +2103,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *  The type of command.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CaptureLogs
+ *        Capture the system logs of a kiosk device. The logs can be downloaded
+ *        from the downloadUrl link present in `deviceFiles` field of
+ *        [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *        (Value: "CAPTURE_LOGS")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified
  *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession
@@ -3765,11 +3807,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The unique ID of the entity this role is assigned to—either the `user_id` of
- *  a user or the `uniqueId` of a service account, as defined in [Identity and
- *  Access Management
+ *  a user, the `group_id` of a group, or the `uniqueId` of a service account as
+ *  defined in [Identity and Access Management
  *  (IAM)](https://cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts).
  */
 @property(nonatomic, copy, nullable) NSString *assignedTo;
+
+/**
+ *  Output only. The type of the assignee (`USER` or `GROUP`).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_RoleAssignment_AssigneeType_Group A group within
+ *        the domain. (Value: "group")
+ *    @arg @c kGTLRDirectory_RoleAssignment_AssigneeType_User An individual user
+ *        within the domain. (Value: "user")
+ */
+@property(nonatomic, copy, nullable) NSString *assigneeType;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -4076,8 +4129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 /**
  *  The Directory API allows you to create and manage your account's users, user
- *  aliases, and user Gmail chat profile photos. For more information about
- *  common tasks, see the [User Accounts Developer's
+ *  aliases, and user Google profile photos. For more information about common
+ *  tasks, see the [User Accounts Developer's
  *  Guide](/admin-sdk/directory/v1/guides/manage-users.html) and the [User
  *  Aliases Developer's
  *  Guide](/admin-sdk/directory/v1/guides/manage-user-aliases.html).
@@ -4399,7 +4452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 /** Output only. ETag of the user's photo (Read-only) */
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoEtag;
 
-/** Output only. Photo Url of the user (Read-only) */
+/**
+ *  Output only. The URL of the user's profile photo. The URL might be temporary
+ *  or private.
+ */
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoUrl;
 
 /**

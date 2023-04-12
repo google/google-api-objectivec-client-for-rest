@@ -76,6 +76,20 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Par
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified = @"PARTNER_UNSPECIFIED";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems = @"SOVEREIGN_CONTROLS_BY_T_SYSTEMS";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningErrorDomain
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_EkmProvisioningErrorDomainUnspecified = @"EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalPartnerError = @"EXTERNAL_PARTNER_ERROR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalUserError = @"EXTERNAL_USER_ERROR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_GoogleServerError = @"GOOGLE_SERVER_ERROR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_TimeoutError = @"TIMEOUT_ERROR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_UnspecifiedError = @"UNSPECIFIED_ERROR";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningState
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateCompleted = @"EKM_PROVISIONING_STATE_COMPLETED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateFailed = @"EKM_PROVISIONING_STATE_FAILED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStatePending = @"EKM_PROVISIONING_STATE_PENDING";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateUnspecified = @"EKM_PROVISIONING_STATE_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerFolder = @"CONSUMER_FOLDER";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
@@ -303,8 +317,9 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload
 @dynamic billingAccount, complianceRegime, complianceStatus,
          compliantButDisallowedServices, createTime, displayName,
-         enableSovereignControls, ETag, kajEnrollmentState, kmsSettings, labels,
-         name, partner, provisionedResourcesParent, resources, resourceSettings,
+         ekmProvisioningResponse, enableSovereignControls, ETag,
+         kajEnrollmentState, kmsSettings, labels, name, partner,
+         provisionedResourcesParent, resources, resourceSettings,
          saaEnrollmentResponse;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -344,6 +359,17 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus
 @dynamic acknowledgedViolationCount, activeViolationCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse
+@dynamic ekmProvisioningErrorDomain, ekmProvisioningErrorMessage,
+         ekmProvisioningState;
 @end
 
 

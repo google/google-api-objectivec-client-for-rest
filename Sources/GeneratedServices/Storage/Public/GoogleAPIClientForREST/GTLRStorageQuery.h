@@ -2478,6 +2478,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 @property(nonatomic, assign) BOOL includeTrailingDelimiter;
 
+/** Filter results to objects and prefixes that match this glob pattern. */
+@property(nonatomic, copy, nullable) NSString *matchGlob;
+
 /**
  *  Maximum number of items plus prefixes to return in a single page of
  *  responses. As duplicate prefixes are omitted, fewer total results may be

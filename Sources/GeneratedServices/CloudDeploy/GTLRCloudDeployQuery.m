@@ -244,6 +244,33 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsAdvance
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_AdvanceRolloutRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:advance";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsAdvance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_AdvanceRolloutResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.advance";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsApprove
 
 @dynamic name;
@@ -266,6 +293,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudDeploy_ApproveRolloutResponse class];
   query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.approve";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CancelRolloutRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_CancelRolloutResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.cancel";
   return query;
 }
 
@@ -317,6 +371,33 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsIgnoreJob
+
+@dynamic rollout;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_IgnoreJobRequest *)object
+                        rollout:(NSString *)rollout {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"rollout" ];
+  NSString *pathURITemplate = @"v1/{+rollout}:ignoreJob";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsIgnoreJob *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.rollout = rollout;
+  query.expectedObjectClass = [GTLRCloudDeploy_IgnoreJobResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.ignoreJob";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsGet
 
 @dynamic name;
@@ -350,6 +431,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudDeploy_ListJobRunsResponse class];
   query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsTerminate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_TerminateJobRunRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:terminate";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsTerminate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_TerminateJobRunResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.terminate";
   return query;
 }
 

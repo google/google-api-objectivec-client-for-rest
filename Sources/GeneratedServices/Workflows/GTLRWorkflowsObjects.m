@@ -14,9 +14,20 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkflows_StateError.type
+NSString * const kGTLRWorkflows_StateError_Type_KmsError       = @"KMS_ERROR";
+NSString * const kGTLRWorkflows_StateError_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRWorkflows_Workflow.callLogLevel
+NSString * const kGTLRWorkflows_Workflow_CallLogLevel_CallLogLevelUnspecified = @"CALL_LOG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogAllCalls = @"LOG_ALL_CALLS";
+NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogErrorsOnly = @"LOG_ERRORS_ONLY";
+NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogNone  = @"LOG_NONE";
+
 // GTLRWorkflows_Workflow.state
 NSString * const kGTLRWorkflows_Workflow_State_Active          = @"ACTIVE";
 NSString * const kGTLRWorkflows_Workflow_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 
 // ----------------------------------------------------------------------------
 //
@@ -182,6 +193,16 @@ NSString * const kGTLRWorkflows_Workflow_State_StateUnspecified = @"STATE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkflows_StateError
+//
+
+@implementation GTLRWorkflows_StateError
+@dynamic details, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkflows_Status
 //
 
@@ -218,8 +239,9 @@ NSString * const kGTLRWorkflows_Workflow_State_StateUnspecified = @"STATE_UNSPEC
 //
 
 @implementation GTLRWorkflows_Workflow
-@dynamic createTime, descriptionProperty, labels, name, revisionCreateTime,
-         revisionId, serviceAccount, sourceContents, state, updateTime;
+@dynamic callLogLevel, createTime, cryptoKeyName, descriptionProperty, labels,
+         name, revisionCreateTime, revisionId, serviceAccount, sourceContents,
+         state, stateError, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

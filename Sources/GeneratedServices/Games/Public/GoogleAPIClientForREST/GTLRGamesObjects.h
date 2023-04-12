@@ -22,6 +22,7 @@
 @class GTLRGames_AchievementUpdateRequest;
 @class GTLRGames_AchievementUpdateResponse;
 @class GTLRGames_ApplicationCategory;
+@class GTLRGames_ApplicationPlayerId;
 @class GTLRGames_Category;
 @class GTLRGames_EventBatchRecordFailure;
 @class GTLRGames_EventChild;
@@ -1113,6 +1114,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
+ *  Primary scoped player identifier for an application.
+ */
+@interface GTLRGames_ApplicationPlayerId : GTLRObject
+
+/** The application that this player identifier is for. */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** The player identifier for the application. */
+@property(nonatomic, copy, nullable) NSString *playerId;
+
+@end
+
+
+/**
  *  A third party application verification response resource.
  */
 @interface GTLRGames_ApplicationVerifyResponse : GTLRObject
@@ -1511,6 +1526,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 /** The current status of any updated events */
 @property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerEvent *> *playerEvents;
+
+@end
+
+
+/**
+ *  Response message for GetMultipleApplicationPlayerIds rpc.
+ */
+@interface GTLRGames_GetMultipleApplicationPlayerIdsResponse : GTLRObject
+
+/**
+ *  Output only. The requested applications along with the scoped ids for tha
+ *  player, if that player has an id for the application. If not, the
+ *  application is not included in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_ApplicationPlayerId *> *playerIds;
 
 @end
 

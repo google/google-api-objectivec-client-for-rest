@@ -38,9 +38,13 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetCpa;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetCpm;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonTargetingSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetOutrankShare;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetRoas;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetSpend;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonValue;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonWebpageConditionInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonWebpageInfo;
@@ -50,16 +54,25 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorLocationFieldPathElement;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsSearchAds360Error;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAd;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAudienceView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAudienceView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignDynamicSearchAdsSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignGeoTargetTypeSetting;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignNetworkSettings;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignOptimizationGoalSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignSelectiveOptimization;
@@ -75,9 +88,15 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerClient;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerManagerLink;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesDoubleClickCampaignManagerSetting;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesDynamicSearchAdsSearchTermView;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesGenderView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesKeywordView;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesProductGroupView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row;
 
@@ -765,6 +784,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTarge
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare_Location_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction.targetingDimension
+
+/**
+ *  Criteria for targeting age ranges.
+ *
+ *  Value: "AGE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_AgeRange;
+/**
+ *  Audience criteria, which include user list, user interest, custom affinity,
+ *  and custom in market.
+ *
+ *  Value: "AUDIENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Audience;
+/**
+ *  Criteria for targeting gender.
+ *
+ *  Value: "GENDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Gender;
+/**
+ *  Criteria for income range targeting.
+ *
+ *  Value: "INCOME_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_IncomeRange;
+/**
+ *  Keyword criteria, for example, 'mars cruise'. KEYWORD may be used as a
+ *  custom bid dimension. Keywords are always a targeting dimension, so may not
+ *  be set as a target "ALL" dimension with TargetRestriction.
+ *
+ *  Value: "KEYWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Keyword;
+/**
+ *  Criteria for parental status targeting.
+ *
+ *  Value: "PARENTAL_STATUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_ParentalStatus;
+/**
+ *  Placement criteria, which include websites like 'www.flowers4sale.com', as
+ *  well as mobile applications, mobile app categories, YouTube videos, and
+ *  YouTube channels.
+ *
+ *  Value: "PLACEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Placement;
+/**
+ *  Topic criteria for targeting categories of content, for example,
+ *  'category::Animals>Pets' Used for Display and Video targeting.
+ *
+ *  Value: "TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Topic;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonWebpageConditionInfo.operand
@@ -1644,12 +1733,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsError
 // GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.quotaError
 
 /**
- *  Access is prohibited.
- *
- *  Value: "ACCESS_PROHIBITED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_AccessProhibited;
-/**
  *  Too many requests.
  *
  *  Value: "RESOURCE_EXHAUSTED"
@@ -1907,6 +1990,209 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuota
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails_RateScope_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAd.type
+
+/**
+ *  The ad is an app ad.
+ *
+ *  Value: "APP_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppAd;
+/**
+ *  The ad is an app engagement ad.
+ *
+ *  Value: "APP_ENGAGEMENT_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppEngagementAd;
+/**
+ *  Universal app pre-registration ad.
+ *
+ *  Value: "APP_PRE_REGISTRATION_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppPreRegistrationAd;
+/**
+ *  The ad is a call only ad.
+ *
+ *  Value: "CALL_ONLY_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_CallOnlyAd;
+/**
+ *  Discovery carousel ad.
+ *
+ *  Value: "DISCOVERY_CAROUSEL_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DiscoveryCarouselAd;
+/**
+ *  Discovery multi asset ad.
+ *
+ *  Value: "DISCOVERY_MULTI_ASSET_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DiscoveryMultiAssetAd;
+/**
+ *  The ad is a display upload ad with one of the DYNAMIC_HTML5_* product types.
+ *
+ *  Value: "DYNAMIC_HTML5_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DynamicHtml5Ad;
+/**
+ *  The ad is an expanded dynamic search ad.
+ *
+ *  Value: "EXPANDED_DYNAMIC_SEARCH_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ExpandedDynamicSearchAd;
+/**
+ *  The ad is an expanded text ad.
+ *
+ *  Value: "EXPANDED_TEXT_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ExpandedTextAd;
+/**
+ *  This ad is a Gmail ad.
+ *
+ *  Value: "GMAIL_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_GmailAd;
+/**
+ *  The ad is a hotel ad.
+ *
+ *  Value: "HOTEL_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_HotelAd;
+/**
+ *  The ad is a display upload ad with the HTML5_UPLOAD_AD product type.
+ *
+ *  Value: "HTML5_UPLOAD_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Html5UploadAd;
+/**
+ *  This ad is an Image ad.
+ *
+ *  Value: "IMAGE_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ImageAd;
+/**
+ *  The ad is a legacy app install ad.
+ *
+ *  Value: "LEGACY_APP_INSTALL_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LegacyAppInstallAd;
+/**
+ *  The ad is a legacy responsive display ad.
+ *
+ *  Value: "LEGACY_RESPONSIVE_DISPLAY_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LegacyResponsiveDisplayAd;
+/**
+ *  The ad is a local ad.
+ *
+ *  Value: "LOCAL_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LocalAd;
+/**
+ *  The ad is a responsive display ad.
+ *
+ *  Value: "RESPONSIVE_DISPLAY_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveDisplayAd;
+/**
+ *  The ad is a responsive search ad.
+ *
+ *  Value: "RESPONSIVE_SEARCH_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveSearchAd;
+/**
+ *  The ad is a Shopping Comparison Listing ad.
+ *
+ *  Value: "SHOPPING_COMPARISON_LISTING_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingComparisonListingAd;
+/**
+ *  The ad is a standard Shopping ad.
+ *
+ *  Value: "SHOPPING_PRODUCT_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingProductAd;
+/**
+ *  The ad is a Smart Shopping ad.
+ *
+ *  Value: "SHOPPING_SMART_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingSmartAd;
+/**
+ *  Smart campaign ad.
+ *
+ *  Value: "SMART_CAMPAIGN_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_SmartCampaignAd;
+/**
+ *  The ad is a text ad.
+ *
+ *  Value: "TEXT_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_TextAd;
+/**
+ *  Travel ad.
+ *
+ *  Value: "TRAVEL_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_TravelAd;
+/**
+ *  The received value is not known in this version. This is a response-only
+ *  value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Unknown;
+/**
+ *  No value has been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Unspecified;
+/**
+ *  The ad is a video ad.
+ *
+ *  Value: "VIDEO_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoAd;
+/**
+ *  Video bumper ad.
+ *
+ *  Value: "VIDEO_BUMPER_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoBumperAd;
+/**
+ *  Video non-skippable in-stream ad.
+ *
+ *  Value: "VIDEO_NON_SKIPPABLE_IN_STREAM_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoNonSkippableInStreamAd;
+/**
+ *  Video outstream ad.
+ *
+ *  Value: "VIDEO_OUTSTREAM_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoOutstreamAd;
+/**
+ *  Video responsive ad.
+ *
+ *  Value: "VIDEO_RESPONSIVE_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoResponsiveAd;
+/**
+ *  Video TrueView in-display ad.
+ *
+ *  Value: "VIDEO_TRUEVIEW_DISCOVERY_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoTrueviewDiscoveryAd;
+/**
+ *  Video TrueView in-stream ad.
+ *
+ *  Value: "VIDEO_TRUEVIEW_IN_STREAM_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoTrueviewInStreamAd;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup.adRotationMode
 
 /**
@@ -1934,6 +2220,78 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_AdRotationMode_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup.engineStatus
+
+/**
+ *  No ads are running for this ad group, because the account has been paused.
+ *
+ *  Value: "ACCOUNT_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AccountPaused;
+/**
+ *  No ads are running for this ad group because the associated ad group is
+ *  still in draft form.
+ *
+ *  Value: "AD_GROUP_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupDraft;
+/**
+ *  Deprecated. Do not use.
+ *
+ *  Value: "AD_GROUP_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupEligible;
+/**
+ *  No ads are running for this ad group, because the ad group's end date has
+ *  passed.
+ *
+ *  Value: "AD_GROUP_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupExpired;
+/**
+ *  The ad group has been paused.
+ *
+ *  Value: "AD_GROUP_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupPaused;
+/**
+ *  The ad group has been deleted.
+ *
+ *  Value: "AD_GROUP_REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupRemoved;
+/**
+ *  The ad group is active and currently serving ads.
+ *
+ *  Value: "AD_GROUP_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupServing;
+/**
+ *  The ad group has been submitted (Microsoft Bing Ads legacy status).
+ *
+ *  Value: "AD_GROUP_SUBMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupSubmitted;
+/**
+ *  No ads are running for this ad group, because the campaign has been paused.
+ *
+ *  Value: "CAMPAIGN_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_CampaignPaused;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup.status
@@ -2035,6 +2393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_SmartCampaignAds;
 /**
+ *  Ad group type for Travel campaigns.
+ *
+ *  Value: "TRAVEL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_TravelAds;
+/**
  *  The received value is not known in this version. This is a response-only
  *  value.
  *
@@ -2089,6 +2453,159 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *  Value: "VIDEO_TRUE_VIEW_IN_STREAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_VideoTrueViewInStream;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd.engineStatus
+
+/**
+ *  Creative has been paused because the account is paused.
+ *
+ *  Value: "AD_GROUP_AD_ACCOUNT_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdAccountPaused;
+/**
+ *  Creative has been paused because the ad group is paused.
+ *
+ *  Value: "AD_GROUP_AD_AD_GROUP_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdAdGroupPaused;
+/**
+ *  Creative has been approved.
+ *
+ *  Value: "AD_GROUP_AD_APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdApproved;
+/**
+ *  Creative has been paused because the campaign is paused.
+ *
+ *  Value: "AD_GROUP_AD_CAMPAIGN_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdCampaignPaused;
+/**
+ *  Creative has been disapproved.
+ *
+ *  Value: "AD_GROUP_AD_DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdDisapproved;
+/**
+ *  Deprecated. Do not use.
+ *
+ *  Value: "AD_GROUP_AD_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdEligible;
+/**
+ *  Baidu: Creative was not approved.
+ *
+ *  Value: "AD_GROUP_AD_INAPPROPRIATE_FOR_CAMPAIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdInappropriateForCampaign;
+/**
+ *  Baidu: Mobile URL in process to be reviewed.
+ *
+ *  Value: "AD_GROUP_AD_MOBILE_URL_UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdMobileUrlUnderReview;
+/**
+ *  Baidu: Creative not reviewed.
+ *
+ *  Value: "AD_GROUP_AD_NOT_REVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdNotReviewed;
+/**
+ *  Deprecated. Do not use. Previously used by Gemini
+ *
+ *  Value: "AD_GROUP_AD_ON_HOLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdOnHold;
+/**
+ *  Baidu: Creative is invalid on mobile device but valid on desktop.
+ *
+ *  Value: "AD_GROUP_AD_PARTIALLY_INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPartiallyInvalid;
+/**
+ *  Creative has been paused.
+ *
+ *  Value: "AD_GROUP_AD_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPaused;
+/**
+ *  Creative is pending review.
+ *
+ *  Value: "AD_GROUP_AD_PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPendingReview;
+/**
+ *  Creative has been removed.
+ *
+ *  Value: "AD_GROUP_AD_REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdRemoved;
+/**
+ *  Creative is serving.
+ *
+ *  Value: "AD_GROUP_AD_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdServing;
+/**
+ *  Baidu: Creative is ready for activation.
+ *
+ *  Value: "AD_GROUP_AD_TO_BE_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdToBeActivated;
+/**
+ *  Creative is under review.
+ *
+ *  Value: "AD_GROUP_AD_UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdUnderReview;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_Unknown;
+/**
+ *  No value has been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd.status
+
+/**
+ *  The ad group ad is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Enabled;
+/**
+ *  The ad group ad is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Paused;
+/**
+ *  The ad group ad is removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Removed;
+/**
+ *  The received value is not known in this version. This is a response-only
+ *  value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Unknown;
+/**
+ *  No value has been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion.engineStatus
@@ -2377,7 +2894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_ListingScope;
 /**
- *  Google Local Services (GLS) Service ID.
+ *  Local Services Ads Service ID.
  *
  *  Value: "LOCAL_SERVICE_ID"
  */
@@ -2751,7 +3268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_DisplayMobileApp;
 /**
- *  Smart display campaigns.
+ *  Smart display campaigns. New campaigns of this sub type cannot be created.
  *
  *  Value: "DISPLAY_SMART_CAMPAIGN"
  */
@@ -2792,6 +3309,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "SMART_CAMPAIGN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SmartCampaign;
+/**
+ *  Travel Activities campaigns.
+ *
+ *  Value: "TRAVEL_ACTIVITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_TravelActivities;
 /**
  *  Used as a return value only. Represents value unknown in this version.
  *
@@ -2900,6 +3423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "SMART"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Smart;
+/**
+ *  Travel campaigns.
+ *
+ *  Value: "TRAVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Travel;
 /**
  *  Used for return value only. Represents value unknown in this version.
  *
@@ -3263,6 +3792,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_BookOnGoogle;
 /**
+ *  The asset is linked for use as a business logo.
+ *
+ *  Value: "BUSINESS_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_BusinessLogo;
+/**
  *  The asset is linked for use as a business name.
  *
  *  Value: "BUSINESS_NAME"
@@ -3304,6 +3839,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "HOTEL_CALLOUT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_HotelCallout;
+/**
+ *  The asset is linked for use as a hotel property in a Performance Max for
+ *  travel goals campaign.
+ *
+ *  Value: "HOTEL_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_HotelProperty;
 /**
  *  The asset is linked for use as a landscape logo.
  *
@@ -3560,6 +4102,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion.status
+
+/**
+ *  The campaign criterion is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Enabled;
+/**
+ *  The campaign criterion is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Paused;
+/**
+ *  The campaign criterion is removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Removed;
+/**
+ *  The received value is not known in this version. This is a response-only
+ *  value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Unknown;
+/**
+ *  No value has been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion.type
 
 /**
@@ -3677,7 +4254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_ListingScope;
 /**
- *  Google Local Services (GLS) Service ID.
+ *  Local Services Ads Service ID.
  *
  *  Value: "LOCAL_SERVICE_ID"
  */
@@ -4321,6 +4898,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Webpage;
 /**
+ *  Conversions created from website events (such as form submissions or page
+ *  loads), that don't use individually coded event snippets.
+ *
+ *  Value: "WEBPAGE_CODELESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_WebpageCodeless;
+/**
  *  Conversions that occur when a user calls a dynamically-generated phone
  *  number from an advertiser's website.
  *
@@ -4765,6 +5349,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCu
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerManagerLink_Status_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel.status
+
+/**
+ *  Label is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Enabled;
+/**
+ *  Label is removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Removed;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field.category
 
 /**
@@ -4901,6 +5513,59 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSe
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_DataType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList.type
+
+/**
+ *  UserList of first-party CRM data provided by advertiser in the form of
+ *  emails or other formats.
+ *
+ *  Value: "CRM_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_CrmBased;
+/**
+ *  UserList created in the Google Ad Manager platform.
+ *
+ *  Value: "EXTERNAL_REMARKETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_ExternalRemarketing;
+/**
+ *  UserList represented as a combination of other user lists/interests.
+ *
+ *  Value: "LOGICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Logical;
+/**
+ *  UserList represented as a collection of conversion types.
+ *
+ *  Value: "REMARKETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Remarketing;
+/**
+ *  UserList associated with a rule.
+ *
+ *  Value: "RULE_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_RuleBased;
+/**
+ *  UserList with users similar to users of another UserList.
+ *
+ *  Value: "SIMILAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Similar;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request.summaryRowSetting
@@ -5937,6 +6602,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, strong, nullable) NSNumber *valuePerConversionsByConversionDate;
 
+/**
+ *  Clicks that Search Ads 360 has successfully recorded and forwarded to an
+ *  advertiser's landing page.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visits;
+
 @end
 
 
@@ -6238,6 +6911,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Settings for the targeting-related features, at the campaign and ad group
+ *  levels. For more details about the targeting setting, visit
+ *  https://support.google.com/google-ads/answer/7365594
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonTargetingSetting : GTLRObject
+
+/**
+ *  The per-targeting-dimension setting to restrict the reach of your campaign
+ *  or ad group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction *> *targetRestrictions;
+
+@end
+
+
+/**
  *  An automated bidding strategy that sets bids based on the target fraction of
  *  auctions where the advertiser should outrank a specific competitor. This
  *  strategy is deprecated.
@@ -6251,6 +6940,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpcBidCeilingMicros;
+
+@end
+
+
+/**
+ *  The list of per-targeting-dimension targeting settings.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction : GTLRObject
+
+/**
+ *  Indicates whether to restrict your ads to show only for the criteria you
+ *  have selected for this targeting_dimension, or to target all values for this
+ *  targeting_dimension and show ads based on your targeting in other
+ *  TargetingDimensions. A value of `true` means that these criteria will only
+ *  apply bid modifiers, and not affect targeting. A value of `false` means that
+ *  these criteria will restrict targeting as well as applying bid modifiers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bidOnly;
+
+/**
+ *  The targeting dimension that these settings apply to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_AgeRange
+ *        Criteria for targeting age ranges. (Value: "AGE_RANGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Audience
+ *        Audience criteria, which include user list, user interest, custom
+ *        affinity, and custom in market. (Value: "AUDIENCE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Gender
+ *        Criteria for targeting gender. (Value: "GENDER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_IncomeRange
+ *        Criteria for income range targeting. (Value: "INCOME_RANGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Keyword
+ *        Keyword criteria, for example, 'mars cruise'. KEYWORD may be used as a
+ *        custom bid dimension. Keywords are always a targeting dimension, so
+ *        may not be set as a target "ALL" dimension with TargetRestriction.
+ *        (Value: "KEYWORD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_ParentalStatus
+ *        Criteria for parental status targeting. (Value: "PARENTAL_STATUS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Placement
+ *        Placement criteria, which include websites like
+ *        'www.flowers4sale.com', as well as mobile applications, mobile app
+ *        categories, YouTube videos, and YouTube channels. (Value: "PLACEMENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Topic
+ *        Topic criteria for targeting categories of content, for example,
+ *        'category::Animals>Pets' Used for Display and Video targeting. (Value:
+ *        "TOPIC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetingDimension;
 
 @end
 
@@ -6315,6 +7060,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetSpendMicros;
+
+@end
+
+
+/**
+ *  A type of label displaying text on a colored background.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel : GTLRObject
+
+/**
+ *  Background color of the label in RGB format. This string must match the
+ *  regular expression '^\\#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$'. Note: The
+ *  background color may not be visible for manager accounts.
+ */
+@property(nonatomic, copy, nullable) NSString *backgroundColor;
+
+/**
+ *  A short description of the label. The length must be no more than 200
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  A User List criterion. Represents a user list that is defined by the
+ *  advertiser to be targeted.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo : GTLRObject
+
+/** The User List resource name. */
+@property(nonatomic, copy, nullable) NSString *userList;
 
 @end
 
@@ -6867,8 +7647,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  An error with the amonut of quota remaining.
  *
  *  Likely values:
- *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_AccessProhibited
- *        Access is prohibited. (Value: "ACCESS_PROHIBITED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_ResourceExhausted
  *        Too many requests. (Value: "RESOURCE_EXHAUSTED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_ResourceTemporarilyExhausted
@@ -7116,6 +7894,125 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  An ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAd : GTLRObject
+
+/** The URL that appears in the ad description for some ad formats. */
+@property(nonatomic, copy, nullable) NSString *displayUrl;
+
+/**
+ *  The list of possible final URLs after all cross-domain redirects for the ad.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalUrls;
+
+/**
+ *  Output only. The ID of the ad.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Immutable. The name of the ad. This is only used to be able to identify the
+ *  ad. It does not need to be unique and does not affect the served ad. The
+ *  name field is currently only supported for DisplayUploadAd, ImageAd,
+ *  ShoppingComparisonListingAd and VideoAd.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The resource name of the ad. Ad resource names have the form:
+ *  `customers/{customer_id}/ads/{ad_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. The type of ad.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppAd The ad is
+ *        an app ad. (Value: "APP_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppEngagementAd
+ *        The ad is an app engagement ad. (Value: "APP_ENGAGEMENT_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppPreRegistrationAd
+ *        Universal app pre-registration ad. (Value: "APP_PRE_REGISTRATION_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_CallOnlyAd The
+ *        ad is a call only ad. (Value: "CALL_ONLY_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DiscoveryCarouselAd
+ *        Discovery carousel ad. (Value: "DISCOVERY_CAROUSEL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DiscoveryMultiAssetAd
+ *        Discovery multi asset ad. (Value: "DISCOVERY_MULTI_ASSET_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DynamicHtml5Ad
+ *        The ad is a display upload ad with one of the DYNAMIC_HTML5_* product
+ *        types. (Value: "DYNAMIC_HTML5_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ExpandedDynamicSearchAd
+ *        The ad is an expanded dynamic search ad. (Value:
+ *        "EXPANDED_DYNAMIC_SEARCH_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ExpandedTextAd
+ *        The ad is an expanded text ad. (Value: "EXPANDED_TEXT_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_GmailAd This ad
+ *        is a Gmail ad. (Value: "GMAIL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_HotelAd The ad
+ *        is a hotel ad. (Value: "HOTEL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Html5UploadAd
+ *        The ad is a display upload ad with the HTML5_UPLOAD_AD product type.
+ *        (Value: "HTML5_UPLOAD_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ImageAd This ad
+ *        is an Image ad. (Value: "IMAGE_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LegacyAppInstallAd
+ *        The ad is a legacy app install ad. (Value: "LEGACY_APP_INSTALL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LegacyResponsiveDisplayAd
+ *        The ad is a legacy responsive display ad. (Value:
+ *        "LEGACY_RESPONSIVE_DISPLAY_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LocalAd The ad
+ *        is a local ad. (Value: "LOCAL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveDisplayAd
+ *        The ad is a responsive display ad. (Value: "RESPONSIVE_DISPLAY_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveSearchAd
+ *        The ad is a responsive search ad. (Value: "RESPONSIVE_SEARCH_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingComparisonListingAd
+ *        The ad is a Shopping Comparison Listing ad. (Value:
+ *        "SHOPPING_COMPARISON_LISTING_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingProductAd
+ *        The ad is a standard Shopping ad. (Value: "SHOPPING_PRODUCT_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingSmartAd
+ *        The ad is a Smart Shopping ad. (Value: "SHOPPING_SMART_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_SmartCampaignAd
+ *        Smart campaign ad. (Value: "SMART_CAMPAIGN_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_TextAd The ad
+ *        is a text ad. (Value: "TEXT_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_TravelAd Travel
+ *        ad. (Value: "TRAVEL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Unknown The
+ *        received value is not known in this version. This is a response-only
+ *        value. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Unspecified No
+ *        value has been specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoAd The ad
+ *        is a video ad. (Value: "VIDEO_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoBumperAd
+ *        Video bumper ad. (Value: "VIDEO_BUMPER_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoNonSkippableInStreamAd
+ *        Video non-skippable in-stream ad. (Value:
+ *        "VIDEO_NON_SKIPPABLE_IN_STREAM_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoOutstreamAd
+ *        Video outstream ad. (Value: "VIDEO_OUTSTREAM_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoResponsiveAd
+ *        Video responsive ad. (Value: "VIDEO_RESPONSIVE_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoTrueviewDiscoveryAd
+ *        Video TrueView in-display ad. (Value: "VIDEO_TRUEVIEW_DISCOVERY_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoTrueviewInStreamAd
+ *        Video TrueView in-stream ad. (Value: "VIDEO_TRUEVIEW_IN_STREAM_AD")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  An ad group.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup : GTLRObject
@@ -7145,6 +8042,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *cpcBidMicros;
 
 /**
+ *  Output only. The timestamp when this ad_group was created. The timestamp is
+ *  in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/**
+ *  Output only. Date when the ad group ends serving ads. By default, the ad
+ *  group ends on the ad group's end date. If this field is set, then the ad
+ *  group ends at the end of the specified date in the customer's time zone.
+ *  This field is only available for Microsoft Advertising and Facebook gateway
+ *  accounts. Format: YYYY-MM-DD Example: 2019-03-14
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  Output only. ID of the ad group in the external engine account. This field
+ *  is for non-Google Ads account only, for example, Yahoo Japan, Microsoft,
+ *  Baidu etc. For Google Ads entity, use "ad_group.id" instead.
+ */
+@property(nonatomic, copy, nullable) NSString *engineId;
+
+/**
+ *  Output only. The Engine Status for ad group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AccountPaused
+ *        No ads are running for this ad group, because the account has been
+ *        paused. (Value: "ACCOUNT_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupDraft
+ *        No ads are running for this ad group because the associated ad group
+ *        is still in draft form. (Value: "AD_GROUP_DRAFT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupEligible
+ *        Deprecated. Do not use. (Value: "AD_GROUP_ELIGIBLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupExpired
+ *        No ads are running for this ad group, because the ad group's end date
+ *        has passed. (Value: "AD_GROUP_EXPIRED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupPaused
+ *        The ad group has been paused. (Value: "AD_GROUP_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupRemoved
+ *        The ad group has been deleted. (Value: "AD_GROUP_REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupServing
+ *        The ad group is active and currently serving ads. (Value:
+ *        "AD_GROUP_SERVING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupSubmitted
+ *        The ad group has been submitted (Microsoft Bing Ads legacy status).
+ *        (Value: "AD_GROUP_SUBMITTED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_CampaignPaused
+ *        No ads are running for this ad group, because the campaign has been
+ *        paused. (Value: "CAMPAIGN_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *engineStatus;
+
+/**
  *  Output only. The ID of the ad group.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -7152,6 +8107,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Output only. The resource names of labels attached to this ad group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+/**
+ *  Output only. The language of the ads and keywords in an ad group. This field
+ *  is only available for Microsoft Advertising accounts. More details:
+ *  https://docs.microsoft.com/en-us/advertising/guides/ad-languages?view=bingads-13#adlanguage
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Output only. The datetime when this ad group was last modified. The datetime
+ *  is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *lastModifiedTime;
 
 /**
  *  The name of the ad group. This field is required and should not be empty
@@ -7166,6 +8137,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  the form: `customers/{customer_id}/adGroups/{ad_group_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. Date when this ad group starts serving ads. By default, the ad
+ *  group starts now or the ad group's start date, whichever is later. If this
+ *  field is set, then the ad group starts at the beginning of the specified
+ *  date in the customer's time zone. This field is only available for Microsoft
+ *  Advertising and Facebook gateway accounts. Format: YYYY-MM-DD Example:
+ *  2019-03-14
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
  *  The status of the ad group.
@@ -7184,6 +8165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The status has not been specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/** Setting for targeting related features. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonTargetingSetting *targetingSetting;
 
 /**
  *  Immutable. The type of the ad group.
@@ -7217,6 +8201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "SHOPPING_SMART_ADS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_SmartCampaignAds
  *        Ad group type for Smart campaigns. (Value: "SMART_CAMPAIGN_ADS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_TravelAds
+ *        Ad group type for Travel campaigns. (Value: "TRAVEL_ADS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_Unknown
  *        The received value is not known in this version. This is a
  *        response-only value. (Value: "UNKNOWN")
@@ -7245,6 +8231,158 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  An ad group ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd : GTLRObject
+
+/** Immutable. The ad. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAd *ad;
+
+/**
+ *  Output only. The timestamp when this ad_group_ad was created. The datetime
+ *  is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/**
+ *  Output only. ID of the ad in the external engine account. This field is for
+ *  SearchAds 360 account only, for example, Yahoo Japan, Microsoft, Baidu etc.
+ *  For non-SearchAds 360 entity, use "ad_group_ad.ad.id" instead.
+ */
+@property(nonatomic, copy, nullable) NSString *engineId;
+
+/**
+ *  Output only. Additional status of the ad in the external engine account.
+ *  Possible statuses (depending on the type of external account) include
+ *  active, eligible, pending review, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdAccountPaused
+ *        Creative has been paused because the account is paused. (Value:
+ *        "AD_GROUP_AD_ACCOUNT_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdAdGroupPaused
+ *        Creative has been paused because the ad group is paused. (Value:
+ *        "AD_GROUP_AD_AD_GROUP_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdApproved
+ *        Creative has been approved. (Value: "AD_GROUP_AD_APPROVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdCampaignPaused
+ *        Creative has been paused because the campaign is paused. (Value:
+ *        "AD_GROUP_AD_CAMPAIGN_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdDisapproved
+ *        Creative has been disapproved. (Value: "AD_GROUP_AD_DISAPPROVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdEligible
+ *        Deprecated. Do not use. (Value: "AD_GROUP_AD_ELIGIBLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdInappropriateForCampaign
+ *        Baidu: Creative was not approved. (Value:
+ *        "AD_GROUP_AD_INAPPROPRIATE_FOR_CAMPAIGN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdMobileUrlUnderReview
+ *        Baidu: Mobile URL in process to be reviewed. (Value:
+ *        "AD_GROUP_AD_MOBILE_URL_UNDER_REVIEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdNotReviewed
+ *        Baidu: Creative not reviewed. (Value: "AD_GROUP_AD_NOT_REVIEWED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdOnHold
+ *        Deprecated. Do not use. Previously used by Gemini (Value:
+ *        "AD_GROUP_AD_ON_HOLD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPartiallyInvalid
+ *        Baidu: Creative is invalid on mobile device but valid on desktop.
+ *        (Value: "AD_GROUP_AD_PARTIALLY_INVALID")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPaused
+ *        Creative has been paused. (Value: "AD_GROUP_AD_PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPendingReview
+ *        Creative is pending review. (Value: "AD_GROUP_AD_PENDING_REVIEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdRemoved
+ *        Creative has been removed. (Value: "AD_GROUP_AD_REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdServing
+ *        Creative is serving. (Value: "AD_GROUP_AD_SERVING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdToBeActivated
+ *        Baidu: Creative is ready for activation. (Value:
+ *        "AD_GROUP_AD_TO_BE_ACTIVATED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdUnderReview
+ *        Creative is under review. (Value: "AD_GROUP_AD_UNDER_REVIEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_Unspecified
+ *        No value has been specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *engineStatus;
+
+/** Output only. The resource names of labels attached to this ad group ad. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+/**
+ *  Output only. The datetime when this ad group ad was last modified. The
+ *  datetime is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss"
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *lastModifiedTime;
+
+/**
+ *  Immutable. The resource name of the ad. Ad group ad resource names have the
+ *  form: `customers/{customer_id}/adGroupAds/{ad_group_id}~{ad_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  The status of the ad.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Enabled
+ *        The ad group ad is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Paused
+ *        The ad group ad is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Removed
+ *        The ad group ad is removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Unknown
+ *        The received value is not known in this version. This is a
+ *        response-only value. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Unspecified
+ *        No value has been specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  A relationship between an ad group ad and a label.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel : GTLRObject
+
+/** Immutable. The ad group ad to which the label is attached. */
+@property(nonatomic, copy, nullable) NSString *adGroupAd;
+
+/** Immutable. The label assigned to the ad group ad. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Immutable. The resource name of the ad group ad label. Ad group ad label
+ *  resource names have the form:
+ *  `customers/{customer_id}/adGroupAdLabels/{ad_group_id}~{ad_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  An ad group audience view. Includes performance data from interests and
+ *  remarketing lists for Display Network and YouTube Network ads, and
+ *  remarketing lists for search ads (RLSA), aggregated at the audience level.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAudienceView : GTLRObject
+
+/**
+ *  Output only. The resource name of the ad group audience view. Ad group
+ *  audience view resource names have the form:
+ *  `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  Represents an ad group bid modifier.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier : GTLRObject
@@ -7257,6 +8395,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bidModifier;
+
+/** Immutable. A device criterion. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonDeviceInfo *device;
 
 /**
  *  Immutable. The resource name of the ad group bid modifier. Ad group bid
@@ -7295,6 +8436,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *cpcBidMicros;
 
 /**
+ *  Output only. The timestamp when this ad group criterion was created. The
+ *  timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss"
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/**
  *  Output only. The ID of the criterion.
  *
  *  Uses NSNumber of longLongValue.
@@ -7307,6 +8455,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *effectiveCpcBidMicros;
+
+/**
+ *  Output only. ID of the ad group criterion in the external engine account.
+ *  This field is for non-Google Ads account only, for example, Yahoo Japan,
+ *  Microsoft, Baidu etc. For Google Ads entity, use
+ *  "ad_group_criterion.criterion_id" instead.
+ */
+@property(nonatomic, copy, nullable) NSString *engineId;
 
 /**
  *  Output only. The Engine Status for ad group criterion.
@@ -7389,6 +8545,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonKeywordInfo *keyword;
 
 /**
+ *  Output only. The resource names of labels attached to this ad group
+ *  criterion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+/**
  *  Output only. The datetime when this ad group criterion was last modified.
  *  The datetime is in the customer's time zone and in "yyyy-MM-dd
  *  HH:mm:ss.ssssss" format.
@@ -7397,6 +8559,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Immutable. Listing group. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonListingGroupInfo *listingGroup;
+
+/** Immutable. Location. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonLocationInfo *location;
+
+/**
+ *  Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
+ *  This field is immutable. To switch a criterion from positive to negative,
+ *  remove then re-add it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negative;
 
 /** Output only. Information regarding the quality of the criterion. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo *qualityInfo;
@@ -7479,7 +8653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_ListingScope
  *        Listing scope to target. (Value: "LISTING_SCOPE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_LocalServiceId
- *        Google Local Services (GLS) Service ID. (Value: "LOCAL_SERVICE_ID")
+ *        Local Services Ads Service ID. (Value: "LOCAL_SERVICE_ID")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_Location
  *        Locations to target. (Value: "LOCATION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_LocationGroup
@@ -7521,8 +8695,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/**
+ *  Immutable. User List. The Similar Audiences sunset starts May 2023. Refer to
+ *  https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html
+ *  for other options.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo *userList;
+
 /** Immutable. Webpage */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonWebpageInfo *webpage;
+
+@end
+
+
+/**
+ *  A relationship between an ad group criterion and a label.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel : GTLRObject
+
+/** Immutable. The ad group criterion to which the label is attached. */
+@property(nonatomic, copy, nullable) NSString *adGroupCriterion;
+
+/** Immutable. The label assigned to the ad group criterion. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Immutable. The resource name of the ad group criterion label. Ad group
+ *  criterion label resource names have the form:
+ *  `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -7539,6 +8741,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *qualityScore;
+
+@end
+
+
+/**
+ *  A relationship between an ad group and a label.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel : GTLRObject
+
+/** Immutable. The ad group to which the label is attached. */
+@property(nonatomic, copy, nullable) NSString *adGroup;
+
+/** Immutable. The label assigned to the ad group. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Immutable. The resource name of the ad group label. Ad group label resource
+ *  names have the form:
+ *  `customers/{customer_id}/adGroupLabels/{ad_group_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  An age range view.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView : GTLRObject
+
+/**
+ *  Output only. The resource name of the age range view. Age range view
+ *  resource names have the form:
+ *  `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -7815,7 +9053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_DisplayMobileApp
  *        Mobile app campaigns for Display. (Value: "DISPLAY_MOBILE_APP")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_DisplaySmartCampaign
- *        Smart display campaigns. (Value: "DISPLAY_SMART_CAMPAIGN")
+ *        Smart display campaigns. New campaigns of this sub type cannot be
+ *        created. (Value: "DISPLAY_SMART_CAMPAIGN")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_LocalCampaign
  *        Campaigns specialized for local advertising. (Value: "LOCAL_CAMPAIGN")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SearchExpress
@@ -7829,6 +9068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Smart Shopping campaigns. (Value: "SHOPPING_SMART_ADS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SmartCampaign
  *        Standard Smart campaigns. (Value: "SMART_CAMPAIGN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_TravelActivities
+ *        Travel Activities campaigns. (Value: "TRAVEL_ACTIVITIES")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_Unknown
  *        Used as a return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -7880,6 +9121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        search results. (Value: "SHOPPING")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Smart
  *        Smart campaigns. (Value: "SMART")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Travel
+ *        Travel campaigns. (Value: "TRAVEL")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Unknown
  *        Used for return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -8075,10 +9318,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *campaignBudget;
 
 /**
- *  Output only. Timestamp of the campaign's creation time, formatted in ISO
- *  8601.
+ *  Output only. The timestamp when this campaign was created. The timestamp is
+ *  in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format. create_time
+ *  will be deprecated in v1. Use creation_time instead.
  */
 @property(nonatomic, copy, nullable) NSString *createTime;
+
+/**
+ *  Output only. The timestamp when this campaign was created. The timestamp is
+ *  in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
 
 /** The setting for controlling Dynamic Search Ads (DSA). */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignDynamicSearchAdsSetting *dynamicSearchAdsSetting;
@@ -8315,6 +9565,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A campaign audience view. Includes performance data from interests and
+ *  remarketing lists for Display Network and YouTube Network ads, and
+ *  remarketing lists for search ads (RLSA), aggregated by campaign and audience
+ *  criterion. This view only includes audiences attached at the campaign level.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAudienceView : GTLRObject
+
+/**
+ *  Output only. The resource name of the campaign audience view. Campaign
+ *  audience view resource names have the form:
+ *  `customers/{customer_id}/campaignAudienceViews/{campaign_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  A campaign budget.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget : GTLRObject
@@ -8383,6 +9651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion : GTLRObject
 
+/** Immutable. Age range. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonAgeRangeInfo *ageRange;
+
 /**
  *  The modifier for the bids when the criterion matches. The modifier must be
  *  in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
@@ -8408,8 +9679,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Immutable. Gender. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo *gender;
+
+/** Immutable. Keyword. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonKeywordInfo *keyword;
+
 /** Immutable. Language. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonLanguageInfo *language;
+
+/**
+ *  Output only. The datetime when this campaign criterion was last modified.
+ *  The datetime is in the customer's time zone and in "yyyy-MM-dd
+ *  HH:mm:ss.ssssss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *lastModifiedTime;
 
 /** Immutable. Location. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonLocationInfo *location;
@@ -8430,6 +9714,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  `customers/{customer_id}/campaignCriteria/{campaign_id}~{criterion_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  The status of the criterion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Enabled
+ *        The campaign criterion is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Paused
+ *        The campaign criterion is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Removed
+ *        The campaign criterion is removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Unknown
+ *        The received value is not known in this version. This is a
+ *        response-only value. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Unspecified
+ *        No value has been specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  Output only. The type of the criterion.
@@ -8474,7 +9776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_ListingScope
  *        Listing scope to target. (Value: "LISTING_SCOPE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_LocalServiceId
- *        Google Local Services (GLS) Service ID. (Value: "LOCAL_SERVICE_ID")
+ *        Local Services Ads Service ID. (Value: "LOCAL_SERVICE_ID")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_Location
  *        Locations to target. (Value: "LOCATION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_LocationGroup
@@ -8515,6 +9817,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        YouTube Video. (Value: "YOUTUBE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Immutable. User List. The Similar Audiences sunset starts May 2023. Refer to
+ *  https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html
+ *  for other options.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo *userList;
+
+/** Immutable. Webpage. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonWebpageInfo *webpage;
 
 @end
 
@@ -8589,6 +9901,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *positiveGeoTargetType;
+
+@end
+
+
+/**
+ *  Represents a relationship between a campaign and a label.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel : GTLRObject
+
+/** Immutable. The campaign to which the label is attached. */
+@property(nonatomic, copy, nullable) NSString *campaign;
+
+/** Immutable. The label assigned to the campaign. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Immutable. Name of the resource. Campaign label resource names have the
+ *  form: `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -9021,6 +10353,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        attributed clicks. (Value: "UPLOAD_CLICKS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Webpage
  *        Conversions that occur on a webpage. (Value: "WEBPAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_WebpageCodeless
+ *        Conversions created from website events (such as form submissions or
+ *        page loads), that don't use individually coded event snippets. (Value:
+ *        "WEBPAGE_CODELESS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_WebsiteCall
  *        Conversions that occur when a user calls a dynamically-generated phone
  *        number from an advertiser's website. (Value: "WEBSITE_CALL")
@@ -9416,6 +10752,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting *conversionTrackingSetting;
 
 /**
+ *  Output only. The timestamp when this customer was created. The timestamp is
+ *  in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/**
  *  Immutable. The currency in which the account operates. A subset of the
  *  currency codes from the ISO 4217 standard is supported.
  */
@@ -9433,7 +10775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** Output only. ID of the account in the external engine account. */
 @property(nonatomic, copy, nullable) NSString *engineId;
 
-/** The URL template for appending params to the final URL */
+/** The URL template for appending params to the final URL. */
 @property(nonatomic, copy, nullable) NSString *finalUrlSuffix;
 
 /**
@@ -9685,6 +11027,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A dynamic search ads search term view.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesDynamicSearchAdsSearchTermView : GTLRObject
+
+/**
+ *  Output only. The dynamically selected landing page URL of the impression.
+ *  This field is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *landingPage;
+
+/**
+ *  Output only. The resource name of the dynamic search ads search term view.
+ *  Dynamic search ads search term view resource names have the form:
+ *  `customers/{customer_id}/dynamicSearchAdsSearchTermViews/{ad_group_id}~{search_term_fingerprint}~{headline_fingerprint}~{landing_page_fingerprint}~{page_url_fingerprint}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  A gender view.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesGenderView : GTLRObject
+
+/**
+ *  Output only. The resource name of the gender view. Gender view resource
+ *  names have the form:
+ *  `customers/{customer_id}/genderViews/{ad_group_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  A keyword view.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesKeywordView : GTLRObject
@@ -9693,6 +11071,71 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Output only. The resource name of the keyword view. Keyword view resource
  *  names have the form:
  *  `customers/{customer_id}/keywordViews/{ad_group_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  A label.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel : GTLRObject
+
+/**
+ *  Output only. ID of the label. Read only.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The name of the label. This field is required and should not be empty when
+ *  creating a new label. The length of this string should be between 1 and 80,
+ *  inclusive.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. Name of the resource. Label resource names have the form:
+ *  `customers/{customer_id}/labels/{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. Status of the label. Read only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Enabled
+ *        Label is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Removed
+ *        Label is removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** A type of label displaying text on a colored background. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel *textLabel;
+
+@end
+
+
+/**
+ *  A location view summarizes the performance of campaigns by Location
+ *  criteria.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView : GTLRObject
+
+/**
+ *  Output only. The resource name of the location view. Location view resource
+ *  names have the form:
+ *  `customers/{customer_id}/locationViews/{campaign_id}~{criterion_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -9873,6 +11316,79 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A user list. This is a list of users a customer may target.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList : GTLRObject
+
+/**
+ *  Output only. Id of the user list.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Name of this user list. Depending on its access_reason, the user list name
+ *  may not be unique (for example, if access_reason=SHARED)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The resource name of the user list. User list resource names have
+ *  the form: `customers/{customer_id}/userLists/{user_list_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. Type of this list. This field is read-only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_CrmBased
+ *        UserList of first-party CRM data provided by advertiser in the form of
+ *        emails or other formats. (Value: "CRM_BASED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_ExternalRemarketing
+ *        UserList created in the Google Ad Manager platform. (Value:
+ *        "EXTERNAL_REMARKETING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Logical
+ *        UserList represented as a combination of other user lists/interests.
+ *        (Value: "LOGICAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Remarketing
+ *        UserList represented as a collection of conversion types. (Value:
+ *        "REMARKETING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_RuleBased
+ *        UserList associated with a rule. (Value: "RULE_BASED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Similar
+ *        UserList with users similar to users of another UserList. (Value:
+ *        "SIMILAR")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A webpage view.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView : GTLRObject
+
+/**
+ *  Output only. The resource name of the webpage view. Webpage view resource
+ *  names have the form:
+ *  `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  Message for custom column header.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader : GTLRObject
@@ -9918,11 +11434,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The ad group referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup *adGroup;
 
+/** The ad referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd *adGroupAd;
+
+/** The ad group ad label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel *adGroupAdLabel;
+
+/** The ad group audience view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAudienceView *adGroupAudienceView;
+
 /** The bid modifier referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier *adGroupBidModifier;
 
 /** The criterion referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion *adGroupCriterion;
+
+/** The ad group criterion label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel *adGroupCriterionLabel;
+
+/** The ad group label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel *adGroupLabel;
+
+/** The age range view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView *ageRangeView;
 
 /** The bidding strategy referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy *biddingStrategy;
@@ -9930,11 +11464,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The campaign referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign *campaign;
 
+/** The campaign audience view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAudienceView *campaignAudienceView;
+
 /** The campaign budget referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget *campaignBudget;
 
 /** The campaign criterion referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion *campaignCriterion;
+
+/** The campaign label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel *campaignLabel;
 
 /** The conversion action referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction *conversionAction;
@@ -9951,8 +11491,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The CustomerManagerLink referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerManagerLink *customerManagerLink;
 
+/** The dynamic search ads search term view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesDynamicSearchAdsSearchTermView *dynamicSearchAdsSearchTermView;
+
+/** The gender view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesGenderView *genderView;
+
 /** The keyword view referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesKeywordView *keywordView;
+
+/** The label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel *label;
+
+/** The location view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView *locationView;
 
 /** The metrics. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonMetrics *metrics;
@@ -9962,6 +11514,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The segments. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSegments *segments;
+
+/** The user list referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList *userList;
+
+/** The webpage view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView *webpageView;
 
 @end
 

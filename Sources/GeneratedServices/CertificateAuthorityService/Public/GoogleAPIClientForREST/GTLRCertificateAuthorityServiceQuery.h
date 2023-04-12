@@ -423,6 +423,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL ignoreActiveCertificates;
 
 /**
+ *  Optional. This field allows this ca to be deleted even if it's being
+ *  depended on by another resource. However, doing so may result in unintended
+ *  and unrecoverable effects on any dependent resource(s) since the CA will no
+ *  longer be able to issue certificates.
+ */
+@property(nonatomic, assign) BOOL ignoreDependentResources;
+
+/**
  *  Required. The resource name for this CertificateAuthority in the format
  *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
@@ -1062,6 +1070,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsDelete : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Optional. This field allows this pool to be deleted even if it's being
+ *  depended on by another resource. However, doing so may result in unintended
+ *  and unrecoverable effects on any dependent resource(s) since the pool will
+ *  no longer be able to issue certificates.
+ */
+@property(nonatomic, assign) BOOL ignoreDependentResources;
 
 /**
  *  Required. The resource name for this CaPool in the format `projects/ *
@@ -1953,14 +1969,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: privateca.projects.locations.operations.list
  *
@@ -1985,14 +1994,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCertificateAuthorityService_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

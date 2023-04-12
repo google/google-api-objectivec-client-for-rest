@@ -84,6 +84,7 @@
 @class GTLRMonitoring_NotificationChannel_Labels;
 @class GTLRMonitoring_NotificationChannel_UserLabels;
 @class GTLRMonitoring_NotificationChannelDescriptor;
+@class GTLRMonitoring_NotificationChannelStrategy;
 @class GTLRMonitoring_NotificationRateLimit;
 @class GTLRMonitoring_Option;
 @class GTLRMonitoring_Option_Value;
@@ -1614,6 +1615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTyp
 // GTLRMonitoring_Type.syntax
 
 /**
+ *  Syntax editions.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxEditions;
+/**
  *  Syntax proto2.
  *
  *  Value: "SYNTAX_PROTO2"
@@ -2282,6 +2289,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  incidents will close
  */
 @property(nonatomic, strong, nullable) GTLRDuration *autoClose;
+
+/** Control how notifications will be sent out, on a per-channel basis. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_NotificationChannelStrategy *> *notificationChannelStrategy;
 
 /**
  *  Required for alert policies with a LogMatch condition.This limit is not
@@ -3146,7 +3156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  proportional to the value of the lower bound. Each bucket represents a
  *  constant relative uncertainty on a specific value in the bucket.There are
  *  num_finite_buckets + 2 (= N) buckets. Bucket i has the following
- *  boundaries:Upper bound (0 <= i < N-1): scale * (growth_factor ^ i). Lower
+ *  boundaries:Upper bound (0 <= i < N-1): scale * (growth_factor ^ i).Lower
  *  bound (1 <= i < N): scale * (growth_factor ^ (i - 1)).
  */
 @interface GTLRMonitoring_Exponential : GTLRObject
@@ -3887,7 +3897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  overflow and underflow). Each bucket represents a constant absolute
  *  uncertainty on the specific value in the bucket.There are num_finite_buckets
  *  + 2 (= N) buckets. Bucket i has the following boundaries:Upper bound (0 <= i
- *  < N-1): offset + (width * i). Lower bound (1 <= i < N): offset + (width * (i
+ *  < N-1): offset + (width * i).Lower bound (1 <= i < N): offset + (width * (i
  *  - 1)).
  */
 @interface GTLRMonitoring_Linear : GTLRObject
@@ -5388,6 +5398,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Control over how the notification channels in notification_channels are
+ *  notified when this alert fires, on a per-channel basis.
+ */
+@interface GTLRMonitoring_NotificationChannelStrategy : GTLRObject
+
+/**
+ *  The full REST resource name for the notification channels that these
+ *  settings apply to. Each of these correspond to the name field in one of the
+ *  NotificationChannel objects referenced in the notification_channels field of
+ *  this AlertPolicy. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notificationChannelNames;
+
+/**
+ *  The frequency at which to send reminder notifications for open incidents.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *renotifyInterval;
+
+@end
+
+
+/**
  *  Control over the rate of notifications sent to this alert policy's
  *  notification channels.
  */
@@ -6400,6 +6433,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @interface GTLRMonitoring_Type : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** The list of fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Field *> *fields;
 
@@ -6419,6 +6455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxEditions Syntax editions.
+ *        (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto2 Syntax proto2. (Value:
  *        "SYNTAX_PROTO2")
  *    @arg @c kGTLRMonitoring_Type_Syntax_SyntaxProto3 Syntax proto3. (Value:

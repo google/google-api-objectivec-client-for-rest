@@ -1872,6 +1872,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves a TagKey by its namespaced name. This method will return
+ *  `PERMISSION_DENIED` if the key does not exist or the user does not have
+ *  permission to view it.
+ *
+ *  Method: cloudresourcemanager.tagKeys.getNamespaced
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_TagKeysGetNamespaced : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. A namespaced tag key name in the format
+ *  `{parentId}/{tagKeyShort}`, such as `42/foo` for a key with short name "foo"
+ *  under the organization with ID 42 or `r2-d2/bar` for a key with short name
+ *  "bar" under the project `r2-d2`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_TagKey.
+ *
+ *  Retrieves a TagKey by its namespaced name. This method will return
+ *  `PERMISSION_DENIED` if the key does not exist or the user does not have
+ *  permission to view it.
+ *
+ *  @return GTLRCloudResourceManagerQuery_TagKeysGetNamespaced
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Lists all TagKeys for a parent resource.
  *
  *  Method: cloudresourcemanager.tagKeys.list
@@ -2203,6 +2237,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Retrieves a TagValue by its namespaced name. This method will return
+ *  `PERMISSION_DENIED` if the value does not exist or the user does not have
+ *  permission to view it.
+ *
+ *  Method: cloudresourcemanager.tagValues.getNamespaced
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_TagValuesGetNamespaced : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. A namespaced tag value name in the following format:
+ *  `{parentId}/{tagKeyShort}/{tagValueShort}` Examples: - `42/foo/abc` for a
+ *  value with short name "abc" under the key with short name "foo" under the
+ *  organization with ID 42 - `r2-d2/bar/xyz` for a value with short name "xyz"
+ *  under the key with short name "bar" under the project with ID "r2-d2"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_TagValue.
+ *
+ *  Retrieves a TagValue by its namespaced name. This method will return
+ *  `PERMISSION_DENIED` if the value does not exist or the user does not have
+ *  permission to view it.
+ *
+ *  @return GTLRCloudResourceManagerQuery_TagValuesGetNamespaced
+ */
++ (instancetype)query;
 
 @end
 

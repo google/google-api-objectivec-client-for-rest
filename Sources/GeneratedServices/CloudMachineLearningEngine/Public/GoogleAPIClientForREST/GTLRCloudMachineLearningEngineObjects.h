@@ -163,6 +163,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  *  Value: "TPU_V3_POD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3Pod;
+/**
+ *  TPU v4 POD.
+ *
+ *  Value: "TPU_V4_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV4Pod;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
@@ -233,6 +239,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  *  Value: "TPU_V3_POD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3Pod;
+/**
+ *  TPU v4 POD.
+ *
+ *  Value: "TPU_V4_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV4Pod;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -1088,6 +1100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        TPU v3. (Value: "TPU_V3")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3Pod
  *        TPU v3 POD. (Value: "TPU_V3_POD")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV4Pod
+ *        TPU v4 POD. (Value: "TPU_V4_POD")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

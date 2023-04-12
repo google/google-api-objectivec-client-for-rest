@@ -323,7 +323,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  RenameInstance sets a new name for an instance.
+ *  RenameInstance sets a new name for an instance. Use with caution, previous
+ *  names become immediately invalidated.
  *
  *  Method: baremetalsolution.projects.locations.instances.rename
  *
@@ -341,7 +342,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBareMetalSolution_Instance.
  *
- *  RenameInstance sets a new name for an instance.
+ *  RenameInstance sets a new name for an instance. Use with caution, previous
+ *  names become immediately invalidated.
  *
  *  @param object The @c GTLRBareMetalSolution_RenameInstanceRequest to include
  *    in the query.
@@ -634,6 +636,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  RenameNetwork sets a new name for a network. Use with caution, previous
+ *  names become immediately invalidated.
+ *
+ *  Method: baremetalsolution.projects.locations.networks.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksRename : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the network. Format:
+ *  projects/{project}/locations/{location}/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Network.
+ *
+ *  RenameNetwork sets a new name for a network. Use with caution, previous
+ *  names become immediately invalidated.
+ *
+ *  @param object The @c GTLRBareMetalSolution_RenameNetworkRequest to include
+ *    in the query.
+ *  @param name Required. The `name` field is used to identify the network.
+ *    Format: projects/{project}/locations/{location}/networks/{network}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksRename
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameNetworkRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create an NFS share.
  *
  *  Method: baremetalsolution.projects.locations.nfsShares.create
@@ -792,8 +829,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get details about an operation. This method used only to work around CCFE
- *  lack of passthrough LRO support (b/221498758).
+ *  RenameNfsShare sets a new name for an nfsshare. Use with caution, previous
+ *  names become immediately invalidated.
+ *
+ *  Method: baremetalsolution.projects.locations.nfsShares.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesRename : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the nfsshare. Format:
+ *  projects/{project}/locations/{location}/nfsshares/{nfsshare}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_NfsShare.
+ *
+ *  RenameNfsShare sets a new name for an nfsshare. Use with caution, previous
+ *  names become immediately invalidated.
+ *
+ *  @param object The @c GTLRBareMetalSolution_RenameNfsShareRequest to include
+ *    in the query.
+ *  @param name Required. The `name` field is used to identify the nfsshare.
+ *    Format: projects/{project}/locations/{location}/nfsshares/{nfsshare}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesRename
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameNfsShareRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get details about an operation.
  *
  *  Method: baremetalsolution.projects.locations.operations.get
  *
@@ -808,8 +879,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBareMetalSolution_Operation.
  *
- *  Get details about an operation. This method used only to work around CCFE
- *  lack of passthrough LRO support (b/221498758).
+ *  Get details about an operation.
  *
  *  @param name The name of the operation resource.
  *
@@ -1342,6 +1412,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesPatch
  */
 + (instancetype)queryWithObject:(GTLRBareMetalSolution_Volume *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  RenameVolume sets a new name for a volume. Use with caution, previous names
+ *  become immediately invalidated.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesRename : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the volume. Format:
+ *  projects/{project}/locations/{location}/volumes/{volume}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Volume.
+ *
+ *  RenameVolume sets a new name for a volume. Use with caution, previous names
+ *  become immediately invalidated.
+ *
+ *  @param object The @c GTLRBareMetalSolution_RenameVolumeRequest to include in
+ *    the query.
+ *  @param name Required. The `name` field is used to identify the volume.
+ *    Format: projects/{project}/locations/{location}/volumes/{volume}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesRename
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameVolumeRequest *)object
                            name:(NSString *)name;
 
 @end

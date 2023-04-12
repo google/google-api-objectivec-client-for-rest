@@ -703,8 +703,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The field mask specifying which IAP settings should be updated. If omitted,
- *  the all of the settings are updated. See
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  then all of the settings are updated. See
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
+ *  Note: All IAP reauth settings must always be set together, using the field
+ *  mask: `iapSettings.accessSettings.reauthSettings`.
  *
  *  String format is a comma-separated list of fields.
  */

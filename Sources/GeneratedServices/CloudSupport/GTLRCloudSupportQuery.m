@@ -17,33 +17,6 @@
 
 @end
 
-@implementation GTLRCloudSupportQuery_AttachmentsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudSupport_CreateAttachmentRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/attachments";
-  GTLRCloudSupportQuery_AttachmentsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudSupport_Attachment class];
-  query.loggingName = @"cloudsupport.attachments.create";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudSupportQuery_CaseClassificationsSearch
 
 @dynamic pageSize, pageToken, query;

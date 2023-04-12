@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Profiler API (cloudprofiler/v2)
+//   Cloud Profiler API (cloudprofiler/v2)
 // Description:
 //   Manages continuous profiling information.
 // Documentation:
@@ -50,7 +50,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoringWrite;
 //
 
 /**
- *  Service for executing Stackdriver Profiler API queries.
+ *  Service for executing Cloud Profiler API queries.
  *
  *  Manages continuous profiling information.
  */

@@ -112,9 +112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App
 /**
  *  For Android, the app version name can be found in versionName in
  *  PackageInfo. For iOS, the app version name can be found in
- *  CFBundleShortVersionString. **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  CFBundleShortVersionString.
  *
  *  Value: "APP_VERSION_NAME"
  */
@@ -147,10 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Format;
 /**
- *  GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
- *  incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  GMA SDK version, e.g. "iOS 7.62.0".
  *
  *  Value: "GMA_SDK_VERSION"
  */
@@ -163,10 +158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Gma
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MediationGroup;
 /**
- *  Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
- *  dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  Mobile operating system version, e.g. "iOS 13.5.1".
  *
  *  Value: "MOBILE_OS_VERSION"
  */
@@ -185,9 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Mon
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform;
 /**
- *  Restriction mode for ads serving (e.g. "Non-personalized ads"). **Warning:**
- *  The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
  *
  *  Value: "SERVING_RESTRICTION"
  */
@@ -307,9 +297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
 /**
  *  For Android, the app version name can be found in versionName in
  *  PackageInfo. For iOS, the app version name can be found in
- *  CFBundleShortVersionString. **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  CFBundleShortVersionString.
  *
  *  Value: "APP_VERSION_NAME"
  */
@@ -342,10 +330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format;
 /**
- *  GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
- *  incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  GMA SDK version, e.g. "iOS 7.62.0".
  *
  *  Value: "GMA_SDK_VERSION"
  */
@@ -358,10 +343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup;
 /**
- *  Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
- *  dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  Mobile operating system version, e.g. "iOS 13.5.1".
  *
  *  Value: "MOBILE_OS_VERSION"
  */
@@ -380,9 +362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform;
 /**
- *  Restriction mode for ads serving (e.g. "Non-personalized ads"). **Warning:**
- *  The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
  *
  *  Value: "SERVING_RESTRICTION"
  */
@@ -429,9 +409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
 /**
  *  For Android, the app version name can be found in versionName in
  *  PackageInfo. For iOS, the app version name can be found in
- *  CFBundleShortVersionString. **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  CFBundleShortVersionString.
  *
  *  Value: "APP_VERSION_NAME"
  */
@@ -464,10 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format;
 /**
- *  GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
- *  incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  GMA SDK version, e.g. "iOS 7.62.0".
  *
  *  Value: "GMA_SDK_VERSION"
  */
@@ -480,10 +455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup;
 /**
- *  Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
- *  dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  Mobile operating system version, e.g. "iOS 13.5.1".
  *
  *  Value: "MOBILE_OS_VERSION"
  */
@@ -502,9 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform;
 /**
- *  Restriction mode for ads serving (e.g. "Non-personalized ads"). **Warning:**
- *  The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
  *
  *  Value: "SERVING_RESTRICTION"
  */
@@ -1631,10 +1601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AppVersionName
  *        For Android, the app version name can be found in versionName in
  *        PackageInfo. For iOS, the app version name can be found in
- *        CFBundleShortVersionString. **Warning:** The dimension is incompatible
- *        with [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
- *        "APP_VERSION_NAME")
+ *        CFBundleShortVersionString. (Value: "APP_VERSION_NAME")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Country
  *        CLDR country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1649,20 +1616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Format of the ad unit (for example, "banner", "native"), an ad
  *        delivery dimension. (Value: "FORMAT")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_GmaSdkVersion
- *        GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
- *        incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
- *        "GMA_SDK_VERSION")
+ *        GMA SDK version, e.g. "iOS 7.62.0". (Value: "GMA_SDK_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup
  *        The unique ID of the mediation group (for example,
  *        "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
  *        (Value: "MEDIATION_GROUP")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MobileOsVersion
- *        Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
- *        dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        Mobile operating system version, e.g. "iOS 13.5.1". (Value:
  *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month A
  *        month in the YYYYMM format (for example, "202107"). Requests can
@@ -1672,8 +1632,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_ServingRestriction
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
- *        **Warning:** The dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week The
  *        date of the first day of a week in the YYYYMMDD format (for example,
@@ -1718,10 +1676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AppVersionName
  *        For Android, the app version name can be found in versionName in
  *        PackageInfo. For iOS, the app version name can be found in
- *        CFBundleShortVersionString. **Warning:** The dimension is incompatible
- *        with [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
- *        "APP_VERSION_NAME")
+ *        CFBundleShortVersionString. (Value: "APP_VERSION_NAME")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Country CLDR
  *        country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1736,20 +1691,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Format of the ad unit (for example, "banner", "native"), an ad
  *        delivery dimension. (Value: "FORMAT")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_GmaSdkVersion
- *        GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
- *        incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
- *        "GMA_SDK_VERSION")
+ *        GMA SDK version, e.g. "iOS 7.62.0". (Value: "GMA_SDK_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup
  *        The unique ID of the mediation group (for example,
  *        "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
  *        (Value: "MEDIATION_GROUP")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MobileOsVersion
- *        Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
- *        dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        Mobile operating system version, e.g. "iOS 13.5.1". (Value:
  *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month A
  *        month in the YYYYMM format (for example, "202107"). Requests can
@@ -1759,8 +1707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRestriction
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
- *        **Warning:** The dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week The
  *        date of the first day of a week in the YYYYMMDD format (for example,

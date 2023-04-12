@@ -9,9 +9,10 @@
 #import <GoogleAPIClientForREST/GTLRSASPortal.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeSASPortal = @"https://www.googleapis.com/auth/sasportal";
+NSString * const kGTLRAuthScopeSASPortal              = @"https://www.googleapis.com/auth/sasportal";
+NSString * const kGTLRAuthScopeSASPortalCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRSASPortalService

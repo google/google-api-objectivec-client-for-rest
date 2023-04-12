@@ -581,6 +581,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Returns the EkmConfig singleton resource for a given project and location.
+ *
+ *  Method: cloudkms.projects.locations.getEkmConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsGetEkmConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the EkmConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_EkmConfig.
+ *
+ *  Returns the EkmConfig singleton resource for a given project and location.
+ *
+ *  @param name Required. The name of the EkmConfig to get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsGetEkmConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Create a new KeyRing in a given Project and Location.
  *
  *  Method: cloudkms.projects.locations.keyRings.create
@@ -2058,6 +2085,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the EkmConfig singleton resource for a given project and location.
+ *
+ *  Method: cloudkms.projects.locations.updateEkmConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsUpdateEkmConfig : GTLRCloudKMSQuery
+
+/**
+ *  Output only. The resource name for the EkmConfig in the format `projects/ *
+ *  /locations/ * /ekmConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. List of fields to be updated in this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_EkmConfig.
+ *
+ *  Updates the EkmConfig singleton resource for a given project and location.
+ *
+ *  @param object The @c GTLRCloudKMS_EkmConfig to include in the query.
+ *  @param name Output only. The resource name for the EkmConfig in the format
+ *    `projects/ * /locations/ * /ekmConfig`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsUpdateEkmConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_EkmConfig *)object
+                           name:(NSString *)name;
 
 @end
 

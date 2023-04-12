@@ -429,7 +429,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Resource name of a KMS crypto key (managed by the user) used to
+ *  Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt their event data. It must match the pattern `projects/ *
  *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
  */
@@ -1568,6 +1568,13 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. EventDataContentType specifies the type of payload in MIME format
+ *  that is expected from the CloudEvent data field. This is set to
+ *  `application/json` if the value is not defined.
+ */
+@property(nonatomic, copy, nullable) NSString *eventDataContentType;
 
 /**
  *  Required. Unordered list. The list of filters that applies to event

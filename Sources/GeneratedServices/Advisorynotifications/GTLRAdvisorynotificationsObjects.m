@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification.notificationType
+NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSecurityPrivacyAdvisory = @"NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY";
+NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSensitiveActions = @"NOTIFICATION_TYPE_SENSITIVE_ACTIONS";
+NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeUnspecified = @"NOTIFICATION_TYPE_UNSPECIFIED";
+
 // GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Text.localizationState
 NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Text_LocalizationState_LocalizationStateCompleted = @"LOCALIZATION_STATE_COMPLETED";
 NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Text_LocalizationState_LocalizationStateNotApplicable = @"LOCALIZATION_STATE_NOT_APPLICABLE";
@@ -122,7 +127,7 @@ NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Te
 //
 
 @implementation GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification
-@dynamic createTime, messages, name, subject;
+@dynamic createTime, messages, name, notificationType, subject;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

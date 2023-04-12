@@ -95,17 +95,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Sta
 // GTLRBigQueryReservation_CapacityCommitment.edition
 
 /**
- *  Do not use.
+ *  Default value, which will be treated as ENTERPRISE.
  *
  *  Value: "EDITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified;
 /**
- *  Do not use.
+ *  Enterprise edition.
  *
  *  Value: "ENTERPRISE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise;
+/**
+ *  Enterprise plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EnterprisePlus;
+/**
+ *  Standard edition.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.plan
@@ -118,6 +130,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_E
  *  Value: "ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual;
+/**
+ *  Same as ANNUAL, should only be used if flat-rate commitments are still
+ *  available.
+ *
+ *  Value: "ANNUAL_FLAT_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_AnnualFlatRate;
 /**
  *  Invalid plan value. Requests with this value will be rejected with error
  *  code `google.rpc.Code.INVALID_ARGUMENT`.
@@ -134,6 +153,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex;
 /**
+ *  Same as FLEX, should only be used if flat-rate commitments are still
+ *  available.
+ *
+ *  Value: "FLEX_FLAT_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_FlexFlatRate;
+/**
  *  Monthly commitments have a committed period of 30 days after becoming
  *  ACTIVE. After that, they are not in a committed period anymore and can be
  *  removed any time.
@@ -142,11 +168,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
 /**
- *  Do not use.
+ *  Same as MONTHLY, should only be used if flat-rate commitments are still
+ *  available.
+ *
+ *  Value: "MONTHLY_FLAT_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_MonthlyFlatRate;
+/**
+ *  Should only be used for `renewal_plan` and is only meaningful if edition is
+ *  specified to values other than EDITION_UNSPECIFIED. Otherwise
+ *  CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. If the
+ *  renewal_plan is NONE, capacity commitment will be removed at the end of its
+ *  commitment period.
  *
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_None;
+/**
+ *  3-year commitments have a committed period of 1095(3 * 365) days after
+ *  becoming ACTIVE. After that they are converted to a new commitment based on
+ *  the renewal_plan.
+ *
+ *  Value: "THREE_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_ThreeYear;
 /**
  *  Trial commitments have a committed period of 182 days after becoming ACTIVE.
  *  After that, they are converted to a new commitment based on the
@@ -169,6 +215,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual;
 /**
+ *  Same as ANNUAL, should only be used if flat-rate commitments are still
+ *  available.
+ *
+ *  Value: "ANNUAL_FLAT_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_AnnualFlatRate;
+/**
  *  Invalid plan value. Requests with this value will be rejected with error
  *  code `google.rpc.Code.INVALID_ARGUMENT`.
  *
@@ -184,6 +237,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex;
 /**
+ *  Same as FLEX, should only be used if flat-rate commitments are still
+ *  available.
+ *
+ *  Value: "FLEX_FLAT_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_FlexFlatRate;
+/**
  *  Monthly commitments have a committed period of 30 days after becoming
  *  ACTIVE. After that, they are not in a committed period anymore and can be
  *  removed any time.
@@ -192,11 +252,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
 /**
- *  Do not use.
+ *  Same as MONTHLY, should only be used if flat-rate commitments are still
+ *  available.
+ *
+ *  Value: "MONTHLY_FLAT_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_MonthlyFlatRate;
+/**
+ *  Should only be used for `renewal_plan` and is only meaningful if edition is
+ *  specified to values other than EDITION_UNSPECIFIED. Otherwise
+ *  CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. If the
+ *  renewal_plan is NONE, capacity commitment will be removed at the end of its
+ *  commitment period.
  *
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None;
+/**
+ *  3-year commitments have a committed period of 1095(3 * 365) days after
+ *  becoming ACTIVE. After that they are converted to a new commitment based on
+ *  the renewal_plan.
+ *
+ *  Value: "THREE_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_ThreeYear;
 /**
  *  Trial commitments have a committed period of 182 days after becoming ACTIVE.
  *  After that, they are converted to a new commitment based on the
@@ -241,17 +321,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 // GTLRBigQueryReservation_Reservation.edition
 
 /**
- *  Do not use.
+ *  Default value, which will be treated as ENTERPRISE.
  *
  *  Value: "EDITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified;
 /**
- *  Do not use.
+ *  Enterprise edition.
  *
  *  Value: "ENTERPRISE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise;
+/**
+ *  Enterprise plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus;
+/**
+ *  Standard edition.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard;
 
 /**
  *  An assignment allows a project to submit jobs of a certain type using slots
@@ -386,13 +478,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
 
 /**
- *  Do not use.
+ *  Edition of the capacity commitment.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified
- *        Do not use. (Value: "EDITION_UNSPECIFIED")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise Do
- *        not use. (Value: "ENTERPRISE")
+ *        Default value, which will be treated as ENTERPRISE. (Value:
+ *        "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise
+ *        Enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EnterprisePlus
+ *        Enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Standard
+ *        Standard edition. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
 
@@ -406,7 +503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  multi-regions (US or EU). If set to true, this commitment is placed in the
  *  organization's secondary region which is designated for disaster recovery
  *  purposes. If false, this commitment is placed in the organization's default
- *  region.
+ *  region. NOTE: this is a preview feature. Project must be allow-listed in
+ *  order to set this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -429,6 +527,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *        commitments have a committed period of 365 days after becoming ACTIVE.
  *        After that they are converted to a new commitment based on the
  *        renewal_plan. (Value: "ANNUAL")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_AnnualFlatRate
+ *        Same as ANNUAL, should only be used if flat-rate commitments are still
+ *        available. (Value: "ANNUAL_FLAT_RATE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified
  *        Invalid plan value. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
@@ -437,12 +538,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *        commitments have committed period of 1 minute after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
  *        removed any time. (Value: "FLEX")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_FlexFlatRate Same
+ *        as FLEX, should only be used if flat-rate commitments are still
+ *        available. (Value: "FLEX_FLAT_RATE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly Monthly
  *        commitments have a committed period of 30 days after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
  *        removed any time. (Value: "MONTHLY")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_None Do not use.
- *        (Value: "NONE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_MonthlyFlatRate
+ *        Same as MONTHLY, should only be used if flat-rate commitments are
+ *        still available. (Value: "MONTHLY_FLAT_RATE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_None Should only
+ *        be used for `renewal_plan` and is only meaningful if edition is
+ *        specified to values other than EDITION_UNSPECIFIED. Otherwise
+ *        CreateCapacityCommitmentRequest or UpdateCapacityCommitmentRequest
+ *        will be rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *        If the renewal_plan is NONE, capacity commitment will be removed at
+ *        the end of its commitment period. (Value: "NONE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_ThreeYear 3-year
+ *        commitments have a committed period of 1095(3 * 365) days after
+ *        becoming ACTIVE. After that they are converted to a new commitment
+ *        based on the renewal_plan. (Value: "THREE_YEAR")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial Trial
  *        commitments have a committed period of 182 days after becoming ACTIVE.
  *        After that, they are converted to a new commitment based on the
@@ -462,6 +578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *        Annual commitments have a committed period of 365 days after becoming
  *        ACTIVE. After that they are converted to a new commitment based on the
  *        renewal_plan. (Value: "ANNUAL")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_AnnualFlatRate
+ *        Same as ANNUAL, should only be used if flat-rate commitments are still
+ *        available. (Value: "ANNUAL_FLAT_RATE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified
  *        Invalid plan value. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
@@ -470,12 +589,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *        commitments have committed period of 1 minute after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
  *        removed any time. (Value: "FLEX")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_FlexFlatRate
+ *        Same as FLEX, should only be used if flat-rate commitments are still
+ *        available. (Value: "FLEX_FLAT_RATE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly
  *        Monthly commitments have a committed period of 30 days after becoming
  *        ACTIVE. After that, they are not in a committed period anymore and can
  *        be removed any time. (Value: "MONTHLY")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None Do
- *        not use. (Value: "NONE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_MonthlyFlatRate
+ *        Same as MONTHLY, should only be used if flat-rate commitments are
+ *        still available. (Value: "MONTHLY_FLAT_RATE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_None
+ *        Should only be used for `renewal_plan` and is only meaningful if
+ *        edition is specified to values other than EDITION_UNSPECIFIED.
+ *        Otherwise CreateCapacityCommitmentRequest or
+ *        UpdateCapacityCommitmentRequest will be rejected with error code
+ *        `google.rpc.Code.INVALID_ARGUMENT`. If the renewal_plan is NONE,
+ *        capacity commitment will be removed at the end of its commitment
+ *        period. (Value: "NONE")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_ThreeYear
+ *        3-year commitments have a committed period of 1095(3 * 365) days after
+ *        becoming ACTIVE. After that they are converted to a new commitment
+ *        based on the renewal_plan. (Value: "THREE_YEAR")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial
  *        Trial commitments have a committed period of 182 days after becoming
  *        ACTIVE. After that, they are converted to a new commitment based on
@@ -629,6 +764,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @interface GTLRBigQueryReservation_MoveAssignmentRequest : GTLRObject
 
 /**
+ *  The optional assignment ID. A new assignment name is generated if this field
+ *  is empty. This field can contain only lowercase alphanumeric characters or
+ *  dashes. Max length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *assignmentId;
+
+/**
  *  The new reservation ID, e.g.:
  *  `projects/myotherproject/locations/US/reservations/team2-prod`
  */
@@ -664,13 +806,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Do not use.
+ *  Edition of the reservation.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified Do
- *        not use. (Value: "EDITION_UNSPECIFIED")
- *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Do not
- *        use. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified
+ *        Default value, which will be treated as ENTERPRISE. (Value:
+ *        "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Enterprise
+ *        edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus
+ *        Enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Standard Standard
+ *        edition. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
 
@@ -689,7 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  multi-regions (US or EU). If set to true, this reservation is placed in the
  *  organization's secondary region which is designated for disaster recovery
  *  purposes. If false, this reservation is placed in the organization's default
- *  region.
+ *  region. NOTE: this is a preview feature. Project must be allow-listed in
+ *  order to set this field.
  *
  *  Uses NSNumber of boolValue.
  */

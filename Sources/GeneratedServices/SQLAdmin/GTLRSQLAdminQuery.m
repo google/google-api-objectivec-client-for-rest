@@ -974,6 +974,60 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_ProjectsInstancesGetDiskShrinkConfig
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/getDiskShrinkConfig";
+  GTLRSQLAdminQuery_ProjectsInstancesGetDiskShrinkConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesGetDiskShrinkConfigResponse class];
+  query.loggingName = @"sql.projects.instances.getDiskShrinkConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_ProjectsInstancesPerformDiskShrink
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_PerformDiskShrinkContext *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/performDiskShrink";
+  GTLRSQLAdminQuery_ProjectsInstancesPerformDiskShrink *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.projects.instances.performDiskShrink";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance
 
 @dynamic instance, project;
@@ -1000,6 +1054,37 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.projects.instances.rescheduleMaintenance";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_ProjectsInstancesResetReplicaSize
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/resetReplicaSize";
+  GTLRSQLAdminQuery_ProjectsInstancesResetReplicaSize *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.projects.instances.resetReplicaSize";
   return query;
 }
 

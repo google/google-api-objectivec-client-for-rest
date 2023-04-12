@@ -18,7 +18,6 @@
 @class GTLRWebRisk_GoogleCloudWebriskV1RiceDeltaEncoding;
 @class GTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash;
 @class GTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri;
-@class GTLRWebRisk_GoogleCloudWebriskV1Submission;
 @class GTLRWebRisk_GoogleCloudWebriskV1ThreatEntryAdditions;
 @class GTLRWebRisk_GoogleCloudWebriskV1ThreatEntryRemovals;
 @class GTLRWebRisk_GoogleLongrunningOperation;
@@ -128,80 +127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisRe
  *  Value: "UNWANTED_SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_UnwantedSoftware;
-
-// ----------------------------------------------------------------------------
-// GTLRWebRisk_GoogleCloudWebriskV1Submission.threatTypes
-
-/**
- *  Malware targeting any platform.
- *
- *  Value: "MALWARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_Malware;
-/**
- *  Social engineering targeting any platform.
- *
- *  Value: "SOCIAL_ENGINEERING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineering;
-/**
- *  A list of extended coverage social engineering URIs targeting any platform.
- *
- *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineeringExtendedCoverage;
-/**
- *  No entries should match this threat type. This threat type is unused.
- *
- *  Value: "THREAT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_ThreatTypeUnspecified;
-/**
- *  Unwanted software targeting any platform.
- *
- *  Value: "UNWANTED_SOFTWARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_UnwantedSoftware;
-
-// ----------------------------------------------------------------------------
-// GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata.state
-
-/**
- *  The operation was cancelled.
- *
- *  Value: "CANCELLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled;
-/**
- *  The operation was closed with no action taken.
- *
- *  Value: "CLOSED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Closed;
-/**
- *  The operation finished with a failure status.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed;
-/**
- *  The operation is currently running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running;
-/**
- *  Default unspecified state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified;
-/**
- *  The operation finished with a success status.
- *
- *  Value: "SUCCEEDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succeeded;
 
 /**
  *  GTLRWebRisk_GoogleCloudWebriskV1ComputeThreatListDiffResponse
@@ -453,60 +378,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
 @interface GTLRWebRisk_GoogleCloudWebriskV1Submission : GTLRObject
 
 /**
- *  ThreatTypes found to be associated with the submitted URI after reviewing
- *  it. This might be empty if the URI was not added to any list.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
-
-/**
  *  Required. The URI that is being reported for malicious content to be
  *  analyzed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Metadata for the Submit URI long-running operation.
- */
-@interface GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata : GTLRObject
-
-/** Creation time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  The state of the operation.
- *
- *  Likely values:
- *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled
- *        The operation was cancelled. (Value: "CANCELLED")
- *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Closed
- *        The operation was closed with no action taken. (Value: "CLOSED")
- *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed
- *        The operation finished with a failure status. (Value: "FAILED")
- *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running
- *        The operation is currently running. (Value: "RUNNING")
- *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified
- *        Default unspecified state. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succeeded
- *        The operation finished with a success status. (Value: "SUCCEEDED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Latest update time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Request to send a potentially malicious URI to WebRisk.
- */
-@interface GTLRWebRisk_GoogleCloudWebriskV1SubmitUriRequest : GTLRObject
-
-/** Required. The submission that contains the URI to be scanned. */
-@property(nonatomic, strong, nullable) GTLRWebRisk_GoogleCloudWebriskV1Submission *submission;
 
 @end
 

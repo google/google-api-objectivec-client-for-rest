@@ -25,6 +25,11 @@ NSString * const kGTLRCloudBatch_AgentTask_IntendedState_Cancelled = @"CANCELLED
 NSString * const kGTLRCloudBatch_AgentTask_IntendedState_Deleted = @"DELETED";
 NSString * const kGTLRCloudBatch_AgentTask_IntendedState_IntendedStateUnspecified = @"INTENDED_STATE_UNSPECIFIED";
 
+// GTLRCloudBatch_AgentTask.taskSource
+NSString * const kGTLRCloudBatch_AgentTask_TaskSource_BatchInternal = @"BATCH_INTERNAL";
+NSString * const kGTLRCloudBatch_AgentTask_TaskSource_TaskSourceUnspecified = @"TASK_SOURCE_UNSPECIFIED";
+NSString * const kGTLRCloudBatch_AgentTask_TaskSource_User     = @"USER";
+
 // GTLRCloudBatch_InstancePolicy.provisioningModel
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified = @"PROVISIONING_MODEL_UNSPECIFIED";
@@ -72,6 +77,7 @@ NSString * const kGTLRCloudBatch_Message_NewTaskState_Pending  = @"PENDING";
 NSString * const kGTLRCloudBatch_Message_NewTaskState_Running  = @"RUNNING";
 NSString * const kGTLRCloudBatch_Message_NewTaskState_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudBatch_Message_NewTaskState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRCloudBatch_Message_NewTaskState_Unexecuted = @"UNEXECUTED";
 
 // GTLRCloudBatch_Message.type
 NSString * const kGTLRCloudBatch_Message_Type_JobStateChanged  = @"JOB_STATE_CHANGED";
@@ -85,6 +91,7 @@ NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Pending = @"PENDING";
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Running = @"RUNNING";
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Unexecuted = @"UNEXECUTED";
 
 // GTLRCloudBatch_TaskStatus.state
 NSString * const kGTLRCloudBatch_TaskStatus_State_Assigned     = @"ASSIGNED";
@@ -93,6 +100,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Pending      = @"PENDING";
 NSString * const kGTLRCloudBatch_TaskStatus_State_Running      = @"RUNNING";
 NSString * const kGTLRCloudBatch_TaskStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
+NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
@@ -176,7 +184,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 //
 
 @implementation GTLRCloudBatch_AgentTask
-@dynamic intendedState, reachedBarrier, spec, status, task;
+@dynamic intendedState, reachedBarrier, spec, status, task, taskSource;
 @end
 
 

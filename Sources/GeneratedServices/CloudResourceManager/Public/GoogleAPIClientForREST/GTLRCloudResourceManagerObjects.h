@@ -1787,6 +1787,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 /** The TagValue of the TagBinding. Must be of the form `tagValues/456`. */
 @property(nonatomic, copy, nullable) NSString *tagValue;
 
+/**
+ *  The namespaced name for the TagValue of the TagBinding. Must be in the
+ *  format `{parent_id}/{tag_key_short_name}/{short_name}`. For methods that
+ *  support TagValue namespaced name, only one of tag_value_namespaced_name or
+ *  tag_value may be filled. Requests with both fields will be rejected.
+ */
+@property(nonatomic, copy, nullable) NSString *tagValueNamespacedName;
+
 @end
 
 

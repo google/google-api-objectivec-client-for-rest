@@ -99,6 +99,7 @@
 @class GTLRSpanner_TransactionOptions;
 @class GTLRSpanner_TransactionSelector;
 @class GTLRSpanner_Type;
+@class GTLRSpanner_UpdateDatabaseRequest;
 @class GTLRSpanner_VisualizationData;
 @class GTLRSpanner_Write;
 
@@ -123,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_DatabaseDialect_DatabaseDialectUnspecified;
 /**
- *  Google standard SQL.
+ *  GoogleSQL supported SQL.
  *
  *  Value: "GOOGLE_STANDARD_SQL"
  */
@@ -235,7 +236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_Encry
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_DatabaseDialectUnspecified;
 /**
- *  Google standard SQL.
+ *  GoogleSQL supported SQL.
  *
  *  Value: "GOOGLE_STANDARD_SQL"
  */
@@ -258,7 +259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_DatabaseDialect_DatabaseDialectUnspecified;
 /**
- *  Google standard SQL.
+ *  GoogleSQL supported SQL.
  *
  *  Value: "GOOGLE_STANDARD_SQL"
  */
@@ -921,8 +922,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_DatabaseDialectUnspecified
  *        Default value. This value will create a database with the
  *        GOOGLE_STANDARD_SQL dialect. (Value: "DATABASE_DIALECT_UNSPECIFIED")
- *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_GoogleStandardSql Google
- *        standard SQL. (Value: "GOOGLE_STANDARD_SQL")
+ *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_GoogleStandardSql GoogleSQL
+ *        supported SQL. (Value: "GOOGLE_STANDARD_SQL")
  *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_Postgresql PostgreSQL
  *        supported SQL. (Value: "POSTGRESQL")
  */
@@ -1481,7 +1482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        Default value. This value will create a database with the
  *        GOOGLE_STANDARD_SQL dialect. (Value: "DATABASE_DIALECT_UNSPECIFIED")
  *    @arg @c kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_GoogleStandardSql
- *        Google standard SQL. (Value: "GOOGLE_STANDARD_SQL")
+ *        GoogleSQL supported SQL. (Value: "GOOGLE_STANDARD_SQL")
  *    @arg @c kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_Postgresql
  *        PostgreSQL supported SQL. (Value: "POSTGRESQL")
  */
@@ -1643,8 +1644,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *    @arg @c kGTLRSpanner_Database_DatabaseDialect_DatabaseDialectUnspecified
  *        Default value. This value will create a database with the
  *        GOOGLE_STANDARD_SQL dialect. (Value: "DATABASE_DIALECT_UNSPECIFIED")
- *    @arg @c kGTLRSpanner_Database_DatabaseDialect_GoogleStandardSql Google
- *        standard SQL. (Value: "GOOGLE_STANDARD_SQL")
+ *    @arg @c kGTLRSpanner_Database_DatabaseDialect_GoogleStandardSql GoogleSQL
+ *        supported SQL. (Value: "GOOGLE_STANDARD_SQL")
  *    @arg @c kGTLRSpanner_Database_DatabaseDialect_Postgresql PostgreSQL
  *        supported SQL. (Value: "POSTGRESQL")
  */
@@ -1666,6 +1667,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  the moment when you initiate the recovery.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
+
+/**
+ *  Whether drop protection is enabled for this database. Defaults to false, if
+ *  not set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDropProtection;
 
 /**
  *  Output only. For databases that are using customer managed encryption, this
@@ -1693,6 +1702,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  identify the database.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. If true, the database is being updated. If false, there are no
+ *  ongoing update operations for the database.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
  *  Output only. Applicable only for restored databases. Contains information
@@ -1972,6 +1989,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  The request for ExecuteSql and ExecuteStreamingSql.
  */
 @interface GTLRSpanner_ExecuteSqlRequest : GTLRObject
+
+/**
+ *  If this is for a partitioned query and this field is set to `true`, the
+ *  request will be executed via Spanner independent compute resources. If the
+ *  field is set to `true` but the request does not set `partition_token`, the
+ *  API will return an `INVALID_ARGUMENT` error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataBoostEnabled;
 
 /**
  *  Parameter names and values that bind to placeholders in the SQL string. A
@@ -2415,10 +2442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The number of nodes allocated to this instance. At most one of either
- *  node_count or processing_units should be present in the message. This may be
- *  zero in API responses for instances that are not yet in state `READY`. See
- *  [the documentation](https://cloud.google.com/spanner/docs/compute-capacity)
- *  for more information about nodes and processing units.
+ *  node_count or processing_units should be present in the message. Users can
+ *  set the node_count field to specify the target number of nodes allocated to
+ *  the instance. This may be zero in API responses for instances that are not
+ *  yet in state `READY`. See [the
+ *  documentation](https://cloud.google.com/spanner/docs/compute-capacity) for
+ *  more information about nodes and processing units.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2426,10 +2455,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The number of processing units allocated to this instance. At most one of
- *  processing_units or node_count should be present in the message. This may be
- *  zero in API responses for instances that are not yet in state `READY`. See
- *  [the documentation](https://cloud.google.com/spanner/docs/compute-capacity)
- *  for more information about nodes and processing units.
+ *  processing_units or node_count should be present in the message. Users can
+ *  set the processing_units field to specify the target number of processing
+ *  units allocated to the instance. This may be zero in API responses for
+ *  instances that are not yet in state `READY`. See [the
+ *  documentation](https://cloud.google.com/spanner/docs/compute-capacity) for
+ *  more information about nodes and processing units.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4153,6 +4184,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
 
 /**
+ *  If this is for a partitioned read and this field is set to `true`, the
+ *  request will be executed via Spanner independent compute resources. If the
+ *  field is set to `true` but the request does not set `partition_token`, the
+ *  API will return an `INVALID_ARGUMENT` error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataBoostEnabled;
+
+/**
  *  If non-empty, the name of an index on table. This index is used instead of
  *  the table primary key when interpreting key_set and sorting result rows. See
  *  key_set for further information.
@@ -5358,8 +5399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statements;
 
 /**
- *  Output only. When true, indicates that the operation is throttled e.g due to
- *  resource constraints. When resources become available the operation will
+ *  Output only. When true, indicates that the operation is throttled e.g. due
+ *  to resource constraints. When resources become available the operation will
  *  resume and this field will be false again.
  *
  *  Uses NSNumber of boolValue.
@@ -5418,6 +5459,48 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** Required. DDL statements to be applied to the database. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statements;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by UpdateDatabase.
+ */
+@interface GTLRSpanner_UpdateDatabaseMetadata : GTLRObject
+
+/**
+ *  The time at which this operation was cancelled. If set, this operation is in
+ *  the process of undoing itself (which is best-effort).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/** The progress of the UpdateDatabase operation. */
+@property(nonatomic, strong, nullable) GTLRSpanner_OperationProgress *progress;
+
+/** The request for UpdateDatabase. */
+@property(nonatomic, strong, nullable) GTLRSpanner_UpdateDatabaseRequest *request;
+
+@end
+
+
+/**
+ *  The request for UpdateDatabase.
+ */
+@interface GTLRSpanner_UpdateDatabaseRequest : GTLRObject
+
+/**
+ *  Required. The database to update. The `name` field of the database is of the
+ *  form `projects//instances//databases/`.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Database *database;
+
+/**
+ *  Required. The list of fields to update. Currently, only
+ *  `enable_drop_protection` field can be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

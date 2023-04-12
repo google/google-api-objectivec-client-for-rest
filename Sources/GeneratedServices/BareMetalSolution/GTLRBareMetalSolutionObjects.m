@@ -309,7 +309,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Instance
-@dynamic createTime, hyperthreadingEnabled, identifier,
+@dynamic createTime, firmwareVersion, hyperthreadingEnabled, identifier,
          interactiveSerialConsoleEnabled, labels, logicalInterfaces, loginInfo,
          luns, machineType, name, networks, networkTemplate, osImage, pod,
          state, updateTime, volumes, workloadProfile;
@@ -675,11 +675,18 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Lun
-@dynamic bootLun, expireTime, identifier, multiprotocolType, name, shareable,
-         sizeGb, state, storageType, storageVolume, wwid;
+@dynamic bootLun, expireTime, identifier, instances, multiprotocolType, name,
+         shareable, sizeGb, state, storageType, storageVolume, wwid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -965,7 +972,37 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_RenameInstanceRequest
-@dynamic newName;
+@dynamic newInstanceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_RenameNetworkRequest
+//
+
+@implementation GTLRBareMetalSolution_RenameNetworkRequest
+@dynamic newNetworkId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_RenameNfsShareRequest
+//
+
+@implementation GTLRBareMetalSolution_RenameNfsShareRequest
+@dynamic newNfsshareId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_RenameVolumeRequest
+//
+
+@implementation GTLRBareMetalSolution_RenameVolumeRequest
+@dynamic newVolumeId;
 @end
 
 
@@ -1128,15 +1165,23 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Volume
-@dynamic autoGrownSizeGib, bootVolume, currentSizeGib, emergencySizeGib,
-         expireTime, identifier, labels, maxSizeGib, name, notes,
-         originallyRequestedSizeGib, performanceTier, pod, protocol,
-         remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
-         snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,
-         state, storageAggregatePool, storageType, workloadProfile;
+@dynamic attached, autoGrownSizeGib, bootVolume, currentSizeGib,
+         emergencySizeGib, expireTime, identifier, instances, labels,
+         maxSizeGib, name, notes, originallyRequestedSizeGib, performanceTier,
+         pod, protocol, remainingSpaceGib, requestedSizeGib,
+         snapshotAutoDeleteBehavior, snapshotEnabled, snapshotReservationDetail,
+         snapshotSchedulePolicy, state, storageAggregatePool, storageType,
+         workloadProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
 }
 
 @end

@@ -84,10 +84,11 @@ NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Postgre
 // GTLRDatabaseMigrationService_DatabaseEntity.entityType
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
-NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterialView = @"DATABASE_ENTITY_TYPE_MATERIAL_VIEW";
+NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
 NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
@@ -203,10 +204,11 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 // GTLRDatabaseMigrationService_SynonymEntity.sourceType
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
-NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterialView = @"DATABASE_ENTITY_TYPE_MATERIAL_VIEW";
+NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
@@ -233,7 +235,8 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_AlloyDbSettings
-@dynamic initialUser, labels, primaryInstanceSettings, vpcNetwork;
+@dynamic encryptionConfig, initialUser, labels, primaryInstanceSettings,
+         vpcNetwork;
 @end
 
 
@@ -681,6 +684,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_EncryptionConfig
+//
+
+@implementation GTLRDatabaseMigrationService_EncryptionConfig
+@dynamic kmsKeyName;
 @end
 
 

@@ -13,6 +13,53 @@
 #import <GoogleAPIClientForREST/GTLRBusinessProfilePerformanceObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRBusinessProfilePerformance_DailyMetricTimeSeries.dailyMetric
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessBookings = @"BUSINESS_BOOKINGS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessConversations = @"BUSINESS_CONVERSATIONS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessDirectionRequests = @"BUSINESS_DIRECTION_REQUESTS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessFoodMenuClicks = @"BUSINESS_FOOD_MENU_CLICKS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessFoodOrders = @"BUSINESS_FOOD_ORDERS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessImpressionsDesktopMaps = @"BUSINESS_IMPRESSIONS_DESKTOP_MAPS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessImpressionsDesktopSearch = @"BUSINESS_IMPRESSIONS_DESKTOP_SEARCH";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessImpressionsMobileMaps = @"BUSINESS_IMPRESSIONS_MOBILE_MAPS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessImpressionsMobileSearch = @"BUSINESS_IMPRESSIONS_MOBILE_SEARCH";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_CallClicks = @"CALL_CLICKS";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_DailyMetricUnknown = @"DAILY_METRIC_UNKNOWN";
+NSString * const kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_WebsiteClicks = @"WEBSITE_CLICKS";
+
+// GTLRBusinessProfilePerformance_DailySubEntityType.dayOfWeek
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_Wednesday = @"WEDNESDAY";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBusinessProfilePerformance_DailyMetricTimeSeries
+//
+
+@implementation GTLRBusinessProfilePerformance_DailyMetricTimeSeries
+@dynamic dailyMetric, dailySubEntityType, timeSeries;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBusinessProfilePerformance_DailySubEntityType
+//
+
+@implementation GTLRBusinessProfilePerformance_DailySubEntityType
+@dynamic dayOfWeek, timeOfDay;
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRBusinessProfilePerformance_Date
 //
@@ -29,6 +76,24 @@
 
 @implementation GTLRBusinessProfilePerformance_DatedValue
 @dynamic date, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBusinessProfilePerformance_FetchMultiDailyMetricsTimeSeriesResponse
+//
+
+@implementation GTLRBusinessProfilePerformance_FetchMultiDailyMetricsTimeSeriesResponse
+@dynamic multiDailyMetricTimeSeries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"multiDailyMetricTimeSeries" : [GTLRBusinessProfilePerformance_MultiDailyMetricTimeSeries class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -76,11 +141,39 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBusinessProfilePerformance_MultiDailyMetricTimeSeries
+//
+
+@implementation GTLRBusinessProfilePerformance_MultiDailyMetricTimeSeries
+@dynamic dailyMetricTimeSeries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dailyMetricTimeSeries" : [GTLRBusinessProfilePerformance_DailyMetricTimeSeries class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBusinessProfilePerformance_SearchKeywordCount
 //
 
 @implementation GTLRBusinessProfilePerformance_SearchKeywordCount
 @dynamic insightsValue, searchKeyword;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBusinessProfilePerformance_TimeOfDay
+//
+
+@implementation GTLRBusinessProfilePerformance_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
 @end
 
 

@@ -376,11 +376,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The ID to use for the database, which will become the final
- *  component of the database's resource name. This value should be 4-63
- *  characters. Valid characters are /a-z-/ with first character a letter and
- *  the last a letter or a number. Must not be UUID-like
- *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
- *  valid.
+ *  component of the database's resource name. The value must be set to
+ *  "(default)".
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
@@ -426,12 +423,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  FAILED_PRECONDITION error will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  If set, will free the database_id associated with this database. uid will be
- *  used as the resource id to identify this deleted database.
- */
-@property(nonatomic, assign) BOOL freeId;
 
 /**
  *  Required. A name of the form `projects/{project_id}/databases/{database_id}`
@@ -1006,8 +997,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Listens to changes. This method is only available via the gRPC API (not
- *  REST).
+ *  Listens to changes. This method is only available via gRPC or WebChannel
+ *  (not REST).
  *
  *  Method: firestore.projects.databases.documents.listen
  *
@@ -1026,8 +1017,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_ListenResponse.
  *
- *  Listens to changes. This method is only available via the gRPC API (not
- *  REST).
+ *  Listens to changes. This method is only available via gRPC or WebChannel
+ *  (not REST).
  *
  *  @param object The @c GTLRFirestore_ListenRequest to include in the query.
  *  @param database Required. The database name. In the format:
@@ -1260,7 +1251,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Streams batches of document updates and deletes, in order. This method is
- *  only available via the gRPC API (not REST).
+ *  only available via gRPC or WebChannel (not REST).
  *
  *  Method: firestore.projects.databases.documents.write
  *
@@ -1281,7 +1272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirestore_WriteResponse.
  *
  *  Streams batches of document updates and deletes, in order. This method is
- *  only available via the gRPC API (not REST).
+ *  only available via gRPC or WebChannel (not REST).
  *
  *  @param object The @c GTLRFirestore_WriteRequest to include in the query.
  *  @param database Required. The database name. In the format:
@@ -1558,14 +1549,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: firestore.projects.databases.operations.list
  *
@@ -1591,14 +1575,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirestore_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

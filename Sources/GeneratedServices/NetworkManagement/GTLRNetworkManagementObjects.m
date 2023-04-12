@@ -62,6 +62,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotRunnin
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess = @"CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService = @"DROPPED_INSIDE_CLOUD_SQL_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService = @"DROPPED_INSIDE_GKE_SERVICE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer = @"DROPPED_INSIDE_PSC_SERVICE_PRODUCER";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck = @"FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule = @"FIREWALL_RULE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed = @"FOREIGN_IP_DISALLOWED";
@@ -72,6 +73,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeClusterNotRunning = @"
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneNoRoute = @"GKE_CONTROL_PLANE_NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneRegionMismatch = @"GKE_CONTROL_PLANE_REGION_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess = @"GKE_MASTER_UNAUTHORIZED_ACCESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePscEndpointMissing = @"GKE_PSC_ENDPOINT_MISSING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering = @"GOOGLE_MANAGED_SERVICE_NO_PEERING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";

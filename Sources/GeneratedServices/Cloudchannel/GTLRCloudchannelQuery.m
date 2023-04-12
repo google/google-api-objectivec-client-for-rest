@@ -760,6 +760,25 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @end
 
+@implementation GTLRCloudchannelQuery_AccountsCustomersEntitlementsListEntitlementChanges
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:listEntitlementChanges";
+  GTLRCloudchannelQuery_AccountsCustomersEntitlementsListEntitlementChanges *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListEntitlementChangesResponse class];
+  query.loggingName = @"cloudchannel.accounts.customers.entitlements.listEntitlementChanges";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudchannelQuery_AccountsCustomersEntitlementsLookupOffer
 
 @dynamic entitlement;
@@ -1141,7 +1160,7 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @implementation GTLRCloudchannelQuery_AccountsOffersList
 
-@dynamic filter, languageCode, pageSize, pageToken, parent;
+@dynamic filter, languageCode, pageSize, pageToken, parent, showFutureOffers;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

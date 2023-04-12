@@ -91,6 +91,14 @@ NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Ac
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_ContinuousAnalysisUnspecified = @"CONTINUOUS_ANALYSIS_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Inactive = @"INACTIVE";
 
+// GTLROnDemandScanning_Justification.justificationType
+NSString * const kGTLROnDemandScanning_Justification_JustificationType_ComponentNotPresent = @"COMPONENT_NOT_PRESENT";
+NSString * const kGTLROnDemandScanning_Justification_JustificationType_InlineMitigationsAlreadyExist = @"INLINE_MITIGATIONS_ALREADY_EXIST";
+NSString * const kGTLROnDemandScanning_Justification_JustificationType_JustificationTypeUnspecified = @"JUSTIFICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeCannotBeControlledByAdversary = @"VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY";
+NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotInExecutePath = @"VULNERABLE_CODE_NOT_IN_EXECUTE_PATH";
+NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotPresent = @"VULNERABLE_CODE_NOT_PRESENT";
+
 // GTLROnDemandScanning_Occurrence.kind
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Attestation = @"ATTESTATION";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Build   = @"BUILD";
@@ -103,6 +111,7 @@ NSString * const kGTLROnDemandScanning_Occurrence_Kind_NoteKindUnspecified = @"N
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package = @"PACKAGE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Upgrade = @"UPGRADE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
+NSString * const kGTLROnDemandScanning_Occurrence_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
 
 // GTLROnDemandScanning_PackageData.packageType
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Go = @"GO";
@@ -126,11 +135,26 @@ NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_Architectu
 NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X64 = @"X64";
 NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X86 = @"X86";
 
+// GTLROnDemandScanning_Remediation.remediationType
+NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Mitigation = @"MITIGATION";
+NSString * const kGTLROnDemandScanning_Remediation_RemediationType_NoFixPlanned = @"NO_FIX_PLANNED";
+NSString * const kGTLROnDemandScanning_Remediation_RemediationType_NoneAvailable = @"NONE_AVAILABLE";
+NSString * const kGTLROnDemandScanning_Remediation_RemediationType_RemediationTypeUnspecified = @"REMEDIATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_Remediation_RemediationType_VendorFix = @"VENDOR_FIX";
+NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Workaround = @"WORKAROUND";
+
 // GTLROnDemandScanning_Version.kind
 NSString * const kGTLROnDemandScanning_Version_Kind_Maximum    = @"MAXIMUM";
 NSString * const kGTLROnDemandScanning_Version_Kind_Minimum    = @"MINIMUM";
 NSString * const kGTLROnDemandScanning_Version_Kind_Normal     = @"NORMAL";
 NSString * const kGTLROnDemandScanning_Version_Kind_VersionKindUnspecified = @"VERSION_KIND_UNSPECIFIED";
+
+// GTLROnDemandScanning_VexAssessment.state
+NSString * const kGTLROnDemandScanning_VexAssessment_State_Affected = @"AFFECTED";
+NSString * const kGTLROnDemandScanning_VexAssessment_State_Fixed = @"FIXED";
+NSString * const kGTLROnDemandScanning_VexAssessment_State_NotAffected = @"NOT_AFFECTED";
+NSString * const kGTLROnDemandScanning_VexAssessment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_VexAssessment_State_UnderInvestigation = @"UNDER_INVESTIGATION";
 
 // GTLROnDemandScanning_VulnerabilityOccurrence.cvssVersion
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2 = @"CVSS_VERSION_2";
@@ -284,6 +308,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_Binary
+//
+
+@implementation GTLROnDemandScanning_Binary
+@dynamic name, version;
 @end
 
 
@@ -799,6 +833,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_Justification
+//
+
+@implementation GTLROnDemandScanning_Justification
+@dynamic details, justificationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Jwt
 //
 
@@ -1016,8 +1060,9 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic cpeUri, dependencyChain, fileLocation, hashDigest, maintainer, os,
-         osVersion, package, packageType, patchedCve, unused, version;
+@dynamic architecture, binary, cpeUri, dependencyChain, fileLocation,
+         hashDigest, maintainer, os, osVersion, package, packageType,
+         patchedCve, unused, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1133,6 +1178,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_RelatedUrl
 @dynamic label, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_Remediation
+//
+
+@implementation GTLROnDemandScanning_Remediation
+@dynamic details, remediationType, remediationUri;
 @end
 
 
@@ -1439,13 +1494,34 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_VexAssessment
+//
+
+@implementation GTLROnDemandScanning_VexAssessment
+@dynamic cve, impacts, justification, noteName, relatedUris, remediations,
+         state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"impacts" : [NSString class],
+    @"relatedUris" : [GTLROnDemandScanning_RelatedUrl class],
+    @"remediations" : [GTLROnDemandScanning_Remediation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_VulnerabilityOccurrence
 //
 
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
 @dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
          fixAvailable, longDescription, packageIssue, relatedUrls, severity,
-         shortDescription, type;
+         shortDescription, type, vexAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

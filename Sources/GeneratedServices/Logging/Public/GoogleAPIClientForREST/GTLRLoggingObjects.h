@@ -1219,7 +1219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  proportional to the value of the lower bound. Each bucket represents a
  *  constant relative uncertainty on a specific value in the bucket.There are
  *  num_finite_buckets + 2 (= N) buckets. Bucket i has the following
- *  boundaries:Upper bound (0 <= i < N-1): scale * (growth_factor ^ i). Lower
+ *  boundaries:Upper bound (0 <= i < N-1): scale * (growth_factor ^ i).Lower
  *  bound (1 <= i < N): scale * (growth_factor ^ (i - 1)).
  */
 @interface GTLRLogging_Exponential : GTLRObject
@@ -1430,7 +1430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  overflow and underflow). Each bucket represents a constant absolute
  *  uncertainty on the specific value in the bucket.There are num_finite_buckets
  *  + 2 (= N) buckets. Bucket i has the following boundaries:Upper bound (0 <= i
- *  < N-1): offset + (width * i). Lower bound (1 <= i < N): offset + (width * (i
+ *  < N-1): offset + (width * i).Lower bound (1 <= i < N): offset + (width * (i
  *  - 1)).
  */
 @interface GTLRLogging_Linear : GTLRObject

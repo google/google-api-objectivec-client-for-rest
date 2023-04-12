@@ -453,7 +453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_BigQueryDestinationConfig
+ *  BigQuery destination configuration
  */
 @interface GTLRDatastream_BigQueryDestinationConfig : GTLRObject
 
@@ -1964,6 +1964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_SourceHierarchyDatasets : GTLRObject
 
+/** The dataset template to use for dynamic dataset creation. */
 @property(nonatomic, strong, nullable) GTLRDatastream_DatasetTemplate *datasetTemplate;
 
 @end
@@ -2006,7 +2007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Static IP address connectivity.
+ *  Static IP address connectivity. Used when the source database is configured
+ *  to allow incoming connections from the Datastream public IP addresses for
+ *  the region specified in the connection profile.
  */
 @interface GTLRDatastream_StaticServiceIpConnectivity : GTLRObject
 @end

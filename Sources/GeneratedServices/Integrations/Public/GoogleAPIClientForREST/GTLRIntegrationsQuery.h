@@ -779,12 +779,15 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @interface GTLRIntegrationsQuery_ProjectsLocationsIntegrationsExecutionsList : GTLRIntegrationsQuery
 
 /**
- *  Optional. Standard filter field, we support filtering on all fields in
- *  EventExecutionParamIndexes table. All fields support for EQUALS, in
- *  additional: CreateTimestamp support for LESS_THAN, GREATER_THAN
- *  ParameterKey, ParameterValue, ParameterType support for HAS For example:
- *  "parameter_value" HAS \\"parameter1\\" Also supports operators like AND, OR,
- *  NOT For example, trigger_id=\\"id1\\" AND event_execution_state=\\"FAILED\\"
+ *  Optional. Standard filter field, we support filtering on following fields:
+ *  workflow_name: the name of the integration. CreateTimestamp: the execution
+ *  created time. event_execution_state: the state of the executions.
+ *  execution_id: the id of the execution. trigger_id: the id of the trigger.
+ *  parameter_type: the type of the parameters involved in the execution. All
+ *  fields support for EQUALS, in additional: CreateTimestamp support for
+ *  LESS_THAN, GREATER_THAN ParameterType support for HAS For example:
+ *  "parameter_type" HAS \\"string\\" Also supports operators like AND, OR, NOT
+ *  For example, trigger_id=\\"id1\\" AND workflow_name=\\"testWorkflow\\"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2052,6 +2055,32 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @end
 
 /**
+ *  Delete the selected integration and all versions inside
+ *
+ *  Method: integrations.projects.locations.products.integrations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIntegrationsCloudPlatform
+ */
+@interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsDelete : GTLRIntegrationsQuery
+
+/** Required. The location resource of the request. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIntegrations_GoogleProtobufEmpty.
+ *
+ *  Delete the selected integration and all versions inside
+ *
+ *  @param name Required. The location resource of the request.
+ *
+ *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Executes integrations synchronously by passing the trigger id in the request
  *  body. The request is not returned until the requested executions are either
  *  fulfilled or experienced an error. If the integration name is not specified
@@ -2173,12 +2202,15 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 @interface GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecutionsList : GTLRIntegrationsQuery
 
 /**
- *  Optional. Standard filter field, we support filtering on all fields in
- *  EventExecutionParamIndexes table. All fields support for EQUALS, in
- *  additional: CreateTimestamp support for LESS_THAN, GREATER_THAN
- *  ParameterKey, ParameterValue, ParameterType support for HAS For example:
- *  "parameter_value" HAS \\"parameter1\\" Also supports operators like AND, OR,
- *  NOT For example, trigger_id=\\"id1\\" AND event_execution_state=\\"FAILED\\"
+ *  Optional. Standard filter field, we support filtering on following fields:
+ *  workflow_name: the name of the integration. CreateTimestamp: the execution
+ *  created time. event_execution_state: the state of the executions.
+ *  execution_id: the id of the execution. trigger_id: the id of the trigger.
+ *  parameter_type: the type of the parameters involved in the execution. All
+ *  fields support for EQUALS, in additional: CreateTimestamp support for
+ *  LESS_THAN, GREATER_THAN ParameterType support for HAS For example:
+ *  "parameter_type" HAS \\"string\\" Also supports operators like AND, OR, NOT
+ *  For example, trigger_id=\\"id1\\" AND workflow_name=\\"testWorkflow\\"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

@@ -11,6 +11,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataform_ComputeRepositoryAccessTokenStatusResponse.tokenStatus
+NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_Invalid = @"INVALID";
+NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_NotFound = @"NOT_FOUND";
+NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_TokenStatusUnspecified = @"TOKEN_STATUS_UNSPECIFIED";
+NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_Valid = @"VALID";
+
 // GTLRDataform_GitRemoteSettings.tokenStatus
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_Invalid = @"INVALID";
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_NotFound = @"NOT_FOUND";
@@ -165,6 +171,50 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_CommitLogEntry
+//
+
+@implementation GTLRDataform_CommitLogEntry
+@dynamic author, commitMessage, commitSha, commitTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_CommitMetadata
+//
+
+@implementation GTLRDataform_CommitMetadata
+@dynamic author, commitMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_CommitRepositoryChangesRequest
+//
+
+@implementation GTLRDataform_CommitRepositoryChangesRequest
+@dynamic commitMetadata, fileOperations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_CommitRepositoryChangesRequest_FileOperations
+//
+
+@implementation GTLRDataform_CommitRepositoryChangesRequest_FileOperations
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataform_FileOperation class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_CommitWorkspaceChangesRequest
 //
 
@@ -223,11 +273,30 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_ComputeRepositoryAccessTokenStatusResponse
+//
+
+@implementation GTLRDataform_ComputeRepositoryAccessTokenStatusResponse
+@dynamic tokenStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Declaration
 //
 
 @implementation GTLRDataform_Declaration
 @dynamic relationDescriptor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_DeleteFile
+//
+
+@implementation GTLRDataform_DeleteFile
 @end
 
 
@@ -318,6 +387,38 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_FetchRepositoryHistoryResponse
+//
+
+@implementation GTLRDataform_FetchRepositoryHistoryResponse
+@dynamic commits, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commits" : [GTLRDataform_CommitLogEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"commits";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_FileOperation
+//
+
+@implementation GTLRDataform_FileOperation
+@dynamic deleteFile, writeFile;
 @end
 
 
@@ -776,6 +877,28 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_QueryRepositoryDirectoryContentsResponse
+//
+
+@implementation GTLRDataform_QueryRepositoryDirectoryContentsResponse
+@dynamic directoryEntries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"directoryEntries" : [GTLRDataform_DirectoryEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"directoryEntries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_QueryWorkflowInvocationActionsResponse
 //
 
@@ -803,6 +926,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_ReadFileResponse
 @dynamic fileContents;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_ReadRepositoryFileResponse
+//
+
+@implementation GTLRDataform_ReadRepositoryFileResponse
+@dynamic contents;
 @end
 
 
@@ -926,8 +1059,37 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Repository
-@dynamic gitRemoteSettings, name, npmrcEnvironmentVariablesSecretVersion,
+@dynamic gitRemoteSettings, initialCommitFileContents, initialCommitMetadata,
+         labels, name, npmrcEnvironmentVariablesSecretVersion,
          workspaceCompilationOverrides;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Repository_InitialCommitFileContents
+//
+
+@implementation GTLRDataform_Repository_InitialCommitFileContents
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Repository_Labels
+//
+
+@implementation GTLRDataform_Repository_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1125,6 +1287,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_WorkspaceCompilationOverrides
 @dynamic defaultDatabase, schemaSuffix, tablePrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_WriteFile
+//
+
+@implementation GTLRDataform_WriteFile
+@dynamic contents;
 @end
 
 

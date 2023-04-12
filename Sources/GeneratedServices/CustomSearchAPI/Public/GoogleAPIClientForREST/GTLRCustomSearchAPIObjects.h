@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCustomSearchAPI_Result_Image : GTLRObject
 
 /**
- *  The size of the image, in pixels.
+ *  The size of the image, in bytes.
  *
  *  Uses NSNumber of intValue.
  */

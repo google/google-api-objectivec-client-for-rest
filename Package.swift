@@ -438,6 +438,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DataLabeling"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Datalineage",
+            targets: ["GoogleAPIClientForREST_Datalineage"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Datapipelines",
             targets: ["GoogleAPIClientForREST_Datapipelines"]
         ),
@@ -552,6 +556,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Firebaseappcheck",
             targets: ["GoogleAPIClientForREST_Firebaseappcheck"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_FirebaseAppDistribution",
+            targets: ["GoogleAPIClientForREST_FirebaseAppDistribution"]
         ),
         .library(
             name: "GoogleAPIClientForREST_FirebaseCloudMessaging",
@@ -704,6 +712,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_ManufacturerCenter",
             targets: ["GoogleAPIClientForREST_ManufacturerCenter"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_MigrationCenterAPI",
+            targets: ["GoogleAPIClientForREST_MigrationCenterAPI"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Monitoring",
@@ -1717,6 +1729,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_Datalineage",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Datalineage",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Datapipelines",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Datapipelines",
@@ -1888,6 +1906,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Firebaseappcheck",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Firebaseappcheck",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_FirebaseAppDistribution",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/FirebaseAppDistribution",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2116,6 +2140,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ManufacturerCenter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/ManufacturerCenter",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_MigrationCenterAPI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/MigrationCenterAPI",
             publicHeadersPath: "Public"
         ),
         .target(

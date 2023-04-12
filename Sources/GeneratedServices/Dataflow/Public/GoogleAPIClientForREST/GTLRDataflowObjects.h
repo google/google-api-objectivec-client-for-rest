@@ -74,6 +74,7 @@
 @class GTLRDataflow_JobExecutionStageInfo;
 @class GTLRDataflow_JobMessage;
 @class GTLRDataflow_JobMetadata;
+@class GTLRDataflow_JobMetadata_UserDisplayProperties;
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_LaunchFlexTemplateParameter;
@@ -4054,6 +4055,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Identification of a Spanner source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SpannerIODetails *> *spannerDetails;
 
+/** List of display properties to help UI filter jobs. */
+@property(nonatomic, strong, nullable) GTLRDataflow_JobMetadata_UserDisplayProperties *userDisplayProperties;
+
+@end
+
+
+/**
+ *  List of display properties to help UI filter jobs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_JobMetadata_UserDisplayProperties : GTLRObject
 @end
 
 
@@ -4848,6 +4864,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Optional. Additional metadata for describing this parameter. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ParameterMetadata_CustomMetadata *customMetadata;
 
+/**
+ *  Optional. Specifies a group name for this parameter to be rendered under.
+ *  Group header text will be rendered exactly as specified in this field. Only
+ *  considered when parent_name is NOT provided.
+ */
+@property(nonatomic, copy, nullable) NSString *groupName;
+
 /** Required. The help text to display for the parameter. */
 @property(nonatomic, copy, nullable) NSString *helpText;
 
@@ -4902,6 +4925,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        specifies generic text input. (Value: "TEXT")
  */
 @property(nonatomic, copy, nullable) NSString *paramType;
+
+/**
+ *  Optional. Specifies the name of the parent parameter. Used in conjunction
+ *  with 'parent_trigger_values' to make this parameter conditional (will only
+ *  be rendered conditionally). Should be mappable to a ParameterMetadata.name
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/**
+ *  Optional. The value(s) of the 'parent_name' parameter which will trigger
+ *  this parameter to be shown. If left empty, ANY non-empty value in
+ *  parent_name will trigger this parameter to be shown. Only considered when
+ *  this parameter is conditional (when 'parent_name' has been provided).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parentTriggerValues;
 
 /** Optional. Regexes that the parameter must match. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regexes;

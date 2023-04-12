@@ -555,6 +555,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Advances a Rollout in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.advance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsAdvance : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the Rollout. Format is
+ *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *  releases/{release}/rollouts/{rollout}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_AdvanceRolloutResponse.
+ *
+ *  Advances a Rollout in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_AdvanceRolloutRequest to include in the
+ *    query.
+ *  @param name Required. Name of the Rollout. Format is
+ *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *    releases/{release}/rollouts/{rollout}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsAdvance
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_AdvanceRolloutRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Approves a Rollout.
  *
  *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.approve
@@ -585,6 +620,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsApprove
  */
 + (instancetype)queryWithObject:(GTLRCloudDeploy_ApproveRolloutRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Cancels a Rollout in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCancel : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the Rollout. Format is
+ *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *  releases/{release}/rollouts/{rollout}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_CancelRolloutResponse.
+ *
+ *  Cancels a Rollout in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_CancelRolloutRequest to include in the
+ *    query.
+ *  @param name Required. Name of the Rollout. Format is
+ *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *    releases/{release}/rollouts/{rollout}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CancelRolloutRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -684,6 +754,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Ignores the specified Job in a Rollout.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.ignoreJob
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsIgnoreJob : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the Rollout. Format is
+ *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *  releases/{release}/rollouts/{rollout}.
+ */
+@property(nonatomic, copy, nullable) NSString *rollout;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_IgnoreJobResponse.
+ *
+ *  Ignores the specified Job in a Rollout.
+ *
+ *  @param object The @c GTLRCloudDeploy_IgnoreJobRequest to include in the
+ *    query.
+ *  @param rollout Required. Name of the Rollout. Format is
+ *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *    releases/{release}/rollouts/{rollout}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsIgnoreJob
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_IgnoreJobRequest *)object
+                        rollout:(NSString *)rollout;
+
+@end
+
+/**
  *  Gets details of a single JobRun.
  *
  *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.get
@@ -768,6 +873,41 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Terminates a Job Run in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.terminate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsTerminate : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `JobRun`. Format must be
+ *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *  releases/{release}/rollouts/{rollout}/jobRuns/{jobRun}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_TerminateJobRunResponse.
+ *
+ *  Terminates a Job Run in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_TerminateJobRunRequest to include in
+ *    the query.
+ *  @param name Required. Name of the `JobRun`. Format must be
+ *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *    releases/{release}/rollouts/{rollout}/jobRuns/{jobRun}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsTerminate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_TerminateJobRunRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1160,14 +1300,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: clouddeploy.projects.locations.operations.list
  *
@@ -1192,14 +1325,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudDeploy_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

@@ -63,14 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: assuredworkloads.organizations.locations.operations.list
  *
@@ -95,14 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAssuredworkloads_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -161,7 +147,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the workload. Make sure that workload's direct children are already
  *  in a deleted state, otherwise the request will fail with a
- *  FAILED_PRECONDITION error.
+ *  FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete
+ *  permission, the user should also have orgpolicy.policy.set permission on the
+ *  deleted folder to remove Assured Workloads OrgPolicies.
  *
  *  Method: assuredworkloads.organizations.locations.workloads.delete
  *
@@ -187,7 +175,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the workload. Make sure that workload's direct children are already
  *  in a deleted state, otherwise the request will fail with a
- *  FAILED_PRECONDITION error.
+ *  FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete
+ *  permission, the user should also have orgpolicy.policy.set permission on the
+ *  deleted folder to remove Assured Workloads OrgPolicies.
  *
  *  @param name Required. The `name` field is used to identify the workload.
  *    Format:
@@ -210,8 +200,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsGet : GTLRAssuredworkloadsQuery
 
 /**
- *  Required. The resource name of the Workload to fetch. This is the workload's
- *  relative path in the API, formatted as
+ *  Required. The resource name of the Workload to fetch. This is the
+ *  workloads's relative path in the API, formatted as
  *  "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
  *  For example,
  *  "organizations/123/locations/us-east1/workloads/assured-workload-1".
@@ -224,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets Assured Workload associated with a CRM Node
  *
  *  @param name Required. The resource name of the Workload to fetch. This is
- *    the workload's relative path in the API, formatted as
+ *    the workloads's relative path in the API, formatted as
  *    "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
  *    For example,
  *    "organizations/123/locations/us-east1/workloads/assured-workload-1".

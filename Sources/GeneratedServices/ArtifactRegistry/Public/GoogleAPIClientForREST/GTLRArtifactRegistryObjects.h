@@ -19,6 +19,7 @@
 @class GTLRArtifactRegistry_Binding;
 @class GTLRArtifactRegistry_DockerImage;
 @class GTLRArtifactRegistry_DockerRepository;
+@class GTLRArtifactRegistry_DockerRepositoryConfig;
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
 @class GTLRArtifactRegistry_Hash;
@@ -549,6 +550,23 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  DockerRepositoryConfig is docker related repository details. Provides
+ *  additional configuration details for repositories of the docker format type.
+ */
+@interface GTLRArtifactRegistry_DockerRepositoryConfig : GTLRObject
+
+/**
+ *  The repository which enabled this flag prevents all tags from being
+ *  modified, moved or deleted. This does not prevent tags from being created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *immutableTags;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -805,7 +823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  A detailed representation of a GooGet artifact.
+ *  A detailed representation of a KFP artifact.
  */
 @interface GTLRArtifactRegistry_KfpArtifact : GTLRObject
 
@@ -1622,7 +1640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_Repository : GTLRObject
 
-/** The time when the repository was created. */
+/** Output only. The time when the repository was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -1631,6 +1649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Docker repository config contains repository level configuration for the
+ *  repositories of docker type.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_DockerRepositoryConfig *dockerConfig;
 
 /**
  *  The format of packages that are stored in the repository.
@@ -1719,7 +1743,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeBytes;
 
-/** The time when the repository was last updated. */
+/** Output only. The time when the repository was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /** Configuration specific for a Virtual Repository. */

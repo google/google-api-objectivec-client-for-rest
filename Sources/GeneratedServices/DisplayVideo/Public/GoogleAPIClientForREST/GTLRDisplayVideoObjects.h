@@ -965,8 +965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
  *  The text that identifies the advertiser or brand name. The content must be
  *  UTF-8 encoded with a length of no more than 25 characters. This role is only
  *  supported in following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_ADVERTISER_NAME"
  */
@@ -975,9 +974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  The ID of an Android app in the Google play store. You can find this ID in
  *  the App’s Google Play Store URL after ‘id’. For example, in
  *  https://play.google.com/store/apps/details?id=com.company.appname the
- *  identifier is com.company.appname. This role is only supported in following
- *  creative_type: * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *  identifier is com.company.appname. Assets of this role are read-only.
  *
  *  Value: "ASSET_ROLE_ANDROID_APP_ID"
  */
@@ -992,8 +989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Body text of a native creative. The content must be UTF-8 encoded with a
  *  length of no more than 90 characters. This role is only supported in
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_BODY"
  */
@@ -1003,8 +999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  content must be UTF-8 encoded with a length of no more than 15 characters.
  *  This role is only supported in following creative_type: *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_CALL_TO_ACTION"
  */
@@ -1018,8 +1013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  protocol (http://) is optional, but the URL can't contain spaces or special
  *  characters. This role is only supported in following creative_type: *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_CAPTION_URL"
  */
@@ -1035,8 +1029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Headline of a native creative. The content must be UTF-8 encoded with a
  *  length of no more than 25 characters. This role is only supported in
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_HEADLINE"
  */
@@ -1044,8 +1037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 /**
  *  The icon of a creative. This role is only supported and required in
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE`
  *
  *  Value: "ASSET_ROLE_ICON"
  */
@@ -1054,9 +1046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  The ID of an iOS app in the Apple app store. This ID number can be found in
  *  the Apple App Store URL as the string of numbers directly after "id". For
  *  example, in https://apps.apple.com/us/app/gmail-email-by-google/id422689480
- *  the ID is 422689480. This role is only supported in following creative_type:
- *  * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *  the ID is 422689480. Assets of this role are read-only.
  *
  *  Value: "ASSET_ROLE_IOS_APP_ID"
  */
@@ -1065,8 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Long body text of a native creative. The content must be UTF-8 encoded with
  *  a length of no more than 150 characters. This role is only supported in
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_LONG_BODY"
  */
@@ -1075,8 +1064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Long headline of a native creative. The content must be UTF-8 encoded with a
  *  length of no more than 50 characters. This role is only supported in
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_LONG_HEADLINE"
  */
@@ -1098,9 +1086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  (for example, $5.99). Note that this value is not automatically synced with
  *  the actual value listed in the store. It will always be the one provided
  *  when save the creative. The content must be UTF-8 encoded with a length of
- *  no more than 15 characters. This role is only supported in following
- *  creative_type: * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *  no more than 15 characters. Assets of this role are read-only.
  *
  *  Value: "ASSET_ROLE_PRICE"
  */
@@ -1108,9 +1094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 /**
  *  The rating of an app in the Google play store or iOS app store. Note that
  *  this value is not automatically synced with the actual rating in the store.
- *  It will always be the one provided when save the creative. This role is only
- *  supported in following creative_type: * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *  It will always be the one provided when save the creative. Assets of this
+ *  role are read-only.
  *
  *  Value: "ASSET_ROLE_RATING"
  */
@@ -2851,15 +2836,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_Creat
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNative;
 /**
- *  Native app install creative. Create and update methods are supported for
- *  this creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`
+ *  Native app install creative. Create and update methods are **not** supported
+ *  for this creative type.
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstall;
 /**
- *  Square native app install creative. Create and update methods are supported
- *  for this creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`
+ *  Square native app install creative. Create and update methods are **not**
+ *  supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE"
  */
@@ -3066,8 +3051,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_Host
  *  A creative created in DV360 and hosted by Campaign Manager 360. Create and
  *  update methods are supported for this hosting type if the creative_type is
  *  one of the following: * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO` *
  *  `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_VIDEO`
  *
@@ -3130,15 +3113,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNative;
 /**
- *  Native app install creative. Create and update methods are supported for
- *  this creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`
+ *  Native app install creative. Create and update methods are **not** supported
+ *  for this creative type.
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstall;
 /**
- *  Square native app install creative. Create and update methods are supported
- *  for this creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`
+ *  Square native app install creative. Create and update methods are **not**
+ *  supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE"
  */
@@ -4769,6 +4752,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGumgum;
 /**
+ *  Hivestack.
+ *
+ *  Value: "EXCHANGE_HIVESTACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeHivestack;
+/**
  *  iBILLBOARD.
  *
  *  Value: "EXCHANGE_IBILLBOARD"
@@ -4918,6 +4907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRedForPublishers;
+/**
+ *  Reset Digital.
+ *
+ *  Value: "EXCHANGE_RESET_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeResetDigital;
 /**
  *  RevenueMax.
  *
@@ -5211,6 +5206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGumgum;
 /**
+ *  Hivestack.
+ *
+ *  Value: "EXCHANGE_HIVESTACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeHivestack;
+/**
  *  iBILLBOARD.
  *
  *  Value: "EXCHANGE_IBILLBOARD"
@@ -5360,6 +5361,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRedForPublishers;
+/**
+ *  Reset Digital.
+ *
+ *  Value: "EXCHANGE_RESET_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeResetDigital;
 /**
  *  RevenueMax.
  *
@@ -5653,6 +5660,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGumgum;
 /**
+ *  Hivestack.
+ *
+ *  Value: "EXCHANGE_HIVESTACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeHivestack;
+/**
  *  iBILLBOARD.
  *
  *  Value: "EXCHANGE_IBILLBOARD"
@@ -5802,6 +5815,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRedForPublishers;
+/**
+ *  Reset Digital.
+ *
+ *  Value: "EXCHANGE_RESET_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeResetDigital;
 /**
  *  RevenueMax.
  *
@@ -6123,6 +6142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGumgum;
 /**
+ *  Hivestack.
+ *
+ *  Value: "EXCHANGE_HIVESTACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeHivestack;
+/**
  *  iBILLBOARD.
  *
  *  Value: "EXCHANGE_IBILLBOARD"
@@ -6272,6 +6297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRedForPublishers;
+/**
+ *  Reset Digital.
+ *
+ *  Value: "EXCHANGE_RESET_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeResetDigital;
 /**
  *  RevenueMax.
  *
@@ -7577,6 +7608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGumgum;
 /**
+ *  Hivestack.
+ *
+ *  Value: "EXCHANGE_HIVESTACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeHivestack;
+/**
  *  iBILLBOARD.
  *
  *  Value: "EXCHANGE_IBILLBOARD"
@@ -7726,6 +7763,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRedForPublishers;
+/**
+ *  Reset Digital.
+ *
+ *  Value: "EXCHANGE_RESET_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeResetDigital;
 /**
  *  RevenueMax.
  *
@@ -8747,6 +8790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGumgum;
 /**
+ *  Hivestack.
+ *
+ *  Value: "EXCHANGE_HIVESTACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeHivestack;
+/**
  *  iBILLBOARD.
  *
  *  Value: "EXCHANGE_IBILLBOARD"
@@ -8896,6 +8945,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRedForPublishers;
+/**
+ *  Reset Digital.
+ *
+ *  Value: "EXCHANGE_RESET_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeResetDigital;
 /**
  *  RevenueMax.
  *
@@ -9521,6 +9576,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_Ap
  *  Value: "APP_INVENTORY_INVALID_SITE_TARGETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_AppInventoryInvalidSiteTargeting;
+/**
+ *  This line item uses the exclude_first_party_audience setting, which is
+ *  deprecated and scheduled to sunset after **March 25, 2023**. Update your API
+ *  integration to directly exclude any first-party audiences using audience
+ *  targeting before **March 25, 2023** to account for the sunset of the
+ *  exclude_first_party_audience field.
+ *
+ *  Value: "DEPRECATED_FIRST_PARTY_AUDIENCE_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_DeprecatedFirstPartyAudienceExclusion;
 /**
  *  This line item's end date is in the past.
  *
@@ -13427,12 +13492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Media ID of the uploaded asset. This is a unique identifier for the asset.
  *  This ID can be passed to other API calls, e.g. CreateCreative to associate
- *  the asset with a creative. **On April 5, 2023, the value of this ID will be
- *  updated. Before this date, we recommend that you stop using any cached media
- *  IDs when creating or updating creatives, and instead upload assets
- *  immediately before using them for creative production.** **After April 5,
- *  you can update cached media IDs to the new values by retrieving them from
- *  associated creative resources or re-uploading them.**
+ *  the asset with a creative. The Media ID space updated on **April 5, 2023**.
+ *  Update media IDs cached before **April 5, 2023** by retrieving the new media
+ *  ID from associated creative resources or re-uploading the asset.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -13458,34 +13520,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        must be UTF-8 encoded with a length of no more than 25 characters.
  *        This role is only supported in following creative_type: *
  *        `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
  *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_ADVERTISER_NAME")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAndroidAppId The
  *        ID of an Android app in the Google play store. You can find this ID in
  *        the App’s Google Play Store URL after ‘id’. For example, in
  *        https://play.google.com/store/apps/details?id=com.company.appname the
- *        identifier is com.company.appname. This role is only supported in
- *        following creative_type: * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` (Value:
- *        "ASSET_ROLE_ANDROID_APP_ID")
+ *        identifier is com.company.appname. Assets of this role are read-only.
+ *        (Value: "ASSET_ROLE_ANDROID_APP_ID")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackup The asset
  *        is a backup asset of the creative. (Value: "ASSET_ROLE_BACKUP")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBody Body text of
  *        a native creative. The content must be UTF-8 encoded with a length of
  *        no more than 90 characters. This role is only supported in following
  *        creative_type: * `CREATIVE_TYPE_NATIVE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_BODY")
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        (Value: "ASSET_ROLE_BODY")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCallToAction The
  *        text to use on the call-to-action button of a native creative. The
  *        content must be UTF-8 encoded with a length of no more than 15
  *        characters. This role is only supported in following creative_type: *
  *        `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
  *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_CALL_TO_ACTION")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCaptionUrl A
  *        short, friendly version of the landing page URL to show in the
@@ -13496,10 +13550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        'example.com'. The protocol (http://) is optional, but the URL can't
  *        contain spaces or special characters. This role is only supported in
  *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_CAPTION_URL")
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        (Value: "ASSET_ROLE_CAPTION_URL")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCoverImage The
  *        cover image of a native video creative. This role is only supported
  *        and required in following creative_type: * `CREATIVE_TYPE_VIDEO`
@@ -13508,41 +13560,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        of a native creative. The content must be UTF-8 encoded with a length
  *        of no more than 25 characters. This role is only supported in
  *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_HEADLINE")
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        (Value: "ASSET_ROLE_HEADLINE")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleIcon The icon of
  *        a creative. This role is only supported and required in following
  *        creative_type: * `CREATIVE_TYPE_NATIVE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` (Value: "ASSET_ROLE_ICON")
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` (Value: "ASSET_ROLE_ICON")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleIosAppId The ID
  *        of an iOS app in the Apple app store. This ID number can be found in
  *        the Apple App Store URL as the string of numbers directly after "id".
  *        For example, in
  *        https://apps.apple.com/us/app/gmail-email-by-google/id422689480 the ID
- *        is 422689480. This role is only supported in following creative_type:
- *        * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` (Value:
+ *        is 422689480. Assets of this role are read-only. (Value:
  *        "ASSET_ROLE_IOS_APP_ID")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleLongBody Long
  *        body text of a native creative. The content must be UTF-8 encoded with
  *        a length of no more than 150 characters. This role is only supported
  *        in following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_LONG_BODY")
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        (Value: "ASSET_ROLE_LONG_BODY")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleLongHeadline Long
  *        headline of a native creative. The content must be UTF-8 encoded with
  *        a length of no more than 50 characters. This role is only supported in
  *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_LONG_HEADLINE")
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        (Value: "ASSET_ROLE_LONG_HEADLINE")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleMain The asset is
  *        the main asset of the creative. (Value: "ASSET_ROLE_MAIN")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRolePoliteLoad The
@@ -13553,17 +13595,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (for example, $5.99). Note that this value is not automatically synced
  *        with the actual value listed in the store. It will always be the one
  *        provided when save the creative. The content must be UTF-8 encoded
- *        with a length of no more than 15 characters. This role is only
- *        supported in following creative_type: *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` (Value: "ASSET_ROLE_PRICE")
+ *        with a length of no more than 15 characters. Assets of this role are
+ *        read-only. (Value: "ASSET_ROLE_PRICE")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRating The rating
  *        of an app in the Google play store or iOS app store. Note that this
  *        value is not automatically synced with the actual rating in the store.
- *        It will always be the one provided when save the creative. This role
- *        is only supported in following creative_type: *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` (Value: "ASSET_ROLE_RATING")
+ *        It will always be the one provided when save the creative. Assets of
+ *        this role are read-only. (Value: "ASSET_ROLE_RATING")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleUnspecified Asset
  *        role is not specified or is unknown in this version. (Value:
  *        "ASSET_ROLE_UNSPECIFIED")
@@ -16817,12 +16855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Additional dimensions. Applicable when creative_type is one of: *
  *  `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE` *
- *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_TEMPLATED_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_LIGHTBOX` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_PUBLISHER_HOSTED`
- *  If this field is specified, width_pixels and height_pixels are both required
- *  and must be greater than or equal to 0.
+ *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
+ *  `CREATIVE_TYPE_LIGHTBOX` * `CREATIVE_TYPE_PUBLISHER_HOSTED` If this field is
+ *  specified, width_pixels and height_pixels are both required and must be
+ *  greater than or equal to 0.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Dimensions *> *additionalDimensions;
 
@@ -16836,11 +16872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Third-party HTML tracking tag to be appended to the creative tag. */
 @property(nonatomic, copy, nullable) NSString *appendedTag;
 
-/**
- *  Required. Assets associated to this creative. Assets can be associated to
- *  the creative in one of following roles: * `ASSET_ROLE_UNSPECIFIED` *
- *  `ASSET_ROLE_MAIN` * `ASSET_ROLE_BACKUP` * `ASSET_ROLE_POLITE_LOAD`
- */
+/** Required. Assets associated to this creative. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssetAssociation *> *assets;
 
 /**
@@ -16856,8 +16888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The Campaign Manager 360 tracking ad associated with the creative. Optional
  *  for the following creative_type when created by an advertiser that uses both
  *  Campaign Manager 360 and third-party ad serving: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` Output only for other cases.
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` Output only for other cases.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CmTrackingAd *cmTrackingAd;
 
@@ -16924,13 +16955,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstall
- *        Native app install creative. Create and update methods are supported
- *        for this creative type if the hosting_source is
- *        `HOSTING_SOURCE_HOSTED` (Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL")
+ *        Native app install creative. Create and update methods are **not**
+ *        supported for this creative type. (Value:
+ *        "CREATIVE_TYPE_NATIVE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstallSquare
  *        Square native app install creative. Create and update methods are
- *        supported for this creative type if the hosting_source is
- *        `HOSTING_SOURCE_HOSTED` (Value:
+ *        **not** supported for this creative type. (Value:
  *        "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeSiteSquare
  *        Square native creative. Create and update methods are supported for
@@ -16975,9 +17005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Required. Primary dimensions of the creative. Applicable to all creative
  *  types. The value of width_pixels and height_pixels defaults to `0` when
- *  creative_type is one of: * `CREATIVE_TYPE_VIDEO` *
- *  `CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL` * `CREATIVE_TYPE_AUDIO` *
- *  `CREATIVE_TYPE_NATIVE_VIDEO` * `CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO`
+ *  creative_type is one of: * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_AUDIO` *
+ *  `CREATIVE_TYPE_NATIVE_VIDEO`
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Dimensions *dimensions;
 
@@ -17100,11 +17129,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        creative created in DV360 and hosted by Campaign Manager 360. Create
  *        and update methods are supported for this hosting type if the
  *        creative_type is one of the following: * `CREATIVE_TYPE_AUDIO` *
- *        `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *        `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO` *
- *        `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_VIDEO` (Value:
- *        "HOSTING_SOURCE_HOSTED")
+ *        `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
+ *        `CREATIVE_TYPE_NATIVE_VIDEO` * `CREATIVE_TYPE_STANDARD` *
+ *        `CREATIVE_TYPE_VIDEO` (Value: "HOSTING_SOURCE_HOSTED")
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceRichMedia A
  *        rich media creative created in Studio and hosted by Campaign Manager
  *        360. Create and update methods are **not** supported for this hosting
@@ -17150,10 +17177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  JavaScript measurement URL from supported third-party verification providers
  *  (ComScore, DoubleVerify, IAS, Moat). HTML script tags are not supported.
- *  This field is only supported in following creative_type: *
+ *  This field is only writeable in following creative_type: *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  `CREATIVE_TYPE_NATIVE_VIDEO`
  */
 @property(nonatomic, copy, nullable) NSString *jsTrackerUrl;
 
@@ -17304,9 +17330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The URLs must start with https (except on inventory that doesn't require SSL
  *  compliance). If using macros in your URL, use only macros supported by
  *  Display & Video 360. Standard URLs only, no IMG or SCRIPT tags. This field
- *  is only supported in following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
- *  `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  is only writeable in following creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackerUrls;
 
@@ -17389,13 +17414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstall
- *        Native app install creative. Create and update methods are supported
- *        for this creative type if the hosting_source is
- *        `HOSTING_SOURCE_HOSTED` (Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL")
+ *        Native app install creative. Create and update methods are **not**
+ *        supported for this creative type. (Value:
+ *        "CREATIVE_TYPE_NATIVE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstallSquare
  *        Square native app install creative. Create and update methods are
- *        supported for this creative type if the hosting_source is
- *        `HOSTING_SOURCE_HOSTED` (Value:
+ *        **not** supported for this creative type. (Value:
  *        "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeSiteSquare
  *        Square native creative. Create and update methods are supported for
@@ -18930,6 +18954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGumgum
  *        GumGum. (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeHivestack
+ *        Hivestack. (Value: "EXCHANGE_HIVESTACK")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeIbillboard
  *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeImobile
@@ -18981,6 +19007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRedForPublishers
  *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeResetDigital
+ *        Reset Digital. (Value: "EXCHANGE_RESET_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRubicon
@@ -19109,6 +19137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGumgum
  *        GumGum. (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeHivestack
+ *        Hivestack. (Value: "EXCHANGE_HIVESTACK")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeIbillboard
  *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeImobile
@@ -19160,6 +19190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRedForPublishers
  *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeResetDigital
+ *        Reset Digital. (Value: "EXCHANGE_RESET_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon
@@ -19289,6 +19321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGumgum
  *        GumGum. (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeHivestack
+ *        Hivestack. (Value: "EXCHANGE_HIVESTACK")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeIbillboard
  *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeImobile
@@ -19340,6 +19374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRedForPublishers
  *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeResetDigital
+ *        Reset Digital. (Value: "EXCHANGE_RESET_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon
@@ -19472,6 +19508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGumgum
  *        GumGum. (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeHivestack
+ *        Hivestack. (Value: "EXCHANGE_HIVESTACK")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeIbillboard
  *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeImobile
@@ -19523,6 +19561,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRedForPublishers
  *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeResetDigital
+ *        Reset Digital. (Value: "EXCHANGE_RESET_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon
@@ -20695,6 +20735,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGumgum GumGum.
  *        (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeHivestack
+ *        Hivestack. (Value: "EXCHANGE_HIVESTACK")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeIbillboard
  *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImobile
@@ -20746,6 +20788,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRedForPublishers
  *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeResetDigital
+ *        Reset Digital. (Value: "EXCHANGE_RESET_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRubicon
@@ -21733,6 +21777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGumgum GumGum.
  *        (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeHivestack
+ *        Hivestack. (Value: "EXCHANGE_HIVESTACK")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeIbillboard
  *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeImobile
@@ -21784,6 +21830,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRedForPublishers
  *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeResetDigital
+ *        Reset Digital. (Value: "EXCHANGE_RESET_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon
@@ -22672,7 +22720,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The [targeting expansion](//support.google.com/displayvideo/answer/10191558)
  *  settings of the line item. This config is only applicable when eligible
- *  audience list targeting is assigned to the line item.
+ *  audience list targeting is assigned to the line item. Beginning **March 25,
+ *  2023**, these settings may represent the [optimized targeting
+ *  feature](//support.google.com/displayvideo/answer/12060859) in place of
+ *  targeting expansion. This feature will be rolled out to all partners by
+ *  mid-April 2023.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetingExpansionConfig *targetingExpansion;
 
@@ -26466,7 +26518,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Settings that control the targeting expansion of the line item. Targeting
  *  expansion allows the line item to reach a larger audience based on the
- *  original audience list and the targeting expansion level.
+ *  original audience list and the targeting expansion level. Beginning **March
+ *  25, 2023**, these settings may represent the [optimized targeting
+ *  feature](//support.google.com/displayvideo/answer/12060859) in place of
+ *  targeting expansion. This feature will be rolled out to all partners by
+ *  mid-April 2023.
  */
 @interface GTLRDisplayVideo_TargetingExpansionConfig : GTLRObject
 
@@ -26475,7 +26531,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  expansion or optimized targeting. Similar audiences of the excluded
  *  first-party lists will not be excluded. Only applicable when a first-party
  *  audience is positively targeted (directly or included in a combined
- *  audience), otherwise this selection will be ignored.
+ *  audience), otherwise this selection will be ignored. Beginning **March 25,
+ *  2023**, this field may be deprecated with the replacement of targeting
+ *  expansion with [optimized
+ *  targeting](//support.google.com/displayvideo/answer/12060859). Upon
+ *  deprecation, this field will be set to `false`. If this field is set to
+ *  `true` when deprecated, all positive first-party audience targeting assigned
+ *  to this line item will be replaced with negative targeting of the same
+ *  first-party audiences to ensure the continued exclusion of those audiences.
+ *  This field will be deprecated for all partners by mid-April 2023.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -26483,7 +26547,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. Magnitude of expansion for applicable targeting under this line
- *  item.
+ *  item. Beginning **March 25, 2023**, the behavior of this field may change in
+ *  the following ways with the replacement of targeting expansion with
+ *  [optimized targeting](//support.google.com/displayvideo/answer/12060859): *
+ *  This field will represent the optimized targeting checkbox, with a
+ *  `NO_EXPANSION` value representing optimized targeting turned off and a
+ *  `LEAST_EXPANSION` value representing optimized targeting turned on. *
+ *  `NO_EXPANSION` will be the default value for the field and will be
+ *  automatically assigned if you do not set the field. * If you set the field
+ *  to any value other than `NO_EXPANSION`, it will automatically be set to
+ *  `LEAST_EXPANSION`. This behavior will be rolled out to all partners by
+ *  mid-April 2023.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion

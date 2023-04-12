@@ -649,6 +649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DeterminismLevel_NotDet
 // GTLRBigquery_Routine.language
 
 /**
+ *  Java language.
+ *
+ *  Value: "JAVA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Java;
+/**
  *  JavaScript language.
  *
  *  Value: "JAVASCRIPT"
@@ -662,6 +668,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_LanguageUnspec
  *  Value: "PYTHON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Python;
+/**
+ *  Scala language.
+ *
+ *  Value: "SCALA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Scala;
 /**
  *  SQL language.
  *
@@ -5132,6 +5144,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
+ *  [Optional] Specifies whether the query should be executed as a continuous
+ *  query. The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *continuous;
+
+/**
  *  [Optional] Specifies whether the job is allowed to create new tables. The
  *  following values are supported: CREATE_IF_NEEDED: If the table does not
  *  exist, BigQuery creates the table. CREATE_NEVER: The table must already
@@ -6775,6 +6795,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
+ *  [Optional] Specifies whether the query should be executed as a continuous
+ *  query. The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *continuous;
+
+/**
  *  If true, creates a new session, where session id will be a server generated
  *  random id. If false, runs query with an existing session_id passed in
  *  ConnectionProperty, otherwise runs query in non-session mode.
@@ -7343,12 +7371,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  set otherwise.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigquery_Routine_Language_Java Java language. (Value: "JAVA")
  *    @arg @c kGTLRBigquery_Routine_Language_Javascript JavaScript language.
  *        (Value: "JAVASCRIPT")
  *    @arg @c kGTLRBigquery_Routine_Language_LanguageUnspecified Value
  *        "LANGUAGE_UNSPECIFIED"
  *    @arg @c kGTLRBigquery_Routine_Language_Python Python language. (Value:
  *        "PYTHON")
+ *    @arg @c kGTLRBigquery_Routine_Language_Scala Scala language. (Value:
+ *        "SCALA")
  *    @arg @c kGTLRBigquery_Routine_Language_Sql SQL language. (Value: "SQL")
  */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -7721,6 +7752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jarUris;
 
 /**
+ *  The fully qualified name of a class in jar_uris, for example,
+ *  com.example.wordcount. Exactly one of main_class and main_jar_uri field
+ *  should be set for Java/Scala language type.
+ */
+@property(nonatomic, copy, nullable) NSString *mainClass;
+
+/**
  *  The main file/jar URI of the Spark application. Exactly one of the
  *  definition_body field and the main_file_uri field must be set for Python.
  *  Exactly one of main_class and main_file_uri field should be set for
@@ -7731,7 +7769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /**
  *  Configuration properties as a set of key/value pairs, which will be passed
  *  on to the Spark application. For more information, see [Apache
- *  Spark](https://spark.apache.org/docs/latest/index.html).
+ *  Spark](https://spark.apache.org/docs/latest/index.html) and the [procedure
+ *  option
+ *  list](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#procedure_option_list).
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_SparkOptions_Properties *properties;
 
@@ -7752,7 +7792,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /**
  *  Configuration properties as a set of key/value pairs, which will be passed
  *  on to the Spark application. For more information, see [Apache
- *  Spark](https://spark.apache.org/docs/latest/index.html).
+ *  Spark](https://spark.apache.org/docs/latest/index.html) and the [procedure
+ *  option
+ *  list](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#procedure_option_list).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -7812,8 +7854,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlStructType *structType;
 
 /**
- *  Required. The top level type of this field. Can be any standard SQL data
- *  type (e.g., "INT64", "DATE", "ARRAY").
+ *  Required. The top level type of this field. Can be any GoogleSQL data type
+ *  (e.g., "INT64", "DATE", "ARRAY").
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Array Encoded as a list

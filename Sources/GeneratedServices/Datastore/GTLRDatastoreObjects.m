@@ -29,6 +29,7 @@ NSString * const kGTLRDatastore_CommitRequest_Mode_Transactional = @"TRANSACTION
 // GTLRDatastore_CompositeFilter.op
 NSString * const kGTLRDatastore_CompositeFilter_Op_And         = @"AND";
 NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+NSString * const kGTLRDatastore_CompositeFilter_Op_Or          = @"OR";
 
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities = @"EXPORT_ENTITIES";

@@ -1170,12 +1170,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 
 /**
  *  Request for [ProvisionDeployment].
- *  [spectrum.sas.portal.v1alpha1.Provisioning.ProvisionDeployment]. No input is
- *  needed, because GCP Project, Organization Info, and caller’s GAIA ID should
- *  be retrieved from the RPC handler, and used as inputs to create a new SAS
- *  organization (if not exists) and a new SAS deployment.
+ *  [spectrum.sas.portal.v1alpha1.Provisioning.ProvisionDeployment]. GCP
+ *  Project, Organization Info, and caller’s GAIA ID should be retrieved from
+ *  the RPC handler, and used as inputs to create a new SAS organization (if not
+ *  exists) and a new SAS deployment.
  */
 @interface GTLRSASPortal_ProvisionDeploymentRequest : GTLRObject
+
+/**
+ *  Optional. If this field is set, and a new SAS Portal Deployment needs to be
+ *  created, its display name will be set to the value of this field.
+ */
+@property(nonatomic, copy, nullable) NSString *newDeploymentDisplayName NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Optional. If this field is set, and a new SAS Portal Organization needs to
+ *  be created, its display name will be set to the value of this field.
+ */
+@property(nonatomic, copy, nullable) NSString *newOrganizationDisplayName NS_RETURNS_NOT_RETAINED;
+
 @end
 
 

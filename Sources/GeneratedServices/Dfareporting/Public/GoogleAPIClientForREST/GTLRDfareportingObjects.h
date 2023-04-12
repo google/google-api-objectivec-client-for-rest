@@ -13807,6 +13807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startDate;
 
+/** The timezone when the report will run. */
+@property(nonatomic, copy, nullable) NSString *timezone;
+
 @end
 
 

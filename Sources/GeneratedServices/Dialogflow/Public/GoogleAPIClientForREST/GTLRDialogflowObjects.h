@@ -3424,7 +3424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The natural language speech audio to be processed. A single request can
- *  contain up to 1 minute of speech audio data. The transcribed text cannot
+ *  contain up to 2 minutes of speech audio data. The transcribed text cannot
  *  contain more than 256 bytes. For non-streaming audio detect intent, both
  *  `config` and `audio` must be provided. For streaming audio detect intent,
  *  `config` must be provided in the first request and `audio` must be provided
@@ -3507,7 +3507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The natural language speech audio to be processed. A single request can
- *  contain up to 1 minute of speech audio data. The transcribed text cannot
+ *  contain up to 2 minutes of speech audio data. The transcribed text cannot
  *  contain more than 256 bytes. For non-streaming audio detect intent, both
  *  `config` and `audio` must be provided. For streaming audio detect intent,
  *  `config` must be provided in the first request and `audio` must be provided
@@ -4417,7 +4417,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  then the speech is recognized using the standard version of the specified
  *  model. Refer to [Cloud Speech API
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
- *  for more details.
+ *  for more details. If you specify a model, the following models typically
+ *  have the best performance: - phone_call (best for Agent Assist and
+ *  telephony) - latest_short (best for Dialogflow non-telephony) -
+ *  command_and_search (best for very short utterances and commands)
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -4639,6 +4642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Represents an example that the agent is trained on to identify the intent.
+ *  Next ID: 15
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentTrainingPhrase : GTLRObject
 
@@ -5713,6 +5717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *detectIntentResponseId;
 
+/** If DTMF was provided as input, this field will contain the DTMF digits. */
+@property(nonatomic, copy, nullable) NSString *dtmfDigits;
+
 /**
  *  Always present. Information about the fulfillment that triggered this
  *  webhook call.
@@ -6347,7 +6354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Represents an deployment in an environment. A deployment happens when a flow
+ *  Represents a deployment in an environment. A deployment happens when a flow
  *  version configured to be active in the environment. You can configure
  *  running pre-deployment steps, e.g. running validation test cases, experiment
  *  auto-rollout, etc.
@@ -7852,7 +7859,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  then the speech is recognized using the standard version of the specified
  *  model. Refer to [Cloud Speech API
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
- *  for more details.
+ *  for more details. If you specify a model, the following models typically
+ *  have the best performance: - phone_call (best for Agent Assist and
+ *  telephony) - latest_short (best for Dialogflow non-telephony) -
+ *  command_and_search (best for very short utterances and commands)
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -7925,7 +7935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  An intent represents a user's intent to interact with a conversational
  *  agent. You can provide information for the Dialogflow API to use to match
  *  user input to an intent by adding training phrases (i.e., examples of user
- *  input) to your intent.
+ *  input) to your intent. Next ID: 15
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Intent : GTLRObject
 
@@ -9351,7 +9361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  If a DTMF was provided as input, this field will contain a copy of the
- *  DTMFInput.
+ *  DtmfInput.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3DtmfInput *dtmf;
 
@@ -11231,6 +11241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  be returned to the API caller.
  */
 @property(nonatomic, copy, nullable) NSString *detectIntentResponseId;
+
+/** If DTMF was provided as input, this field will contain the DTMF digits. */
+@property(nonatomic, copy, nullable) NSString *dtmfDigits;
 
 /**
  *  Always present. Information about the fulfillment that triggered this

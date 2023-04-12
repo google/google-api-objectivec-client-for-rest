@@ -1025,12 +1025,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @interface GTLRAccessContextManager_GcpUserAccessBinding : GTLRObject
 
 /**
- *  Required. Access level that a user must have to be granted access. Only one
+ *  Optional. Access level that a user must have to be granted access. Only one
  *  access level is supported, not multiple. This repeated field must have
  *  exactly one element. Example:
  *  "accessPolicies/9522/accessLevels/device_trusted"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  Optional. Dry run access level that will be evaluated but will not be
+ *  enforced. The access denial based on dry run policy will be logged. Only one
+ *  access level is supported, not multiple. This list must have exactly one
+ *  element. Example: "accessPolicies/9522/accessLevels/device_trusted"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dryRunAccessLevels;
 
 /**
  *  Required. Immutable. Google Group id whose members are subject to this

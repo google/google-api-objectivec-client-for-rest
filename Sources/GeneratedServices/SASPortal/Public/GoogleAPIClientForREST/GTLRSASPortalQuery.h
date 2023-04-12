@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsCreate : GTLRSASPortalQuery
 
@@ -69,6 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDelete : GTLRSASPortalQuery
 
@@ -95,6 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDevicesCreate : GTLRSASPortalQuery
 
@@ -123,6 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDevicesCreateSigned : GTLRSASPortalQuery
 
@@ -152,6 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDevicesList : GTLRSASPortalQuery
 
@@ -201,6 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsGet : GTLRSASPortalQuery
 
@@ -227,6 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsList : GTLRSASPortalQuery
 
@@ -277,6 +284,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsMove : GTLRSASPortalQuery
 
@@ -306,6 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsPatch : GTLRSASPortalQuery
 
@@ -341,6 +350,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesCreate : GTLRSASPortalQuery
 
@@ -369,6 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesCreateSigned : GTLRSASPortalQuery
 
@@ -398,6 +409,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesDelete : GTLRSASPortalQuery
 
@@ -424,6 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesGet : GTLRSASPortalQuery
 
@@ -450,6 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesList : GTLRSASPortalQuery
 
@@ -499,6 +513,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesMove : GTLRSASPortalQuery
 
@@ -528,6 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesPatch : GTLRSASPortalQuery
 
@@ -563,6 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesSignDevice : GTLRSASPortalQuery
 
@@ -592,6 +609,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersDevicesUpdateSigned : GTLRSASPortalQuery
 
@@ -621,6 +639,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersGet : GTLRSASPortalQuery
 
@@ -647,6 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersList : GTLRSASPortalQuery
 
@@ -681,6 +701,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesCreate : GTLRSASPortalQuery
 
@@ -710,6 +731,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesDelete : GTLRSASPortalQuery
 
@@ -736,6 +758,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesDeploymentsCreate : GTLRSASPortalQuery
 
@@ -767,6 +790,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesDeploymentsList : GTLRSASPortalQuery
 
@@ -817,6 +841,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesDevicesCreate : GTLRSASPortalQuery
 
@@ -845,6 +870,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesDevicesCreateSigned : GTLRSASPortalQuery
 
@@ -874,6 +900,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesDevicesList : GTLRSASPortalQuery
 
@@ -923,6 +950,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesGet : GTLRSASPortalQuery
 
@@ -949,6 +977,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesList : GTLRSASPortalQuery
 
@@ -995,6 +1024,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesMove : GTLRSASPortalQuery
 
@@ -1023,6 +1053,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesNodesCreate : GTLRSASPortalQuery
 
@@ -1052,6 +1083,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesNodesList : GTLRSASPortalQuery
 
@@ -1098,6 +1130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersNodesPatch : GTLRSASPortalQuery
 
@@ -1133,6 +1166,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersPatch : GTLRSASPortalQuery
 
@@ -1169,6 +1203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_CustomersProvisionDeployment : GTLRSASPortalQuery
 
@@ -1194,6 +1229,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesDelete : GTLRSASPortalQuery
 
@@ -1220,6 +1256,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesGet : GTLRSASPortalQuery
 
@@ -1246,6 +1283,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesMove : GTLRSASPortalQuery
 
@@ -1275,6 +1313,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesPatch : GTLRSASPortalQuery
 
@@ -1310,6 +1349,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesSignDevice : GTLRSASPortalQuery
 
@@ -1339,6 +1379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesUpdateSigned : GTLRSASPortalQuery
 
@@ -1368,6 +1409,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_DeploymentsGet : GTLRSASPortalQuery
 
@@ -1394,6 +1436,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_InstallerGenerateSecret : GTLRSASPortalQuery
 
@@ -1418,6 +1461,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_InstallerValidate : GTLRSASPortalQuery
 
@@ -1442,6 +1486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDelete : GTLRSASPortalQuery
 
@@ -1468,6 +1513,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDevicesCreate : GTLRSASPortalQuery
 
@@ -1496,6 +1542,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDevicesCreateSigned : GTLRSASPortalQuery
 
@@ -1525,6 +1572,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDevicesList : GTLRSASPortalQuery
 
@@ -1574,6 +1622,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsGet : GTLRSASPortalQuery
 
@@ -1600,6 +1649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsList : GTLRSASPortalQuery
 
@@ -1650,6 +1700,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsMove : GTLRSASPortalQuery
 
@@ -1679,6 +1730,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsPatch : GTLRSASPortalQuery
 
@@ -1714,6 +1766,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesCreate : GTLRSASPortalQuery
 
@@ -1742,6 +1795,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesCreateSigned : GTLRSASPortalQuery
 
@@ -1771,6 +1825,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesDelete : GTLRSASPortalQuery
 
@@ -1797,6 +1852,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesGet : GTLRSASPortalQuery
 
@@ -1823,6 +1879,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesList : GTLRSASPortalQuery
 
@@ -1872,6 +1929,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesMove : GTLRSASPortalQuery
 
@@ -1901,6 +1959,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesPatch : GTLRSASPortalQuery
 
@@ -1936,6 +1995,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesSignDevice : GTLRSASPortalQuery
 
@@ -1965,6 +2025,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesDevicesUpdateSigned : GTLRSASPortalQuery
 
@@ -1994,6 +2055,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesGet : GTLRSASPortalQuery
 
@@ -2020,6 +2082,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesCreate : GTLRSASPortalQuery
 
@@ -2049,6 +2112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesDelete : GTLRSASPortalQuery
 
@@ -2075,6 +2139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesDeploymentsCreate : GTLRSASPortalQuery
 
@@ -2106,6 +2171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesDeploymentsList : GTLRSASPortalQuery
 
@@ -2156,6 +2222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesDevicesCreate : GTLRSASPortalQuery
 
@@ -2184,6 +2251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesDevicesCreateSigned : GTLRSASPortalQuery
 
@@ -2213,6 +2281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesDevicesList : GTLRSASPortalQuery
 
@@ -2262,6 +2331,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesGet : GTLRSASPortalQuery
 
@@ -2288,6 +2358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesList : GTLRSASPortalQuery
 
@@ -2334,6 +2405,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesMove : GTLRSASPortalQuery
 
@@ -2362,6 +2434,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesNodesCreate : GTLRSASPortalQuery
 
@@ -2391,6 +2464,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesNodesList : GTLRSASPortalQuery
 
@@ -2437,6 +2511,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_NodesNodesPatch : GTLRSASPortalQuery
 
@@ -2473,6 +2548,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_PoliciesGet : GTLRSASPortalQuery
 
@@ -2498,6 +2574,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_PoliciesSet : GTLRSASPortalQuery
 
@@ -2522,6 +2599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
  */
 @interface GTLRSASPortalQuery_PoliciesTest : GTLRSASPortalQuery
 

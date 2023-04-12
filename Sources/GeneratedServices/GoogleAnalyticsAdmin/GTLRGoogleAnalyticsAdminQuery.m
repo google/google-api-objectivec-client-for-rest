@@ -137,6 +137,33 @@
 
 @end
 
+@implementation GTLRGoogleAnalyticsAdminQuery_AccountsRunAccessReport
+
+@dynamic entity;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest *)object
+                         entity:(NSString *)entity {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"entity" ];
+  NSString *pathURITemplate = @"v1beta/{+entity}:runAccessReport";
+  GTLRGoogleAnalyticsAdminQuery_AccountsRunAccessReport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.entity = entity;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportResponse class];
+  query.loggingName = @"analyticsadmin.accounts.runAccessReport";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
 
 @dynamic account;
@@ -1027,6 +1054,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaProperty class];
   query.loggingName = @"analyticsadmin.properties.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
+
+@dynamic entity;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest *)object
+                         entity:(NSString *)entity {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"entity" ];
+  NSString *pathURITemplate = @"v1beta/{+entity}:runAccessReport";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.entity = entity;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportResponse class];
+  query.loggingName = @"analyticsadmin.properties.runAccessReport";
   return query;
 }
 

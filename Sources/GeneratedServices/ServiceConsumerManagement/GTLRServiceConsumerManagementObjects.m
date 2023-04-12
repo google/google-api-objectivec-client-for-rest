@@ -14,6 +14,7 @@
 // Constants
 
 // GTLRServiceConsumerManagement_Api.syntax
+NSString * const kGTLRServiceConsumerManagement_Api_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceConsumerManagement_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -38,6 +39,7 @@ NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinati
 NSString * const kGTLRServiceConsumerManagement_CommonLanguageSettings_Destinations_PackageManager = @"PACKAGE_MANAGER";
 
 // GTLRServiceConsumerManagement_Enum.syntax
+NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -74,6 +76,7 @@ NSString * const kGTLRServiceConsumerManagement_LabelDescriptor_ValueType_Int64 
 NSString * const kGTLRServiceConsumerManagement_LabelDescriptor_ValueType_String = @"STRING";
 
 // GTLRServiceConsumerManagement_Method.syntax
+NSString * const kGTLRServiceConsumerManagement_Method_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -138,6 +141,7 @@ NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_PendingDel
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRServiceConsumerManagement_Type.syntax
+NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -562,7 +566,46 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_DotnetSettings
-@dynamic common;
+@dynamic common, forcedNamespaceAliases, handwrittenSignatures,
+         ignoredResources, renamedResources, renamedServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forcedNamespaceAliases" : [NSString class],
+    @"handwrittenSignatures" : [NSString class],
+    @"ignoredResources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_DotnetSettings_RenamedResources
+//
+
+@implementation GTLRServiceConsumerManagement_DotnetSettings_RenamedResources
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_DotnetSettings_RenamedServices
+//
+
+@implementation GTLRServiceConsumerManagement_DotnetSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -599,7 +642,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Enum
-@dynamic enumvalue, name, options, sourceContext, syntax;
+@dynamic edition, enumvalue, name, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1531,7 +1574,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Type
-@dynamic fields, name, oneofs, options, sourceContext, syntax;
+@dynamic edition, fields, name, oneofs, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

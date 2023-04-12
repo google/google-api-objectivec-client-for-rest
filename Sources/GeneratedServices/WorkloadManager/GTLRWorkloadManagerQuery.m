@@ -41,6 +41,109 @@
 
 @end
 
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Execution class];
+  query.loggingName = @"workloadmanager.projects.locations.evaluations.executions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/executions";
+  GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListExecutionsResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.evaluations.executions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsResultsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/results";
+  GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsResultsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListExecutionResultsResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.evaluations.executions.results.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRWorkloadManager_RunEvaluationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/executions:run";
+  GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Operation class];
+  query.loggingName = @"workloadmanager.projects.locations.evaluations.executions.run";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsScannedResourcesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, rule;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/scannedResources";
+  GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsScannedResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListScannedResourcesResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.evaluations.executions.scannedResources.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsGet
 
 @dynamic name;
@@ -223,6 +326,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRWorkloadManager_ListOperationsResponse class];
   query.loggingName = @"workloadmanager.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/rules";
+  GTLRWorkloadManagerQuery_ProjectsLocationsRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListRulesResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.rules.list";
   return query;
 }
 

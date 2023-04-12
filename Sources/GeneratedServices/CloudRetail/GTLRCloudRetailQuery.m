@@ -393,8 +393,8 @@
 
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsCompleteQuery
 
-@dynamic catalog, dataset, deviceType, languageCodes, maxSuggestions, query,
-         visitorId;
+@dynamic catalog, dataset, deviceType, entity, languageCodes, maxSuggestions,
+         query, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -673,6 +673,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleProtobufEmpty class];
   query.loggingName = @"retail.projects.locations.catalogs.models.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Model class];
+  query.loggingName = @"retail.projects.locations.catalogs.models.get";
   return query;
 }
 

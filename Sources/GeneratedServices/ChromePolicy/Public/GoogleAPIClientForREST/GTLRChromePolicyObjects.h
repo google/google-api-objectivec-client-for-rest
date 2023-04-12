@@ -518,8 +518,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  */
 @interface GTLRChromePolicy_GoogleChromePolicyVersionsV1ListGroupPriorityOrderingRequest : GTLRObject
 
-/** Required. The namespace of the policy type for the request. */
+/** The namespace of the policy type for the request. */
 @property(nonatomic, copy, nullable) NSString *policyNamespace;
+
+/** The schema name of the policy for the request. */
+@property(nonatomic, copy, nullable) NSString *policySchema;
 
 /**
  *  Required. The key of the target for which we want to retrieve the group
@@ -540,6 +543,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 /** Output only. The namespace of the policy type of the group IDs. */
 @property(nonatomic, copy, nullable) NSString *policyNamespace;
+
+/** Output only. The schema name of the policy for the group IDs. */
+@property(nonatomic, copy, nullable) NSString *policySchema;
 
 /**
  *  Output only. The target resource for which the group priority ordering has
@@ -765,9 +771,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 /** Output only. Current lifecycle information. */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle *policyApiLifecycle;
-
-/** Deprecated field because of typo. */
-@property(nonatomic, strong, nullable) GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle *policyApiLifeycle;
 
 /** Output only. Description about the policy schema for user consumption. */
 @property(nonatomic, copy, nullable) NSString *policyDescription;
@@ -1137,10 +1140,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The schema filter to apply to the resolve request. Specify a schema name to
- *  view a particular schema, for example: chrome.users.ShowLogoutButton
- *  Wildcards are supported, but only in the leaf portion of the schema name.
- *  Wildcards cannot be used in namespace directly. Please read
+ *  Required. The schema filter to apply to the resolve request. Specify a
+ *  schema name to view a particular schema, for example:
+ *  chrome.users.ShowLogoutButton Wildcards are supported, but only in the leaf
+ *  portion of the schema name. Wildcards cannot be used in namespace directly.
+ *  Please read
  *  https://developers.google.com/chrome/policy/guides/policy-schemas for
  *  details on schema namespaces. For example: Valid: "chrome.users.*",
  *  "chrome.users.apps.*", "chrome.printers.*" Invalid: "*", "*.users",
@@ -1193,8 +1197,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /** Required. The group IDs, in desired priority ordering. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupIds;
 
-/** Required. The namespace of the policy type for the request. */
+/** The namespace of the policy type for the request. */
 @property(nonatomic, copy, nullable) NSString *policyNamespace;
+
+/** The schema name of the policy for the request. */
+@property(nonatomic, copy, nullable) NSString *policySchema;
 
 /**
  *  Required. The key of the target for which we want to update the group

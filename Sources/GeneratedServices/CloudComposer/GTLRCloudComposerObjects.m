@@ -173,8 +173,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_EnvironmentConfig
-@dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig,
-         environmentSize, gkeCluster, maintenanceWindow,
+@dynamic airflowByoidUri, airflowUri, dagGcsPrefix, databaseConfig,
+         encryptionConfig, environmentSize, gkeCluster, maintenanceWindow,
          masterAuthorizedNetworksConfig, nodeConfig, nodeCount,
          privateEnvironmentConfig, recoveryConfig, softwareConfig,
          webServerConfig, webServerNetworkAccessControl, workloadsConfig;

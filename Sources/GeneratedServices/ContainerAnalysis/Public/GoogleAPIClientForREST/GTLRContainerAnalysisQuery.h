@@ -847,6 +847,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Gets a summary of the packages within a given resource.
+ *
+ *  Method: containeranalysis.projects.resources.generatePackagesSummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsResourcesGeneratePackagesSummary : GTLRContainerAnalysisQuery
+
+/**
+ *  Required. The name of the resource to get a packages summary for in the form
+ *  of `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_PackagesSummaryResponse.
+ *
+ *  Gets a summary of the packages within a given resource.
+ *
+ *  @param object The @c GTLRContainerAnalysis_GeneratePackagesSummaryRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource to get a packages summary for
+ *    in the form of `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsResourcesGeneratePackagesSummary
+ */
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_GeneratePackagesSummaryRequest *)object
+                           name:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

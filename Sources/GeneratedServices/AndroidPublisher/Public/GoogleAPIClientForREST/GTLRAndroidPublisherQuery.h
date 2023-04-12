@@ -1776,7 +1776,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** Identifier of the track. */
+/**
+ *  Identifier of the track. [More on track
+ *  name](https://developers.google.com/android-publisher/tracks#ff-track-name)
+ */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1786,7 +1789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  @param packageName Package name of the app.
  *  @param editId Identifier of the edit.
- *  @param track Identifier of the track.
+ *  @param track Identifier of the track. [More on track
+ *    name](https://developers.google.com/android-publisher/tracks#ff-track-name)
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksGet
  */
@@ -1843,7 +1847,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** Identifier of the track. */
+/**
+ *  Identifier of the track. [More on track
+ *  name](https://developers.google.com/android-publisher/tracks#ff-track-name)
+ */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1854,7 +1861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  @param object The @c GTLRAndroidPublisher_Track to include in the query.
  *  @param packageName Package name of the app.
  *  @param editId Identifier of the edit.
- *  @param track Identifier of the track.
+ *  @param track Identifier of the track. [More on track
+ *    name](https://developers.google.com/android-publisher/tracks#ff-track-name)
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksPatch
  */
@@ -1881,7 +1889,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** Identifier of the track. */
+/**
+ *  Identifier of the track. [More on track
+ *  name](https://developers.google.com/android-publisher/tracks#ff-track-name)
+ */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
@@ -1892,7 +1903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  @param object The @c GTLRAndroidPublisher_Track to include in the query.
  *  @param packageName Package name of the app.
  *  @param editId Identifier of the edit.
- *  @param track Identifier of the track.
+ *  @param track Identifier of the track. [More on track
+ *    name](https://developers.google.com/android-publisher/tracks#ff-track-name)
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksUpdate
  */
@@ -1931,6 +1943,112 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
+
+@end
+
+/**
+ *  Creates a new external transaction.
+ *
+ *  Method: androidpublisher.externaltransactions.createexternaltransaction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ExternaltransactionsCreateexternaltransaction : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The id to use for the external transaction. Must be unique across
+ *  all other transactions for the app. This value should be 1-63 characters and
+ *  valid characters are /a-z0-9_-/.
+ */
+@property(nonatomic, copy, nullable) NSString *externalTransactionId;
+
+/**
+ *  Required. The parent resource where this external transaction will be
+ *  created. Format: applications/{package_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ExternalTransaction.
+ *
+ *  Creates a new external transaction.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ExternalTransaction to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this external transaction
+ *    will be created. Format: applications/{package_name}
+ *
+ *  @return GTLRAndroidPublisherQuery_ExternaltransactionsCreateexternaltransaction
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ExternalTransaction *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets an existing external transaction.
+ *
+ *  Method: androidpublisher.externaltransactions.getexternaltransaction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ExternaltransactionsGetexternaltransaction : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The name of the external transaction to retrieve. Format:
+ *  applications/{package_name}/externalTransactions/{external_transaction}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ExternalTransaction.
+ *
+ *  Gets an existing external transaction.
+ *
+ *  @param name Required. The name of the external transaction to retrieve.
+ *    Format:
+ *    applications/{package_name}/externalTransactions/{external_transaction}
+ *
+ *  @return GTLRAndroidPublisherQuery_ExternaltransactionsGetexternaltransaction
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Refunds or partially refunds an existing external transaction.
+ *
+ *  Method: androidpublisher.externaltransactions.refundexternaltransaction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ExternaltransactionsRefundexternaltransaction : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The name of the external transaction that will be refunded.
+ *  Format:
+ *  applications/{package_name}/externalTransactions/{external_transaction}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ExternalTransaction.
+ *
+ *  Refunds or partially refunds an existing external transaction.
+ *
+ *  @param object The @c GTLRAndroidPublisher_RefundExternalTransactionRequest
+ *    to include in the query.
+ *  @param name Required. The name of the external transaction that will be
+ *    refunded. Format:
+ *    applications/{package_name}/externalTransactions/{external_transaction}
+ *
+ *  @return GTLRAndroidPublisherQuery_ExternaltransactionsRefundexternaltransaction
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_RefundExternalTransactionRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3420,6 +3538,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
                     packageName:(NSString *)packageName
                       productId:(NSString *)productId
                           token:(NSString *)token;
+
+@end
+
+/**
+ *  Consumes a purchase for an inapp item.
+ *
+ *  Method: androidpublisher.purchases.products.consume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesProductsConsume : GTLRAndroidPublisherQuery
+
+/**
+ *  The package name of the application the inapp product was sold in (for
+ *  example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** The inapp product SKU (for example, 'com.some.thing.inapp1'). */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The token provided to the user's device when the inapp product was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Consumes a purchase for an inapp item.
+ *
+ *  @param packageName The package name of the application the inapp product was
+ *    sold in (for example, 'com.some.thing').
+ *  @param productId The inapp product SKU (for example,
+ *    'com.some.thing.inapp1').
+ *  @param token The token provided to the user's device when the inapp product
+ *    was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesProductsConsume
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                               token:(NSString *)token;
 
 @end
 

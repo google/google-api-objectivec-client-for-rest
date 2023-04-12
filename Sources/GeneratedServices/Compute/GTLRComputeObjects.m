@@ -1283,6 +1283,7 @@ NSString * const kGTLRCompute_GuestOsFeature_Type_Gvnic        = @"GVNIC";
 NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet = @"MULTI_IP_SUBNET";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot   = @"SECURE_BOOT";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable   = @"SEV_CAPABLE";
+NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratable = @"SEV_LIVE_MIGRATABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevSnpCapable = @"SEV_SNP_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPATIBLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
@@ -3798,6 +3799,9 @@ NSString * const kGTLRCompute_Quota_Metric_MachineImages       = @"MACHINE_IMAGE
 NSString * const kGTLRCompute_Quota_Metric_N2aCpus             = @"N2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2Cpus              = @"N2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2dCpus             = @"N2D_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_NetLbSecurityPoliciesPerRegion = @"NET_LB_SECURITY_POLICIES_PER_REGION";
+NSString * const kGTLRCompute_Quota_Metric_NetLbSecurityPolicyRuleAttributesPerRegion = @"NET_LB_SECURITY_POLICY_RULE_ATTRIBUTES_PER_REGION";
+NSString * const kGTLRCompute_Quota_Metric_NetLbSecurityPolicyRulesPerRegion = @"NET_LB_SECURITY_POLICY_RULES_PER_REGION";
 NSString * const kGTLRCompute_Quota_Metric_NetworkAttachments  = @"NETWORK_ATTACHMENTS";
 NSString * const kGTLRCompute_Quota_Metric_NetworkEndpointGroups = @"NETWORK_ENDPOINT_GROUPS";
 NSString * const kGTLRCompute_Quota_Metric_NetworkFirewallPolicies = @"NETWORK_FIREWALL_POLICIES";
@@ -3807,6 +3811,7 @@ NSString * const kGTLRCompute_Quota_Metric_NodeTemplates       = @"NODE_TEMPLATE
 NSString * const kGTLRCompute_Quota_Metric_NvidiaA10080gbGpus  = @"NVIDIA_A100_80GB_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaA100Gpus      = @"NVIDIA_A100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus       = @"NVIDIA_K80_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_NvidiaL4Gpus        = @"NVIDIA_L4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus      = @"NVIDIA_P100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaP100VwsGpus   = @"NVIDIA_P100_VWS_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaP4Gpus        = @"NVIDIA_P4_GPUS";
@@ -3821,6 +3826,7 @@ NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb = @"PREEMPTIBLE
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA10080gbGpus = @"PREEMPTIBLE_NVIDIA_A100_80GB_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA100Gpus = @"PREEMPTIBLE_NVIDIA_A100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus = @"PREEMPTIBLE_NVIDIA_K80_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaL4Gpus = @"PREEMPTIBLE_NVIDIA_L4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus = @"PREEMPTIBLE_NVIDIA_P100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100VwsGpus = @"PREEMPTIBLE_NVIDIA_P100_VWS_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4Gpus = @"PREEMPTIBLE_NVIDIA_P4_GPUS";
@@ -3844,6 +3850,7 @@ NSString * const kGTLRCompute_Quota_Metric_Routers             = @"ROUTERS";
 NSString * const kGTLRCompute_Quota_Metric_Routes              = @"ROUTES";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicies    = @"SECURITY_POLICIES";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPoliciesPerRegion = @"SECURITY_POLICIES_PER_REGION";
+NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyAdvancedRulesPerRegion = @"SECURITY_POLICY_ADVANCED_RULES_PER_REGION";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyCevalRules = @"SECURITY_POLICY_CEVAL_RULES";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRules = @"SECURITY_POLICY_RULES";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRulesPerRegion = @"SECURITY_POLICY_RULES_PER_REGION";
@@ -9218,14 +9225,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_FirewallPolicyRuleMatcher
-@dynamic destIpRanges, layer4Configs, srcIpRanges, srcSecureTags;
+@dynamic destAddressGroups, destFqdns, destIpRanges, destRegionCodes,
+         destThreatIntelligences, layer4Configs, srcAddressGroups, srcFqdns,
+         srcIpRanges, srcRegionCodes, srcSecureTags, srcThreatIntelligences;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"destAddressGroups" : [NSString class],
+    @"destFqdns" : [NSString class],
     @"destIpRanges" : [NSString class],
+    @"destRegionCodes" : [NSString class],
+    @"destThreatIntelligences" : [NSString class],
     @"layer4Configs" : [GTLRCompute_FirewallPolicyRuleMatcherLayer4Config class],
+    @"srcAddressGroups" : [NSString class],
+    @"srcFqdns" : [NSString class],
     @"srcIpRanges" : [NSString class],
-    @"srcSecureTags" : [GTLRCompute_FirewallPolicyRuleSecureTag class]
+    @"srcRegionCodes" : [NSString class],
+    @"srcSecureTags" : [GTLRCompute_FirewallPolicyRuleSecureTag class],
+    @"srcThreatIntelligences" : [NSString class]
   };
   return map;
 }
@@ -14637,6 +14654,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_NodeGroupsSetNodeTemplateRequest
 @dynamic nodeTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NodeGroupsSimulateMaintenanceEventRequest
+//
+
+@implementation GTLRCompute_NodeGroupsSimulateMaintenanceEventRequest
+@dynamic nodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

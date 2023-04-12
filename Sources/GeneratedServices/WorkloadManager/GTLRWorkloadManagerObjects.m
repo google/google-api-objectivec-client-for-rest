@@ -11,11 +11,30 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkloadManager_Execution.runType
+NSString * const kGTLRWorkloadManager_Execution_RunType_OneTime = @"ONE_TIME";
+NSString * const kGTLRWorkloadManager_Execution_RunType_Scheduled = @"SCHEDULED";
+NSString * const kGTLRWorkloadManager_Execution_RunType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRWorkloadManager_Execution.state
+NSString * const kGTLRWorkloadManager_Execution_State_Failed   = @"FAILED";
+NSString * const kGTLRWorkloadManager_Execution_State_Running  = @"RUNNING";
+NSString * const kGTLRWorkloadManager_Execution_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_Execution_State_Succeeded = @"SUCCEEDED";
+
 // GTLRWorkloadManager_ResourceStatus.state
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRWorkloadManager_SapDiscoveryResource.resourceState
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Added = @"ADDED";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Missing = @"MISSING";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Removed = @"REMOVED";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Replaced = @"REPLACED";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_ResourceStateUnspecified = @"RESOURCE_STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Updated = @"UPDATED";
 
 // GTLRWorkloadManager_SapDiscoveryResource.resourceType
 NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Compute = @"COMPUTE";
@@ -56,7 +75,7 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 @implementation GTLRWorkloadManager_Evaluation
 @dynamic createTime, descriptionProperty, labels, name, resourceFilter,
-         resourceStatus, ruleNames, ruleVersions, updateTime;
+         resourceStatus, ruleNames, ruleVersions, schedule, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -84,6 +103,42 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Execution
+//
+
+@implementation GTLRWorkloadManager_Execution
+@dynamic endTime, evaluationId, inventoryTime, labels, name, runType, startTime,
+         state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Execution_Labels
+//
+
+@implementation GTLRWorkloadManager_Execution_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ExecutionResult
+//
+
+@implementation GTLRWorkloadManager_ExecutionResult
+@dynamic documentationUrl, resource, rule, severity, violationDetails,
+         violationMessage;
 @end
 
 
@@ -140,6 +195,51 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_ListExecutionResultsResponse
+//
+
+@implementation GTLRWorkloadManager_ListExecutionResultsResponse
+@dynamic executionResults, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"executionResults" : [GTLRWorkloadManager_ExecutionResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"executionResults";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ListExecutionsResponse
+//
+
+@implementation GTLRWorkloadManager_ListExecutionsResponse
+@dynamic executions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"executions" : [GTLRWorkloadManager_Execution class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"executions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_ListLocationsResponse
 //
 
@@ -177,6 +277,50 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ListRulesResponse
+//
+
+@implementation GTLRWorkloadManager_ListRulesResponse
+@dynamic nextPageToken, rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRWorkloadManager_Rule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ListScannedResourcesResponse
+//
+
+@implementation GTLRWorkloadManager_ListScannedResourcesResponse
+@dynamic nextPageToken, scannedResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scannedResources" : [GTLRWorkloadManager_ScannedResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"scannedResources";
 }
 
 @end
@@ -271,6 +415,16 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_Resource
+//
+
+@implementation GTLRWorkloadManager_Resource
+@dynamic name, serviceAccount, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_ResourceFilter
 //
 
@@ -322,6 +476,32 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_Rule
+//
+
+@implementation GTLRWorkloadManager_Rule
+@dynamic descriptionProperty, displayName, errorMessage, name, primaryCategory,
+         remediation, revisionId, secondaryCategory, severity, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_RunEvaluationRequest
+//
+
+@implementation GTLRWorkloadManager_RunEvaluationRequest
+@dynamic execution, executionId, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_SapDiscovery
 //
 
@@ -364,7 +544,8 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryResource
-@dynamic relatedResources, resourceKind, resourceType, resourceUri, updateTime;
+@dynamic relatedResources, resourceKind, resourceState, resourceType,
+         resourceUri, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -420,6 +601,16 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_ScannedResource
+//
+
+@implementation GTLRWorkloadManager_ScannedResource
+@dynamic resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Status
 //
 
@@ -445,6 +636,30 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ViolationDetails
+//
+
+@implementation GTLRWorkloadManager_ViolationDetails
+@dynamic asset, observed, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ViolationDetails_Observed
+//
+
+@implementation GTLRWorkloadManager_ViolationDetails_Observed
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

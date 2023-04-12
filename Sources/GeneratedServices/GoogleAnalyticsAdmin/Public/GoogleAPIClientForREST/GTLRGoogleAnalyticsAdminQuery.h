@@ -261,6 +261,69 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns a customized report of data access records. The report provides
+ *  records of each time a user reads Google Analytics reporting data. Access
+ *  records are retained for up to 2 years. Data Access Reports can be requested
+ *  for a property. The property must be in Google Analytics 360. This method is
+ *  only available to Administrators. These data access records include GA4 UI
+ *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
+ *  Firebase & Admob that can retrieve data from Google Analytics through a
+ *  linkage. These records don't include property configuration changes like
+ *  adding a stream or changing a property's time zone. For configuration change
+ *  history, see
+ *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *
+ *  Method: analyticsadmin.accounts.runAccessReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_AccountsRunAccessReport : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The Data Access Report supports requesting at the property level or account
+ *  level. If requested at the account level, Data Access Reports include all
+ *  access for all properties under that account. To request at the property
+ *  level, entity should be for example 'properties/123' if "123" is your GA4
+ *  property ID. To request at the account level, entity should be for example
+ *  'accounts/1234' if "1234" is your GA4 Account ID.
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportResponse.
+ *
+ *  Returns a customized report of data access records. The report provides
+ *  records of each time a user reads Google Analytics reporting data. Access
+ *  records are retained for up to 2 years. Data Access Reports can be requested
+ *  for a property. The property must be in Google Analytics 360. This method is
+ *  only available to Administrators. These data access records include GA4 UI
+ *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
+ *  Firebase & Admob that can retrieve data from Google Analytics through a
+ *  linkage. These records don't include property configuration changes like
+ *  adding a stream or changing a property's time zone. For configuration change
+ *  history, see
+ *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
+ *    to include in the query.
+ *  @param entity The Data Access Report supports requesting at the property
+ *    level or account level. If requested at the account level, Data Access
+ *    Reports include all access for all properties under that account. To
+ *    request at the property level, entity should be for example
+ *    'properties/123' if "123" is your GA4 property ID. To request at the
+ *    account level, entity should be for example 'accounts/1234' if "1234" is
+ *    your GA4 Account ID.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_AccountsRunAccessReport
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest *)object
+                         entity:(NSString *)entity;
+
+@end
+
+/**
  *  Searches through all changes to an account or its children given the
  *  specified set of filters.
  *
@@ -1757,6 +1820,69 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaProperty *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a customized report of data access records. The report provides
+ *  records of each time a user reads Google Analytics reporting data. Access
+ *  records are retained for up to 2 years. Data Access Reports can be requested
+ *  for a property. The property must be in Google Analytics 360. This method is
+ *  only available to Administrators. These data access records include GA4 UI
+ *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
+ *  Firebase & Admob that can retrieve data from Google Analytics through a
+ *  linkage. These records don't include property configuration changes like
+ *  adding a stream or changing a property's time zone. For configuration change
+ *  history, see
+ *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *
+ *  Method: analyticsadmin.properties.runAccessReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The Data Access Report supports requesting at the property level or account
+ *  level. If requested at the account level, Data Access Reports include all
+ *  access for all properties under that account. To request at the property
+ *  level, entity should be for example 'properties/123' if "123" is your GA4
+ *  property ID. To request at the account level, entity should be for example
+ *  'accounts/1234' if "1234" is your GA4 Account ID.
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportResponse.
+ *
+ *  Returns a customized report of data access records. The report provides
+ *  records of each time a user reads Google Analytics reporting data. Access
+ *  records are retained for up to 2 years. Data Access Reports can be requested
+ *  for a property. The property must be in Google Analytics 360. This method is
+ *  only available to Administrators. These data access records include GA4 UI
+ *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
+ *  Firebase & Admob that can retrieve data from Google Analytics through a
+ *  linkage. These records don't include property configuration changes like
+ *  adding a stream or changing a property's time zone. For configuration change
+ *  history, see
+ *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
+ *    to include in the query.
+ *  @param entity The Data Access Report supports requesting at the property
+ *    level or account level. If requested at the account level, Data Access
+ *    Reports include all access for all properties under that account. To
+ *    request at the property level, entity should be for example
+ *    'properties/123' if "123" is your GA4 property ID. To request at the
+ *    account level, entity should be for example 'accounts/1234' if "1234" is
+ *    your GA4 Account ID.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest *)object
+                         entity:(NSString *)entity;
 
 @end
 

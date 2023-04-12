@@ -3470,6 +3470,58 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_RecommendationsGenerate
+
+@dynamic allowedTag, languageCode, merchantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedTag" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/recommendations/generate";
+  GTLRShoppingContentQuery_RecommendationsGenerate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_GenerateRecommendationsResponse class];
+  query.loggingName = @"content.recommendations.generate";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RecommendationsReportInteraction
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReportInteractionRequest *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/recommendations/reportInteraction";
+  GTLRShoppingContentQuery_RecommendationsReportInteraction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.loggingName = @"content.recommendations.reportInteraction";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_RegionalinventoryCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_RegionalinventoryCustomBatchRequest *)object {

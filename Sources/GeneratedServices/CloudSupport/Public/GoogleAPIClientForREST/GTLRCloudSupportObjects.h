@@ -473,6 +473,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 /** The issue classification applicable to this case. */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_CaseClassification *classification;
 
+/**
+ *  A user-supplied email address to send case update notifications for. This
+ *  should only be used in BYOID flows, where we cannot infer the user's email
+ *  address directly from their EUCs.
+ */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
 /** Output only. The time this case was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -629,7 +636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_Comment : GTLRObject
 
 /**
- *  The full comment body. Maximum of 120000 characters. This can contain rich
+ *  The full comment body. Maximum of 12800 characters. This can contain rich
  *  text syntax.
  */
 @property(nonatomic, copy, nullable) NSString *body;

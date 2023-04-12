@@ -302,6 +302,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsOwnedSiteDomainName;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsOwnedSiteId;
 /**
+ *  URL of the page upon which the ad was served. This is a complete URL
+ *  including scheme and query parameters. Note that the URL that appears in
+ *  this dimension may be a canonicalized version of the one that was used in
+ *  the original request, and so may not exactly match the URL that a user might
+ *  have seen. Note that there are also some caveats to be aware of when using
+ *  this dimension. For more information, see [Page URL
+ *  breakdown](https://support.google.com/adsense/answer/11988478).
+ *
+ *  Value: "PAGE_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsPageUrl;
+/**
  *  Platform type code (e.g. "HighEndMobile", "Desktop").
  *
  *  Value: "PLATFORM_TYPE_CODE"
@@ -1517,9 +1529,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListAccounts` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListAccounts` must match the call that provided the page token.
+ *  A page token, received from a previous `ListChildAccounts` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListChildAccounts` must match the call that provided the page
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1678,6 +1691,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseDimensionsOwnedSiteId Unique ID of a verified site.
  *        The members of this dimension match the values from
  *        Site.reporting_dimension_id. (Value: "OWNED_SITE_ID")
+ *    @arg @c kGTLRAdsenseDimensionsPageUrl URL of the page upon which the ad
+ *        was served. This is a complete URL including scheme and query
+ *        parameters. Note that the URL that appears in this dimension may be a
+ *        canonicalized version of the one that was used in the original
+ *        request, and so may not exactly match the URL that a user might have
+ *        seen. Note that there are also some caveats to be aware of when using
+ *        this dimension. For more information, see [Page URL
+ *        breakdown](https://support.google.com/adsense/answer/11988478).
+ *        (Value: "PAGE_URL")
  *    @arg @c kGTLRAdsenseDimensionsUrlChannelName Name of a URL channel. The
  *        members of this dimension match the values from
  *        UrlChannel.uri_pattern. (Value: "URL_CHANNEL_NAME")
@@ -2069,6 +2091,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseDimensionsOwnedSiteId Unique ID of a verified site.
  *        The members of this dimension match the values from
  *        Site.reporting_dimension_id. (Value: "OWNED_SITE_ID")
+ *    @arg @c kGTLRAdsenseDimensionsPageUrl URL of the page upon which the ad
+ *        was served. This is a complete URL including scheme and query
+ *        parameters. Note that the URL that appears in this dimension may be a
+ *        canonicalized version of the one that was used in the original
+ *        request, and so may not exactly match the URL that a user might have
+ *        seen. Note that there are also some caveats to be aware of when using
+ *        this dimension. For more information, see [Page URL
+ *        breakdown](https://support.google.com/adsense/answer/11988478).
+ *        (Value: "PAGE_URL")
  *    @arg @c kGTLRAdsenseDimensionsUrlChannelName Name of a URL channel. The
  *        members of this dimension match the values from
  *        UrlChannel.uri_pattern. (Value: "URL_CHANNEL_NAME")
@@ -2658,9 +2689,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListPayments` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListPayments` must match the call that provided the page token.
+ *  A page token, received from a previous `ListSavedReports` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListSavedReports` must match the call that provided the page
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

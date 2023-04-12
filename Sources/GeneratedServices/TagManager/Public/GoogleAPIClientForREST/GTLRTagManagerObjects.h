@@ -1386,6 +1386,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Number of tags in the container version. */
 @property(nonatomic, copy, nullable) NSString *numTags;
 
+/** Number of transformations in the container version. */
+@property(nonatomic, copy, nullable) NSString *numTransformations;
+
 /** Number of triggers in the container version. */
 @property(nonatomic, copy, nullable) NSString *numTriggers;
 

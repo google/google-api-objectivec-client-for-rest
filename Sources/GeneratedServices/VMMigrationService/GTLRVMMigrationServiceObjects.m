@@ -201,7 +201,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AccessKeyCredentials
-@dynamic accessKeyId, secretAccessKey;
+@dynamic accessKeyId, secretAccessKey, sessionToken;
 @end
 
 
@@ -552,6 +552,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CutoverForecast
+//
+
+@implementation GTLRVMMigrationService_CutoverForecast
+@dynamic estimatedCutoverJobDuration;
 @end
 
 
@@ -990,9 +1000,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_MigratingVm
 @dynamic awsSourceVmDetails, computeEngineTargetDefaults, createTime,
-         currentSyncInfo, descriptionProperty, displayName, error, group,
-         labels, lastReplicationCycle, lastSync, name, policy, recentCloneJobs,
-         recentCutoverJobs, sourceVmId, state, stateTime, updateTime;
+         currentSyncInfo, cutoverForecast, descriptionProperty, displayName,
+         error, group, labels, lastReplicationCycle, lastSync, name, policy,
+         recentCloneJobs, recentCutoverJobs, sourceVmId, state, stateTime,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -606,7 +606,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An image file and cropping parameters from which a background image for this
- *  shared drive is set. This is a write only field; it can only be set on
+ *  shared drive is set. This is a write-only field; it can only be set on
  *  drive.drives.update requests that don't set themeId. When specified, all
  *  fields of the backgroundImageFile must be set.
  */
@@ -619,8 +619,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_Drive_Capabilities *capabilities;
 
 /**
- *  The color of this shared drive as an RGB hex string. It can only be set on a
- *  drive.drives.update request that does not set themeId.
+ *  The color of this shared drive as an RGB hex string. It can only be set on
+ *  drive.drives.update requests that don't set themeId.
  */
 @property(nonatomic, copy, nullable) NSString *colorRgb;
 
@@ -665,8 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_Drive_Restrictions *restrictions;
 
 /**
- *  The ID of the theme from which the background image and color will be set.
- *  The set of possible driveThemes can be retrieved from a drive.about.get
+ *  The ID of the theme from which the background image and color are set. The
+ *  set of possible driveThemes can be retrieved from a drive.about.get
  *  response. When not specified on a drive.drives.create request, a random
  *  theme is chosen from which the background image and color are set. This is a
  *  write-only field; it can only be set on requests that don't set colorRgb or
@@ -679,7 +679,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An image file and cropping parameters from which a background image for this
- *  shared drive is set. This is a write only field; it can only be set on
+ *  shared drive is set. This is a write-only field; it can only be set on
  *  drive.drives.update requests that don't set themeId. When specified, all
  *  fields of the backgroundImageFile must be set.
  */

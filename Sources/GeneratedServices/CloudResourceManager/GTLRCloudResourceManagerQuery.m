@@ -912,6 +912,23 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_TagKeysGetNamespaced
+
+@dynamic name;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/tagKeys/namespaced";
+  GTLRCloudResourceManagerQuery_TagKeysGetNamespaced *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_TagKey class];
+  query.loggingName = @"cloudresourcemanager.tagKeys.getNamespaced";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_TagKeysList
 
 @dynamic pageSize, pageToken, parent;
@@ -1098,6 +1115,23 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudResourceManager_Policy class];
   query.loggingName = @"cloudresourcemanager.tagValues.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesGetNamespaced
+
+@dynamic name;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/tagValues/namespaced";
+  GTLRCloudResourceManagerQuery_TagValuesGetNamespaced *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_TagValue class];
+  query.loggingName = @"cloudresourcemanager.tagValues.getNamespaced";
   return query;
 }
 

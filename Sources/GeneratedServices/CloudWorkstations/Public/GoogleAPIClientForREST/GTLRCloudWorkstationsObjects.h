@@ -415,7 +415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_GceInstance : GTLRObject
 
 /**
- *  Size of the boot disk in GB.
+ *  Size of the boot disk in GB. Defaults to 50.
  *
  *  Uses NSNumber of intValue.
  */
@@ -443,9 +443,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Email address of the service account that will be used on VM instances used
- *  to support this config. This service account must have permission to pull
- *  the specified container image. If not set, VMs will run without a service
- *  account, in which case the image must be publicly accessible.
+ *  to support this config. If not set, VMs will run with a Google-managed
+ *  service account. This service account must have permission to pull the
+ *  specified container image, otherwise the image must be publicly accessible.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -465,13 +465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @interface GTLRCloudWorkstations_GceRegionalPersistentDisk : GTLRObject
 
-/** Type of the disk to use. */
+/** Type of the disk to use. Defaults to pd-standard. */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
  *  Type of file system that the disk should be formatted with. The workstation
  *  image must support this file system type. Must be empty if source_snapshot
- *  is set.
+ *  is set. Defaults to ext4.
  */
 @property(nonatomic, copy, nullable) NSString *fsType;
 
@@ -492,7 +492,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *reclaimPolicy;
 
 /**
- *  Size of the disk in GB. Must be empty if source_snapshot is set.
+ *  Size of the disk in GB. Must be empty if source_snapshot is set. Defaults to
+ *  200.
  *
  *  Uses NSNumber of intValue.
  */

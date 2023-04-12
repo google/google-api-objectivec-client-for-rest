@@ -112,6 +112,91 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricDai
 FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricWebsiteClicks;
 
 // ----------------------------------------------------------------------------
+// dailyMetrics
+
+/**
+ *  The number of bookings received from the business profile.
+ *
+ *  Value: "BUSINESS_BOOKINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessBookings;
+/**
+ *  The number of message conversations received on the business profile.
+ *
+ *  Value: "BUSINESS_CONVERSATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessConversations;
+/**
+ *  The number of times a direction request was requested to the business
+ *  location.
+ *
+ *  Value: "BUSINESS_DIRECTION_REQUESTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessDirectionRequests;
+/**
+ *  The number of clicks to view or interact with the menu content on the
+ *  business profile. Multiple clicks by a unique user within a single day are
+ *  counted as 1.
+ *
+ *  Value: "BUSINESS_FOOD_MENU_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodMenuClicks;
+/**
+ *  The number of food orders received from the business profile.
+ *
+ *  Value: "BUSINESS_FOOD_ORDERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodOrders;
+/**
+ *  Business impressions on Google Maps on Desktop devices. Multiple impressions
+ *  by a unique user within a single day are counted as a single impression.
+ *
+ *  Value: "BUSINESS_IMPRESSIONS_DESKTOP_MAPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsDesktopMaps;
+/**
+ *  Business impressions on Google Search on Desktop devices. Multiple
+ *  impressions by a unique user within a single day are counted as a single
+ *  impression.
+ *
+ *  Value: "BUSINESS_IMPRESSIONS_DESKTOP_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsDesktopSearch;
+/**
+ *  Business impressions on Google Maps on Mobile devices. Multiple impressions
+ *  by a unique user within a single day are counted as a single impression.
+ *
+ *  Value: "BUSINESS_IMPRESSIONS_MOBILE_MAPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileMaps;
+/**
+ *  Business impressions on Google Search on Mobile devices. Multiple
+ *  impressions by a unique user within a single day are counted as a single
+ *  impression.
+ *
+ *  Value: "BUSINESS_IMPRESSIONS_MOBILE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileSearch;
+/**
+ *  The number of times the business profile call button was clicked.
+ *
+ *  Value: "CALL_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsCallClicks;
+/**
+ *  Represents the default unknown value.
+ *
+ *  Value: "DAILY_METRIC_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsDailyMetricUnknown;
+/**
+ *  The number of times the business profile website was clicked.
+ *
+ *  Value: "WEBSITE_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsWebsiteClicks;
+
+// ----------------------------------------------------------------------------
 // dailySubEntityTypeDayOfWeek
 
 /**
@@ -174,6 +259,126 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Returns the values for each date from a given time range and optionally the
+ *  sub entity type, where applicable, that are associated with the specific
+ *  daily metrics. Example request: `GET
+ *  https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31`
+ *
+ *  Method: businessprofileperformance.locations.fetchMultiDailyMetricsTimeSeries
+ */
+@interface GTLRBusinessProfilePerformanceQuery_LocationsFetchMultiDailyMetricsTimeSeries : GTLRBusinessProfilePerformanceQuery
+
+/**
+ *  Required. The metrics to retrieve time series for.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsDailyMetricUnknown
+ *        Represents the default unknown value. (Value: "DAILY_METRIC_UNKNOWN")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsDesktopMaps
+ *        Business impressions on Google Maps on Desktop devices. Multiple
+ *        impressions by a unique user within a single day are counted as a
+ *        single impression. (Value: "BUSINESS_IMPRESSIONS_DESKTOP_MAPS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsDesktopSearch
+ *        Business impressions on Google Search on Desktop devices. Multiple
+ *        impressions by a unique user within a single day are counted as a
+ *        single impression. (Value: "BUSINESS_IMPRESSIONS_DESKTOP_SEARCH")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileMaps
+ *        Business impressions on Google Maps on Mobile devices. Multiple
+ *        impressions by a unique user within a single day are counted as a
+ *        single impression. (Value: "BUSINESS_IMPRESSIONS_MOBILE_MAPS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileSearch
+ *        Business impressions on Google Search on Mobile devices. Multiple
+ *        impressions by a unique user within a single day are counted as a
+ *        single impression. (Value: "BUSINESS_IMPRESSIONS_MOBILE_SEARCH")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessConversations
+ *        The number of message conversations received on the business profile.
+ *        (Value: "BUSINESS_CONVERSATIONS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessDirectionRequests
+ *        The number of times a direction request was requested to the business
+ *        location. (Value: "BUSINESS_DIRECTION_REQUESTS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsCallClicks The number
+ *        of times the business profile call button was clicked. (Value:
+ *        "CALL_CLICKS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsWebsiteClicks The
+ *        number of times the business profile website was clicked. (Value:
+ *        "WEBSITE_CLICKS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessBookings The
+ *        number of bookings received from the business profile. (Value:
+ *        "BUSINESS_BOOKINGS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodOrders The
+ *        number of food orders received from the business profile. (Value:
+ *        "BUSINESS_FOOD_ORDERS")
+ *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodMenuClicks
+ *        The number of clicks to view or interact with the menu content on the
+ *        business profile. Multiple clicks by a unique user within a single day
+ *        are counted as 1. (Value: "BUSINESS_FOOD_MENU_CLICKS")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dailyMetrics;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger dailyRangeEndDateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger dailyRangeEndDateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger dailyRangeEndDateYear;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger dailyRangeStartDateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger dailyRangeStartDateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger dailyRangeStartDateYear;
+
+/**
+ *  Required. The location for which the time series should be fetched. Format:
+ *  locations/{location_id} where location_id is an unobfuscated listing id.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRBusinessProfilePerformance_FetchMultiDailyMetricsTimeSeriesResponse.
+ *
+ *  Returns the values for each date from a given time range and optionally the
+ *  sub entity type, where applicable, that are associated with the specific
+ *  daily metrics. Example request: `GET
+ *  https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31`
+ *
+ *  @param location Required. The location for which the time series should be
+ *    fetched. Format: locations/{location_id} where location_id is an
+ *    unobfuscated listing id.
+ *
+ *  @return GTLRBusinessProfilePerformanceQuery_LocationsFetchMultiDailyMetricsTimeSeries
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
 
 @end
 

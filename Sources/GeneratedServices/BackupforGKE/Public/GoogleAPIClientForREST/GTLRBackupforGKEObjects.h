@@ -1778,7 +1778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Configuration of a restore. Next id: 11
+ *  Configuration of a restore. Next id: 12
  */
 @interface GTLRBackupforGKE_RestoreConfig : GTLRObject
 
@@ -1900,7 +1900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  The configuration of a potential series of Restore operations to be
- *  performed against Backups belong to a particular BackupPlan. Next id: 11
+ *  performed against Backups belong to a particular BackupPlan. Next id: 13
  */
 @interface GTLRBackupforGKE_RestorePlan : GTLRObject
 

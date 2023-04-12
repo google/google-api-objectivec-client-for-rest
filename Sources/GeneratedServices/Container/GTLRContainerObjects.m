@@ -311,6 +311,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_AdditionalPodRangesConfig
+//
+
+@implementation GTLRContainer_AdditionalPodRangesConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AddonsConfig
 //
 
@@ -493,7 +502,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          costManagementConfig, createTime, currentMasterVersion,
          currentNodeCount, currentNodeVersion, databaseEncryption,
          defaultMaxPodsConstraint, descriptionProperty, enableKubernetesAlpha,
-         enableTpu, endpoint, ETag, expireTime, identifier,
+         enableTpu, endpoint, ETag, expireTime, fleet, identifier,
          identityServiceConfig, initialClusterVersion, initialNodeCount,
          instanceGroupUrls, ipAllocationPolicy, labelFingerprint, legacyAbac,
          location, locations, loggingConfig, loggingService, maintenancePolicy,
@@ -569,10 +578,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ClusterUpdate
-@dynamic desiredAddonsConfig, desiredAuthenticatorGroupsConfig,
-         desiredBinaryAuthorization, desiredClusterAutoscaling,
-         desiredCostManagementConfig, desiredDatabaseEncryption,
-         desiredDatapathProvider, desiredDefaultSnatStatus, desiredDnsConfig,
+@dynamic additionalPodRangesConfig, desiredAddonsConfig,
+         desiredAuthenticatorGroupsConfig, desiredBinaryAuthorization,
+         desiredClusterAutoscaling, desiredCostManagementConfig,
+         desiredDatabaseEncryption, desiredDatapathProvider,
+         desiredDefaultSnatStatus, desiredDnsConfig,
          desiredEnablePrivateEndpoint, desiredGatewayApiConfig,
          desiredGcfsConfig, desiredIdentityServiceConfig, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,
@@ -586,7 +596,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
          desiredResourceUsageExportConfig, desiredServiceExternalIpsConfig,
          desiredShieldedNodes, desiredStackType, desiredVerticalPodAutoscaling,
-         desiredWorkloadIdentityConfig, ETag;
+         desiredWorkloadIdentityConfig, ETag, removedAdditionalPodRangesConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -795,6 +805,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Fleet
+//
+
+@implementation GTLRContainer_Fleet
+@dynamic membership, preRegistered, project;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_GatewayAPIConfig
 //
 
@@ -973,8 +993,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_IPAllocationPolicy
-@dynamic clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
-         createSubnetwork, ipv6AccessType, nodeIpv4Cidr, nodeIpv4CidrBlock,
+@dynamic additionalPodRangesConfig, clusterIpv4Cidr, clusterIpv4CidrBlock,
+         clusterSecondaryRangeName, createSubnetwork, ipv6AccessType,
+         nodeIpv4Cidr, nodeIpv4CidrBlock, podCidrOverprovisionConfig,
          servicesIpv4Cidr, servicesIpv4CidrBlock, servicesIpv6CidrBlock,
          servicesSecondaryRangeName, stackType, subnetIpv6CidrBlock,
          subnetworkName, tpuIpv4CidrBlock, useIpAliases, useRoutes;
@@ -1494,7 +1515,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeNetworkConfig
 @dynamic createPodRange, enablePrivateNodes, networkPerformanceConfig,
-         podIpv4CidrBlock, podRange;
+         podCidrOverprovisionConfig, podIpv4CidrBlock, podRange;
 @end
 
 
@@ -1655,6 +1676,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PlacementPolicy
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PodCIDROverprovisionConfig
+//
+
+@implementation GTLRContainer_PodCIDROverprovisionConfig
+@dynamic disable;
 @end
 
 

@@ -17,6 +17,7 @@
 // GTLRFirestore_CompositeFilter.op
 NSString * const kGTLRFirestore_CompositeFilter_Op_And         = @"AND";
 NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+NSString * const kGTLRFirestore_CompositeFilter_Op_Or          = @"OR";
 
 // GTLRFirestore_FieldFilter.op
 NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains   = @"ARRAY_CONTAINS";

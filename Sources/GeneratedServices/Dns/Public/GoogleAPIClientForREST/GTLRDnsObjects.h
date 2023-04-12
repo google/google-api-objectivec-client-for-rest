@@ -2342,7 +2342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_RRSetRoutingPolicyLoadBalancerTarget : GTLRObject
 
-/** The frontend IP address of the */
+/** The frontend IP address of the Load Balancer to health check. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
@@ -2361,7 +2361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  loadBalancerType
+ *  The type of Load Balancer specified by this target. Must match the
+ *  configuration of the Load Balancer located at the LoadBalancerTarget's IP
+ *  address/port and region.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None
@@ -2371,22 +2373,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancerType;
 
-/** The fully qualified url of the network on which the ILB is */
+/**
+ *  The fully qualified url of the network on which the ILB is present. This
+ *  should be formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
-/**
- *  Load Balancer to health check. The configured port of the Load Balancer.
- */
+/** The configured port of the Load Balancer. */
 @property(nonatomic, copy, nullable) NSString *port;
 
-/**
- *  present. This should be formatted like
- *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
- *  The project ID in which the ILB exists.
- */
+/** The project ID in which the ILB exists. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** The region for regional ILBs. */
+/** The region in which the ILB exists. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 @end

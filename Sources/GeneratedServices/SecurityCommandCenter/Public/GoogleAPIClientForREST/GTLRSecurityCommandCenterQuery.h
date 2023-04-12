@@ -960,6 +960,383 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
+ *  given CRM parent, and also creates inherited
+ *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
+ *  parent. These modules are enabled by default.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the new custom module's parent. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
+ *  given CRM parent, and also creates inherited
+ *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
+ *  parent. These modules are enabled by default.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+ *    to include in the query.
+ *  @param parent Required. Resource name of the new custom module's parent. Its
+ *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified SecurityHealthAnalyticsCustomModule and all of its
+ *  descendants in the CRM hierarchy. This method is only supported for resident
+ *  custom modules.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to delete. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes the specified SecurityHealthAnalyticsCustomModule and all of its
+ *  descendants in the CRM hierarchy. This method is only supported for resident
+ *  custom modules.
+ *
+ *  @param name Required. Name of the custom module to delete. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a SecurityHealthAnalyticsCustomModule.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to get. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Retrieves a SecurityHealthAnalyticsCustomModule.
+ *
+ *  @param name Required. Name of the custom module to get. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of all SecurityHealthAnalyticsCustomModules for the given
+ *  parent. This includes resident modules defined at the scope of the parent,
+ *  and inherited modules, inherited from CRM ancestors.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all SecurityHealthAnalyticsCustomModules for the given
+ *  parent. This includes resident modules defined at the scope of the parent,
+ *  and inherited modules, inherited from CRM ancestors.
+ *
+ *  @param parent Required. Name of parent to list custom modules. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a list of all resident SecurityHealthAnalyticsCustomModules under
+ *  the given CRM parent and all of the parent’s CRM descendants.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.listDescendant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list descendant custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all resident SecurityHealthAnalyticsCustomModules under
+ *  the given CRM parent and all of the parent’s CRM descendants.
+ *
+ *  @param parent Required. Name of parent to list descendant custom modules.
+ *    Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesListDescendant
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
+ *  on the given update mask. Updating the enablement state is supported on both
+ *  resident and inherited modules (though resident modules cannot have an
+ *  enablement state of “inherited”). Updating the display name and custom
+ *  config of a module is supported on resident modules only.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Immutable. The resource name of the custom module. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  The id {customModule} is server-generated and is not user settable. It will
+ *  be a numeric id containing 1-20 digits.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
+ *  on the given update mask. Updating the enablement state is supported on both
+ *  resident and inherited modules (though resident modules cannot have an
+ *  enablement state of “inherited”). Updating the display name and custom
+ *  config of a module is supported on resident modules only.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+ *    to include in the query.
+ *  @param name Immutable. The resource name of the custom module. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    The id {customModule} is server-generated and is not user settable. It
+ *    will be a numeric id containing 1-20 digits.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the effective custom module to get. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  @param name Required. Name of the effective custom module to get. Its format
+ *    is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the
+ *  given parent. This includes resident modules defined at the scope of the
+ *  parent, and inherited modules, inherited from CRM ancestors.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list effective custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the
+ *  given parent. This includes resident modules defined at the scope of the
+ *  parent, and inherited modules, inherited from CRM ancestors.
+ *
+ *  @param parent Required. Name of parent to list effective custom modules. Its
+ *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates external system. This is for a given finding.
  *
  *  Method: securitycenter.folders.sources.findings.externalSystems.patch
@@ -2539,14 +2916,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: securitycenter.organizations.operations.list
  *
@@ -2571,14 +2941,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecurityCommandCenter_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -2589,6 +2952,383 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
+ *  given CRM parent, and also creates inherited
+ *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
+ *  parent. These modules are enabled by default.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the new custom module's parent. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
+ *  given CRM parent, and also creates inherited
+ *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
+ *  parent. These modules are enabled by default.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+ *    to include in the query.
+ *  @param parent Required. Resource name of the new custom module's parent. Its
+ *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified SecurityHealthAnalyticsCustomModule and all of its
+ *  descendants in the CRM hierarchy. This method is only supported for resident
+ *  custom modules.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to delete. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes the specified SecurityHealthAnalyticsCustomModule and all of its
+ *  descendants in the CRM hierarchy. This method is only supported for resident
+ *  custom modules.
+ *
+ *  @param name Required. Name of the custom module to delete. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a SecurityHealthAnalyticsCustomModule.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to get. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Retrieves a SecurityHealthAnalyticsCustomModule.
+ *
+ *  @param name Required. Name of the custom module to get. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of all SecurityHealthAnalyticsCustomModules for the given
+ *  parent. This includes resident modules defined at the scope of the parent,
+ *  and inherited modules, inherited from CRM ancestors.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all SecurityHealthAnalyticsCustomModules for the given
+ *  parent. This includes resident modules defined at the scope of the parent,
+ *  and inherited modules, inherited from CRM ancestors.
+ *
+ *  @param parent Required. Name of parent to list custom modules. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a list of all resident SecurityHealthAnalyticsCustomModules under
+ *  the given CRM parent and all of the parent’s CRM descendants.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.listDescendant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list descendant custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all resident SecurityHealthAnalyticsCustomModules under
+ *  the given CRM parent and all of the parent’s CRM descendants.
+ *
+ *  @param parent Required. Name of parent to list descendant custom modules.
+ *    Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesListDescendant
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
+ *  on the given update mask. Updating the enablement state is supported on both
+ *  resident and inherited modules (though resident modules cannot have an
+ *  enablement state of “inherited”). Updating the display name and custom
+ *  config of a module is supported on resident modules only.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Immutable. The resource name of the custom module. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  The id {customModule} is server-generated and is not user settable. It will
+ *  be a numeric id containing 1-20 digits.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
+ *  on the given update mask. Updating the enablement state is supported on both
+ *  resident and inherited modules (though resident modules cannot have an
+ *  enablement state of “inherited”). Updating the display name and custom
+ *  config of a module is supported on resident modules only.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+ *    to include in the query.
+ *  @param name Immutable. The resource name of the custom module. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    The id {customModule} is server-generated and is not user settable. It
+ *    will be a numeric id containing 1-20 digits.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the effective custom module to get. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  @param name Required. Name of the effective custom module to get. Its format
+ *    is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the
+ *  given parent. This includes resident modules defined at the scope of the
+ *  parent, and inherited modules, inherited from CRM ancestors.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list effective custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the
+ *  given parent. This includes resident modules defined at the scope of the
+ *  parent, and inherited modules, inherited from CRM ancestors.
+ *
+ *  @param parent Required. Name of parent to list effective custom modules. Its
+ *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4293,6 +5033,383 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
+ *  given CRM parent, and also creates inherited
+ *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
+ *  parent. These modules are enabled by default.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the new custom module's parent. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
+ *  given CRM parent, and also creates inherited
+ *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
+ *  parent. These modules are enabled by default.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+ *    to include in the query.
+ *  @param parent Required. Resource name of the new custom module's parent. Its
+ *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified SecurityHealthAnalyticsCustomModule and all of its
+ *  descendants in the CRM hierarchy. This method is only supported for resident
+ *  custom modules.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to delete. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes the specified SecurityHealthAnalyticsCustomModule and all of its
+ *  descendants in the CRM hierarchy. This method is only supported for resident
+ *  custom modules.
+ *
+ *  @param name Required. Name of the custom module to delete. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a SecurityHealthAnalyticsCustomModule.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to get. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Retrieves a SecurityHealthAnalyticsCustomModule.
+ *
+ *  @param name Required. Name of the custom module to get. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of all SecurityHealthAnalyticsCustomModules for the given
+ *  parent. This includes resident modules defined at the scope of the parent,
+ *  and inherited modules, inherited from CRM ancestors.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all SecurityHealthAnalyticsCustomModules for the given
+ *  parent. This includes resident modules defined at the scope of the parent,
+ *  and inherited modules, inherited from CRM ancestors.
+ *
+ *  @param parent Required. Name of parent to list custom modules. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a list of all resident SecurityHealthAnalyticsCustomModules under
+ *  the given CRM parent and all of the parent’s CRM descendants.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.listDescendant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list descendant custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all resident SecurityHealthAnalyticsCustomModules under
+ *  the given CRM parent and all of the parent’s CRM descendants.
+ *
+ *  @param parent Required. Name of parent to list descendant custom modules.
+ *    Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesListDescendant
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
+ *  on the given update mask. Updating the enablement state is supported on both
+ *  resident and inherited modules (though resident modules cannot have an
+ *  enablement state of “inherited”). Updating the display name and custom
+ *  config of a module is supported on resident modules only.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Immutable. The resource name of the custom module. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  The id {customModule} is server-generated and is not user settable. It will
+ *  be a numeric id containing 1-20 digits.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.
+ *
+ *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
+ *  on the given update mask. Updating the enablement state is supported on both
+ *  resident and inherited modules (though resident modules cannot have an
+ *  enablement state of “inherited”). Updating the display name and custom
+ *  config of a module is supported on resident modules only.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+ *    to include in the query.
+ *  @param name Immutable. The resource name of the custom module. Its format is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    The id {customModule} is server-generated and is not user settable. It
+ *    will be a numeric id containing 1-20 digits.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the effective custom module to get. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
+ *
+ *  @param name Required. Name of the effective custom module to get. Its format
+ *    is
+ *    "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    or
+ *    "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the
+ *  given parent. This includes resident modules defined at the scope of the
+ *  parent, and inherited modules, inherited from CRM ancestors.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value returned by the last call indicating a continuation */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list effective custom modules. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings",
+ *  "folders/{folder}/securityHealthAnalyticsSettings", or
+ *  "projects/{project}/securityHealthAnalyticsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse.
+ *
+ *  Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the
+ *  given parent. This includes resident modules defined at the scope of the
+ *  parent, and inherited modules, inherited from CRM ancestors.
+ *
+ *  @param parent Required. Name of parent to list effective custom modules. Its
+ *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
+ *    "folders/{folder}/securityHealthAnalyticsSettings", or
+ *    "projects/{project}/securityHealthAnalyticsSettings"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

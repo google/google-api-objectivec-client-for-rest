@@ -22,6 +22,7 @@
 @class GTLRWorkflowExecutions_PubsubMessage_Attributes;
 @class GTLRWorkflowExecutions_StackTrace;
 @class GTLRWorkflowExecutions_StackTraceElement;
+@class GTLRWorkflowExecutions_StateError;
 @class GTLRWorkflowExecutions_Status;
 @class GTLRWorkflowExecutions_Step;
 
@@ -57,6 +58,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLeve
  *  Value: "LOG_ERRORS_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly;
+/**
+ *  Explicitly log nothing.
+ *
+ *  Value: "LOG_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogNone;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkflowExecutions_Execution.state
@@ -91,6 +98,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_State
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded;
+/**
+ *  Execution data is unavailable. See the `state_error` field.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Unavailable;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_StateError.type
+
+/**
+ *  Caused by an issue with KMS.
+ *
+ *  Value: "KMS_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_KmsError;
+/**
+ *  No type specified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified;
 
 /**
  *  Request for the CancelExecution method.
@@ -142,6 +171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly Log
  *        only exceptions that are raised from call steps within workflows.
  *        (Value: "LOG_ERRORS_ONLY")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogNone Explicitly
+ *        log nothing. (Value: "LOG_NONE")
  */
 @property(nonatomic, copy, nullable) NSString *callLogLevel;
 
@@ -196,8 +227,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *        state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutions_Execution_State_Succeeded The execution
  *        finished successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_State_Unavailable Execution data
+ *        is unavailable. See the `state_error` field. (Value: "UNAVAILABLE")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Error regarding the state of the Execution resource. For
+ *  example, this field will have error details if the Execution data is
+ *  unavailable due to revoked KMS key permissions.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StateError *stateError;
 
 /**
  *  Output only. Status tracks the current steps and progress data of this
@@ -381,6 +421,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 
 /** The step the error occurred at. */
 @property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  Describes an error related to the current state of the Execution resource.
+ */
+@interface GTLRWorkflowExecutions_StateError : GTLRObject
+
+/** Provides specifics about the error. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The type of this state error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_StateError_Type_KmsError Caused by an
+ *        issue with KMS. (Value: "KMS_ERROR")
+ *    @arg @c kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified No type
+ *        specified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

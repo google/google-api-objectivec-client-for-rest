@@ -3933,7 +3933,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  String of comma-delimited FHIR resource types. If provided, only resources
- *  of the specified resource type(s) are returned.
+ *  of the specified resource type(s) are returned. Specifying multiple `_type`
+ *  parameters isn't supported. For example, the result of
+ *  `_type=Observation&_type=Encounter` is undefined. Use
+ *  `_type=Observation,Encounter` instead.
  */
 @property(nonatomic, copy, nullable) NSString *xType;
 
@@ -4209,15 +4212,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
- *  up to a maximum limit of 1000. If there are additional results, the returned
- *  `Bundle` contains a link of `relation` "next", which has a `_page_token`
- *  parameter for an opaque pagination token that can be used to retrieve the
- *  next page. Resources with a total size larger than 5MB or a field count
- *  larger than 50,000 might not be fully searchable as the server might trim
- *  its generated search index in those cases. Note: FHIR resources are indexed
- *  asynchronously, so there might be a slight delay between the time a resource
- *  is created or changes and when the change is reflected in search results.
- *  For samples and detailed information, see [Searching for FHIR
+ *  up to a maximum limit of 1000. The server might return fewer resources than
+ *  requested to prevent excessively large responses. If there are additional
+ *  results, the returned `Bundle` contains a link of `relation` "next", which
+ *  has a `_page_token` parameter for an opaque pagination token that can be
+ *  used to retrieve the next page. Resources with a total size larger than 5MB
+ *  or a field count larger than 50,000 might not be fully searchable as the
+ *  server might trim its generated search index in those cases. Note: FHIR
+ *  resources are indexed asynchronously, so there might be a slight delay
+ *  between the time a resource is created or changes and when the change is
+ *  reflected in search results. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4272,15 +4277,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
- *  up to a maximum limit of 1000. If there are additional results, the returned
- *  `Bundle` contains a link of `relation` "next", which has a `_page_token`
- *  parameter for an opaque pagination token that can be used to retrieve the
- *  next page. Resources with a total size larger than 5MB or a field count
- *  larger than 50,000 might not be fully searchable as the server might trim
- *  its generated search index in those cases. Note: FHIR resources are indexed
- *  asynchronously, so there might be a slight delay between the time a resource
- *  is created or changes and when the change is reflected in search results.
- *  For samples and detailed information, see [Searching for FHIR
+ *  up to a maximum limit of 1000. The server might return fewer resources than
+ *  requested to prevent excessively large responses. If there are additional
+ *  results, the returned `Bundle` contains a link of `relation` "next", which
+ *  has a `_page_token` parameter for an opaque pagination token that can be
+ *  used to retrieve the next page. Resources with a total size larger than 5MB
+ *  or a field count larger than 50,000 might not be fully searchable as the
+ *  server might trim its generated search index in those cases. Note: FHIR
+ *  resources are indexed asynchronously, so there might be a slight delay
+ *  between the time a resource is created or changes and when the change is
+ *  reflected in search results. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4334,15 +4341,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
- *  up to a maximum limit of 1000. If there are additional results, the returned
- *  `Bundle` contains a link of `relation` "next", which has a `_page_token`
- *  parameter for an opaque pagination token that can be used to retrieve the
- *  next page. Resources with a total size larger than 5MB or a field count
- *  larger than 50,000 might not be fully searchable as the server might trim
- *  its generated search index in those cases. Note: FHIR resources are indexed
- *  asynchronously, so there might be a slight delay between the time a resource
- *  is created or changes and when the change is reflected in search results.
- *  For samples and detailed information, see [Searching for FHIR
+ *  up to a maximum limit of 1000. The server might return fewer resources than
+ *  requested to prevent excessively large responses. If there are additional
+ *  results, the returned `Bundle` contains a link of `relation` "next", which
+ *  has a `_page_token` parameter for an opaque pagination token that can be
+ *  used to retrieve the next page. Resources with a total size larger than 5MB
+ *  or a field count larger than 50,000 might not be fully searchable as the
+ *  server might trim its generated search index in those cases. Note: FHIR
+ *  resources are indexed asynchronously, so there might be a slight delay
+ *  between the time a resource is created or changes and when the change is
+ *  reflected in search results. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4406,15 +4415,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
- *  up to a maximum limit of 1000. If there are additional results, the returned
- *  `Bundle` contains a link of `relation` "next", which has a `_page_token`
- *  parameter for an opaque pagination token that can be used to retrieve the
- *  next page. Resources with a total size larger than 5MB or a field count
- *  larger than 50,000 might not be fully searchable as the server might trim
- *  its generated search index in those cases. Note: FHIR resources are indexed
- *  asynchronously, so there might be a slight delay between the time a resource
- *  is created or changes and when the change is reflected in search results.
- *  For samples and detailed information, see [Searching for FHIR
+ *  up to a maximum limit of 1000. The server might return fewer resources than
+ *  requested to prevent excessively large responses. If there are additional
+ *  results, the returned `Bundle` contains a link of `relation` "next", which
+ *  has a `_page_token` parameter for an opaque pagination token that can be
+ *  used to retrieve the next page. Resources with a total size larger than 5MB
+ *  or a field count larger than 50,000 might not be fully searchable as the
+ *  server might trim its generated search index in those cases. Note: FHIR
+ *  resources are indexed asynchronously, so there might be a slight delay
+ *  between the time a resource is created or changes and when the change is
+ *  reflected in search results. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -5407,7 +5418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate : GTLRCloudHealthcareQuery
 
-/** The name of the dataset this message belongs to. */
+/** The name of the HL7v2 store this message belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -5421,7 +5432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_CreateMessageRequest to include in
  *    the query.
- *  @param parent The name of the dataset this message belongs to.
+ *  @param parent The name of the HL7v2 store this message belongs to.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate
  */
@@ -5967,14 +5978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: healthcare.projects.locations.datasets.operations.list
  *
@@ -5999,14 +6003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

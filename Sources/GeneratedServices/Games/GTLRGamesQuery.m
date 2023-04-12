@@ -425,6 +425,30 @@ NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
 
 @end
 
+@implementation GTLRGamesQuery_PlayersGetMultipleApplicationPlayerIds
+
+@dynamic applicationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicationIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"games/v1/players/me/multipleApplicationPlayerIds";
+  GTLRGamesQuery_PlayersGetMultipleApplicationPlayerIds *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRGames_GetMultipleApplicationPlayerIdsResponse class];
+  query.loggingName = @"games.players.getMultipleApplicationPlayerIds";
+  return query;
+}
+
+@end
+
 @implementation GTLRGamesQuery_PlayersGetScopedPlayerIds
 
 + (instancetype)query {

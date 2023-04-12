@@ -1943,7 +1943,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  Trial](/authorized-buyers/rtb/fledge-origin-trial). The URL to fetch an
  *  interest group ad used in [TURTLEDOVE on-device
  *  auction](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#1-browsers-record-interest-groups").
- *  This should be unique among all creatives for a given `accountId`.
+ *  This should be unique among all creatives for a given `accountId`. This URL
+ *  should be the same as the URL returned by
+ *  [generateBid()](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#32-on-device-bidding).
  */
 @property(nonatomic, copy, nullable) NSString *renderUrl;
 
@@ -2922,6 +2924,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /** URL of the help center article describing this policy topic. */
 @property(nonatomic, copy, nullable) NSString *helpCenterUrl;
+
+/**
+ *  Whether or not the policy topic is missing a certificate. Some policy topics
+ *  require a certificate to unblock serving in some regions. For more
+ *  information about creative certification, refer to:
+ *  https://support.google.com/authorizedbuyers/answer/7450776
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *missingCertificate;
 
 /**
  *  Policy topic this entry refers to. For example, "ALCOHOL",

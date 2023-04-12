@@ -263,7 +263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  related to technical issues in the backend. In this case, contact Cloud
  *  Channel support. Return Value: If successful, the
  *  ChannelPartnerRepricingConfig resources. The data for each resource is
- *  displayed in the ascending order of: * channel partner ID *
+ *  displayed in the ascending order of: * Channel Partner ID *
  *  RepricingConfig.effective_invoice_month *
  *  ChannelPartnerRepricingConfig.update_time If unsuccessful, returns an error.
  *
@@ -319,7 +319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  related to technical issues in the backend. In this case, contact Cloud
  *  Channel support. Return Value: If successful, the
  *  ChannelPartnerRepricingConfig resources. The data for each resource is
- *  displayed in the ascending order of: * channel partner ID *
+ *  displayed in the ascending order of: * Channel Partner ID *
  *  RepricingConfig.effective_invoice_month *
  *  ChannelPartnerRepricingConfig.update_time If unsuccessful, returns an error.
  *
@@ -1211,7 +1211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  with the given account. * INTERNAL: Any non-user error related to technical
  *  issues in the backend. In this case, contact Cloud Channel support. Return
  *  Value: If successful, the CustomerRepricingConfig resources. The data for
- *  each resource is displayed in the ascending order of: * customer ID *
+ *  each resource is displayed in the ascending order of: * Customer ID *
  *  RepricingConfig.EntitlementGranularity.entitlement *
  *  RepricingConfig.effective_invoice_month *
  *  CustomerRepricingConfig.update_time If unsuccessful, returns an error.
@@ -1265,7 +1265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  with the given account. * INTERNAL: Any non-user error related to technical
  *  issues in the backend. In this case, contact Cloud Channel support. Return
  *  Value: If successful, the CustomerRepricingConfig resources. The data for
- *  each resource is displayed in the ascending order of: * customer ID *
+ *  each resource is displayed in the ascending order of: * Customer ID *
  *  RepricingConfig.EntitlementGranularity.entitlement *
  *  RepricingConfig.effective_invoice_month *
  *  CustomerRepricingConfig.update_time If unsuccessful, returns an error.
@@ -1855,6 +1855,83 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    accounts/{account_id}/customers/{customer_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List entitlement history. Possible error codes: * PERMISSION_DENIED: The
+ *  reseller account making the request and the provided reseller account are
+ *  different. * INVALID_ARGUMENT: Missing or invalid required fields in the
+ *  request. * NOT_FOUND: The parent resource doesn't exist. Usually the result
+ *  of an invalid name parameter. * INTERNAL: Any non-user error related to a
+ *  technical issue in the backend. In this case, contact CloudChannel support.
+ *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
+ *  In this case, contact Cloud Channel support. Return value: List of
+ *  EntitlementChanges.
+ *
+ *  Method: cloudchannel.accounts.customers.entitlements.listEntitlementChanges
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsListEntitlementChanges : GTLRCloudchannelQuery
+
+/** Optional. Filters applied to the list results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of entitlement changes to return. The service
+ *  may return fewer than this value. If unspecified, returns at most 10
+ *  entitlement changes. The maximum value is 50; the server will coerce values
+ *  above 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  CloudChannelService.ListEntitlementChanges call. Provide this to retrieve
+ *  the subsequent page. When paginating, all other parameters provided to
+ *  CloudChannelService.ListEntitlementChanges must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the entitlement for which to list entitlement
+ *  changes. The `-` wildcard may be used to match entitlements across a
+ *  customer. Formats: *
+ *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+ *  * accounts/{account_id}/customers/{customer_id}/entitlements/-
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ListEntitlementChangesResponse.
+ *
+ *  List entitlement history. Possible error codes: * PERMISSION_DENIED: The
+ *  reseller account making the request and the provided reseller account are
+ *  different. * INVALID_ARGUMENT: Missing or invalid required fields in the
+ *  request. * NOT_FOUND: The parent resource doesn't exist. Usually the result
+ *  of an invalid name parameter. * INTERNAL: Any non-user error related to a
+ *  technical issue in the backend. In this case, contact CloudChannel support.
+ *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
+ *  In this case, contact Cloud Channel support. Return value: List of
+ *  EntitlementChanges.
+ *
+ *  @param parent Required. The resource name of the entitlement for which to
+ *    list entitlement changes. The `-` wildcard may be used to match
+ *    entitlements across a customer. Formats: *
+ *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+ *    * accounts/{account_id}/customers/{customer_id}/entitlements/-
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsListEntitlementChanges
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2786,6 +2863,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A boolean flag that determines if a response returns future offers
+ *  30 days from now. If the show_future_offers is true, the response will only
+ *  contain offers that are scheduled to be available 30 days from now.
+ */
+@property(nonatomic, assign) BOOL showFutureOffers;
+
+/**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListOffersResponse.
  *
  *  Lists the Offers the reseller can sell. Possible error codes: *
@@ -3172,14 +3256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: cloudchannel.operations.list
  *
@@ -3204,14 +3281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

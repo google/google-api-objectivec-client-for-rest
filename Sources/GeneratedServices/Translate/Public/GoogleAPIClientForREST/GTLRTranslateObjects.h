@@ -151,6 +151,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *customizedAttribution;
 
+/**
+ *  Optional. If true, use the text removal server to remove the shadow text on
+ *  background image for native pdf translation. Shadow removal feature can only
+ *  be enabled when is_translate_native_pdf_only: false && pdf_native_only:
+ *  false
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableShadowRemovalNativePdf;
+
 /** Optional. */
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchTranslateDocumentRequest_FormatConversions *formatConversions;
 
@@ -638,6 +648,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  output mime type will be the same as the input file's mime type.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_DocumentOutputConfig *documentOutputConfig;
+
+/**
+ *  Optional. If true, enable auto rotation correction in DVS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRotationCorrection;
 
 /**
  *  Optional. If true, use the text removal server to remove the shadow text on
@@ -1377,12 +1394,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
-
-/**
- *  Output only. Timestamp when the model training finished and ready to be used
- *  for translation.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *deployTime;
 
 /**
  *  The name of the model to show in the interface. The name can be up to 32

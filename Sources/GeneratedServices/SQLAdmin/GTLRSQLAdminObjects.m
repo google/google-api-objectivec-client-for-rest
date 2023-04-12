@@ -229,6 +229,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup = @"LOG_CLEANU
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Reencrypt = @"REENCRYPT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance = @"RESCHEDULE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart = @"RESTART";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume = @"RESTORE_VOLUME";
@@ -294,6 +295,7 @@ NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRON
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled = @"BINLOG_NOT_ENABLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogRetentionSetting = @"BINLOG_RETENTION_SETTING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica = @"EXISTING_DATA_IN_REPLICA";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
@@ -360,6 +362,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_AdvancedMachineFeatures
+//
+
+@implementation GTLRSQLAdmin_AdvancedMachineFeatures
+@dynamic threadsPerCore;
 @end
 
 
@@ -1301,6 +1313,17 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_OperationMetadata
+//
+
+@implementation GTLRSQLAdmin_OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_OperationsListResponse
 //
 
@@ -1341,6 +1364,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_PasswordValidationPolicy
 @dynamic complexity, disallowUsernameSubstring, enablePasswordPolicy, minLength,
          passwordChangeInterval, reuseInterval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_PerformDiskShrinkContext
+//
+
+@implementation GTLRSQLAdmin_PerformDiskShrinkContext
+@dynamic targetSizeGb;
 @end
 
 
@@ -1411,13 +1444,14 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_Settings
-@dynamic activationPolicy, activeDirectoryConfig, authorizedGaeApplications,
-         availabilityType, backupConfiguration, collation, connectorEnforcement,
-         crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
-         dataDiskSizeGb, dataDiskType, deletionProtectionEnabled,
-         denyMaintenancePeriods, insightsConfig, ipConfiguration, kind,
-         locationPreference, maintenanceWindow, passwordValidationPolicy,
-         pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
+@dynamic activationPolicy, activeDirectoryConfig, advancedMachineFeatures,
+         authorizedGaeApplications, availabilityType, backupConfiguration,
+         collation, connectorEnforcement, crashSafeReplicationEnabled,
+         databaseFlags, databaseReplicationEnabled, dataDiskSizeGb,
+         dataDiskType, deletionProtectionEnabled, denyMaintenancePeriods,
+         insightsConfig, ipConfiguration, kind, locationPreference,
+         maintenanceWindow, passwordValidationPolicy, pricingPlan,
+         replicationType, settingsVersion, sqlServerAuditConfig,
          storageAutoResize, storageAutoResizeLimit, tier, timeZone, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1488,11 +1522,37 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SqlInstancesGetDiskShrinkConfigResponse
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesGetDiskShrinkConfigResponse
+@dynamic kind, minimalTargetSizeGb;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody
 @dynamic reschedule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest
 @end
 
 

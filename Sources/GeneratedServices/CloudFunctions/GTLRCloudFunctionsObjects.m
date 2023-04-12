@@ -42,26 +42,21 @@ NSString * const kGTLRCloudFunctions_Function_State_Failed     = @"FAILED";
 NSString * const kGTLRCloudFunctions_Function_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_Function_State_Unknown    = @"UNKNOWN";
 
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.name
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ArtifactRegistry = @"ARTIFACT_REGISTRY";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Build = @"BUILD";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_NameUnspecified = @"NAME_UNSPECIFIED";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Service = @"SERVICE";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ServiceRollback = @"SERVICE_ROLLBACK";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Trigger = @"TRIGGER";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_TriggerRollback = @"TRIGGER_ROLLBACK";
-
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.state
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_Complete = @"COMPLETE";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_InProgress = @"IN_PROGRESS";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_NotStarted = @"NOT_STARTED";
-NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata.environments
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen1 = @"GEN_1";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen2 = @"GEN_2";
 
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage.severity
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Error = @"ERROR";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Info = @"INFO";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Warning = @"WARNING";
+
+// GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata.environments
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen1 = @"GEN_1";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen2 = @"GEN_2";
 
 // GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage.name
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_ArtifactRegistry = @"ARTIFACT_REGISTRY";
@@ -105,6 +100,11 @@ NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Warning = @"WARNING";
 
+// GTLRCloudFunctions_LocationMetadata.environments
+NSString * const kGTLRCloudFunctions_LocationMetadata_Environments_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_LocationMetadata_Environments_Gen1 = @"GEN_1";
+NSString * const kGTLRCloudFunctions_LocationMetadata_Environments_Gen2 = @"GEN_2";
+
 // GTLRCloudFunctions_OperationMetadataV1.type
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_CreateFunction = @"CREATE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_DeleteFunction = @"DELETE_FUNCTION";
@@ -140,6 +140,21 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecurityLevelUn
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_AllTraffic = @"ALL_TRAFFIC";
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified = @"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED";
+
+// GTLRCloudFunctions_Stage.name
+NSString * const kGTLRCloudFunctions_Stage_Name_ArtifactRegistry = @"ARTIFACT_REGISTRY";
+NSString * const kGTLRCloudFunctions_Stage_Name_Build          = @"BUILD";
+NSString * const kGTLRCloudFunctions_Stage_Name_NameUnspecified = @"NAME_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_Stage_Name_Service        = @"SERVICE";
+NSString * const kGTLRCloudFunctions_Stage_Name_ServiceRollback = @"SERVICE_ROLLBACK";
+NSString * const kGTLRCloudFunctions_Stage_Name_Trigger        = @"TRIGGER";
+NSString * const kGTLRCloudFunctions_Stage_Name_TriggerRollback = @"TRIGGER_ROLLBACK";
+
+// GTLRCloudFunctions_Stage.state
+NSString * const kGTLRCloudFunctions_Stage_State_Complete      = @"COMPLETE";
+NSString * const kGTLRCloudFunctions_Stage_State_InProgress    = @"IN_PROGRESS";
+NSString * const kGTLRCloudFunctions_Stage_State_NotStarted    = @"NOT_STARTED";
+NSString * const kGTLRCloudFunctions_Stage_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -201,7 +216,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_BuildConfig
-@dynamic build, buildpackStack, dockerRegistry, dockerRepository, entryPoint,
+@dynamic build, dockerRegistry, dockerRepository, entryPoint,
          environmentVariables, runtime, source, sourceProvenance, workerPool;
 @end
 
@@ -348,6 +363,24 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata
+//
+
+@implementation GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata
+@dynamic environments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"environments" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata
 //
 
@@ -357,7 +390,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"stages" : [GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage class]
+    @"stages" : [GTLRCloudFunctions_Stage class]
   };
   return map;
 }
@@ -381,29 +414,29 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage
-//
-
-@implementation GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage
-@dynamic message, name, resource, resourceUri, state, stateMessages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"stateMessages" : [GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage
 @dynamic message, severity, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata
+//
+
+@implementation GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata
+@dynamic environments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"environments" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -654,6 +687,24 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_LocationMetadata
+//
+
+@implementation GTLRCloudFunctions_LocationMetadata
+@dynamic environments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"environments" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_Operation
 //
 
@@ -869,6 +920,24 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 @implementation GTLRCloudFunctions_SourceProvenance
 @dynamic resolvedRepoSource, resolvedStorageSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_Stage
+//
+
+@implementation GTLRCloudFunctions_Stage
+@dynamic message, name, resource, resourceUri, state, stateMessages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stateMessages" : [GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage class]
+  };
+  return map;
+}
+
 @end
 
 

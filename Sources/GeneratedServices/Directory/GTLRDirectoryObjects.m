@@ -44,6 +44,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_SentToClient = @"SE
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDirectory_ChromeosdevicesCommand.type
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CaptureLogs = @"CAPTURE_LOGS";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot = @"REBOOT";
@@ -59,6 +60,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Ignored = @"
 NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success = @"SUCCESS";
 
 // GTLRDirectory_ChromeosdevicesIssueCommandRequest.commandType
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CaptureLogs = @"CAPTURE_LOGS";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot = @"REBOOT";
@@ -110,6 +112,10 @@ NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unauthenticated
 NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unavailable = @"UNAVAILABLE";
 NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unimplemented = @"UNIMPLEMENTED";
 NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown = @"UNKNOWN";
+
+// GTLRDirectory_RoleAssignment.assigneeType
+NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Group = @"group";
+NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
@@ -1508,7 +1514,8 @@ NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown = @"UNK
 //
 
 @implementation GTLRDirectory_RoleAssignment
-@dynamic assignedTo, ETag, kind, orgUnitId, roleAssignmentId, roleId, scopeType;
+@dynamic assignedTo, assigneeType, ETag, kind, orgUnitId, roleAssignmentId,
+         roleId, scopeType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

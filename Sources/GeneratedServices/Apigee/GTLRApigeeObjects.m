@@ -70,6 +70,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing = @
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Ready = @"READY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified = @"RUNTIME_STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig.deploymentGroupType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_DeploymentGroupTypeUnspecified = @"DEPLOYMENT_GROUP_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_Extensible = @"EXTENSIBLE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig_DeploymentGroupType_Standard = @"STANDARD";
+
 // GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.billingType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_BillingTypeUnspecified = @"BILLING_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid = @"POSTPAID";
@@ -248,6 +253,12 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeg
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off = @"OFF";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability = @"PROBABILITY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified = @"SAMPLER_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1SecurityIncident.riskLevel
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Low = @"LOW";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Moderate = @"MODERATE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe = @"SEVERE";
 
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc = @"GRPC";
@@ -1252,7 +1263,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1DeploymentGroupConfig
-@dynamic name, revisionId, uid;
+@dynamic deploymentGroupType, name, revisionId, uid;
 @end
 
 
@@ -2413,6 +2424,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityIncidentsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityIncidentsResponse
+@dynamic nextPageToken, securityIncidents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityIncidents" : [GTLRApigee_GoogleCloudApigeeV1SecurityIncident class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityIncidents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListSecurityProfileRevisionsResponse
 //
 
@@ -3438,6 +3471,25 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext
 @dynamic documentationLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityIncident
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityIncident
+@dynamic detectionTypes, displayName, firstDetectedTime, lastDetectedTime, name,
+         riskLevel, trafficCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectionTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
