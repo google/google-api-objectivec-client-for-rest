@@ -7,7 +7,7 @@ target 'StorageSample' do
 
   # Also use GTMAppAuth & AppAuth. See the project USING.md, you can use this or
   # Google SignIn.
-  pod 'GTMAppAuth'
+  pod 'GTMAppAuth', '< 3.0'
   pod 'AppAuth'
 
 end
