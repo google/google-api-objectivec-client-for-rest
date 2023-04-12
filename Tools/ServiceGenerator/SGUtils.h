@@ -141,7 +141,11 @@
 // Returns the list of selector names for the given class that take no args and
 // don't appear to be private (i.e. - they could collide with properties on
 // subclasses).
-+ (NSArray<NSString *> *)publicNoArgSelectorsForClass:(Class)aClass;
+//
+// skipPrefixed can be used to skip selectors that appear to be prefixed
+// as those are likely things added via categories and not really public.
++ (NSArray<NSString *> *)publicNoArgSelectorsForClass:(Class)aClass
+                                         skipPrefixed:(BOOL)skipPrefixed;
 
 @end
 
