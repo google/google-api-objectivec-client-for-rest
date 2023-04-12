@@ -637,7 +637,19 @@ static const NSUInteger kMaxWidth = 80;
 
 #pragma mark -
 
-+ (NSArray *)publicNoArgSelectorsForClass:(Class)aClass {
+static BOOL AppearsToBePrefixed(NSString *str) {
+  NSArray<NSString*> *parts = [str componentsSeparatedByString:@"_"];
+  // Only count a single underscore in the name as meaning there's a possible
+  // prefix on the selector.
+  if (parts.count != 2) {
+    return NO;
+  }
+  // If the first segment is <=5 characters, call it a prefix.
+  return (parts[0].length <= 5);
+}
+
++ (NSArray *)publicNoArgSelectorsForClass:(Class)aClass
+                             skipPrefixed:(BOOL)skipPrefixed {
   unsigned int count;
   Method *methodList = class_copyMethodList(aClass, &count);
 
@@ -652,6 +664,8 @@ static const NSUInteger kMaxWidth = 80;
       // starts with/ends with underscore, internal.
     } else if ([str hasPrefix:@"."]) {
       // starts with period, also internal.
+    } else if (skipPrefixed && AppearsToBePrefixed(str)) {
+      // starts with a prefix, probably a category addition, skip it.
     } else {
       [result addObject:str];
     }

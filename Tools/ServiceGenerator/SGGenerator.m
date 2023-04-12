@@ -3408,19 +3408,13 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 // classes based on the given class.
 static void CheckReservedList(Class aClass,
                               NSArray *reservedList,
-                              BOOL ignoreNSObjectOverrides,
+                              BOOL skipPrefixed,
                               NSArray *allowedExceptions) {
-  NSArray *nsobjectNames;
-  if (ignoreNSObjectOverrides) {
-    nsobjectNames = [SGUtils publicNoArgSelectorsForClass:[NSObject class]];
-  }
-
-  NSArray *namesFromRuntime = [SGUtils publicNoArgSelectorsForClass:aClass];
+  NSArray *namesFromRuntime =
+      [SGUtils publicNoArgSelectorsForClass:aClass skipPrefixed:skipPrefixed];
   for (NSString *name in namesFromRuntime) {
     if ([reservedList containsObject:name]) {
       // Was listed!
-    } else if ([nsobjectNames containsObject:name]) {
-      // Was in the NSObject list, is ok!
     } else if ([allowedExceptions containsObject:name]) {
       // Was an allowed exception.
     } else {
@@ -3580,20 +3574,12 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"objectSpecifier",
       @"observationInfo",
       @"retainWeakReference",
-      // New as of High Sierra
+      // -------------------- New as of High Sierra --------------------
       @"CAMLType",
-      @"CA_prepareRenderValue",
-      @"CA_copyRenderValue",
       // -------------------- New as of Mojave --------------------
-      // This seems to have been removed in Ventura: @"bs_encoded",
-      @"bs_isPlistableType",
-      @"bs_secureEncoded",
+      // None
       // -------------------- New as of Catalina --------------------
-      // This seems to have been removed in Big Sur: @"bs_isXPCObject",
       @"supportsBSXPCSecureCoding",
-      // This seems to have been removed in Monterey: @"pep_onDetachedThread",
-      @"pep_onMainThread",
-      @"pep_onMainThreadIfNecessary",
       // -------------------- New as of Big Sur --------------------
       // This seems to have been removed in Ventura: @"toPBCodable",
       // This seems to have been removed in Ventura: @"CKDescription",
@@ -3615,7 +3601,7 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       // This seems to have been removed in Ventura: @"CKRedactedDescription",
       // This seems to have been removed in Ventura: @"CKUnredactedDescription",
       // -------------------- New as of Ventura --------------------
-      @"CA_numericValueCount",
+      // None
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
@@ -3657,12 +3643,21 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
 
     // ------------------------------------------------------------------------
     // Check our reserved word lists against the runtime.
-    CheckReservedList([NSObject class], nsobjectReserved, NO, nil);
-    CheckReservedList([GTLRQuery class], gtlrQueryReserved, YES, nil);
+    CheckReservedList([NSObject class], nsobjectReserved, YES, nil);
+
+    // Skip anything on NSObject when checking GTLRQuery and GTLRObject.
+    NSArray<NSString *> *nsobjectExceptions =
+        [SGUtils publicNoArgSelectorsForClass:[NSObject class]
+                                 skipPrefixed:NO];
+
+    CheckReservedList([GTLRQuery class], gtlrQueryReserved, NO, nsobjectExceptions);
     // SGGenerator has a category on GTLRObject, so they aren't in the
-    // reserved list and we don't want to report them.
-    NSArray *allowed = @[ @"sg_generator", @"sg_errorReportingName" ];
-    CheckReservedList([GTLRObject class], gtlrObjectReserved, YES, allowed);
+    // reserved list, add them to the exception list.
+    NSArray<NSString *> *gtlrobjectExceptions =
+      [nsobjectExceptions arrayByAddingObjectsFromArray:@[
+        @"sg_generator", @"sg_errorReportingName",
+      ]];
+    CheckReservedList([GTLRObject class], gtlrObjectReserved, NO, gtlrobjectExceptions);
     // ------------------------------------------------------------------------
 
     NSMutableDictionary *builderMappings = [NSMutableDictionary dictionary];
