@@ -358,6 +358,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Dropped
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService;
 /**
+ *  Packet was dropped inside Private Service Connect service producer.
+ *
+ *  Value: "DROPPED_INSIDE_PSC_SERVICE_PRODUCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer;
+/**
  *  Firewalls block the health check probes to the backends and cause the
  *  backends to be unavailable for traffic from the load balancer. For more
  *  details, see [Health check firewall
@@ -427,6 +433,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeCont
  *  Value: "GKE_MASTER_UNAUTHORIZED_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
+/**
+ *  Packet was dropped because the GKE cluster uses Private Service Connect
+ *  (PSC), but the PSC endpoint is not found in the project.
+ *
+ *  Value: "GKE_PSC_ENDPOINT_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePscEndpointMissing;
 /**
  *  Packet was dropped because there is no peering between the originating
  *  network and the Google Managed Services Network.
@@ -1680,6 +1693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService
  *        Packet was dropped inside Google Kubernetes Engine Service. (Value:
  *        "DROPPED_INSIDE_GKE_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer
+ *        Packet was dropped inside Private Service Connect service producer.
+ *        (Value: "DROPPED_INSIDE_PSC_SERVICE_PRODUCER")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck
  *        Firewalls block the health check probes to the backends and cause the
  *        backends to be unavailable for traffic from the load balancer. For
@@ -1719,6 +1735,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        authorized. See [Access to the cluster
  *        endpoints](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#access_to_the_cluster_endpoints)
  *        for more details. (Value: "GKE_MASTER_UNAUTHORIZED_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkePscEndpointMissing Packet
+ *        was dropped because the GKE cluster uses Private Service Connect
+ *        (PSC), but the PSC endpoint is not found in the project. (Value:
+ *        "GKE_PSC_ENDPOINT_MISSING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering
  *        Packet was dropped because there is no peering between the originating
  *        network and the Google Managed Services Network. (Value:

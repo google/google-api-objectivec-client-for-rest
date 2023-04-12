@@ -557,9 +557,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  Method: logging.billingAccounts.locations.buckets.links.create
  *
@@ -588,9 +588,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Operation.
  *
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  @param object The @c GTLRLogging_Link to include in the query.
  *  @param parent Required. The full resource name of the bucket to create a
@@ -1160,21 +1160,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -1184,7 +1185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -1411,14 +1412,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: logging.billingAccounts.locations.operations.list
  *
@@ -1446,14 +1440,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1546,21 +1533,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -1570,7 +1558,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -2792,9 +2780,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  Method: logging.folders.locations.buckets.links.create
  *
@@ -2823,9 +2811,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Operation.
  *
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  @param object The @c GTLRLogging_Link to include in the query.
  *  @param parent Required. The full resource name of the bucket to create a
@@ -3395,21 +3383,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -3419,7 +3408,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -3646,14 +3635,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: logging.folders.locations.operations.list
  *
@@ -3681,14 +3663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -3781,21 +3756,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -3805,7 +3781,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -4398,9 +4374,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  Method: logging.locations.buckets.links.create
  *
@@ -4429,9 +4405,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Operation.
  *
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  @param object The @c GTLRLogging_Link to include in the query.
  *  @param parent Required. The full resource name of the bucket to create a
@@ -5188,14 +5164,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: logging.locations.operations.list
  *
@@ -5223,14 +5192,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -5323,21 +5285,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -5347,7 +5310,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -5924,9 +5887,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  Method: logging.organizations.locations.buckets.links.create
  *
@@ -5955,9 +5918,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Operation.
  *
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  @param object The @c GTLRLogging_Link to include in the query.
  *  @param parent Required. The full resource name of the bucket to create a
@@ -6527,21 +6490,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -6551,7 +6515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -6778,14 +6742,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: logging.organizations.locations.operations.list
  *
@@ -6813,14 +6770,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -6913,21 +6863,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -6937,7 +6888,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -7952,9 +7903,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  Method: logging.projects.locations.buckets.links.create
  *
@@ -7983,9 +7934,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Operation.
  *
- *  Asynchronously creates linked dataset in BigQuery which makes it possible to
- *  use BugQuery to read the logs stored in the bucket. A bucket may currently
- *  only contain one link.
+ *  Asynchronously creates a linked dataset in BigQuery which makes it possible
+ *  to use BigQuery to read the logs stored in the log bucket. A log bucket may
+ *  currently only contain one link.
  *
  *  @param object The @c GTLRLogging_Link to include in the query.
  *  @param parent Required. The full resource name of the bucket to create a
@@ -8555,21 +8506,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -8579,7 +8531,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *
@@ -8806,14 +8758,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: logging.projects.locations.operations.list
  *
@@ -8841,14 +8786,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -8941,21 +8879,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  Required. The resource name to list logs for: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
  *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The resource name that owns the logs:
+ *  Optional. List of resource names to list logs for:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
  *  support legacy queries, it could also be: projects/[PROJECT_ID]
  *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
- *  folders/[FOLDER_ID]
+ *  folders/[FOLDER_ID]The resource name in the parent field is added to this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -8965,7 +8904,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the logs in projects, organizations, folders, or billing accounts.
  *  Only logs that have entries are listed.
  *
- *  @param parent Required. The resource name that owns the logs:
+ *  @param parent Required. The resource name to list logs for:
  *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *

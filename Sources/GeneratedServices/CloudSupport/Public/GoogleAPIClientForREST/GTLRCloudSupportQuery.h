@@ -35,41 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a file attachment on a case or Cloud resource. The attachment object
- *  must have the following fields set: filename.
- *
- *  Method: cloudsupport.attachments.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudSupportCloudPlatform
- */
-@interface GTLRCloudSupportQuery_AttachmentsCreate : GTLRCloudSupportQuery
-
-/**
- *  Required. The resource name of the case (or case parent) to which the
- *  attachment should be attached.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudSupport_Attachment.
- *
- *  Create a file attachment on a case or Cloud resource. The attachment object
- *  must have the following fields set: filename.
- *
- *  @param object The @c GTLRCloudSupport_CreateAttachmentRequest to include in
- *    the query.
- *  @param parent Required. The resource name of the case (or case parent) to
- *    which the attachment should be attached.
- *
- *  @return GTLRCloudSupportQuery_AttachmentsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudSupport_CreateAttachmentRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Retrieve valid classifications to be used when creating a support case. The
  *  classications are hierarchical, with each classification containing all
  *  levels of the hierarchy, separated by " > ". For example "Technical Issue >

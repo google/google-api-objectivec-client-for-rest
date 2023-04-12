@@ -71,6 +71,117 @@
 
 @end
 
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/firewallpolicies";
+  GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy class];
+  query.loggingName = @"recaptchaenterprise.projects.firewallpolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleProtobufEmpty class];
+  query.loggingName = @"recaptchaenterprise.projects.firewallpolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy class];
+  query.loggingName = @"recaptchaenterprise.projects.firewallpolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/firewallpolicies";
+  GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.firewallpolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy class];
+  query.loggingName = @"recaptchaenterprise.projects.firewallpolicies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysCreate
 
 @dynamic parent;

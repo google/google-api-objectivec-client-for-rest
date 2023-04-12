@@ -25,7 +25,6 @@
 @class GTLRCloudFunctions_Function;
 @class GTLRCloudFunctions_Function_Labels;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage;
@@ -50,6 +49,7 @@
 @class GTLRCloudFunctions_ServiceConfig_EnvironmentVariables;
 @class GTLRCloudFunctions_Source;
 @class GTLRCloudFunctions_SourceProvenance;
+@class GTLRCloudFunctions_Stage;
 @class GTLRCloudFunctions_Status;
 @class GTLRCloudFunctions_Status_Details_Item;
 @class GTLRCloudFunctions_StorageSource;
@@ -205,78 +205,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_StateUnspe
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Unknown;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.name
+// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata.environments
 
 /**
- *  Artifact Regsitry Stage
+ *  Unspecified
  *
- *  Value: "ARTIFACT_REGISTRY"
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ArtifactRegistry;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_EnvironmentUnspecified;
 /**
- *  Build Stage
+ *  Gen 1
  *
- *  Value: "BUILD"
+ *  Value: "GEN_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Build;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen1;
 /**
- *  Not specified. Invalid name.
+ *  Gen 2
  *
- *  Value: "NAME_UNSPECIFIED"
+ *  Value: "GEN_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_NameUnspecified;
-/**
- *  Service Stage
- *
- *  Value: "SERVICE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Service;
-/**
- *  Service Rollback Stage
- *
- *  Value: "SERVICE_ROLLBACK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ServiceRollback;
-/**
- *  Trigger Stage
- *
- *  Value: "TRIGGER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Trigger;
-/**
- *  Trigger Rollback Stage
- *
- *  Value: "TRIGGER_ROLLBACK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_TriggerRollback;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.state
-
-/**
- *  Stage has completed.
- *
- *  Value: "COMPLETE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_Complete;
-/**
- *  Stage is in progress.
- *
- *  Value: "IN_PROGRESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_InProgress;
-/**
- *  Stage has not started.
- *
- *  Value: "NOT_STARTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_NotStarted;
-/**
- *  Not specified. Invalid state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen2;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage.severity
@@ -305,6 +253,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alp
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata.environments
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_EnvironmentUnspecified;
+/**
+ *  Gen 1
+ *
+ *  Value: "GEN_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen1;
+/**
+ *  Gen 2
+ *
+ *  Value: "GEN_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen2;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage.name
@@ -511,6 +481,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Sta
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_LocationMetadata.environments
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_LocationMetadata_Environments_EnvironmentUnspecified;
+/**
+ *  Gen 1
+ *
+ *  Value: "GEN_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_LocationMetadata_Environments_Gen1;
+/**
+ *  Gen 2
+ *
+ *  Value: "GEN_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_LocationMetadata_Environments_Gen2;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_OperationMetadataV1.type
 
 /**
@@ -683,6 +675,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_Stage.name
+
+/**
+ *  Artifact Regsitry Stage
+ *
+ *  Value: "ARTIFACT_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_ArtifactRegistry;
+/**
+ *  Build Stage
+ *
+ *  Value: "BUILD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_Build;
+/**
+ *  Not specified. Invalid name.
+ *
+ *  Value: "NAME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_NameUnspecified;
+/**
+ *  Service Stage
+ *
+ *  Value: "SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_Service;
+/**
+ *  Service Rollback Stage
+ *
+ *  Value: "SERVICE_ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_ServiceRollback;
+/**
+ *  Trigger Stage
+ *
+ *  Value: "TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_Trigger;
+/**
+ *  Trigger Rollback Stage
+ *
+ *  Value: "TRIGGER_ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_Name_TriggerRollback;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_Stage.state
+
+/**
+ *  Stage has completed.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_State_Complete;
+/**
+ *  Stage is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_State_InProgress;
+/**
+ *  Stage has not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_State_NotStarted;
+/**
+ *  Not specified. Invalid state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Stage_State_StateUnspecified;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -824,16 +890,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 @property(nonatomic, copy, nullable) NSString *build;
 
-/** Specifies one of the Google provided buildpack stacks. */
-@property(nonatomic, copy, nullable) NSString *buildpackStack;
-
 /**
- *  Optional. Docker Registry to use for this deployment. This configuration is
- *  only applicable to 1st Gen functions, 2nd Gen functions can only use
- *  Artifact Registry. If `docker_repository` field is specified, this field
- *  will be automatically set as `ARTIFACT_REGISTRY`. If unspecified, it
- *  currently defaults to `CONTAINER_REGISTRY`. This field may be overridden by
- *  the backend for eligible deployments.
+ *  Docker Registry to use for this deployment. This configuration is only
+ *  applicable to 1st Gen functions, 2nd Gen functions can only use Artifact
+ *  Registry. If `docker_repository` field is specified, this field will be
+ *  automatically set as `ARTIFACT_REGISTRY`. If unspecified, it currently
+ *  defaults to `CONTAINER_REGISTRY`. This field may be overridden by the
+ *  backend for eligible deployments.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_ArtifactRegistry
@@ -1100,7 +1163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
 
 /**
- *  Resource name of a KMS crypto key (managed by the user) used to
+ *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt function resources. It must match the pattern
  *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
  */
@@ -1190,7 +1253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @interface GTLRCloudFunctions_GenerateUploadUrlRequest : GTLRObject
 
 /**
- *  Resource name of a KMS crypto key (managed by the user) used to
+ *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt function source code objects in intermediate Cloud Storage
  *  buckets. When you generate an upload url and upload your source code, it
  *  gets copied to an intermediate Cloud Storage bucket. The source code is then
@@ -1233,6 +1296,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 
 /**
+ *  Extra GCF specific location information.
+ */
+@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata : GTLRObject
+
+/** The Cloud Function environments this location supports. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
+
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata : GTLRObject
@@ -1259,7 +1333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource *requestResource;
 
 /** Mechanism for reporting in-progress stages */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage *> *stages;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_Stage *> *stages;
 
 /** Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
@@ -1282,62 +1356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource : GTLRObject
-@end
-
-
-/**
- *  Each Stage of the deployment process
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage : GTLRObject
-
-/** Message describing the Stage */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  Name of the Stage. This will be unique for each Stage.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ArtifactRegistry
- *        Artifact Regsitry Stage (Value: "ARTIFACT_REGISTRY")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Build
- *        Build Stage (Value: "BUILD")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_NameUnspecified
- *        Not specified. Invalid name. (Value: "NAME_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Service
- *        Service Stage (Value: "SERVICE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ServiceRollback
- *        Service Rollback Stage (Value: "SERVICE_ROLLBACK")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Trigger
- *        Trigger Stage (Value: "TRIGGER")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_TriggerRollback
- *        Trigger Rollback Stage (Value: "TRIGGER_ROLLBACK")
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Resource of the Stage */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/** Link to the current Stage resource */
-@property(nonatomic, copy, nullable) NSString *resourceUri;
-
-/**
- *  Current state of the Stage
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_Complete
- *        Stage has completed. (Value: "COMPLETE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_InProgress
- *        Stage is in progress. (Value: "IN_PROGRESS")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_NotStarted
- *        Stage has not started. (Value: "NOT_STARTED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_StateUnspecified
- *        Not specified. Invalid state. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** State messages from the current Stage. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage *> *stateMessages;
-
 @end
 
 
@@ -1366,6 +1384,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /** One-word CamelCase type of the state message. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Extra GCF specific location information.
+ */
+@interface GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata : GTLRObject
+
+/** The Cloud Function environments this location supports. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
 
 @end
 
@@ -1796,6 +1825,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudFunctions_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Extra GCF specific location information.
+ */
+@interface GTLRCloudFunctions_LocationMetadata : GTLRObject
+
+/** The Cloud Function environments this location supports. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
+
 @end
 
 
@@ -2235,7 +2275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /**
  *  Describes the Service being deployed. Currently Supported : Cloud Run (fully
- *  managed). Next tag: 23
+ *  managed).
  */
 @interface GTLRCloudFunctions_ServiceConfig : GTLRObject
 
@@ -2251,8 +2291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSNumber *allTrafficOnLatestRevision;
 
 /**
- *  The number of CPUs used in a single container instance. Default value is
- *  calculated from available memory. Supports the same values as Cloud Run, see
+ *  [Preview] The number of CPUs used in a single container instance. Default
+ *  value is calculated from available memory. Supports the same values as Cloud
+ *  Run, see
  *  https://cloud.google.com/run/docs/reference/rest/v1/Container#resourcerequirements
  *  Example: "1" indicates 1 vCPU
  */
@@ -2305,8 +2346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
 
 /**
- *  Sets the maximum number of concurrent requests that each instance can
- *  receive. Defaults to 1.
+ *  [Preview] Sets the maximum number of concurrent requests that each instance
+ *  can receive. Defaults to 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2473,6 +2514,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  generations resolved.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_StorageSource *resolvedStorageSource;
+
+@end
+
+
+/**
+ *  Each Stage of the deployment process
+ */
+@interface GTLRCloudFunctions_Stage : GTLRObject
+
+/** Message describing the Stage */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Name of the Stage. This will be unique for each Stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_ArtifactRegistry Artifact Regsitry
+ *        Stage (Value: "ARTIFACT_REGISTRY")
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_Build Build Stage (Value: "BUILD")
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_NameUnspecified Not specified.
+ *        Invalid name. (Value: "NAME_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_Service Service Stage (Value:
+ *        "SERVICE")
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_ServiceRollback Service Rollback
+ *        Stage (Value: "SERVICE_ROLLBACK")
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_Trigger Trigger Stage (Value:
+ *        "TRIGGER")
+ *    @arg @c kGTLRCloudFunctions_Stage_Name_TriggerRollback Trigger Rollback
+ *        Stage (Value: "TRIGGER_ROLLBACK")
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Resource of the Stage */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** Link to the current Stage resource */
+@property(nonatomic, copy, nullable) NSString *resourceUri;
+
+/**
+ *  Current state of the Stage
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_Stage_State_Complete Stage has completed.
+ *        (Value: "COMPLETE")
+ *    @arg @c kGTLRCloudFunctions_Stage_State_InProgress Stage is in progress.
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudFunctions_Stage_State_NotStarted Stage has not started.
+ *        (Value: "NOT_STARTED")
+ *    @arg @c kGTLRCloudFunctions_Stage_State_StateUnspecified Not specified.
+ *        Invalid state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** State messages from the current Stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage *> *stateMessages;
 
 @end
 

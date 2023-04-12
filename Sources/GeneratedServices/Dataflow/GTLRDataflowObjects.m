@@ -1176,7 +1176,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_JobMetadata
 @dynamic bigqueryDetails, bigTableDetails, datastoreDetails, fileDetails,
-         pubsubDetails, sdkVersion, spannerDetails;
+         pubsubDetails, sdkVersion, spannerDetails, userDisplayProperties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1188,6 +1188,20 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
     @"spannerDetails" : [GTLRDataflow_SpannerIODetails class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_JobMetadata_UserDisplayProperties
+//
+
+@implementation GTLRDataflow_JobMetadata_UserDisplayProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1636,10 +1650,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ParameterMetadata
-@dynamic customMetadata, helpText, isOptional, label, name, paramType, regexes;
+@dynamic customMetadata, groupName, helpText, isOptional, label, name,
+         paramType, parentName, parentTriggerValues, regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"parentTriggerValues" : [NSString class],
     @"regexes" : [NSString class]
   };
   return map;

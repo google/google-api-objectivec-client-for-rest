@@ -19,6 +19,11 @@ NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeIn = @"FADE_IN";
 NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeOut = @"FADE_OUT";
 NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeTypeUnspecified = @"FADE_TYPE_UNSPECIFIED";
 
+// GTLRTranscoder_Job.mode
+NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeBatch  = @"PROCESSING_MODE_BATCH";
+NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeInteractive = @"PROCESSING_MODE_INTERACTIVE";
+NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeUnspecified = @"PROCESSING_MODE_UNSPECIFIED";
+
 // GTLRTranscoder_Job.state
 NSString * const kGTLRTranscoder_Job_State_Failed              = @"FAILED";
 NSString * const kGTLRTranscoder_Job_State_Pending             = @"PENDING";
@@ -270,8 +275,8 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Job
-@dynamic config, createTime, endTime, error, inputUri, labels, name, outputUri,
-         startTime, state, templateId, ttlAfterCompletionDays;
+@dynamic config, createTime, endTime, error, inputUri, labels, mode, name,
+         outputUri, startTime, state, templateId, ttlAfterCompletionDays;
 @end
 
 

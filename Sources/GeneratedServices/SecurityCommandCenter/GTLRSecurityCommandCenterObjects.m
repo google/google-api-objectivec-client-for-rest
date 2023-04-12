@@ -111,11 +111,17 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunA
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
-// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource.resourceValue
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueHigh = @"RESOURCE_VALUE_HIGH";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueLow = @"RESOURCE_VALUE_LOW";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueMedium = @"RESOURCE_VALUE_MEDIUM";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig.severity
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.enablementState
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_Disabled = @"DISABLED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_Enabled = @"ENABLED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.severity
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_Critical = @"CRITICAL";
@@ -135,18 +141,17 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Ru
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
-// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High = @"HIGH";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low = @"LOW";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium = @"MEDIUM";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None = @"NONE";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
-
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed = @"COMPLETED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.enablementState
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Disabled = @"DISABLED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Enabled = @"ENABLED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Inherited = @"INHERITED";
 
 // GTLRSecurityCommandCenter_IamBinding.action
 NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
@@ -374,16 +379,6 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_AssociatedFinding
-//
-
-@implementation GTLRSecurityCommandCenter_AssociatedFinding
-@dynamic canonicalFindingName, findingCategory, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSecurityCommandCenter_AuditConfig
 //
 
@@ -443,6 +438,26 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 @implementation GTLRSecurityCommandCenter_BulkMuteFindingsRequest
 @dynamic filter, muteAnnotation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_CloudDlpDataProfile
+//
+
+@implementation GTLRSecurityCommandCenter_CloudDlpDataProfile
+@dynamic dataProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_CloudDlpInspection
+//
+
+@implementation GTLRSecurityCommandCenter_CloudDlpInspection
+@dynamic fullScan, infoType, infoTypeCount, inspectJob;
 @end
 
 
@@ -584,16 +599,6 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_Edge
-//
-
-@implementation GTLRSecurityCommandCenter_Edge
-@dynamic destination, source;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSecurityCommandCenter_Empty
 //
 
@@ -679,10 +684,11 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, canonicalName, category, compliances, connections, contacts,
-         containers, createTime, database, descriptionProperty, eventTime,
-         exfiltration, externalSystems, externalUri, files, findingClass,
-         iamBindings, indicator, kernelRootkit, kubernetes, mitreAttack, mute,
+@dynamic access, canonicalName, category, cloudDlpDataProfile,
+         cloudDlpInspection, compliances, connections, contacts, containers,
+         createTime, database, descriptionProperty, eventTime, exfiltration,
+         externalSystems, externalUri, files, findingClass, iamBindings,
+         indicator, kernelRootkit, kubernetes, mitreAttack, moduleName, mute,
          muteInitiator, muteUpdateTime, name, nextSteps, parent,
          parentDisplayName, processes, resourceName, securityMarks, severity,
          sourceProperties, state, vulnerability;
@@ -843,15 +849,31 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig
 //
 
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource
-@dynamic displayName, methods, name, resource, resourceType, resourceValue;
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig
+@dynamic customOutput, descriptionProperty, predicate, recommendation,
+         resourceSelector, severity;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomOutputSpec
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomOutputSpec
+@dynamic properties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"methods" : [NSString class]
+    @"properties" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property class]
   };
   return map;
 }
@@ -861,20 +883,11 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule
 //
 
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath
-@dynamic edges, exposedResource, name, pathNodes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"edges" : [GTLRSecurityCommandCenter_Edge class],
-    @"pathNodes" : [GTLRSecurityCommandCenter_PathNode class]
-  };
-  return map;
-}
-
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule
+@dynamic customConfig, displayName, enablementState, name;
 @end
 
 
@@ -1021,6 +1034,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property
+@dynamic name, valueExpression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
 //
 
@@ -1040,15 +1063,15 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector
 //
 
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
-@dynamic name, resourceType, resourceValue, scope, tagValues;
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector
+@dynamic resourceTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tagValues" : [NSString class]
+    @"resourceTypes" : [NSString class]
   };
   return map;
 }
@@ -1063,6 +1086,17 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse
 @dynamic duration, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
+@dynamic ancestorModule, customConfig, displayName, enablementState, lastEditor,
+         name, updateTime;
 @end
 
 
@@ -1297,6 +1331,50 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse
+@dynamic nextPageToken, securityHealthAnalyticsCustomModules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityHealthAnalyticsCustomModules" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityHealthAnalyticsCustomModules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse
+@dynamic effectiveSecurityHealthAnalyticsCustomModules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectiveSecurityHealthAnalyticsCustomModules" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"effectiveSecurityHealthAnalyticsCustomModules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ListFindingsResponse
 //
 
@@ -1388,6 +1466,28 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse
+@dynamic nextPageToken, securityHealthAnalyticsCustomModules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityHealthAnalyticsCustomModules" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityHealthAnalyticsCustomModules";
 }
 
 @end
@@ -1543,24 +1643,6 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 @implementation GTLRSecurityCommandCenter_OrganizationSettings
 @dynamic assetDiscoveryConfig, enableAssetDiscovery, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSecurityCommandCenter_PathNode
-//
-
-@implementation GTLRSecurityCommandCenter_PathNode
-@dynamic associatedFindings, displayName, resource, resourceType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"associatedFindings" : [GTLRSecurityCommandCenter_AssociatedFinding class]
-  };
-  return map;
-}
-
 @end
 
 

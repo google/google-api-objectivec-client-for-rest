@@ -1395,6 +1395,73 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get Disk Shrink Config for a given instance.
+ *
+ *  Method: sql.projects.instances.getDiskShrinkConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesGetDiskShrinkConfig : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesGetDiskShrinkConfigResponse.
+ *
+ *  Get Disk Shrink Config for a given instance.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesGetDiskShrinkConfig
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Perform Disk Shrink on primary instance.
+ *
+ *  Method: sql.projects.instances.performDiskShrink
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesPerformDiskShrink : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Perform Disk Shrink on primary instance.
+ *
+ *  @param object The @c GTLRSQLAdmin_PerformDiskShrinkContext to include in the
+ *    query.
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesPerformDiskShrink
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_PerformDiskShrinkContext *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Reschedules the maintenance on the given instance.
  *
  *  Method: sql.projects.instances.rescheduleMaintenance
@@ -1425,6 +1492,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Reset Replica Size to primary instance disk size.
+ *
+ *  Method: sql.projects.instances.resetReplicaSize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesResetReplicaSize : GTLRSQLAdminQuery
+
+/** Cloud SQL read replica instance name. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** ID of the project that contains the read replica. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Reset Replica Size to primary instance disk size.
+ *
+ *  @param object The @c GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest to
+ *    include in the query.
+ *  @param project ID of the project that contains the read replica.
+ *  @param instance Cloud SQL read replica instance name.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesResetReplicaSize
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 

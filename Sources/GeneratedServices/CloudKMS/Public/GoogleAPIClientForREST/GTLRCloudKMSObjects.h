@@ -190,20 +190,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_Mac;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
- *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P256_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP256Sha256;
 /**
- *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P384_SHA384"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384;
 /**
  *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
- *  protection level.
+ *  protection level. Other hash functions can also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_SECP256K1_SHA256"
  */
@@ -432,6 +437,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Disabled
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 /**
+ *  This version was destroyed, and it may not be used or enabled again.
+ *  However, Cloud KMS could not confirm that the corresponding key material
+ *  residing in an external key manager was destroyed. Additional details can be
+ *  found in CryptoKeyVersion.external_destruction_failure_reason.
+ *
+ *  Value: "EXTERNAL_DESTRUCTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_ExternalDestructionFailed;
+/**
+ *  This version was not generated successfully. It may not be used, enabled,
+ *  disabled, or destroyed. Additional details can be found in
+ *  CryptoKeyVersion.generation_failure_reason.
+ *
+ *  Value: "GENERATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_GenerationFailed;
+/**
  *  This version was not imported successfully. It may not be used, enabled,
  *  disabled, or destroyed. The submitted key material has been discarded.
  *  Additional details can be found in CryptoKeyVersion.import_failure_reason.
@@ -439,6 +461,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
  *  Value: "IMPORT_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_ImportFailed;
+/**
+ *  This version was destroyed, and it may not be used or enabled again. Cloud
+ *  KMS is waiting for the corresponding key material residing in an external
+ *  key manager to be destroyed.
+ *
+ *  Value: "PENDING_EXTERNAL_DESTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingExternalDestruction;
 /**
  *  This version is still being generated. It may not be used, enabled,
  *  disabled, or destroyed yet. Cloud KMS will automatically mark this version
@@ -466,20 +496,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingI
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
- *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P256_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256;
 /**
- *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P384_SHA384"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384;
 /**
  *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
- *  protection level.
+ *  protection level. Other hash functions can also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_SECP256K1_SHA256"
  */
@@ -704,6 +739,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_EkmConnection.keyManagementMode
+
+/**
+ *  All CryptoKeys created with this EkmConnection use EKM-side key management
+ *  operations initiated from Cloud KMS. This means that: * When a
+ *  CryptoKeyVersion associated with this EkmConnection is created, the EKM
+ *  automatically generates new key material and a new key path. The caller
+ *  cannot supply the key path of pre-existing external key material. *
+ *  Destruction of external key material associated with this EkmConnection can
+ *  be requested by calling DestroyCryptoKeyVersion. * Automatic rotation of key
+ *  material is supported.
+ *
+ *  Value: "CLOUD_KMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EkmConnection_KeyManagementMode_CloudKms;
+/**
+ *  Not specified.
+ *
+ *  Value: "KEY_MANAGEMENT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EkmConnection_KeyManagementMode_KeyManagementModeUnspecified;
+/**
+ *  EKM-side key management operations on CryptoKeys created with this
+ *  EkmConnection must be initiated from the EKM directly and cannot be
+ *  performed from Cloud KMS. This means that: * When creating a
+ *  CryptoKeyVersion associated with this EkmConnection, the caller must supply
+ *  the key path of pre-existing external key material that will be linked to
+ *  the CryptoKeyVersion. * Destruction of external key material cannot be
+ *  requested via the Cloud KMS API and must be performed directly in the EKM. *
+ *  Automatic rotation of key material is not supported.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EkmConnection_KeyManagementMode_Manual;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_EncryptResponse.protectionLevel
 
 /**
@@ -781,20 +852,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_Prot
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
- *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P256_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256;
 /**
- *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P384_SHA384"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384;
 /**
  *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
- *  protection level.
+ *  protection level. Other hash functions can also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_SECP256K1_SHA256"
  */
@@ -1185,20 +1261,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLev
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
- *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P256_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256;
 /**
- *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_P384_SHA384"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384;
 /**
  *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
- *  protection level.
+ *  protection level. Other hash functions can also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
  *
  *  Value: "EC_SIGN_SECP256K1_SHA256"
  */
@@ -1981,14 +2062,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP256Sha256 ECDSA on
- *        the NIST P-256 curve with a SHA256 digest. (Value:
- *        "EC_SIGN_P256_SHA256")
+ *        the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *        also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P256_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384 ECDSA on
- *        the NIST P-384 curve with a SHA384 digest. (Value:
- *        "EC_SIGN_P384_SHA384")
+ *        the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *        also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P384_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignSecp256k1Sha256
  *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
- *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
+ *        for HSM protection level. Other hash functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
@@ -2086,6 +2173,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) GTLRDateTime *destroyTime;
 
 /**
+ *  Output only. The root cause of the most recent external destruction failure.
+ *  Only present if state is EXTERNAL_DESTRUCTION_FAILED.
+ */
+@property(nonatomic, copy, nullable) NSString *externalDestructionFailureReason;
+
+/**
  *  ExternalProtectionLevelOptions stores a group of additional fields for
  *  configuring a CryptoKeyVersion that are specific to the EXTERNAL protection
  *  level and EXTERNAL_VPC protection levels.
@@ -2096,6 +2189,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  Output only. The time this CryptoKeyVersion's key material was generated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *generateTime;
+
+/**
+ *  Output only. The root cause of the most recent generation failure. Only
+ *  present if state is GENERATION_FAILED.
+ */
+@property(nonatomic, copy, nullable) NSString *generationFailureReason;
 
 /**
  *  Output only. The root cause of the most recent import failure. Only present
@@ -2172,11 +2271,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        be placed back into the ENABLED state. (Value: "DISABLED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Enabled This version may be
  *        used for cryptographic operations. (Value: "ENABLED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_ExternalDestructionFailed
+ *        This version was destroyed, and it may not be used or enabled again.
+ *        However, Cloud KMS could not confirm that the corresponding key
+ *        material residing in an external key manager was destroyed. Additional
+ *        details can be found in
+ *        CryptoKeyVersion.external_destruction_failure_reason. (Value:
+ *        "EXTERNAL_DESTRUCTION_FAILED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_GenerationFailed This version
+ *        was not generated successfully. It may not be used, enabled, disabled,
+ *        or destroyed. Additional details can be found in
+ *        CryptoKeyVersion.generation_failure_reason. (Value:
+ *        "GENERATION_FAILED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_ImportFailed This version was
  *        not imported successfully. It may not be used, enabled, disabled, or
  *        destroyed. The submitted key material has been discarded. Additional
  *        details can be found in CryptoKeyVersion.import_failure_reason.
  *        (Value: "IMPORT_FAILED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_PendingExternalDestruction
+ *        This version was destroyed, and it may not be used or enabled again.
+ *        Cloud KMS is waiting for the corresponding key material residing in an
+ *        external key manager to be destroyed. (Value:
+ *        "PENDING_EXTERNAL_DESTRUCTION")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_PendingGeneration This
  *        version is still being generated. It may not be used, enabled,
  *        disabled, or destroyed yet. Cloud KMS will automatically mark this
@@ -2209,14 +2325,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256
- *        ECDSA on the NIST P-256 curve with a SHA256 digest. (Value:
- *        "EC_SIGN_P256_SHA256")
+ *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P256_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384
- *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
- *        "EC_SIGN_P384_SHA384")
+ *        ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P384_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignSecp256k1Sha256
  *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
- *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
+ *        for HSM protection level. Other hash functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
@@ -2476,6 +2598,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
+ *  An EkmConfig is a singleton resource that represents configuration
+ *  parameters that apply to all CryptoKeys and CryptoKeyVersions with a
+ *  ProtectionLevel of EXTERNAL_VPC in a given project and location.
+ */
+@interface GTLRCloudKMS_EkmConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of the default EkmConnection. Setting this field to
+ *  the empty string removes the default.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultEkmConnection;
+
+/**
+ *  Output only. The resource name for the EkmConfig in the format `projects/ *
+ *  /locations/ * /ekmConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  An EkmConnection represents an individual EKM connection. It can be used for
  *  creating CryptoKeys and CryptoKeyVersions with a ProtectionLevel of
  *  EXTERNAL_VPC, as well as performing cryptographic operations using keys
@@ -2486,8 +2630,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 /** Output only. The time at which the EkmConnection was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. Identifies the EKM Crypto Space that this EkmConnection maps to.
+ *  Note: This field is required if KeyManagementMode is CLOUD_KMS.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoSpacePath;
+
 /** Optional. Etag of the currently stored EkmConnection. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Describes who can perform control plane operations on the EKM. If
+ *  unset, this defaults to MANUAL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_EkmConnection_KeyManagementMode_CloudKms All
+ *        CryptoKeys created with this EkmConnection use EKM-side key management
+ *        operations initiated from Cloud KMS. This means that: * When a
+ *        CryptoKeyVersion associated with this EkmConnection is created, the
+ *        EKM automatically generates new key material and a new key path. The
+ *        caller cannot supply the key path of pre-existing external key
+ *        material. * Destruction of external key material associated with this
+ *        EkmConnection can be requested by calling DestroyCryptoKeyVersion. *
+ *        Automatic rotation of key material is supported. (Value: "CLOUD_KMS")
+ *    @arg @c kGTLRCloudKMS_EkmConnection_KeyManagementMode_KeyManagementModeUnspecified
+ *        Not specified. (Value: "KEY_MANAGEMENT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_EkmConnection_KeyManagementMode_Manual EKM-side key
+ *        management operations on CryptoKeys created with this EkmConnection
+ *        must be initiated from the EKM directly and cannot be performed from
+ *        Cloud KMS. This means that: * When creating a CryptoKeyVersion
+ *        associated with this EkmConnection, the caller must supply the key
+ *        path of pre-existing external key material that will be linked to the
+ *        CryptoKeyVersion. * Destruction of external key material cannot be
+ *        requested via the Cloud KMS API and must be performed directly in the
+ *        EKM. * Automatic rotation of key material is not supported. (Value:
+ *        "MANUAL")
+ */
+@property(nonatomic, copy, nullable) NSString *keyManagementMode;
 
 /**
  *  Output only. The resource name for the EkmConnection in the format
@@ -2810,14 +2989,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256
- *        ECDSA on the NIST P-256 curve with a SHA256 digest. (Value:
- *        "EC_SIGN_P256_SHA256")
+ *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P256_SHA256")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384
- *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
- *        "EC_SIGN_P384_SHA384")
+ *        ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P384_SHA384")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256
  *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
- *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
+ *        for HSM protection level. Other hash functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
@@ -3771,12 +3956,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256 ECDSA on the
- *        NIST P-256 curve with a SHA256 digest. (Value: "EC_SIGN_P256_SHA256")
+ *        NIST P-256 curve with a SHA256 digest. Other hash functions can also
+ *        be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P256_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384 ECDSA on the
- *        NIST P-384 curve with a SHA384 digest. (Value: "EC_SIGN_P384_SHA384")
+ *        NIST P-384 curve with a SHA384 digest. Other hash functions can also
+ *        be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P384_SHA384")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignSecp256k1Sha256 ECDSA on
  *        the non-NIST secp256k1 curve. This curve is only supported for HSM
- *        protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
+ *        protection level. Other hash functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")

@@ -41,6 +41,7 @@
 @class GTLRDatabaseMigrationService_DatabaseType;
 @class GTLRDatabaseMigrationService_DumpFlag;
 @class GTLRDatabaseMigrationService_DumpFlags;
+@class GTLRDatabaseMigrationService_EncryptionConfig;
 @class GTLRDatabaseMigrationService_EntityMapping;
 @class GTLRDatabaseMigrationService_EntityMappingLogEntry;
 @class GTLRDatabaseMigrationService_Expr;
@@ -458,6 +459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeConstraint;
 /**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabase;
+/**
  *  Package.
  *
  *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
@@ -476,11 +483,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeIndex;
 /**
- *  Material View.
+ *  Materialized View.
  *
- *  Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW"
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterialView;
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterializedView;
 /**
  *  Schema.
  *
@@ -1064,6 +1071,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeConstraint;
 /**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabase;
+/**
  *  Package.
  *
  *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
@@ -1082,11 +1095,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeIndex;
 /**
- *  Material View.
+ *  Materialized View.
  *
- *  Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW"
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterialView;
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterializedView;
 /**
  *  Schema.
  *
@@ -1164,6 +1177,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *  Settings for creating an AlloyDB cluster.
  */
 @interface GTLRDatabaseMigrationService_AlloyDbSettings : GTLRObject
+
+/**
+ *  Optional. The encryption config can be specified to encrypt the data disks
+ *  and other persistent data resources of a cluster with a customer-managed
+ *  encryption key (CMEK). When this field is not specified, the cluster will
+ *  then use default encryption scheme to protect the user data.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_EncryptionConfig *encryptionConfig;
 
 /**
  *  Required. Input only. Initial user to setup during cluster creation.
@@ -1782,8 +1803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, strong, nullable) NSNumber *scale;
 
 /**
- *  Specifies the list of values allowed in the column. List is empty if
- *  setValues is not required.
+ *  Specifies the list of values allowed in the column. Only used for set data
+ *  type.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setValues;
 
@@ -2161,14 +2182,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeConstraint
  *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeDatabasePackage
  *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeFunction
  *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeIndex
  *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
- *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterialView
- *        Material View. (Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSchema
  *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEntity_EntityType_DatabaseEntityTypeSequence
@@ -2355,6 +2378,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDatabaseMigrationService_Empty : GTLRObject
+@end
+
+
+/**
+ *  EncryptionConfig describes the encryption config of a cluster that is
+ *  encrypted with a CMEK (customer-managed encryption key).
+ */
+@interface GTLRDatabaseMigrationService_EncryptionConfig : GTLRObject
+
+/**
+ *  The fully-qualified resource name of the KMS key. Each Cloud KMS key is
+ *  regionalized and has the following format:
+ *  projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME]
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 
@@ -4250,14 +4289,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeConstraint
  *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeDatabasePackage
  *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeFunction
  *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeIndex
  *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
- *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterialView
- *        Material View. (Value: "DATABASE_ENTITY_TYPE_MATERIAL_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSchema
  *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
  *    @arg @c kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeSequence

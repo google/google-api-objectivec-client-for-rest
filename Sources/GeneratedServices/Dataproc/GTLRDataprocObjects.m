@@ -583,7 +583,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiagnoseClusterRequest
-@dynamic diagnosisInterval, job, yarnApplicationId;
+@dynamic diagnosisInterval, job, jobs, yarnApplicationId, yarnApplicationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [NSString class],
+    @"yarnApplicationIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

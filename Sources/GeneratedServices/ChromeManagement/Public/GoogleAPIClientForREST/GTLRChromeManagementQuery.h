@@ -554,7 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Query string to filter results, AND-separated fields in EBNF syntax. Note:
  *  OR operations are not supported in this filter. Note: Only >= and <=
  *  comparators are supported in this filter. Supported filter fields: *
- *  completion_time
+ *  complete_time
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -618,7 +618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Query string to filter results, AND-separated fields in EBNF syntax. Note:
  *  OR operations are not supported in this filter. Note: Only >= and <=
  *  comparators are supported in this filter. Supported filter fields: *
- *  completion_time
+ *  complete_time
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -663,7 +663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
- *  Generate report of devices that have a specified app installed.
+ *  Generate report of managed Chrome browser devices that have a specified app
+ *  installed.
  *
  *  Method: chromemanagement.customers.reports.findInstalledAppDevices
  *
@@ -728,7 +729,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Fetches a @c
  *  GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppDevicesResponse.
  *
- *  Generate report of devices that have a specified app installed.
+ *  Generate report of managed Chrome browser devices that have a specified app
+ *  installed.
  *
  *  @param customer Required. Customer id or "my_customer" to use the customer
  *    associated to the account making the request.
@@ -788,7 +790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 /**
  *  Optional. Only include resources that match the filter. Supported filter
- *  fields: - org_unit_id - serial_number - device_id
+ *  fields: - org_unit_id - serial_number - device_id - reports_timestamp The
+ *  "reports_timestamp" filter accepts either the Unix Epoch milliseconds format
+ *  or the RFC3339 UTC "Zulu" format with nanosecond resolution and up to nine
+ *  fractional digits. Both formats should be surrounded by simple double
+ *  quotes. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z",
+ *  "1679283943823".
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -846,8 +853,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /**
  *  Optional. Only include resources that match the filter. Supported filter
  *  fields: - device_id - user_id - device_org_unit_id - user_org_unit_id -
- *  timestamp - event_type The "timestamp" filter accepts either Epoch
- *  milliseconds or RFC 3339 formatted time surrounded by simple double quotes.
+ *  timestamp - event_type The "timestamp" filter accepts either the Unix Epoch
+ *  milliseconds format or the RFC3339 UTC "Zulu" format with nanosecond
+ *  resolution and up to nine fractional digits. Both formats should be
+ *  surrounded by simple double quotes. Examples: "2014-10-02T15:01:23Z",
+ *  "2014-10-02T15:01:23.045123456Z", "1679283943823".
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

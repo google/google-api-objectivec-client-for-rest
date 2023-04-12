@@ -18,6 +18,7 @@
 
 // GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling = @"CANCELLING";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
@@ -260,8 +261,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, cancelledCount, completionTime, conditions, createTime,
          deleteTime, ETag, expireTime, failedCount, generation, job, labels,
          launchStage, logUri, name, observedGeneration, parallelism,
-         reconciling, retriedCount, runningCount, startTime, succeededCount,
-         taskCount, templateProperty, uid, updateTime;
+         reconciling, retriedCount, runningCount, satisfiesPzs, startTime,
+         succeededCount, taskCount, templateProperty, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -409,7 +410,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
          createTime, creator, deleteTime, ETag, executionCount, expireTime,
          generation, labels, lastModifier, latestCreatedExecution, launchStage,
-         name, observedGeneration, reconciling, templateProperty,
+         name, observedGeneration, reconciling, satisfiesPzs, templateProperty,
          terminalCondition, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -613,7 +614,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
          generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
-         name, observedGeneration, reconciling, scaling, service,
+         name, observedGeneration, reconciling, satisfiesPzs, scaling, service,
          serviceAccount, timeout, uid, updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -772,8 +773,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          createTime, creator, deleteTime, descriptionProperty, ETag, expireTime,
          generation, ingress, labels, lastModifier, latestCreatedRevision,
          latestReadyRevision, launchStage, name, observedGeneration,
-         reconciling, templateProperty, terminalCondition, traffic,
-         trafficStatuses, uid, updateTime, uri;
+         reconciling, satisfiesPzs, templateProperty, terminalCondition,
+         traffic, trafficStatuses, uid, updateTime, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -834,8 +835,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          deleteTime, encryptionKey, ETag, execution, executionEnvironment,
          expireTime, generation, index, job, labels, lastAttemptResult, logUri,
          maxRetries, name, observedGeneration, reconciling, retried,
-         serviceAccount, startTime, timeout, uid, updateTime, volumes,
-         vpcAccess;
+         satisfiesPzs, serviceAccount, startTime, timeout, uid, updateTime,
+         volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -21,6 +21,7 @@
 @class GTLRWorkflows_Operation;
 @class GTLRWorkflows_Operation_Metadata;
 @class GTLRWorkflows_Operation_Response;
+@class GTLRWorkflows_StateError;
 @class GTLRWorkflows_Status;
 @class GTLRWorkflows_Status_Details_Item;
 @class GTLRWorkflows_Workflow;
@@ -37,6 +38,51 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRWorkflows_StateError.type
+
+/**
+ *  Caused by an issue with KMS.
+ *
+ *  Value: "KMS_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_StateError_Type_KmsError;
+/**
+ *  No type specified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_StateError_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflows_Workflow.callLogLevel
+
+/**
+ *  No call logging level specified.
+ *
+ *  Value: "CALL_LOG_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_CallLogLevelUnspecified;
+/**
+ *  Log all call steps within workflows, all call returns, and all exceptions
+ *  raised.
+ *
+ *  Value: "LOG_ALL_CALLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogAllCalls;
+/**
+ *  Log only exceptions that are raised from call steps within workflows.
+ *
+ *  Value: "LOG_ERRORS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogErrorsOnly;
+/**
+ *  Explicitly log nothing.
+ *
+ *  Value: "LOG_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogNone;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkflows_Workflow.state
 
 /**
@@ -51,6 +97,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Active;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecified;
+/**
+ *  Workflow data is unavailable. See the `state_error` field.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -305,6 +357,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
 
 
 /**
+ *  Describes an error related to the current state of the workflow.
+ */
+@interface GTLRWorkflows_StateError : GTLRObject
+
+/** Provides specifics about the error. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The type of this state error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflows_StateError_Type_KmsError Caused by an issue with
+ *        KMS. (Value: "KMS_ERROR")
+ *    @arg @c kGTLRWorkflows_StateError_Type_TypeUnspecified No type specified.
+ *        (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -354,8 +428,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
  */
 @interface GTLRWorkflows_Workflow : GTLRObject
 
+/**
+ *  Optional. Describes the level of platform logging to apply to calls and call
+ *  responses during executions of this workflow. If both the workflow and the
+ *  execution specify a logging level, the execution level takes precedence.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflows_Workflow_CallLogLevel_CallLogLevelUnspecified No
+ *        call logging level specified. (Value: "CALL_LOG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRWorkflows_Workflow_CallLogLevel_LogAllCalls Log all call
+ *        steps within workflows, all call returns, and all exceptions raised.
+ *        (Value: "LOG_ALL_CALLS")
+ *    @arg @c kGTLRWorkflows_Workflow_CallLogLevel_LogErrorsOnly Log only
+ *        exceptions that are raised from call steps within workflows. (Value:
+ *        "LOG_ERRORS_ONLY")
+ *    @arg @c kGTLRWorkflows_Workflow_CallLogLevel_LogNone Explicitly log
+ *        nothing. (Value: "LOG_NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *callLogLevel;
+
 /** Output only. The timestamp for when the workflow was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The resource name of a KMS crypto key used to encrypt or decrypt
+ *  the data associated with the workflow. Format:
+ *  projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}
+ *  Using `-` as a wildcard for the `{project}` or not providing one at all will
+ *  infer the project from the account. If not provided, data associated with
+ *  the workflow will not be CMEK-encrypted.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
 /**
  *  Description of the workflow provided by the user. Must be at most 1000
@@ -418,8 +521,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
  *        deployed successfully and is serving. (Value: "ACTIVE")
  *    @arg @c kGTLRWorkflows_Workflow_State_StateUnspecified Invalid state.
  *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkflows_Workflow_State_Unavailable Workflow data is
+ *        unavailable. See the `state_error` field. (Value: "UNAVAILABLE")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Error regarding the state of the workflow. For example, this
+ *  field will have error details if the execution data is unavailable due to
+ *  revoked KMS key permissions.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkflows_StateError *stateError;
 
 /** Output only. The timestamp for when the workflow was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

@@ -34,6 +34,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification.notificationType
+
+/**
+ *  Security and privacy advisory notifications
+ *
+ *  Value: "NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSecurityPrivacyAdvisory;
+/**
+ *  Sensitive action notifications
+ *
+ *  Value: "NOTIFICATION_TYPE_SENSITIVE_ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSensitiveActions;
+/**
+ *  Default type
+ *
+ *  Value: "NOTIFICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Text.localizationState
 
 /**
@@ -193,6 +215,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
  *  organizations/{organization}/locations/{location}/notifications/{notification}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Type of notification
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSecurityPrivacyAdvisory
+ *        Security and privacy advisory notifications (Value:
+ *        "NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY")
+ *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSensitiveActions
+ *        Sensitive action notifications (Value:
+ *        "NOTIFICATION_TYPE_SENSITIVE_ACTIONS")
+ *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeUnspecified
+ *        Default type (Value: "NOTIFICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *notificationType;
 
 /** The subject line of the notification. */
 @property(nonatomic, strong, nullable) GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Subject *subject;

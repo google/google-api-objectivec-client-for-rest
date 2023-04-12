@@ -77,6 +77,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc;
 /**
+ *  Cloud search accelerator for CDF. This accelerator is to enable Cloud search
+ *  specific CDF plugins developed by Cloudsearch team.
+ *
+ *  Value: "CLOUDSEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch;
+/**
  *  Cloud Healthcare accelerator for CDF. This accelerator is to enable Cloud
  *  Healthcare specific CDF plugins developed by Healthcare team.
  *
@@ -303,6 +310,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        (Value: "CCAI_INSIGHTS")
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cdc Change Data
  *        Capture accelerator for CDF. (Value: "CDC")
+ *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch Cloud
+ *        search accelerator for CDF. This accelerator is to enable Cloud search
+ *        specific CDF plugins developed by Cloudsearch team. (Value:
+ *        "CLOUDSEARCH")
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare Cloud
  *        Healthcare accelerator for CDF. This accelerator is to enable Cloud
  *        Healthcare specific CDF plugins developed by Healthcare team. (Value:
@@ -427,8 +438,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -443,9 +456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -597,14 +608,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @interface GTLRDataFusion_Instance : GTLRObject
 
-/** List of accelerators enabled for this CDF instance. */
+/** Output only. List of accelerators enabled for this CDF instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Accelerator *> *accelerators;
 
 /** Output only. Endpoint on which the REST APIs is accessible. */
 @property(nonatomic, copy, nullable) NSString *apiEndpoint;
 
 /**
- *  Available versions that the instance can be upgraded to using
+ *  Output only. Available versions that the instance can be upgraded to using
  *  UpdateInstanceRequest.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Version *> *availableVersion;

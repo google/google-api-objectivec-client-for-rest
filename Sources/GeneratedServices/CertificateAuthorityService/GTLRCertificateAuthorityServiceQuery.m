@@ -217,7 +217,8 @@
 
 @implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDelete
 
-@dynamic ignoreActiveCertificates, name, requestId, skipGracePeriod;
+@dynamic ignoreActiveCertificates, ignoreDependentResources, name, requestId,
+         skipGracePeriod;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -548,7 +549,7 @@
 
 @implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsDelete
 
-@dynamic name, requestId;
+@dynamic ignoreDependentResources, name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

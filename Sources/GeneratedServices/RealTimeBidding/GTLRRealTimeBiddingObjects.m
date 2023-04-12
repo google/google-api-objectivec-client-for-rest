@@ -961,7 +961,7 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 //
 
 @implementation GTLRRealTimeBidding_PolicyTopicEntry
-@dynamic evidences, helpCenterUrl, policyTopic;
+@dynamic evidences, helpCenterUrl, missingCertificate, policyTopic;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

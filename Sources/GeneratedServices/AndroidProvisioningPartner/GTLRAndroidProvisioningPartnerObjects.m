@@ -603,7 +603,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 
 @implementation GTLRAndroidProvisioningPartner_PartnerClaim
 @dynamic customerId, deviceIdentifier, deviceMetadata,
-         googleWorkspaceCustomerId, preProvisioningToken, sectionType;
+         googleWorkspaceCustomerId, preProvisioningToken, sectionType,
+         simlockProfileId;
 @end
 
 

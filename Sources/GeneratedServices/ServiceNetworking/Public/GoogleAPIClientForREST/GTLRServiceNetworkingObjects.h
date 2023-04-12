@@ -43,6 +43,8 @@
 @class GTLRServiceNetworking_Documentation;
 @class GTLRServiceNetworking_DocumentationRule;
 @class GTLRServiceNetworking_DotnetSettings;
+@class GTLRServiceNetworking_DotnetSettings_RenamedResources;
+@class GTLRServiceNetworking_DotnetSettings_RenamedServices;
 @class GTLRServiceNetworking_Endpoint;
 @class GTLRServiceNetworking_Enum;
 @class GTLRServiceNetworking_EnumValue;
@@ -115,6 +117,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Api.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -263,6 +271,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_CommonLanguageSettings
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Enum.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -447,6 +461,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueT
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Method.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -793,6 +813,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organizatio
 // GTLRServiceNetworking_Type.syntax
 
 /**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxEditions;
+/**
  *  Syntax `proto2`.
  *
  *  Value: "SYNTAX_PROTO2"
@@ -953,7 +979,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, copy, nullable) NSString *consumerNetwork;
 
-/** Required. The DNS name suffix for the zones e.g. `example.com`. */
+/**
+ *  Required. The DNS name suffix for the zones e.g. `example.com.`. Cloud DNS
+ *  requires that a DNS suffix ends with a trailing dot.
+ */
 @property(nonatomic, copy, nullable) NSString *dnsSuffix;
 
 /**
@@ -1221,6 +1250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  The source syntax of the service.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_Api_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceNetworking_Api_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceNetworking_Api_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -1690,7 +1721,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /** Settings for Ruby client libraries. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_RubySettings *rubySettings;
 
-/** Version of the API to apply these settings to. */
+/**
+ *  Version of the API to apply these settings to. This is the full protobuf
+ *  package for the API, ending in the version element. Examples:
+ *  "google.cloud.speech.v1" and "google.spanner.admin.database.v1".
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -2104,6 +2139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Required. The DNS or domain name of the record set, e.g. `test.example.com`.
+ *  Cloud DNS requires that a DNS suffix ends with a trailing dot.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -2124,7 +2160,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @interface GTLRServiceNetworking_DnsZone : GTLRObject
 
-/** The DNS name suffix of this zone e.g. `example.com.`. */
+/**
+ *  The DNS name suffix of this zone e.g. `example.com.`. Cloud DNS requires
+ *  that a DNS suffix ends with a trailing dot.
+ */
 @property(nonatomic, copy, nullable) NSString *dnsSuffix;
 
 /**
@@ -2249,6 +2288,71 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
 
+/**
+ *  Namespaces which must be aliased in snippets due to a known (but
+ *  non-generator-predictable) naming collision
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forcedNamespaceAliases;
+
+/**
+ *  Method signatures (in the form "service.method(signature)") which are
+ *  provided separately, so shouldn't be generated. Snippets *calling* these
+ *  methods are still generated, however.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *handwrittenSignatures;
+
+/**
+ *  List of full resource types to ignore during generation. This is typically
+ *  used for API-specific Location resources, which should be handled by the
+ *  generator as if they were actually the common Location resources. Example
+ *  entry: "documentai.googleapis.com/Location"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredResources;
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DotnetSettings_RenamedResources *renamedResources;
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DotnetSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceNetworking_DotnetSettings_RenamedResources : GTLRObject
+@end
+
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceNetworking_DotnetSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -2333,6 +2437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @interface GTLRServiceNetworking_Enum : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** Enum value definitions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_EnumValue *> *enumvalue;
 
@@ -2349,6 +2456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_Enum_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceNetworking_Enum_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -3145,6 +3254,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  The source syntax of this method.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -3164,7 +3275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
- *  publishing: method_behavior: - selector: CreateAdDomain long_running:
+ *  publishing: method_settings: - selector:
+ *  google.cloud.speech.v2.Speech.BatchRecognize long_running:
  *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
  *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
  *  # 90 minutes
@@ -3509,7 +3621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inheriting
+ *  processor will see the effective `Storage.GetAcl` method after inherting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -4025,7 +4137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_MethodSettings *> *methodSettings;
 
 /**
- *  Link to a place that API users can report issues. Example:
+ *  Link to a *public* URI where users can report issues. Example:
  *  https://issuetracker.google.com/issues/new?component=190865&template=1161103
  */
 @property(nonatomic, copy, nullable) NSString *newIssueUri NS_RETURNS_NOT_RETAINED;
@@ -4849,6 +4961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @interface GTLRServiceNetworking_Type : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** The list of fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Field *> *fields;
 
@@ -4868,6 +4983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_Type_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 Syntax `proto3`.

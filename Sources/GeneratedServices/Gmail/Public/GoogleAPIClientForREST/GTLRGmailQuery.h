@@ -1193,6 +1193,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Only return messages with labels that match all of the specified label IDs.
+ *  Messages in a thread might have labels that other messages in the same
+ *  thread don't have. To learn more, see [Manage labels on messages and
+ *  threads](https://developers.google.com/gmail/api/guides/labels#manage_labels_on_messages_threads).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 

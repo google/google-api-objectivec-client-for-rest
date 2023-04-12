@@ -20,6 +20,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
@@ -45,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
- *  Assured Workloads for Partners
+ *  Assured Workloads for Partners;
  *
  *  Value: "ASSURED_WORKLOADS_FOR_PARTNERS"
  */
@@ -118,7 +119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4;
 /**
- *  Assured Workloads for Israel Regions
+ *  Assured Workloads for Israel
  *
  *  Value: "ISR_REGIONS"
  */
@@ -163,8 +164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowCompliantResources;
 /**
  *  Similar to ALLOW_COMPLIANT_RESOURCES but adds the list of compliant
- *  resources to the existing list of resources. Effective org-policy of the
- *  Folder is considered to ensure there is no disruption to the existing
+ *  resources to the existing list of compliant resources. Effective org-policy
+ *  of the Folder is considered to ensure there is no disruption to the existing
  *  customer workflows.
  *
  *  Value: "APPEND_COMPLIANT_RESOURCES"
@@ -245,7 +246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 
 /**
- *  Assured Workloads for Partners
+ *  Assured Workloads for Partners;
  *
  *  Value: "ASSURED_WORKLOADS_FOR_PARTNERS"
  */
@@ -318,7 +319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4;
 /**
- *  Assured Workloads for Israel Regions
+ *  Assured Workloads for Israel
  *
  *  Value: "ISR_REGIONS"
  */
@@ -368,7 +369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.partner
 
 /**
- *  Enum representing S3NS partner.
+ *  Enum representing S3NS (Thales) partner.
  *
  *  Value: "LOCAL_CONTROLS_BY_S3NS"
  */
@@ -376,11 +377,79 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /** Value: "PARTNER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified;
 /**
- *  Enum representing T_SYSTEM partner.
+ *  Enum representing T_SYSTEM (TSI) partner.
  *
  *  Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningErrorDomain
+
+/**
+ *  No error domain
+ *
+ *  Value: "EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_EkmProvisioningErrorDomainUnspecified;
+/**
+ *  Error occurred within the partner’s provisioning cluster.
+ *
+ *  Value: "EXTERNAL_PARTNER_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalPartnerError;
+/**
+ *  Error occurred with the customer not granting permission/creating resource.
+ *
+ *  Value: "EXTERNAL_USER_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalUserError;
+/**
+ *  Internal logic breaks within provisioning code.
+ *
+ *  Value: "GOOGLE_SERVER_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_GoogleServerError;
+/**
+ *  Resource wasn't provisioned in the required 7 day time period
+ *
+ *  Value: "TIMEOUT_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_TimeoutError;
+/**
+ *  Error but domain is unspecified.
+ *
+ *  Value: "UNSPECIFIED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_UnspecifiedError;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningState
+
+/**
+ *  Completed State for Ekm Provisioning
+ *
+ *  Value: "EKM_PROVISIONING_STATE_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateCompleted;
+/**
+ *  Failed State for Ekm Provisioning
+ *
+ *  Value: "EKM_PROVISIONING_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateFailed;
+/**
+ *  Pending State for Ekm Provisioning
+ *
+ *  Value: "EKM_PROVISIONING_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStatePending;
+/**
+ *  Default State for Ekm Provisioning
+ *
+ *  Value: "EKM_PROVISIONING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo.resourceType
@@ -392,10 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerFolder;
 /**
- *  Consumer project. AssuredWorkloads Projects are no longer supported. This
- *  field will be ignored only in CreateWorkload requests. ListWorkloads and
- *  GetWorkload will continue to provide projects information. Use
- *  CONSUMER_FOLDER instead.
+ *  Deprecated. Existing workloads will continue to support this, but new
+ *  CreateWorkloadRequests should not specify this as an input value.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -429,10 +496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerFolder;
 /**
- *  Consumer project. AssuredWorkloads Projects are no longer supported. This
- *  field will be ignored only in CreateWorkload requests. ListWorkloads and
- *  GetWorkload will continue to provide projects information. Use
- *  CONSUMER_FOLDER instead.
+ *  Deprecated. Existing workloads will continue to support this, but new
+ *  CreateWorkloadRequests should not specify this as an input value.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -556,7 +621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners
- *        Assured Workloads for Partners (Value:
+ *        Assured Workloads for Partners; (Value:
  *        "ASSURED_WORKLOADS_FOR_PARTNERS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
  *        Assured Workloads for Australia Regions and Support controls Available
@@ -588,7 +653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions
- *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
+ *        Assured Workloads for Israel (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport
  *        Assured Workloads for Israel Regions (Value:
  *        "ISR_REGIONS_AND_SUPPORT")
@@ -661,7 +726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Request of updating permission settings for a partner workload.
+ *  Request for updating permission settings for a partner workload.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest : GTLRObject
 
@@ -705,9 +770,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        the list of supported resources. (Value: "ALLOW_COMPLIANT_RESOURCES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AppendCompliantResources
  *        Similar to ALLOW_COMPLIANT_RESOURCES but adds the list of compliant
- *        resources to the existing list of resources. Effective org-policy of
- *        the Folder is considered to ensure there is no disruption to the
- *        existing customer workflows. (Value: "APPEND_COMPLIANT_RESOURCES")
+ *        resources to the existing list of compliant resources. Effective
+ *        org-policy of the Folder is considered to ensure there is no
+ *        disruption to the existing customer workflows. (Value:
+ *        "APPEND_COMPLIANT_RESOURCES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_RestrictionTypeUnspecified
  *        Unknown restriction type. (Value: "RESTRICTION_TYPE_UNSPECIFIED")
  */
@@ -933,7 +999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners
- *        Assured Workloads for Partners (Value:
+ *        Assured Workloads for Partners; (Value:
  *        "ASSURED_WORKLOADS_FOR_PARTNERS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
  *        Assured Workloads for Australia Regions and Support controls Available
@@ -965,7 +1031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions
- *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
+ *        Assured Workloads for Israel (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport
  *        Assured Workloads for Israel Regions (Value:
  *        "ISR_REGIONS_AND_SUPPORT")
@@ -997,6 +1063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  uppercase letters, numbers, hyphen, and spaces. Example: My Workload
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Represents the Ekm Provisioning State of the given workload. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse *ekmProvisioningResponse;
 
 /**
  *  Optional. Indicates the sovereignty status of the given workload. Currently
@@ -1051,11 +1120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns
- *        Enum representing S3NS partner. (Value: "LOCAL_CONTROLS_BY_S3NS")
+ *        Enum representing S3NS (Thales) partner. (Value:
+ *        "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
  *        Value "PARTNER_UNSPECIFIED"
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems
- *        Enum representing T_SYSTEM partner. (Value:
+ *        Enum representing T_SYSTEM (TSI) partner. (Value:
  *        "SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
  */
 @property(nonatomic, copy, nullable) NSString *partner;
@@ -1127,9 +1197,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Settings specific to the Key Management Service. This message is deprecated.
- *  In order to create a Keyring, callers should specify,
- *  ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
+ *  External key management systems(EKM) Provisioning response
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse : GTLRObject
+
+/**
+ *  Indicates Ekm provisioning error if any.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_EkmProvisioningErrorDomainUnspecified
+ *        No error domain (Value: "EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalPartnerError
+ *        Error occurred within the partner’s provisioning cluster. (Value:
+ *        "EXTERNAL_PARTNER_ERROR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalUserError
+ *        Error occurred with the customer not granting permission/creating
+ *        resource. (Value: "EXTERNAL_USER_ERROR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_GoogleServerError
+ *        Internal logic breaks within provisioning code. (Value:
+ *        "GOOGLE_SERVER_ERROR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_TimeoutError
+ *        Resource wasn't provisioned in the required 7 day time period (Value:
+ *        "TIMEOUT_ERROR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_UnspecifiedError
+ *        Error but domain is unspecified. (Value: "UNSPECIFIED_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorDomain;
+
+/** Detailed error message if Ekm provisioning fails */
+@property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorMessage;
+
+/**
+ *  Indicates Ekm enrollment Provisioning of a given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateCompleted
+ *        Completed State for Ekm Provisioning (Value:
+ *        "EKM_PROVISIONING_STATE_COMPLETED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateFailed
+ *        Failed State for Ekm Provisioning (Value:
+ *        "EKM_PROVISIONING_STATE_FAILED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStatePending
+ *        Pending State for Ekm Provisioning (Value:
+ *        "EKM_PROVISIONING_STATE_PENDING")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateUnspecified
+ *        Default State for Ekm Provisioning (Value:
+ *        "EKM_PROVISIONING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ekmProvisioningState;
+
+@end
+
+
+/**
+ *  Settings specific to the Key Management Service.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings : GTLRObject
 
@@ -1156,7 +1277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions : GTLRObject
 
 /**
- *  Allow partner to view data and logs
+ *  Allow the partner to view inspectability logs and monitoring violations.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1198,10 +1319,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerFolder
  *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerProject
- *        Consumer project. AssuredWorkloads Projects are no longer supported.
- *        This field will be ignored only in CreateWorkload requests.
- *        ListWorkloads and GetWorkload will continue to provide projects
- *        information. Use CONSUMER_FOLDER instead. (Value: "CONSUMER_PROJECT")
+ *        Deprecated. Existing workloads will continue to support this, but new
+ *        CreateWorkloadRequests should not specify this as an input value.
+ *        (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
@@ -1236,17 +1356,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Indicates the type of resource. This field should be specified to correspond
- *  the id to the right resource type (CONSUMER_FOLDER or
+ *  the id to the right project type (CONSUMER_PROJECT or
  *  ENCRYPTION_KEYS_PROJECT)
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerFolder
  *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject
- *        Consumer project. AssuredWorkloads Projects are no longer supported.
- *        This field will be ignored only in CreateWorkload requests.
- *        ListWorkloads and GetWorkload will continue to provide projects
- *        information. Use CONSUMER_FOLDER instead. (Value: "CONSUMER_PROJECT")
+ *        Deprecated. Existing workloads will continue to support this, but new
+ *        CreateWorkloadRequests should not specify this as an input value.
+ *        (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")

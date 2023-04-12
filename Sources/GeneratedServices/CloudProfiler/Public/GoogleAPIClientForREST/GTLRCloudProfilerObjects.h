@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Profiler API (cloudprofiler/v2)
+//   Cloud Profiler API (cloudprofiler/v2)
 // Description:
 //   Manages continuous profiling information.
 // Documentation:
@@ -152,12 +152,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
  */
 @interface GTLRCloudProfiler_CreateProfileRequest : GTLRObject
 
-/** Required. Deployment details. */
+/** Deployment details. */
 @property(nonatomic, strong, nullable) GTLRCloudProfiler_Deployment *deployment;
 
-/**
- *  Required. One or more profile types that the agent is capable of providing.
- */
+/** One or more profile types that the agent is capable of providing. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profileType;
 
 @end

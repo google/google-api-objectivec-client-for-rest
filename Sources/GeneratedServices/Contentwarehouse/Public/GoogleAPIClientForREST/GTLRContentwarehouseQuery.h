@@ -47,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. REQUIRED: The resource for which the policy is being requested.
  *  Format for document:
  *  projects/{project_number}/locations/{location}/documents/{document_id}.
+ *  Format for collection:
+ *  projects/{project_number}/locations/{location}/collections/{collection_id}.
  *  Format for project: projects/{project_number}.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -65,6 +67,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param resource Required. REQUIRED: The resource for which the policy is
  *    being requested. Format for document:
  *    projects/{project_number}/locations/{location}/documents/{document_id}.
+ *    Format for collection:
+ *    projects/{project_number}/locations/{location}/collections/{collection_id}.
  *    Format for project: projects/{project_number}.
  *
  *  @return GTLRContentwarehouseQuery_ProjectsFetchAcl
@@ -415,6 +419,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. REQUIRED: The resource for which the policy is being requested.
  *  Format for document:
  *  projects/{project_number}/locations/{location}/documents/{document_id}.
+ *  Format for collection:
+ *  projects/{project_number}/locations/{location}/collections/{collection_id}.
  *  Format for project: projects/{project_number}.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -433,6 +439,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param resource Required. REQUIRED: The resource for which the policy is
  *    being requested. Format for document:
  *    projects/{project_number}/locations/{location}/documents/{document_id}.
+ *    Format for collection:
+ *    projects/{project_number}/locations/{location}/collections/{collection_id}.
  *    Format for project: projects/{project_number}.
  *
  *  @return GTLRContentwarehouseQuery_ProjectsLocationsDocumentsFetchAcl
@@ -549,6 +557,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRContentwarehouse_GoogleCloudContentwarehouseV1ListLinkedTargetsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lock the document so the document cannot be updated by other users.
+ *
+ *  Method: contentwarehouse.projects.locations.documents.lock
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContentwarehouseCloudPlatform
+ */
+@interface GTLRContentwarehouseQuery_ProjectsLocationsDocumentsLock : GTLRContentwarehouseQuery
+
+/**
+ *  Required. The name of the document to lock. Format:
+ *  projects/{project_number}/locations/{location}/documents/{document}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContentwarehouse_GoogleCloudContentwarehouseV1Document.
+ *
+ *  Lock the document so the document cannot be updated by other users.
+ *
+ *  @param object The @c
+ *    GTLRContentwarehouse_GoogleCloudContentwarehouseV1LockDocumentRequest to
+ *    include in the query.
+ *  @param name Required. The name of the document to lock. Format:
+ *    projects/{project_number}/locations/{location}/documents/{document}.
+ *
+ *  @return GTLRContentwarehouseQuery_ProjectsLocationsDocumentsLock
+ */
++ (instancetype)queryWithObject:(GTLRContentwarehouse_GoogleCloudContentwarehouseV1LockDocumentRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -753,6 +795,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. REQUIRED: The resource for which the policy is being requested.
  *  Format for document:
  *  projects/{project_number}/locations/{location}/documents/{document_id}.
+ *  Format for collection:
+ *  projects/{project_number}/locations/{location}/collections/{collection_id}.
  *  Format for project: projects/{project_number}.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -769,6 +813,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param resource Required. REQUIRED: The resource for which the policy is
  *    being requested. Format for document:
  *    projects/{project_number}/locations/{location}/documents/{document_id}.
+ *    Format for collection:
+ *    projects/{project_number}/locations/{location}/collections/{collection_id}.
  *    Format for project: projects/{project_number}.
  *
  *  @return GTLRContentwarehouseQuery_ProjectsLocationsDocumentsSetAcl
@@ -1024,40 +1070,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Run a predefined pipeline.
- *
- *  Method: contentwarehouse.projects.locations.runPipeline
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContentwarehouseCloudPlatform
- */
-@interface GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline : GTLRContentwarehouseQuery
-
-/**
- *  Required. The resource name which owns the resources of the pipeline.
- *  Format: projects/{project_number}/locations/{location}.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRContentwarehouse_GoogleLongrunningOperation.
- *
- *  Run a predefined pipeline.
- *
- *  @param object The @c
- *    GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest to
- *    include in the query.
- *  @param name Required. The resource name which owns the resources of the
- *    pipeline. Format: projects/{project_number}/locations/{location}.
- *
- *  @return GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline
- */
-+ (instancetype)queryWithObject:(GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Creates a SynonymSet for a single context. Throws an ALREADY_EXISTS
  *  exception if a synonymset already exists for the context.
  *
@@ -1257,6 +1269,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. REQUIRED: The resource for which the policy is being requested.
  *  Format for document:
  *  projects/{project_number}/locations/{location}/documents/{document_id}.
+ *  Format for collection:
+ *  projects/{project_number}/locations/{location}/collections/{collection_id}.
  *  Format for project: projects/{project_number}.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -1273,6 +1287,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param resource Required. REQUIRED: The resource for which the policy is
  *    being requested. Format for document:
  *    projects/{project_number}/locations/{location}/documents/{document_id}.
+ *    Format for collection:
+ *    projects/{project_number}/locations/{location}/collections/{collection_id}.
  *    Format for project: projects/{project_number}.
  *
  *  @return GTLRContentwarehouseQuery_ProjectsSetAcl

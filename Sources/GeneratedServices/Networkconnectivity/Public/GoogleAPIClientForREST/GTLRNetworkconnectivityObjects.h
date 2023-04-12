@@ -927,8 +927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Hub *> *hubs;
 
 /**
- *  The next pagination token in the List response. It should be used as
- *  page_token for the following request. An empty value means no more result.
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1003,8 +1004,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 @interface GTLRNetworkconnectivity_ListSpokesResponse : GTLRCollectionObject
 
 /**
- *  The next pagination token in the List response. It should be used as
- *  page_token for the following request. An empty value means no more result.
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

@@ -827,6 +827,25 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @end
 
+@implementation GTLRCloudIdentityQuery_GroupsMembershipsSearchDirectGroups
+
+@dynamic orderBy, pageSize, pageToken, parent, query;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/memberships:searchDirectGroups";
+  GTLRCloudIdentityQuery_GroupsMembershipsSearchDirectGroups *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_SearchDirectGroupsResponse class];
+  query.loggingName = @"cloudidentity.groups.memberships.searchDirectGroups";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups
 
 @dynamic pageSize, pageToken, parent, query;

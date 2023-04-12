@@ -2599,7 +2599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Optional. The list of paths for items within the associated resource (eg.
- *  columns within a table) along with attribute bindings.
+ *  columns and partitions within a table) along with attribute bindings.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath *> *paths;
 
@@ -2638,8 +2638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Represents a subresource of a given resource, and associated bindings with
- *  it.
+ *  Represents a subresource of the given resource, and associated bindings with
+ *  it. Currently supported subresources are column and partition schema fields
+ *  within a table.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath : GTLRObject
 
@@ -2652,7 +2653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Required. The name identifier of the path. Nested columns should be of the
- *  form: 'country.state.city'.
+ *  form: 'address.city'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2711,8 +2712,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo *profile;
 
 /**
- *  The field data type. Possible values include: STRING BYTE INT64 INT32 INT16
- *  DOUBLE FLOAT DECIMAL BOOLEAN BINARY TIMESTAMP DATE TIME NULL RECORD
+ *  The data type retrieved from the schema of the data source. For instance,
+ *  for a BigQuery native table, it is the BigQuery Table Schema
+ *  (https://cloud.google.com/bigquery/docs/reference/rest/v2/tables#tablefieldschema).
+ *  For a Dataplex Entity, it is the Entity Schema
+ *  (https://cloud.google.com/dataplex/docs/reference/rpc/google.cloud.dataplex.v1#type_3).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3652,6 +3656,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
+/**
+ *  Immutable. The service-qualified full resource name of the cloud resource
+ *  for a DataScan job to scan against. The field could be: BigQuery table of
+ *  type "TABLE" for DataProfileScan/DataQualityScan Format:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
 @end
 
 
@@ -3963,8 +3975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Required. A user-provided entity ID. It is mutable, and will be used as the
  *  published table name. Specifying a new ID in an update entity request will
  *  override the existing value. The ID must contain only letters (a-z, A-Z),
- *  numbers (0-9), and underscores. Must begin with a letter and consist of 256
- *  or fewer characters.
+ *  numbers (0-9), and underscores, and consist of 256 or fewer characters.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

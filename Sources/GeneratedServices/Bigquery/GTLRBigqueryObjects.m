@@ -108,9 +108,11 @@ NSString * const kGTLRBigquery_Routine_DeterminismLevel_Deterministic = @"DETERM
 NSString * const kGTLRBigquery_Routine_DeterminismLevel_NotDeterministic = @"NOT_DETERMINISTIC";
 
 // GTLRBigquery_Routine.language
+NSString * const kGTLRBigquery_Routine_Language_Java           = @"JAVA";
 NSString * const kGTLRBigquery_Routine_Language_Javascript     = @"JAVASCRIPT";
 NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified = @"LANGUAGE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Routine_Language_Python         = @"PYTHON";
+NSString * const kGTLRBigquery_Routine_Language_Scala          = @"SCALA";
 NSString * const kGTLRBigquery_Routine_Language_Sql            = @"SQL";
 
 // GTLRBigquery_Routine.routineType
@@ -1553,13 +1555,13 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_JobConfigurationQuery
-@dynamic allowLargeResults, clustering, connectionProperties, createDisposition,
-         createSession, defaultDataset, destinationEncryptionConfiguration,
-         destinationTable, flattenResults, maximumBillingTier,
-         maximumBytesBilled, parameterMode, preserveNulls, priority, query,
-         queryParameters, rangePartitioning, schemaUpdateOptions,
-         tableDefinitions, timePartitioning, useLegacySql, useQueryCache,
-         userDefinedFunctionResources, writeDisposition;
+@dynamic allowLargeResults, clustering, connectionProperties, continuous,
+         createDisposition, createSession, defaultDataset,
+         destinationEncryptionConfiguration, destinationTable, flattenResults,
+         maximumBillingTier, maximumBytesBilled, parameterMode, preserveNulls,
+         priority, query, queryParameters, rangePartitioning,
+         schemaUpdateOptions, tableDefinitions, timePartitioning, useLegacySql,
+         useQueryCache, userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2235,10 +2237,10 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_QueryRequest
-@dynamic connectionProperties, createSession, defaultDataset, dryRun, kind,
-         labels, location, maximumBytesBilled, maxResults, parameterMode,
-         preserveNulls, query, queryParameters, requestId, timeoutMs,
-         useLegacySql, useQueryCache;
+@dynamic connectionProperties, continuous, createSession, defaultDataset,
+         dryRun, kind, labels, location, maximumBytesBilled, maxResults,
+         parameterMode, preserveNulls, query, queryParameters, requestId,
+         timeoutMs, useLegacySql, useQueryCache;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2558,7 +2560,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_SparkOptions
-@dynamic archiveUris, connection, containerImage, fileUris, jarUris,
+@dynamic archiveUris, connection, containerImage, fileUris, jarUris, mainClass,
          mainFileUri, properties, pyFileUris, runtimeVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

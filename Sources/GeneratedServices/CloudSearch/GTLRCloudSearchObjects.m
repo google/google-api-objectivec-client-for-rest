@@ -293,6 +293,10 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipStat
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
 
+// GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription.descriptionType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_DescriptionTypeUnspecified = @"DESCRIPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_KeywordMatch = @"KEYWORD_MATCH";
+
 // GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error = @"ERROR";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_GoLiveSuccess = @"GO_LIVE_SUCCESS";
@@ -459,12 +463,14 @@ NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Organization = @"
 NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Public = @"PUBLIC";
 
 // GTLRCloudSearch_CallInfo.availableAccessTypes
+NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeClosed = @"ACCESS_TYPE_CLOSED";
 NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
 NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
 NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
 NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
 
 // GTLRCloudSearch_CallSettings.accessType
+NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeClosed = @"ACCESS_TYPE_CLOSED";
 NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
 NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
 NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
@@ -518,6 +524,12 @@ NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_BabelMedium = @"BABE
 NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_GoogleVoiceMedium = @"GOOGLE_VOICE_MEDIUM";
 NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_LocalSmsMedium = @"LOCAL_SMS_MEDIUM";
 NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_UnknownMedium = @"UNKNOWN_MEDIUM";
+
+// GTLRCloudSearch_DlpAction.actionType
+NSString * const kGTLRCloudSearch_DlpAction_ActionType_AuditOnly = @"AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_DlpAction_ActionType_Block   = @"BLOCK";
+NSString * const kGTLRCloudSearch_DlpAction_ActionType_NoAction = @"NO_ACTION";
+NSString * const kGTLRCloudSearch_DlpAction_ActionType_Warn    = @"WARN";
 
 // GTLRCloudSearch_DlpScanSummary.scanOutcome
 NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
@@ -1630,35 +1642,6 @@ NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionMember = @"PERMI
 NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionNoOne = @"PERMISSION_NO_ONE";
 NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
 
-// GTLRCloudSearch_Message.dlpScanOutcome
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureRuleFetchFailed = @"SCAN_FAILURE_RULE_FETCH_FAILED";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType = @"SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
-NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
-
 // GTLRCloudSearch_Message.editableBy
 NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionCreator = @"PERMISSION_CREATOR";
 NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionMember = @"PERMISSION_MEMBER";
@@ -1867,6 +1850,7 @@ NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown = @"UNKNOWN";
 // GTLRCloudSearch_RequiredMessageFeaturesMetadata.requiredFeatures
 NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureCustomHyperlink = @"REQUIRED_FEATURE_CUSTOM_HYPERLINK";
 NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting = @"REQUIRED_FEATURE_MESSAGE_QUOTING";
+NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureSmartChip = @"REQUIRED_FEATURE_SMART_CHIP";
 NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureTombstonesInDmsAndUfrs = @"REQUIRED_FEATURE_TOMBSTONES_IN_DMS_AND_UFRS";
 NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureUnspecified = @"REQUIRED_FEATURE_UNSPECIFIED";
 
@@ -1929,6 +1913,7 @@ NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedYouT
 NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_UserAction = @"USER_ACTION";
 
 // GTLRCloudSearch_Settings.accessType
+NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeClosed = @"ACCESS_TYPE_CLOSED";
 NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
 NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
 NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
@@ -2273,7 +2258,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_Annotation
 @dynamic babelPlaceholderMetadata, cardCapabilityMetadata, chipRenderType,
-         consentedAppUnfurlMetadata, customEmojiMetadata,
+         componentSearchInfo, consentedAppUnfurlMetadata, customEmojiMetadata,
          dataLossPreventionMetadata, driveMetadata, formatMetadata,
          groupRetentionSettingsUpdated, gsuiteIntegrationMetadata,
          incomingWebhookChangedMetadata, inlineRenderFormat,
@@ -2725,6 +2710,16 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo
+@dynamic matchedSearch, titleTextWithDescription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_AppsDynamiteSharedMessageInfo
 //
 
@@ -2936,6 +2931,52 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedTasksMessageIntegrationPayload
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTextSegment
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTextSegment
+@dynamic length, startIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription
+@dynamic descriptionType, textSegment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"textSegment" : [GTLRCloudSearch_AppsDynamiteSharedTextSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTextWithDescription
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTextWithDescription
+@dynamic textBody, textSegmentsWithDescription;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"textSegmentsWithDescription" : [GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3216,7 +3257,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteStorageIcon
-@dynamic altText, iconUrl, imageType, knownIcon;
+@dynamic altText, iconUrl, imageType, knownIcon, materialIcon;
 @end
 
 
@@ -3247,6 +3288,16 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_AppsDynamiteStorageImageCropStyle
 @dynamic aspectRatio, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteStorageMaterialIcon
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteStorageMaterialIcon
+@dynamic fill, grade, name, weight;
 @end
 
 
@@ -4639,11 +4690,21 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DlpAction
+//
+
+@implementation GTLRCloudSearch_DlpAction
+@dynamic actionType, unsafeHtmlMessageBody;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DlpScanSummary
 //
 
 @implementation GTLRCloudSearch_DlpScanSummary
-@dynamic scanId, scanNotApplicableForContext, scanOutcome;
+@dynamic dlpAction, scanId, scanNotApplicableForContext, scanOutcome;
 @end
 
 
@@ -4783,10 +4844,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @implementation GTLRCloudSearch_DynamiteMessagesScoringInfo
 @dynamic commonContactCount, commonCountToContactListCountRatio,
          commonCountToMembershipCountRatio, creatorGaiaId,
-         creatorInSearcherContactList, dasContactCount, finalScore,
-         freshnessScore, joinedSpaceAffinityScore, lastReadTimestampAgeInDays,
-         messageAgeInDays, messageSenderAffinityScore, spaceId,
-         spaceMembershipCount, topicalityScore, unjoinedSpaceAffinityScore;
+         creatorInSearcherContactList, crowdingMultiplier, dasContactCount,
+         finalScore, freshnessScore, joinedSpaceAffinityScore,
+         lastReadTimestampAgeInDays, messageAgeInDays,
+         messageSenderAffinityScore, spaceId, spaceMembershipCount,
+         topicalityScore, unjoinedSpaceAffinityScore;
 @end
 
 
@@ -4799,8 +4861,8 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @dynamic affinityScore, commonContactCountAffinityScore,
          contactsIntersectionCount, finalScore, freshnessScore,
          joinedSpacesAffinityScore, lastMessagePostedTimestampSecs,
-         lastReadTimestampSecs, memberMetadataCount, messageScore,
-         numAucContacts, smallContactListAffinityScore,
+         lastReadTimestampSecs, memberCountScore, memberMetadataCount,
+         messageScore, numAucContacts, smallContactListAffinityScore,
          smallUnjoinedSpacesAffinityScore, spaceAgeInDays,
          spaceCreationTimestampSecs, topicalityScore;
 @end
@@ -6861,8 +6923,8 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @dynamic annotations, appProfile, attachments, attributes, botResponses,
          communalLabels, contentReportSummary, createTime, creatorId,
          deletableBy, deletedByVault, deleteTime, deleteTimeForRequester,
-         dlpScanOutcome, dlpScanSummary, editableBy, fallbackText, identifier,
-         isContentPurged, isInlineReply, lastEditTime, lastUpdateTime, localId,
+         dlpScanSummary, editableBy, fallbackText, identifier, isContentPurged,
+         isInlineReply, lastEditTime, lastUpdateTime, localId,
          messageIntegrationPayload, messageOrigin, messageState,
          originAppSuggestions, personalLabels, privateMessageInfos,
          privateMessageViewer, props, quotedByState, quotedMessageMetadata,

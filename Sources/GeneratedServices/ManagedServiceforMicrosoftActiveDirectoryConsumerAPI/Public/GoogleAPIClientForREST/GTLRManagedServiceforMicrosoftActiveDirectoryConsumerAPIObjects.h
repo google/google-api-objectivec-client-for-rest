@@ -644,8 +644,10 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
  *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
  *  `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
- *  An email address (plus unique identifier) representing a user that has been
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a user that has been
  *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
@@ -660,9 +662,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
- *  represents all the users of that domain. For example, `google.com` or
- *  `example.com`.
+ *  role in the binding.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1112,15 +1112,35 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance
+ *  Instance represents the interface for SLM services to actuate the state of
+ *  control plane resources. Example Instance in JSON, where
+ *  consumer-project-number=123456, producer-project-id=cloud-sql: ```json
+ *  Instance: { "name":
+ *  "projects/123456/locations/us-east1/instances/prod-instance", "create_time":
+ *  { "seconds": 1526406431, }, "labels": { "env": "prod", "foo": "bar" },
+ *  "state": READY, "software_versions": { "software_update":
+ *  "cloud-sql-09-28-2018", }, "maintenance_policy_names": { "UpdatePolicy":
+ *  "projects/123456/locations/us-east1/maintenancePolicies/prod-update-policy",
+ *  } "tenant_project_id": "cloud-sql-test-tenant", "producer_metadata": {
+ *  "cloud-sql-tier": "basic", "cloud-sql-instance-size": "1G", },
+ *  "provisioned_resources": [ { "resource-type": "compute-instance",
+ *  "resource-url":
+ *  "https://www.googleapis.com/compute/v1/projects/cloud-sql/zones/us-east1-b/instances/vm-1",
+ *  } ], "maintenance_schedules": { "csa_rollout": { "start_time": { "seconds":
+ *  1526406431, }, "end_time": { "seconds": 1535406431, }, }, "ncsa_rollout": {
+ *  "start_time": { "seconds": 1526406431, }, "end_time": { "seconds":
+ *  1535406431, }, } }, "consumer_defined_name": "my-sql-instance1", } ```
+ *  LINT.IfChange
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance : GTLRObject
 
 /**
- *  consumer_defined_name is the name that is set by the consumer. On the other
- *  hand Name field represents system-assigned id of an instance so consumers
- *  are not necessarily aware of it. consumer_defined_name is used for
- *  notification/UI purposes for consumer to recognize their instances.
+ *  consumer_defined_name is the name of the instance set by the service
+ *  consumers. Generally this is different from the `name` field which
+ *  reperesents the system-assigned id of the instance which the service
+ *  consumers do not recognize. This is a required field for tenants onboarding
+ *  to Maintenance Window notifications
+ *  (go/slm-rollout-maintenance-policies#prerequisites).
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
 
@@ -1145,11 +1165,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
- *  instance. The key must be of the type name of the oneof policy name defined
- *  in MaintenancePolicy, and the referenced policy must define the same policy
- *  type. For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug.
+ *  Optional. The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
+ *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  type. For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  maintenance_settings.maintenance_policies is set.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames *maintenancePolicyNames;
 
@@ -1263,11 +1283,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
- *  instance. The key must be of the type name of the oneof policy name defined
- *  in MaintenancePolicy, and the referenced policy must define the same policy
- *  type. For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug.
+ *  Optional. The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
+ *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  type. For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  maintenance_settings.maintenance_policies is set.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1400,9 +1420,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
- *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
- *  MaintenancePolicy.name.
+ *  For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  maintenance_policy_names is set. If only the name is needed, then only
+ *  populate MaintenancePolicy.name.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies *maintenancePolicies;
 
@@ -1413,9 +1433,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
- *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
- *  MaintenancePolicy.name.
+ *  For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  maintenance_policy_names is set. If only the name is needed, then only
+ *  populate MaintenancePolicy.name.
  *
  *  @note This class is documented as having more properties of
  *        GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.

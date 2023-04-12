@@ -289,14 +289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: webrisk.projects.operations.list
  */
@@ -318,14 +311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *  Fetches a @c GTLRWebRisk_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -380,57 +366,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *  @return GTLRWebRiskQuery_ProjectsSubmissionsCreate
  */
 + (instancetype)queryWithObject:(GTLRWebRisk_GoogleCloudWebriskV1Submission *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Submits a URI suspected of containing malicious content to be reviewed.
- *  Returns a google.longrunning.Operation which, once the review is complete,
- *  is updated with its result. You can use the [Pub/Sub API]
- *  (https://cloud.google.com/pubsub) to receive notifications for the returned
- *  Operation. If the result verifies the existence of malicious content, the
- *  site will be added to the [Google's Social Engineering lists]
- *  (https://support.google.com/webmasters/answer/6350487/) in order to protect
- *  users that could get exposed to this threat in the future. Only allowlisted
- *  projects can use this method during Early Access. Please reach out to Sales
- *  or your customer engineer to obtain access.
- *
- *  Method: webrisk.projects.uris.submit
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebRiskCloudPlatform
- */
-@interface GTLRWebRiskQuery_ProjectsUrisSubmit : GTLRWebRiskQuery
-
-/**
- *  Required. The name of the project that is making the submission. This string
- *  is in the format "projects/{project_number}".
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRWebRisk_GoogleLongrunningOperation.
- *
- *  Submits a URI suspected of containing malicious content to be reviewed.
- *  Returns a google.longrunning.Operation which, once the review is complete,
- *  is updated with its result. You can use the [Pub/Sub API]
- *  (https://cloud.google.com/pubsub) to receive notifications for the returned
- *  Operation. If the result verifies the existence of malicious content, the
- *  site will be added to the [Google's Social Engineering lists]
- *  (https://support.google.com/webmasters/answer/6350487/) in order to protect
- *  users that could get exposed to this threat in the future. Only allowlisted
- *  projects can use this method during Early Access. Please reach out to Sales
- *  or your customer engineer to obtain access.
- *
- *  @param object The @c GTLRWebRisk_GoogleCloudWebriskV1SubmitUriRequest to
- *    include in the query.
- *  @param parent Required. The name of the project that is making the
- *    submission. This string is in the format "projects/{project_number}".
- *
- *  @return GTLRWebRiskQuery_ProjectsUrisSubmit
- */
-+ (instancetype)queryWithObject:(GTLRWebRisk_GoogleCloudWebriskV1SubmitUriRequest *)object
                          parent:(NSString *)parent;
 
 @end

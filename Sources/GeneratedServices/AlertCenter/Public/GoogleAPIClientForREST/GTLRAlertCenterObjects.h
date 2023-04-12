@@ -554,7 +554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  A warning that the customer's account is about to be suspended.
+ *  LINT.IfChange A warning that the customer's account is about to be
+ *  suspended.
  */
 @interface GTLRAlertCenter_AccountSuspensionWarning : GTLRObject
 
@@ -1289,6 +1290,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /** The recipient of this email. */
 @property(nonatomic, copy, nullable) NSString *recipient;
+
+/** The sent time of the email. */
+@property(nonatomic, strong, nullable) GTLRDateTime *sentTime;
 
 /** The email subject text (only available for reported emails). */
 @property(nonatomic, copy, nullable) NSString *subjectText;

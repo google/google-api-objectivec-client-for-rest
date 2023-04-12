@@ -3879,7 +3879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ServiceMeshMembershipSpec : GTLRObject
 
 /**
- *  Enables automatic control plane management.
+ *  Deprecated: use `management` instead Enables automatic control plane
+ *  management.
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_Automatic

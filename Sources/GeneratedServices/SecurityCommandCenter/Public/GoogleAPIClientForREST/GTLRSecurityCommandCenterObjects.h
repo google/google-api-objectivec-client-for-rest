@@ -20,10 +20,11 @@
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
-@class GTLRSecurityCommandCenter_AssociatedFinding;
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_CloudDlpDataProfile;
+@class GTLRSecurityCommandCenter_CloudDlpInspection;
 @class GTLRSecurityCommandCenter_Compliance;
 @class GTLRSecurityCommandCenter_Connection;
 @class GTLRSecurityCommandCenter_Contact;
@@ -33,7 +34,6 @@
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_Detection;
-@class GTLRSecurityCommandCenter_Edge;
 @class GTLRSecurityCommandCenter_EnvironmentVariable;
 @class GTLRSecurityCommandCenter_ExfilResource;
 @class GTLRSecurityCommandCenter_Exfiltration;
@@ -48,7 +48,9 @@
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding;
-@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomOutputSpec;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
@@ -57,7 +59,10 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamBinding;
@@ -76,7 +81,6 @@
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
-@class GTLRSecurityCommandCenter_PathNode;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
 @class GTLRSecurityCommandCenter_Process;
@@ -618,32 +622,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
-// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource.resourceValue
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig.severity
 
 /**
- *  This is a high value resource.
+ *  Critical severity.
  *
- *  Value: "RESOURCE_VALUE_HIGH"
+ *  Value: "CRITICAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueHigh;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Critical;
 /**
- *  This is a low value resource.
+ *  High severity.
  *
- *  Value: "RESOURCE_VALUE_LOW"
+ *  Value: "HIGH"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueLow;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_High;
 /**
- *  This is a medium value resource.
+ *  Low severity.
  *
- *  Value: "RESOURCE_VALUE_MEDIUM"
+ *  Value: "LOW"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueMedium;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Low;
 /**
- *  The resource value isn't specified.
+ *  Medium severity.
  *
- *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ *  Value: "MEDIUM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Medium;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule.enablementState
+
+/**
+ *  The module is disabled at the given level.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_Disabled;
+/**
+ *  The module is enabled at the given level.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_Enabled;
+/**
+ *  Unspecified enablement state.
+ *
+ *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.severity
@@ -732,40 +764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
-// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
-
-/**
- *  High resource value
- *
- *  Value: "HIGH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High;
-/**
- *  Low resource value
- *
- *  Value: "LOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low;
-/**
- *  Medium resource value
- *
- *  Value: "MEDIUM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium;
-/**
- *  No resource value, e.g. ignore these resources
- *
- *  Value: "NONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None;
-/**
- *  Unspecific value
- *
- *  Value: "RESOURCE_VALUE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
 
 /**
@@ -793,6 +791,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TERMINATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule.enablementState
+
+/**
+ *  The module is disabled at the given CRM resource.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Disabled;
+/**
+ *  The module is enabled at the given CRM resource.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Enabled;
+/**
+ *  Unspecified enablement state.
+ *
+ *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified;
+/**
+ *  State is inherited from an ancestor module. The module will either be
+ *  effectively ENABLED or DISABLED based on its closest non-inherited ancestor
+ *  module in the CRM hierarchy.
+ *
+ *  Value: "INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Inherited;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_IamBinding.action
@@ -1832,26 +1860,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  A finding that is associated with this node in the exposure path.
- */
-@interface GTLRSecurityCommandCenter_AssociatedFinding : GTLRObject
-
-/**
- *  Canonical name of the associated findings. Example:
- *  organizations/123/sources/456/findings/789
- */
-@property(nonatomic, copy, nullable) NSString *canonicalFindingName;
-
-/** The additional taxonomy group within findings from a given source. */
-@property(nonatomic, copy, nullable) NSString *findingCategory;
-
-/** Full resource name of the finding. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -2007,6 +2015,59 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  findings based on the filter.
  */
 @property(nonatomic, copy, nullable) NSString *muteAnnotation;
+
+@end
+
+
+/**
+ *  The [data profile](https://cloud.google.com/dlp/docs/data-profiles)
+ *  associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_CloudDlpDataProfile : GTLRObject
+
+/**
+ *  Name of the data profile, for example,
+ *  `projects/123/locations/europe/tableProfiles/8383929`.
+ */
+@property(nonatomic, copy, nullable) NSString *dataProfile;
+
+@end
+
+
+/**
+ *  Details about the Cloud Data Loss Prevention (Cloud DLP) [inspection
+ *  job](https://cloud.google.com/dlp/docs/concepts-job-triggers) that produced
+ *  the finding.
+ */
+@interface GTLRSecurityCommandCenter_CloudDlpInspection : GTLRObject
+
+/**
+ *  Whether Cloud DLP scanned the complete resource or a sampled subset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullScan;
+
+/**
+ *  The [type of
+ *  information](https://cloud.google.com/dlp/docs/infotypes-reference) found,
+ *  for example, `EMAIL_ADDRESS` or `STREET_ADDRESS`.
+ */
+@property(nonatomic, copy, nullable) NSString *infoType;
+
+/**
+ *  The number of times Cloud DLP found this infoType within this job and
+ *  resource.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *infoTypeCount;
+
+/**
+ *  Name of the inspection job, for example,
+ *  `projects/123/locations/europe/dlpJobs/i-8383929`.
+ */
+@property(nonatomic, copy, nullable) NSString *inspectJob;
 
 @end
 
@@ -2396,21 +2457,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Represents a connection between a source node and a destination node in this
- *  exposure path.
- */
-@interface GTLRSecurityCommandCenter_Edge : GTLRObject
-
-/** This is the resource name of the destination node. */
-@property(nonatomic, copy, nullable) NSString *destination;
-
-/** This is the resource name of the source node. */
-@property(nonatomic, copy, nullable) NSString *source;
-
-@end
-
-
-/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -2604,6 +2650,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** Cloud DLP data profile associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpDataProfile *cloudDlpDataProfile;
+
+/** Cloud DLP inspection associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpInspection *cloudDlpInspection;
+
 /**
  *  Contains compliance information for security standards associated to the
  *  finding.
@@ -2718,6 +2770,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  https://attack.mitre.org
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_MitreAttack *mitreAttack;
+
+/**
+ *  Unique identifier of the module which generated the finding. Example:
+ *  folders/598186756061/securityHealthAnalyticsSettings/customModules/56799441161885
+ */
+@property(nonatomic, copy, nullable) NSString *moduleName;
 
 /**
  *  Indicates the mute state of a finding (either muted, unmuted or undefined).
@@ -3122,72 +3180,124 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  A resource that is exposed as a result of a finding.
+ *  Defines the properties in a custom module configuration for Security Health
+ *  Analytics. Use the custom module configuration to create custom detectors
+ *  that generate custom findings for resources that you specify.
  */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource : GTLRObject
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig : GTLRObject
 
-/** Human readable name of the resource that is exposed. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** The ways in which this resource is exposed. Examples: Read, Write */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+/** Custom output properties. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomOutputSpec *customOutput;
 
 /**
- *  Exposed Resource Name e.g.:
- *  `organizations/123/attackExposureResults/456/exposedResources/789`
+ *  Text that describes the vulnerability or misconfiguration that the custom
+ *  module detects. This explanation is returned with each finding instance to
+ *  help investigators understand the detected issue. The text must be enclosed
+ *  in quotation marks.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The name of the resource that is exposed. See:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ *  The CEL expression to evaluate to produce findings. When the expression
+ *  evaluates to true against a resource, a finding is generated.
  */
-@property(nonatomic, copy, nullable) NSString *resource;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Expr *predicate;
 
 /**
- *  The resource type of the exposed resource. See:
- *  https://cloud.google.com/asset-inventory/docs/supported-asset-types
+ *  An explanation of the recommended steps that security teams can take to
+ *  resolve the detected issue. This explanation is returned with each finding
+ *  generated by this module in the `nextSteps` property of the finding JSON.
  */
-@property(nonatomic, copy, nullable) NSString *resourceType;
+@property(nonatomic, copy, nullable) NSString *recommendation;
 
 /**
- *  How valuable this resource is.
+ *  The resource types that the custom module operates on. Each custom module
+ *  can specify up to 5 resource types.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector *resourceSelector;
+
+/**
+ *  The severity to assign to findings generated by the module.
  *
  *  Likely values:
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueHigh
- *        This is a high value resource. (Value: "RESOURCE_VALUE_HIGH")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueLow
- *        This is a low value resource. (Value: "RESOURCE_VALUE_LOW")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueMedium
- *        This is a medium value resource. (Value: "RESOURCE_VALUE_MEDIUM")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueUnspecified
- *        The resource value isn't specified. (Value:
- *        "RESOURCE_VALUE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Low
+ *        Low severity. (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_Medium
+ *        Medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig_Severity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *resourceValue;
+@property(nonatomic, copy, nullable) NSString *severity;
 
 @end
 
 
 /**
- *  A path that an attacker could take to reach an exposed resource.
+ *  A set of optional name-value pairs that define custom source properties to
+ *  return with each finding that is generated by the custom module. The custom
+ *  source properties that are defined here are included in the finding JSON
+ *  under `sourceProperties`.
  */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath : GTLRObject
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomOutputSpec : GTLRObject
 
-/** A list of the edges between nodes in this exposure path. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Edge *> *edges;
+/** A list of custom output properties to add to the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property *> *properties;
 
-/** The leaf node of this exposure path. */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource *exposedResource;
+@end
+
 
 /**
- *  Exposure Path Name e.g.:
- *  `organizations/123/attackExposureResults/456/exposurePaths/789`
+ *  An EffectiveSecurityHealthAnalyticsCustomModule is the representation of a
+ *  Security Health Analytics custom module at a specified level of the resource
+ *  hierarchy: organization, folder, or project. If a custom module is inherited
+ *  from a parent organization or folder, the value of the `enablementState`
+ *  property in EffectiveSecurityHealthAnalyticsCustomModule is set to the value
+ *  that is effective in the parent, instead of `INHERITED`. For example, if the
+ *  module is enabled in a parent organization or folder, the effective
+ *  enablement_state for the module in all child folders or projects is also
+ *  `enabled`. EffectiveSecurityHealthAnalyticsCustomModule is read-only.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule : GTLRObject
+
+/** Output only. The user-specified configuration for the module. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig *customConfig;
+
+/**
+ *  Output only. The display name for the custom module. The name must be
+ *  between 1 and 128 characters, start with a lowercase letter, and contain
+ *  alphanumeric characters or underscores only.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The effective state of enablement for the module at the given
+ *  level of the hierarchy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_Disabled
+ *        The module is disabled at the given level. (Value: "DISABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_Enabled
+ *        The module is enabled at the given level. (Value: "ENABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified
+ *        Unspecified enablement state. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementState;
+
+/**
+ *  Output only. The resource name of the custom module. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  or
+ *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** A list of nodes that exist in this exposure path. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_PathNode *> *pathNodes;
 
 @end
 
@@ -3603,6 +3713,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  An individual name-value pair that defines a custom source property.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property : GTLRObject
+
+/** Name of the property for the custom output. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The CEL expression for the custom output. A resource property can be
+ *  specified to return the value of the property or a text string enclosed in
+ *  quotation marks.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Expr *valueExpression;
+
+@end
+
+
+/**
  *  Information related to the Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
@@ -3642,52 +3770,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  A resource value config is a mapping configuration of user's tag values to
- *  resource values. Used by the attack path simulation.
+ *  Resource for selecting resource type.
  */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig : GTLRObject
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector : GTLRObject
 
-/** Name for the resource value config */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Apply resource_value only to resources that match resource_type.
- *  resource_type will be checked with "AND" of other resources. E.g.
- *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
- *  value only to "storage.googleapis.com/Bucket" resources.
- */
-@property(nonatomic, copy, nullable) NSString *resourceType;
-
-/**
- *  Required. Resource value level this expression represents
- *
- *  Likely values:
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High
- *        High resource value (Value: "HIGH")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low
- *        Low resource value (Value: "LOW")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium
- *        Medium resource value (Value: "MEDIUM")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None
- *        No resource value, e.g. ignore these resources (Value: "NONE")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified
- *        Unspecific value (Value: "RESOURCE_VALUE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *resourceValue;
-
-/**
- *  Project or folder to scope this config to. For example, "project/456" would
- *  apply this config only to resources in "project/456" scope will be checked
- *  with "AND" of other resources.
- */
-@property(nonatomic, copy, nullable) NSString *scope;
-
-/**
- *  Required. Tag values combined with AND to check against. Values in the form
- *  "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ]
- *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
+/** The resource types to run the detector on. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
 @end
 
@@ -3717,6 +3805,73 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *        Asset discovery run was killed and terminated. (Value: "TERMINATED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Represents an instance of a Security Health Analytics custom module,
+ *  including its full module name, display name, enablement state, and last
+ *  updated time. You can create a custom module at the organization, folder, or
+ *  project level. Custom modules that you create at the organization or folder
+ *  level are inherited by the child folders and projects.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule : GTLRObject
+
+/**
+ *  Output only. If empty, indicates that the custom module was created in the
+ *  organization, folder, or project in which you are viewing the custom module.
+ *  Otherwise, `ancestor_module` specifies the organization or folder from which
+ *  the custom module is inherited.
+ */
+@property(nonatomic, copy, nullable) NSString *ancestorModule;
+
+/** The user specified custom configuration for the module. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig *customConfig;
+
+/**
+ *  The display name of the Security Health Analytics custom module. This
+ *  display name becomes the finding category for all findings that are returned
+ *  by this custom module. The display name must be between 1 and 128
+ *  characters, start with a lowercase letter, and contain alphanumeric
+ *  characters or underscores only.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The enablement state of the custom module.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Disabled
+ *        The module is disabled at the given CRM resource. (Value: "DISABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Enabled
+ *        The module is enabled at the given CRM resource. (Value: "ENABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified
+ *        Unspecified enablement state. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Inherited
+ *        State is inherited from an ancestor module. The module will either be
+ *        effectively ENABLED or DISABLED based on its closest non-inherited
+ *        ancestor module in the CRM hierarchy. (Value: "INHERITED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementState;
+
+/** Output only. The editor that last updated the custom module. */
+@property(nonatomic, copy, nullable) NSString *lastEditor;
+
+/**
+ *  Immutable. The resource name of the custom module. Its format is
+ *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  or
+ *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  The id {customModule} is server-generated and is not user settable. It will
+ *  be a numeric id containing 1-20 digits.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time at which the custom module was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -4330,6 +4485,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  Response message for listing descendant security health analytics custom
+ *  modules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityHealthAnalyticsCustomModules" property. If returned as
+ *        the result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse : GTLRCollectionObject
+
+/**
+ *  If not empty, indicates that there may be more custom modules to be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Custom modules belonging to the requested parent and its descendants.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *> *securityHealthAnalyticsCustomModules;
+
+@end
+
+
+/**
+ *  Response message for listing effective security health analytics custom
+ *  modules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "effectiveSecurityHealthAnalyticsCustomModules" property. If
+ *        returned as the result of a query, it should support automatic
+ *        pagination (when @c shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse : GTLRCollectionObject
+
+/**
+ *  Effective custom modules belonging to the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule *> *effectiveSecurityHealthAnalyticsCustomModules;
+
+/**
+ *  If not empty, indicates that there may be more effective custom modules to
+ *  be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing findings.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4475,6 +4686,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for listing security health analytics custom modules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityHealthAnalyticsCustomModules" property. If returned as
+ *        the result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse : GTLRCollectionObject
+
+/**
+ *  If not empty, indicates that there may be more custom modules to be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Custom modules belonging to the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *> *securityHealthAnalyticsCustomModules;
 
 @end
 
@@ -4762,33 +5000,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  Example: "organizations/{organization_id}/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Represents one point that an attacker passes through in this exposure path.
- */
-@interface GTLRSecurityCommandCenter_PathNode : GTLRObject
-
-/** The findings associated with this node in the exposure path. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AssociatedFinding *> *associatedFindings;
-
-/** Human readable name of this resource. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  The name of the resource at this point in the exposure path. The format of
- *  the name is:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  The resource type of this resource. See:
- *  https://cloud.google.com/asset-inventory/docs/supported-asset-types
- */
-@property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 

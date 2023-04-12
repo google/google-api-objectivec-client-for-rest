@@ -807,6 +807,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGeniee = @"EXCHANGE_GENIEE";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGoogleAdManager = @"EXCHANGE_GOOGLE_AD_MANAGER";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGumgum = @"EXCHANGE_GUMGUM";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeHivestack = @"EXCHANGE_HIVESTACK";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeIbillboard = @"EXCHANGE_IBILLBOARD";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeImobile = @"EXCHANGE_IMOBILE";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeImproveDigital = @"EXCHANGE_IMPROVE_DIGITAL";
@@ -832,6 +833,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePubmatic = @"EXCHANGE_PUBMATIC";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangePulsepoint = @"EXCHANGE_PULSEPOINT";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRedForPublishers = @"EXCHANGE_RED_FOR_PUBLISHERS";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeResetDigital = @"EXCHANGE_RESET_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRevenuemax = @"EXCHANGE_REVENUEMAX";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeRubicon = @"EXCHANGE_RUBICON";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSharethrough = @"EXCHANGE_SHARETHROUGH";
@@ -882,6 +884,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGeniee = @"EXCHANGE_GENIEE";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGoogleAdManager = @"EXCHANGE_GOOGLE_AD_MANAGER";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGumgum = @"EXCHANGE_GUMGUM";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeHivestack = @"EXCHANGE_HIVESTACK";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeIbillboard = @"EXCHANGE_IBILLBOARD";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeImobile = @"EXCHANGE_IMOBILE";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeImproveDigital = @"EXCHANGE_IMPROVE_DIGITAL";
@@ -907,6 +910,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePubmatic = @"EXCHANGE_PUBMATIC";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePulsepoint = @"EXCHANGE_PULSEPOINT";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRedForPublishers = @"EXCHANGE_RED_FOR_PUBLISHERS";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeResetDigital = @"EXCHANGE_RESET_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRevenuemax = @"EXCHANGE_REVENUEMAX";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon = @"EXCHANGE_RUBICON";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSharethrough = @"EXCHANGE_SHARETHROUGH";
@@ -957,6 +961,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber =
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGeniee = @"EXCHANGE_GENIEE";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGoogleAdManager = @"EXCHANGE_GOOGLE_AD_MANAGER";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGumgum = @"EXCHANGE_GUMGUM";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeHivestack = @"EXCHANGE_HIVESTACK";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeIbillboard = @"EXCHANGE_IBILLBOARD";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeImobile = @"EXCHANGE_IMOBILE";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeImproveDigital = @"EXCHANGE_IMPROVE_DIGITAL";
@@ -982,6 +987,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePlatfor
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePubmatic = @"EXCHANGE_PUBMATIC";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePulsepoint = @"EXCHANGE_PULSEPOINT";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRedForPublishers = @"EXCHANGE_RED_FOR_PUBLISHERS";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeResetDigital = @"EXCHANGE_RESET_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRevenuemax = @"EXCHANGE_REVENUEMAX";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon = @"EXCHANGE_RUBICON";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSharethrough = @"EXCHANGE_SHARETHROUGH";
@@ -1038,6 +1044,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGeniee = @"EXCHANGE_GENIEE";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGoogleAdManager = @"EXCHANGE_GOOGLE_AD_MANAGER";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGumgum = @"EXCHANGE_GUMGUM";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeHivestack = @"EXCHANGE_HIVESTACK";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeIbillboard = @"EXCHANGE_IBILLBOARD";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeImobile = @"EXCHANGE_IMOBILE";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeImproveDigital = @"EXCHANGE_IMPROVE_DIGITAL";
@@ -1063,6 +1070,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePubmatic = @"EXCHANGE_PUBMATIC";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePulsepoint = @"EXCHANGE_PULSEPOINT";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRedForPublishers = @"EXCHANGE_RED_FOR_PUBLISHERS";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeResetDigital = @"EXCHANGE_RESET_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRevenuemax = @"EXCHANGE_REVENUEMAX";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon = @"EXCHANGE_RUBICON";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSharethrough = @"EXCHANGE_SHARETHROUGH";
@@ -1294,6 +1302,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber = @"EX
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGeniee = @"EXCHANGE_GENIEE";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGoogleAdManager = @"EXCHANGE_GOOGLE_AD_MANAGER";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGumgum = @"EXCHANGE_GUMGUM";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeHivestack = @"EXCHANGE_HIVESTACK";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeIbillboard = @"EXCHANGE_IBILLBOARD";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImobile = @"EXCHANGE_IMOBILE";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImproveDigital = @"EXCHANGE_IMPROVE_DIGITAL";
@@ -1319,6 +1328,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformone 
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePubmatic = @"EXCHANGE_PUBMATIC";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePulsepoint = @"EXCHANGE_PULSEPOINT";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRedForPublishers = @"EXCHANGE_RED_FOR_PUBLISHERS";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeResetDigital = @"EXCHANGE_RESET_DIGITAL";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRevenuemax = @"EXCHANGE_REVENUEMAX";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRubicon = @"EXCHANGE_RUBICON";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSharethrough = @"EXCHANGE_SHARETHROUGH";
@@ -1519,6 +1529,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber = @"EX
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGeniee = @"EXCHANGE_GENIEE";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGoogleAdManager = @"EXCHANGE_GOOGLE_AD_MANAGER";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGumgum = @"EXCHANGE_GUMGUM";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeHivestack = @"EXCHANGE_HIVESTACK";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeIbillboard = @"EXCHANGE_IBILLBOARD";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeImobile = @"EXCHANGE_IMOBILE";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeImproveDigital = @"EXCHANGE_IMPROVE_DIGITAL";
@@ -1544,6 +1555,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangePlatformone 
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangePubmatic = @"EXCHANGE_PUBMATIC";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangePulsepoint = @"EXCHANGE_PULSEPOINT";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRedForPublishers = @"EXCHANGE_RED_FOR_PUBLISHERS";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeResetDigital = @"EXCHANGE_RESET_DIGITAL";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRevenuemax = @"EXCHANGE_REVENUEMAX";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon = @"EXCHANGE_RUBICON";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSharethrough = @"EXCHANGE_SHARETHROUGH";
@@ -1655,6 +1667,7 @@ NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeUnspe
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_AllPartnerEnabledExchangesNegativelyTargeted = @"ALL_PARTNER_ENABLED_EXCHANGES_NEGATIVELY_TARGETED";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_AppInventoryInvalidAudienceLists = @"APP_INVENTORY_INVALID_AUDIENCE_LISTS";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_AppInventoryInvalidSiteTargeting = @"APP_INVENTORY_INVALID_SITE_TARGETING";
+NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_DeprecatedFirstPartyAudienceExclusion = @"DEPRECATED_FIRST_PARTY_AUDIENCE_EXCLUSION";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_Expired = @"EXPIRED";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_InvalidFlightDates = @"INVALID_FLIGHT_DATES";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_InvalidInventorySource = @"INVALID_INVENTORY_SOURCE";

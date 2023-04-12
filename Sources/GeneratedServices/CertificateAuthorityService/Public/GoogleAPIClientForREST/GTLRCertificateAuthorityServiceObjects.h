@@ -147,10 +147,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default;
 /**
  *  A mode reserved for special cases. Indicates that the certificate should
- *  have one or more SPIFFE SubjectAltNames set by the service based on the
- *  caller's identity. This mode will ignore any explicitly specified Subject
- *  and/or SubjectAltNames in the certificate request. This mode requires the
- *  caller to have the `privateca.certificates.createForSelf` permission.
+ *  have one SPIFFE SubjectAltNames set by the service based on the caller's
+ *  identity. This mode will ignore any explicitly specified Subject and/or
+ *  SubjectAltNames in the certificate request. This mode requires the caller to
+ *  have the `privateca.certificates.createForSelf` permission.
  *
  *  Value: "REFLECTED_SPIFFE"
  */
@@ -462,8 +462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Fo
 /**
  *  The resource has to be deleted. When using this bit, the CLH should fail the
  *  operation. DEPRECATED. Instead use DELETE_RESOURCE OperationSignal in
- *  SideChannel. For more information - go/ccfe-delete-on-upsert,
- *  go/ccfe-reconciliation-protocol-ug#apply_delete
+ *  SideChannel.
  *
  *  Value: "DELETE"
  */
@@ -1054,12 +1053,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        `privateca.certificates.create` permission. (Value: "DEFAULT")
  *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe
  *        A mode reserved for special cases. Indicates that the certificate
- *        should have one or more SPIFFE SubjectAltNames set by the service
- *        based on the caller's identity. This mode will ignore any explicitly
- *        specified Subject and/or SubjectAltNames in the certificate request.
- *        This mode requires the caller to have the
- *        `privateca.certificates.createForSelf` permission. (Value:
- *        "REFLECTED_SPIFFE")
+ *        should have one SPIFFE SubjectAltNames set by the service based on the
+ *        caller's identity. This mode will ignore any explicitly specified
+ *        Subject and/or SubjectAltNames in the certificate request. This mode
+ *        requires the caller to have the `privateca.certificates.createForSelf`
+ *        permission. (Value: "REFLECTED_SPIFFE")
  *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_SubjectRequestModeUnspecified
  *        Not specified. (Value: "SUBJECT_REQUEST_MODE_UNSPECIFIED")
  */
@@ -1551,6 +1549,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  Request message for CertificateAuthorityService.DisableCertificateAuthority.
  */
 @interface GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest : GTLRObject
+
+/**
+ *  Optional. This field allows this CA to be disabled even if it's being
+ *  depended on by another resource. However, doing so may result in unintended
+ *  and unrecoverable effects on any dependent resource(s) since the CA will no
+ *  longer be able to issue certificates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreDependentResources;
 
 /**
  *  Optional. An ID to identify requests. Specify a unique request ID so that if
@@ -2688,9 +2696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete
  *        The resource has to be deleted. When using this bit, the CLH should
  *        fail the operation. DEPRECATED. Instead use DELETE_RESOURCE
- *        OperationSignal in SideChannel. For more information -
- *        go/ccfe-delete-on-upsert,
- *        go/ccfe-reconciliation-protocol-ug#apply_delete (Value: "DELETE")
+ *        OperationSignal in SideChannel. (Value: "DELETE")
  *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry
  *        This resource could not be repaired but the repair should be tried
  *        again at a later time. This can happen if there is a dependency that

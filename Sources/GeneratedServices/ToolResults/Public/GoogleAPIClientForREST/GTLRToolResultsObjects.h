@@ -1293,7 +1293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  represent: - a mobile test executed across a range of device configurations
  *  - a jenkins job with a build step followed by a test step The maximum size
  *  of an execution message is 1 MiB. An Execution can be updated until its
- *  state is set to COMPLETE at which point it becomes immutable. Next tag: 16
+ *  state is set to COMPLETE at which point it becomes immutable. Next tag: 17
  */
 @interface GTLRToolResults_Execution : GTLRObject
 
@@ -2889,7 +2889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  two steps might have the same start time if some operations are done in
  *  parallel). Here is an example, let's consider that we have a continuous
  *  build is executing a test runner for each iteration. The workflow would look
- *  like: - user creates a Execution with id 1 - user creates an
+ *  like: - user creates a Execution with id 1 - user creates a
  *  TestExecutionStep with id 100 for Execution 1 - user update
  *  TestExecutionStep with id 100 to add a raw xml log + the service parses the
  *  xml logs and returns a TestExecutionStep with updated TestResult(s). - user

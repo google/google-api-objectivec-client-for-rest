@@ -1101,6 +1101,79 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_ExternaltransactionsCreateexternaltransaction
+
+@dynamic externalTransactionId, parent;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ExternalTransaction *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+parent}/externalTransactions";
+  GTLRAndroidPublisherQuery_ExternaltransactionsCreateexternaltransaction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ExternalTransaction class];
+  query.loggingName = @"androidpublisher.externaltransactions.createexternaltransaction";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ExternaltransactionsGetexternaltransaction
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+name}";
+  GTLRAndroidPublisherQuery_ExternaltransactionsGetexternaltransaction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ExternalTransaction class];
+  query.loggingName = @"androidpublisher.externaltransactions.getexternaltransaction";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ExternaltransactionsRefundexternaltransaction
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_RefundExternalTransactionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+name}:refund";
+  GTLRAndroidPublisherQuery_ExternaltransactionsRefundexternaltransaction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ExternalTransaction class];
+  query.loggingName = @"androidpublisher.externaltransactions.refundexternaltransaction";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_GeneratedapksDownload
 
 @dynamic downloadId, packageName, versionCode;
@@ -2013,6 +2086,30 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.productId = productId;
   query.token = token;
   query.loggingName = @"androidpublisher.purchases.products.acknowledge";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_PurchasesProductsConsume
+
+@dynamic packageName, productId, token;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                               token:(NSString *)token {
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"token"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}:consume";
+  GTLRAndroidPublisherQuery_PurchasesProductsConsume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.productId = productId;
+  query.token = token;
+  query.loggingName = @"androidpublisher.purchases.products.consume";
   return query;
 }
 

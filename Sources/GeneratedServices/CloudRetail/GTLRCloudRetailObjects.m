@@ -15,6 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink.state
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Failed = @"FAILED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Pending = @"PENDING";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2alphaModel.dataState
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataError = @"DATA_ERROR";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataOk = @"DATA_OK";
@@ -53,6 +59,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationC
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_AttributeConfigLevelUnspecified = @"ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_CatalogLevelAttributeConfig = @"CATALOG_LEVEL_ATTRIBUTE_CONFIG";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig = @"PRODUCT_LEVEL_ATTRIBUTE_CONFIG";
+
+// GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink.state
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Failed = @"FAILED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Pending = @"PENDING";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudRetail_GoogleCloudRetailV2betaModel.dataState
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_DataState_DataError = @"DATA_ERROR";
@@ -467,6 +479,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaCreateMerchantCenterAccountLinkMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaCreateMerchantCenterAccountLinkMetadata
+@dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaCreateModelMetadata
 //
 
@@ -613,6 +635,39 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink
+@dynamic branchId, feedFilters, feedLabel, identifier, languageCode,
+         merchantCenterAccountId, name, projectId, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"feedFilters" : [GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter
+@dynamic primaryFeedId, primaryFeedName;
 @end
 
 
@@ -970,6 +1025,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaCreateMerchantCenterAccountLinkMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaCreateMerchantCenterAccountLinkMetadata
+@dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaCreateModelMetadata
 //
 
@@ -1116,6 +1181,39 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink
+@dynamic branchId, feedFilters, feedLabel, identifier, languageCode,
+         merchantCenterAccountId, name, projectId, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"feedFilters" : [GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter
+@dynamic primaryFeedId, primaryFeedName;
 @end
 
 
@@ -2470,9 +2568,9 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
-@dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, facetSpecs,
-         filter, labels, offset, orderBy, pageCategories, pageSize, pageToken,
-         personalizationSpec, query, queryExpansionSpec, searchMode,
+@dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, entity,
+         facetSpecs, filter, labels, offset, orderBy, pageCategories, pageSize,
+         pageToken, personalizationSpec, query, queryExpansionSpec, searchMode,
          spellCorrectionSpec, userInfo, variantRollupKeys, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2826,10 +2924,10 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2UserEvent
-@dynamic attributes, attributionToken, cartId, completionDetail, eventTime,
-         eventType, experimentIds, filter, offset, orderBy, pageCategories,
-         pageViewId, productDetails, purchaseTransaction, referrerUri,
-         searchQuery, sessionId, uri, userInfo, visitorId;
+@dynamic attributes, attributionToken, cartId, completionDetail, entity,
+         eventTime, eventType, experimentIds, filter, offset, orderBy,
+         pageCategories, pageViewId, productDetails, purchaseTransaction,
+         referrerUri, searchQuery, sessionId, uri, userInfo, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -5808,7 +5808,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_Report_Schedule
 @dynamic active, every, expirationDate, repeats, repeatsOnWeekDays,
-         runsOnDayOfMonth, startDate;
+         runsOnDayOfMonth, startDate, timezone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

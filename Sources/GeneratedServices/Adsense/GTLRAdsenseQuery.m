@@ -58,6 +58,7 @@ NSString * const kGTLRAdsenseDimensionsHostedAdClientId      = @"HOSTED_AD_CLIEN
 NSString * const kGTLRAdsenseDimensionsMonth                 = @"MONTH";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteDomainName   = @"OWNED_SITE_DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteId           = @"OWNED_SITE_ID";
+NSString * const kGTLRAdsenseDimensionsPageUrl               = @"PAGE_URL";
 NSString * const kGTLRAdsenseDimensionsPlatformTypeCode      = @"PLATFORM_TYPE_CODE";
 NSString * const kGTLRAdsenseDimensionsPlatformTypeName      = @"PLATFORM_TYPE_NAME";
 NSString * const kGTLRAdsenseDimensionsProductCode           = @"PRODUCT_CODE";

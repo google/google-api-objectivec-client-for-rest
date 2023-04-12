@@ -124,6 +124,14 @@ NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_DirectAndIndirec
 NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_Indirect = @"INDIRECT";
 NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_RelationTypeUnspecified = @"RELATION_TYPE_UNSPECIFIED";
 
+// GTLRCloudIdentity_Membership.deliverySetting
+NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_AllMail = @"ALL_MAIL";
+NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Daily = @"DAILY";
+NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_DeliverySettingUnspecified = @"DELIVERY_SETTING_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Digest = @"DIGEST";
+NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Disabled = @"DISABLED";
+NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_None = @"NONE";
+
 // GTLRCloudIdentity_Membership.type
 NSString * const kGTLRCloudIdentity_Membership_Type_Group      = @"GROUP";
 NSString * const kGTLRCloudIdentity_Membership_Type_Other      = @"OTHER";
@@ -803,11 +811,18 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_Group
-@dynamic createTime, descriptionProperty, displayName, dynamicGroupMetadata,
-         groupKey, labels, name, parent, updateTime;
+@dynamic additionalGroupKeys, createTime, descriptionProperty, displayName,
+         dynamicGroupMetadata, groupKey, labels, name, parent, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalGroupKeys" : [GTLRCloudIdentity_EntityKey class]
+  };
+  return map;
 }
 
 @end
@@ -1087,7 +1102,8 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_Membership
-@dynamic createTime, name, preferredMemberKey, roles, type, updateTime;
+@dynamic createTime, deliverySetting, name, preferredMemberKey, roles, type,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1112,6 +1128,43 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
     @"edges" : [GTLRCloudIdentity_Membership class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_MembershipRelation
+//
+
+@implementation GTLRCloudIdentity_MembershipRelation
+@dynamic descriptionProperty, displayName, group, groupKey, labels, membership,
+         roles;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roles" : [GTLRCloudIdentity_MembershipRole class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_MembershipRelation_Labels
+//
+
+@implementation GTLRCloudIdentity_MembershipRelation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1262,6 +1315,28 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_SamlSsoInfo
 @dynamic inboundSamlSsoProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_SearchDirectGroupsResponse
+//
+
+@implementation GTLRCloudIdentity_SearchDirectGroupsResponse
+@dynamic memberships, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"memberships" : [GTLRCloudIdentity_MembershipRelation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"memberships";
+}
+
 @end
 
 

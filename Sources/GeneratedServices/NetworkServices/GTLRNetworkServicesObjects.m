@@ -212,8 +212,9 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_Gateway
-@dynamic createTime, descriptionProperty, labels, name, ports, scope, selfLink,
-         serverTlsPolicy, type, updateTime;
+@dynamic addresses, certificateUrls, createTime, descriptionProperty,
+         gatewaySecurityPolicy, labels, name, network, ports, scope, selfLink,
+         serverTlsPolicy, subnetwork, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -221,6 +222,8 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"addresses" : [NSString class],
+    @"certificateUrls" : [NSString class],
     @"ports" : [NSNumber class]
   };
   return map;

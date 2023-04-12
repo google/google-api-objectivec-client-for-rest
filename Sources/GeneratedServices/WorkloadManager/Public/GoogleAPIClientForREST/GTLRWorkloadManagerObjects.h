@@ -14,6 +14,9 @@
 
 @class GTLRWorkloadManager_Evaluation;
 @class GTLRWorkloadManager_Evaluation_Labels;
+@class GTLRWorkloadManager_Execution;
+@class GTLRWorkloadManager_Execution_Labels;
+@class GTLRWorkloadManager_ExecutionResult;
 @class GTLRWorkloadManager_GceInstanceFilter;
 @class GTLRWorkloadManager_Insight;
 @class GTLRWorkloadManager_Location;
@@ -22,9 +25,11 @@
 @class GTLRWorkloadManager_Operation;
 @class GTLRWorkloadManager_Operation_Metadata;
 @class GTLRWorkloadManager_Operation_Response;
+@class GTLRWorkloadManager_Resource;
 @class GTLRWorkloadManager_ResourceFilter;
 @class GTLRWorkloadManager_ResourceFilter_InclusionLabels;
 @class GTLRWorkloadManager_ResourceStatus;
+@class GTLRWorkloadManager_Rule;
 @class GTLRWorkloadManager_SapDiscovery;
 @class GTLRWorkloadManager_SapDiscoveryComponent;
 @class GTLRWorkloadManager_SapDiscoveryMetadata;
@@ -32,8 +37,11 @@
 @class GTLRWorkloadManager_SapValidation;
 @class GTLRWorkloadManager_SapValidationValidationDetail;
 @class GTLRWorkloadManager_SapValidationValidationDetail_Details;
+@class GTLRWorkloadManager_ScannedResource;
 @class GTLRWorkloadManager_Status;
 @class GTLRWorkloadManager_Status_Details_Item;
+@class GTLRWorkloadManager_ViolationDetails;
+@class GTLRWorkloadManager_ViolationDetails_Observed;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -44,6 +52,56 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_Execution.runType
+
+/**
+ *  type of execution is one time
+ *
+ *  Value: "ONE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_RunType_OneTime;
+/**
+ *  type of execution is scheduled
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_RunType_Scheduled;
+/**
+ *  type of execution is unspecified
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_RunType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_Execution.state
+
+/**
+ *  the execution run failed
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Failed;
+/**
+ *  the execution is running in backend service
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Running;
+/**
+ *  state of execution is unspecified
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_StateUnspecified;
+/**
+ *  the execution run success
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_ResourceStatus.state
@@ -73,6 +131,47 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_Del
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapDiscoveryResource.resourceState
+
+/**
+ *  Resource was added this cycle
+ *
+ *  Value: "ADDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Added;
+/**
+ *  Resource already discovered, but is missing or unresponsive this cycle
+ *
+ *  Value: "MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Missing;
+/**
+ *  Resource already discovered, but has been explicitly removed this cycle
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Removed;
+/**
+ *  Resource already discovered, but has been replaced by a new resource this
+ *  cycle
+ *
+ *  Value: "REPLACED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Replaced;
+/**
+ *  Undefined resource state
+ *
+ *  Value: "RESOURCE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_ResourceStateUnspecified;
+/**
+ *  Resource already discovered, just updated this cycle
+ *
+ *  Value: "UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Updated;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapDiscoveryResource.resourceType
@@ -195,6 +294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 /** Output only. [Output only] The updated rule ids if exist. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ruleVersions;
 
+/** crontab format schedule for scheduled evaluation, example: 0 * /3 * * * */
+@property(nonatomic, copy, nullable) NSString *schedule;
+
 /** Output only. [Output only] Update time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -210,6 +312,102 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  *        fetch them all at once.
  */
 @interface GTLRWorkloadManager_Evaluation_Labels : GTLRObject
+@end
+
+
+/**
+ *  Message describing Execution object
+ */
+@interface GTLRWorkloadManager_Execution : GTLRObject
+
+/** Output only. [Output only] End time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. [Output only] Evaluation ID */
+@property(nonatomic, copy, nullable) NSString *evaluationId;
+
+/** Output only. [Output only] Inventory time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *inventoryTime;
+
+/** Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Execution_Labels *labels;
+
+/**
+ *  The name of execution resource. The format is
+ *  projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  type represent whether the execution executed directly by user or scheduled
+ *  according evaluation.schedule field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_Execution_RunType_OneTime type of execution
+ *        is one time (Value: "ONE_TIME")
+ *    @arg @c kGTLRWorkloadManager_Execution_RunType_Scheduled type of execution
+ *        is scheduled (Value: "SCHEDULED")
+ *    @arg @c kGTLRWorkloadManager_Execution_RunType_TypeUnspecified type of
+ *        execution is unspecified (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *runType;
+
+/** Output only. [Output only] Start time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. [Output only] State
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_Execution_State_Failed the execution run
+ *        failed (Value: "FAILED")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_Running the execution is
+ *        running in backend service (Value: "RUNNING")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_StateUnspecified state of
+ *        execution is unspecified (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_Succeeded the execution run
+ *        success (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_Execution_Labels : GTLRObject
+@end
+
+
+/**
+ *  Message describing the result of an execution
+ */
+@interface GTLRWorkloadManager_ExecutionResult : GTLRObject
+
+/** the document url of the rule */
+@property(nonatomic, copy, nullable) NSString *documentationUrl;
+
+/** the violate resource */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Resource *resource;
+
+/** the rule which violate in execution */
+@property(nonatomic, copy, nullable) NSString *rule;
+
+/** severity of violation */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** the details of violation in result */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_ViolationDetails *violationDetails;
+
+/** the violation message of an execution */
+@property(nonatomic, copy, nullable) NSString *violationMessage;
+
 @end
 
 
@@ -272,6 +470,60 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 
 /**
+ *  Message for response of list execution results
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "executionResults" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRWorkloadManager_ListExecutionResultsResponse : GTLRCollectionObject
+
+/**
+ *  The versions from the specified publisher.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ExecutionResult *> *executionResults;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing Executions
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "executions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRWorkloadManager_ListExecutionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Execution
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Execution *> *executions;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -315,6 +567,57 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Mesesage of response of list rules
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rules" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRWorkloadManager_ListRulesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  all rules in response
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Rule *> *rules;
+
+@end
+
+
+/**
+ *  Message for response to list scanned resources
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "scannedResources" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRWorkloadManager_ListScannedResourcesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All scanned resources in response
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ScannedResource *> *scannedResources;
 
 @end
 
@@ -499,6 +802,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 
 /**
+ *  Message represent resource in execution result
+ */
+@interface GTLRWorkloadManager_Resource : GTLRObject
+
+/** the name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** the service account accosiate with resource */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** the type of reresource */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Message describing resource filters
  */
 @interface GTLRWorkloadManager_ResourceFilter : GTLRObject
@@ -554,6 +874,80 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  *        "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Message represent a rule
+ */
+@interface GTLRWorkloadManager_Rule : GTLRObject
+
+/**
+ *  descrite rule in plain language
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** the name display in UI */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** the message template for rule */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** rule name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** the primary category */
+@property(nonatomic, copy, nullable) NSString *primaryCategory;
+
+/** the remediation for the rule */
+@property(nonatomic, copy, nullable) NSString *remediation;
+
+/** Output only. the version of the rule */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/** the secondary category */
+@property(nonatomic, copy, nullable) NSString *secondaryCategory;
+
+/** the severity of the rule */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** the docuement url for the rule */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Message for creating a Execution
+ */
+@interface GTLRWorkloadManager_RunEvaluationRequest : GTLRObject
+
+/** Required. The resource being created */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_Execution *execution;
+
+/**
+ *  Required. Id of the requesting object If auto-generating Id server-side,
+ *  remove this field and execution_id from the method_signature of Create RPC
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
@@ -644,6 +1038,29 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 @property(nonatomic, copy, nullable) NSString *resourceKind;
 
 /**
+ *  Indicates whether this is a new, updated, or missing resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Added
+ *        Resource was added this cycle (Value: "ADDED")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Missing
+ *        Resource already discovered, but is missing or unresponsive this cycle
+ *        (Value: "MISSING")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Removed
+ *        Resource already discovered, but has been explicitly removed this
+ *        cycle (Value: "REMOVED")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Replaced
+ *        Resource already discovered, but has been replaced by a new resource
+ *        this cycle (Value: "REPLACED")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_ResourceStateUnspecified
+ *        Undefined resource state (Value: "RESOURCE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Updated
+ *        Resource already discovered, just updated this cycle (Value:
+ *        "UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceState;
+
+/**
  *  The type of this resource.
  *
  *  Likely values:
@@ -724,6 +1141,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 
 /**
+ *  Message of scanned resource
+ */
+@interface GTLRWorkloadManager_ScannedResource : GTLRObject
+
+/** resource name */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -769,6 +1197,35 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 
 /**
+ *  Message describing the violdation in execution result
+ */
+@interface GTLRWorkloadManager_ViolationDetails : GTLRObject
+
+/** the name of asset */
+@property(nonatomic, copy, nullable) NSString *asset;
+
+/** observed */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_ViolationDetails_Observed *observed;
+
+/** the service account associate with resource */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+@end
+
+
+/**
+ *  observed
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_ViolationDetails_Observed : GTLRObject
+@end
+
+
+/**
  *  Request for sending the data insights.
  */
 @interface GTLRWorkloadManager_WriteInsightRequest : GTLRObject
@@ -781,12 +1238,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  *  request ID so that if you must retry your request, the server will know to
  *  ignore the request if it has already been completed. The server will
  *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;

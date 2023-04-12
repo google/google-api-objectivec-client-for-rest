@@ -1040,6 +1040,25 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
 
 @end
 
+@implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIntegrations_GoogleProtobufEmpty class];
+  query.loggingName = @"integrations.projects.locations.products.integrations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsExecute
 
 @dynamic name;

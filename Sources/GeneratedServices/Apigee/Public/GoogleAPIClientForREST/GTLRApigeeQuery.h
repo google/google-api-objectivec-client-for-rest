@@ -7045,6 +7045,100 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  GetSecurityIncident gets the specified security incident. Returns NOT_FOUND
+ *  if security incident is not present for the specified organization and
+ *  environment.
+ *
+ *  Method: apigee.organizations.environments.securityIncidents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Security incident in the following format:
+ *  `organizations/{org}/environments/{environment}/securityIncidents/{incident}'.
+ *  Example:
+ *  organizations/testOrg/environments/testEnv/securityIncidents/1234-4567-890-111
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityIncident.
+ *
+ *  GetSecurityIncident gets the specified security incident. Returns NOT_FOUND
+ *  if security incident is not present for the specified organization and
+ *  environment.
+ *
+ *  @param name Required. Security incident in the following format:
+ *    `organizations/{org}/environments/{environment}/securityIncidents/{incident}'.
+ *    Example:
+ *    organizations/testOrg/environments/testEnv/securityIncidents/1234-4567-890-111
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  ListSecurityIncidents lists all the security incident associated with the
+ *  environment.
+ *
+ *  Method: apigee.organizations.environments.securityIncidents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsList : GTLRApigeeQuery
+
+/**
+ *  The filter expression to be used to get the list of security incidents,
+ *  where filtering can be done on API Proxies. Example: filter = "api_proxy =
+ *  /", "first_detected_time >", "last_detected_time <"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of incidents to return. The service may return fewer than
+ *  this value. If unspecified, at most 50 incidents will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSecurityIncident` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. For a specific organization, list of all the security incidents.
+ *  Format: `organizations/{org}/environments/{environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityIncidentsResponse.
+ *
+ *  ListSecurityIncidents lists all the security incident associated with the
+ *  environment.
+ *
+ *  @param parent Required. For a specific organization, list of all the
+ *    security incidents. Format:
+ *    `organizations/{org}/environments/{environment}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Submit a report request to be processed in the background. If the submission
  *  succeeds, the API returns a 200 status and an ID that refer to the report
  *  request. In addition to the HTTP status 200, the `state` of "enqueued" means
@@ -9938,14 +10032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: apigee.organizations.operations.list
  *
@@ -9970,14 +10057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRSQLAdmin_AclEntry;
+@class GTLRSQLAdmin_AdvancedMachineFeatures;
 @class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_BackupConfiguration;
 @class GTLRSQLAdmin_BackupContext;
@@ -1240,6 +1241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Promote
 /** Value: "RECREATE_REPLICA" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica;
 /**
+ *  Re-encrypts CMEK instances with latest key version.
+ *
+ *  Value: "REENCRYPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Reencrypt;
+/**
  *  Reschedule maintenance to another time.
  *
  *  Value: "RESCHEDULE_MAINTENANCE"
@@ -1543,6 +1550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogRetentionSetting;
 /** Value: "CONNECTION_FAILURE" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure;
+/**
+ *  The replica instance contains existing data.
+ *
+ *  Value: "EXISTING_DATA_IN_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica;
 /** Value: "INCOMPATIBLE_DATABASE_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
 /**
@@ -1820,6 +1833,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The allowlisted value for the access control list. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Specifies options for controlling advanced machine features.
+ */
+@interface GTLRSQLAdmin_AdvancedMachineFeatures : GTLRObject
+
+/**
+ *  The number of threads per physical core.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
 
 @end
 
@@ -2405,7 +2433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_DatabaseInstance : GTLRObject
 
-/** List all maintenance versions applicable on the instance */
+/** Output only. List all maintenance versions applicable on the instance */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableMaintenanceVersions;
 
 /**
@@ -3979,6 +4007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RecreateReplica Value
  *        "RECREATE_REPLICA"
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Reencrypt Re-encrypts CMEK
+ *        instances with latest key version. (Value: "REENCRYPT")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance
  *        Reschedule maintenance to another time. (Value:
  *        "RESCHEDULE_MAINTENANCE")
@@ -4081,6 +4111,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRSQLAdmin_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
  *  Operations list response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4178,6 +4246,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reuseInterval;
+
+@end
+
+
+/**
+ *  Perform disk shrink context.
+ */
+@interface GTLRSQLAdmin_PerformDiskShrinkContext : GTLRObject
+
+/**
+ *  The target disk shrink size in GigaBytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetSizeGb;
 
 @end
 
@@ -4316,6 +4399,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Active Directory configuration, relevant only for Cloud SQL for SQL Server.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlActiveDirectoryConfig *activeDirectoryConfig;
+
+/**
+ *  Specifies advance machine configuration for the instance relevant only for
+ *  SQL Server.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_AdvancedMachineFeatures *advancedMachineFeatures;
 
 /**
  *  The App Engine app IDs that can access this instance. (Deprecated) Applied
@@ -4588,6 +4677,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "BINLOG_RETENTION_SETTING")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure
  *        Value "CONNECTION_FAILURE"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica
+ *        The replica instance contains existing data. (Value:
+ *        "EXISTING_DATA_IN_REPLICA")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion
  *        Value "INCOMPATIBLE_DATABASE_VERSION"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots
@@ -4666,6 +4758,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Instance get disk shrink config response.
+ */
+@interface GTLRSQLAdmin_SqlInstancesGetDiskShrinkConfigResponse : GTLRObject
+
+/** This is always `sql#getDiskShrinkConfig`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The minimum size to which a disk can be shrunk in GigaBytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimalTargetSizeGb;
+
+@end
+
+
+/**
  *  Reschedule options for maintenance windows.
  */
 @interface GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody : GTLRObject
@@ -4673,6 +4783,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Required. The type of the reschedule the user wants. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_Reschedule *reschedule;
 
+@end
+
+
+/**
+ *  Instance reset replica size request.
+ */
+@interface GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest : GTLRObject
 @end
 
 

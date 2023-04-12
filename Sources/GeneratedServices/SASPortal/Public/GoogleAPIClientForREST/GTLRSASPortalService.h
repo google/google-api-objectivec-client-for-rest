@@ -20,7 +20,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: Read, create, update, and delete your SAS Portal data.
@@ -28,6 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/sasportal"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSASPortal;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSASPortalCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRSASPortalService

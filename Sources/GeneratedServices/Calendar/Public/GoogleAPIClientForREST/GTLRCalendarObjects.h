@@ -970,7 +970,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "default" - A regular event or not further specified.
  *  - "outOfOffice" - An out-of-office event.
  *  - "focusTime" - A focus-time event.
- *  - "workingLocation" - A working location event.
+ *  - "workingLocation" - A working location event. Developer Preview.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -1193,7 +1193,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
-/** Working Location event data. Read-only. */
+/** Developer Preview: Working Location event data. Read-only. */
 @property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties *workingLocationProperties;
 
 @end

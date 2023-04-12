@@ -394,11 +394,12 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
-@dynamic accessLevels, groupKey, name;
+@dynamic accessLevels, dryRunAccessLevels, groupKey, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accessLevels" : [NSString class]
+    @"accessLevels" : [NSString class],
+    @"dryRunAccessLevels" : [NSString class]
   };
   return map;
 }

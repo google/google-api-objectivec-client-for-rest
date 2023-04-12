@@ -796,7 +796,7 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_TagBinding
-@dynamic name, parent, tagValue;
+@dynamic name, parent, tagValue, tagValueNamespacedName;
 @end
 
 

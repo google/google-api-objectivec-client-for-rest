@@ -548,8 +548,8 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 @implementation GTLRCivicInfo_Contest
 @dynamic ballotPlacement, ballotTitle, candidates, district,
          electorateSpecifications, level, numberElected, numberVotingFor,
-         office, primaryParties, primaryParty, referendumBallotResponses,
-         referendumBrief, referendumConStatement, referendumEffectOfAbstain,
+         office, primaryParties, referendumBallotResponses, referendumBrief,
+         referendumConStatement, referendumEffectOfAbstain,
          referendumPassageThreshold, referendumProStatement, referendumSubtitle,
          referendumText, referendumTitle, referendumUrl, roles, sources,
          special, type;

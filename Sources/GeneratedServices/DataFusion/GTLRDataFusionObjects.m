@@ -23,6 +23,7 @@
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_CcaiInsights = @"CCAI_INSIGHTS";
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc = @"CDC";
+NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch = @"CLOUDSEARCH";
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare = @"HEALTHCARE";
 
 // GTLRDataFusion_Accelerator.state

@@ -100,6 +100,33 @@
 
 @end
 
+@implementation GTLRServerlessVPCAccessQuery_ProjectsLocationsConnectorsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRServerlessVPCAccess_Connector *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServerlessVPCAccessQuery_ProjectsLocationsConnectorsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServerlessVPCAccess_Operation class];
+  query.loggingName = @"vpcaccess.projects.locations.connectors.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRServerlessVPCAccessQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;

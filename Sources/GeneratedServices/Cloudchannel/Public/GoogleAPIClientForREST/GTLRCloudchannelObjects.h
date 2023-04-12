@@ -53,6 +53,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1DateRange;
 @class GTLRCloudchannel_GoogleCloudChannelV1EduData;
 @class GTLRCloudchannel_GoogleCloudChannelV1Entitlement;
+@class GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange;
 @class GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1MarketingInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1Media;
@@ -930,6 +931,242 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitle
  *  Value: "TRIAL_ENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_SuspensionReasons_TrialEnded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.activationReason
+
+/**
+ *  Not used.
+ *
+ *  Value: "ACTIVATION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_ActivationReasonUnspecified;
+/**
+ *  Customer accepted pending terms of service.
+ *
+ *  Value: "CUSTOMER_ACCEPTED_PENDING_TOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_CustomerAcceptedPendingTos;
+/**
+ *  Other reasons (Activated temporarily for cancellation, added a payment plan
+ *  to a trial entitlement, etc.)
+ *
+ *  Value: "OTHER_ACTIVATION_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_OtherActivationReason;
+/**
+ *  Reseller updated the renewal settings on an entitlement that was suspended
+ *  due to cancellation, and this update reactivated the entitlement.
+ *
+ *  Value: "RENEWAL_SETTINGS_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_RenewalSettingsChanged;
+/**
+ *  Reseller reactivated a suspended Entitlement.
+ *
+ *  Value: "RESELLER_REVOKED_SUSPENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_ResellerRevokedSuspension;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.cancellationReason
+
+/**
+ *  Not used.
+ *
+ *  Value: "CANCELLATION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_CancellationReasonUnspecified;
+/**
+ *  Entitlement transferred away from reseller while still keeping other
+ *  entitlement(s) with the reseller.
+ *
+ *  Value: "PARTIAL_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_PartialTransfer;
+/**
+ *  Relationship between the reseller and customer has ended due to a transfer.
+ *
+ *  Value: "RELATIONSHIP_ENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_RelationshipEnded;
+/**
+ *  Reseller triggered a cancellation of the service.
+ *
+ *  Value: "SERVICE_TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_ServiceTerminated;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.changeType
+
+/**
+ *  Entitlement was activated.
+ *
+ *  Value: "ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Activated;
+/**
+ *  Entitlement was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Cancelled;
+/**
+ *  Not used.
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_ChangeTypeUnspecified;
+/**
+ *  Number of seats committed for a commitment Entitlement was changed.
+ *
+ *  Value: "COMMITMENT_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_CommitmentChanged;
+/**
+ *  New Entitlement was created.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Created;
+/**
+ *  License cap was changed for the entitlement.
+ *
+ *  Value: "LICENSE_CAP_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_LicenseCapChanged;
+/**
+ *  Use for Google Workspace subscription. Either a trial was converted to a
+ *  paid subscription or a new subscription with no trial is created.
+ *
+ *  Value: "PAID_SUBSCRIPTION_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_PaidSubscriptionStarted;
+/**
+ *  Price plan associated with an Entitlement was changed.
+ *
+ *  Value: "PRICE_PLAN_SWITCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_PricePlanSwitched;
+/**
+ *  The settings for renewal of an Entitlement have changed.
+ *
+ *  Value: "RENEWAL_SETTING_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_RenewalSettingChanged;
+/**
+ *  An annual Entitlement was renewed.
+ *
+ *  Value: "RENEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Renewed;
+/**
+ *  Entitlement was upgraded or downgraded for ex. from Google Workspace
+ *  Business Standard to Google Workspace Business Plus.
+ *
+ *  Value: "SKU_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_SkuChanged;
+/**
+ *  Entitlement was suspended.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Suspended;
+/**
+ *  The suspension details have changed (but it is still suspended).
+ *
+ *  Value: "SUSPENSION_DETAILS_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_SuspensionDetailsChanged;
+/**
+ *  The trial end date was extended.
+ *
+ *  Value: "TRIAL_END_DATE_EXTENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_TrialEndDateExtended;
+/**
+ *  Entitlement started trial.
+ *
+ *  Value: "TRIAL_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_TrialStarted;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.operatorType
+
+/**
+ *  Customer user.
+ *
+ *  Value: "CUSTOMER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_Customer;
+/**
+ *  Customer service representative.
+ *
+ *  Value: "CUSTOMER_SERVICE_REPRESENTATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_CustomerServiceRepresentative;
+/**
+ *  Not used.
+ *
+ *  Value: "OPERATOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_OperatorTypeUnspecified;
+/**
+ *  Reseller user.
+ *
+ *  Value: "RESELLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_Reseller;
+/**
+ *  System auto job.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_System;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.suspensionReason
+
+/**
+ *  Other reasons (internal reasons, abuse, etc.).
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_Other;
+/**
+ *  Entitlement was automatically suspended on creation for pending ToS
+ *  acceptance on customer.
+ *
+ *  Value: "PENDING_TOS_ACCEPTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_PendingTosAcceptance;
+/**
+ *  Entitlement renewal was canceled.
+ *
+ *  Value: "RENEWAL_WITH_TYPE_CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_RenewalWithTypeCancel;
+/**
+ *  Entitlement was manually suspended by the Reseller.
+ *
+ *  Value: "RESELLER_INITIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_ResellerInitiated;
+/**
+ *  Not used.
+ *
+ *  Value: "SUSPENSION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_SuspensionReasonUnspecified;
+/**
+ *  Trial ended.
+ *
+ *  Value: "TRIAL_ENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_TrialEnded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent.eventType
@@ -2040,6 +2277,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  */
 @property(nonatomic, strong, nullable) NSNumber *resizeUnitCount;
 
+/**
+ *  Output only. The offer resource name that the entitlement will renew on at
+ *  the end date. Takes the form: accounts/{account_id}/offers/{offer_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *scheduledRenewalOffer;
+
 @end
 
 
@@ -3069,6 +3312,175 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Change event entry for Entitlement order history
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange : GTLRObject
+
+/**
+ *  The Entitlement's activation reason
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_ActivationReasonUnspecified
+ *        Not used. (Value: "ACTIVATION_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_CustomerAcceptedPendingTos
+ *        Customer accepted pending terms of service. (Value:
+ *        "CUSTOMER_ACCEPTED_PENDING_TOS")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_OtherActivationReason
+ *        Other reasons (Activated temporarily for cancellation, added a payment
+ *        plan to a trial entitlement, etc.) (Value: "OTHER_ACTIVATION_REASON")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_RenewalSettingsChanged
+ *        Reseller updated the renewal settings on an entitlement that was
+ *        suspended due to cancellation, and this update reactivated the
+ *        entitlement. (Value: "RENEWAL_SETTINGS_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_ResellerRevokedSuspension
+ *        Reseller reactivated a suspended Entitlement. (Value:
+ *        "RESELLER_REVOKED_SUSPENSION")
+ */
+@property(nonatomic, copy, nullable) NSString *activationReason;
+
+/**
+ *  Cancellation reason for the Entitlement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_CancellationReasonUnspecified
+ *        Not used. (Value: "CANCELLATION_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_PartialTransfer
+ *        Entitlement transferred away from reseller while still keeping other
+ *        entitlement(s) with the reseller. (Value: "PARTIAL_TRANSFER")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_RelationshipEnded
+ *        Relationship between the reseller and customer has ended due to a
+ *        transfer. (Value: "RELATIONSHIP_ENDED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_ServiceTerminated
+ *        Reseller triggered a cancellation of the service. (Value:
+ *        "SERVICE_TERMINATED")
+ */
+@property(nonatomic, copy, nullable) NSString *cancellationReason;
+
+/**
+ *  The change action type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Activated
+ *        Entitlement was activated. (Value: "ACTIVATED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Cancelled
+ *        Entitlement was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_ChangeTypeUnspecified
+ *        Not used. (Value: "CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_CommitmentChanged
+ *        Number of seats committed for a commitment Entitlement was changed.
+ *        (Value: "COMMITMENT_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Created
+ *        New Entitlement was created. (Value: "CREATED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_LicenseCapChanged
+ *        License cap was changed for the entitlement. (Value:
+ *        "LICENSE_CAP_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_PaidSubscriptionStarted
+ *        Use for Google Workspace subscription. Either a trial was converted to
+ *        a paid subscription or a new subscription with no trial is created.
+ *        (Value: "PAID_SUBSCRIPTION_STARTED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_PricePlanSwitched
+ *        Price plan associated with an Entitlement was changed. (Value:
+ *        "PRICE_PLAN_SWITCHED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_RenewalSettingChanged
+ *        The settings for renewal of an Entitlement have changed. (Value:
+ *        "RENEWAL_SETTING_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Renewed
+ *        An annual Entitlement was renewed. (Value: "RENEWED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_SkuChanged
+ *        Entitlement was upgraded or downgraded for ex. from Google Workspace
+ *        Business Standard to Google Workspace Business Plus. (Value:
+ *        "SKU_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Suspended
+ *        Entitlement was suspended. (Value: "SUSPENDED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_SuspensionDetailsChanged
+ *        The suspension details have changed (but it is still suspended).
+ *        (Value: "SUSPENSION_DETAILS_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_TrialEndDateExtended
+ *        The trial end date was extended. (Value: "TRIAL_END_DATE_EXTENDED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_TrialStarted
+ *        Entitlement started trial. (Value: "TRIAL_STARTED")
+ */
+@property(nonatomic, copy, nullable) NSString *changeType;
+
+/** The submitted time of the change. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Resource name of an entitlement in the form:
+ *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entitlement;
+
+/**
+ *  Required. Resource name of the Offer at the time of change. Takes the form:
+ *  accounts/{account_id}/offers/{offer_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *offer;
+
+/**
+ *  Human-readable identifier that shows what operator made a change. When the
+ *  operator_type is RESELLER, this is the user's email address. For all other
+ *  operator types, this is empty.
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
+/**
+ *  Operator type responsible for the change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_Customer
+ *        Customer user. (Value: "CUSTOMER")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_CustomerServiceRepresentative
+ *        Customer service representative. (Value:
+ *        "CUSTOMER_SERVICE_REPRESENTATIVE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_OperatorTypeUnspecified
+ *        Not used. (Value: "OPERATOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_Reseller
+ *        Reseller user. (Value: "RESELLER")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_System
+ *        System auto job. (Value: "SYSTEM")
+ */
+@property(nonatomic, copy, nullable) NSString *operatorType;
+
+/** e.g. purchase_number change reason, entered by CRS. */
+@property(nonatomic, copy, nullable) NSString *otherChangeReason;
+
+/**
+ *  Extended parameters, such as: purchase_order_number, gcp_details;
+ *  internal_correlation_id, long_running_operation_id, order_id; etc.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
+
+/** Service provisioned for an Entitlement. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ProvisionedService *provisionedService;
+
+/**
+ *  Suspension reason for the Entitlement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_Other
+ *        Other reasons (internal reasons, abuse, etc.). (Value: "OTHER")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_PendingTosAcceptance
+ *        Entitlement was automatically suspended on creation for pending ToS
+ *        acceptance on customer. (Value: "PENDING_TOS_ACCEPTANCE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_RenewalWithTypeCancel
+ *        Entitlement renewal was canceled. (Value: "RENEWAL_WITH_TYPE_CANCEL")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_ResellerInitiated
+ *        Entitlement was manually suspended by the Reseller. (Value:
+ *        "RESELLER_INITIATED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_SuspensionReasonUnspecified
+ *        Not used. (Value: "SUSPENSION_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_TrialEnded
+ *        Trial ended. (Value: "TRIAL_ENDED")
+ */
+@property(nonatomic, copy, nullable) NSString *suspensionReason;
+
+@end
+
+
+/**
  *  Represents Pub/Sub message content describing entitlement update.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent : GTLRObject
@@ -3332,6 +3744,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  A token to retrieve the next page of results. Pass to
  *  ListCustomersRequest.page_token to obtain that page.
  */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for CloudChannelService.ListEntitlementChanges
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entitlementChanges" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ListEntitlementChangesResponse : GTLRCollectionObject
+
+/**
+ *  The list of entitlement changes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange *> *entitlementChanges;
+
+/** A token to list the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

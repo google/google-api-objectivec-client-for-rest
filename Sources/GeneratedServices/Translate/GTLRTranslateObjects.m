@@ -36,8 +36,9 @@
 //
 
 @implementation GTLRTranslate_BatchTranslateDocumentRequest
-@dynamic customizedAttribution, formatConversions, glossaries, inputConfigs,
-         models, outputConfig, sourceLanguageCode, targetLanguageCodes;
+@dynamic customizedAttribution, enableShadowRemovalNativePdf, formatConversions,
+         glossaries, inputConfigs, models, outputConfig, sourceLanguageCode,
+         targetLanguageCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -282,8 +283,9 @@
 
 @implementation GTLRTranslate_DocumentRequest
 @dynamic customizedAttribution, documentInputConfig, documentOutputConfig,
-         enableShadowRemovalNativePdf, glossaryConfig, isTranslateNativePdfOnly,
-         labels, model, sourceLanguageCode, targetLanguageCode;
+         enableRotationCorrection, enableShadowRemovalNativePdf, glossaryConfig,
+         isTranslateNativePdfOnly, labels, model, sourceLanguageCode,
+         targetLanguageCode;
 @end
 
 
@@ -729,7 +731,7 @@
 //
 
 @implementation GTLRTranslate_Model
-@dynamic createTime, dataset, deployTime, displayName, name, sourceLanguageCode,
+@dynamic createTime, dataset, displayName, name, sourceLanguageCode,
          targetLanguageCode, testExampleCount, trainExampleCount, updateTime,
          validateExampleCount;
 @end

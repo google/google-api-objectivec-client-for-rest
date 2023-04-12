@@ -21,6 +21,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompletionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomAttribute;
@@ -38,6 +39,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_UserLabels;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult_Metadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema_StructSchema;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTransactionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent;
@@ -385,15 +387,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Defines the structure and layout of a type of document data.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema : GTLRObject
+
+/** The JSON representation of the schema. */
+@property(nonatomic, copy, nullable) NSString *jsonSchema;
+
+/**
+ *  Immutable. The full resource name of the schema, in the format of
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The structured representation of the schema. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema *structSchema;
+
+@end
+
+
+/**
+ *  The structured representation of the schema.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema : GTLRObject
+@end
+
+
+/**
  *  BigQuery source import data from.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource : GTLRObject
 
 /**
  *  The schema to use when parsing the data from the source. Supported values
- *  for imports: * `user_event` (default): One JSON UserEvent per line. *
- *  `document` (default): One JSON Document per line. Each document must have a
- *  valid document.id.
+ *  for user event imports: * `user_event` (default): One UserEvent per row.
+ *  Supported values for document imports: * `document` (default): One Document
+ *  format per row. Each document must have a valid Document.id and one of
+ *  Document.json_data or Document.struct_data. * `custom`: One custom data per
+ *  row in arbitrary format that conforms the defined Schema of the data store.
+ *  This can only be used by the GENERIC Data Store vertical.
  */
 @property(nonatomic, copy, nullable) NSString *dataSchema;
 
@@ -512,7 +551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, copy, nullable) NSString *parentDocumentId;
 
-/** Required. The identifier of the schema located in the same data store. */
+/** The identifier of the schema located in the same data store. */
 @property(nonatomic, copy, nullable) NSString *schemaId;
 
 /**
@@ -581,9 +620,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The schema to use when parsing the data from the source. Supported values
- *  for imports: * `user_event` (default): One JSON UserEvent per line. *
- *  `document` (default): One JSON Document per line. Each document must have a
- *  valid Document.id.
+ *  for document imports: * `document` (default): One JSON Document per line.
+ *  Each document must have a valid Document.id. * `content`: Unstructured data
+ *  (e.g. PDF, HTML). Each file matched by `input_uris` will become a document,
+ *  with the ID set to the first 128 bits of SHA256(URI) encoded as a hex
+ *  string. * `custom`: One custom data JSON per row in arbitrary format that
+ *  conforms the defined Schema of the data store. This can only be used by the
+ *  GENERIC Data Store vertical. Supported values for user even imports: *
+ *  `user_event` (default): One JSON UserEvent per line.
  */
 @property(nonatomic, copy, nullable) NSString *dataSchema;
 
@@ -592,7 +636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  characters long. URIs can match the full object path (for example,
  *  `gs://bucket/directory/object.json`) or a pattern matching one or more
  *  files, such as `gs://bucket/directory/ *.json`. A request can contain at
- *  most 100 files, and each file can be up to 2 GB.
+ *  most 100 files (or 100,000 files if `data_schema` is `content`). Each file
+ *  can be up to 2 GB (or 100 MB if `data_schema` is `content`).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputUris;
 
@@ -1154,6 +1199,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Defines the structure and layout of a type of document data.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema : GTLRObject
+
+/** The JSON representation of the schema. */
+@property(nonatomic, copy, nullable) NSString *jsonSchema;
+
+/**
+ *  Immutable. The full resource name of the schema, in the format of
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The structured representation of the schema. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema_StructSchema *structSchema;
+
+@end
+
+
+/**
+ *  The structured representation of the schema.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema_StructSchema : GTLRObject
 @end
 
 

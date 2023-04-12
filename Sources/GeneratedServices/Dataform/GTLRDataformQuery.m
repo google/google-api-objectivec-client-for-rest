@@ -52,6 +52,33 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCommit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataform_CommitRepositoryChangesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:commit";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesCommit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.loggingName = @"dataform.projects.locations.repositories.commit";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreate
 
 @dynamic parent;
@@ -136,6 +163,25 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesComputeAccessTokenStatus
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:computeAccessTokenStatus";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesComputeAccessTokenStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_ComputeRepositoryAccessTokenStatusResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.computeAccessTokenStatus";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCreate
 
 @dynamic parent, repositoryId;
@@ -177,6 +223,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataform_Empty class];
   query.loggingName = @"dataform.projects.locations.repositories.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesFetchHistory
+
+@dynamic name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:fetchHistory";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesFetchHistory *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_FetchRepositoryHistoryResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.fetchHistory";
   return query;
 }
 
@@ -284,6 +349,44 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataform_Repository class];
   query.loggingName = @"dataform.projects.locations.repositories.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesQueryDirectoryContents
+
+@dynamic commitSha, name, pageSize, pageToken, path;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:queryDirectoryContents";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesQueryDirectoryContents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_QueryRepositoryDirectoryContentsResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.queryDirectoryContents";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesReadFile
+
+@dynamic commitSha, name, path;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:readFile";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesReadFile *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_ReadRepositoryFileResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.readFile";
   return query;
 }
 

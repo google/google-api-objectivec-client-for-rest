@@ -37,6 +37,8 @@
 @class GTLRCloudIdentity_MemberRestriction;
 @class GTLRCloudIdentity_Membership;
 @class GTLRCloudIdentity_MembershipAdjacencyList;
+@class GTLRCloudIdentity_MembershipRelation;
+@class GTLRCloudIdentity_MembershipRelation_Labels;
 @class GTLRCloudIdentity_MembershipRole;
 @class GTLRCloudIdentity_MembershipRoleRestrictionEvaluation;
 @class GTLRCloudIdentity_Operation_Metadata;
@@ -593,6 +595,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MemberRelation_RelationTyp
  *  Value: "RELATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_RelationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_Membership.deliverySetting
+
+/**
+ *  Represents each mail should be delivered
+ *
+ *  Value: "ALL_MAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_AllMail;
+/**
+ *  Represents daily summary of messages.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Daily;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "DELIVERY_SETTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_DeliverySettingUnspecified;
+/**
+ *  Represents 1 email for every 25 messages.
+ *
+ *  Value: "DIGEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Digest;
+/**
+ *  Represents disabled state.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Disabled;
+/**
+ *  Represents no delivery.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIdentity_Membership.type
@@ -1942,6 +1984,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @interface GTLRCloudIdentity_Group : GTLRObject
 
+/** Output only. Additional group keys associated with the Group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_EntityKey *> *additionalGroupKeys;
+
 /** Output only. The time when the `Group` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2488,6 +2533,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. Delivery setting associated with the membership.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_Membership_DeliverySetting_AllMail Represents
+ *        each mail should be delivered (Value: "ALL_MAIL")
+ *    @arg @c kGTLRCloudIdentity_Membership_DeliverySetting_Daily Represents
+ *        daily summary of messages. (Value: "DAILY")
+ *    @arg @c kGTLRCloudIdentity_Membership_DeliverySetting_DeliverySettingUnspecified
+ *        Default. Should not be used. (Value: "DELIVERY_SETTING_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_Membership_DeliverySetting_Digest Represents 1
+ *        email for every 25 messages. (Value: "DIGEST")
+ *    @arg @c kGTLRCloudIdentity_Membership_DeliverySetting_Disabled Represents
+ *        disabled state. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudIdentity_Membership_DeliverySetting_None Represents no
+ *        delivery. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *deliverySetting;
+
+/**
  *  Output only. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  `Membership`. Shall be of the form
@@ -2546,6 +2610,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** Resource name of the group that the members belong to. */
 @property(nonatomic, copy, nullable) NSString *group;
 
+@end
+
+
+/**
+ *  Message containing membership relation.
+ */
+@interface GTLRCloudIdentity_MembershipRelation : GTLRObject
+
+/**
+ *  An extended description to help users determine the purpose of a `Group`.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The display name of the `Group`. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The [resource name](https://cloud.google.com/apis/design/resource_names) of
+ *  the `Group`. Shall be of the form `groups/{group_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** The `EntityKey` of the `Group`. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_EntityKey *groupKey;
+
+/**
+ *  One or more label entries that apply to the Group. Currently supported
+ *  labels contain a key with an empty value.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_MembershipRelation_Labels *labels;
+
+/**
+ *  The [resource name](https://cloud.google.com/apis/design/resource_names) of
+ *  the `Membership`. Shall be of the form
+ *  `groups/{group_id}/memberships/{membership_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *membership;
+
+/** The `MembershipRole`s that apply to the `Membership`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MembershipRole *> *roles;
+
+@end
+
+
+/**
+ *  One or more label entries that apply to the Group. Currently supported
+ *  labels contain a key with an empty value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIdentity_MembershipRelation_Labels : GTLRObject
 @end
 
 
@@ -2804,16 +2924,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  The **Logout Redirect URL** (sign-out page URL) of the identity provider.
  *  When a user clicks the sign-out link on a Google page, they will be
  *  redirected to this URL. This is a pure redirect with no attached SAML
- *  `LogoutRequest` i.e. SAML single logout is currently not supported. Must use
- *  `HTTPS`.
+ *  `LogoutRequest` i.e. SAML single logout is not supported. Must use `HTTPS`.
  */
 @property(nonatomic, copy, nullable) NSString *logoutRedirectUri;
 
 /**
  *  Required. The `SingleSignOnService` endpoint location (sign-in page URL) of
  *  the identity provider. This is the URL where the `AuthnRequest` will be
- *  sent. Must use `HTTPS`. Currently assumed to accept the `HTTP-Redirect`
- *  binding.
+ *  sent. Must use `HTTPS`. Assumed to accept the `HTTP-Redirect` binding.
  */
 @property(nonatomic, copy, nullable) NSString *singleSignOnServiceUri;
 
@@ -2827,8 +2945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /**
  *  Output only. The SAML **Assertion Consumer Service (ACS) URL** to be used
- *  for the IDP-initiated login. Currently assumed to accept response messages
- *  via the `HTTP-POST` binding.
+ *  for the IDP-initiated login. Assumed to accept response messages via the
+ *  `HTTP-POST` binding.
  */
 @property(nonatomic, copy, nullable) NSString *assertionConsumerServiceUri;
 
@@ -2848,6 +2966,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  `inboundSamlSsoProfiles/{inbound_saml_sso_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *inboundSamlSsoProfile;
+
+@end
+
+
+/**
+ *  The response message for MembershipsService.SearchDirectGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "memberships" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_SearchDirectGroupsResponse : GTLRCollectionObject
+
+/**
+ *  List of direct groups satisfying the query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MembershipRelation *> *memberships;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results available for listing.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

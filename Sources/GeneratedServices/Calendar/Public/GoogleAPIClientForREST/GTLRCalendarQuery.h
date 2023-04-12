@@ -1410,6 +1410,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
+ *  Event types to return. Optional. The default is ["default", "outOfOffice",
+ *  "focusTime"]. Only the default value is available, unless you're enrolled in
+ *  the Working Locations developer preview. Developer Preview.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
+
+/**
  *  Specifies an event ID in the iCalendar format to be provided in the
  *  response. Optional. Use this if you want to search for an event by its
  *  iCalendar ID.
@@ -1910,6 +1917,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  in user, use the "primary" keyword.
  */
 @property(nonatomic, copy, nullable) NSString *calendarId;
+
+/**
+ *  Event types to return. Optional. The default is ["default", "outOfOffice",
+ *  "focusTime"]. Only the default value is available, unless you're enrolled in
+ *  the Working Locations developer preview. Developer Preview.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
 
 /**
  *  Specifies an event ID in the iCalendar format to be provided in the

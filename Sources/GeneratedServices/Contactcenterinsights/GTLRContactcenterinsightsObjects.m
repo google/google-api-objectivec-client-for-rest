@@ -11,6 +11,44 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback.correctnessLevel
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback_CorrectnessLevel_CorrectnessLevelUnspecified = @"CORRECTNESS_LEVEL_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback_CorrectnessLevel_FullyCorrect = @"FULLY_CORRECT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback_CorrectnessLevel_NotCorrect = @"NOT_CORRECT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback_CorrectnessLevel_PartiallyCorrect = @"PARTIALLY_CORRECT";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation.medium
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_Chat = @"CHAT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_PhoneCall = @"PHONE_CALL";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant.role
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant_Role_AnyAgent = @"ANY_AGENT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant_Role_AutomatedAgent = @"AUTOMATED_AGENT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant_Role_EndUser = @"END_USER";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant_Role_HumanAgent = @"HUMAN_AGENT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity.type
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Address = @"ADDRESS";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_ConsumerGood = @"CONSUMER_GOOD";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Date = @"DATE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Event = @"EVENT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Location = @"LOCATION";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Number = @"NUMBER";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Organization = @"ORGANIZATION";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Other = @"OTHER";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Person = @"PERSON";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_PhoneNumber = @"PHONE_NUMBER";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_Price = @"PRICE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Type_WorkOfArt = @"WORK_OF_ART";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData.type
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_Common = @"COMMON";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_MentionTypeUnspecified = @"MENTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData_Type_Proper = @"PROPER";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.writeDisposition
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteAppend = @"WRITE_APPEND";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
@@ -114,6 +152,98 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Analysis
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Analysis
+@dynamic analysisResult, annotatorSelector, createTime, name, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResult
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResult
+@dynamic callAnalysisMetadata, endTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata
+@dynamic annotations, entities, intents, issueModelResult, phraseMatchers,
+         sentiments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation class],
+    @"sentiments" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_Entities
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_Entities
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_Intents
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_Intents
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Intent class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_PhraseMatchers
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_PhraseMatchers
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary
+@dynamic transcriptIndex, wordIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector
 //
 
@@ -128,6 +258,40 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
     @"phraseMatchers" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback
+@dynamic clicked, correctnessLevel, displayed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData
+@dynamic confidenceScore, metadata, queryRecord, source, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -161,6 +325,165 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsResponse
 @dynamic failedAnalysisCount, successfulAnalysisCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation
+@dynamic annotationEndBoundary, annotationStartBoundary, channelTag,
+         entityMentionData, holdData, intentMatchData, interruptionData,
+         issueMatchData, phraseMatchData, sentimentData, silenceData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation
+@dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
+         duration, expireTime, labels, languageCode, latestAnalysis, medium,
+         name, obfuscatedUserId, runtimeAnnotations, startTime, transcript, ttl,
+         turnCount, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"runtimeAnnotations" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_DialogflowIntents
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_DialogflowIntents
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Labels
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata
+@dynamic agentChannel, customerChannel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource
+@dynamic dialogflowSource, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment
+@dynamic channelTag, sentimentData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant
+@dynamic dialogflowParticipant, dialogflowParticipantName,
+         obfuscatedExternalUserId, role, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript
+@dynamic transcriptSegments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transcriptSegments" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment
+@dynamic channelTag, confidence, dialogflowSegmentMetadata, languageCode,
+         messageTime, segmentParticipant, sentiment, text, words;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"words" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata
+@dynamic smartReplyAllowlistCovered;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo
+@dynamic confidence, endOffset, startOffset, word;
 @end
 
 
@@ -245,6 +568,70 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent
+@dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData
+@dynamic confidence, dialogflowIntentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowSource
+@dynamic audioUri, dialogflowConversation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity
+@dynamic displayName, metadata, salience, sentiment, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData
+@dynamic entityUniqueId, sentiment, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataMetadata
 //
 
@@ -287,6 +674,49 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData
+@dynamic answer, confidenceScore, metadata, queryRecord, question, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource
+@dynamic audioUri, transcriptUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData
 @end
 
 
@@ -370,6 +800,60 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Intent
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Intent
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IntentMatchData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IntentMatchData
+@dynamic intentUniqueId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InterruptionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InterruptionData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueAssignment
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueAssignment
+@dynamic displayName, issue, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueMatchData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueMatchData
+@dynamic issueAssignment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel
 //
 
@@ -425,6 +909,123 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelResult
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelResult
+@dynamic issueModel, issues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueAssignment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData
+@dynamic displayName, phraseMatcher;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig
+@dynamic deidentifyTemplate, inspectTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation
+@dynamic annotationId, answerFeedback, articleSuggestion, createTime,
+         dialogflowInteraction, endBoundary, faqAnswer, smartComposeSuggestion,
+         smartReply, startBoundary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData
+@dynamic magnitude, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SilenceData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SilenceData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData
+@dynamic confidenceScore, metadata, queryRecord, suggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData
+@dynamic confidenceScore, metadata, queryRecord, reply;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelMetadata
 //
 
@@ -449,6 +1050,27 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationMetadata
+@dynamic analysisOperation, appliedRedactionConfig, createTime, endTime,
+         request;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest
+@dynamic conversation, conversationId, parent, redactionConfig;
 @end
 
 
@@ -1555,6 +2177,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig
+@dynamic deidentifyTemplate, inspectTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation
 //
 
@@ -1582,7 +2214,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings
 @dynamic analysisConfig, conversationTtl, createTime, languageCode, name,
-         pubsubNotificationSettings, updateTime;
+         pubsubNotificationSettings, redactionConfig, updateTime;
 @end
 
 
@@ -1694,6 +2326,27 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationMetadata
+@dynamic analysisOperation, appliedRedactionConfig, createTime, endTime,
+         request;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest
+@dynamic conversation, conversationId, parent, redactionConfig;
 @end
 
 

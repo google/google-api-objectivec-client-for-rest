@@ -23,6 +23,7 @@
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBooleanFunction;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBooleanParameterArray;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBuganizerNotification;
+@class GTLRIntegrations_EnterpriseCrmEventbusProtoCloudKmsConfig;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoCloudSchedulerConfig;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoCombinedCondition;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoCondition;
@@ -145,6 +146,7 @@
 @class GTLRIntegrations_GoogleCloudConnectorsV1LockConfig;
 @class GTLRIntegrations_GoogleCloudConnectorsV1NodeConfig;
 @class GTLRIntegrations_GoogleCloudConnectorsV1Secret;
+@class GTLRIntegrations_GoogleCloudConnectorsV1SslConfig;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaAccessToken;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaAttemptStats;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaAuthConfig;
@@ -153,8 +155,10 @@
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCertificate;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaClientCertificate;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCloudSchedulerConfig;
+@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCredential;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaDoubleParameterArray;
+@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaEventParameter;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest_InputParameters;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse_OutputParameters;
@@ -1430,6 +1434,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoS
 // ----------------------------------------------------------------------------
 // GTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo.status
 
+/** Value: "CANCELED" */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Canceled;
 /** Value: "LIFTED" */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Lifted;
 /** Value: "PENDING_UNSPECIFIED" */
@@ -1620,6 +1626,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoT
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_Hidden;
 /** Value: "SCRIPTING" */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_Scripting;
+/**
+ *  Category to show task recommendations
+ *
+ *  Value: "TASK_RECOMMENDATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_TaskRecommendations;
 /** Value: "UNSPECIFIED_CATEGORY" */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_UnspecifiedCategory;
 
@@ -2235,6 +2247,28 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEvent
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoParamSpecEntry_DataType_StringValue;
 
 // ----------------------------------------------------------------------------
+// GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig.externalTaskType
+
+/**
+ *  Task belongs to the error catch task flows
+ *
+ *  Value: "ERROR_TASK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_ErrorTask;
+/**
+ *  Default value. External task type is not specified
+ *
+ *  Value: "EXTERNAL_TASK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_ExternalTaskTypeUnspecified;
+/**
+ *  Tasks belongs to the normal task flows
+ *
+ *  Value: "NORMAL_TASK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_NormalTask;
+
+// ----------------------------------------------------------------------------
 // GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig.jsonValidationOption
 
 /**
@@ -2722,6 +2756,13 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1Auth
  */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Active;
 /**
+ *  Connection is not running due to an auth error for the Oauth2 Auth Code
+ *  based connector.
+ *
+ *  Value: "AUTHORIZATION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_AuthorizationRequired;
+/**
  *  Connection is being created.
  *
  *  Value: "CREATING"
@@ -2757,6 +2798,82 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1Conn
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.clientCertType
+
+/**
+ *  Cert type unspecified.
+ *
+ *  Value: "CERT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ClientCertType_CertTypeUnspecified;
+/**
+ *  Privacy Enhanced Mail (PEM) Type
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ClientCertType_Pem;
+
+// ----------------------------------------------------------------------------
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.serverCertType
+
+/**
+ *  Cert type unspecified.
+ *
+ *  Value: "CERT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ServerCertType_CertTypeUnspecified;
+/**
+ *  Privacy Enhanced Mail (PEM) Type
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ServerCertType_Pem;
+
+// ----------------------------------------------------------------------------
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.trustModel
+
+/**
+ *  Insecure Trust Model. Accept all certificates.
+ *
+ *  Value: "INSECURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Insecure;
+/**
+ *  Private Trust Model. Takes custom/private trust store.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Private;
+/**
+ *  Public Trust Model. Takes the Default Java trust store.
+ *
+ *  Value: "PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Public;
+
+// ----------------------------------------------------------------------------
+// GTLRIntegrations_GoogleCloudConnectorsV1SslConfig.type
+
+/**
+ *  mutual TLS (MTLS) Handshake
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_Mtls;
+/**
+ *  No SSL configuration required.
+ *
+ *  Value: "SSL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_SslTypeUnspecified;
+/**
+ *  TLS Handshake
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_Tls;
 
 // ----------------------------------------------------------------------------
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaAuthConfig.credentialType
@@ -3786,6 +3903,28 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1al
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaSuspension_State_ResolutionStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig.externalTaskType
+
+/**
+ *  Task belongs to the error catch task flows
+ *
+ *  Value: "ERROR_TASK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_ErrorTask;
+/**
+ *  Default value. External task type is not specified
+ *
+ *  Value: "EXTERNAL_TASK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_ExternalTaskTypeUnspecified;
+/**
+ *  Tasks belongs to the normal task flows
+ *
+ *  Value: "NORMAL_TASK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_NormalTask;
+
+// ----------------------------------------------------------------------------
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig.jsonValidationOption
 
 /**
@@ -4585,6 +4724,47 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** Title of the issue to be created. Required. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GTLRIntegrations_EnterpriseCrmEventbusProtoCloudKmsConfig
+ */
+@interface GTLRIntegrations_EnterpriseCrmEventbusProtoCloudKmsConfig : GTLRObject
+
+/**
+ *  Optional. The id of GCP project where the KMS key is stored. If not
+ *  provided, assume the key is stored in the same GCP project defined in Client
+ *  (tag 14).
+ */
+@property(nonatomic, copy, nullable) NSString *gcpProjectId;
+
+/**
+ *  A Cloud KMS key is a named object containing one or more key versions, along
+ *  with metadata for the key. A key exists on exactly one key ring tied to a
+ *  specific location.
+ */
+@property(nonatomic, copy, nullable) NSString *keyName;
+
+/**
+ *  A key ring organizes keys in a specific Google Cloud location and allows you
+ *  to manage access control on groups of keys. A key ring's name does not need
+ *  to be unique across a Google Cloud project, but must be unique within a
+ *  given location.
+ */
+@property(nonatomic, copy, nullable) NSString *keyRingName;
+
+/**
+ *  Optional. Each version of a key contains key material used for encryption or
+ *  signing. A key's version is represented by an integer, starting at 1. To
+ *  decrypt data or verify a signature, you must use the same key version that
+ *  was used to encrypt or sign the data.
+ */
+@property(nonatomic, copy, nullable) NSString *keyVersionName;
+
+/** Location name of the key ring, e.g. "us-west1". */
+@property(nonatomic, copy, nullable) NSString *locationName;
 
 @end
 
@@ -6650,8 +6830,22 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 @property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfoAudit *audit;
 
+/** The event data user sends as request. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** KMS info, used by cmek/gmek integration */
+@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoCloudKmsConfig *cloudKmsConfig;
+
 /** Auto-generated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createdTimestamp;
+
+/**
+ *  Encrypted SuspensionResolutionInfo
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encryptedSuspensionResolutionInfo;
 
 /** Required. ID of the associated execution. */
 @property(nonatomic, copy, nullable) NSString *eventExecutionInfoId;
@@ -6682,6 +6876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  status
  *
  *  Likely values:
+ *    @arg @c kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Canceled
+ *        Value "CANCELED"
  *    @arg @c kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_Lifted
  *        Value "LIFTED"
  *    @arg @c kGTLRIntegrations_EnterpriseCrmEventbusProtoSuspensionResolutionInfo_Status_PendingUnspecified
@@ -6701,6 +6897,14 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** Required. The name of the originating workflow. */
 @property(nonatomic, copy, nullable) NSString *workflowName;
+
+/**
+ *  Wrapped dek
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *wrappedDek;
 
 @end
 
@@ -6954,6 +7158,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *        "HIDDEN")
  *    @arg @c kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_Scripting
  *        Value "SCRIPTING"
+ *    @arg @c kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_TaskRecommendations
+ *        Category to show task recommendations (Value: "TASK_RECOMMENDATIONS")
  *    @arg @c kGTLRIntegrations_EnterpriseCrmEventbusProtoTaskMetadata_Category_UnspecifiedCategory
  *        Value "UNSPECIFIED_CATEGORY"
  */
@@ -8373,6 +8579,26 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @property(nonatomic, strong, nullable) NSNumber *disableStrictTypeValidation;
 
 /**
+ *  Optional Error catcher id of the error catch flow which will be executed
+ *  when execution error happens in the task
+ */
+@property(nonatomic, copy, nullable) NSString *errorCatcherId;
+
+/**
+ *  externalTaskType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_ErrorTask
+ *        Task belongs to the error catch task flows (Value: "ERROR_TASK")
+ *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_ExternalTaskTypeUnspecified
+ *        Default value. External task type is not specified (Value:
+ *        "EXTERNAL_TASK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTaskConfig_ExternalTaskType_NormalTask
+ *        Tasks belongs to the normal task flows (Value: "NORMAL_TASK")
+ */
+@property(nonatomic, copy, nullable) NSString *externalTaskType;
+
+/**
  *  Optional. Determines the number of times the task will be retried on failure
  *  and with what retry strategy. This is applicable for asynchronous calls to
  *  Eventbus alone (Post To Queue, Schedule etc.).
@@ -8595,7 +8821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Configuration detail of a trigger. Next available id: 17
+ *  Configuration detail of a trigger. Next available id: 19
  */
 @interface GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig : GTLRObject
 
@@ -8626,6 +8852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  enabled client.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledClients;
+
+/**
+ *  Optional Error catcher id of the error catch flow which will be executed
+ *  when execution error happens in the task
+ */
+@property(nonatomic, copy, nullable) NSString *errorCatcherId;
 
 /** The user created label for a particular trigger. */
 @property(nonatomic, copy, nullable) NSString *label;
@@ -9285,6 +9517,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  */
 @property(nonatomic, copy, nullable) NSString *serviceDirectory;
 
+/** Optional. Ssl config of a connection */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1SslConfig *sslConfig;
+
 /** Output only. Current status of the connection. */
 @property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus *status;
 
@@ -9333,6 +9568,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  Likely values:
  *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Active
  *        Connection is running and ready for requests. (Value: "ACTIVE")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_AuthorizationRequired
+ *        Connection is not running due to an auth error for the Oauth2 Auth
+ *        Code based connector. (Value: "AUTHORIZATION_REQUIRED")
  *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Creating
  *        Connection is being created. (Value: "CREATING")
  *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1ConnectionStatus_State_Deleting
@@ -9445,6 +9683,89 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  * /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *secretVersion;
+
+@end
+
+
+/**
+ *  SSL Configuration of a connection
+ */
+@interface GTLRIntegrations_GoogleCloudConnectorsV1SslConfig : GTLRObject
+
+/** Additional SSL related field values */
+@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_GoogleCloudConnectorsV1ConfigVariable *> *additionalVariables;
+
+/** Client Certificate */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1Secret *clientCertificate;
+
+/**
+ *  Type of Client Cert (PEM/JKS/.. etc.)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ClientCertType_CertTypeUnspecified
+ *        Cert type unspecified. (Value: "CERT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ClientCertType_Pem
+ *        Privacy Enhanced Mail (PEM) Type (Value: "PEM")
+ */
+@property(nonatomic, copy, nullable) NSString *clientCertType;
+
+/** Client Private Key */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1Secret *clientPrivateKey;
+
+/** Secret containing the passphrase protecting the Client Private Key */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1Secret *clientPrivateKeyPass;
+
+/**
+ *  Private Server Certificate. Needs to be specified if trust model is
+ *  `PRIVATE`.
+ */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1Secret *privateServerCertificate;
+
+/**
+ *  Type of Server Cert (PEM/JKS/.. etc.)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ServerCertType_CertTypeUnspecified
+ *        Cert type unspecified. (Value: "CERT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_ServerCertType_Pem
+ *        Privacy Enhanced Mail (PEM) Type (Value: "PEM")
+ */
+@property(nonatomic, copy, nullable) NSString *serverCertType;
+
+/**
+ *  Trust Model of the SSL connection
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Insecure
+ *        Insecure Trust Model. Accept all certificates. (Value: "INSECURE")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Private
+ *        Private Trust Model. Takes custom/private trust store. (Value:
+ *        "PRIVATE")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_TrustModel_Public
+ *        Public Trust Model. Takes the Default Java trust store. (Value:
+ *        "PUBLIC")
+ */
+@property(nonatomic, copy, nullable) NSString *trustModel;
+
+/**
+ *  Controls the ssl type for the given connector version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_Mtls
+ *        mutual TLS (MTLS) Handshake (Value: "MTLS")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_SslTypeUnspecified
+ *        No SSL configuration required. (Value: "SSL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRIntegrations_GoogleCloudConnectorsV1SslConfig_Type_Tls TLS
+ *        Handshake (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Bool for enabling SSL
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useSsl;
 
 @end
 
@@ -9852,6 +10173,28 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
+ *  Configuration detail of coordinate, it used for UI
+ */
+@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate : GTLRObject
+
+/**
+ *  Required. X axis of the coordinate
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Required. Y axis of the coordinate
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
  *  Request for CreateAppsScriptProject rpc call.
  */
 @interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest : GTLRObject
@@ -9983,6 +10326,52 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** All regions where Connector Platform is provisioned. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+@end
+
+
+/**
+ *  Configuration detail of a error catch task
+ */
+@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig : GTLRObject
+
+/**
+ *  Optional. User-provided description intended to give more business context
+ *  about the error catcher config.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. An error catcher id is string representation for the error catcher
+ *  config. Within a workflow, error_catcher_id uniquely identifies an error
+ *  catcher config among all error catcher configs for the workflow
+ */
+@property(nonatomic, copy, nullable) NSString *errorCatcherId;
+
+/**
+ *  Required. A number to uniquely identify each error catcher config within the
+ *  workflow on UI.
+ */
+@property(nonatomic, copy, nullable) NSString *errorCatcherNumber;
+
+/**
+ *  Optional. The user created label for a particular error catcher. Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Optional. Informs the front-end application where to draw this error catcher
+ *  config on the UI.
+ */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate *position;
+
+/**
+ *  Required. The set of start tasks that are to be executed for the error catch
+ *  flow
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_GoogleCloudIntegrationsV1alphaNextTask *> *startErrorTasks;
 
 @end
 
@@ -10725,6 +11114,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Error Catch Task configuration for the IntegrationTemplateVersion.
+ *  It's optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig *> *errorCatcherConfigs;
+
+/**
  *  Optional. The last modifier's email address. Generated based on the End User
  *  Credentials/LOAS role of the user making the call.
  */
@@ -10836,6 +11231,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Error Catch Task configuration for the integration. It's optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_GoogleCloudIntegrationsV1alphaErrorCatcherConfig *> *errorCatcherConfigs;
+
+/**
  *  Optional. Parameters that are expected to be passed to the integration when
  *  an event is triggered. This consists of all the parameters that are expected
  *  in the integration execution. This gives the user the ability to provide
@@ -10893,6 +11293,13 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  integration_version.
  */
 @property(nonatomic, copy, nullable) NSString *parentTemplateId;
+
+/**
+ *  Optional. The run-as service account email, if set and auth config is not
+ *  configured, that will be used to generate auth token to be used in Connector
+ *  task, Rest caller task and Cloud function task.
+ */
+@property(nonatomic, copy, nullable) NSString *runAsServiceAccount;
 
 /**
  *  Optional. An increasing sequence that is set when a new snapshot is created.
@@ -12127,6 +12534,26 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Optional Error catcher id of the error catch flow which will be
+ *  executed when execution error happens in the task
+ */
+@property(nonatomic, copy, nullable) NSString *errorCatcherId;
+
+/**
+ *  Optional. External task type of the task
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_ErrorTask
+ *        Task belongs to the error catch task flows (Value: "ERROR_TASK")
+ *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_ExternalTaskTypeUnspecified
+ *        Default value. External task type is not specified (Value:
+ *        "EXTERNAL_TASK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_ExternalTaskType_NormalTask
+ *        Tasks belongs to the normal task flows (Value: "NORMAL_TASK")
+ */
+@property(nonatomic, copy, nullable) NSString *externalTaskType;
+
+/**
  *  Optional. Determines the number of times the task will be retried on failure
  *  and with what retry strategy. This is applicable for asynchronous calls to
  *  Eventbus alone (Post To Queue, Schedule etc.).
@@ -12182,6 +12609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** Optional. The customized parameters the user can pass to this task. */
 @property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaTaskConfig_Parameters *parameters;
+
+/**
+ *  Optional. Informs the front-end application where to draw this error catcher
+ *  config on the UI.
+ */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate *position;
 
 /**
  *  Optional. Determines what action to take upon successful task completion.
@@ -12334,6 +12767,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Optional. Optional Error catcher id of the error catch flow which will be
+ *  executed when execution error happens in the task
+ */
+@property(nonatomic, copy, nullable) NSString *errorCatcherId;
+
 /** Optional. The user created label for a particular trigger. */
 @property(nonatomic, copy, nullable) NSString *label;
 
@@ -12351,6 +12790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *        (Value: "RUN_FIRST_MATCH")
  */
 @property(nonatomic, copy, nullable) NSString *nextTasksExecutionPolicy;
+
+/**
+ *  Optional. Informs the front-end application where to draw this error catcher
+ *  config on the UI.
+ */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaCoordinate *position;
 
 /**
  *  Optional. Configurable properties of the trigger, not to be confused with

@@ -225,6 +225,20 @@ NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_
 NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_PromotionPromotionStatusDestinationStatus_Status_Stopped = @"STOPPED";
 
+// GTLRShoppingContent_RecommendationCreative.type
+NSString * const kGTLRShoppingContent_RecommendationCreative_Type_CreativeTypeUnspecified = @"CREATIVE_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RecommendationCreative_Type_Photo = @"PHOTO";
+NSString * const kGTLRShoppingContent_RecommendationCreative_Type_Video = @"VIDEO";
+
+// GTLRShoppingContent_RecommendationDescription.type
+NSString * const kGTLRShoppingContent_RecommendationDescription_Type_DescriptionTypeUnspecified = @"DESCRIPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Long = @"LONG";
+NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Short = @"SHORT";
+
+// GTLRShoppingContent_ReportInteractionRequest.interactionType
+NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick = @"INTERACTION_CLICK";
+NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionTypeUnspecified = @"INTERACTION_TYPE_UNSPECIFIED";
+
 // GTLRShoppingContent_RepricingProductReport.type
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
@@ -1953,6 +1967,24 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails
 @dynamic cooldownTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_GenerateRecommendationsResponse
+//
+
+@implementation GTLRShoppingContent_GenerateRecommendationsResponse
+@dynamic recommendations, responseToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recommendations" : [GTLRShoppingContent_Recommendation class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -5422,6 +5454,58 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Recommendation
+//
+
+@implementation GTLRShoppingContent_Recommendation
+@dynamic additionalCallToAction, additionalDescriptions, creative,
+         defaultCallToAction, defaultDescription, numericalImpact, paid,
+         recommendationName, subType, title, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalCallToAction" : [GTLRShoppingContent_RecommendationCallToAction class],
+    @"additionalDescriptions" : [GTLRShoppingContent_RecommendationDescription class],
+    @"creative" : [GTLRShoppingContent_RecommendationCreative class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RecommendationCallToAction
+//
+
+@implementation GTLRShoppingContent_RecommendationCallToAction
+@dynamic intent, localizedText, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RecommendationCreative
+//
+
+@implementation GTLRShoppingContent_RecommendationCreative
+@dynamic type, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RecommendationDescription
+//
+
+@implementation GTLRShoppingContent_RecommendationDescription
+@dynamic text, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RefundReason
 //
 
@@ -5583,6 +5667,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange
 @dynamic begin, end;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReportInteractionRequest
+//
+
+@implementation GTLRShoppingContent_ReportInteractionRequest
+@dynamic interactionType, responseToken, subtype, type;
 @end
 
 

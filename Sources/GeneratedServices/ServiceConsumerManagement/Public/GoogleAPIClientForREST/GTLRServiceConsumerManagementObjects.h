@@ -37,6 +37,8 @@
 @class GTLRServiceConsumerManagement_Documentation;
 @class GTLRServiceConsumerManagement_DocumentationRule;
 @class GTLRServiceConsumerManagement_DotnetSettings;
+@class GTLRServiceConsumerManagement_DotnetSettings_RenamedResources;
+@class GTLRServiceConsumerManagement_DotnetSettings_RenamedServices;
 @class GTLRServiceConsumerManagement_Endpoint;
 @class GTLRServiceConsumerManagement_Enum;
 @class GTLRServiceConsumerManagement_EnumValue;
@@ -116,6 +118,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_Api.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Api_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -264,6 +272,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_CommonLanguage
 // ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_Enum.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -448,6 +462,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_LabelDescripto
 // ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_Method.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Method_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -834,6 +854,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_TenantResource
 // GTLRServiceConsumerManagement_Type.syntax
 
 /**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxEditions;
+/**
  *  Syntax `proto2`.
  *
  *  Value: "SYNTAX_PROTO2"
@@ -942,6 +968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  The source syntax of the service.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_Api_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceConsumerManagement_Api_Syntax_SyntaxProto2 Syntax
  *        `proto2`. (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceConsumerManagement_Api_Syntax_SyntaxProto3 Syntax
@@ -1471,7 +1499,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /** Settings for Ruby client libraries. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_RubySettings *rubySettings;
 
-/** Version of the API to apply these settings to. */
+/**
+ *  Version of the API to apply these settings to. This is the full protobuf
+ *  package for the API, ending in the version element. Examples:
+ *  "google.cloud.speech.v1" and "google.spanner.admin.database.v1".
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -1784,6 +1816,71 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
 
+/**
+ *  Namespaces which must be aliased in snippets due to a known (but
+ *  non-generator-predictable) naming collision
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forcedNamespaceAliases;
+
+/**
+ *  Method signatures (in the form "service.method(signature)") which are
+ *  provided separately, so shouldn't be generated. Snippets *calling* these
+ *  methods are still generated, however.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *handwrittenSignatures;
+
+/**
+ *  List of full resource types to ignore during generation. This is typically
+ *  used for API-specific Location resources, which should be handled by the
+ *  generator as if they were actually the common Location resources. Example
+ *  entry: "documentai.googleapis.com/Location"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredResources;
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_DotnetSettings_RenamedResources *renamedResources;
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_DotnetSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceConsumerManagement_DotnetSettings_RenamedResources : GTLRObject
+@end
+
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceConsumerManagement_DotnetSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -1853,6 +1950,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_Enum : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** Enum value definitions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_EnumValue *> *enumvalue;
 
@@ -1869,6 +1969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto2 Syntax
  *        `proto2`. (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceConsumerManagement_Enum_Syntax_SyntaxProto3 Syntax
@@ -2573,6 +2675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  The source syntax of this method.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_Method_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto2 Syntax
  *        `proto2`. (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto3 Syntax
@@ -2592,7 +2696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
- *  publishing: method_behavior: - selector: CreateAdDomain long_running:
+ *  publishing: method_settings: - selector:
+ *  google.cloud.speech.v2.Speech.BatchRecognize long_running:
  *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
  *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
  *  # 90 minutes
@@ -2938,7 +3043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inheriting
+ *  processor will see the effective `Storage.GetAcl` method after inherting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -3411,7 +3516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_MethodSettings *> *methodSettings;
 
 /**
- *  Link to a place that API users can report issues. Example:
+ *  Link to a *public* URI where users can report issues. Example:
  *  https://issuetracker.google.com/issues/new?component=190865&template=1161103
  */
 @property(nonatomic, copy, nullable) NSString *newIssueUri NS_RETURNS_NOT_RETAINED;
@@ -4134,6 +4239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_Type : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** The list of fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Field *> *fields;
 
@@ -4153,6 +4261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_Type_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto2 Syntax
  *        `proto2`. (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 Syntax
@@ -4342,7 +4452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  If this map is nonempty, then this policy applies only to specific values
- *  for dimensions defined in the limit unit. For example, an policy on a limit
+ *  for dimensions defined in the limit unit. For example, a policy on a limit
  *  with the unit 1/{project}/{region} could contain an entry with the key
  *  "region" and the value "us-east-1"; the policy is only applied to quota
  *  consumed in that region. This map has the following restrictions: * Keys
@@ -4391,7 +4501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  If this map is nonempty, then this policy applies only to specific values
- *  for dimensions defined in the limit unit. For example, an policy on a limit
+ *  for dimensions defined in the limit unit. For example, a policy on a limit
  *  with the unit 1/{project}/{region} could contain an entry with the key
  *  "region" and the value "us-east-1"; the policy is only applied to quota
  *  consumed in that region. This map has the following restrictions: * Keys

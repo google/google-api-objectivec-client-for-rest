@@ -689,14 +689,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: run.projects.locations.operations.list
  *
@@ -733,14 +726,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRun_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name Required. To query for all of the operations for a project.
  *
@@ -1038,9 +1024,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesPatch : GTLRCloudRunQuery
 
 /**
- *  If set to true, and if the Service does not exist, it will create a new one.
- *  Caller must have both create and update permissions for this call if this is
- *  set to true.
+ *  This field is currently not used by Cloud Run; setting it does not have any
+ *  effect.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 

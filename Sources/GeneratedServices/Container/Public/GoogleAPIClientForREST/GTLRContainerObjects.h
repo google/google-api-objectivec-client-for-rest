@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRContainer_AcceleratorConfig;
+@class GTLRContainer_AdditionalPodRangesConfig;
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AdvancedMachineFeatures;
 @class GTLRContainer_AuthenticatorGroupsConfig;
@@ -45,6 +46,7 @@
 @class GTLRContainer_EphemeralStorageLocalSsdConfig;
 @class GTLRContainer_FastSocket;
 @class GTLRContainer_Filter;
+@class GTLRContainer_Fleet;
 @class GTLRContainer_GatewayAPIConfig;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
@@ -105,6 +107,7 @@
 @class GTLRContainer_Operation;
 @class GTLRContainer_OperationProgress;
 @class GTLRContainer_PlacementPolicy;
+@class GTLRContainer_PodCIDROverprovisionConfig;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
 @class GTLRContainer_PubSub;
@@ -346,7 +349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathP
 // GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
 
 /**
- *  Enables priate IPv6 access to and from Google Services
+ *  Enables private IPv6 access to and from Google Services
  *
  *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL"
  */
@@ -751,7 +754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider
 // GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
 
 /**
- *  Enables priate IPv6 access to and from Google Services
+ *  Enables private IPv6 access to and from Google Services
  *
  *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL"
  */
@@ -1537,8 +1540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_Surge
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod;
 /**
- *  IN_USE_SERVICE denotes that this range is claimed by a cluster for services.
- *  It cannot be used for other clusters.
+ *  IN_USE_SERVICE denotes that this range is claimed by cluster(s) for
+ *  services. User-managed services range can be shared between clusters within
+ *  the same subnetwork.
  *
  *  Value: "IN_USE_SERVICE"
  */
@@ -1640,6 +1644,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The configuration for GPU sharing options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GPUSharingConfig *gpuSharingConfig;
 
+@end
+
+
+/**
+ *  AdditionalPodRangesConfig is the configuration for additional pod secondary
+ *  ranges supporting the ClusterUpdate message.
+ */
+@interface GTLRContainer_AdditionalPodRangesConfig : GTLRObject
 @end
 
 
@@ -2184,6 +2196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *expireTime;
 
+/** Fleet information for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_Fleet *fleet;
+
 /**
  *  Output only. Unique id for the cluster.
  *
@@ -2536,6 +2551,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_ClusterUpdate : GTLRObject
 
+/**
+ *  The additional pod ranges to be added to the cluster. These pod ranges can
+ *  be used by node pools to allocate pod IPs.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *additionalPodRangesConfig;
+
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
@@ -2712,7 +2733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional
- *        Enables priate IPv6 access to and from Google Services (Value:
+ *        Enables private IPv6 access to and from Google Services (Value:
  *        "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL")
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled
  *        No private access to or from Google Services (Value:
@@ -2769,6 +2790,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The additional pod ranges that are to be removed from the cluster. The pod
+ *  ranges specified here must have been specified earlier in the
+ *  'additional_pod_ranges_config' argument.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *removedAdditionalPodRangesConfig;
 
 @end
 
@@ -3137,6 +3165,35 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Fleet is the fleet configuration for the cluster.
+ */
+@interface GTLRContainer_Fleet : GTLRObject
+
+/**
+ *  [Output only] The full resource name of the registered fleet membership of
+ *  the cluster, in the format `//gkehub.googleapis.com/projects/ * /locations/
+ *  * /memberships/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *membership;
+
+/**
+ *  [Output only] Whether the cluster has been registered through the fleet API.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preRegistered;
+
+/**
+ *  The Fleet host project(project ID or project number) where this cluster will
+ *  be registered to. This field cannot be changed after the cluster has been
+ *  registered.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+@end
+
+
+/**
  *  GatewayAPIConfig contains the desired config of Gateway API on this cluster.
  */
 @interface GTLRContainer_GatewayAPIConfig : GTLRObject
@@ -3414,6 +3471,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_IPAllocationPolicy : GTLRObject
 
+/**
+ *  Output only. [Output only] The additional pod ranges that are added to the
+ *  cluster. These pod ranges can be used by new node pools to allocate pod IPs
+ *  automatically. Once the range is removed it will not show up in
+ *  IPAllocationPolicy.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *additionalPodRangesConfig;
+
 /** This field is deprecated, use cluster_ipv4_cidr_block. */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
@@ -3472,6 +3537,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
  */
 @property(nonatomic, copy, nullable) NSString *nodeIpv4CidrBlock;
+
+/**
+ *  [PRIVATE FIELD] Pod CIDR size overprovisioning config for the cluster. Pod
+ *  CIDR size per node depends on max_pods_per_node. By default, the value of
+ *  max_pods_per_node is doubled and then rounded off to next power of 2 to get
+ *  the size of pod CIDR block per node. Example: max_pods_per_node of 30 would
+ *  result in 64 IPs (/26). This config can disable the doubling of IPs (we
+ *  still round off to next power of 2) Example: max_pods_per_node of 30 will
+ *  result in 32 IPs (/27) when overprovisioning is disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PodCIDROverprovisionConfig *podCidrOverprovisionConfig;
 
 /** This field is deprecated, use services_ipv4_cidr_block. */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
@@ -4171,7 +4247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional
- *        Enables priate IPv6 access to and from Google Services (Value:
+ *        Enables private IPv6 access to and from Google Services (Value:
  *        "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL")
  *    @arg @c kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled
  *        No private access to or from Google Services (Value:
@@ -4707,6 +4783,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPerformanceConfig *networkPerformanceConfig;
 
 /**
+ *  [PRIVATE FIELD] Pod CIDR size overprovisioning config for the nodepool. Pod
+ *  CIDR size per node depends on max_pods_per_node. By default, the value of
+ *  max_pods_per_node is rounded off to next power of 2 and we then double that
+ *  to get the size of pod CIDR block per node. Example: max_pods_per_node of 30
+ *  would result in 64 IPs (/26). This config can disable the doubling of IPs
+ *  (we still round off to next power of 2) Example: max_pods_per_node of 30
+ *  will result in 32 IPs (/27) when overprovisioning is disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PodCIDROverprovisionConfig *podCidrOverprovisionConfig;
+
+/**
  *  The IP address range for pod IPs in this node pool. Only applicable if
  *  `create_pod_range` is true. Set to blank to have a range chosen with the
  *  default size. Set to /netmask (e.g. `/14`) to have a range chosen with a
@@ -5230,6 +5317,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  [PRIVATE FIELD] Config for pod CIDR size overprovisioning.
+ */
+@interface GTLRContainer_PodCIDROverprovisionConfig : GTLRObject
+
+/**
+ *  Whether Pod CIDR overprovisioning is disabled. Note: Pod CIDR
+ *  overprovisioning is enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disable;
 
 @end
 
@@ -7061,9 +7164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        claimed for pods. It cannot be used for other clusters. (Value:
  *        "IN_USE_MANAGED_POD")
  *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService
- *        IN_USE_SERVICE denotes that this range is claimed by a cluster for
- *        services. It cannot be used for other clusters. (Value:
- *        "IN_USE_SERVICE")
+ *        IN_USE_SERVICE denotes that this range is claimed by cluster(s) for
+ *        services. User-managed services range can be shared between clusters
+ *        within the same subnetwork. (Value: "IN_USE_SERVICE")
  *    @arg @c kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod
  *        IN_USE_SHAREABLE_POD denotes this range was created by the network
  *        admin and is currently claimed by a cluster for pods. It can only be

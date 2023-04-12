@@ -125,6 +125,160 @@
 
 @end
 
+@implementation GTLRPlaydeveloperreportingQuery_VitalsErrorsCountsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRPlaydeveloperreportingQuery_VitalsErrorsCountsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorCountMetricSet class];
+  query.loggingName = @"playdeveloperreporting.vitals.errors.counts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsErrorsCountsQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:query";
+  GTLRPlaydeveloperreportingQuery_VitalsErrorsCountsQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.errors.counts.query";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsErrorsIssuesSearch
+
+@dynamic filter, intervalEndTimeDay, intervalEndTimeHours,
+         intervalEndTimeMinutes, intervalEndTimeMonth, intervalEndTimeNanos,
+         intervalEndTimeSeconds, intervalEndTimeTimeZoneId,
+         intervalEndTimeTimeZoneVersion, intervalEndTimeUtcOffset,
+         intervalEndTimeYear, intervalStartTimeDay, intervalStartTimeHours,
+         intervalStartTimeMinutes, intervalStartTimeMonth,
+         intervalStartTimeNanos, intervalStartTimeSeconds,
+         intervalStartTimeTimeZoneId, intervalStartTimeTimeZoneVersion,
+         intervalStartTimeUtcOffset, intervalStartTimeYear, pageSize, pageToken,
+         parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"intervalEndTimeDay" : @"interval.endTime.day",
+    @"intervalEndTimeHours" : @"interval.endTime.hours",
+    @"intervalEndTimeMinutes" : @"interval.endTime.minutes",
+    @"intervalEndTimeMonth" : @"interval.endTime.month",
+    @"intervalEndTimeNanos" : @"interval.endTime.nanos",
+    @"intervalEndTimeSeconds" : @"interval.endTime.seconds",
+    @"intervalEndTimeTimeZoneId" : @"interval.endTime.timeZone.id",
+    @"intervalEndTimeTimeZoneVersion" : @"interval.endTime.timeZone.version",
+    @"intervalEndTimeUtcOffset" : @"interval.endTime.utcOffset",
+    @"intervalEndTimeYear" : @"interval.endTime.year",
+    @"intervalStartTimeDay" : @"interval.startTime.day",
+    @"intervalStartTimeHours" : @"interval.startTime.hours",
+    @"intervalStartTimeMinutes" : @"interval.startTime.minutes",
+    @"intervalStartTimeMonth" : @"interval.startTime.month",
+    @"intervalStartTimeNanos" : @"interval.startTime.nanos",
+    @"intervalStartTimeSeconds" : @"interval.startTime.seconds",
+    @"intervalStartTimeTimeZoneId" : @"interval.startTime.timeZone.id",
+    @"intervalStartTimeTimeZoneVersion" : @"interval.startTime.timeZone.version",
+    @"intervalStartTimeUtcOffset" : @"interval.startTime.utcOffset",
+    @"intervalStartTimeYear" : @"interval.startTime.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/errorIssues:search";
+  GTLRPlaydeveloperreportingQuery_VitalsErrorsIssuesSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchErrorIssuesResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.errors.issues.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsErrorsReportsSearch
+
+@dynamic filter, intervalEndTimeDay, intervalEndTimeHours,
+         intervalEndTimeMinutes, intervalEndTimeMonth, intervalEndTimeNanos,
+         intervalEndTimeSeconds, intervalEndTimeTimeZoneId,
+         intervalEndTimeTimeZoneVersion, intervalEndTimeUtcOffset,
+         intervalEndTimeYear, intervalStartTimeDay, intervalStartTimeHours,
+         intervalStartTimeMinutes, intervalStartTimeMonth,
+         intervalStartTimeNanos, intervalStartTimeSeconds,
+         intervalStartTimeTimeZoneId, intervalStartTimeTimeZoneVersion,
+         intervalStartTimeUtcOffset, intervalStartTimeYear, pageSize, pageToken,
+         parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"intervalEndTimeDay" : @"interval.endTime.day",
+    @"intervalEndTimeHours" : @"interval.endTime.hours",
+    @"intervalEndTimeMinutes" : @"interval.endTime.minutes",
+    @"intervalEndTimeMonth" : @"interval.endTime.month",
+    @"intervalEndTimeNanos" : @"interval.endTime.nanos",
+    @"intervalEndTimeSeconds" : @"interval.endTime.seconds",
+    @"intervalEndTimeTimeZoneId" : @"interval.endTime.timeZone.id",
+    @"intervalEndTimeTimeZoneVersion" : @"interval.endTime.timeZone.version",
+    @"intervalEndTimeUtcOffset" : @"interval.endTime.utcOffset",
+    @"intervalEndTimeYear" : @"interval.endTime.year",
+    @"intervalStartTimeDay" : @"interval.startTime.day",
+    @"intervalStartTimeHours" : @"interval.startTime.hours",
+    @"intervalStartTimeMinutes" : @"interval.startTime.minutes",
+    @"intervalStartTimeMonth" : @"interval.startTime.month",
+    @"intervalStartTimeNanos" : @"interval.startTime.nanos",
+    @"intervalStartTimeSeconds" : @"interval.startTime.seconds",
+    @"intervalStartTimeTimeZoneId" : @"interval.startTime.timeZone.id",
+    @"intervalStartTimeTimeZoneVersion" : @"interval.startTime.timeZone.version",
+    @"intervalStartTimeUtcOffset" : @"interval.startTime.utcOffset",
+    @"intervalStartTimeYear" : @"interval.startTime.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/errorReports:search";
+  GTLRPlaydeveloperreportingQuery_VitalsErrorsReportsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchErrorReportsResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.errors.reports.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRPlaydeveloperreportingQuery_VitalsExcessivewakeuprateGet
 
 @dynamic name;
@@ -166,6 +320,98 @@
   query.name = name;
   query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse class];
   query.loggingName = @"playdeveloperreporting.vitals.excessivewakeuprate.query";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsSlowrenderingrateGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRPlaydeveloperreportingQuery_VitalsSlowrenderingrateGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SlowRenderingRateMetricSet class];
+  query.loggingName = @"playdeveloperreporting.vitals.slowrenderingrate.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsSlowrenderingrateQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:query";
+  GTLRPlaydeveloperreportingQuery_VitalsSlowrenderingrateQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.slowrenderingrate.query";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsSlowstartrateGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRPlaydeveloperreportingQuery_VitalsSlowstartrateGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SlowStartRateMetricSet class];
+  query.loggingName = @"playdeveloperreporting.vitals.slowstartrate.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsSlowstartrateQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:query";
+  GTLRPlaydeveloperreportingQuery_VitalsSlowstartrateQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.slowstartrate.query";
   return query;
 }
 

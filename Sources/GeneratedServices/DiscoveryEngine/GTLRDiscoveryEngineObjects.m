@@ -178,6 +178,30 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema
+@dynamic jsonSchema, name, structSchema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource
 //
 
@@ -538,6 +562,30 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema
+@dynamic jsonSchema, name, structSchema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema_StructSchema
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema_StructSchema
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

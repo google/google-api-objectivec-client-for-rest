@@ -143,6 +143,18 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare_L
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare_Location_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare_Location_Unspecified = @"UNSPECIFIED";
 
+// GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction.targetingDimension
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_AgeRange = @"AGE_RANGE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Audience = @"AUDIENCE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Gender = @"GENDER";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_IncomeRange = @"INCOME_RANGE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Keyword = @"KEYWORD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_ParentalStatus = @"PARENTAL_STATUS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Placement = @"PLACEMENT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Topic = @"TOPIC";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction_TargetingDimension_Unspecified = @"UNSPECIFIED";
+
 // GTLRSA360_GoogleAdsSearchads360V0CommonWebpageConditionInfo.operand
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonWebpageConditionInfo_Operand_Category = @"CATEGORY";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonWebpageConditionInfo_Operand_CustomLabel = @"CUSTOM_LABEL";
@@ -298,7 +310,6 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_Un
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.quotaError
-NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_AccessProhibited = @"ACCESS_PROHIBITED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_ResourceExhausted = @"RESOURCE_EXHAUSTED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_ResourceTemporarilyExhausted = @"RESOURCE_TEMPORARILY_EXHAUSTED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_Unknown = @"UNKNOWN";
@@ -345,11 +356,59 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails_RateS
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails_RateScope_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails_RateScope_Unspecified = @"UNSPECIFIED";
 
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAd.type
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppAd = @"APP_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppEngagementAd = @"APP_ENGAGEMENT_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_AppPreRegistrationAd = @"APP_PRE_REGISTRATION_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_CallOnlyAd = @"CALL_ONLY_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DiscoveryCarouselAd = @"DISCOVERY_CAROUSEL_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DiscoveryMultiAssetAd = @"DISCOVERY_MULTI_ASSET_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_DynamicHtml5Ad = @"DYNAMIC_HTML5_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ExpandedDynamicSearchAd = @"EXPANDED_DYNAMIC_SEARCH_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ExpandedTextAd = @"EXPANDED_TEXT_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_GmailAd = @"GMAIL_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_HotelAd = @"HOTEL_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Html5UploadAd = @"HTML5_UPLOAD_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ImageAd = @"IMAGE_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LegacyAppInstallAd = @"LEGACY_APP_INSTALL_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LegacyResponsiveDisplayAd = @"LEGACY_RESPONSIVE_DISPLAY_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LocalAd = @"LOCAL_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveDisplayAd = @"RESPONSIVE_DISPLAY_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveSearchAd = @"RESPONSIVE_SEARCH_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingComparisonListingAd = @"SHOPPING_COMPARISON_LISTING_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingProductAd = @"SHOPPING_PRODUCT_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ShoppingSmartAd = @"SHOPPING_SMART_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_SmartCampaignAd = @"SMART_CAMPAIGN_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_TextAd = @"TEXT_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_TravelAd = @"TRAVEL_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoAd = @"VIDEO_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoBumperAd = @"VIDEO_BUMPER_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoNonSkippableInStreamAd = @"VIDEO_NON_SKIPPABLE_IN_STREAM_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoOutstreamAd = @"VIDEO_OUTSTREAM_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoResponsiveAd = @"VIDEO_RESPONSIVE_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoTrueviewDiscoveryAd = @"VIDEO_TRUEVIEW_DISCOVERY_AD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_VideoTrueviewInStreamAd = @"VIDEO_TRUEVIEW_IN_STREAM_AD";
+
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup.adRotationMode
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_AdRotationMode_Optimize = @"OPTIMIZE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_AdRotationMode_RotateForever = @"ROTATE_FOREVER";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_AdRotationMode_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_AdRotationMode_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup.engineStatus
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AccountPaused = @"ACCOUNT_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupDraft = @"AD_GROUP_DRAFT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupEligible = @"AD_GROUP_ELIGIBLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupExpired = @"AD_GROUP_EXPIRED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupPaused = @"AD_GROUP_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupRemoved = @"AD_GROUP_REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupServing = @"AD_GROUP_SERVING";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupSubmitted = @"AD_GROUP_SUBMITTED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_CampaignPaused = @"CAMPAIGN_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup.status
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Status_Enabled = @"ENABLED";
@@ -369,6 +428,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_Shoppin
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_ShoppingShowcaseAds = @"SHOPPING_SHOWCASE_ADS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_ShoppingSmartAds = @"SHOPPING_SMART_ADS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_SmartCampaignAds = @"SMART_CAMPAIGN_ADS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_TravelAds = @"TRAVEL_ADS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_VideoBumper = @"VIDEO_BUMPER";
@@ -378,6 +438,34 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_VideoOu
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_VideoResponsive = @"VIDEO_RESPONSIVE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_VideoTrueViewInDisplay = @"VIDEO_TRUE_VIEW_IN_DISPLAY";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_Type_VideoTrueViewInStream = @"VIDEO_TRUE_VIEW_IN_STREAM";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd.engineStatus
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdAccountPaused = @"AD_GROUP_AD_ACCOUNT_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdAdGroupPaused = @"AD_GROUP_AD_AD_GROUP_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdApproved = @"AD_GROUP_AD_APPROVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdCampaignPaused = @"AD_GROUP_AD_CAMPAIGN_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdDisapproved = @"AD_GROUP_AD_DISAPPROVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdEligible = @"AD_GROUP_AD_ELIGIBLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdInappropriateForCampaign = @"AD_GROUP_AD_INAPPROPRIATE_FOR_CAMPAIGN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdMobileUrlUnderReview = @"AD_GROUP_AD_MOBILE_URL_UNDER_REVIEW";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdNotReviewed = @"AD_GROUP_AD_NOT_REVIEWED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdOnHold = @"AD_GROUP_AD_ON_HOLD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPartiallyInvalid = @"AD_GROUP_AD_PARTIALLY_INVALID";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPaused = @"AD_GROUP_AD_PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdPendingReview = @"AD_GROUP_AD_PENDING_REVIEW";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdRemoved = @"AD_GROUP_AD_REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdServing = @"AD_GROUP_AD_SERVING";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdToBeActivated = @"AD_GROUP_AD_TO_BE_ACTIVATED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdUnderReview = @"AD_GROUP_AD_UNDER_REVIEW";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd.status
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Enabled = @"ENABLED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Paused = @"PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Removed = @"REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_Status_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion.engineStatus
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_EngineStatus_AdGroupCriterionAccountPaused = @"AD_GROUP_CRITERION_ACCOUNT_PAUSED";
@@ -498,6 +586,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_Advertising
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_ShoppingComparisonListingAds = @"SHOPPING_COMPARISON_LISTING_ADS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_ShoppingSmartAds = @"SHOPPING_SMART_ADS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SmartCampaign = @"SMART_CAMPAIGN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_TravelActivities = @"TRAVEL_ACTIVITIES";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_VideoAction = @"VIDEO_ACTION";
@@ -517,6 +606,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_Advertising
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Search = @"SEARCH";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Shopping = @"SHOPPING";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Smart = @"SMART";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Travel = @"TRAVEL";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Video = @"VIDEO";
@@ -574,6 +664,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_BiddingStra
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign.excludedParentAssetFieldTypes
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_AdImage = @"AD_IMAGE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_BookOnGoogle = @"BOOK_ON_GOOGLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_BusinessLogo = @"BUSINESS_LOGO";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_BusinessName = @"BUSINESS_NAME";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Call = @"CALL";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Callout = @"CALLOUT";
@@ -581,6 +672,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedPar
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Description = @"DESCRIPTION";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Headline = @"HEADLINE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_HotelCallout = @"HOTEL_CALLOUT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_HotelProperty = @"HOTEL_PROPERTY";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_LandscapeLogo = @"LANDSCAPE_LOGO";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_LeadForm = @"LEAD_FORM";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Logo = @"LOGO";
@@ -628,6 +720,13 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Perio
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_FixedDaily = @"FIXED_DAILY";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion.status
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Enabled = @"ENABLED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Paused = @"PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Removed = @"REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Status_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion.type
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_AdSchedule = @"AD_SCHEDULE";
@@ -758,6 +857,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Typ
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UploadCalls = @"UPLOAD_CALLS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UploadClicks = @"UPLOAD_CLICKS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Webpage = @"WEBPAGE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_WebpageCodeless = @"WEBPAGE_CODELESS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_WebsiteCall = @"WEBSITE_CALL";
 
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttributionModelSettings.attributionModel
@@ -841,6 +941,12 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerManagerLink_
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerManagerLink_Status_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomerManagerLink_Status_Unspecified = @"UNSPECIFIED";
 
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel.status
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Enabled = @"ENABLED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Removed = @"REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unspecified = @"UNSPECIFIED";
+
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field.category
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_Category_Attribute = @"ATTRIBUTE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_Category_Metric = @"METRIC";
@@ -863,6 +969,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_Da
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_DataType_Uint64 = @"UINT64";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_DataType_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field_DataType_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList.type
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_CrmBased = @"CRM_BASED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_ExternalRemarketing = @"EXTERNAL_REMARKETING";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Logical = @"LOGICAL";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Remarketing = @"REMARKETING";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_RuleBased = @"RULE_BASED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Similar = @"SIMILAR";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request.summaryRowSetting
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request_SummaryRowSetting_NoSummaryRow = @"NO_SUMMARY_ROW";
@@ -1078,7 +1194,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
          searchRankLostImpressionShare, searchRankLostTopImpressionShare,
          searchTopImpressionShare, topImpressionPercentage,
          valuePerAllConversions, valuePerAllConversionsByConversionDate,
-         valuePerConversion, valuePerConversionsByConversionDate;
+         valuePerConversion, valuePerConversionsByConversionDate, visits;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1152,11 +1268,39 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0CommonTargetingSetting
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonTargetingSetting
+@dynamic targetRestrictions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetRestrictions" : [GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0CommonTargetOutrankShare
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0CommonTargetOutrankShare
 @dynamic cpcBidCeilingMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction
+@dynamic bidOnly, targetingDimension;
 @end
 
 
@@ -1177,6 +1321,31 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0CommonTargetSpend
 @dynamic cpcBidCeilingMicros, targetSpendMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel
+@dynamic backgroundColor, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo
+@dynamic userList;
 @end
 
 
@@ -1313,40 +1482,15 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAd
 //
 
-@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup
-@dynamic adRotationMode, cpcBidMicros, identifier, name, resourceName, status,
-         type;
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAd
+@dynamic displayUrl, finalUrls, identifier, name, resourceName, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier
-//
-
-@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier
-@dynamic bidModifier, resourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion
-//
-
-@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion
-@dynamic adGroup, ageRange, bidModifier, cpcBidMicros, criterionId,
-         effectiveCpcBidMicros, engineStatus, finalUrls, finalUrlSuffix, gender,
-         keyword, lastModifiedTime, listingGroup, qualityInfo, resourceName,
-         status, trackingUrlTemplate, type, webpage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1360,11 +1504,137 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup
+@dynamic adRotationMode, cpcBidMicros, creationTime, endDate, engineId,
+         engineStatus, identifier, labels, languageCode, lastModifiedTime, name,
+         resourceName, startDate, status, targetingSetting, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd
+@dynamic ad, creationTime, engineId, engineStatus, labels, lastModifiedTime,
+         resourceName, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel
+@dynamic adGroupAd, label, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAudienceView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAudienceView
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier
+@dynamic bidModifier, device, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion
+@dynamic adGroup, ageRange, bidModifier, cpcBidMicros, creationTime,
+         criterionId, effectiveCpcBidMicros, engineId, engineStatus, finalUrls,
+         finalUrlSuffix, gender, keyword, labels, lastModifiedTime,
+         listingGroup, location, negative, qualityInfo, resourceName, status,
+         trackingUrlTemplate, type, userList, webpage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"finalUrls" : [NSString class],
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel
+@dynamic adGroupCriterion, label, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo
 @dynamic qualityScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel
+@dynamic adGroup, label, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView
+@dynamic resourceName;
 @end
 
 
@@ -1395,7 +1665,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign
 @dynamic adServingOptimizationStatus, advertisingChannelSubType,
          advertisingChannelType, biddingStrategy, biddingStrategySystemStatus,
-         biddingStrategyType, campaignBudget, createTime,
+         biddingStrategyType, campaignBudget, createTime, creationTime,
          dynamicSearchAdsSetting, endDate, engineId,
          excludedParentAssetFieldTypes, finalUrlSuffix, frequencyCaps,
          geoTargetTypeSetting, identifier, labels, lastModifiedTime, manualCpa,
@@ -1426,6 +1696,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAudienceView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAudienceView
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget
 //
 
@@ -1440,8 +1720,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion
-@dynamic bidModifier, criterionId, device, displayName, language, location,
-         locationGroup, negative, resourceName, type;
+@dynamic ageRange, bidModifier, criterionId, device, displayName, gender,
+         keyword, language, lastModifiedTime, location, locationGroup, negative,
+         resourceName, status, type, userList, webpage;
 @end
 
 
@@ -1462,6 +1743,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignGeoTargetTypeSetting
 @dynamic negativeGeoTargetType, positiveGeoTargetType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel
+@dynamic campaign, label, resourceName;
 @end
 
 
@@ -1630,7 +1921,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer
 @dynamic accountStatus, accountType, autoTaggingEnabled,
-         conversionTrackingSetting, currencyCode, descriptiveName,
+         conversionTrackingSetting, creationTime, currencyCode, descriptiveName,
          doubleClickCampaignManagerSetting, engineId, finalUrlSuffix,
          identifier, lastModifiedTime, manager, resourceName, status, timeZone,
          trackingUrlTemplate;
@@ -1688,10 +1979,55 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesDynamicSearchAdsSearchTermView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesDynamicSearchAdsSearchTermView
+@dynamic landingPage, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesGenderView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesGenderView
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ResourcesKeywordView
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesKeywordView
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel
+@dynamic identifier, name, resourceName, status, textLabel;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView
 @dynamic resourceName;
 @end
 
@@ -1727,6 +2063,31 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList
+@dynamic identifier, name, resourceName, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView
+@dynamic resourceName;
 @end
 
 
@@ -1769,10 +2130,14 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row
-@dynamic adGroup, adGroupBidModifier, adGroupCriterion, biddingStrategy,
-         campaign, campaignBudget, campaignCriterion, conversionAction,
-         customColumns, customer, customerClient, customerManagerLink,
-         keywordView, metrics, productGroupView, segments;
+@dynamic adGroup, adGroupAd, adGroupAdLabel, adGroupAudienceView,
+         adGroupBidModifier, adGroupCriterion, adGroupCriterionLabel,
+         adGroupLabel, ageRangeView, biddingStrategy, campaign,
+         campaignAudienceView, campaignBudget, campaignCriterion, campaignLabel,
+         conversionAction, customColumns, customer, customerClient,
+         customerManagerLink, dynamicSearchAdsSearchTermView, genderView,
+         keywordView, label, locationView, metrics, productGroupView, segments,
+         userList, webpageView;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

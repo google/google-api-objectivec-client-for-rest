@@ -293,7 +293,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsUpdate
 
-@dynamic jobId, location, projectId;
+@dynamic jobId, location, projectId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId
@@ -724,7 +724,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsUpdate
 
-@dynamic jobId, location, projectId;
+@dynamic jobId, location, projectId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId

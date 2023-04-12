@@ -30,6 +30,7 @@
 @class GTLRServiceUsage_BillingDestination;
 @class GTLRServiceUsage_ClientLibrarySettings;
 @class GTLRServiceUsage_CommonLanguageSettings;
+@class GTLRServiceUsage_ConsumerPolicy_Annotations;
 @class GTLRServiceUsage_Context;
 @class GTLRServiceUsage_ContextRule;
 @class GTLRServiceUsage_Control;
@@ -40,7 +41,10 @@
 @class GTLRServiceUsage_Documentation;
 @class GTLRServiceUsage_DocumentationRule;
 @class GTLRServiceUsage_DotnetSettings;
+@class GTLRServiceUsage_DotnetSettings_RenamedResources;
+@class GTLRServiceUsage_DotnetSettings_RenamedServices;
 @class GTLRServiceUsage_EnableFailure;
+@class GTLRServiceUsage_EnableRule;
 @class GTLRServiceUsage_Endpoint;
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
@@ -112,6 +116,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Api.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -282,8 +292,48 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_DisableServiceRequest_Check
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Skip;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceUsage_EnableRule.enableType
+
+/**
+ *  Enable all clients under the CRM node specified by `ConsumerPolicy.name` to
+ *  use the listed services. A client can be an API key, an OAuth client, or a
+ *  service account.
+ *
+ *  Value: "CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_Client;
+/**
+ *  Unspecified enable type, which means enabled as both client and resource
+ *  project.
+ *
+ *  Value: "ENABLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_EnableTypeUnspecified;
+/**
+ *  Enable resources in the list services to be created and used under the CRM
+ *  node specified by the `ConsumerPolicy.name`.
+ *
+ *  Value: "RESOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_Resource;
+/**
+ *  Activation made by Service Usage v1 API. This will be how consumers
+ *  differentiate between policy changes made by v1 and v2 clients and
+ *  understand what is actually possible based on those different policies.
+ *
+ *  Value: "V1_COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_V1Compatible;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceUsage_Enum.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -525,6 +575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_S
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Method.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -871,6 +927,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Str
 // GTLRServiceUsage_Type.syntax
 
 /**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxEditions;
+/**
  *  Syntax `proto2`.
  *
  *  Value: "SYNTAX_PROTO2"
@@ -993,6 +1055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  The source syntax of the service.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Api_Syntax_SyntaxEditions Syntax `editions`.
+ *        (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceUsage_Api_Syntax_SyntaxProto2 Syntax `proto2`. (Value:
  *        "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceUsage_Api_Syntax_SyntaxProto3 Syntax `proto3`. (Value:
@@ -1532,7 +1596,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Settings for Ruby client libraries. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_RubySettings *rubySettings;
 
-/** Version of the API to apply these settings to. */
+/**
+ *  Version of the API to apply these settings to. This is the full protobuf
+ *  package for the API, ending in the version element. Examples:
+ *  "google.cloud.speech.v1" and "google.spanner.admin.database.v1".
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -1554,6 +1622,57 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri;
 
+@end
+
+
+/**
+ *  Consumer Policy is a set of rules that define what services or service
+ *  groups can be used for a cloud resource hierarchy.
+ */
+@interface GTLRServiceUsage_ConsumerPolicy : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ConsumerPolicy_Annotations *annotations;
+
+/** Enable rules define usable services and service groups. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_EnableRule *> *enableRules;
+
+/**
+ *  An opaque tag indicating the current version of the policy, used for
+ *  concurrency control.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the policy. For example,
+ *  `projects/12345/consumerPolicy`, `folders/12345/consumerPolicy`,
+ *  `organizations/12345/consumerPolicy`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_ConsumerPolicy_Annotations : GTLRObject
 @end
 
 
@@ -1881,6 +2000,71 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
 
+/**
+ *  Namespaces which must be aliased in snippets due to a known (but
+ *  non-generator-predictable) naming collision
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forcedNamespaceAliases;
+
+/**
+ *  Method signatures (in the form "service.method(signature)") which are
+ *  provided separately, so shouldn't be generated. Snippets *calling* these
+ *  methods are still generated, however.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *handwrittenSignatures;
+
+/**
+ *  List of full resource types to ignore during generation. This is typically
+ *  used for API-specific Location resources, which should be handled by the
+ *  generator as if they were actually the common Location resources. Example
+ *  entry: "documentai.googleapis.com/Location"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredResources;
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_DotnetSettings_RenamedResources *renamedResources;
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_DotnetSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_DotnetSettings_RenamedResources : GTLRObject
+@end
+
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_DotnetSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -1904,6 +2088,58 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** The service id of a service that could not be enabled. */
 @property(nonatomic, copy, nullable) NSString *serviceId;
+
+@end
+
+
+/**
+ *  The consumer policy rule that defines usable services and service groups.
+ */
+@interface GTLRServiceUsage_EnableRule : GTLRObject
+
+/**
+ *  Client and resource project enable type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_Client Enable all clients
+ *        under the CRM node specified by `ConsumerPolicy.name` to use the
+ *        listed services. A client can be an API key, an OAuth client, or a
+ *        service account. (Value: "CLIENT")
+ *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_EnableTypeUnspecified
+ *        Unspecified enable type, which means enabled as both client and
+ *        resource project. (Value: "ENABLE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_Resource Enable resources
+ *        in the list services to be created and used under the CRM node
+ *        specified by the `ConsumerPolicy.name`. (Value: "RESOURCE")
+ *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_V1Compatible Activation
+ *        made by Service Usage v1 API. This will be how consumers differentiate
+ *        between policy changes made by v1 and v2 clients and understand what
+ *        is actually possible based on those different policies. (Value:
+ *        "V1_COMPATIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *enableType;
+
+/**
+ *  DEPRECATED: Please use field `values`. Service group should have prefix
+ *  `groups/`. The names of the service groups that are enabled (Not
+ *  Implemented). go/predefined-service-groups. Example:
+ *  `groups/googleServices`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
+
+/**
+ *  DEPRECATED: Please use field `values`. Service should have prefix
+ *  `services/`. The names of the services that are enabled. Example:
+ *  `storage.googleapis.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
+/**
+ *  The names of the services or service groups that are enabled. Example:
+ *  `services/storage.googleapis.com`, groups/googleServices`,
+ *  groups/allServices`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -1984,6 +2220,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceUsage_Enum : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** Enum value definitions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_EnumValue *> *enumvalue;
 
@@ -2000,6 +2239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Enum_Syntax_SyntaxEditions Syntax `editions`.
+ *        (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceUsage_Enum_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceUsage_Enum_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -3120,6 +3361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  The source syntax of this method.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Method_Syntax_SyntaxEditions Syntax `editions`.
+ *        (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceUsage_Method_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceUsage_Method_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -3139,7 +3382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
- *  publishing: method_behavior: - selector: CreateAdDomain long_running:
+ *  publishing: method_settings: - selector:
+ *  google.cloud.speech.v2.Speech.BatchRecognize long_running:
  *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
  *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
  *  # 90 minutes
@@ -3484,7 +3728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inheriting
+ *  processor will see the effective `Storage.GetAcl` method after inherting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -3950,7 +4194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_MethodSettings *> *methodSettings;
 
 /**
- *  Link to a place that API users can report issues. Example:
+ *  Link to a *public* URI where users can report issues. Example:
  *  https://issuetracker.google.com/issues/new?component=190865&template=1161103
  */
 @property(nonatomic, copy, nullable) NSString *newIssueUri NS_RETURNS_NOT_RETAINED;
@@ -4428,6 +4672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceUsage_Type : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** The list of fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Field *> *fields;
 
@@ -4447,6 +4694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Type_Syntax_SyntaxEditions Syntax `editions`.
+ *        (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceUsage_Type_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceUsage_Type_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -4463,6 +4712,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  by UpdateAdminQuotaPolicy.
  */
 @interface GTLRServiceUsage_UpdateAdminQuotaPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the `UpdateConsumerPolicyLRO` method.
+ */
+@interface GTLRServiceUsage_UpdateConsumerPolicyLROMetadata : GTLRObject
 @end
 
 

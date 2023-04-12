@@ -28,6 +28,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaImportErrorsConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel;
@@ -41,6 +42,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaImportErrorsConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaModelServingConfigList;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaUserEventImportSummary;
@@ -131,6 +133,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink.state
+
+/**
+ *  Link is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Active;
+/**
+ *  Link creation failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Failed;
+/**
+ *  Link is created and LRO is not complete.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Pending;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2alphaModel.dataState
@@ -362,6 +392,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Attribute
  *  Value: "PRODUCT_LEVEL_ATTRIBUTE_CONFIG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink.state
+
+/**
+ *  Link is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Active;
+/**
+ *  Link creation failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Failed;
+/**
+ *  Link is created and LRO is not complete.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Pending;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2betaModel.dataState
@@ -1513,6 +1571,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Common metadata related to the progress of the operations.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaCreateMerchantCenterAccountLinkMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata associated with a create operation.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaCreateModelMetadata : GTLRObject
@@ -1721,6 +1796,113 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /** Aggregated statistics of user event import status. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary *importSummary;
+
+@end
+
+
+/**
+ *  Represents a link between a Merchant Center account and a branch. Once a
+ *  link is established, products from the linked merchant center account will
+ *  be streamed to the linked branch. LINT.IfChange(MerchantCenterAccountLink)
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink : GTLRObject
+
+/**
+ *  Required. The branch id (e.g. 0/1/2) within the catalog that products from
+ *  merchant_center_account_id are streamed to. When updating this field, an
+ *  empty value will use the currently configured default branch. However,
+ *  changing the default branch later on won't change the linked branch here. A
+ *  single branch id can only have one linked merchant center account id.
+ */
+@property(nonatomic, copy, nullable) NSString *branchId;
+
+/**
+ *  Criteria for the Merchant Center feeds to be ingested via the link. All
+ *  offers will be ingested if the list is empty. Otherwise the offers will be
+ *  ingested from selected feeds.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter *> *feedFilters;
+
+/**
+ *  The FeedLabel used to perform filtering. Note: this replaces
+ *  [region_id](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.feed_label).
+ *  Example value: `US`. Example value: `FeedLabel1`.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
+
+/**
+ *  Output only. Immutable. MerchantCenterAccountLink identifier, which is the
+ *  final component of name. This field is auto generated and follows the
+ *  convention: `BranchId_MerchantCenterAccountId`. `projects/ *
+ *  /locations/global/catalogs/default_catalog/merchantCenterAccountLinks/id_1`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Language of the title/description and other string attributes. Use language
+ *  tags defined by [BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). ISO
+ *  639-1. This specifies the language of offers in Merchant Center that will be
+ *  accepted. If empty, no language filtering will be performed. Example value:
+ *  `en`.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The linked [Merchant center account
+ *  id](https://developers.google.com/shopping-content/guides/accountstatuses).
+ *  The account must be a standalone account or a sub-account of a MCA.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantCenterAccountId;
+
+/**
+ *  Output only. Immutable. Full resource name of the Merchant Center Account
+ *  Link, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/merchantCenterAccountLinks/merchant_center_account_link`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. GCP project ID. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. Represents the state of the link.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Active
+ *        Link is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Failed
+ *        Link creation failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Pending
+ *        Link is created and LRO is not complete. (Value: "PENDING")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Merchant Center Feed filter criterion.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLinkMerchantCenterFeedFilter : GTLRObject
+
+/**
+ *  Merchant Center primary feed ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primaryFeedId;
+
+/**
+ *  Merchant Center primary feed name. The name is used for the display purposes
+ *  only.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryFeedName;
 
 @end
 
@@ -2436,6 +2618,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Common metadata related to the progress of the operations.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaCreateMerchantCenterAccountLinkMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata associated with a create operation.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaCreateModelMetadata : GTLRObject
@@ -2641,6 +2840,113 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /** Aggregated statistics of user event import status. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaUserEventImportSummary *importSummary;
+
+@end
+
+
+/**
+ *  Represents a link between a Merchant Center account and a branch. Once a
+ *  link is established, products from the linked merchant center account will
+ *  be streamed to the linked branch. LINT.IfChange(MerchantCenterAccountLink)
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink : GTLRObject
+
+/**
+ *  Required. The branch id (e.g. 0/1/2) within the catalog that products from
+ *  merchant_center_account_id are streamed to. When updating this field, an
+ *  empty value will use the currently configured default branch. However,
+ *  changing the default branch later on won't change the linked branch here. A
+ *  single branch id can only have one linked merchant center account id.
+ */
+@property(nonatomic, copy, nullable) NSString *branchId;
+
+/**
+ *  Criteria for the Merchant Center feeds to be ingested via the link. All
+ *  offers will be ingested if the list is empty. Otherwise the offers will be
+ *  ingested from selected feeds.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter *> *feedFilters;
+
+/**
+ *  The FeedLabel used to perform filtering. Note: this replaces
+ *  [region_id](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.feed_label).
+ *  Example value: `US`. Example value: `FeedLabel1`.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
+
+/**
+ *  Output only. Immutable. MerchantCenterAccountLink identifier, which is the
+ *  final component of name. This field is auto generated and follows the
+ *  convention: `BranchId_MerchantCenterAccountId`. `projects/ *
+ *  /locations/global/catalogs/default_catalog/merchantCenterAccountLinks/id_1`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Language of the title/description and other string attributes. Use language
+ *  tags defined by [BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). ISO
+ *  639-1. This specifies the language of offers in Merchant Center that will be
+ *  accepted. If empty, no language filtering will be performed. Example value:
+ *  `en`.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The linked [Merchant center account
+ *  id](https://developers.google.com/shopping-content/guides/accountstatuses).
+ *  The account must be a standalone account or a sub-account of a MCA.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantCenterAccountId;
+
+/**
+ *  Output only. Immutable. Full resource name of the Merchant Center Account
+ *  Link, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/merchantCenterAccountLinks/merchant_center_account_link`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. GCP project ID. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. Represents the state of the link.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Active
+ *        Link is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Failed
+ *        Link creation failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Pending
+ *        Link is created and LRO is not complete. (Value: "PENDING")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Merchant Center Feed filter criterion.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter : GTLRObject
+
+/**
+ *  Merchant Center primary feed ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primaryFeedId;
+
+/**
+ *  Merchant Center primary feed name. The name is used for the display purposes
+ *  only.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryFeedName;
 
 @end
 
@@ -4468,9 +4774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  "DELETED" regardless of filter choices. If `filterSyntaxV2` is set to true
  *  under the `params` field, then attribute-based expressions are expected
  *  instead of the above described tag-based syntax. Examples: * (colors:
- *  ANY("Red", "Blue")) AND NOT (categories: ANY("Phones")) * (brands:
- *  ANY("Pixel")) AND (colors: ANY("Red") OR categories: ANY("Phones")) For more
- *  information, see [Filter
+ *  ANY("Red", "Blue")) AND NOT (categories: ANY("Phones")) * (availability:
+ *  ANY("IN_STOCK")) AND (colors: ANY("Red") OR categories: ANY("Phones")) For
+ *  more information, see [Filter
  *  recommendations](https://cloud.google.com/retail/docs/filter-recs).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -4980,9 +5286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /**
  *  Output only. A list of local inventories specific to different places. This
- *  is only available for users who have Retail Search enabled, and it can be
- *  managed by ProductService.AddLocalInventories and
- *  ProductService.RemoveLocalInventories APIs.
+ *  field can be managed by ProductService.AddLocalInventories and
+ *  ProductService.RemoveLocalInventories APIs if fine-grained, high-volume
+ *  updates are necessary.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2LocalInventory *> *localInventories;
 
@@ -5932,8 +6238,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec *dynamicFacetSpec;
 
 /**
+ *  The entity for customers that may run multiple different entities, domains,
+ *  sites or regions, for example, "Google US", "Google Ads", "Waymo",
+ *  "google.com", "youtube.com", etc. If this is set, it should be exactly
+ *  matched with UserEvent.entity to get search results boosted by entity.
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
+
+/**
  *  Facet specifications for faceted search. If empty, no facets are returned. A
- *  maximum of 100 values are allowed. Otherwise, an INVALID_ARGUMENT error is
+ *  maximum of 200 values are allowed. Otherwise, an INVALID_ARGUMENT error is
  *  returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpec *> *facetSpecs;
@@ -6307,9 +6621,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contains;
 
 /**
- *  Set only if values should be bucketized into intervals. Must be set for
- *  facets with numerical values. Must not be set for facet with text values.
- *  Maximum number of intervals is 30.
+ *  For all numerical facet keys that appear in the list of products from the
+ *  catalog, the percentiles 0, 10, 30, 50, 70, 90 and 100 are computed from
+ *  their distribution weekly. If the model assigns a high score to a numerical
+ *  facet key and its intervals are not specified in the search request, these
+ *  percentiles will become the bounds for its intervals and will be returned in
+ *  the response. If the facet key intervals are specified in the request, then
+ *  the specified intervals will be returned instead.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Interval *> *intervals;
 
@@ -7125,6 +7443,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  clicks a suggestion for search.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompletionDetail *completionDetail;
+
+/**
+ *  The entity for customers that may run multiple different entities, domains,
+ *  sites or regions, for example, "Google US", "Google Ads", "Waymo",
+ *  "google.com", "youtube.com", etc. It is recommended to set this field to get
+ *  better per-entity search, completion and prediction results.
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Only required for UserEventService.ImportUserEvents method. Timestamp of

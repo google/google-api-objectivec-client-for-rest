@@ -305,14 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.operations.list
  *
@@ -337,14 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRRecommendationsAI_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -884,14 +870,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: recommendationengine.projects.locations.catalogs.operations.list
  *
@@ -916,14 +895,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRRecommendationsAI_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

@@ -2350,7 +2350,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcastStatistics
-@dynamic concurrentViewers, totalChatCount;
+@dynamic concurrentViewers;
 @end
 
 

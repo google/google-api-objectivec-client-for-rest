@@ -1098,6 +1098,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** Output only. Create a time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. The firmware version for the instance. */
+@property(nonatomic, copy, nullable) NSString *firmwareVersion;
+
 /**
  *  True if you enable hyperthreading for the server, otherwise false. The
  *  default value is false.
@@ -1752,6 +1755,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Output only. Instances this Lun is attached to. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 /**
  *  The LUN multiprotocol type ensures the characteristics of the LUN are
@@ -2564,8 +2570,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @interface GTLRBareMetalSolution_RenameInstanceRequest : GTLRObject
 
-/** Required. The new `name` of the instance. Format: {instancename} */
-@property(nonatomic, copy, nullable) NSString *newName NS_RETURNS_NOT_RETAINED;
+/** Required. The new `id` of the instance. */
+@property(nonatomic, copy, nullable) NSString *newInstanceId NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Message requesting rename of a server.
+ */
+@interface GTLRBareMetalSolution_RenameNetworkRequest : GTLRObject
+
+/** Required. The new `id` of the network. */
+@property(nonatomic, copy, nullable) NSString *newNetworkId NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Message requesting rename of a server.
+ */
+@interface GTLRBareMetalSolution_RenameNfsShareRequest : GTLRObject
+
+/** Required. The new `id` of the nfsshare. */
+@property(nonatomic, copy, nullable) NSString *newNfsshareId NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Message requesting rename of a server.
+ */
+@interface GTLRBareMetalSolution_RenameVolumeRequest : GTLRObject
+
+/** Required. The new `id` of the volume. */
+@property(nonatomic, copy, nullable) NSString *newVolumeId NS_RETURNS_NOT_RETAINED;
 
 @end
 
@@ -2811,6 +2850,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @interface GTLRBareMetalSolution_Volume : GTLRObject
 
 /**
+ *  Output only. Is the Volume attached at at least one instance. This field is
+ *  a lightweight counterpart of `instances` field. It is filled in List
+ *  responses as well.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attached;
+
+/**
  *  The size, in GiB, that this storage volume has expanded as a result of an
  *  auto grow policy. In the absence of auto-grow, the value is 0.
  *
@@ -2855,6 +2903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. Instances this Volume is attached to. This field is set only in
+ *  Get requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_Volume_Labels *labels;

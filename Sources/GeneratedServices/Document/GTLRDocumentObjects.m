@@ -272,6 +272,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Del
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deployed = @"DEPLOYED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deploying = @"DEPLOYING";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Importing = @"IMPORTING";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeployed = @"UNDEPLOYED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying = @"UNDEPLOYING";
@@ -284,6 +285,43 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Rejected = @"REJECTED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Succeeded = @"SUCCEEDED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadata
+@dynamic commonMetadata, individualAutoLabelStatuses, totalDocumentCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"individualAutoLabelStatuses" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus
+@dynamic gcsUri, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsResponse
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -2407,6 +2445,26 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus
 @dynamic humanReviewOperation, state, stateMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3ImportProcessorVersionMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3ImportProcessorVersionMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3ImportProcessorVersionResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3ImportProcessorVersionResponse
+@dynamic processorVersion;
 @end
 
 

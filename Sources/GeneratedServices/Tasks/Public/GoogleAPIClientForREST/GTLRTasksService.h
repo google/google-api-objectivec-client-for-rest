@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tasks API (tasks/v1)
+//   Google Tasks API (tasks/v1)
 // Description:
 //   The Google Tasks API lets you manage your tasks and task lists.
 // Documentation:
@@ -42,7 +42,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTasksReadonly;
 //
 
 /**
- *  Service for executing Tasks API queries.
+ *  Service for executing Google Tasks API queries.
  *
  *  The Google Tasks API lets you manage your tasks and task lists.
  */

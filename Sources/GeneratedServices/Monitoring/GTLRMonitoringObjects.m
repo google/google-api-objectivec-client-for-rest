@@ -257,8 +257,9 @@ NSString * const kGTLRMonitoring_TimeSeries_ValueType_String   = @"STRING";
 NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
 // GTLRMonitoring_Type.syntax
-NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
-NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
+NSString * const kGTLRMonitoring_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
+NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
+NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3";
 
 // GTLRMonitoring_UptimeCheckConfig.checkerType
 NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_CheckerTypeUnspecified = @"CHECKER_TYPE_UNSPECIFIED";
@@ -359,7 +360,15 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_AlertStrategy
-@dynamic autoClose, notificationRateLimit;
+@dynamic autoClose, notificationChannelStrategy, notificationRateLimit;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notificationChannelStrategy" : [GTLRMonitoring_NotificationChannelStrategy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1620,6 +1629,24 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_NotificationChannelStrategy
+//
+
+@implementation GTLRMonitoring_NotificationChannelStrategy
+@dynamic notificationChannelNames, renotifyInterval;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notificationChannelNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_NotificationRateLimit
 //
 
@@ -2033,7 +2060,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Type
-@dynamic fields, name, oneofs, options, sourceContext, syntax;
+@dynamic edition, fields, name, oneofs, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -91,7 +91,21 @@
 //
 
 @implementation GTLRPagespeedInsights_Environment
-@dynamic benchmarkIndex, hostUserAgent, networkUserAgent;
+@dynamic benchmarkIndex, credits, hostUserAgent, networkUserAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedInsights_Environment_Credits
+//
+
+@implementation GTLRPagespeedInsights_Environment_Credits
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -102,6 +116,24 @@
 
 @implementation GTLRPagespeedInsights_I18n
 @dynamic rendererFormattedStrings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedInsights_LhrEntity
+//
+
+@implementation GTLRPagespeedInsights_LhrEntity
+@dynamic category, homepage, isFirstParty, isUnrecognized, name, origins;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"origins" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -173,12 +205,14 @@
 //
 
 @implementation GTLRPagespeedInsights_LighthouseResultV5
-@dynamic audits, categories, categoryGroups, configSettings, environment,
-         fetchTime, finalUrl, i18n, lighthouseVersion, requestedUrl,
-         runtimeError, runWarnings, stackPacks, timing, userAgent;
+@dynamic audits, categories, categoryGroups, configSettings, entities,
+         environment, fetchTime, finalDisplayedUrl, finalUrl,
+         fullPageScreenshot, i18n, lighthouseVersion, mainDocumentUrl,
+         requestedUrl, runtimeError, runWarnings, stackPacks, timing, userAgent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"entities" : [GTLRPagespeedInsights_LhrEntity class],
     @"runWarnings" : [NSObject class],
     @"stackPacks" : [GTLRPagespeedInsights_StackPack class]
   };

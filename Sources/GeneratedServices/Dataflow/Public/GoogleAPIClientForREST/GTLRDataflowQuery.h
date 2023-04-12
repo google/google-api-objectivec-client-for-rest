@@ -116,7 +116,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageWarni
 // view
 
 /**
- *  Request all information available for this job.
+ *  Request all information available for this job. When the job is in
+ *  `JOB_STATE_PENDING`, the job has been created but is not yet running, and
+ *  not all job information is available. For complete job information, wait
+ *  until the job in is `JOB_STATE_RUNNING`. For more information, see
+ *  [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
  *
  *  Value: "JOB_VIEW_ALL"
  */
@@ -271,7 +275,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -334,7 +343,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -479,7 +493,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -638,7 +657,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -842,6 +866,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
+ *  The list of fields to update relative to Job. If empty, only
+ *  RequestedJobState will be considered for update. If the FieldMask is not
+ *  empty and RequestedJobState is none/empty, The fields specified in the
+ *  update mask will be the only ones considered for update. If both
+ *  RequestedJobState and update_mask are specified, we will first handle
+ *  RequestedJobState and then the update_mask fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Updates the state of an existing Cloud Dataflow job. To update the state of
@@ -1025,7 +1061,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -1196,7 +1237,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -1427,7 +1473,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        Project ID, Job ID, job name, job type, job status, start/end time,
  *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
  *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
- *        this job. (Value: "JOB_VIEW_ALL")
+ *        this job. When the job is in `JOB_STATE_PENDING`, the job has been
+ *        created but is not yet running, and not all job information is
+ *        available. For complete job information, wait until the job in is
+ *        `JOB_STATE_RUNNING`. For more information, see
+ *        [JobState](https://cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.jobs#jobstate).
+ *        (Value: "JOB_VIEW_ALL")
  *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
@@ -1756,6 +1807,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /** The ID of the Cloud Platform project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The list of fields to update relative to Job. If empty, only
+ *  RequestedJobState will be considered for update. If the FieldMask is not
+ *  empty and RequestedJobState is none/empty, The fields specified in the
+ *  update mask will be the only ones considered for update. If both
+ *  RequestedJobState and update_mask are specified, we will first handle
+ *  RequestedJobState and then the update_mask fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.

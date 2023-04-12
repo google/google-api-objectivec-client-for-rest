@@ -191,7 +191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Optional. The maximum number of spaces to return. The service may return
  *  fewer than this value. If unspecified, at most 100 spaces are returned. The
  *  maximum value is 1000; values above 1000 are coerced to 1000. Negative
- *  values return an INVALID_ARGUMENT error.
+ *  values return an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -316,8 +316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous list memberships call. Provide this
- *  to retrieve the subsequent page. When paginating, all other parameters
+ *  A page token, received from a previous call to list memberships. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
  *  provided should match the call that provided the page token. Passing
  *  different values to the other parameters may lead to unexpected results.
  */

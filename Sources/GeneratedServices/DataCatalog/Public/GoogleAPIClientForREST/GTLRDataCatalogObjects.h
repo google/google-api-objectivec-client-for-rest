@@ -23,6 +23,9 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryRoutineSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableInstanceSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableInstanceSpecCloudBigtableClusterSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
@@ -67,6 +70,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ServiceSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps;
@@ -75,6 +79,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Tag_Fields;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagFieldEnumValue;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TaggedEntry;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy;
@@ -237,9 +242,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Colu
 /**
  *  Parameter.
  *
- *  Value: "PAREMETER"
+ *  Value: "PARAMETER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Parameter;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
@@ -295,11 +300,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Bigquery;
 /**
+ *  Cloud Bigtable
+ *
+ *  Value: "CLOUD_BIGTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudBigtable;
+/**
  *  Cloud Pub/Sub.
  *
  *  Value: "CLOUD_PUBSUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub;
+/**
+ *  Cloud Spanner
+ *
+ *  Value: "CLOUD_SPANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudSpanner;
 /**
  *  Cloud Sql
  *
@@ -363,11 +380,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Bigquery;
 /**
+ *  Cloud Bigtable
+ *
+ *  Value: "CLOUD_BIGTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudBigtable;
+/**
  *  Cloud Pub/Sub.
  *
  *  Value: "CLOUD_PUBSUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub;
+/**
+ *  Cloud Spanner
+ *
+ *  Value: "CLOUD_SPANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudSpanner;
 /**
  *  Cloud Sql
  *
@@ -667,11 +696,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Rout
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Bigquery;
 /**
+ *  Cloud Bigtable
+ *
+ *  Value: "CLOUD_BIGTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudBigtable;
+/**
  *  Cloud Pub/Sub.
  *
  *  Value: "CLOUD_PUBSUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub;
+/**
+ *  Cloud Spanner
+ *
+ *  Value: "CLOUD_SPANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudSpanner;
 /**
  *  Cloud Sql
  *
@@ -1072,6 +1113,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Specification that applies to Instance entries that are part of
+ *  `CLOUD_BIGTABLE` system. (user_specified_type)
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableInstanceSpec : GTLRObject
+
+/** The list of clusters for the Instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableInstanceSpecCloudBigtableClusterSpec *> *cloudBigtableClusterSpecs;
+
+@end
+
+
+/**
+ *  Spec that applies to clusters of an Instance of Cloud Bigtable.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableInstanceSpecCloudBigtableClusterSpec : GTLRObject
+
+/** Name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** A link back to the parent resource, in this case Instance. */
+@property(nonatomic, copy, nullable) NSString *linkedResource;
+
+/** Location of the cluster, typically a Cloud zone. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Type of the resource. For a cluster this would be "CLUSTER". */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Specification that applies to all entries that are part of `CLOUD_BIGTABLE`
+ *  system (user_specified_type)
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableSystemSpec : GTLRObject
+
+/**
+ *  Display name of the Instance. This is user specified and different from the
+ *  resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceDisplayName;
+
+@end
+
+
+/**
  *  Specification for the BigQuery connection to a Cloud SQL instance.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec : GTLRObject
@@ -1193,8 +1281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Unspecified. (Value: "LOOKER_COLUMN_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure
  *        Measure. (Value: "MEASURE")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter
- *        Parameter. (Value: "PAREMETER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Parameter
+ *        Parameter. (Value: "PARAMETER")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1340,8 +1428,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Bigquery
  *        BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudBigtable
+ *        Cloud Bigtable (Value: "CLOUD_BIGTABLE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudSpanner
+ *        Cloud Spanner (Value: "CLOUD_SPANNER")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudSql
  *        Cloud Sql (Value: "CLOUD_SQL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Dataplex
@@ -1469,6 +1561,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Wrapper for any item that can be contained in the dump.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DumpItem : GTLRObject
+
+/** Entry and its tags. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TaggedEntry *taggedEntry;
+
+@end
+
+
+/**
  *  Entry metadata. A Data Catalog entry represents another resource in Google
  *  Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic) or outside of
  *  it. You can use the `linked_resource` field in the entry resource to refer
@@ -1494,6 +1597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** Business Context of the entry. Not supported for BigQuery datasets */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext *businessContext;
+
+/**
+ *  Specification that applies to Cloud Bigtable system. Only settable when
+ *  `integrated_system` is equal to `CLOUD_BIGTABLE`
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableSystemSpec *cloudBigtableSystemSpec;
 
 /**
  *  Specification that applies to a table resource. Valid only for entries with
@@ -1559,8 +1668,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Bigquery
  *        BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudBigtable
+ *        Cloud Bigtable (Value: "CLOUD_BIGTABLE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudSpanner
+ *        Cloud Spanner (Value: "CLOUD_SPANNER")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudSql
  *        Cloud Sql (Value: "CLOUD_SQL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Dataplex
@@ -1622,6 +1735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** Schema of the entry. An entry might not have any schema attached to it. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Schema *schema;
+
+/** Specification that applies to a Service resource. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ServiceSpec *serviceSpec;
 
 /**
  *  Timestamps from the underlying resource, not from the Data Catalog entry.
@@ -2785,8 +2901,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Bigquery
  *        BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudBigtable
+ *        Cloud Bigtable (Value: "CLOUD_BIGTABLE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudSpanner
+ *        Cloud Spanner (Value: "CLOUD_SPANNER")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudSql
  *        Cloud Sql (Value: "CLOUD_SQL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Dataplex
@@ -2904,6 +3024,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** Top level policy tags associated with the taxonomy, if any. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag *> *policyTags;
+
+@end
+
+
+/**
+ *  Specification that applies to a Service resource. Valid only for entries
+ *  with the `SERVICE` type.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ServiceSpec : GTLRObject
+
+/**
+ *  Specification that applies to Instance entries of `CLOUD_BIGTABLE` system.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableInstanceSpec *cloudBigtableInstanceSpec;
 
 @end
 
@@ -3141,6 +3275,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** The display name of the enum value. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  Wrapper containing Entry and information about Tags that should and should
+ *  not be attached to it.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TaggedEntry : GTLRObject
+
+/**
+ *  Optional. Tags that should be deleted from the Data Catalog. Caller should
+ *  populate template name and column only.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *absentTags;
+
+/**
+ *  Optional. Tags that should be ingested into the Data Catalog. Caller should
+ *  populate template name, column and fields.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *presentTags;
+
+/** Non-encrypted Data Catalog v1 Entry. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Entry *v1Entry;
 
 @end
 

@@ -574,6 +574,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/DataLabeling/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/DataLabeling/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Datalineage' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Datalineage/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Datalineage/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Datapipelines' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Datapipelines/**/*.{h,m}'
@@ -718,6 +723,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Firebaseappcheck/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Firebaseappcheck/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'FirebaseAppDistribution' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/FirebaseAppDistribution/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/FirebaseAppDistribution/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'FirebaseCloudMessaging' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -908,6 +918,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/ManufacturerCenter/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/ManufacturerCenter/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'MigrationCenterAPI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/MigrationCenterAPI/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/MigrationCenterAPI/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Monitoring' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

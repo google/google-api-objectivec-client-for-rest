@@ -363,6 +363,35 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbo
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_MailOptions.clientSideEncryptedOption
+
+/**
+ *  Include both client-side encrypted and unencrypted content in results.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny;
+/**
+ *  Include client-side encrypted content only.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionEncrypted;
+/**
+ *  Include unencrypted content only.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted;
+/**
+ *  Encryption status unspecified. Results include both client-side encrypted
+ *  and non-encrypted content.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_Matter.state
 
 /**
@@ -1708,6 +1737,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Additional options for Gmail search
  */
 @interface GTLRVault_MailOptions : GTLRObject
+
+/**
+ *  Specifies whether the results should include encrypted content, unencrypted
+ *  content, or both. Defaults to including both.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny
+ *        Include both client-side encrypted and unencrypted content in results.
+ *        (Value: "CLIENT_SIDE_ENCRYPTED_OPTION_ANY")
+ *    @arg @c kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionEncrypted
+ *        Include client-side encrypted content only. (Value:
+ *        "CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED")
+ *    @arg @c kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted
+ *        Include unencrypted content only. (Value:
+ *        "CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED")
+ *    @arg @c kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified
+ *        Encryption status unspecified. Results include both client-side
+ *        encrypted and non-encrypted content. (Value:
+ *        "CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clientSideEncryptedOption;
 
 /**
  *  Set to **true** to exclude drafts.

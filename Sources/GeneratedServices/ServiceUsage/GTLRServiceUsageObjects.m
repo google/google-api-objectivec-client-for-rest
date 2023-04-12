@@ -16,8 +16,9 @@
 // Constants
 
 // GTLRServiceUsage_Api.syntax
-NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
-NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
+NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
+NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
+NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3";
 
 // GTLRServiceUsage_BackendRule.pathTranslation
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress = @"APPEND_PATH_TO_ADDRESS";
@@ -44,9 +45,16 @@ NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_
 NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_CheckIfServiceHasUsageUnspecified = @"CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED";
 NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Skip = @"SKIP";
 
+// GTLRServiceUsage_EnableRule.enableType
+NSString * const kGTLRServiceUsage_EnableRule_EnableType_Client = @"CLIENT";
+NSString * const kGTLRServiceUsage_EnableRule_EnableType_EnableTypeUnspecified = @"ENABLE_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_EnableRule_EnableType_Resource = @"RESOURCE";
+NSString * const kGTLRServiceUsage_EnableRule_EnableType_V1Compatible = @"V1_COMPATIBLE";
+
 // GTLRServiceUsage_Enum.syntax
-NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
-NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
+NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
+NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
+NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3";
 
 // GTLRServiceUsage_Field.cardinality
 NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityOptional = @"CARDINALITY_OPTIONAL";
@@ -94,8 +102,9 @@ NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Int64 = @"INT64";
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_String = @"STRING";
 
 // GTLRServiceUsage_Method.syntax
-NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
-NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
+NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
+NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto2  = @"SYNTAX_PROTO2";
+NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto3  = @"SYNTAX_PROTO3";
 
 // GTLRServiceUsage_MetricDescriptor.launchStage
 NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -150,8 +159,9 @@ NSString * const kGTLRServiceUsage_Publishing_Organization_Photos = @"PHOTOS";
 NSString * const kGTLRServiceUsage_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceUsage_Type.syntax
-NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
-NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
+NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
+NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
+NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
@@ -478,6 +488,42 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_ConsumerPolicy
+//
+
+@implementation GTLRServiceUsage_ConsumerPolicy
+@dynamic annotations, enableRules, ETag, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableRules" : [GTLRServiceUsage_EnableRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ConsumerPolicy_Annotations
+//
+
+@implementation GTLRServiceUsage_ConsumerPolicy_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Context
 //
 
@@ -660,7 +706,46 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_DotnetSettings
-@dynamic common;
+@dynamic common, forcedNamespaceAliases, handwrittenSignatures,
+         ignoredResources, renamedResources, renamedServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forcedNamespaceAliases" : [NSString class],
+    @"handwrittenSignatures" : [NSString class],
+    @"ignoredResources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_DotnetSettings_RenamedResources
+//
+
+@implementation GTLRServiceUsage_DotnetSettings_RenamedResources
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_DotnetSettings_RenamedServices
+//
+
+@implementation GTLRServiceUsage_DotnetSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -680,6 +765,26 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_EnableFailure
 @dynamic errorMessage, serviceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_EnableRule
+//
+
+@implementation GTLRServiceUsage_EnableRule
+@dynamic enableType, groups, services, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groups" : [NSString class],
+    @"services" : [NSString class],
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -726,7 +831,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_Enum
-@dynamic enumvalue, name, options, sourceContext, syntax;
+@dynamic edition, enumvalue, name, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1732,7 +1837,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_Type
-@dynamic fields, name, oneofs, options, sourceContext, syntax;
+@dynamic edition, fields, name, oneofs, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1752,6 +1857,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_UpdateAdminQuotaPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_UpdateConsumerPolicyLROMetadata
+//
+
+@implementation GTLRServiceUsage_UpdateConsumerPolicyLROMetadata
 @end
 
 

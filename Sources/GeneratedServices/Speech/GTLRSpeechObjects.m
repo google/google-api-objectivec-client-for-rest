@@ -517,5 +517,5 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end

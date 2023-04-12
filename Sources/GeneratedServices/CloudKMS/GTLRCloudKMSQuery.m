@@ -324,6 +324,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsGetEkmConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsGetEkmConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_EkmConfig class];
+  query.loggingName = @"cloudkms.projects.locations.getEkmConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCreate
 
 @dynamic keyRingId, parent;
@@ -1172,6 +1191,33 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudKMS_ListLocationsResponse class];
   query.loggingName = @"cloudkms.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsUpdateEkmConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_EkmConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsUpdateEkmConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_EkmConfig class];
+  query.loggingName = @"cloudkms.projects.locations.updateEkmConfig";
   return query;
 }
 

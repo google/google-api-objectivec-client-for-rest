@@ -21,7 +21,16 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
@@ -45,6 +54,8 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings;
+@class GTLRRecaptchaEnterprise_GoogleRpcStatus;
+@class GTLRRecaptchaEnterprise_GoogleRpcStatus_Details_Item;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -609,6 +620,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage;
 /**
+ *  Use reCAPTCHA WAF express protection to protect any content other than web
+ *  pages, like APIs and IoT devices.
+ *
+ *  Value: "EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express;
+/**
  *  Use reCAPTCHA session-tokens to protect the whole user session on the site's
  *  domain.
  *
@@ -797,6 +815,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedPackageNames;
 
+/**
+ *  Set to true for keys that are used in an Android application that is
+ *  available for download in app stores in addition to the Google Play Store.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportNonGoogleAppStoreDistribution;
+
 @end
 
 
@@ -885,6 +911,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** The event being assessed. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event *event;
+
+/**
+ *  Assessment returned when firewall policies belonging to the project are
+ *  evaluated using the field firewall_policy_evaluation.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment *firewallPolicyAssessment;
 
 /**
  *  Assessment returned by Fraud Prevention when TransactionData is provided.
@@ -982,7 +1014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event
+ *  The event being assessed.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event : GTLRObject
 
@@ -994,6 +1026,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *expectedAction;
 
 /**
+ *  Optional. Flag for a reCAPTCHA express request for an assessment without a
+ *  token. If enabled, `site_key` must reference a SCORE key with WAF feature
+ *  set to EXPRESS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *express;
+
+/**
+ *  Optional. Flag for enabling firewall policy config assessment. If this flag
+ *  is enabled, the firewall policy will be evaluated and a suggested firewall
+ *  action will be returned in the response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firewallPolicyEvaluation;
+
+/**
  *  Optional. Unique stable hashed user identifier for the request. The
  *  identifier must be hashed using hmac-sha256 with stable secret.
  *
@@ -1001,6 +1051,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *hashedAccountId;
+
+/** Optional. HTTP header information about the request. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
+
+/** Optional. Optional JA3 fingerprint for SSL clients. */
+@property(nonatomic, copy, nullable) NSString *ja3;
+
+/**
+ *  Optional. The URI resource the user requested that triggered an assessment.
+ */
+@property(nonatomic, copy, nullable) NSString *requestedUri;
 
 /**
  *  Optional. The site key that was used to invoke reCAPTCHA Enterprise on your
@@ -1033,6 +1094,177 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *userIpAddress;
 
+/**
+ *  Optional. Flag for running WAF token assessment. If enabled, the token must
+ *  be specified, and have been created by a WAF-enabled key.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wafTokenAssessment;
+
+@end
+
+
+/**
+ *  An individual action. Each action represents what to do if a policy matches.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction : GTLRObject
+
+/**
+ *  The user request did not match any policy and should be allowed access to
+ *  the requested resource.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction *allow;
+
+/**
+ *  This action will deny access to a given page. The user will get an HTTP
+ *  error code.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction *block;
+
+/**
+ *  This action will redirect the request to a ReCaptcha interstitial to attach
+ *  a token.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction *redirect;
+
+/**
+ *  This action will set a custom header but allow the request to continue to
+ *  the customer backend.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction *setHeader;
+
+/**
+ *  This action will transparently serve a different page to an offending user.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction *substitute;
+
+@end
+
+
+/**
+ *  An allow action continues processing a request unimpeded.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction : GTLRObject
+@end
+
+
+/**
+ *  A block action serves an HTTP error code a prevents the request from hitting
+ *  the backend.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction : GTLRObject
+@end
+
+
+/**
+ *  A redirect action returns a 307 (temporary redirect) response, pointing the
+ *  user to a ReCaptcha interstitial page to attach a token.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction : GTLRObject
+@end
+
+
+/**
+ *  A set header action sets a header and forwards the request to the backend.
+ *  This can be used to trigger custom protection implemented on the backend.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction : GTLRObject
+
+/** The header key to set in the request to the backend server. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The header value to set in the request to the backend server. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A substitute action transparently serves a different page than the one
+ *  requested.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction : GTLRObject
+
+/**
+ *  The address to redirect to. The target is a relative path in the current
+ *  host. Example: "/blog/404.html".
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  A FirewallPolicy represents a single matching pattern and resulting actions
+ *  to take.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy : GTLRObject
+
+/**
+ *  The actions that the caller should take regarding user access. There should
+ *  be at most one terminal action. A terminal action is any action that forces
+ *  a response, such as AllowAction, BlockAction or SubstituteAction. Zero or
+ *  more non-terminal actions such as SetHeader might be specified. A single
+ *  policy can contain up to 16 actions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction *> *actions;
+
+/**
+ *  A CEL (Common Expression Language) conditional expression that specifies if
+ *  this policy applies to an incoming user request. If this condition evaluates
+ *  to true and the requested path matched the path pattern, the associated
+ *  actions should be executed by the caller. The condition string is checked
+ *  for CEL syntax correctness on creation. For more information, see the [CEL
+ *  spec](https://github.com/google/cel-spec) and its [language
+ *  definition](https://github.com/google/cel-spec/blob/master/doc/langdef.md).
+ *  A condition has a max length of 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  A description of what this policy aims to achieve, for convenience purposes.
+ *  The description can at most include 256 UTF-8 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The resource name for the FirewallPolicy in the format
+ *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The path for which this policy applies, specified as a glob pattern. For
+ *  more information on glob, see the [manual
+ *  page](https://man7.org/linux/man-pages/man7/glob.7.html). A path has a max
+ *  length of 200 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Policy config assessment.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment : GTLRObject
+
+/**
+ *  If the processing of a policy config fails, an error will be populated and
+ *  the firewall_policy will be left empty.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleRpcStatus *error;
+
+/**
+ *  Output only. The policy that matched the request. If more than one policy
+ *  may match, this is the first match. If no policy matches the incoming
+ *  request, the policy field will be left empty.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *firewallPolicy;
+
 @end
 
 
@@ -1040,6 +1272,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Assessment for Fraud Prevention.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment : GTLRObject
+
+/** Assessment of this transaction for behavioral trust. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict *behavioralTrustVerdict;
 
 /**
  *  Assessment of this transaction for risk of being part of a card testing
@@ -1057,6 +1292,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *transactionRisk;
+
+@end
+
+
+/**
+ *  Information about behavioral trust of the transaction.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict : GTLRObject
+
+/**
+ *  Probability (0-1) of this transaction attempt being executed in a
+ *  behaviorally trustworthy way.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trust;
 
 @end
 
@@ -1125,7 +1376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Settings for keys that can be used by Android apps. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings *androidSettings;
 
-/** The timestamp corresponding to the creation of this Key. */
+/** Output only. The timestamp corresponding to the creation of this key. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Human-readable display name of this key. Modifiable by user. */
@@ -1163,6 +1414,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        fetch them all at once.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels : GTLRObject
+@end
+
+
+/**
+ *  Response to request to list firewall policies belonging to a key.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "firewallPolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  Policy details.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *> *firewallPolicies;
+
+/**
+ *  Token to retrieve the next page of results. It is set to empty if no
+ *  policies remain in results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 
@@ -1407,6 +1685,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis : GTLRObject
 
+/**
+ *  Extended verdict reasons to be used for experimentation only. The set of
+ *  possible reasons is subject to change.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extendedVerdictReasons;
+
 /** Reasons contributing to the risk analysis verdict. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
 
@@ -1580,7 +1864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties
+ *  Properties of the provided event token.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties : GTLRObject
 
@@ -1997,6 +2281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        "ACTION_TOKEN")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage
  *        Redirects suspicious traffic to reCAPTCHA. (Value: "CHALLENGE_PAGE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express
+ *        Use reCAPTCHA WAF express protection to protect any content other than
+ *        web pages, like APIs and IoT devices. (Value: "EXPRESS")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_SessionToken
  *        Use reCAPTCHA session-tokens to protect the whole user session on the
  *        site's domain. (Value: "SESSION_TOKEN")
@@ -2098,6 +2385,51 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRRecaptchaEnterprise_GoogleProtobufEmpty : GTLRObject
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRRecaptchaEnterprise_GoogleRpcStatus : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleRpcStatus_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRRecaptchaEnterprise_GoogleRpcStatus_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleRpcStatus_Details_Item : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

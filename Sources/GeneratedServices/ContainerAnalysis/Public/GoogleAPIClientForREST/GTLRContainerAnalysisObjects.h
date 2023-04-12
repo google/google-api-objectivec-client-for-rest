@@ -18,6 +18,7 @@
 @class GTLRContainerAnalysis_AliasContext;
 @class GTLRContainerAnalysis_AnalysisCompleted;
 @class GTLRContainerAnalysis_Artifact;
+@class GTLRContainerAnalysis_Assessment;
 @class GTLRContainerAnalysis_AttestationNote;
 @class GTLRContainerAnalysis_AttestationOccurrence;
 @class GTLRContainerAnalysis_BatchCreateNotesRequest_Notes;
@@ -109,10 +110,12 @@
 @class GTLRContainerAnalysis_ImageOccurrence;
 @class GTLRContainerAnalysis_InTotoProvenance;
 @class GTLRContainerAnalysis_InTotoStatement;
+@class GTLRContainerAnalysis_Justification;
 @class GTLRContainerAnalysis_Jwt;
 @class GTLRContainerAnalysis_KnowledgeBase;
 @class GTLRContainerAnalysis_Layer;
 @class GTLRContainerAnalysis_License;
+@class GTLRContainerAnalysis_LicensesSummary;
 @class GTLRContainerAnalysis_Location;
 @class GTLRContainerAnalysis_Material;
 @class GTLRContainerAnalysis_Material_Digest;
@@ -124,11 +127,14 @@
 @class GTLRContainerAnalysis_PackageNote;
 @class GTLRContainerAnalysis_PackageOccurrence;
 @class GTLRContainerAnalysis_Policy;
+@class GTLRContainerAnalysis_Product;
 @class GTLRContainerAnalysis_ProjectRepoId;
+@class GTLRContainerAnalysis_Publisher;
 @class GTLRContainerAnalysis_Recipe;
 @class GTLRContainerAnalysis_Recipe_Arguments_Item;
 @class GTLRContainerAnalysis_Recipe_Environment_Item;
 @class GTLRContainerAnalysis_RelatedUrl;
+@class GTLRContainerAnalysis_Remediation;
 @class GTLRContainerAnalysis_RepoId;
 @class GTLRContainerAnalysis_Signature;
 @class GTLRContainerAnalysis_SlsaBuilder;
@@ -153,7 +159,9 @@
 @class GTLRContainerAnalysis_UpgradeNote;
 @class GTLRContainerAnalysis_UpgradeOccurrence;
 @class GTLRContainerAnalysis_Version;
+@class GTLRContainerAnalysis_VexAssessment;
 @class GTLRContainerAnalysis_Volume;
+@class GTLRContainerAnalysis_VulnerabilityAssessmentNote;
 @class GTLRContainerAnalysis_VulnerabilityNote;
 @class GTLRContainerAnalysis_VulnerabilityOccurrence;
 @class GTLRContainerAnalysis_WindowsDetail;
@@ -197,6 +205,41 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Mova
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Other;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_Assessment.state
+
+/**
+ *  This product is known to be affected by this vulnerability.
+ *
+ *  Value: "AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Assessment_State_Affected;
+/**
+ *  This product contains a fix for this vulnerability.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Assessment_State_Fixed;
+/**
+ *  This product is known to be not affected by this vulnerability.
+ *
+ *  Value: "NOT_AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Assessment_State_NotAffected;
+/**
+ *  No state is specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Assessment_State_StateUnspecified;
+/**
+ *  It is not known yet whether these versions are or are not affected by the
+ *  vulnerability. However, it is still under investigation.
+ *
+ *  Value: "UNDER_INVESTIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Assessment_State_UnderInvestigation;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_BuildStep.status
@@ -602,6 +645,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_Analysis
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability;
+/**
+ *  This represents a Vulnerability Assessment.
+ *
+ *  Value: "VULNERABILITY_ASSESSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_VulnerabilityAssessment;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_DiscoveryOccurrence.analysisStatus
@@ -901,6 +950,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_UserBuildStep;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.defaultLogsBucketBehavior
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
+/**
+ *  Bucket is located in user-owned project in the same region as the build. The
+ *  builder service account must have access to create and write to GCS buckets
+ *  in the build project.
+ *
+ *  Value: "REGIONAL_USER_OWNED_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.logging
 
 /**
@@ -1170,6 +1237,54 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_Justification.justificationType
+
+/**
+ *  The vulnerable component is not present in the product.
+ *
+ *  Value: "COMPONENT_NOT_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_ComponentNotPresent;
+/**
+ *  The product includes built-in protections or features that prevent
+ *  exploitation of the vulnerability. These built-in protections cannot be
+ *  subverted by the attacker and cannot be configured or disabled by the user.
+ *  These mitigations completely prevent exploitation based on known attack
+ *  vectors.
+ *
+ *  Value: "INLINE_MITIGATIONS_ALREADY_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_InlineMitigationsAlreadyExist;
+/**
+ *  JUSTIFICATION_TYPE_UNSPECIFIED.
+ *
+ *  Value: "JUSTIFICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_JustificationTypeUnspecified;
+/**
+ *  The vulnerable code cannot be controlled by an attacker to exploit the
+ *  vulnerability.
+ *
+ *  Value: "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeCannotBeControlledByAdversary;
+/**
+ *  The vulnerable code can not be executed. Typically this case occurs when the
+ *  product includes the vulnerable code but does not call or use the vulnerable
+ *  code.
+ *
+ *  Value: "VULNERABLE_CODE_NOT_IN_EXECUTE_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotInExecutePath;
+/**
+ *  The vulnerable code is not present. Typically this case occurs when source
+ *  code is configured or built in a way that excludes the vulnerable code.
+ *
+ *  Value: "VULNERABLE_CODE_NOT_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotPresent;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Note.kind
 
 /**
@@ -1238,6 +1353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade;
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Vulnerability;
+/**
+ *  This represents a Vulnerability Assessment.
+ *
+ *  Value: "VULNERABILITY_ASSESSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_VulnerabilityAssessment;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Occurrence.kind
@@ -1308,6 +1429,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrad
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability;
+/**
+ *  This represents a Vulnerability Assessment.
+ *
+ *  Value: "VULNERABILITY_ASSESSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_VulnerabilityAssessment;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_PackageIssue.effectiveSeverity
@@ -1394,6 +1521,46 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageOccurrence_Arch
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_X86;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_Remediation.remediationType
+
+/**
+ *  A MITIGATION is available.
+ *
+ *  Value: "MITIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_Mitigation;
+/**
+ *  No fix is planned.
+ *
+ *  Value: "NO_FIX_PLANNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_NoFixPlanned;
+/**
+ *  Not available.
+ *
+ *  Value: "NONE_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_NoneAvailable;
+/**
+ *  No remediation type specified.
+ *
+ *  Value: "REMEDIATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_RemediationTypeUnspecified;
+/**
+ *  A vendor fix is available.
+ *
+ *  Value: "VENDOR_FIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_VendorFix;
+/**
+ *  A workaround is available.
+ *
+ *  Value: "WORKAROUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_Workaround;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
 
 /**
@@ -1420,6 +1587,41 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
  *  Value: "VERSION_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_VersionKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VexAssessment.state
+
+/**
+ *  This product is known to be affected by this vulnerability.
+ *
+ *  Value: "AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_Affected;
+/**
+ *  This product contains a fix for this vulnerability.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_Fixed;
+/**
+ *  This product is known to be not affected by this vulnerability.
+ *
+ *  Value: "NOT_AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_NotAffected;
+/**
+ *  No state is specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_StateUnspecified;
+/**
+ *  It is not known yet whether these versions are or are not affected by the
+ *  vulnerability. However, it is still under investigation.
+ *
+ *  Value: "UNDER_INVESTIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_UnderInvestigation;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityNote.cvssVersion
@@ -1626,6 +1828,72 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  one image.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  Assessment provides all information that is related to a single
+ *  vulnerability for this product.
+ */
+@interface GTLRContainerAnalysis_Assessment : GTLRObject
+
+/**
+ *  Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
+ *  number for the vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *cve;
+
+/**
+ *  Contains information about the impact of this vulnerability, this will
+ *  change with time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impacts;
+
+/**
+ *  Justification provides the justification when the state of the assessment if
+ *  NOT_AFFECTED.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Justification *justification;
+
+/** A detailed description of this Vex. */
+@property(nonatomic, copy, nullable) NSString *longDescription;
+
+/**
+ *  Holds a list of references associated with this vulnerability item and
+ *  assessment. These uris have additional information about the vulnerability
+ *  and the assessment itself. E.g. Link to a document which details how this
+ *  assessment concluded the state of this vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUris;
+
+/**
+ *  Specifies details on how to handle (and presumably, fix) a vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Remediation *> *remediations;
+
+/** A one sentence description of this Vex. */
+@property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/**
+ *  Provides the state of this Vulnerability assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_Assessment_State_Affected This product is
+ *        known to be affected by this vulnerability. (Value: "AFFECTED")
+ *    @arg @c kGTLRContainerAnalysis_Assessment_State_Fixed This product
+ *        contains a fix for this vulnerability. (Value: "FIXED")
+ *    @arg @c kGTLRContainerAnalysis_Assessment_State_NotAffected This product
+ *        is known to be not affected by this vulnerability. (Value:
+ *        "NOT_AFFECTED")
+ *    @arg @c kGTLRContainerAnalysis_Assessment_State_StateUnspecified No state
+ *        is specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_Assessment_State_UnderInvestigation It is
+ *        not known yet whether these versions are or are not affected by the
+ *        vulnerability. However, it is still under investigation. (Value:
+ *        "UNDER_INVESTIGATION")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2851,6 +3119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability
  *        The note and occurrence represent a package vulnerability. (Value:
  *        "VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_VulnerabilityAssessment
+ *        This represents a Vulnerability Assessment. (Value:
+ *        "VULNERABILITY_ASSESSMENT")
  */
 @property(nonatomic, copy, nullable) NSString *analysisKind;
 
@@ -3198,6 +3469,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) NSNumber *totalCount;
 
+@end
+
+
+/**
+ *  GeneratePackagesSummaryRequest is the request body for the
+ *  GeneratePackagesSummary API method. It just takes a single name argument,
+ *  referring to the resource.
+ */
+@interface GTLRContainerAnalysis_GeneratePackagesSummaryRequest : GTLRObject
 @end
 
 
@@ -3765,6 +4045,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Optional arguments to enable specific features of builds.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions : GTLRObject
+
+/**
+ *  Optional. Option to specify how default logs buckets are setup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified
+ *        Unspecified. (Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
+ *        Bucket is located in user-owned project in the same region as the
+ *        build. The builder service account must have access to create and
+ *        write to GCS buckets in the build project. (Value:
+ *        "REGIONAL_USER_OWNED_BUCKET")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLogsBucketBehavior;
 
 /**
  *  Requested disk size for the VM that runs the build. Note that this is *NOT*
@@ -4989,6 +5283,49 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Justification provides the justification when the state of the assessment if
+ *  NOT_AFFECTED.
+ */
+@interface GTLRContainerAnalysis_Justification : GTLRObject
+
+/** Additional details on why this justification was chosen. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The justification type for this vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_Justification_JustificationType_ComponentNotPresent
+ *        The vulnerable component is not present in the product. (Value:
+ *        "COMPONENT_NOT_PRESENT")
+ *    @arg @c kGTLRContainerAnalysis_Justification_JustificationType_InlineMitigationsAlreadyExist
+ *        The product includes built-in protections or features that prevent
+ *        exploitation of the vulnerability. These built-in protections cannot
+ *        be subverted by the attacker and cannot be configured or disabled by
+ *        the user. These mitigations completely prevent exploitation based on
+ *        known attack vectors. (Value: "INLINE_MITIGATIONS_ALREADY_EXIST")
+ *    @arg @c kGTLRContainerAnalysis_Justification_JustificationType_JustificationTypeUnspecified
+ *        JUSTIFICATION_TYPE_UNSPECIFIED. (Value:
+ *        "JUSTIFICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeCannotBeControlledByAdversary
+ *        The vulnerable code cannot be controlled by an attacker to exploit the
+ *        vulnerability. (Value:
+ *        "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY")
+ *    @arg @c kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotInExecutePath
+ *        The vulnerable code can not be executed. Typically this case occurs
+ *        when the product includes the vulnerable code but does not call or use
+ *        the vulnerable code. (Value: "VULNERABLE_CODE_NOT_IN_EXECUTE_PATH")
+ *    @arg @c kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotPresent
+ *        The vulnerable code is not present. Typically this case occurs when
+ *        source code is configured or built in a way that excludes the
+ *        vulnerable code. (Value: "VULNERABLE_CODE_NOT_PRESENT")
+ */
+@property(nonatomic, copy, nullable) NSString *justificationType;
+
+@end
+
+
+/**
  *  GTLRContainerAnalysis_Jwt
  */
 @interface GTLRContainerAnalysis_Jwt : GTLRObject
@@ -5052,6 +5389,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  "LGPL-2.1-only AND MIT", "GPL-2.0-or-later WITH Bison-exception-2.2".
  */
 @property(nonatomic, copy, nullable) NSString *expression;
+
+@end
+
+
+/**
+ *  Per license count
+ */
+@interface GTLRContainerAnalysis_LicensesSummary : GTLRObject
+
+/**
+ *  The number of fixable vulnerabilities associated with this resource.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The license of the package. Note that the format of this value is not
+ *  guaranteed. It may be nil, an empty string, a boolean value (A | B), a
+ *  differently formed boolean value (A OR B), etc...
+ */
+@property(nonatomic, copy, nullable) NSString *license;
 
 @end
 
@@ -5297,6 +5656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_VulnerabilityAssessment This
+ *        represents a Vulnerability Assessment. (Value:
+ *        "VULNERABILITY_ASSESSMENT")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5332,6 +5694,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** A note describing a package vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityNote *vulnerability;
+
+/** A note describing a vulnerability assessment. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityAssessmentNote *vulnerabilityAssessment;
 
 @end
 
@@ -5398,6 +5763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_VulnerabilityAssessment
+ *        This represents a Vulnerability Assessment. (Value:
+ *        "VULNERABILITY_ASSESSMENT")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5633,6 +6001,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  A summary of the packages found within the given resource.
+ */
+@interface GTLRContainerAnalysis_PackagesSummaryResponse : GTLRObject
+
+/** A listing by license name of each of the licenses and their counts. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_LicensesSummary *> *licensesSummary;
+
+/**
+ *  The unique URL of the image or the container for which this summary applies.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -5720,6 +6104,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Product contains information about a product and how to uniquely identify
+ *  it.
+ */
+@interface GTLRContainerAnalysis_Product : GTLRObject
+
+/**
+ *  Contains a URI which is vendor-specific. Example: The artifact repository
+ *  URL of an image.
+ */
+@property(nonatomic, copy, nullable) NSString *genericUri;
+
+/**
+ *  Token that identifies a product so that it can be referred to from other
+ *  parts in the document. There is no predefined format as long as it uniquely
+ *  identifies a group in the context of the current document.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Name of the product. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Selects a repo using a Google Cloud Platform project ID (e.g.,
  *  winged-cargo-31) and a repo name within that project.
  */
@@ -5730,6 +6141,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The name of the repo. Leave empty for the default repo. */
 @property(nonatomic, copy, nullable) NSString *repoName;
+
+@end
+
+
+/**
+ *  Publisher contains information about the publisher of this Note.
+ */
+@interface GTLRContainerAnalysis_Publisher : GTLRObject
+
+/**
+ *  Provides information about the authority of the issuing party to release the
+ *  document, in particular, the party's constituency and responsibilities or
+ *  other obligations.
+ */
+@property(nonatomic, copy, nullable) NSString *issuingAuthority;
+
+/** Name of the publisher. Examples: 'Google', 'Google Cloud Platform'. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The context or namespace. Contains a URL which is under control of the
+ *  issuing party and can be used as a globally unique identifier for that
+ *  issuing party. Example: https://csaf.io
+ */
+@property(nonatomic, copy, nullable) NSString *publisherNamespace;
 
 @end
 
@@ -5821,6 +6257,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Specific URL associated with the resource. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Specifies details on how to handle (and presumably, fix) a vulnerability.
+ */
+@interface GTLRContainerAnalysis_Remediation : GTLRObject
+
+/** Contains a comprehensive human-readable discussion of the remediation. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The type of remediation that can be applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_Remediation_RemediationType_Mitigation A
+ *        MITIGATION is available. (Value: "MITIGATION")
+ *    @arg @c kGTLRContainerAnalysis_Remediation_RemediationType_NoFixPlanned No
+ *        fix is planned. (Value: "NO_FIX_PLANNED")
+ *    @arg @c kGTLRContainerAnalysis_Remediation_RemediationType_NoneAvailable
+ *        Not available. (Value: "NONE_AVAILABLE")
+ *    @arg @c kGTLRContainerAnalysis_Remediation_RemediationType_RemediationTypeUnspecified
+ *        No remediation type specified. (Value: "REMEDIATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_Remediation_RemediationType_VendorFix A
+ *        vendor fix is available. (Value: "VENDOR_FIX")
+ *    @arg @c kGTLRContainerAnalysis_Remediation_RemediationType_Workaround A
+ *        workaround is available. (Value: "WORKAROUND")
+ */
+@property(nonatomic, copy, nullable) NSString *remediationType;
+
+/** Contains the URL where to obtain the remediation. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_RelatedUrl *remediationUri;
 
 @end
 
@@ -6479,6 +6948,71 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  VexAssessment provides all publisher provided Vex information that is
+ *  related to this vulnerability.
+ */
+@interface GTLRContainerAnalysis_VexAssessment : GTLRObject
+
+/**
+ *  Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
+ *  number for the vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *cve;
+
+/**
+ *  Contains information about the impact of this vulnerability, this will
+ *  change with time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impacts;
+
+/**
+ *  Justification provides the justification when the state of the assessment if
+ *  NOT_AFFECTED.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Justification *justification;
+
+/**
+ *  The VulnerabilityAssessment note from which this VexAssessment was
+ *  generated. This will be of the form:
+ *  `projects/[PROJECT_ID]/notes/[NOTE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *noteName;
+
+/**
+ *  Holds a list of references associated with this vulnerability item and
+ *  assessment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUris;
+
+/**
+ *  Specifies details on how to handle (and presumably, fix) a vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Remediation *> *remediations;
+
+/**
+ *  Provides the state of this Vulnerability assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VexAssessment_State_Affected This product
+ *        is known to be affected by this vulnerability. (Value: "AFFECTED")
+ *    @arg @c kGTLRContainerAnalysis_VexAssessment_State_Fixed This product
+ *        contains a fix for this vulnerability. (Value: "FIXED")
+ *    @arg @c kGTLRContainerAnalysis_VexAssessment_State_NotAffected This
+ *        product is known to be not affected by this vulnerability. (Value:
+ *        "NOT_AFFECTED")
+ *    @arg @c kGTLRContainerAnalysis_VexAssessment_State_StateUnspecified No
+ *        state is specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_VexAssessment_State_UnderInvestigation It
+ *        is not known yet whether these versions are or are not affected by the
+ *        vulnerability. However, it is still under investigation. (Value:
+ *        "UNDER_INVESTIGATION")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Volume describes a Docker container volume which is mounted into build steps
  *  in order to persist files across build step execution. Next ID: 3
  */
@@ -6497,6 +7031,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  reserved volume paths.
  */
 @property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  A single VulnerabilityAssessmentNote represents one particular product's
+ *  vulnerability assessment for one CVE.
+ */
+@interface GTLRContainerAnalysis_VulnerabilityAssessmentNote : GTLRObject
+
+/** Represents a vulnerability assessment for the product. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Assessment *assessment;
+
+/**
+ *  Identifies the language used by this document, corresponding to IETF BCP 47
+ *  / RFC 5646.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** A detailed description of this Vex. */
+@property(nonatomic, copy, nullable) NSString *longDescription;
+
+/** The product affected by this vex. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Product *product;
+
+/** Publisher details of this Note. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Publisher *publisher;
+
+/** A one sentence description of this Vex. */
+@property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/** The title of the note. E.g. `Vex-Debian-11.4` */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -6681,6 +7248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  packages, etc.).
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VexAssessment *vexAssessment;
 
 @end
 

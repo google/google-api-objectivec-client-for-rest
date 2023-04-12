@@ -179,10 +179,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Incrementally adds place IDs to Product.fulfillment_info.place_ids. This
- *  process is asynchronous and does not require the Product to exist before
- *  updating fulfillment information. If the request is valid, the update will
- *  be enqueued and processed downstream. As a consequence, when a response is
+ *  It is recommended to use the ProductService.AddLocalInventories method
+ *  instead of ProductService.AddFulfillmentPlaces.
+ *  ProductService.AddLocalInventories achieves the same results but provides
+ *  more fine-grained control over ingesting local inventory data. Incrementally
+ *  adds place IDs to Product.fulfillment_info.place_ids. This process is
+ *  asynchronous and does not require the Product to exist before updating
+ *  fulfillment information. If the request is valid, the update will be
+ *  enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
  *  queried by ProductService.GetProduct or ProductService.ListProducts. The
  *  returned Operations will be obsolete after 1 day, and GetOperation API will
@@ -208,10 +212,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  Incrementally adds place IDs to Product.fulfillment_info.place_ids. This
- *  process is asynchronous and does not require the Product to exist before
- *  updating fulfillment information. If the request is valid, the update will
- *  be enqueued and processed downstream. As a consequence, when a response is
+ *  It is recommended to use the ProductService.AddLocalInventories method
+ *  instead of ProductService.AddFulfillmentPlaces.
+ *  ProductService.AddLocalInventories achieves the same results but provides
+ *  more fine-grained control over ingesting local inventory data. Incrementally
+ *  adds place IDs to Product.fulfillment_info.place_ids. This process is
+ *  asynchronous and does not require the Product to exist before updating
+ *  fulfillment information. If the request is valid, the update will be
+ *  enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
  *  queried by ProductService.GetProduct or ProductService.ListProducts. The
  *  returned Operations will be obsolete after 1 day, and GetOperation API will
@@ -601,11 +609,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Incrementally removes place IDs from a Product.fulfillment_info.place_ids.
- *  This process is asynchronous and does not require the Product to exist
- *  before updating fulfillment information. If the request is valid, the update
- *  will be enqueued and processed downstream. As a consequence, when a response
- *  is returned, the removed place IDs are not immediately manifested in the
+ *  It is recommended to use the ProductService.RemoveLocalInventories method
+ *  instead of ProductService.RemoveFulfillmentPlaces.
+ *  ProductService.RemoveLocalInventories achieves the same results but provides
+ *  more fine-grained control over ingesting local inventory data. Incrementally
+ *  removes place IDs from a Product.fulfillment_info.place_ids. This process is
+ *  asynchronous and does not require the Product to exist before updating
+ *  fulfillment information. If the request is valid, the update will be
+ *  enqueued and processed downstream. As a consequence, when a response is
+ *  returned, the removed place IDs are not immediately manifested in the
  *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
  *  The returned Operations will be obsolete after 1 day, and GetOperation API
  *  will return NOT_FOUND afterwards. If conflicting updates are issued, the
@@ -630,11 +642,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  Incrementally removes place IDs from a Product.fulfillment_info.place_ids.
- *  This process is asynchronous and does not require the Product to exist
- *  before updating fulfillment information. If the request is valid, the update
- *  will be enqueued and processed downstream. As a consequence, when a response
- *  is returned, the removed place IDs are not immediately manifested in the
+ *  It is recommended to use the ProductService.RemoveLocalInventories method
+ *  instead of ProductService.RemoveFulfillmentPlaces.
+ *  ProductService.RemoveLocalInventories achieves the same results but provides
+ *  more fine-grained control over ingesting local inventory data. Incrementally
+ *  removes place IDs from a Product.fulfillment_info.place_ids. This process is
+ *  asynchronous and does not require the Product to exist before updating
+ *  fulfillment information. If the request is valid, the update will be
+ *  enqueued and processed downstream. As a consequence, when a response is
+ *  returned, the removed place IDs are not immediately manifested in the
  *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
  *  The returned Operations will be obsolete after 1 day, and GetOperation API
  *  will return NOT_FOUND afterwards. If conflicting updates are issued, the
@@ -829,6 +845,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  `OTHER_IPHONE`.
  */
 @property(nonatomic, copy, nullable) NSString *deviceType;
+
+/**
+ *  The entity for customers that may run multiple different entities, domains,
+ *  sites or regions, for example, "Google US", "Google Ads", "Waymo",
+ *  "google.com", "youtube.com", etc. If this is set, it should be exactly
+ *  matched with UserEvent.entity to get per-entity autocomplete results.
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Note that this field applies for `user-data` dataset only. For requests with
@@ -1347,6 +1371,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a model.
+ *
+ *  Method: retail.projects.locations.catalogs.models.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsGet : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the Model to get. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Model.
+ *
+ *  Gets a model.
+ *
+ *  @param name Required. The resource name of the Model to get. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog}/models/{model_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsModelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists all the models linked to this event store.
  *
  *  Method: retail.projects.locations.catalogs.models.list
@@ -1573,14 +1627,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: retail.projects.locations.catalogs.operations.list
  *
@@ -1605,14 +1652,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -2582,14 +2622,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: retail.projects.locations.operations.list
  *
@@ -2614,14 +2647,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -2667,14 +2693,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: retail.projects.operations.list
  *
@@ -2699,14 +2718,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

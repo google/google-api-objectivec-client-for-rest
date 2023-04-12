@@ -652,8 +652,9 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_TransferOperation
-@dynamic counters, endTime, errorBreakdowns, name, notificationConfig,
-         projectId, startTime, status, transferJobName, transferSpec;
+@dynamic counters, endTime, errorBreakdowns, loggingConfig, name,
+         notificationConfig, projectId, startTime, status, transferJobName,
+         transferSpec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

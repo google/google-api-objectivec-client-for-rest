@@ -30,21 +30,6 @@ NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_Th
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
-// GTLRWebRisk_GoogleCloudWebriskV1Submission.threatTypes
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_Malware = @"MALWARE";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineeringExtendedCoverage = @"SOCIAL_ENGINEERING_EXTENDED_COVERAGE";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
-
-// GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata.state
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled = @"CANCELLED";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Closed = @"CLOSED";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed = @"FAILED";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running = @"RUNNING";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succeeded = @"SUCCEEDED";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRWebRisk_GoogleCloudWebriskV1ComputeThreatListDiffResponse
@@ -178,35 +163,7 @@ NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succee
 //
 
 @implementation GTLRWebRisk_GoogleCloudWebriskV1Submission
-@dynamic threatTypes, uri;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"threatTypes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata
-//
-
-@implementation GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata
-@dynamic createTime, state, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWebRisk_GoogleCloudWebriskV1SubmitUriRequest
-//
-
-@implementation GTLRWebRisk_GoogleCloudWebriskV1SubmitUriRequest
-@dynamic submission;
+@dynamic uri;
 @end
 
 

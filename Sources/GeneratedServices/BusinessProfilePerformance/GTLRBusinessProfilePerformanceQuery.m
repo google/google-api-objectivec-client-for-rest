@@ -31,6 +31,20 @@ NSString * const kGTLRBusinessProfilePerformanceDailyMetricCallClicks = @"CALL_C
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricDailyMetricUnknown = @"DAILY_METRIC_UNKNOWN";
 NSString * const kGTLRBusinessProfilePerformanceDailyMetricWebsiteClicks = @"WEBSITE_CLICKS";
 
+// dailyMetrics
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessBookings = @"BUSINESS_BOOKINGS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessConversations = @"BUSINESS_CONVERSATIONS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessDirectionRequests = @"BUSINESS_DIRECTION_REQUESTS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodMenuClicks = @"BUSINESS_FOOD_MENU_CLICKS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodOrders = @"BUSINESS_FOOD_ORDERS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsDesktopMaps = @"BUSINESS_IMPRESSIONS_DESKTOP_MAPS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsDesktopSearch = @"BUSINESS_IMPRESSIONS_DESKTOP_SEARCH";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileMaps = @"BUSINESS_IMPRESSIONS_MOBILE_MAPS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessImpressionsMobileSearch = @"BUSINESS_IMPRESSIONS_MOBILE_SEARCH";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsCallClicks = @"CALL_CLICKS";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsDailyMetricUnknown = @"DAILY_METRIC_UNKNOWN";
+NSString * const kGTLRBusinessProfilePerformanceDailyMetricsWebsiteClicks = @"WEBSITE_CLICKS";
+
 // dailySubEntityTypeDayOfWeek
 NSString * const kGTLRBusinessProfilePerformanceDailySubEntityTypeDayOfWeekDayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRBusinessProfilePerformanceDailySubEntityTypeDayOfWeekFriday = @"FRIDAY";
@@ -48,6 +62,46 @@ NSString * const kGTLRBusinessProfilePerformanceDailySubEntityTypeDayOfWeekWedne
 @implementation GTLRBusinessProfilePerformanceQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRBusinessProfilePerformanceQuery_LocationsFetchMultiDailyMetricsTimeSeries
+
+@dynamic dailyMetrics, dailyRangeEndDateDay, dailyRangeEndDateMonth,
+         dailyRangeEndDateYear, dailyRangeStartDateDay,
+         dailyRangeStartDateMonth, dailyRangeStartDateYear, location;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dailyRangeEndDateDay" : @"dailyRange.endDate.day",
+    @"dailyRangeEndDateMonth" : @"dailyRange.endDate.month",
+    @"dailyRangeEndDateYear" : @"dailyRange.endDate.year",
+    @"dailyRangeStartDateDay" : @"dailyRange.startDate.day",
+    @"dailyRangeStartDateMonth" : @"dailyRange.startDate.month",
+    @"dailyRangeStartDateYear" : @"dailyRange.startDate.year"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dailyMetrics" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:fetchMultiDailyMetricsTimeSeries";
+  GTLRBusinessProfilePerformanceQuery_LocationsFetchMultiDailyMetricsTimeSeries *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRBusinessProfilePerformance_FetchMultiDailyMetricsTimeSeriesResponse class];
+  query.loggingName = @"businessprofileperformance.locations.fetchMultiDailyMetricsTimeSeries";
+  return query;
+}
 
 @end
 

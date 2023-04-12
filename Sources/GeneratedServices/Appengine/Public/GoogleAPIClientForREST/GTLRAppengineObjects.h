@@ -1164,9 +1164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *authDomain;
 
 /**
- *  Google Cloud Storage bucket that can be used for storing files associated
- *  with this application. This bucket is associated with the application and
- *  can be used by the gcloud deployment commands.\@OutputOnly
+ *  Output only. Google Cloud Storage bucket that can be used for storing files
+ *  associated with this application. This bucket is associated with the
+ *  application and can be used by the gcloud deployment commands.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *codeBucket;
 
@@ -1188,8 +1188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *databaseType;
 
 /**
- *  Google Cloud Storage bucket that can be used by this application to store
- *  content.\@OutputOnly
+ *  Output only. Google Cloud Storage bucket that can be used by this
+ *  application to store content.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *defaultBucket;
 
@@ -1197,7 +1197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRDuration *defaultCookieExpiration;
 
 /**
- *  Hostname used to reach this application, as resolved by App
+ *  Output only. Hostname used to reach this application, as resolved by App
  *  Engine.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *defaultHostname;
@@ -1213,8 +1213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_FeatureSettings *featureSettings;
 
 /**
- *  The Google Container Registry domain used for storing managed build docker
- *  images for this application.
+ *  Output only. The Google Container Registry domain used for storing managed
+ *  build docker images for this application.
  */
 @property(nonatomic, copy, nullable) NSString *gcrDomain;
 
@@ -1239,7 +1239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Full path to the Application resource in the API. Example:
+ *  Output only. Full path to the Application resource in the API. Example:
  *  apps/myapp.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1350,8 +1350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /**
  *  A domain that a user has been authorized to administer. To authorize use of
- *  a domain, verify ownership via Webmaster Central
- *  (https://www.google.com/webmasters/verification/home).
+ *  a domain, verify ownership via Search Console
+ *  (https://search.google.com/search-console/welcome).
  */
 @interface GTLRAppengine_AuthorizedDomain : GTLRObject
 
@@ -2106,7 +2106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, copy, nullable) NSString *oauth2ClientSecret;
 
-/** Hex-encoded SHA-256 hash of the client secret.\@OutputOnly */
+/** Output only. Hex-encoded SHA-256 hash of the client secret.\@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *oauth2ClientSecretSha256;
 
 @end

@@ -519,6 +519,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @interface GTLRCloudComposer_EnvironmentConfig : GTLRObject
 
 /**
+ *  Output only. The 'bring your own identity' variant of the URI of the Apache
+ *  Airflow Web UI hosted within this environment, to be accessed with external
+ *  identities using workforce identity federation (see [Access environments
+ *  with workforce identity
+ *  federation](/composer/docs/composer-2/access-environments-with-workforce-identity-federation)).
+ */
+@property(nonatomic, copy, nullable) NSString *airflowByoidUri;
+
+/**
  *  Output only. The URI of the Apache Airflow Web UI hosted within this
  *  environment (see [Airflow web
  *  interface](/composer/docs/how-to/accessing/airflow-web-interface)).

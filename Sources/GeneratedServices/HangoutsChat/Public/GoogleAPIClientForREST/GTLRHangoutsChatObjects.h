@@ -2094,7 +2094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represents the complete border style applied to items in a widget.
+ *  The style options for the border of a card or widget, including the border
+ *  type and color.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1BorderStyle : GTLRObject
 
@@ -3047,8 +3048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  suggestions to users who interact with it. If unspecified, the suggestions
  *  are set by `initialSuggestions` and are processed by the client. If
  *  specified, the app takes the action specified here, such as running a custom
- *  function. Supported by Google Workspace Add-ons, but not Chat apps. Support
- *  by Chat apps coming soon.
+ *  function. Supported by Google Workspace Add-ons, but not Chat apps.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *autoCompleteAction;
 
@@ -3609,12 +3609,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes
  *  - Radio buttons - Input widgets. Cards are usually displayed below the text
  *  body of a Chat message, but can situationally appear other places, such as
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). `cards_v2`
- *  and `cards` can have a maximum size of 32 KB. The `cardId` is a unique
- *  identifier among cards in the same message and for identifying user input
- *  values. Currently supported widgets include: - `TextParagraph` -
- *  `DecoratedText` - `Image` - `ButtonList` - `Divider` - `TextInput` -
- *  `SelectionInput` (CHECKBOX, RADIO_BUTTON, SWITCH, DROPDOWN) - `Grid`
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs). Each card can
+ *  have a maximum size of 32 KB. The `cardId` is a unique identifier among
+ *  cards in the same message and for identifying user input values. Currently
+ *  supported widgets include: - `TextParagraph` - `DecoratedText` - `Image` -
+ *  `ButtonList` - `Divider` - `TextInput` - `SelectionInput` - `Grid`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
 
@@ -3658,16 +3657,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. The user who created the message. */
+/**
+ *  Output only. The user who created the message. If your Chat app
+ *  [authenticates as a
+ *  user](https://developers.google.com/chat/api/guides/auth/users), the output
+ *  populates the
+ *  [user](https://developers.google.com/chat/api/reference/rest/v1/User) `name`
+ *  and `type`.
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *sender;
 
 /** Output only. Slash command information, if applicable. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_SlashCommand *slashCommand;
 
 /**
- *  The space the message belongs to. When accessed with [user
- *  authentication](https://developers.google.com/chat/api/guides/auth/users),
- *  only the name of the Space is populated.
+ *  If your Chat app [authenticates as a
+ *  user](https://developers.google.com/chat/api/guides/auth/users), the output
+ *  populates the
+ *  [space](https://developers.google.com/chat/api/reference/rest/v1/spaces)
+ *  `name`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 

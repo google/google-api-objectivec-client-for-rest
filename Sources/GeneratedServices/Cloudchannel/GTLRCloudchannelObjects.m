@@ -178,6 +178,51 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_SuspensionRea
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_SuspensionReasons_SuspensionReasonUnspecified = @"SUSPENSION_REASON_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_SuspensionReasons_TrialEnded = @"TRIAL_ENDED";
 
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.activationReason
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_ActivationReasonUnspecified = @"ACTIVATION_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_CustomerAcceptedPendingTos = @"CUSTOMER_ACCEPTED_PENDING_TOS";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_OtherActivationReason = @"OTHER_ACTIVATION_REASON";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_RenewalSettingsChanged = @"RENEWAL_SETTINGS_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ActivationReason_ResellerRevokedSuspension = @"RESELLER_REVOKED_SUSPENSION";
+
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.cancellationReason
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_CancellationReasonUnspecified = @"CANCELLATION_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_PartialTransfer = @"PARTIAL_TRANSFER";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_RelationshipEnded = @"RELATIONSHIP_ENDED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_CancellationReason_ServiceTerminated = @"SERVICE_TERMINATED";
+
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.changeType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Activated = @"ACTIVATED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_CommitmentChanged = @"COMMITMENT_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Created = @"CREATED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_LicenseCapChanged = @"LICENSE_CAP_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_PaidSubscriptionStarted = @"PAID_SUBSCRIPTION_STARTED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_PricePlanSwitched = @"PRICE_PLAN_SWITCHED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_RenewalSettingChanged = @"RENEWAL_SETTING_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Renewed = @"RENEWED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_SkuChanged = @"SKU_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_Suspended = @"SUSPENDED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_SuspensionDetailsChanged = @"SUSPENSION_DETAILS_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_TrialEndDateExtended = @"TRIAL_END_DATE_EXTENDED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_ChangeType_TrialStarted = @"TRIAL_STARTED";
+
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.operatorType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_Customer = @"CUSTOMER";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_CustomerServiceRepresentative = @"CUSTOMER_SERVICE_REPRESENTATIVE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_OperatorTypeUnspecified = @"OPERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_Reseller = @"RESELLER";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_OperatorType_System = @"SYSTEM";
+
+// GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange.suspensionReason
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_Other = @"OTHER";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_PendingTosAcceptance = @"PENDING_TOS_ACCEPTANCE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_RenewalWithTypeCancel = @"RENEWAL_WITH_TYPE_CANCEL";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_ResellerInitiated = @"RESELLER_INITIATED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_SuspensionReasonUnspecified = @"SUSPENSION_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementChange_SuspensionReason_TrialEnded = @"TRIAL_ENDED";
+
 // GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent.eventType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Activated = @"ACTIVATED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Cancelled = @"CANCELLED";
@@ -437,7 +482,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings
 @dynamic disableCommitment, enableRenewal, paymentCycle, paymentOption,
-         paymentPlan, resizeUnitCount;
+         paymentPlan, resizeUnitCount, scheduledRenewalOffer;
 @end
 
 
@@ -856,6 +901,30 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange
+@dynamic activationReason, cancellationReason, changeType, createTime,
+         entitlement, offer, operatorProperty, operatorType, otherChangeReason,
+         parameters, provisionedService, suspensionReason;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"operatorProperty" : @"operator" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRCloudchannel_GoogleCloudChannelV1Parameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent
 //
 
@@ -990,6 +1059,28 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 + (NSString *)collectionItemsKey {
   return @"customers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ListEntitlementChangesResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ListEntitlementChangesResponse
+@dynamic entitlementChanges, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entitlementChanges" : [GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entitlementChanges";
 }
 
 @end

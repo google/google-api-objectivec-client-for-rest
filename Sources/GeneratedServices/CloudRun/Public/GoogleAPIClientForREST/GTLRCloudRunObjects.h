@@ -95,6 +95,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled;
 /**
+ *  The execution is in the process of being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling;
+/**
  *  Default value.
  *
  *  Value: "EXECUTION_REASON_UNDEFINED"
@@ -933,6 +939,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled
  *        The execution was cancelled by users. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling
+ *        The execution is in the process of being cancelled. (Value:
+ *        "CANCELLING")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined
  *        Default value. (Value: "EXECUTION_REASON_UNDEFINED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError
@@ -1324,10 +1333,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Execution_Labels *labels;
 
 /**
- *  Set the launch stage to a preview stage on write to allow use of preview
- *  features in that stage. On read, describes whether the resource uses preview
- *  features. Launch Stages are defined at [Google Cloud Platform Launch
- *  Stages](https://cloud.google.com/terms/launch-stages).
+ *  The least stable launch stage needed to create this resource, as defined by
+ *  [Google Cloud Platform Launch
+ *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
+ *  `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used
+ *  as input. For example, if ALPHA was provided as input in the parent
+ *  resource, but only BETA and GA-level features are were, this field will be
+ *  BETA.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Alpha Alpha is
@@ -1424,6 +1436,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *runningCount;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. Represents time when the execution started to run. It is not
@@ -1757,7 +1776,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  The launch stage as defined by [Google Cloud Platform Launch
  *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
- *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed.
+ *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the
+ *  launch stage to a preview stage on input to allow use of preview features in
+ *  that stage. On read (or output), describes whether the resource uses preview
+ *  features. For example, if ALPHA is provided as input, but only BETA and
+ *  GA-level features are used, this field will be BETA on output.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Alpha Alpha is a
@@ -1838,6 +1861,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Required. The template used to create executions for this Job.
@@ -2248,10 +2278,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Revision_Labels *labels;
 
 /**
- *  Set the launch stage to a preview stage on write to allow use of preview
- *  features in that stage. On read, describes whether the resource uses preview
- *  features. Launch Stages are defined at [Google Cloud Platform Launch
- *  Stages](https://cloud.google.com/terms/launch-stages).
+ *  The least stable launch stage needed to create this resource, as defined by
+ *  [Google Cloud Platform Launch
+ *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
+ *  `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used
+ *  as input. For example, if ALPHA was provided as input in the parent
+ *  resource, but only BETA and GA-level features are were, this field will be
+ *  BETA.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Alpha Alpha is
@@ -2327,6 +2360,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Scaling settings for this revision. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionScaling *scaling;
@@ -2763,7 +2803,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  The launch stage as defined by [Google Cloud Platform Launch
  *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
- *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed.
+ *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the
+ *  launch stage to a preview stage on input to allow use of preview features in
+ *  that stage. On read (or output), describes whether the resource uses preview
+ *  features. For example, if ALPHA is provided as input, but only BETA and
+ *  GA-level features are used, this field will be BETA on output.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Alpha Alpha is a
@@ -2851,6 +2895,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Required. The template used to create revisions for this Service.
@@ -3083,6 +3134,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *retried;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Email address of the IAM service account associated with the Task of a Job.

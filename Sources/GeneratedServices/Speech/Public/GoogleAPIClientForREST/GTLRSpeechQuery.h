@@ -65,14 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: speech.operations.list
  *
@@ -97,14 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSpeech_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @return GTLRSpeechQuery_OperationsList
  *
@@ -340,10 +326,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource where this phrase set will be created. Format:
- *  `projects/{project}/locations/{location}/phraseSets` Speech-to-Text supports
- *  three locations: `global`, `us` (US North America), and `eu` (Europe). If
- *  you are calling the `speech.googleapis.com` endpoint, use the `global`
- *  location. To specify a region, use a [regional
+ *  `projects/{project}/locations/{location}` Speech-to-Text supports three
+ *  locations: `global`, `us` (US North America), and `eu` (Europe). If you are
+ *  calling the `speech.googleapis.com` endpoint, use the `global` location. To
+ *  specify a region, use a [regional
  *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *  matching `us` or `eu` location value.
  */
@@ -359,11 +345,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpeech_CreatePhraseSetRequest to include in the
  *    query.
  *  @param parent Required. The parent resource where this phrase set will be
- *    created. Format: `projects/{project}/locations/{location}/phraseSets`
- *    Speech-to-Text supports three locations: `global`, `us` (US North
- *    America), and `eu` (Europe). If you are calling the
- *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
- *    region, use a [regional
+ *    created. Format: `projects/{project}/locations/{location}` Speech-to-Text
+ *    supports three locations: `global`, `us` (US North America), and `eu`
+ *    (Europe). If you are calling the `speech.googleapis.com` endpoint, use the
+ *    `global` location. To specify a region, use a [regional
  *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *    matching `us` or `eu` location value.
  *

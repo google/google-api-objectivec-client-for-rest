@@ -752,7 +752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. Maximum number of dataScans to return. The service may return
- *  fewer than this value. If unspecified, at most 10 scans will be returned.
+ *  fewer than this value. If unspecified, at most 500 scans will be returned.
  *  The maximum value is 1000; values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -5046,14 +5046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: dataplex.projects.locations.operations.list
  *
@@ -5078,14 +5071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param name The name of the operation's parent resource.
  *

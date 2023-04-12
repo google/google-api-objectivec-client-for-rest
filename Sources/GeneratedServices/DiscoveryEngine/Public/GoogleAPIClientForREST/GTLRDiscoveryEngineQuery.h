@@ -295,6 +295,219 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.models.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.models.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend
@@ -462,6 +675,77 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -758,14 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: discoveryengine.projects.locations.dataStores.branches.operations.list
  *
@@ -790,14 +1067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -843,14 +1113,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: discoveryengine.projects.locations.dataStores.models.operations.list
  *
@@ -875,14 +1138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -928,14 +1184,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: discoveryengine.projects.locations.dataStores.operations.list
  *
@@ -960,14 +1209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1184,14 +1426,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: discoveryengine.projects.locations.operations.list
  *
@@ -1216,14 +1451,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1269,14 +1497,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: discoveryengine.projects.operations.list
  *
@@ -1301,14 +1522,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

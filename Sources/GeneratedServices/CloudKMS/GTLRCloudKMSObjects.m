@@ -85,7 +85,10 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed = @"DESTROYED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled = @"DESTROY_SCHEDULED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Disabled = @"DISABLED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_ExternalDestructionFailed = @"EXTERNAL_DESTRUCTION_FAILED";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_GenerationFailed = @"GENERATION_FAILED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_ImportFailed = @"IMPORT_FAILED";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingExternalDestruction = @"PENDING_EXTERNAL_DESTRUCTION";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingGeneration = @"PENDING_GENERATION";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingImport = @"PENDING_IMPORT";
 
@@ -133,6 +136,11 @@ NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ExternalVpc = @"E
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_EkmConnection.keyManagementMode
+NSString * const kGTLRCloudKMS_EkmConnection_KeyManagementMode_CloudKms = @"CLOUD_KMS";
+NSString * const kGTLRCloudKMS_EkmConnection_KeyManagementMode_KeyManagementModeUnspecified = @"KEY_MANAGEMENT_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_EkmConnection_KeyManagementMode_Manual = @"MANUAL";
 
 // GTLRCloudKMS_EncryptResponse.protectionLevel
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External = @"EXTERNAL";
@@ -425,8 +433,9 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 @implementation GTLRCloudKMS_CryptoKeyVersion
 @dynamic algorithm, attestation, createTime, destroyEventTime, destroyTime,
-         externalProtectionLevelOptions, generateTime, importFailureReason,
-         importJob, importTime, name, protectionLevel, reimportEligible, state;
+         externalDestructionFailureReason, externalProtectionLevelOptions,
+         generateTime, generationFailureReason, importFailureReason, importJob,
+         importTime, name, protectionLevel, reimportEligible, state;
 @end
 
 
@@ -482,11 +491,22 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_EkmConfig
+//
+
+@implementation GTLRCloudKMS_EkmConfig
+@dynamic defaultEkmConnection, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_EkmConnection
 //
 
 @implementation GTLRCloudKMS_EkmConnection
-@dynamic createTime, ETag, name, serviceResolvers;
+@dynamic createTime, cryptoSpacePath, ETag, keyManagementMode, name,
+         serviceResolvers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -175,33 +175,6 @@ NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware       = @"UNWANTED_SOFT
 
 @end
 
-@implementation GTLRWebRiskQuery_ProjectsUrisSubmit
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRWebRisk_GoogleCloudWebriskV1SubmitUriRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/uris:submit";
-  GTLRWebRiskQuery_ProjectsUrisSubmit *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRWebRisk_GoogleLongrunningOperation class];
-  query.loggingName = @"webrisk.projects.uris.submit";
-  return query;
-}
-
-@end
-
 @implementation GTLRWebRiskQuery_ThreatListsComputeDiff
 
 @dynamic constraintsMaxDatabaseEntries, constraintsMaxDiffEntries,

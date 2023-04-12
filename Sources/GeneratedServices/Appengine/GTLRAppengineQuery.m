@@ -178,6 +178,8 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @implementation GTLRAppengineQuery_AppsCreate
 
+@dynamic parent;
+
 + (instancetype)queryWithObject:(GTLRAppengine_Application *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -970,6 +972,37 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
   query.versionsId = versionsId;
   query.expectedObjectClass = [GTLRAppengine_Operation class];
   query.loggingName = @"appengine.apps.services.versions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsCreate
+
+@dynamic locationsId, projectsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_Application *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.create";
   return query;
 }
 

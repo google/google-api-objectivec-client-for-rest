@@ -49,6 +49,7 @@
 @class GTLRCloudBuild_GitLabRepositoryId;
 @class GTLRCloudBuild_GitLabSecrets;
 @class GTLRCloudBuild_GitRepoSource;
+@class GTLRCloudBuild_GitSource;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
 @class GTLRCloudBuild_InlineSecret;
@@ -219,6 +220,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildApproval_State_Rejected;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildApproval_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_BuildOptions.defaultLogsBucketBehavior
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
+/**
+ *  Bucket is located in user-owned project in the same region as the build. The
+ *  builder service account must have access to create and write to GCS buckets
+ *  in the build project.
+ *
+ *  Value: "REGIONAL_USER_OWNED_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.logging
@@ -564,7 +583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Github
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Gitlab;
 /**
- *  The default, unknown repo type.
+ *  The default, unknown repo type. Don't use it, instead use one of the other
+ *  repo types.
  *
  *  Value: "UNKNOWN"
  */
@@ -599,7 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Gitlab;
 /**
- *  The default, unknown repo type.
+ *  The default, unknown repo type. Don't use it, instead use one of the other
+ *  repo types.
  *
  *  Value: "UNKNOWN"
  */
@@ -1544,6 +1565,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @interface GTLRCloudBuild_BuildOptions : GTLRObject
 
 /**
+ *  Optional. Option to specify how default logs buckets are setup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified
+ *        Unspecified. (Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
+ *        Bucket is located in user-owned project in the same region as the
+ *        build. The builder service account must have access to create and
+ *        write to GCS buckets in the build project. (Value:
+ *        "REGIONAL_USER_OWNED_BUCKET")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLogsBucketBehavior;
+
+/**
  *  Requested disk size for the VM that runs the build. Note that this is *NOT*
  *  "disk free"; some of the space will be used by the operating system and
  *  build utilities. Also note that this is the minimum disk size that will be
@@ -2415,7 +2450,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_Gitlab A GitLab-hosted
  *        repo. (Value: "GITLAB")
  *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_Unknown The default,
- *        unknown repo type. (Value: "UNKNOWN")
+ *        unknown repo type. Don't use it, instead use one of the other repo
+ *        types. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *repoType;
 
@@ -2797,7 +2833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Gitlab A GitLab-hosted
  *        repo. (Value: "GITLAB")
  *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Unknown The default,
- *        unknown repo type. (Value: "UNKNOWN")
+ *        unknown repo type. Don't use it, instead use one of the other repo
+ *        types. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *repoType;
 
@@ -2806,6 +2843,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  required.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Location of the source in any accessible Git repository.
+ */
+@interface GTLRCloudBuild_GitSource : GTLRObject
+
+/**
+ *  Directory, relative to the source root, in which to run the build. This must
+ *  be a relative path. If a step's `dir` is specified and is an absolute path,
+ *  this value is ignored for that step's execution.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  The revision to fetch from the Git repository such as a branch, a tag, a
+ *  commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the
+ *  revision from the Git repository; therefore make sure that the string you
+ *  provide for `revision` is parsable by the command. For information on string
+ *  values accepted by `git fetch`, see
+ *  https://git-scm.com/docs/gitrevisions#_specifying_revisions. For information
+ *  on `git fetch`, see https://git-scm.com/docs/git-fetch.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  Location of the Git repo to build. This will be used as a `git remote`, see
+ *  https://git-scm.com/docs/git-remote.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -3854,6 +3923,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  Location of the source in a supported storage service.
  */
 @interface GTLRCloudBuild_Source : GTLRObject
+
+/** If provided, get the source from this Git repository. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitSource *gitSource;
 
 /**
  *  If provided, get the source from this location in a Cloud Source Repository.

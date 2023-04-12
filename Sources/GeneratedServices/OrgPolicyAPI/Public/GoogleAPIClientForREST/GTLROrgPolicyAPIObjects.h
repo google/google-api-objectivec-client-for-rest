@@ -187,6 +187,13 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Shows if dry run is supported for this constraint or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsDryRun;
+
 @end
 
 
@@ -285,7 +292,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /**
  *  Immutable. The resource instance type on which this policy applies. Format
- *  will be of the form : "/" Example: * `compute.googleapis.com/Instance`.
+ *  will be of the form : `/` Example: * `compute.googleapis.com/Instance`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
@@ -455,12 +462,11 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @property(nonatomic, strong, nullable) NSNumber *reset;
 
 /**
- *  Up to 10 policy rules are allowed. In policies for boolean constraints, the
- *  following requirements apply: - There must be one and only one policy rule
- *  where condition is unset. - Boolean policy rules with conditions must set
- *  `enforced` to the opposite of the policy rule without a condition. - During
- *  policy evaluation, policy rules with conditions that are true for a target
- *  resource take precedence.
+ *  In policies for boolean constraints, the following requirements apply: -
+ *  There must be one and only one policy rule where condition is unset. -
+ *  Boolean policy rules with conditions must set `enforced` to the opposite of
+ *  the policy rule without a condition. - During policy evaluation, policy
+ *  rules with conditions that are true for a target resource take precedence.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpecPolicyRule *> *rules;
 

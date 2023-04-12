@@ -385,6 +385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @interface GTLRAppengineQuery_AppsCreate : GTLRAppengineQuery
 
 /**
+ *  The project and location in which the application should be created,
+ *  specified in the format projects/ * /locations/ *
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
  *  Fetches a @c GTLRAppengine_Operation.
  *
  *  Creates an App Engine application for a Google Cloud Platform project.
@@ -1021,14 +1027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  Method: appengine.apps.operations.list
  *
@@ -1055,14 +1054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Fetches a @c GTLRAppengine_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
- *  binding allows API services to override the binding to use different
- *  resource name schemes, such as users/ * /operations. To override the
- *  binding, API services can add a binding such as "/v1/{name=users/
- *  *}/operations" to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
  *
  *  @param appsId Part of `name`. The name of the operation's parent resource.
  *
@@ -1876,6 +1868,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
                          appsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
                      versionsId:(NSString *)versionsId;
+
+@end
+
+/**
+ *  Creates an App Engine application for a Google Cloud Platform project.
+ *  Required fields: id - The ID of the target Cloud Platform project. location
+ *  - The region (https://cloud.google.com/appengine/docs/locations) where you
+ *  want the App Engine application located.For more information about App
+ *  Engine applications, see Managing Projects, Applications, and Billing
+ *  (https://cloud.google.com/appengine/docs/standard/python/console/).
+ *
+ *  Method: appengine.projects.locations.applications.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsCreate : GTLRAppengineQuery
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `parent`. The project and location in which the application should
+ *  be created, specified in the format projects/ * /locations/ *
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Creates an App Engine application for a Google Cloud Platform project.
+ *  Required fields: id - The ID of the target Cloud Platform project. location
+ *  - The region (https://cloud.google.com/appengine/docs/locations) where you
+ *  want the App Engine application located.For more information about App
+ *  Engine applications, see Managing Projects, Applications, and Billing
+ *  (https://cloud.google.com/appengine/docs/standard/python/console/).
+ *
+ *  @param object The @c GTLRAppengine_Application to include in the query.
+ *  @param projectsId Part of `parent`. The project and location in which the
+ *    application should be created, specified in the format projects/ *
+ *    /locations/ *
+ *  @param locationsId Part of `parent`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_Application *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId;
 
 @end
 

@@ -37,6 +37,10 @@ NSString * const kGTLRCloudBuild_BuildApproval_State_Pending   = @"PENDING";
 NSString * const kGTLRCloudBuild_BuildApproval_State_Rejected  = @"REJECTED";
 NSString * const kGTLRCloudBuild_BuildApproval_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudBuild_BuildOptions.defaultLogsBucketBehavior
+NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified = @"DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket = @"REGIONAL_USER_OWNED_BUCKET";
+
 // GTLRCloudBuild_BuildOptions.logging
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly  = @"GCS_ONLY";
@@ -501,9 +505,10 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic diskSizeGb, dynamicSubstitutions, env, logging, logStreamingOption,
-         machineType, pool, requestedVerifyOption, secretEnv,
-         sourceProvenanceHash, substitutionOption, volumes, workerPool;
+@dynamic defaultLogsBucketBehavior, diskSizeGb, dynamicSubstitutions, env,
+         logging, logStreamingOption, machineType, pool, requestedVerifyOption,
+         secretEnv, sourceProvenanceHash, substitutionOption, volumes,
+         workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -908,6 +913,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_GitRepoSource
 @dynamic bitbucketServerConfig, githubEnterpriseConfig, ref, repoType, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitSource
+//
+
+@implementation GTLRCloudBuild_GitSource
+@dynamic dir, revision, url;
 @end
 
 
@@ -1481,7 +1496,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_Source
-@dynamic repoSource, storageSource, storageSourceManifest;
+@dynamic gitSource, repoSource, storageSource, storageSourceManifest;
 @end
 
 

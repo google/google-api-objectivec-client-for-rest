@@ -651,6 +651,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
+/**
+ *  Optional. Zero or one IPv4-address on which the Gateway will receive the
+ *  traffic. When no address is provided, an IP from the subnetwork is allocated
+ *  This field only applies to gateways of type 'SECURE_WEB_GATEWAY'. Gateways
+ *  of type 'OPEN_MESH' listen on 0.0.0.0.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
+
+/**
+ *  Optional. A fully-qualified Certificates URL reference. The proxy presents a
+ *  Certificate (selected based on SNI) when establishing a TLS connection. This
+ *  feature only applies to gateways of type 'SECURE_WEB_GATEWAY'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *certificateUrls;
+
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -662,6 +677,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Optional. A fully-qualified GatewaySecurityPolicy URL reference. Defines how
+ *  a server should apply security policy to inbound (VM to Proxy) initiated
+ *  connections. For example: `projects/ * /locations/ *
+ *  /gatewaySecurityPolicies/swg-policy`. This policy is specific to gateways of
+ *  type 'SECURE_WEB_GATEWAY'.
+ */
+@property(nonatomic, copy, nullable) NSString *gatewaySecurityPolicy;
+
 /** Optional. Set of label tags associated with the Gateway resource. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Gateway_Labels *labels;
 
@@ -670,6 +694,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  /locations/ * /gateways/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The relative resource name identifying the VPC network that is
+ *  using this configuration. For example: `projects/ *
+ *  /global/networks/network-1`. Currently, this field is specific to gateways
+ *  of type 'SECURE_WEB_GATEWAY'.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Required. One or more port numbers (1-65535), on which the Gateway will
@@ -698,6 +730,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  traffic is terminated. If empty, TLS termination is disabled.
  */
 @property(nonatomic, copy, nullable) NSString *serverTlsPolicy;
+
+/**
+ *  Optional. The relative resource name identifying the subnetwork in which
+ *  this SWG is allocated. For example: `projects/ *
+ *  /regions/us-central1/subnetworks/network-1` Currently, this field is
+ *  specific to gateways of type 'SECURE_WEB_GATEWAY".
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
  *  Immutable. The type of the customer managed gateway. This field is required.

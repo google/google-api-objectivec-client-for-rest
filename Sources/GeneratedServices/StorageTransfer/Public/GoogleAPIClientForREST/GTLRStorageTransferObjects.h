@@ -427,7 +427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageC
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassNearline;
 /**
  *  Preserve the object's original storage class. This is only supported for
- *  transfers from Google Cloud Storage buckets.
+ *  transfers from Google Cloud Storage buckets. REGIONAL and MULTI_REGIONAL
+ *  storage classes will be mapped to STANDARD to ensure they can be written to
+ *  the destination bucket.
  *
  *  Value: "STORAGE_CLASS_PRESERVE"
  */
@@ -1506,7 +1508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *        Set the storage class to NEARLINE. (Value: "STORAGE_CLASS_NEARLINE")
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassPreserve
  *        Preserve the object's original storage class. This is only supported
- *        for transfers from Google Cloud Storage buckets. (Value:
+ *        for transfers from Google Cloud Storage buckets. REGIONAL and
+ *        MULTI_REGIONAL storage classes will be mapped to STANDARD to ensure
+ *        they can be written to the destination bucket. (Value:
  *        "STORAGE_CLASS_PRESERVE")
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassStandard
  *        Set the storage class to STANDARD. (Value: "STORAGE_CLASS_STANDARD")
@@ -2363,6 +2367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 
 /** Summarizes errors encountered with sample error log entries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorSummary *> *errorBreakdowns;
+
+/** Cloud Logging configuration. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_LoggingConfig *loggingConfig;
 
 /** A globally unique ID assigned by the system. */
 @property(nonatomic, copy, nullable) NSString *name;

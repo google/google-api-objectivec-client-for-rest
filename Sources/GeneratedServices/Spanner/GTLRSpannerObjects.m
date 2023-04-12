@@ -441,8 +441,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_Database
 @dynamic createTime, databaseDialect, defaultLeader, earliestVersionTime,
-         encryptionConfig, encryptionInfo, name, restoreInfo, state,
-         versionRetentionPeriod;
+         enableDropProtection, encryptionConfig, encryptionInfo, name,
+         reconciling, restoreInfo, state, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -565,8 +565,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ExecuteSqlRequest
-@dynamic params, paramTypes, partitionToken, queryMode, queryOptions,
-         requestOptions, resumeToken, seqno, sql, transaction;
+@dynamic dataBoostEnabled, params, paramTypes, partitionToken, queryMode,
+         queryOptions, requestOptions, resumeToken, seqno, sql, transaction;
 @end
 
 
@@ -1546,8 +1546,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ReadRequest
-@dynamic columns, index, keySet, limit, partitionToken, requestOptions,
-         resumeToken, table, transaction;
+@dynamic columns, dataBoostEnabled, index, keySet, limit, partitionToken,
+         requestOptions, resumeToken, table, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1998,6 +1998,26 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_UpdateDatabaseMetadata
+//
+
+@implementation GTLRSpanner_UpdateDatabaseMetadata
+@dynamic cancelTime, progress, request;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_UpdateDatabaseRequest
+//
+
+@implementation GTLRSpanner_UpdateDatabaseRequest
+@dynamic database, updateMask;
 @end
 
 

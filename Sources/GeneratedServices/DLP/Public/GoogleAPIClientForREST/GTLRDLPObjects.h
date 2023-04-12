@@ -17,6 +17,7 @@
 #endif
 
 @class GTLRDLP_GooglePrivacyDlpV2Action;
+@class GTLRDLP_GooglePrivacyDlpV2ActionDetails;
 @class GTLRDLP_GooglePrivacyDlpV2AllInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2AllText;
 @class GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails;
@@ -61,6 +62,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2DateTime;
 @class GTLRDLP_GooglePrivacyDlpV2Deidentify;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig;
+@class GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceDetails;
+@class GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceStats;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate;
 @class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig;
 @class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationHistogramBucket;
@@ -167,6 +170,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig;
+@class GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions;
 @class GTLRDLP_GooglePrivacyDlpV2RequestedOptions;
 @class GTLRDLP_GooglePrivacyDlpV2RequestedRiskAnalysisOptions;
 @class GTLRDLP_GooglePrivacyDlpV2Result;
@@ -1068,6 +1072,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  *  Value: "COLOMBIA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia;
+/**
+ *  The infoType is typically used in Croatia.
+ *
+ *  Value: "CROATIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Croatia;
 /**
  *  The infoType is typically used in Denmark.
  *
@@ -2090,6 +2100,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Save resulting findings in a provided location. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SaveFindings *saveFindings;
+
+@end
+
+
+/**
+ *  The results of an Action.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ActionDetails : GTLRObject
+
+/** Outcome of a de-identification action. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceDetails *deidentifyDetails;
 
 @end
 
@@ -3760,6 +3781,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The results of a Deidentify action from an Inspect job.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceDetails : GTLRObject
+
+/** Stats about de-identification. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceStats *deidentifyStats;
+
+/** De-identification config used for the request. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions *requestedOptions;
+
+@end
+
+
+/**
+ *  Summary of what was modified during a transformation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceStats : GTLRObject
+
+/**
+ *  Number of successfully applied transformations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transformationCount;
+
+/**
+ *  Number of errors encountered while trying to apply transformations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transformationErrorCount;
+
+/**
+ *  Total size in bytes that were transformed in some way.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transformedBytes;
+
+@end
+
+
+/**
  *  DeidentifyTemplates contains instructions on how to de-identify content. See
  *  https://cloud.google.com/dlp/docs/concepts-templates to learn more.
  */
@@ -3969,6 +4033,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Combines all of the information about a DLP job.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DlpJob : GTLRObject
+
+/** Events that should occur after the job has completed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ActionDetails *> *actionDetails;
 
 /** Time when the job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -4404,19 +4471,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit *> *maxFindingsPerInfoType;
 
 /**
- *  Max number of findings that will be returned for each item scanned. When set
- *  within `InspectJobConfig`, the maximum returned is 2000 regardless if this
- *  is set higher. When set within `InspectContentRequest`, this field is
- *  ignored.
+ *  Max number of findings that are returned for each item scanned. When set
+ *  within an InspectContentRequest, this field is ignored. This value isn't a
+ *  hard limit. If the number of findings for an item reaches this limit, the
+ *  inspection of that item ends gradually, not abruptly. Therefore, the actual
+ *  number of findings that Cloud DLP returns for the item can be multiple times
+ *  higher than this value.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFindingsPerItem;
 
 /**
- *  Max number of findings that will be returned per request/job. When set
- *  within `InspectContentRequest`, the maximum returned is 2000 regardless if
- *  this is set higher.
+ *  Max number of findings that are returned per request or job. If you set this
+ *  field in an InspectContentRequest, the resulting maximum value is the value
+ *  that you set or 3,000, whichever is lower. This value isn't a hard limit. If
+ *  an inspection reaches this limit, the inspection ends gradually, not
+ *  abruptly. Therefore, the actual number of findings that Cloud DLP returns
+ *  can be multiple times higher than this value.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4860,6 +4932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        The infoType is typically used in China. (Value: "CHINA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia
  *        The infoType is typically used in Colombia. (Value: "COLOMBIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Croatia
+ *        The infoType is typically used in Croatia. (Value: "CROATIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark
  *        The infoType is typically used in Denmark. (Value: "DENMARK")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland
@@ -5150,8 +5224,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  for data profiling. When redacting sensitive data from images, finding
  *  limits don't apply. They can cause unexpected or inconsistent results, where
  *  only some data is redacted. Don't include finding limits in RedactImage
- *  requests. Otherwise, Cloud DLP returns an error. When set within
- *  `InspectJobConfig`, the specified maximum values aren't hard limits. If an
+ *  requests. Otherwise, Cloud DLP returns an error. When set within an
+ *  InspectJobConfig, the specified maximum values aren't hard limits. If an
  *  inspection job reaches these limits, the job ends gradually, not abruptly.
  *  Therefore, the actual number of findings that Cloud DLP returns can be
  *  multiple times higher than these maximum values.
@@ -6955,6 +7029,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Replace each matching finding with the name of the info_type.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig : GTLRObject
+@end
+
+
+/**
+ *  De-id options.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions : GTLRObject
+
+/**
+ *  Snapshot of the state of the DeidentifyTemplate from the Deidentify action
+ *  at the time this job was run.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *snapshotDeidentifyTemplate;
+
+/**
+ *  Snapshot of the state of the image redact DeidentifyTemplate from the
+ *  Deidentify action at the time this job was run.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *snapshotImageRedactTemplate;
+
+/**
+ *  Snapshot of the state of the structured DeidentifyTemplate from the
+ *  Deidentify action at the time this job was run.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *snapshotStructuredDeidentifyTemplate;
+
 @end
 
 

@@ -285,7 +285,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Claims the website of a Merchant Center sub-account.
+ *  Claims the website of a Merchant Center sub-account. Merchant accounts with
+ *  approved third-party CSSs aren't required to claim a website.
  *
  *  Method: content.accounts.claimwebsite
  *
@@ -315,7 +316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsClaimWebsiteResponse.
  *
- *  Claims the website of a Merchant Center sub-account.
+ *  Claims the website of a Merchant Center sub-account. Merchant accounts with
+ *  approved third-party CSSs aren't required to claim a website.
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
@@ -5654,6 +5656,81 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Generates recommendations for a merchant.
+ *
+ *  Method: content.recommendations.generate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RecommendationsGenerate : GTLRShoppingContentQuery
+
+/**
+ *  Optional. List of allowed tags. Tags are a set of predefined strings that
+ *  describe the category that individual recommendation types. User can specify
+ *  zero or more tags in this field to indicate what group of recommendations
+ *  they want to receive. Current list of supported tags: - TREND
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedTag;
+
+/**
+ *  Optional. Language code of the client. If not set, the result will be in
+ *  default language (English). This language code affects all fields prefixed
+ *  with "localized". This should be set to ISO 639-1 country code. List of
+ *  currently verified supported language code: en, fr, cs, da, de, es, it, nl,
+ *  no, pl, pt, pt, fi, sv, vi, tr, th, ko, zh-CN, zh-TW, ja, id, hi
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. The ID of the account to fetch recommendations for. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_GenerateRecommendationsResponse.
+ *
+ *  Generates recommendations for a merchant.
+ *
+ *  @param merchantId Required. The ID of the account to fetch recommendations
+ *    for.
+ *
+ *  @return GTLRShoppingContentQuery_RecommendationsGenerate
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Reports an interaction on a recommendation for a merchant.
+ *
+ *  Method: content.recommendations.reportInteraction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RecommendationsReportInteraction : GTLRShoppingContentQuery
+
+/** Required. The ID of the account that wants to report an interaction. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Reports an interaction on a recommendation for a merchant.
+ *
+ *  @param object The @c GTLRShoppingContent_ReportInteractionRequest to include
+ *    in the query.
+ *  @param merchantId Required. The ID of the account that wants to report an
+ *    interaction.
+ *
+ *  @return GTLRShoppingContentQuery_RecommendationsReportInteraction
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReportInteractionRequest *)object
+                     merchantId:(long long)merchantId;
 
 @end
 

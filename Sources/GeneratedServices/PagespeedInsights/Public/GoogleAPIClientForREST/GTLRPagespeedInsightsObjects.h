@@ -23,7 +23,9 @@
 @class GTLRPagespeedInsights_CategoryGroupV5;
 @class GTLRPagespeedInsights_ConfigSettings;
 @class GTLRPagespeedInsights_Environment;
+@class GTLRPagespeedInsights_Environment_Credits;
 @class GTLRPagespeedInsights_I18n;
+@class GTLRPagespeedInsights_LhrEntity;
 @class GTLRPagespeedInsights_LighthouseAuditResultV5;
 @class GTLRPagespeedInsights_LighthouseAuditResultV5_Details;
 @class GTLRPagespeedInsights_LighthouseCategoryV5;
@@ -208,12 +210,31 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *benchmarkIndex;
 
+/**
+ *  The version of libraries with which these results were generated. Ex:
+ *  axe-core.
+ */
+@property(nonatomic, strong, nullable) GTLRPagespeedInsights_Environment_Credits *credits;
+
 /** The user agent string of the version of Chrome used. */
 @property(nonatomic, copy, nullable) NSString *hostUserAgent;
 
 /** The user agent string that was sent over the network. */
 @property(nonatomic, copy, nullable) NSString *networkUserAgent;
 
+@end
+
+
+/**
+ *  The version of libraries with which these results were generated. Ex:
+ *  axe-core.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPagespeedInsights_Environment_Credits : GTLRObject
 @end
 
 
@@ -227,6 +248,40 @@ NS_ASSUME_NONNULL_BEGIN
  *  configSettings.
  */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_RendererFormattedStrings *rendererFormattedStrings;
+
+@end
+
+
+/**
+ *  Message containing an Entity.
+ */
+@interface GTLRPagespeedInsights_LhrEntity : GTLRObject
+
+/** Optional. An optional category name for the entity. */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** Optional. An optional homepage URL of the entity. */
+@property(nonatomic, copy, nullable) NSString *homepage;
+
+/**
+ *  Optional. An optional flag indicating if the entity is the first party.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFirstParty;
+
+/**
+ *  Optional. An optional flag indicating if the entity is not recognized.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isUnrecognized;
+
+/** Required. Name of the entity. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. A list of URL origin strings that belong to this entity. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *origins;
 
 @end
 
@@ -368,20 +423,37 @@ NS_ASSUME_NONNULL_BEGIN
 /** The configuration settings for this LHR. */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_ConfigSettings *configSettings;
 
+/** Entity classification data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPagespeedInsights_LhrEntity *> *entities;
+
 /** Environment settings that were used when making this LHR. */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_Environment *environment;
 
 /** The time that this run was fetched. */
 @property(nonatomic, copy, nullable) NSString *fetchTime;
 
+/** URL displayed on the page after Lighthouse finishes. */
+@property(nonatomic, copy, nullable) NSString *finalDisplayedUrl;
+
 /** The final resolved url that was audited. */
 @property(nonatomic, copy, nullable) NSString *finalUrl;
+
+/**
+ *  Screenshot data of the full page, along with node rects relevant to the
+ *  audit results.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id fullPageScreenshot;
 
 /** The internationalization strings that are required to render the LHR. */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_I18n *i18n;
 
 /** The lighthouse version that was used to generate this LHR. */
 @property(nonatomic, copy, nullable) NSString *lighthouseVersion;
+
+/** URL of the main document request of the final navigation. */
+@property(nonatomic, copy, nullable) NSString *mainDocumentUrl;
 
 /** The original requested url. */
 @property(nonatomic, copy, nullable) NSString *requestedUrl;

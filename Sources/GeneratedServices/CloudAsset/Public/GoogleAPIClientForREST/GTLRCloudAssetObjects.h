@@ -2079,16 +2079,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *attachedResource;
 
 /**
- *  The folder(s) that this IAM policy belongs to, in the form of
- *  folders/{FOLDER_NUMBER}. This field is available when the IAM policy
- *  belongs(directly or cascadingly) to one or more folders.
+ *  The folder(s) that this IAM policy belongs to, in the format of
+ *  folders/{FOLDER_NUMBER}. This field is available when the IAM policy belongs
+ *  (directly or cascadingly) to one or more folders.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
 
 /**
- *  The organization that this IAM policy belongs to, in the form of
+ *  The organization that this IAM policy belongs to, in the format of
  *  organizations/{ORGANIZATION_NUMBER}. This field is available when the IAM
- *  policy belongs(directly or cascadingly) to an organization.
+ *  policy belongs (directly or cascadingly) to an organization.
  */
 @property(nonatomic, copy, nullable) NSString *organization;
 
@@ -2096,7 +2096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
 
 /**
- *  The project that this IAM policy belongs to, in the form of
+ *  The project that this IAM policy belongs to, in the format of
  *  projects/{PROJECT_NUMBER}. This field is available when the IAM policy
  *  belongs to a project.
  */
@@ -2112,9 +2112,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource : GTLRObject
 
 /**
- *  The folder(s) that this resource belongs to, in the form of
- *  folders/{FOLDER_NUMBER}. This field is available when the resource
- *  belongs(directly or cascadingly) to one or more folders.
+ *  The folder(s) that this resource belongs to, in the format of
+ *  folders/{FOLDER_NUMBER}. This field is available when the resource belongs
+ *  (directly or cascadingly) to one or more folders.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
 
@@ -2126,9 +2126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
 /**
- *  The organization that this resource belongs to, in the form of
+ *  The organization that this resource belongs to, in the format of
  *  organizations/{ORGANIZATION_NUMBER}. This field is available when the
- *  resource belongs(directly or cascadingly) to an organization.
+ *  resource belongs (directly or cascadingly) to an organization.
  */
 @property(nonatomic, copy, nullable) NSString *organization;
 
@@ -2141,7 +2141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The project that this resource belongs to, in the form of
+ *  The project that this resource belongs to, in the format of
  *  projects/{PROJECT_NUMBER}. This field is available when the resource belongs
  *  to a project.
  */

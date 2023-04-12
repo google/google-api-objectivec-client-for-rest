@@ -16,6 +16,7 @@
 // Constants
 
 // GTLRServiceManagement_Api.syntax
+NSString * const kGTLRServiceManagement_Api_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceManagement_Api_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceManagement_Api_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -64,6 +65,7 @@ NSString * const kGTLRServiceManagement_Diagnostic_Kind_Error  = @"ERROR";
 NSString * const kGTLRServiceManagement_Diagnostic_Kind_Warning = @"WARNING";
 
 // GTLRServiceManagement_Enum.syntax
+NSString * const kGTLRServiceManagement_Enum_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceManagement_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceManagement_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -100,6 +102,7 @@ NSString * const kGTLRServiceManagement_LabelDescriptor_ValueType_Int64 = @"INT6
 NSString * const kGTLRServiceManagement_LabelDescriptor_ValueType_String = @"STRING";
 
 // GTLRServiceManagement_Method.syntax
+NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -173,6 +176,7 @@ NSString * const kGTLRServiceManagement_Step_Status_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRServiceManagement_Step_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRServiceManagement_Type.syntax
+NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
@@ -694,7 +698,46 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_DotnetSettings
-@dynamic common;
+@dynamic common, forcedNamespaceAliases, handwrittenSignatures,
+         ignoredResources, renamedResources, renamedServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forcedNamespaceAliases" : [NSString class],
+    @"handwrittenSignatures" : [NSString class],
+    @"ignoredResources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_DotnetSettings_RenamedResources
+//
+
+@implementation GTLRServiceManagement_DotnetSettings_RenamedResources
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_DotnetSettings_RenamedServices
+//
+
+@implementation GTLRServiceManagement_DotnetSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -731,7 +774,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Enum
-@dynamic enumvalue, name, options, sourceContext, syntax;
+@dynamic edition, enumvalue, name, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1486,7 +1529,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 @implementation GTLRServiceManagement_Publishing
 @dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
          githubLabel, librarySettings, methodSettings, newIssueUri,
-         organization;
+         organization, protoReferenceDocumentationUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1854,7 +1897,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Type
-@dynamic fields, name, oneofs, options, sourceContext, syntax;
+@dynamic edition, fields, name, oneofs, options, sourceContext, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

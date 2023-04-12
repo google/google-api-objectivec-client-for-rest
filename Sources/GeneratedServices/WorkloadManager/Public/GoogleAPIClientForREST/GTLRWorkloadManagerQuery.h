@@ -41,16 +41,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsCreate : GTLRWorkloadManagerQuery
 
-/**
- *  Required. Id of the requesting object If auto-generating Id server-side,
- *  remove this field and evaluation_id from the method_signature of Create RPC
- */
+/** Required. Id of the requesting object */
 @property(nonatomic, copy, nullable) NSString *evaluationId;
 
 /**
- *  Required. The resource name of the evaluation location using the form:
- *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
- *  to a GCP region.
+ *  Required. The resource prefix of the evaluation location using the form:
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -59,12 +55,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  request ID so that if you must retry your request, the server will know to
  *  ignore the request if it has already been completed. The server will
  *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -75,14 +71,219 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Evaluation in a given project and location.
  *
  *  @param object The @c GTLRWorkloadManager_Evaluation to include in the query.
- *  @param parent Required. The resource name of the evaluation location using
- *    the form: `projects/{project_id}/locations/{location_id}` where
- *    `location_id` refers to a GCP region.
+ *  @param parent Required. The resource prefix of the evaluation location using
+ *    the form: `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsCreate
  */
 + (instancetype)queryWithObject:(GTLRWorkloadManager_Evaluation *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single Execution.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.executions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsGet : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Execution.
+ *
+ *  Gets details of a single Execution.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Executions in a given project and location.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.executions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsList : GTLRWorkloadManagerQuery
+
+/** Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field to sort by. See https://google.aip.dev/132#ordering for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource prefix of the Execution using the form:
+ *  'projects/{project}/locations/{location}/evaluations/{evaluation}'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListExecutionsResponse.
+ *
+ *  Lists Executions in a given project and location.
+ *
+ *  @param parent Required. The resource prefix of the Execution using the form:
+ *    'projects/{project}/locations/{location}/evaluations/{evaluation}'
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the running result of a single Execution.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.executions.results.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsResultsList : GTLRWorkloadManagerQuery
+
+/** Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The execution results. Format: {parent}/evaluations/ *
+ *  /executions/ * /results
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListExecutionResultsResponse.
+ *
+ *  List the running result of a single Execution.
+ *
+ *  @param parent Required. The execution results. Format: {parent}/evaluations/
+ *    * /executions/ * /results
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsResultsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new Execution in a given project and location.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.executions.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsRun : GTLRWorkloadManagerQuery
+
+/**
+ *  Required. The resource name of the Execution using the form:
+ *  'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Creates a new Execution in a given project and location.
+ *
+ *  @param object The @c GTLRWorkloadManager_RunEvaluationRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the Execution using the form:
+ *    'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}'
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsRun
+ */
++ (instancetype)queryWithObject:(GTLRWorkloadManager_RunEvaluationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  List all scanned resources for a single Execution.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.executions.scannedResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsScannedResourcesList : GTLRWorkloadManagerQuery
+
+/** Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field to sort by. See https://google.aip.dev/132#ordering for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. parent for ListScannedResourcesRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** rule name */
+@property(nonatomic, copy, nullable) NSString *rule;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListScannedResourcesResponse.
+ *
+ *  List all scanned resources for a single Execution.
+ *
+ *  @param parent Required. parent for ListScannedResourcesRequest
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsScannedResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -374,14 +575,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: workloadmanager.projects.locations.operations.list
  *
@@ -406,14 +600,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRWorkloadManager_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -424,6 +611,54 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists rules in a given project.
+ *
+ *  Method: workloadmanager.projects.locations.rules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsRulesList : GTLRWorkloadManagerQuery
+
+/** Filter based on primary_category, secondary_category */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The [project] on which to execute the request. The format is:
+ *  projects/{project_id}/locations/{location} Currently, the pre-defined rules
+ *  are global available to all projects and all regions
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListRulesResponse.
+ *
+ *  Lists rules in a given project.
+ *
+ *  @param parent Required. The [project] on which to execute the request. The
+ *    format is: projects/{project_id}/locations/{location} Currently, the
+ *    pre-defined rules are global available to all projects and all regions
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

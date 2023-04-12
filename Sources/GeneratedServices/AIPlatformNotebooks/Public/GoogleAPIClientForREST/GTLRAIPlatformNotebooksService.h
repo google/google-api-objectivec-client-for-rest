@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Notebooks API (notebooks/v1)
+//   Notebooks API (notebooks/v2)
 // Description:
 //   Notebooks API is used to manage notebook resources in Google Cloud.
 // Documentation:

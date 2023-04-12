@@ -439,6 +439,33 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksRename
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameNetworkRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rename";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Network class];
+  query.loggingName = @"baremetalsolution.projects.locations.networks.rename";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesCreate
 
 @dynamic parent;
@@ -545,6 +572,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
   query.loggingName = @"baremetalsolution.projects.locations.nfsShares.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesRename
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameNfsShareRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rename";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_NfsShare class];
+  query.loggingName = @"baremetalsolution.projects.locations.nfsShares.rename";
   return query;
 }
 
@@ -905,6 +959,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
   query.loggingName = @"baremetalsolution.projects.locations.volumes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesRename
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RenameVolumeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rename";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Volume class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.rename";
   return query;
 }
 

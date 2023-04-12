@@ -424,6 +424,16 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_ApplicationPlayerId
+//
+
+@implementation GTLRGames_ApplicationPlayerId
+@dynamic applicationId, playerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_ApplicationVerifyResponse
 //
 
@@ -709,6 +719,24 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_GetMultipleApplicationPlayerIdsResponse
+//
+
+@implementation GTLRGames_GetMultipleApplicationPlayerIdsResponse
+@dynamic playerIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"playerIds" : [GTLRGames_ApplicationPlayerId class]
+  };
+  return map;
 }
 
 @end

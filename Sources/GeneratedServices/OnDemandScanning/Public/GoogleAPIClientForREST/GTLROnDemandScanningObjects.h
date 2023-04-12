@@ -18,6 +18,7 @@
 @class GTLROnDemandScanning_AnalysisCompleted;
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
+@class GTLROnDemandScanning_Binary;
 @class GTLROnDemandScanning_BuilderConfig;
 @class GTLROnDemandScanning_BuildOccurrence;
 @class GTLROnDemandScanning_BuildProvenance;
@@ -54,6 +55,7 @@
 @class GTLROnDemandScanning_ImageOccurrence;
 @class GTLROnDemandScanning_InTotoProvenance;
 @class GTLROnDemandScanning_InTotoStatement;
+@class GTLROnDemandScanning_Justification;
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_LanguagePackageDependency;
 @class GTLROnDemandScanning_Layer;
@@ -76,6 +78,7 @@
 @class GTLROnDemandScanning_Recipe_Arguments_Item;
 @class GTLROnDemandScanning_Recipe_Environment_Item;
 @class GTLROnDemandScanning_RelatedUrl;
+@class GTLROnDemandScanning_Remediation;
 @class GTLROnDemandScanning_RepoId;
 @class GTLROnDemandScanning_Signature;
 @class GTLROnDemandScanning_SlsaBuilder;
@@ -98,6 +101,7 @@
 @class GTLROnDemandScanning_UpgradeDistribution;
 @class GTLROnDemandScanning_UpgradeOccurrence;
 @class GTLROnDemandScanning_Version;
+@class GTLROnDemandScanning_VexAssessment;
 @class GTLROnDemandScanning_VulnerabilityOccurrence;
 @class GTLROnDemandScanning_WindowsUpdate;
 
@@ -341,6 +345,54 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_Con
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Inactive;
 
 // ----------------------------------------------------------------------------
+// GTLROnDemandScanning_Justification.justificationType
+
+/**
+ *  The vulnerable component is not present in the product.
+ *
+ *  Value: "COMPONENT_NOT_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Justification_JustificationType_ComponentNotPresent;
+/**
+ *  The product includes built-in protections or features that prevent
+ *  exploitation of the vulnerability. These built-in protections cannot be
+ *  subverted by the attacker and cannot be configured or disabled by the user.
+ *  These mitigations completely prevent exploitation based on known attack
+ *  vectors.
+ *
+ *  Value: "INLINE_MITIGATIONS_ALREADY_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Justification_JustificationType_InlineMitigationsAlreadyExist;
+/**
+ *  JUSTIFICATION_TYPE_UNSPECIFIED.
+ *
+ *  Value: "JUSTIFICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Justification_JustificationType_JustificationTypeUnspecified;
+/**
+ *  The vulnerable code cannot be controlled by an attacker to exploit the
+ *  vulnerability.
+ *
+ *  Value: "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeCannotBeControlledByAdversary;
+/**
+ *  The vulnerable code can not be executed. Typically this case occurs when the
+ *  product includes the vulnerable code but does not call or use the vulnerable
+ *  code.
+ *
+ *  Value: "VULNERABLE_CODE_NOT_IN_EXECUTE_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotInExecutePath;
+/**
+ *  The vulnerable code is not present. Typically this case occurs when source
+ *  code is configured or built in a way that excludes the vulnerable code.
+ *
+ *  Value: "VULNERABLE_CODE_NOT_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotPresent;
+
+// ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Occurrence.kind
 
 /**
@@ -409,6 +461,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Upgrade
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability;
+/**
+ *  This represents a Vulnerability Assessment.
+ *
+ *  Value: "VULNERABILITY_ASSESSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_VulnerabilityAssessment;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_PackageData.packageType
@@ -515,6 +573,46 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageOccurrence_Archi
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X86;
 
 // ----------------------------------------------------------------------------
+// GTLROnDemandScanning_Remediation.remediationType
+
+/**
+ *  A MITIGATION is available.
+ *
+ *  Value: "MITIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Mitigation;
+/**
+ *  No fix is planned.
+ *
+ *  Value: "NO_FIX_PLANNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_NoFixPlanned;
+/**
+ *  Not available.
+ *
+ *  Value: "NONE_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_NoneAvailable;
+/**
+ *  No remediation type specified.
+ *
+ *  Value: "REMEDIATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_RemediationTypeUnspecified;
+/**
+ *  A vendor fix is available.
+ *
+ *  Value: "VENDOR_FIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_VendorFix;
+/**
+ *  A workaround is available.
+ *
+ *  Value: "WORKAROUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Workaround;
+
+// ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
 
 /**
@@ -541,6 +639,41 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Version_Kind_Normal;
  *  Value: "VERSION_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Version_Kind_VersionKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_VexAssessment.state
+
+/**
+ *  This product is known to be affected by this vulnerability.
+ *
+ *  Value: "AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VexAssessment_State_Affected;
+/**
+ *  This product contains a fix for this vulnerability.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VexAssessment_State_Fixed;
+/**
+ *  This product is known to be not affected by this vulnerability.
+ *
+ *  Value: "NOT_AFFECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VexAssessment_State_NotAffected;
+/**
+ *  No state is specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VexAssessment_State_StateUnspecified;
+/**
+ *  It is not known yet whether these versions are or are not affected by the
+ *  vulnerability. However, it is still under investigation.
+ *
+ *  Value: "UNDER_INVESTIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VexAssessment_State_UnderInvestigation;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_VulnerabilityOccurrence.cvssVersion
@@ -818,6 +951,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  for more details on signature structure and verification.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Signature *> *signatures;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_Binary
+ */
+@interface GTLROnDemandScanning_Binary : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1783,6 +1927,49 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Justification provides the justification when the state of the assessment if
+ *  NOT_AFFECTED.
+ */
+@interface GTLROnDemandScanning_Justification : GTLRObject
+
+/** Additional details on why this justification was chosen. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The justification type for this vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_Justification_JustificationType_ComponentNotPresent
+ *        The vulnerable component is not present in the product. (Value:
+ *        "COMPONENT_NOT_PRESENT")
+ *    @arg @c kGTLROnDemandScanning_Justification_JustificationType_InlineMitigationsAlreadyExist
+ *        The product includes built-in protections or features that prevent
+ *        exploitation of the vulnerability. These built-in protections cannot
+ *        be subverted by the attacker and cannot be configured or disabled by
+ *        the user. These mitigations completely prevent exploitation based on
+ *        known attack vectors. (Value: "INLINE_MITIGATIONS_ALREADY_EXIST")
+ *    @arg @c kGTLROnDemandScanning_Justification_JustificationType_JustificationTypeUnspecified
+ *        JUSTIFICATION_TYPE_UNSPECIFIED. (Value:
+ *        "JUSTIFICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeCannotBeControlledByAdversary
+ *        The vulnerable code cannot be controlled by an attacker to exploit the
+ *        vulnerability. (Value:
+ *        "VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY")
+ *    @arg @c kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotInExecutePath
+ *        The vulnerable code can not be executed. Typically this case occurs
+ *        when the product includes the vulnerable code but does not call or use
+ *        the vulnerable code. (Value: "VULNERABLE_CODE_NOT_IN_EXECUTE_PATH")
+ *    @arg @c kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotPresent
+ *        The vulnerable code is not present. Typically this case occurs when
+ *        source code is configured or built in a way that excludes the
+ *        vulnerable code. (Value: "VULNERABLE_CODE_NOT_PRESENT")
+ */
+@property(nonatomic, copy, nullable) NSString *justificationType;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_Jwt
  */
 @interface GTLROnDemandScanning_Jwt : GTLRObject
@@ -2069,6 +2256,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
+ *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_VulnerabilityAssessment This
+ *        represents a Vulnerability Assessment. (Value:
+ *        "VULNERABILITY_ASSESSMENT")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2194,6 +2384,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  GTLROnDemandScanning_PackageData
  */
 @interface GTLROnDemandScanning_PackageData : GTLRObject
+
+/** The architecture of the package. */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  The binary package. This is significant when the source is different than
+ *  the binary itself. Historically if they've differed, we've stored the name
+ *  of the source and its version in the package/version fields, but we should
+ *  also store the binary package info, as that's what's actually installed. See
+ *  b/175908657#comment15.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Binary *binary;
 
 /**
  *  The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in which
@@ -2497,6 +2699,39 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Specific URL associated with the resource. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Specifies details on how to handle (and presumably, fix) a vulnerability.
+ */
+@interface GTLROnDemandScanning_Remediation : GTLRObject
+
+/** Contains a comprehensive human-readable discussion of the remediation. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The type of remediation that can be applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_Remediation_RemediationType_Mitigation A
+ *        MITIGATION is available. (Value: "MITIGATION")
+ *    @arg @c kGTLROnDemandScanning_Remediation_RemediationType_NoFixPlanned No
+ *        fix is planned. (Value: "NO_FIX_PLANNED")
+ *    @arg @c kGTLROnDemandScanning_Remediation_RemediationType_NoneAvailable
+ *        Not available. (Value: "NONE_AVAILABLE")
+ *    @arg @c kGTLROnDemandScanning_Remediation_RemediationType_RemediationTypeUnspecified
+ *        No remediation type specified. (Value: "REMEDIATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_Remediation_RemediationType_VendorFix A
+ *        vendor fix is available. (Value: "VENDOR_FIX")
+ *    @arg @c kGTLROnDemandScanning_Remediation_RemediationType_Workaround A
+ *        workaround is available. (Value: "WORKAROUND")
+ */
+@property(nonatomic, copy, nullable) NSString *remediationType;
+
+/** Contains the URL where to obtain the remediation. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_RelatedUrl *remediationUri;
 
 @end
 
@@ -3070,6 +3305,71 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  VexAssessment provides all publisher provided Vex information that is
+ *  related to this vulnerability.
+ */
+@interface GTLROnDemandScanning_VexAssessment : GTLRObject
+
+/**
+ *  Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
+ *  number for the vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *cve;
+
+/**
+ *  Contains information about the impact of this vulnerability, this will
+ *  change with time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impacts;
+
+/**
+ *  Justification provides the justification when the state of the assessment if
+ *  NOT_AFFECTED.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Justification *justification;
+
+/**
+ *  The VulnerabilityAssessment note from which this VexAssessment was
+ *  generated. This will be of the form:
+ *  `projects/[PROJECT_ID]/notes/[NOTE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *noteName;
+
+/**
+ *  Holds a list of references associated with this vulnerability item and
+ *  assessment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_RelatedUrl *> *relatedUris;
+
+/**
+ *  Specifies details on how to handle (and presumably, fix) a vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Remediation *> *remediations;
+
+/**
+ *  Provides the state of this Vulnerability assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_VexAssessment_State_Affected This product is
+ *        known to be affected by this vulnerability. (Value: "AFFECTED")
+ *    @arg @c kGTLROnDemandScanning_VexAssessment_State_Fixed This product
+ *        contains a fix for this vulnerability. (Value: "FIXED")
+ *    @arg @c kGTLROnDemandScanning_VexAssessment_State_NotAffected This product
+ *        is known to be not affected by this vulnerability. (Value:
+ *        "NOT_AFFECTED")
+ *    @arg @c kGTLROnDemandScanning_VexAssessment_State_StateUnspecified No
+ *        state is specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_VexAssessment_State_UnderInvestigation It is
+ *        not known yet whether these versions are or are not affected by the
+ *        vulnerability. However, it is still under investigation. (Value:
+ *        "UNDER_INVESTIGATION")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  An occurrence of a severity vulnerability on a resource.
  */
 @interface GTLROnDemandScanning_VulnerabilityOccurrence : GTLRObject
@@ -3175,6 +3475,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  packages, etc.).
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_VexAssessment *vexAssessment;
 
 @end
 

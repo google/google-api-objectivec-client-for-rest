@@ -174,6 +174,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ca
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Chile = @"CHILE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_China = @"CHINA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia = @"COLOMBIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Croatia = @"CROATIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark = @"DENMARK";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland = @"FINLAND";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_France = @"FRANCE";
@@ -380,6 +381,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @implementation GTLRDLP_GooglePrivacyDlpV2Action
 @dynamic deidentify, jobNotificationEmails, publishFindingsToCloudDataCatalog,
          publishSummaryToCscc, publishToStackdriver, pubSub, saveFindings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ActionDetails
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ActionDetails
+@dynamic deidentifyDetails;
 @end
 
 
@@ -1038,6 +1049,26 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceDetails
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceDetails
+@dynamic deidentifyStats, requestedOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceStats
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceStats
+@dynamic transformationCount, transformationErrorCount, transformedBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate
 //
 
@@ -1152,11 +1183,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DlpJob
-@dynamic createTime, endTime, errors, inspectDetails, jobTriggerName, name,
-         riskDetails, startTime, state, type;
+@dynamic actionDetails, createTime, endTime, errors, inspectDetails,
+         jobTriggerName, name, riskDetails, startTime, state, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"actionDetails" : [GTLRDLP_GooglePrivacyDlpV2ActionDetails class],
     @"errors" : [GTLRDLP_GooglePrivacyDlpV2Error class]
   };
   return map;
@@ -2706,6 +2738,17 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions
+@dynamic snapshotDeidentifyTemplate, snapshotImageRedactTemplate,
+         snapshotStructuredDeidentifyTemplate;
 @end
 
 

@@ -48,6 +48,8 @@
 @class GTLRServiceManagement_Documentation;
 @class GTLRServiceManagement_DocumentationRule;
 @class GTLRServiceManagement_DotnetSettings;
+@class GTLRServiceManagement_DotnetSettings_RenamedResources;
+@class GTLRServiceManagement_DotnetSettings_RenamedServices;
 @class GTLRServiceManagement_Endpoint;
 @class GTLRServiceManagement_Enum;
 @class GTLRServiceManagement_EnumValue;
@@ -124,6 +126,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_Api.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Api_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -395,6 +403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Diagnostic_Kind_Warnin
 // GTLRServiceManagement_Enum.syntax
 
 /**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Enum_Syntax_SyntaxEditions;
+/**
  *  Syntax `proto2`.
  *
  *  Value: "SYNTAX_PROTO2"
@@ -578,6 +592,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_LabelDescriptor_ValueT
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_Method.syntax
 
+/**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxEditions;
 /**
  *  Syntax `proto2`.
  *
@@ -1012,6 +1032,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Step_Status_StatusUnsp
 // GTLRServiceManagement_Type.syntax
 
 /**
+ *  Syntax `editions`.
+ *
+ *  Value: "SYNTAX_EDITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxEditions;
+/**
  *  Syntax `proto2`.
  *
  *  Value: "SYNTAX_PROTO2"
@@ -1077,6 +1103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  The source syntax of the service.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceManagement_Api_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceManagement_Api_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceManagement_Api_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -1686,7 +1714,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /** Settings for Ruby client libraries. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_RubySettings *rubySettings;
 
-/** Version of the API to apply these settings to. */
+/**
+ *  Version of the API to apply these settings to. This is the full protobuf
+ *  package for the API, ending in the version element. Examples:
+ *  "google.cloud.speech.v1" and "google.spanner.admin.database.v1".
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -2144,6 +2176,71 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_CommonLanguageSettings *common;
 
+/**
+ *  Namespaces which must be aliased in snippets due to a known (but
+ *  non-generator-predictable) naming collision
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forcedNamespaceAliases;
+
+/**
+ *  Method signatures (in the form "service.method(signature)") which are
+ *  provided separately, so shouldn't be generated. Snippets *calling* these
+ *  methods are still generated, however.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *handwrittenSignatures;
+
+/**
+ *  List of full resource types to ignore during generation. This is typically
+ *  used for API-specific Location resources, which should be handled by the
+ *  generator as if they were actually the common Location resources. Example
+ *  entry: "documentai.googleapis.com/Location"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredResources;
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_DotnetSettings_RenamedResources *renamedResources;
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_DotnetSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map from full resource types to the effective short name for the resource.
+ *  This is used when otherwise resource named from different services would
+ *  cause naming collisions. Example entry:
+ *  "datalabeling.googleapis.com/Dataset": "DataLabelingDataset"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceManagement_DotnetSettings_RenamedResources : GTLRObject
+@end
+
+
+/**
+ *  Map from original service names to renamed versions. This is used when the
+ *  default generated types would cause a naming conflict. (Neither name is
+ *  fully-qualified.) Example: Subscriber to SubscriberServiceApi.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceManagement_DotnetSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -2210,6 +2307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @interface GTLRServiceManagement_Enum : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** Enum value definitions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_EnumValue *> *enumvalue;
 
@@ -2226,6 +2326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceManagement_Enum_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceManagement_Enum_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceManagement_Enum_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -3182,6 +3284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  The source syntax of this method.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceManagement_Method_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceManagement_Method_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceManagement_Method_Syntax_SyntaxProto3 Syntax `proto3`.
@@ -3201,7 +3305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
- *  publishing: method_behavior: - selector: CreateAdDomain long_running:
+ *  publishing: method_settings: - selector:
+ *  google.cloud.speech.v2.Speech.BatchRecognize long_running:
  *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
  *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
  *  # 90 minutes
@@ -3546,7 +3651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inheriting
+ *  processor will see the effective `Storage.GetAcl` method after inherting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -4164,6 +4269,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        View Org. (Value: "STREET_VIEW")
  */
 @property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Optional link to proto reference documentation. Example:
+ *  https://cloud.google.com/pubsub/lite/docs/reference/rpc
+ */
+@property(nonatomic, copy, nullable) NSString *protoReferenceDocumentationUri;
 
 @end
 
@@ -4916,6 +5027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @interface GTLRServiceManagement_Type : GTLRObject
 
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** The list of fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Field *> *fields;
 
@@ -4935,6 +5049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  The source syntax.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceManagement_Type_Syntax_SyntaxEditions Syntax
+ *        `editions`. (Value: "SYNTAX_EDITIONS")
  *    @arg @c kGTLRServiceManagement_Type_Syntax_SyntaxProto2 Syntax `proto2`.
  *        (Value: "SYNTAX_PROTO2")
  *    @arg @c kGTLRServiceManagement_Type_Syntax_SyntaxProto3 Syntax `proto3`.

@@ -45,6 +45,10 @@
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternalAccountIdentifiers;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
+@class GTLRAndroidPublisher_ExternalSubscription;
+@class GTLRAndroidPublisher_ExternalTransactionAddress;
+@class GTLRAndroidPublisher_ExternalTransactionTestPurchase;
+@class GTLRAndroidPublisher_FullRefund;
 @class GTLRAndroidPublisher_GeneratedApksPerSigningKey;
 @class GTLRAndroidPublisher_GeneratedAssetPackSlice;
 @class GTLRAndroidPublisher_GeneratedSplitApk;
@@ -64,15 +68,18 @@
 @class GTLRAndroidPublisher_Money;
 @class GTLRAndroidPublisher_OfferDetails;
 @class GTLRAndroidPublisher_OfferTag;
+@class GTLRAndroidPublisher_OneTimeExternalTransaction;
 @class GTLRAndroidPublisher_OtherRegionsBasePlanConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices;
 @class GTLRAndroidPublisher_PageInfo;
+@class GTLRAndroidPublisher_PartialRefund;
 @class GTLRAndroidPublisher_PausedStateContext;
 @class GTLRAndroidPublisher_PrepaidBasePlanType;
 @class GTLRAndroidPublisher_PrepaidPlan;
 @class GTLRAndroidPublisher_Price;
+@class GTLRAndroidPublisher_RecurringExternalTransaction;
 @class GTLRAndroidPublisher_RegionalBasePlanConfig;
 @class GTLRAndroidPublisher_RegionalPriceMigrationConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferConfig;
@@ -260,6 +267,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_Symbo
  *  Value: "proguard"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ExternalSubscription.subscriptionType
+
+/**
+ *  This is a prepaid subscription where the user pays up front.
+ *
+ *  Value: "PREPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Prepaid;
+/**
+ *  This is a recurring subscription where the user is charged every billing
+ *  cycle.
+ *
+ *  Value: "RECURRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Recurring;
+/**
+ *  Unspecified, do not use.
+ *
+ *  Value: "SUBSCRIPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_SubscriptionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ExternalTransaction.transactionState
+
+/**
+ *  The transaction has been fully refunded.
+ *
+ *  Value: "TRANSACTION_CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionCanceled;
+/**
+ *  The transaction has been successfully reported to Google.
+ *
+ *  Value: "TRANSACTION_REPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionReported;
+/**
+ *  Unspecified transaction state. Not used.
+ *
+ *  Value: "TRANSACTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_Grant.appLevelPermissions
@@ -1407,9 +1459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
- *  LINT.IfChange A group of devices. A group is defined by a set of device
- *  selectors. A device belongs to the group if it matches any selector (logical
- *  OR).
+ *  A group of devices. A group is defined by a set of device selectors. A
+ *  device belongs to the group if it matches any selector (logical OR).
  */
 @interface GTLRAndroidPublisher_DeviceGroup : GTLRObject
 
@@ -1614,8 +1665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
- *  LINT.IfChange Configuration describing device targeting criteria for the
- *  content of an app.
+ *  Configuration describing device targeting criteria for the content of an
+ *  app.
  */
 @interface GTLRAndroidPublisher_DeviceTierConfig : GTLRObject
 
@@ -1797,6 +1848,145 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /** The version name of this APK. */
 @property(nonatomic, copy, nullable) NSString *versionName;
 
+@end
+
+
+/**
+ *  Details of an external subscription.
+ */
+@interface GTLRAndroidPublisher_ExternalSubscription : GTLRObject
+
+/**
+ *  Required. The type of the external subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Prepaid
+ *        This is a prepaid subscription where the user pays up front. (Value:
+ *        "PREPAID")
+ *    @arg @c kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Recurring
+ *        This is a recurring subscription where the user is charged every
+ *        billing cycle. (Value: "RECURRING")
+ *    @arg @c kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_SubscriptionTypeUnspecified
+ *        Unspecified, do not use. (Value: "SUBSCRIPTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionType;
+
+@end
+
+
+/**
+ *  The details of an external transaction.
+ */
+@interface GTLRAndroidPublisher_ExternalTransaction : GTLRObject
+
+/**
+ *  Output only. The time when this transaction was created. This is the time
+ *  when Google was notified of the transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The current transaction amount before tax. This represents the
+ *  current pre-tax amount including any refunds that may have been applied to
+ *  this transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *currentPreTaxAmount;
+
+/**
+ *  Output only. The current tax amount. This represents the current tax amount
+ *  including any refunds that may have been applied to this transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *currentTaxAmount;
+
+/**
+ *  Output only. The id of this transaction. All transaction ids under the same
+ *  package name must be unique. Set when creating the external transaction.
+ */
+@property(nonatomic, copy, nullable) NSString *externalTransactionId;
+
+/** This is a one-time transaction and not part of a subscription. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeExternalTransaction *oneTimeTransaction;
+
+/**
+ *  Required. The original transaction amount before taxes. This represents the
+ *  pre-tax amount originally notified to Google before any refunds were
+ *  applied.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *originalPreTaxAmount;
+
+/**
+ *  Required. The original tax amount. This represents the tax amount originally
+ *  notified to Google before any refunds were applied.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *originalTaxAmount;
+
+/**
+ *  Output only. The resource name of the external transaction. The package name
+ *  of the application the inapp products were sold (for example,
+ *  'com.some.app').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** This transaction is part of a recurring series of transactions. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RecurringExternalTransaction *recurringTransaction;
+
+/**
+ *  Output only. If set, this transaction was a test purchase. Google will not
+ *  charge for a test transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalTransactionTestPurchase *testPurchase;
+
+/**
+ *  Output only. The current state of the transaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionCanceled
+ *        The transaction has been fully refunded. (Value:
+ *        "TRANSACTION_CANCELED")
+ *    @arg @c kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionReported
+ *        The transaction has been successfully reported to Google. (Value:
+ *        "TRANSACTION_REPORTED")
+ *    @arg @c kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionStateUnspecified
+ *        Unspecified transaction state. Not used. (Value:
+ *        "TRANSACTION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transactionState;
+
+/** Required. The time when the transaction was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *transactionTime;
+
+/** Required. User address for tax computation. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalTransactionAddress *userTaxAddress;
+
+@end
+
+
+/**
+ *  User's address for the external transaction.
+ */
+@interface GTLRAndroidPublisher_ExternalTransactionAddress : GTLRObject
+
+/**
+ *  Required. Two letter region code based on ISO-3166-1 Alpha-2 (UN region
+ *  codes).
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Represents a transaction performed using a test account. These transactions
+ *  will not be charged by Google.
+ */
+@interface GTLRAndroidPublisher_ExternalTransactionTestPurchase : GTLRObject
+@end
+
+
+/**
+ *  A full refund of the remaining amount of a transaction.
+ */
+@interface GTLRAndroidPublisher_FullRefund : GTLRObject
 @end
 
 
@@ -2550,6 +2740,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Represents a one-time transaction.
+ */
+@interface GTLRAndroidPublisher_OneTimeExternalTransaction : GTLRObject
+
+/**
+ *  Input only. Provided during the call to Create. Retrieved from the client
+ *  when the alternative billing flow is launched.
+ */
+@property(nonatomic, copy, nullable) NSString *externalTransactionToken;
+
+@end
+
+
+/**
  *  Pricing information for any new locations Play may launch in.
  */
 @interface GTLRAndroidPublisher_OtherRegionsBasePlanConfig : GTLRObject
@@ -2672,6 +2876,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalResults;
+
+@end
+
+
+/**
+ *  A partial refund of a transaction.
+ */
+@interface GTLRAndroidPublisher_PartialRefund : GTLRObject
+
+/**
+ *  Required. A unique id distinguishing this partial refund. If the refund is
+ *  successful, subsequent refunds with the same id will fail. Must be unique
+ *  across refunds for one individual transaction.
+ */
+@property(nonatomic, copy, nullable) NSString *refundId;
+
+/**
+ *  Required. The pre-tax amount of the partial refund. Should be less than the
+ *  remaining pre-tax amount of the transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *refundPreTaxAmount;
 
 @end
 
@@ -2861,6 +3086,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** Payload to attach to the purchase. */
 @property(nonatomic, copy, nullable) NSString *developerPayload;
+
+@end
+
+
+/**
+ *  Represents a transaction that is part of a recurring series of payments.
+ *  This can be a subscription or a one-time product with multiple payments
+ *  (such as preorder).
+ */
+@interface GTLRAndroidPublisher_RecurringExternalTransaction : GTLRObject
+
+/** Details of an external subscription. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalSubscription *externalSubscription;
+
+/**
+ *  Input only. Provided during the call to Create. Retrieved from the client
+ *  when the alternative billing flow is launched. Required only for the initial
+ *  purchase.
+ */
+@property(nonatomic, copy, nullable) NSString *externalTransactionToken;
+
+/**
+ *  The external transaction id of the first transaction of this recurring
+ *  series of transactions. For example, for a subscription this would be the
+ *  transaction id of the first payment. Required when creating recurring
+ *  external transactions.
+ */
+@property(nonatomic, copy, nullable) NSString *initialExternalTransactionId;
+
+@end
+
+
+/**
+ *  A request to refund an existing external transaction.
+ */
+@interface GTLRAndroidPublisher_RefundExternalTransactionRequest : GTLRObject
+
+/** A full-amount refund. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_FullRefund *fullRefund;
+
+/** A partial refund. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PartialRefund *partialRefund;
+
+/** Required. The time that the transaction was refunded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *refundTime;
 
 @end
 
@@ -4107,7 +4377,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackRelease *> *releases;
 
-/** Identifier of the track. */
+/**
+ *  Identifier of the track. Form factor tracks have a special prefix as an
+ *  identifier, for example `wear:production`, `automotive:production`. [More on
+ *  track
+ *  name](https://developers.google.com/android-publisher/tracks#ff-track-name)
+ */
 @property(nonatomic, copy, nullable) NSString *track;
 
 @end

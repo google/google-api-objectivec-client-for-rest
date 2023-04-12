@@ -83,6 +83,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonRemorse;
 /**
+ *  Cancellation due to an unrecoverable system error.
+ *
+ *  Value: "CANCELLATION_REASON_SYSTEM_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemError;
+/**
  *  Reason is unspecified.
  *
  *  Value: "CANCELLATION_REASON_UNSPECIFIED"
@@ -257,7 +263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateCancelAtEndOfCycle;
 /**
- *  The subscription is cancelled.
+ *  The subscription is cancelled. This is the final state of the subscription,
+ *  as it can no longer be modified or reactivated.
  *
  *  Value: "STATE_CANCELLED"
  */
@@ -269,8 +276,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateCreated;
 /**
- *  The subscription has not been extended by the partner after the end of
- *  current cycle.
+ *  The subscription is in grace period. It can happen: 1) in manual extend
+ *  mode, the subscription is not extended by the partner at the end of current
+ *  cycle. 2) for outbound authorization enabled partners, a renewal purchase
+ *  order is rejected.
  *
  *  Value: "STATE_IN_GRACE_PERIOD"
  */
@@ -328,6 +337,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonRemorse;
 /**
+ *  Cancellation due to an unrecoverable system error.
+ *
+ *  Value: "CANCELLATION_REASON_SYSTEM_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemError;
+/**
  *  Reason is unspecified.
  *
  *  Value: "CANCELLATION_REASON_UNSPECIFIED"
@@ -382,7 +397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateActivating;
 /**
- *  The line item is in ACTIVE state.
+ *  The line item is in ACTIVE state. If the subscription is cancelled or
+ *  suspended, the line item will not be charged even if the line item is
+ *  active.
  *
  *  Value: "LINE_ITEM_STATE_ACTIVE"
  */
@@ -406,6 +423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "LINE_ITEM_STATE_NEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateNew;
+/**
+ *  Line item is being charged off-cycle.
+ *
+ *  Value: "LINE_ITEM_STATE_OFF_CYCLE_CHARGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateOffCycleCharging;
 /**
  *  Unspecified state.
  *
@@ -518,6 +541,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Payment is past due. (Value: "CANCELLATION_REASON_PAST_DUE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonRemorse
  *        Buyer's remorse. (Value: "CANCELLATION_REASON_REMORSE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemError
+ *        Cancellation due to an unrecoverable system error. (Value:
+ *        "CANCELLATION_REASON_SYSTEM_ERROR")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUnspecified
  *        Reason is unspecified. (Value: "CANCELLATION_REASON_UNSPECIFIED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUpgradeDowngrade
@@ -1173,13 +1199,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        The subscription is waiting to be cancelled by the next recurrence
  *        cycle. (Value: "STATE_CANCEL_AT_END_OF_CYCLE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateCancelled
- *        The subscription is cancelled. (Value: "STATE_CANCELLED")
+ *        The subscription is cancelled. This is the final state of the
+ *        subscription, as it can no longer be modified or reactivated. (Value:
+ *        "STATE_CANCELLED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateCreated
  *        The subscription is created, a state before it is moved to
  *        STATE_ACTIVE. (Value: "STATE_CREATED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateInGracePeriod
- *        The subscription has not been extended by the partner after the end of
- *        current cycle. (Value: "STATE_IN_GRACE_PERIOD")
+ *        The subscription is in grace period. It can happen: 1) in manual
+ *        extend mode, the subscription is not extended by the partner at the
+ *        end of current cycle. 2) for outbound authorization enabled partners,
+ *        a renewal purchase order is rejected. (Value: "STATE_IN_GRACE_PERIOD")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateSuspended
  *        The subscription is suspended. (Value: "STATE_SUSPENDED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateUnspecified
@@ -1225,6 +1255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Payment is past due. (Value: "CANCELLATION_REASON_PAST_DUE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonRemorse
  *        Buyer's remorse. (Value: "CANCELLATION_REASON_REMORSE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemError
+ *        Cancellation due to an unrecoverable system error. (Value:
+ *        "CANCELLATION_REASON_SYSTEM_ERROR")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUnspecified
  *        Reason is unspecified. (Value: "CANCELLATION_REASON_UNSPECIFIED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUpgradeDowngrade
@@ -1313,7 +1346,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        charge at the end of the free trial period, as indicated by
  *        `line_item_free_trial_end_time`. (Value: "LINE_ITEM_STATE_ACTIVATING")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateActive
- *        The line item is in ACTIVE state. (Value: "LINE_ITEM_STATE_ACTIVE")
+ *        The line item is in ACTIVE state. If the subscription is cancelled or
+ *        suspended, the line item will not be charged even if the line item is
+ *        active. (Value: "LINE_ITEM_STATE_ACTIVE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateDeactivating
  *        The line item is being deactivated, and a prorated refund in being
  *        processed. (Value: "LINE_ITEM_STATE_DEACTIVATING")
@@ -1323,6 +1358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateNew
  *        The line item is new, and is not activated or charged yet. (Value:
  *        "LINE_ITEM_STATE_NEW")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateOffCycleCharging
+ *        Line item is being charged off-cycle. (Value:
+ *        "LINE_ITEM_STATE_OFF_CYCLE_CHARGING")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateUnspecified
  *        Unspecified state. (Value: "LINE_ITEM_STATE_UNSPECIFIED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_State_LineItemStateWaitingToDeactivate

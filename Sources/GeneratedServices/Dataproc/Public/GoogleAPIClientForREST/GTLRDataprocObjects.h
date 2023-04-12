@@ -2013,10 +2013,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *job;
 
 /**
+ *  Optional. Specifies a list of jobs on which diagnosis is to be performed.
+ *  Format: projects/{project}/regions/{region}/jobs/{job}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jobs;
+
+/**
  *  Optional. DEPRECATED Specifies the yarn application on which diagnosis is to
  *  be performed.
  */
 @property(nonatomic, copy, nullable) NSString *yarnApplicationId;
+
+/**
+ *  Optional. Specifies a list of yarn applications on which diagnosis is to be
+ *  performed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *yarnApplicationIds;
 
 @end
 
@@ -2186,14 +2198,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ExecutionConfig : GTLRObject
 
 /**
- *  Optional. The duration to keep the session alive while it's idling. Passing
- *  this threshold will cause the session to be terminated. Minimum value is 10
- *  minutes; maximum value is 14 days (see JSON representation of Duration
+ *  Optional. The duration to keep the session alive while it's idling.
+ *  Exceeding this threshold causes the session to terminate. This field cannot
+ *  be set on a batch workload. Minimum value is 10 minutes; maximum value is 14
+ *  days (see JSON representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). Defaults
  *  to 4 hours if not set. If both ttl and idle_ttl are specified, the
- *  conditions are treated as and OR: the workload will be terminated when it
- *  has been idle for idle_ttl or when the ttl has passed, whichever comes
- *  first.
+ *  conditions are treated as OR conditions: the workload will be terminated
+ *  when it has been idle for idle_ttl or when ttl has been exceed, whichever
+ *  occurs first.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleTtl;
 
@@ -2225,14 +2238,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. The duration after which the workload will be terminated. When the
- *  workload passes this ttl, it will be unconditionally killed without waiting
- *  for ongoing work to finish. Minimum value is 10 minutes; maximum value is 14
- *  days (see JSON representation of Duration
+ *  workload exceeds this duration, it will be unconditionally terminated
+ *  without waiting for ongoing work to finish. If ttl is not specified for a
+ *  batch workload, the workload will be allowed to run until it exits naturally
+ *  (or runs forever without exiting). If ttl is not specified for an
+ *  interactive session, it defaults to 24h. Minimum value is 10 minutes;
+ *  maximum value is 14 days (see JSON representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). If both
- *  ttl and idle_ttl are specified, the conditions are treated as and OR: the
- *  workload will be terminated when it has been idle for idle_ttl or when the
- *  ttl has passed, whichever comes first. If ttl is not specified for a
- *  session, it defaults to 24h.
+ *  ttl and idle_ttl are specified (for an interactive session), the conditions
+ *  are treated as OR conditions: the workload will be terminated when it has
+ *  been idle for idle_ttl or when ttl has been exceeded, whichever occurs
+ *  first.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 

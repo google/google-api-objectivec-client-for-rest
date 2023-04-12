@@ -304,8 +304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshot
 /**
  *  The resource has to be deleted. When using this bit, the CLH should fail the
  *  operation. DEPRECATED. Instead use DELETE_RESOURCE OperationSignal in
- *  SideChannel. For more information - go/ccfe-delete-on-upsert,
- *  go/ccfe-reconciliation-protocol-ug#apply_delete
+ *  SideChannel.
  *
  *  Value: "DELETE"
  */
@@ -1332,9 +1331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *    @arg @c kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Delete
  *        The resource has to be deleted. When using this bit, the CLH should
  *        fail the operation. DEPRECATED. Instead use DELETE_RESOURCE
- *        OperationSignal in SideChannel. For more information -
- *        go/ccfe-delete-on-upsert,
- *        go/ccfe-reconciliation-protocol-ug#apply_delete (Value: "DELETE")
+ *        OperationSignal in SideChannel. (Value: "DELETE")
  *    @arg @c kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Retry
  *        This resource could not be repaired but the repair should be tried
  *        again at a later time. This can happen if there is a dependency that

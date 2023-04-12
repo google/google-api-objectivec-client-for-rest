@@ -2183,7 +2183,8 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_RoleAssignmentsList
 
-@dynamic customer, maxResults, pageToken, roleId, userKey;
+@dynamic customer, includeIndirectRoleAssignments, maxResults, pageToken,
+         roleId, userKey;
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];

@@ -1153,7 +1153,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataSource
-@dynamic entity;
+@dynamic entity, resource;
 @end
 
 

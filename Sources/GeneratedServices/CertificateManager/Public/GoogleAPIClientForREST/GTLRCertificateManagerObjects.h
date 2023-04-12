@@ -543,8 +543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 /**
  *  A set of Certificates defines for the given `hostname`. There can be defined
- *  up to fifteen certificates in each Certificate Map Entry. Each certificate
- *  must match pattern `projects/ * /locations/ * /certificates/ *`.
+ *  up to four certificates in each Certificate Map Entry. Each certificate must
+ *  match pattern `projects/ * /locations/ * /certificates/ *`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *certificates;
 

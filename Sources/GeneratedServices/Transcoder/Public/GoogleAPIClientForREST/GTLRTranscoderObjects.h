@@ -91,6 +91,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeOu
 FOUNDATION_EXTERN NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRTranscoder_Job.mode
+
+/**
+ *  The job processing mode is batch mode. Batch mode allows queuing of jobs.
+ *
+ *  Value: "PROCESSING_MODE_BATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeBatch;
+/**
+ *  The job processing mode is interactive mode. Interactive job will either be
+ *  ran or rejected if quota does not allow for it.
+ *
+ *  Value: "PROCESSING_MODE_INTERACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeInteractive;
+/**
+ *  The job processing mode is not specified.
+ *
+ *  Value: "PROCESSING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRTranscoder_Job.state
 
 /**
@@ -369,14 +392,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The name for this particular audio stream that will be added to the HLS/DASH
- *  manifest.
+ *  manifest. Not supported in MP4 files.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
  *  information, see
- *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. Not
+ *  supported in MP4 files.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1081,6 +1105,24 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_Job_Labels *labels;
 
 /**
+ *  The processing mode of the job. The default is
+ *  `PROCESSING_MODE_INTERACTIVE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTranscoder_Job_Mode_ProcessingModeBatch The job processing
+ *        mode is batch mode. Batch mode allows queuing of jobs. (Value:
+ *        "PROCESSING_MODE_BATCH")
+ *    @arg @c kGTLRTranscoder_Job_Mode_ProcessingModeInteractive The job
+ *        processing mode is interactive mode. Interactive job will either be
+ *        ran or rejected if quota does not allow for it. (Value:
+ *        "PROCESSING_MODE_INTERACTIVE")
+ *    @arg @c kGTLRTranscoder_Job_Mode_ProcessingModeUnspecified The job
+ *        processing mode is not specified. (Value:
+ *        "PROCESSING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
  *  The resource name of the job. Format:
  *  `projects/{project_number}/locations/{location}/jobs/{job}`
  */
@@ -1119,8 +1161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Input only. Specify the `template_id` to use for populating `Job.config`.
- *  The default is `preset/web-hd`. Preset Transcoder templates: -
- *  `preset/{preset_id}` - User defined JobTemplate: `{job_template_id}`
+ *  The default is `preset/web-hd`, which is the only supported preset. User
+ *  defined JobTemplate: `{job_template_id}`
  */
 @property(nonatomic, copy, nullable) NSString *templateId;
 
@@ -1696,14 +1738,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The name for this particular text stream that will be added to the HLS/DASH
- *  manifest.
+ *  manifest. Not supported in MP4 files.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
  *  information, see
- *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. Not
+ *  supported in MP4 files.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 

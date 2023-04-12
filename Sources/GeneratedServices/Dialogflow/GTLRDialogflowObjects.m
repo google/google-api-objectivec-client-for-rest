@@ -1898,9 +1898,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest
-@dynamic detectIntentResponseId, fulfillmentInfo, intentInfo, languageCode,
-         messages, pageInfo, payload, sentimentAnalysisResult, sessionInfo,
-         text, transcript, triggerEvent, triggerIntent;
+@dynamic detectIntentResponseId, dtmfDigits, fulfillmentInfo, intentInfo,
+         languageCode, messages, pageInfo, payload, sentimentAnalysisResult,
+         sessionInfo, text, transcript, triggerEvent, triggerIntent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4588,9 +4588,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest
-@dynamic detectIntentResponseId, fulfillmentInfo, intentInfo, languageCode,
-         messages, pageInfo, payload, sentimentAnalysisResult, sessionInfo,
-         text, transcript, triggerEvent, triggerIntent;
+@dynamic detectIntentResponseId, dtmfDigits, fulfillmentInfo, intentInfo,
+         languageCode, messages, pageInfo, payload, sentimentAnalysisResult,
+         sessionInfo, text, transcript, triggerEvent, triggerIntent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
