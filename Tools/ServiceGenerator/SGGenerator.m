@@ -3584,36 +3584,38 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"CAMLType",
       @"CA_prepareRenderValue",
       @"CA_copyRenderValue",
-      // New as of Mojave
-      @"bs_encoded",
+      // -------------------- New as of Mojave --------------------
+      // This seems to have been removed in Ventura: @"bs_encoded",
       @"bs_isPlistableType",
       @"bs_secureEncoded",
-      // New as of Catalina
+      // -------------------- New as of Catalina --------------------
       // This seems to have been removed in Big Sur: @"bs_isXPCObject",
       @"supportsBSXPCSecureCoding",
       // This seems to have been removed in Monterey: @"pep_onDetachedThread",
       @"pep_onMainThread",
       @"pep_onMainThreadIfNecessary",
-      // New as of Big Sur
-      @"toPBCodable",
-      @"CKDescription",
-      @"CKPropertiesDescription",
+      // -------------------- New as of Big Sur --------------------
+      // This seems to have been removed in Ventura: @"toPBCodable",
+      // This seems to have been removed in Ventura: @"CKDescription",
+      // This seems to have been removed in Ventura: @"CKPropertiesDescription",
       // This seems to have been removed in Monterey: @"CKStatusReport",
-      @"CKSingleLineDescription",
-      @"CKExpandedDescription",
-      @"CKHashedDescription",
+      // This seems to have been removed in Ventura: @"CKSingleLineDescription",
+      // This seems to have been removed in Ventura: @"CKExpandedDescription",
+      // This seems to have been removed in Ventura: @"CKHashedDescription",
       @"NSRepresentation",
-      @"boolValueSafe",
-      @"int64ValueSafe",
-      @"doubleValueSafe",
-      @"stringValueSafe",
-      @"utf8ValueSafe",
+      // This seems to have been removed in Ventura: @"boolValueSafe",
+      // This seems to have been removed in Ventura: @"int64ValueSafe",
+      // This seems to have been removed in Ventura: @"doubleValueSafe",
+      // This seems to have been removed in Ventura: @"stringValueSafe",
+      // This seems to have been removed in Ventura: @"utf8ValueSafe",
       @"supportsRBSXPCSecureCoding",
       @"RBSIsXPCObject",
       @"NSRepresentation",
-      // New as of Monterey
-      @"CKRedactedDescription",
-      @"CKUnredactedDescription",
+      // -------------------- New as of Monterey --------------------
+      // This seems to have been removed in Ventura: @"CKRedactedDescription",
+      // This seems to have been removed in Ventura: @"CKUnredactedDescription",
+      // -------------------- New as of Ventura --------------------
+      @"CA_numericValueCount",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
