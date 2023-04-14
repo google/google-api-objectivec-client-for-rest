@@ -23,8 +23,8 @@
 
 #import "YouTubeSampleWindowController.h"
 
-#import <AppAuth/AppAuth.h>
-#import <GTMAppAuth/GTMAppAuth.h>
+@import AppAuth;
+@import GTMAppAuth;
 #import <GTMSessionFetcher/GTMSessionUploadFetcher.h>
 #import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
 #import <GoogleAPIClientForREST/GTLRUtilities.h>
@@ -64,6 +64,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
   NSURL *_uploadLocationURL;  // URL for restarting an upload.
 
   OIDRedirectHTTPHandler *_redirectHTTPHandler;
+  GTMKeychainStore *_keychainStore;
+  GTMAuthSession *_authSession;
 }
 
 + (YouTubeSampleWindowController *)sharedWindowController {
@@ -80,12 +82,13 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
 
 - (void)awakeFromNib {
   // Attempts to deserialize authorization from keychain in GTMAppAuth format.
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-  id<GTMFetcherAuthorizationProtocol> authorization =
-      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
-#pragma clang diagnostic pop
-  self.youTubeService.authorizer = authorization;
+  _keychainStore = [[GTMKeychainStore alloc] initWithItemName:kGTMAppAuthKeychainItemName];
+  NSError *err;
+  _authSession = [_keychainStore retrieveAuthSessionWithError:&err];
+  if (err) {
+    NSLog(@"Failed to load AuthSession: %@", err);
+  }
+  self.youTubeService.authorizer = _authSession;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
   _playlistResultTextField.textColor = [NSColor darkGrayColor];
@@ -134,8 +137,11 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
     // Sign out.
     GTLRYouTubeService *service = self.youTubeService;
 
-    [GTMAppAuthFetcherAuthorization
-        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+    NSError *err;
+    if (![_keychainStore removeAuthSessionWithError:&err]) {
+      NSLog(@"Fail to remove authSession: %@", err);
+    }
+    _authSession = nil;
     service.authorizer = nil;
     [self updateUI];
   }
@@ -544,8 +550,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
   }
 
   // Builds authentication request.
-  OIDServiceConfiguration *configuration =
-      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  OIDServiceConfiguration *configuration = [GTMAuthSession configurationForGoogle];
   NSArray<NSString *> *scopes = @[ kGTLRAuthScopeYouTube, OIDScopeEmail ];
   OIDAuthorizationRequest *request =
       [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
@@ -575,16 +580,19 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
                              NSApplicationActivateIgnoringOtherApps)];
 
     if (authState) {
-      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
-      GTMAppAuthFetcherAuthorization *gtmAuthorization =
-          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+      // Creates a GTMAuthSession object for authorizing requests.
+      GTMAuthSession *gtmAuthorization = [[GTMAuthSession alloc] initWithAuthState:authState];
+      strongSelf->_authSession = gtmAuthorization;
 
       // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
       strongSelf.youTubeService.authorizer = gtmAuthorization;
 
       // Serializes authorization to keychain in GTMAppAuth format.
-      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
-                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+      NSError *err;
+      [strongSelf->_keychainStore saveAuthSession:gtmAuthorization error:&error];
+      if (err) {
+        NSLog(@"Failed to say AuthSession: %@", err);
+      }
 
       // Executes post sign-in handler.
       if (handler) handler();

@@ -1,13 +1,16 @@
 target 'YouTubeSample' do
   platform :osx, '10.12'
 
+  # GTMAppAuth is now written in Swift, so need this to build.
+  use_frameworks!
+
   pod 'GoogleAPIClientForREST/YouTube', :path => '../../'
   # In production, you would use:
   # pod 'GoogleAPIClientForREST/YouTube'
 
   # Also use GTMAppAuth & AppAuth. See the project USING.md, you can use this or
   # Google SignIn.
-  pod 'GTMAppAuth', '< 3.0'
+  pod 'GTMAppAuth', '>= 3.0'
   pod 'AppAuth'
 
 end

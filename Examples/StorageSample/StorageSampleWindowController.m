@@ -19,8 +19,8 @@
 
 #import "StorageSampleWindowController.h"
 
-#import <AppAuth/AppAuth.h>
-#import <GTMAppAuth/GTMAppAuth.h>
+@import AppAuth;
+@import GTMAppAuth;
 #import <GTMSessionFetcher/GTMSessionFetcherService.h>
 #import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
 
@@ -63,6 +63,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   GTLRStorage_ObjectAccessControls *_defaultObjectAccessControlsList;
 
   OIDRedirectHTTPHandler *_redirectHTTPHandler;
+  GTMKeychainStore *_keychainStore;
+  GTMAuthSession *_authSession;
 }
 
 + (StorageSampleWindowController *)sharedWindowController {
@@ -79,12 +81,13 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
 
 - (void)awakeFromNib {
   // Attempts to deserialize authorization from keychain in GTMAppAuth format.
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-  id<GTMFetcherAuthorizationProtocol> authorization =
-      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
-#pragma clang diagnostic pop
-  self.storageService.authorizer = authorization;
+  _keychainStore = [[GTMKeychainStore alloc] initWithItemName:kGTMAppAuthKeychainItemName];
+  NSError *err;
+  _authSession = [_keychainStore retrieveAuthSessionWithError:&err];
+  if (err) {
+    NSLog(@"Failed to load AuthSession: %@", err);
+  }
+  self.storageService.authorizer = _authSession;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
   _bucketListResultTextField.textColor = [NSColor darkGrayColor];
@@ -130,8 +133,11 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
     // Sign out
     GTLRStorageService *service = self.storageService;
 
-    [GTMAppAuthFetcherAuthorization
-        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+    NSError *err;
+    if (![_keychainStore removeAuthSessionWithError:&err]) {
+      NSLog(@"Fail to remove authSession: %@", err);
+    }
+    _authSession = nil;
     service.authorizer = nil;
     [self updateUI];
   }
@@ -681,8 +687,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   }
 
   // Builds authentication request.
-  OIDServiceConfiguration *configuration =
-      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  OIDServiceConfiguration *configuration = [GTMAuthSession configurationForGoogle];
   // Applications that only need to access files created by this app should
   // use the kGTLAuthScopeStorageDevstorageReadOnly scope.
   NSArray<NSString *> *scopes = @[ kGTLRAuthScopeStorageDevstorageFullControl, OIDScopeEmail ];
@@ -714,16 +719,19 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                              NSApplicationActivateIgnoringOtherApps)];
 
     if (authState) {
-      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
-      GTMAppAuthFetcherAuthorization *gtmAuthorization =
-          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+      // Creates a GTMAuthSession object for authorizing requests.
+      GTMAuthSession *gtmAuthorization = [[GTMAuthSession alloc] initWithAuthState:authState];
+      strongSelf->_authSession = gtmAuthorization;
 
       // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
       strongSelf.storageService.authorizer = gtmAuthorization;
 
       // Serializes authorization to keychain in GTMAppAuth format.
-      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
-                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+      NSError *err;
+      [strongSelf->_keychainStore saveAuthSession:gtmAuthorization error:&error];
+      if (err) {
+        NSLog(@"Failed to say AuthSession: %@", err);
+      }
 
       // Executes post sign-in handler.
       if (handler) handler();

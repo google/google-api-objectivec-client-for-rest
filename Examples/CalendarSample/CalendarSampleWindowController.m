@@ -21,8 +21,8 @@
 #import "EditEventWindowController.h"
 #import "EditACLWindowController.h"
 
-#import <AppAuth/AppAuth.h>
-#import <GTMAppAuth/GTMAppAuth.h>
+@import AppAuth;
+@import GTMAppAuth;
 #import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
 #import <GoogleAPIClientForREST/GTLRUtilities.h>
 
@@ -66,6 +66,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
 
 @implementation CalendarSampleWindowController {
   OIDRedirectHTTPHandler *_redirectHTTPHandler;
+  GTMKeychainStore *_keychainStore;
+  GTMAuthSession *_authSession;
 }
 
 @synthesize calendarList = _calendarList,
@@ -95,12 +97,13 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
 
 - (void)awakeFromNib {
   // Attempts to deserialize authorization from keychain in GTMAppAuth format.
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-  id<GTMFetcherAuthorizationProtocol> authorization =
-      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
-#pragma clang diagnostic pop
-  self.calendarService.authorizer = authorization;
+  _keychainStore = [[GTMKeychainStore alloc] initWithItemName:kGTMAppAuthKeychainItemName];
+  NSError *err;
+  _authSession = [_keychainStore retrieveAuthSessionWithError:&err];
+  if (err) {
+    NSLog(@"Failed to load AuthSession: %@", err);
+  }
+  self.calendarService.authorizer = _authSession;
 
   // Set the result text fields to have a distinctive color and mono-spaced font
   _calendarResultTextField.textColor = [NSColor darkGrayColor];
@@ -144,8 +147,11 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
     // Sign out
     GTLRCalendarService *service = self.calendarService;
 
-   [GTMAppAuthFetcherAuthorization
-        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+    NSError *err;
+    if (![_keychainStore removeAuthSessionWithError:&err]) {
+      NSLog(@"Fail to remove authSession: %@", err);
+    }
+    _authSession = nil;
     service.authorizer = nil;
     [self updateUI];
   }
@@ -968,8 +974,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
   }
 
   // Builds authentication request.
-  OIDServiceConfiguration *configuration =
-      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  OIDServiceConfiguration *configuration = [GTMAuthSession configurationForGoogle];
   NSArray<NSString *> *scopes = @[ kGTLRAuthScopeCalendar, OIDScopeEmail ];
   OIDAuthorizationRequest *request =
       [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
@@ -988,33 +993,42 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
                   presentingWindow:self.window
                           callback:^(OIDAuthState *_Nullable authState,
                                      NSError *_Nullable error) {
+    // Using weakSelf/strongSelf pattern to avoid retaining self as block execution is indeterminate
+    __strong __typeof(weakSelf) strongSelf = weakSelf;
+    if (!strongSelf) {
+      return;
+    }
+
     // Brings this app to the foreground.
     [[NSRunningApplication currentApplication]
         activateWithOptions:(NSApplicationActivateAllWindows |
                              NSApplicationActivateIgnoringOtherApps)];
 
     if (authState) {
-      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
-      GTMAppAuthFetcherAuthorization *gtmAuthorization =
-          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+      // Creates a GTMAuthSession object for authorizing requests.
+      GTMAuthSession *gtmAuthorization = [[GTMAuthSession alloc] initWithAuthState:authState];
+      strongSelf->_authSession = gtmAuthorization;
 
       // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
-      weakSelf.calendarService.authorizer = gtmAuthorization;
+      strongSelf.calendarService.authorizer = gtmAuthorization;
 
       // Serializes authorization to keychain in GTMAppAuth format.
-      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
-                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+      NSError *err;
+      [strongSelf->_keychainStore saveAuthSession:gtmAuthorization error:&error];
+      if (err) {
+        NSLog(@"Failed to say AuthSession: %@", err);
+      }
 
       // Callback
       if (signInDoneSel) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [weakSelf performSelector:signInDoneSel];
+        [strongSelf performSelector:signInDoneSel];
 #pragma clang diagnostic pop
       }
     } else {
-      weakSelf.calendarListFetchError = error;
-      [weakSelf updateUI];
+      strongSelf.calendarListFetchError = error;
+      [strongSelf updateUI];
     }
   }];
 }
