@@ -111,6 +111,8 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#interconnectList" : [GTLRCompute_InterconnectList class],
     @"compute#interconnectLocation" : [GTLRCompute_InterconnectLocation class],
     @"compute#interconnectLocationList" : [GTLRCompute_InterconnectLocationList class],
+    @"compute#interconnectRemoteLocation" : [GTLRCompute_InterconnectRemoteLocation class],
+    @"compute#interconnectRemoteLocationList" : [GTLRCompute_InterconnectRemoteLocationList class],
     @"compute#license" : [GTLRCompute_License class],
     @"compute#licenseCode" : [GTLRCompute_LicenseCode class],
     @"compute#machineImage" : [GTLRCompute_MachineImage class],

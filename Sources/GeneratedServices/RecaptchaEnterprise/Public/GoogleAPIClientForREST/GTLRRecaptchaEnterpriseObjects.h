@@ -18,6 +18,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
@@ -893,6 +894,31 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Contains fields that are required to perform Apple-specific integrity
+ *  checks.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId : GTLRObject
+
+/** Required. The Apple developer key ID (10-character string). */
+@property(nonatomic, copy, nullable) NSString *keyId;
+
+/**
+ *  Required. Input only. A private key (downloaded as a text file with a .p8
+ *  file extension) generated for your Apple Developer account. Ensure that
+ *  Apple DeviceCheck is enabled for the private key.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKey;
+
+/**
+ *  Required. The Apple team ID (10-character string) owning the provisioning
+ *  profile used to build your application.
+ */
+@property(nonatomic, copy, nullable) NSString *teamId;
+
+@end
+
+
+/**
  *  A reCAPTCHA Enterprise assessment resource.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment : GTLRObject
@@ -1364,6 +1390,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedBundleIds;
 
+/**
+ *  Apple Developer account details for the app that is protected by the
+ *  reCAPTCHA Key. reCAPTCHA Enterprise leverages platform-specific checks like
+ *  Apple App Attest and Apple DeviceCheck to protect your app from abuse.
+ *  Providing these fields allows reCAPTCHA Enterprise to get a better
+ *  assessment of the integrity of your app.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId *appleDeveloperId;
+
 @end
 
 
@@ -1771,8 +1806,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest : GTLRObject
 
 /**
- *  Optional. The unique stable hashed user identifier we should search
- *  connections to. The identifier should correspond to a `hashed_account_id`
+ *  Optional. The unique stable hashed user identifier used to search
+ *  connections. The identifier should correspond to a `hashed_account_id`
  *  provided in a previous `CreateAssessment` or `AnnotateAssessment` call.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably

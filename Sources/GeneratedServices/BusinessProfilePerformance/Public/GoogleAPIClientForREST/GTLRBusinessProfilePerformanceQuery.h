@@ -30,7 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 // dailyMetric
 
 /**
- *  The number of bookings received from the business profile.
+ *  The number of bookings made from the business profile via Reserve with
+ *  Google.
  *
  *  Value: "BUSINESS_BOOKINGS"
  */
@@ -115,7 +116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricWeb
 // dailyMetrics
 
 /**
- *  The number of bookings received from the business profile.
+ *  The number of bookings made from the business profile via Reserve with
+ *  Google.
  *
  *  Value: "BUSINESS_BOOKINGS"
  */
@@ -307,8 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
  *        number of times the business profile website was clicked. (Value:
  *        "WEBSITE_CLICKS")
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessBookings The
- *        number of bookings received from the business profile. (Value:
- *        "BUSINESS_BOOKINGS")
+ *        number of bookings made from the business profile via Reserve with
+ *        Google. (Value: "BUSINESS_BOOKINGS")
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodOrders The
  *        number of food orders received from the business profile. (Value:
  *        "BUSINESS_FOOD_ORDERS")
@@ -426,8 +428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
  *        of times the business profile website was clicked. (Value:
  *        "WEBSITE_CLICKS")
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricBusinessBookings The
- *        number of bookings received from the business profile. (Value:
- *        "BUSINESS_BOOKINGS")
+ *        number of bookings made from the business profile via Reserve with
+ *        Google. (Value: "BUSINESS_BOOKINGS")
  *    @arg @c kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodOrders The
  *        number of food orders received from the business profile. (Value:
  *        "BUSINESS_FOOD_ORDERS")
@@ -477,7 +479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
 @property(nonatomic, assign) NSInteger dailyRangeStartDateYear;
 
 /**
- *  Represents the day of the week. Eg: MONDAY.
+ *  Represents the day of the week. Eg: MONDAY. Currently supported DailyMetrics
+ *  = NONE.
  *
  *  Likely values:
  *    @arg @c kGTLRBusinessProfilePerformanceDailySubEntityTypeDayOfWeekDayOfWeekUnspecified

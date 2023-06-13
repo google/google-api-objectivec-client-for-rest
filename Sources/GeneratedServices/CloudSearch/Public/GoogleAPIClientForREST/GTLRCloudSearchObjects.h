@@ -23,9 +23,13 @@
 @class GTLRCloudSearch_AclInfo;
 @class GTLRCloudSearch_ActionParameter;
 @class GTLRCloudSearch_AddonComposeUiActionMarkup;
+@class GTLRCloudSearch_AddOnFrameStartingState;
+@class GTLRCloudSearch_AddOnStartingState;
+@class GTLRCloudSearch_AddOnStartingState_AddOnFrameStartingStates;
 @class GTLRCloudSearch_AffectedMembership;
 @class GTLRCloudSearch_AllAuthenticatedUsersProto;
 @class GTLRCloudSearch_Annotation;
+@class GTLRCloudSearch_AnnotationInfo;
 @class GTLRCloudSearch_AppId;
 @class GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData;
 @class GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo;
@@ -39,6 +43,8 @@
 @class GTLRCloudSearch_AppsDynamiteSharedAssistantUnfulfillableRequest;
 @class GTLRCloudSearch_AppsDynamiteSharedAvatarInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata;
+@class GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadata;
+@class GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadataPhotoId;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationData;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEvent;
 @class GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEventTime;
@@ -68,6 +74,7 @@
 @class GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedMessageInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload;
+@class GTLRCloudSearch_AppsDynamiteSharedMessageSearchInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedOrganizationInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoConsumerInfo;
 @class GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoCustomerInfo;
@@ -219,6 +226,7 @@
 @class GTLRCloudSearch_DisplayedProperty;
 @class GTLRCloudSearch_Divider;
 @class GTLRCloudSearch_DlpAction;
+@class GTLRCloudSearch_DlpMessageScanRecord;
 @class GTLRCloudSearch_DlpScanSummary;
 @class GTLRCloudSearch_DmId;
 @class GTLRCloudSearch_DocumentInfo;
@@ -370,6 +378,7 @@
 @class GTLRCloudSearch_MessageId;
 @class GTLRCloudSearch_MessageParentId;
 @class GTLRCloudSearch_MessageProps;
+@class GTLRCloudSearch_MessageReference;
 @class GTLRCloudSearch_MessageSet;
 @class GTLRCloudSearch_Metadata;
 @class GTLRCloudSearch_Metaline;
@@ -415,6 +424,7 @@
 @class GTLRCloudSearch_PropertyDisplayOptions;
 @class GTLRCloudSearch_Provenance;
 @class GTLRCloudSearch_PushItem;
+@class GTLRCloudSearch_QueryActivity;
 @class GTLRCloudSearch_QueryCountByStatus;
 @class GTLRCloudSearch_QueryInterpretation;
 @class GTLRCloudSearch_QueryInterpretationConfig;
@@ -460,6 +470,7 @@
 @class GTLRCloudSearch_SearchApplicationQueryStats;
 @class GTLRCloudSearch_SearchApplicationSessionStats;
 @class GTLRCloudSearch_SearchApplicationUserStats;
+@class GTLRCloudSearch_SearchLinkData;
 @class GTLRCloudSearch_SearchQualityMetadata;
 @class GTLRCloudSearch_SearchResult;
 @class GTLRCloudSearch_Section;
@@ -483,6 +494,7 @@
 @class GTLRCloudSearch_Source;
 @class GTLRCloudSearch_SourceConfig;
 @class GTLRCloudSearch_SourceCrowdingConfig;
+@class GTLRCloudSearch_SourceMessageInfo;
 @class GTLRCloudSearch_SourceResultCount;
 @class GTLRCloudSearch_SourceScoringConfig;
 @class GTLRCloudSearch_SpaceId;
@@ -539,6 +551,7 @@
 @class GTLRCloudSearch_UploadMetadata;
 @class GTLRCloudSearch_UrlMetadata;
 @class GTLRCloudSearch_User;
+@class GTLRCloudSearch_UserActivity;
 @class GTLRCloudSearch_UserDisplayInfo;
 @class GTLRCloudSearch_UserId;
 @class GTLRCloudSearch_UserInfo;
@@ -962,6 +975,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAp
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp;
 /** Value: "SHEETS_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp;
+/** Value: "SHORTCUT_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ShortcutApp;
 /** Value: "SLIDES_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp;
 /** Value: "TASKS_APP" */
@@ -1135,14 +1150,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUpl
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError;
 /**
  *  Rule fetch happened, but rule evaluation is skipped because none of the
- *  rules are applicable to the given action params.
+ *  rules are applicable.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because none of the
+ *  rules are applicable to the given action params. Deprecated. Use
+ *  SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES
  *
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams;
 /**
  *  Rule fetch happened, but rule evaluation is skipped because none of the
- *  rules are applicable to the given trigger.
+ *  rules are applicable to the given trigger. Deprecated. Use
+ *  SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES
  *
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER"
  */
@@ -1276,6 +1300,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUpl
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanUnknownOutcome;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.experiment
+
+/** Value: "KRONOS_FAST_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_Experiment_KronosFastFormat;
+/** Value: "UNKNOWN_EXPERIMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_Experiment_UnknownExperiment;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.virusScanResult
 
 /** Value: "CLEAN" */
@@ -1388,7 +1420,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemAc
  *  and contain items for users to catch up on important things. Each user
  *  should only have one group of this type. See go/activity-feed. Deprecated:
  *  The go/activity-feed project is cancelled and this should no longer be used.
- *  LINT.ThenChange(//depot/google3/logs/proto/apps_dynamite/dynamite_visual_element_entry.proto:LoggingGroupType,//depot/google3/java/com/google/apps/dynamite/v1/web/ui/group/groups.js:LoggingGroupType)
  *
  *  Value: "ACTIVITY_FEED"
  */
@@ -1433,13 +1464,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGr
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneHumanDm;
 /**
- *  A post room. Topics in this room are organized in a post/reply style. See
- *  the design doc for more details: go/PostRoomsInDynamite. Deprecated. Post
- *  rooms are no longer supported.
+ *  Represents a shortcut space. These groups are modeled like flat rooms and
+ *  contain items for users to catch up on important things such as user
+ *  mentioned messages and starred messages.
+ *  LINT.ThenChange(//depot/google3/logs/proto/apps_dynamite/dynamite_visual_element_entry.proto:LoggingGroupType,//depot/google3/java/com/google/apps/dynamite/v1/web/ui/group/groups.js:LoggingGroupType)
  *
- *  Value: "POST_ROOM"
+ *  Value: "SHORTCUT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_PostRoom;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_Shortcut;
 /**
  *  A threaded room. Topics in this room are threaded, and users can reply to
  *  any topic.
@@ -1687,6 +1719,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustificat
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Viewed;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteSharedMeetMetadata.meetingType
+
+/** Value: "CALL" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_Call;
+/** Value: "HUDDLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_Huddle;
+/** Value: "MEETING_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_MeetingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedMessageInfo.messageType
 
 /**
@@ -1834,6 +1876,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmen
  *  Value: "KEYWORD_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_KeywordMatch;
+/**
+ *  Indicates the text segments represent parts of the snippeted text. Clients
+ *  can display just these in SRP as shortened message. Multiple TextSegments
+ *  with this DescriptionType are returned to denote disjointed snippets i.e. "a
+ *  long test message" -> "a ... message"
+ *
+ *  Value: "SNIPPET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_Snippet;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
@@ -1920,28 +1971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardH
  *  Value: "SQUARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Square;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_AppsDynamiteStorageColumns.wrapStyle
-
-/**
- *  Column widgets don't wrap.
- *
- *  Value: "NOWRAP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Nowrap;
-/**
- *  Column Widgets wrap.
- *
- *  Value: "WRAP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Wrap;
-/**
- *  Unspecified.
- *
- *  Value: "WRAP_STYLE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_WrapStyleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalAlignment
@@ -2443,6 +2472,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAdd
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_BotInfo.uninstallCapability
+
+/** Value: "ALWAYS_ALLOWED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_UninstallCapability_AlwaysAllowed;
+/** Value: "NEVER_ALLOWED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_UninstallCapability_NeverAllowed;
+/**
+ *  Defaults to ALWAYS_ALLOWED.
+ *
+ *  Value: "UNSPECIFIED_UNINSTALL_CAPABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_UninstallCapability_UnspecifiedUninstallCapability;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_BotResponse.requiredAction
 
 /**
@@ -2565,6 +2608,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessType
  *  Value: "ACCESS_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_CallInfo.availableAnnotationToolTypes
+
+/**
+ *  Clears all annotations.
+ *
+ *  Value: "ANNOTATION_TOOL_CLEAR_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolClearAll;
+/**
+ *  Draws vector lines.
+ *
+ *  Value: "ANNOTATION_TOOL_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolLine;
+/**
+ *  Deletes elements that are touched.
+ *
+ *  Value: "ANNOTATION_TOOL_MAGIC_ERASER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolMagicEraser;
+/**
+ *  Draws freeform strokes.
+ *
+ *  Value: "ANNOTATION_TOOL_PEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolPen;
+/**
+ *  Draws simple vector shapes (such as rectangles or ellipses).
+ *
+ *  Value: "ANNOTATION_TOOL_SHAPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolShape;
+/**
+ *  Allows adding/editing text at this location.
+ *
+ *  Value: "ANNOTATION_TOOL_TEXT_BOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolTextBox;
+/**
+ *  Annotation tool type unspecified.
+ *
+ *  Value: "ANNOTATION_TOOL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_CallSettings.accessType
@@ -2805,6 +2894,207 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpAction_ActionType_NoActio
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpAction_ActionType_Warn;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_DlpMessageScanRecord.scanOutcome
+
+/**
+ *  Rule fetch completed and evaluation were attempted, but all of the rules
+ *  failed to be evaluated.
+ *
+ *  Value: "SCAN_FAILURE_ALL_RULES_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureAllRulesFailed;
+/**
+ *  Rule fetch and evaluation were attempted but an exception occurred.
+ *
+ *  Value: "SCAN_FAILURE_EXCEPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureException;
+/**
+ *  An IllegalStateException is thrown when executing DLP on attachments. This
+ *  could happen if the space row is missing.
+ *
+ *  Value: "SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureIllegalStateForAttachments;
+/**
+ *  Rule fetch was attempted but failed, so rule evaluation could not be
+ *  performed.
+ *
+ *  Value: "SCAN_FAILURE_RULE_FETCH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureRuleFetchFailed;
+/**
+ *  Rule fetch and evaluation were attempted but the scanning timed out.
+ *
+ *  Value: "SCAN_FAILURE_TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureTimeout;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because Changeling
+ *  returned an empty response while converting the attachment to text.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because Changeling
+ *  returned permanent failure while converting the attachment to text.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because none of the
+ *  rules are applicable.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because none of the
+ *  rules are applicable to the given action params. Deprecated. Use
+ *  SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because none of the
+ *  rules are applicable to the given trigger. Deprecated. Use
+ *  SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because no rules were
+ *  found.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because file type is
+ *  unsupported.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType;
+/**
+ *  Rule fetch and evaluation are skipped because the user sending message is
+ *  consumer.
+ *
+ *  Value: "SCAN_SKIPPED_CONSUMER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedConsumer;
+/**
+ *  Rule fetch and evaluation is skipped because DLP is not enabled for the
+ *  user.
+ *
+ *  Value: "SCAN_SKIPPED_EXPERIMENT_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedExperimentDisabled;
+/**
+ *  Scanning was skipped because the message originated from Interop or Babel.
+ *
+ *  Value: "SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin;
+/**
+ *  Scanning was skipped because the message was sent while the space is in
+ *  migration mode. See go/migration-mode for details.
+ *
+ *  Value: "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration;
+/**
+ *  Rule fetch and evaluation are skipped because there is no message to scan.
+ *  Deprecated: this should not happen since there must be message or attachment
+ *  for DLP scan.
+ *
+ *  Value: "SCAN_SKIPPED_NO_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedNoMessage;
+/**
+ *  Rule fetch and evaluation are skipped because the user sending message is a
+ *  non-human user (i.e. a bot).
+ *
+ *  Value: "SCAN_SKIPPED_NON_HUMAN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedNonHumanUser;
+/**
+ *  Rule fetch and evaluation are skipped because the user has acknowledged the
+ *  warning on the message that triggered the Warn violation and sent the
+ *  message anyway.
+ *
+ *  Value: "SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedUserAcknowledgedWarning;
+/**
+ *  Violation is detected and will be logged to BIP (no user-facing action
+ *  performed).
+ *
+ *  Value: "SCAN_SUCCEEDED_AUDIT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededAuditOnly;
+/**
+ *  Violation is detected. The message/attachment will be blocked (or deleted if
+ *  this happens in failure recovery), the user will be warned, and the
+ *  violation will be logged to BIP.
+ *
+ *  Value: "SCAN_SUCCEEDED_BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededBlock;
+/**
+ *  This means no violation is detected on the given message/attachment.
+ *
+ *  Value: "SCAN_SUCCEEDED_NO_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededNoViolation;
+/**
+ *  Violation is detected. The user will be warned, and the violation will be
+ *  logged to BIP.
+ *
+ *  Value: "SCAN_SUCCEEDED_WARN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWarn;
+/**
+ *  Rules were fetched but some evaluations failed. An audit-only violation was
+ *  found in the rules that were successfully evaluated. The violation will be
+ *  logged to BIP (no user-facing action performed).
+ *
+ *  Value: "SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresAuditOnly;
+/**
+ *  Rules were fetched but some evaluations failed. A blocking violation was
+ *  found in the rules that were successfully evaluated. The message/attachment
+ *  will be blocked, the user will be notified, and the violation will be logged
+ *  to BIP. A blocking violation takes precedence over all other violation
+ *  types.
+ *
+ *  Value: "SCAN_SUCCEEDED_WITH_FAILURES_BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresBlock;
+/**
+ *  Rules were fetched but some evaluations failed. No violation was found in
+ *  the rules that were successfully evaluated.
+ *
+ *  Value: "SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresNoViolation;
+/**
+ *  Rules were fetched but some evaluations failed. A warn violation was found
+ *  in the rules that were successfully evaluated. The user will be warned, and
+ *  the violation will be logged to BIP.
+ *
+ *  Value: "SCAN_SUCCEEDED_WITH_FAILURES_WARN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresWarn;
+/** Value: "SCAN_UNKNOWN_OUTCOME" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanUnknownOutcome;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_DlpScanSummary.scanOutcome
 
 /**
@@ -2856,14 +3146,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_S
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError;
 /**
  *  Rule fetch happened, but rule evaluation is skipped because none of the
- *  rules are applicable to the given action params.
+ *  rules are applicable.
+ *
+ *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules;
+/**
+ *  Rule fetch happened, but rule evaluation is skipped because none of the
+ *  rules are applicable to the given action params. Deprecated. Use
+ *  SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES
  *
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams;
 /**
  *  Rule fetch happened, but rule evaluation is skipped because none of the
- *  rules are applicable to the given trigger.
+ *  rules are applicable to the given trigger. Deprecated. Use
+ *  SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES
  *
  *  Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER"
  */
@@ -2995,6 +3294,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_S
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresWarn;
 /** Value: "SCAN_UNKNOWN_OUTCOME" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanUnknownOutcome;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_DlpScanSummary.scanTrigger
+
+/**
+ *  LINT.ThenChange(//depot/google3/java/com/google/apps/dynamite/v1/external/dlp/DlpTriggerInfo.java)
+ *
+ *  Value: "ATTACHMENT_UPLOADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanTrigger_AttachmentUploaded;
+/** Value: "MESSAGE_SENT" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanTrigger_MessageSent;
+/**
+ *  LINT.IfChange
+ *
+ *  Value: "UNKNOWN_TRIGGER_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DlpScanSummary_ScanTrigger_UnknownTriggerType;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_DriveFollowUpRestrict.type
@@ -5221,6 +5538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_Hango
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_HangoutsMeetApp;
 /**
+ *  Headless version of Chrome
+ *
+ *  Value: "HEADLESS_CHROME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ImapSessionContext_App_HeadlessChrome;
+/**
  *  Google Home app (rebranded from Chromecast app)
  *
  *  Value: "HOME_APP"
@@ -6280,6 +6603,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_BotRemoved;
 /**
+ *  HUMAN_MEMBERSHIP_DISPLAY_DISABLED indicates that the space has crossed the
+ *  member size threshold above which human membership change system messages
+ *  will be muted. This event can only occur once for a space over its lifetime.
+ *  When this event is received, clients should display a system message stating
+ *  that human membership changes will no longer be displayed in the space.
+ *
+ *  Value: "HUMAN_MEMBERSHIP_DISPLAY_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_HumanMembershipDisplayDisabled;
+/**
  *  Non-member -> Can join. Multiple groups and users.
  *
  *  Value: "INVITED"
@@ -6299,13 +6632,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_KickedDueToOtrConflict;
 /**
- *  Member -> Can join. One user.
+ *  Before April 2023, a user transitioned from joined
  *
  *  Value: "LEFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Left;
 /**
- *  Can join -> Non-member. One group or user.
+ *  Member or can join -> Non-member. One group or user.
  *
  *  Value: "REMOVED"
  */
@@ -6322,6 +6655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Ty
  *  Value: "ROLE_UPDATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleUpdated;
+/**
+ *  Space limit exceeded
+ *
+ *  Value: "SPACE_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_SpaceLimitExceeded;
 /**
  *  Default value for the enum. DO NOT USE.
  *
@@ -7229,10 +7568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown
 
 /** Value: "REQUIRED_FEATURE_CUSTOM_HYPERLINK" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureCustomHyperlink;
+/** Value: "REQUIRED_FEATURE_DRIVE_SMART_CHIP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureDriveSmartChip;
+/** Value: "REQUIRED_FEATURE_LEGACY_TOPIC_START" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureLegacyTopicStart;
 /** Value: "REQUIRED_FEATURE_MESSAGE_QUOTING" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting;
-/** Value: "REQUIRED_FEATURE_SMART_CHIP" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureSmartChip;
 /** Value: "REQUIRED_FEATURE_TOMBSTONES_IN_DMS_AND_UFRS" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureTombstonesInDmsAndUfrs;
 /** Value: "REQUIRED_FEATURE_UNSPECIFIED" */
@@ -7341,6 +7682,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Segment_Type_LineBreak;
  *  Value: "LINK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Segment_Type_Link;
+/**
+ *  A SEARCH_LINK segment respresents a link to search results for a KG entity.
+ *  The "text" field should represent the part of the comment where the KG
+ *  entity is extracted from, and additional metadata of the entity should be
+ *  put in the Segment's search_link_data field.
+ *
+ *  Value: "SEARCH_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Segment_Type_SearchLink;
 /**
  *  A TEXT segment represents plain-text subject to particular formatting
  *  constraints (as represented in the "formatting" field of the Segment).
@@ -7708,6 +8058,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_Pers
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_QueryHistory;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_SourceMessageInfo.messageType
+
+/** Value: "INLINE_REPLY" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceMessageInfo_MessageType_InlineReply;
+/** Value: "ROOT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceMessageInfo_MessageType_RootMessage;
+/** Value: "SOURCE_MESSAGE_TYPE_UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceMessageInfo_MessageType_SourceMessageTypeUndefined;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_SourceScoringConfig.sourceImportance
 
 /** Value: "DEFAULT" */
@@ -7716,6 +8076,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceIm
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_High;
 /** Value: "LOW" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Low;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_SpellResult.suggestionType
+
+/**
+ *  Spell suggestion without any results changed. The results are still shown
+ *  for the original query (which has non zero / results) with a suggestion for
+ *  spelling that would have results.
+ *
+ *  Value: "NON_EMPTY_RESULTS_SPELL_SUGGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpellResult_SuggestionType_NonEmptyResultsSpellSuggestion;
+/**
+ *  Default spell check type
+ *
+ *  Value: "SUGGESTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpellResult_SuggestionType_SuggestionTypeUnspecified;
+/**
+ *  Spell suggestion triggered when original query has no results. When the
+ *  original query has no results, and spell suggestion has results we trigger
+ *  results for the spell corrected query.
+ *
+ *  Value: "ZERO_RESULTS_FULL_PAGE_REPLACEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpellResult_SuggestionType_ZeroResultsFullPageReplacement;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_StreamingSessionInfo.applicationType
@@ -8481,11 +8867,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplay
  *  Value: "FAILED_TO_ADD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_FailedToAdd;
-/** Value: "INVITE" */
+/**
+ *  An \@mention that invites a new member into the space
+ *
+ *  Value: "INVITE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Invite;
-/** Value: "MENTION" */
+/**
+ *  An \@mention of an existing member in the space.
+ *
+ *  Value: "MENTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Mention;
-/** Value: "MENTION_ALL" */
+/**
+ *  An \@mention of all members in the space.
+ *
+ *  Value: "MENTION_ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_MentionAll;
 /**
  *  Default value for the enum. DO NOT USE.
@@ -8493,7 +8891,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Men
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_TypeUnspecified;
-/** Value: "UNINVITE" */
+/**
+ *  DEPRECATED: An \@mention that removes a member from a space. Support for
+ *  this has been removed.
+ *
+ *  Value: "UNINVITE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite;
 
 // ----------------------------------------------------------------------------
@@ -8740,6 +9143,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  Starting state for an individual add-on frame.
+ */
+@interface GTLRCloudSearch_AddOnFrameStartingState : GTLRObject
+
+/**
+ *  Additional data internal to the add-on that can be used to initialize
+ *  itself.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalData;
+
+/** The uri of the artifact being used for an add-on co-activity. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Starting state properties for add-on co-activity.
+ */
+@interface GTLRCloudSearch_AddOnStartingState : GTLRObject
+
+/**
+ *  List of starting state frames for the add-on co-activity. Keys for this map
+ *  are the values of the AddOnFrameType enum.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AddOnStartingState_AddOnFrameStartingStates *addOnFrameStartingStates;
+
+@end
+
+
+/**
+ *  List of starting state frames for the add-on co-activity. Keys for this map
+ *  are the values of the AddOnFrameType enum.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudSearch_AddOnFrameStartingState. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCloudSearch_AddOnStartingState_AddOnFrameStartingStates : GTLRObject
 @end
 
 
@@ -9073,6 +9521,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Information about the screen annotation session.
+ */
+@interface GTLRCloudSearch_AnnotationInfo : GTLRObject
+
+/**
+ *  The device resource names of other devices which can annotate the screen.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *coannotatorDeviceIds;
+
+/**
+ *  Whether the annotation is active.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isActive;
+
+@end
+
+
+/**
  *  Identifier of an App.
  */
 @interface GTLRCloudSearch_AppId : GTLRObject
@@ -9114,6 +9582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "GSUITE_APP_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp Value "MEET_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp Value "SHEETS_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ShortcutApp Value
+ *        "SHORTCUT_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp Value "SLIDES_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp Value "TASKS_APP"
  */
@@ -9375,7 +9845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Metadata used only in Dynamite backend for uploaded attachments.
+ *  Metadata used only in Dynamite backend for uploaded attachments. NEXT ID: 20
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata : GTLRObject
 
@@ -9428,13 +9898,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Rule fetch happened, but rule evaluation is skipped because Changeling
  *        returned permanent failure while converting the attachment to text.
  *        (Value: "SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules
+ *        Rule fetch happened, but rule evaluation is skipped because none of
+ *        the rules are applicable. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams
  *        Rule fetch happened, but rule evaluation is skipped because none of
- *        the rules are applicable to the given action params. (Value:
+ *        the rules are applicable to the given action params. Deprecated. Use
+ *        SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES (Value:
  *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger
  *        Rule fetch happened, but rule evaluation is skipped because none of
- *        the rules are applicable to the given trigger. (Value:
+ *        the rules are applicable to the given trigger. Deprecated. Use
+ *        SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES (Value:
  *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound
  *        Rule fetch happened, but rule evaluation is skipped because no rules
@@ -9515,16 +9991,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DlpScanSummary *dlpScanSummary;
 
+/** The list of experiments this video is enabled for */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *experiment;
+
 /** GroupId to which this attachment is uploaded. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GroupId *groupId;
 
 /**
  *  If the uploaded file is a video that has been transcoded on the client side
- *  Next tag: 18
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isClientSideTranscodedVideo;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadata *migratedFromHangoutsMetadata;
 
 /** Original dimension of the content. Only set for image attachments. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDimension *originalDimension;
@@ -9587,6 +10067,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "UNKNOWN_VIRUS_SCAN_RESULT"
  */
 @property(nonatomic, copy, nullable) NSString *virusScanResult;
+
+@end
+
+
+/**
+ *  Metadata for attachments migrated from Hangouts
+ */
+@interface GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadataPhotoId *photoId;
+
+/**
+ *  updateTimestampUsec
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updateTimestampUsec;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadataPhotoId
+ */
+@interface GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadataPhotoId : GTLRObject
+
+/**
+ *  photoId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *photoId;
+
+/**
+ *  userId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userId;
 
 @end
 
@@ -9842,9 +10361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        rooms and contain items for users to catch up on important things.
  *        Each user should only have one group of this type. See
  *        go/activity-feed. Deprecated: The go/activity-feed project is
- *        cancelled and this should no longer be used.
- *        LINT.ThenChange(//depot/google3/logs/proto/apps_dynamite/dynamite_visual_element_entry.proto:LoggingGroupType,//depot/google3/java/com/google/apps/dynamite/v1/web/ui/group/groups.js:LoggingGroupType)
- *        (Value: "ACTIVITY_FEED")
+ *        cancelled and this should no longer be used. (Value: "ACTIVITY_FEED")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_AttributeCheckerGroupTypeUnspecified
  *        LINT.IfChange (Value: "ATTRIBUTE_CHECKER_GROUP_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_FlatRoom
@@ -9861,10 +10378,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneHumanDm
  *        A 1:1 DM that has two human users. Deprecated. Use
  *        IMMUTABLE_MEMBERSHIP_HUMAN_DM instead. (Value: "ONE_TO_ONE_HUMAN_DM")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_PostRoom
- *        A post room. Topics in this room are organized in a post/reply style.
- *        See the design doc for more details: go/PostRoomsInDynamite.
- *        Deprecated. Post rooms are no longer supported. (Value: "POST_ROOM")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_Shortcut
+ *        Represents a shortcut space. These groups are modeled like flat rooms
+ *        and contain items for users to catch up on important things such as
+ *        user mentioned messages and starred messages.
+ *        LINT.ThenChange(//depot/google3/logs/proto/apps_dynamite/dynamite_visual_element_entry.proto:LoggingGroupType,//depot/google3/java/com/google/apps/dynamite/v1/web/ui/group/groups.js:LoggingGroupType)
+ *        (Value: "SHORTCUT")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ThreadedRoom
  *        A threaded room. Topics in this room are threaded, and users can reply
  *        to any topic. (Value: "THREADED_ROOM")
@@ -10286,6 +10805,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *meetingCode;
 
 /**
+ *  Required. Type of the meeting. This controls the chat client UX.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_Call
+ *        Value "CALL"
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_Huddle
+ *        Value "HUDDLE"
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_MeetingTypeUnspecified
+ *        Value "MEETING_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *meetingType;
+
+/**
  *  Required. A URL, in the format "https://meet.google.com/ *" (e.g.
  *  https://meet.google.com/cxv-zbgj-wzw), to identify and access the meeting
  *  space.
@@ -10381,6 +10913,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "TASKS"
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Metadata used to describe how to render a message in search results page,
+ *  e.g., highlighting and snipetting. In future, we can use this proto to
+ *  return more search specific data attached to a message.
+ */
+@interface GTLRCloudSearch_AppsDynamiteSharedMessageSearchInfo : GTLRObject
+
+/**
+ *  Current usage: - DescriptionType=KEYWORD_MATCH is populated in this field to
+ *  return metadata for keyword matches, which clients can use to highlight
+ *  matched segments in a message's text_body. - DescriptionType=SNIPPET can be
+ *  used to return metadata describing how a message's text_body can be broken
+ *  up to provide a snippet.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription *> *matchedSegmentsInTextBody;
 
 @end
 
@@ -10792,6 +11343,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_KeywordMatch
  *        Indicates the text segments contain matched keywords. Client can
  *        highlight them in search results page. (Value: "KEYWORD_MATCH")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_Snippet
+ *        Indicates the text segments represent parts of the snippeted text.
+ *        Clients can display just these in SRP as shortened message. Multiple
+ *        TextSegments with this DescriptionType are returned to denote
+ *        disjointed snippets i.e. "a long test message" -> "a ... message"
+ *        (Value: "SNIPPET")
  */
 @property(nonatomic, copy, nullable) NSString *descriptionType;
 
@@ -10946,7 +11503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Represents the complete border style applied to widgets.
+ *  The style options for the border of a card or widget, including the border
+ *  type and color.
  */
 @interface GTLRCloudSearch_AppsDynamiteStorageBorderStyle : GTLRObject
 
@@ -11162,21 +11720,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @interface GTLRCloudSearch_AppsDynamiteStorageColumns : GTLRObject
 
-/** Each card supports up to 2 columns. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageColumnsColumn *> *columnItems;
-
 /**
- *  Controls how the column resizes based on screen width.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Nowrap
- *        Column widgets don't wrap. (Value: "NOWRAP")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_Wrap Column
- *        Widgets wrap. (Value: "WRAP")
- *    @arg @c kGTLRCloudSearch_AppsDynamiteStorageColumns_WrapStyle_WrapStyleUnspecified
- *        Unspecified. (Value: "WRAP_STYLE_UNSPECIFIED")
+ *  Each card supports up to 2 columns. If the user's screen width is less than
+ *  or equal to 480 pixels, the second column wraps below the first column.
  */
-@property(nonatomic, copy, nullable) NSString *wrapStyle;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteStorageColumnsColumn *> *columnItems;
 
 @end
 
@@ -12476,6 +13024,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteStorageCard *cardAddOnData;
 
+/**
+ *  Contains additional metadata that further enhance the annotation when it is
+ *  returned as part of search response. For example, this can be used to define
+ *  how the attachment matches the search. Information can be used to highlight
+ *  in rendering search results. The following are the different attachment text
+ *  fields that are covered by this field: 1.
+ *  ContextualAddOn.Card.CardHeader.title 2. CardItem.CardItemHeader.title
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo *componentSearchInfo;
+
 /** Deprecated version of Gmail AddOn attachment. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ContextualAddOnMarkup *deprecatedAddOnData;
 
@@ -12850,6 +13408,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SupportUrls *supportUrls;
 
+/**
+ *  Determine how uninstall is permitted for this app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_BotInfo_UninstallCapability_AlwaysAllowed Value
+ *        "ALWAYS_ALLOWED"
+ *    @arg @c kGTLRCloudSearch_BotInfo_UninstallCapability_NeverAllowed Value
+ *        "NEVER_ALLOWED"
+ *    @arg @c kGTLRCloudSearch_BotInfo_UninstallCapability_UnspecifiedUninstallCapability
+ *        Defaults to ALWAYS_ALLOWED. (Value:
+ *        "UNSPECIFIED_UNINSTALL_CAPABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *uninstallCapability;
+
 @end
 
 
@@ -13020,6 +13592,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** List of available access types of the conference. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableAccessTypes;
+
+/** Available screen annotation tool types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableAnnotationToolTypes;
 
 /**
  *  Output only. The set of reactions that clients are allowed to send and can
@@ -13205,6 +13780,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *chatLock;
+
+/**
+ *  Indicates whether the co-activity lock is currently on or off.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coActivityLock;
 
 /**
  *  Whether Client-side Encryption is enabled for this conference.
@@ -13745,6 +14327,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *activityTitle;
 
+/** The add-on id of the current add-on being used for co-activity. */
+@property(nonatomic, copy, nullable) NSString *addOnId;
+
+/** The starting state of the add-on frames for co-activity. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AddOnStartingState *addOnStartingState;
+
 /**
  *  Identifies the app handling this co-activity.
  *
@@ -13773,6 +14361,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *coActivityApp;
 
+/** The resource name of the device that initiated the co-activity. */
+@property(nonatomic, copy, nullable) NSString *initiatorDeviceId;
+
+/** The resource name of the device that is presenting the add-on. */
+@property(nonatomic, copy, nullable) NSString *presentationDeviceId;
+
+/**
+ *  The project number of the add-on to determine version.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectNumber;
+
 @end
 
 
@@ -13795,19 +14396,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  Represents a color in the RGBA color space. This representation is designed
- *  for simplicity of conversion to/from color representations in various
+ *  for simplicity of conversion to and from color representations in various
  *  languages over compactness. For example, the fields of this representation
  *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
  *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  a CSS `rgba()` string in JavaScript. This reference page does not have
  *  information about the absolute color space that should be used to interpret
- *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default,
  *  applications should assume the sRGB color space. When color equality needs
  *  to be decided, implementations, unless documented otherwise, treat two
  *  colors as equal if all their red, green, blue, and alpha values each differ
- *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
- *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  by at most `1e-5`. Example (Java): import com.google.type.Color; // ...
+ *  public static java.awt.Color fromProto(Color protocolor) { float alpha =
  *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
  *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
  *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
@@ -14293,8 +14894,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_DataLossPreventionMetadata : GTLRObject
 
 /**
- *  The DLP scan summary that should only be set after the message is scanned in
- *  the Chat backend.
+ *  The scan record contains the action taken on the message send as well as
+ *  scan the summary for the message contents and the attachment, if applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DlpMessageScanRecord *dlpMessageScanRecord;
+
+/**
+ *  Deprecated. To be replaced by DLP scan record. The DLP scan summary that
+ *  should only be set after the message is scanned in the Chat backend.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DlpScanSummary *dlpScanSummary;
 
@@ -14753,6 +15360,139 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  A summary of a DLP scan. This is a combination summary that contains both
+ *  scan on message and scan on attachments if any.
+ */
+@interface GTLRCloudSearch_DlpMessageScanRecord : GTLRObject
+
+/** Summaries of the attachment scan if any. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DlpScanSummary *attachmentScanSummary;
+
+/** The applied action. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DlpAction *dlpAction;
+
+/** Summaries of the message scan. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DlpScanSummary *messageScanSummary;
+
+/**
+ *  The DLP scan outcome for the message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureAllRulesFailed
+ *        Rule fetch completed and evaluation were attempted, but all of the
+ *        rules failed to be evaluated. (Value: "SCAN_FAILURE_ALL_RULES_FAILED")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureException
+ *        Rule fetch and evaluation were attempted but an exception occurred.
+ *        (Value: "SCAN_FAILURE_EXCEPTION")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureIllegalStateForAttachments
+ *        An IllegalStateException is thrown when executing DLP on attachments.
+ *        This could happen if the space row is missing. (Value:
+ *        "SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureRuleFetchFailed
+ *        Rule fetch was attempted but failed, so rule evaluation could not be
+ *        performed. (Value: "SCAN_FAILURE_RULE_FETCH_FAILED")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureTimeout
+ *        Rule fetch and evaluation were attempted but the scanning timed out.
+ *        (Value: "SCAN_FAILURE_TIMEOUT")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse
+ *        Rule fetch happened, but rule evaluation is skipped because Changeling
+ *        returned an empty response while converting the attachment to text.
+ *        (Value: "SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError
+ *        Rule fetch happened, but rule evaluation is skipped because Changeling
+ *        returned permanent failure while converting the attachment to text.
+ *        (Value: "SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules
+ *        Rule fetch happened, but rule evaluation is skipped because none of
+ *        the rules are applicable. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams
+ *        Rule fetch happened, but rule evaluation is skipped because none of
+ *        the rules are applicable to the given action params. Deprecated. Use
+ *        SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger
+ *        Rule fetch happened, but rule evaluation is skipped because none of
+ *        the rules are applicable to the given trigger. Deprecated. Use
+ *        SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound
+ *        Rule fetch happened, but rule evaluation is skipped because no rules
+ *        were found. (Value: "SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType
+ *        Rule fetch happened, but rule evaluation is skipped because file type
+ *        is unsupported. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedConsumer
+ *        Rule fetch and evaluation are skipped because the user sending message
+ *        is consumer. (Value: "SCAN_SKIPPED_CONSUMER")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedExperimentDisabled
+ *        Rule fetch and evaluation is skipped because DLP is not enabled for
+ *        the user. (Value: "SCAN_SKIPPED_EXPERIMENT_DISABLED")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin
+ *        Scanning was skipped because the message originated from Interop or
+ *        Babel. (Value: "SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration
+ *        Scanning was skipped because the message was sent while the space is
+ *        in migration mode. See go/migration-mode for details. (Value:
+ *        "SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedNoMessage
+ *        Rule fetch and evaluation are skipped because there is no message to
+ *        scan. Deprecated: this should not happen since there must be message
+ *        or attachment for DLP scan. (Value: "SCAN_SKIPPED_NO_MESSAGE")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedNonHumanUser
+ *        Rule fetch and evaluation are skipped because the user sending message
+ *        is a non-human user (i.e. a bot). (Value:
+ *        "SCAN_SKIPPED_NON_HUMAN_USER")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedUserAcknowledgedWarning
+ *        Rule fetch and evaluation are skipped because the user has
+ *        acknowledged the warning on the message that triggered the Warn
+ *        violation and sent the message anyway. (Value:
+ *        "SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededAuditOnly
+ *        Violation is detected and will be logged to BIP (no user-facing action
+ *        performed). (Value: "SCAN_SUCCEEDED_AUDIT_ONLY")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededBlock
+ *        Violation is detected. The message/attachment will be blocked (or
+ *        deleted if this happens in failure recovery), the user will be warned,
+ *        and the violation will be logged to BIP. (Value:
+ *        "SCAN_SUCCEEDED_BLOCK")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededNoViolation
+ *        This means no violation is detected on the given message/attachment.
+ *        (Value: "SCAN_SUCCEEDED_NO_VIOLATION")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWarn
+ *        Violation is detected. The user will be warned, and the violation will
+ *        be logged to BIP. (Value: "SCAN_SUCCEEDED_WARN")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresAuditOnly
+ *        Rules were fetched but some evaluations failed. An audit-only
+ *        violation was found in the rules that were successfully evaluated. The
+ *        violation will be logged to BIP (no user-facing action performed).
+ *        (Value: "SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresBlock
+ *        Rules were fetched but some evaluations failed. A blocking violation
+ *        was found in the rules that were successfully evaluated. The
+ *        message/attachment will be blocked, the user will be notified, and the
+ *        violation will be logged to BIP. A blocking violation takes precedence
+ *        over all other violation types. (Value:
+ *        "SCAN_SUCCEEDED_WITH_FAILURES_BLOCK")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresNoViolation
+ *        Rules were fetched but some evaluations failed. No violation was found
+ *        in the rules that were successfully evaluated. (Value:
+ *        "SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresWarn
+ *        Rules were fetched but some evaluations failed. A warn violation was
+ *        found in the rules that were successfully evaluated. The user will be
+ *        warned, and the violation will be logged to BIP. (Value:
+ *        "SCAN_SUCCEEDED_WITH_FAILURES_WARN")
+ *    @arg @c kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanUnknownOutcome
+ *        Value "SCAN_UNKNOWN_OUTCOME"
+ */
+@property(nonatomic, copy, nullable) NSString *scanOutcome;
+
+@end
+
+
+/**
  *  A summary of a DLP scan event. This is a summary and should contain the
  *  minimum amount of data required to identify and process DLP scans. It is
  *  written to Starcast and encoded & returned to the client on attachment
@@ -14811,13 +15551,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Rule fetch happened, but rule evaluation is skipped because Changeling
  *        returned permanent failure while converting the attachment to text.
  *        (Value: "SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR")
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules
+ *        Rule fetch happened, but rule evaluation is skipped because none of
+ *        the rules are applicable. (Value:
+ *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES")
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams
  *        Rule fetch happened, but rule evaluation is skipped because none of
- *        the rules are applicable to the given action params. (Value:
+ *        the rules are applicable to the given action params. Deprecated. Use
+ *        SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES (Value:
  *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS")
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger
  *        Rule fetch happened, but rule evaluation is skipped because none of
- *        the rules are applicable to the given trigger. (Value:
+ *        the rules are applicable to the given trigger. Deprecated. Use
+ *        SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES (Value:
  *        "SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER")
  *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound
  *        Rule fetch happened, but rule evaluation is skipped because no rules
@@ -14891,6 +15637,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "SCAN_UNKNOWN_OUTCOME"
  */
 @property(nonatomic, copy, nullable) NSString *scanOutcome;
+
+/**
+ *  The event that triggered the scan. This corresponds to the rule trigger
+ *  configured in admin console and maps to the different things that can be
+ *  scanned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanTrigger_AttachmentUploaded
+ *        LINT.ThenChange(//depot/google3/java/com/google/apps/dynamite/v1/external/dlp/DlpTriggerInfo.java)
+ *        (Value: "ATTACHMENT_UPLOADED")
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanTrigger_MessageSent Value
+ *        "MESSAGE_SENT"
+ *    @arg @c kGTLRCloudSearch_DlpScanSummary_ScanTrigger_UnknownTriggerType
+ *        LINT.IfChange (Value: "UNKNOWN_TRIGGER_TYPE")
+ */
+@property(nonatomic, copy, nullable) NSString *scanTrigger;
 
 @end
 
@@ -16643,7 +17405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  A card is a UI element that can contain UI widgets such as texts, images.
+ *  A card is a UI element that can contain UI widgets such as text and images.
  */
 @interface GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard : GTLRObject
 
@@ -16684,7 +17446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader : GTLRObject
 
 /**
- *  The image's type (e.g. square border or circular border).
+ *  The image's type (for example, square border or circular border).
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_Avatar
@@ -16704,8 +17466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  The title must be specified. The header has a fixed height: if both a title
- *  and subtitle is specified, each will take up 1 line. If only the title is
- *  specified, it will take up both lines.
+ *  and subtitle is specified, each takes up one line. If only the title is
+ *  specified, it takes up both lines.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -16715,27 +17477,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /**
  *  A section contains a collection of widgets that are rendered (vertically) in
  *  the order that they are specified. Across all platforms, cards have a narrow
- *  fixed width, so there is currently no need for layout properties (e.g.
- *  float).
+ *  fixed width, so there's currently no need for layout properties (for
+ *  example, float).
  */
 @interface GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection : GTLRObject
 
-/** The header of the section, text formatted supported. */
+/**
+ *  The header of the section. Formatted text is supported. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *header;
 
-/** A section must contain at least 1 widget. */
+/** A section must contain at least one widget. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_GoogleChatV1WidgetMarkup *> *widgets;
 
 @end
 
 
 /**
- *  A widget is a UI element that presents texts, images, etc.
+ *  A widget is a UI element that presents text and images.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkup : GTLRObject
 
 /**
- *  A list of buttons. Buttons is also oneof data and only one of these fields
+ *  A list of buttons. Buttons is also `oneof data` and only one of these fields
  *  should be set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_GoogleChatV1WidgetMarkupButton *> *buttons;
@@ -16757,10 +17525,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupButton : GTLRObject
 
-/** A button with image and onclick action. */
+/** A button with image and `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton *imageButton;
 
-/** A button with text and onclick action. */
+/** A button with text and `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupTextButton *textButton;
 
 @end
@@ -16768,15 +17536,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  A form action describes the behavior when the form is submitted. For
- *  example, an Apps Script can be invoked to handle the form.
+ *  example, you can invoke Apps Script to handle the form.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupFormAction : GTLRObject
 
 /**
  *  The method name is used to identify which part of the form triggered the
  *  form submission. This information is echoed back to the Chat app as part of
- *  the card click event. The same method name can be used for several elements
- *  that trigger a common behavior if desired.
+ *  the card click event. You can use the same method name for several elements
+ *  that trigger a common behavior.
  */
 @property(nonatomic, copy, nullable) NSString *actionMethodName;
 
@@ -16788,8 +17556,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  List of string parameters to supply when the action method is invoked. For
- *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
- *  next week. You might use action method = snooze(), passing the snooze type
+ *  example, consider three snooze buttons: snooze now, snooze one day, snooze
+ *  next week. You might use `action method = snooze()`, passing the snooze type
  *  and snooze time in the list of string parameters.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter : GTLRObject
@@ -16804,14 +17572,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  An image that is specified by a URL and can have an onclick action.
+ *  An image that's specified by a URL and can have an `onclick` action.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupImage : GTLRObject
 
 /**
- *  The aspect ratio of this image (width/height). This field allows clients to
+ *  The aspect ratio of this image (width and height). This field lets you
  *  reserve the right height for the image while waiting for it to load. It's
- *  not meant to override the native aspect ratio of the image. If unset, the
+ *  not meant to override the built-in aspect ratio of the image. If unset, the
  *  server fills it by prefetching the image.
  *
  *  Uses NSNumber of doubleValue.
@@ -16821,19 +17589,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /** The URL of the image. */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
-/** The onclick action. */
+/** The `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick *onClick;
 
 @end
 
 
 /**
- *  An image button with an onclick action.
+ *  An image button with an `onclick` action.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton : GTLRObject
 
 /**
- *  The icon specified by an enum that indices to an icon provided by Chat API.
+ *  The icon specified by an `enum` that indices to an icon provided by Chat
+ *  API.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Airplane
@@ -16905,30 +17674,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
- *  The name of this image_button which will be used for accessibility. Default
- *  value will be provided if developers don't specify.
+ *  The name of this `image_button` that's used for accessibility. Default value
+ *  is provided if this name isn't specified.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The onclick action. */
+/** The `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick *onClick;
 
 @end
 
 
 /**
- *  A UI element contains a key (label) and a value (content). And this element
- *  may also contain some actions such as onclick button.
+ *  A UI element contains a key (label) and a value (content). This element can
+ *  also contain some actions such as `onclick` button.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue : GTLRObject
 
-/** The text of the bottom label. Formatted text supported. */
+/**
+ *  The text of the bottom label. Formatted text supported. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *bottomLabel;
 
 /** A button that can be clicked to trigger an action. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupButton *button;
 
-/** The text of the content. Formatted text supported and always required. */
+/**
+ *  The text of the content. Formatted text supported and always required. For
+ *  more information about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
@@ -16939,8 +17720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *contentMultiline;
 
 /**
- *  An enum value that will be replaced by the Chat API with the corresponding
- *  icon image.
+ *  An enum value that's replaced by the Chat API with the corresponding icon
+ *  image.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Airplane
@@ -17012,26 +17793,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
- *  The onclick action. Only the top label, bottom label and content region are
- *  clickable.
+ *  The `onclick` action. Only the top label, bottom label, and content region
+ *  are clickable.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick *onClick;
 
-/** The text of the top label. Formatted text supported. */
+/**
+ *  The text of the top label. Formatted text supported. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *topLabel;
 
 @end
 
 
 /**
- *  An onclick action (e.g. open a link).
+ *  An `onclick` action (for example, open a link).
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick : GTLRObject
 
-/** A form action will be triggered by this onclick if specified. */
+/** A form action is triggered by this `onclick` action if specified. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupFormAction *action;
 
-/** This onclick triggers an open link action if specified. */
+/** This `onclick` action triggers an open link action if specified. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupOpenLink *openLink;
 
 @end
@@ -17049,11 +17836,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  A button with text and onclick action.
+ *  A button with text and `onclick` action.
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupTextButton : GTLRObject
 
-/** The onclick action of the button. */
+/** The `onclick` action of the button. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick *onClick;
 
 /** The text of the button. */
@@ -17063,7 +17850,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  A paragraph of text. Formatted text supported.
+ *  A paragraph of text. Formatted text supported. For more information about
+ *  formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
 @interface GTLRCloudSearch_GoogleChatV1WidgetMarkupTextParagraph : GTLRObject
 
@@ -18142,6 +18933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Classic (Value: "HANGOUTS_APP")
  *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_HangoutsMeetApp Hangouts
  *        Meet (Value: "HANGOUTS_MEET_APP")
+ *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_HeadlessChrome Headless
+ *        version of Chrome (Value: "HEADLESS_CHROME")
  *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_HomeApp Google Home app
  *        (rebranded from Chromecast app) (Value: "HOME_APP")
  *    @arg @c kGTLRCloudSearch_ImapSessionContext_App_JamboardApp Jamboard app
@@ -20103,7 +20896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  Annotation metadata to display system messages for membership changes. Next
- *  Tag: 8
+ *  Tag: 13
  */
 @interface GTLRCloudSearch_MembershipChangedMetadata : GTLRObject
 
@@ -20146,6 +20939,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        to the room. (Value: "BOT_ADDED")
  *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_BotRemoved Bot
  *        removed from the room. (Value: "BOT_REMOVED")
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_HumanMembershipDisplayDisabled
+ *        HUMAN_MEMBERSHIP_DISPLAY_DISABLED indicates that the space has crossed
+ *        the member size threshold above which human membership change system
+ *        messages will be muted. This event can only occur once for a space
+ *        over its lifetime. When this event is received, clients should display
+ *        a system message stating that human membership changes will no longer
+ *        be displayed in the space. (Value:
+ *        "HUMAN_MEMBERSHIP_DISPLAY_DISABLED")
  *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_Invited Non-member
  *        -> Can join. Multiple groups and users. (Value: "INVITED")
  *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_Joined Can join ->
@@ -20154,14 +20955,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        This signifies the user is kicked because the user's OTR policy is
  *        conflicted with the room history settings. Joined -> Non-member. One
  *        user. (Value: "KICKED_DUE_TO_OTR_CONFLICT")
- *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_Left Member -> Can
- *        join. One user. (Value: "LEFT")
- *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_Removed Can join
- *        -> Non-member. One group or user. (Value: "REMOVED")
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_Left Before April
+ *        2023, a user transitioned from joined (Value: "LEFT")
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_Removed Member or
+ *        can join -> Non-member. One group or user. (Value: "REMOVED")
  *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleTargetAudienceUpdated
  *        The room is now joinable by an (Value: "ROLE_TARGET_AUDIENCE_UPDATED")
  *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleUpdated
  *        MembershipRole changed. Multiple users. (Value: "ROLE_UPDATED")
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_SpaceLimitExceeded
+ *        Space limit exceeded (Value: "SPACE_LIMIT_EXCEEDED")
  *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_Type_TypeUnspecified
  *        Default value for the enum. DO NOT USE. (Value: "TYPE_UNSPECIFIED")
  */
@@ -20490,6 +21293,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *messageOrigin;
 
 /**
+ *  Contains reference to another message. It is used in shortcuts which are
+ *  used to collect messages from different spaces with a certain common
+ *  property into another space. For example, all \@mentions of a user are
+ *  collected into a mention shortcut space (go/chat-shortcuts-backend-design
+ *  for more details). Most information from the source message (like text) are
+ *  copied onto top-level Message fields of shortcut messages by the server. The
+ *  MessageReference is helpful for clients to enable things like click
+ *  navigation to source message.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MessageReference *messageReference;
+
+/**
+ *  Contains additional metadata that further annotates this message when
+ *  returned as a search response. For example, this field can be used to
+ *  highlight messages during search results rendering. In this case, clients
+ *  can use this field to highlight matched segments in the message text_body
+ *  (defined with tag 6).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedMessageSearchInfo *messageSearchInfo;
+
+/**
  *  State of the message, indicating whether the message is visible to all
  *  members in the group or is only visible to the sender only, or the
  *  private_message_viewer if it is set.
@@ -20502,6 +21326,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        the room / DM. (Value: "PUBLIC")
  */
 @property(nonatomic, copy, nullable) NSString *messageState;
+
+/**
+ *  Indicates the number of unicode emojis in the message.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberOfUnicodeEmojis;
 
 /**
  *  Indicates if this message contains any suggestions that were provided by any
@@ -20778,6 +21609,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_MessageProps : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_BabelMessageProps *babelProps;
+
+@end
+
+
+/**
+ *  Contains reference to another message. It is used in shortcuts which are
+ *  used to collect messages from different spaces with a certain common
+ *  property into another space. For example, all \@mentions of a user are
+ *  collected into a mention shortcut space (go/chat-shortcuts-backend-design
+ *  for more details). Clients can use this reference to enable navigation to
+ *  the source message when the shortcut message is clicked and also to identify
+ *  a few other details about the source message. Other fields (like text) from
+ *  the source message are copied on to the top-level fields in the Message
+ *  proto by the server (More details in
+ *  go/chat-shortcuts-client-server-design).
+ */
+@interface GTLRCloudSearch_MessageReference : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SourceMessageInfo *sourceInfo;
 
 @end
 
@@ -21687,6 +22537,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @interface GTLRCloudSearch_Presenter : GTLRObject
 
 /**
+ *  Screen annotation information associated with this presentation session.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AnnotationInfo *annotationInfo;
+
+/**
  *  The device resource name of the device which requested the current presenter
  *  to be set. This field can not be modified by clients.
  */
@@ -22232,6 +23087,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** Item to push onto the queue. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_PushItem *item;
+
+@end
+
+
+/**
+ *  Details about a user's query activity.
+ */
+@interface GTLRCloudSearch_QueryActivity : GTLRObject
+
+/** User input query to be logged/removed. */
+@property(nonatomic, copy, nullable) NSString *query;
 
 @end
 
@@ -22928,6 +23794,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Remove Logged Activity Request.
+ */
+@interface GTLRCloudSearch_RemoveActivityRequest : GTLRObject
+
+/** Request options, such as the search application and clientId. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_RequestOptions *requestOptions;
+
+/** User Activity containing the data to be deleted. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UserActivity *userActivity;
+
+@end
+
+
+/**
+ *  Remove Logged Activity Response. will return an empty response for now. Will
+ *  be revisited in later phases.
+ */
+@interface GTLRCloudSearch_RemoveActivityResponse : GTLRObject
+@end
+
+
+/**
  *  GTLRCloudSearch_RenameEvent
  */
 @interface GTLRCloudSearch_RenameEvent : GTLRObject
@@ -23616,6 +24504,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  SearchLink metadata, for SEARCH_LINK segments. For a search link, the "text"
+ *  field should contain the display text. This is currently not indexed.
+ */
+@interface GTLRCloudSearch_SearchLinkData : GTLRObject
+
+/**
+ *  For lightweight scoring in serving time.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kgEntityConfidence;
+
+/** MID of the KG entity being linked. */
+@property(nonatomic, copy, nullable) NSString *mid;
+
+/**
+ *  queryBroadnessScore
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryBroadnessScore;
+
+@end
+
+
+/**
  *  Additional search quality metadata of the item.
  */
 @interface GTLRCloudSearch_SearchQualityMetadata : GTLRObject
@@ -23842,6 +24756,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_LinkData *linkData;
 
+/** For SEARCH_LINK type: */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SearchLinkData *searchLinkData;
+
 /**
  *  Text content of the Segment. As a general rule, this field should contain
  *  the actual text that should be rendered in the UI. Thus, for a hashtag, it
@@ -23884,6 +24801,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        link to a web entity. The "text" field should be used for anchor text.
  *        Additional link data should be put in the link_data protobuf. (Value:
  *        "LINK")
+ *    @arg @c kGTLRCloudSearch_Segment_Type_SearchLink A SEARCH_LINK segment
+ *        respresents a link to search results for a KG entity. The "text" field
+ *        should represent the part of the comment where the KG entity is
+ *        extracted from, and additional metadata of the entity should be put in
+ *        the Segment's search_link_data field. (Value: "SEARCH_LINK")
  *    @arg @c kGTLRCloudSearch_Segment_Type_Text A TEXT segment represents
  *        plain-text subject to particular formatting constraints (as
  *        represented in the "formatting" field of the Segment). (Value: "TEXT")
@@ -24205,6 +25127,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *chatLock;
+
+/**
+ *  The co-activity lock of the meeting space that lets owner control whether
+ *  the participants can start/stop or update the state of co-activity.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coActivityLock;
 
 /**
  *  Whether meeting artifacts will be shared with cohosts.
@@ -24664,6 +25594,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_SourceMessageInfo
+ */
+@interface GTLRCloudSearch_SourceMessageInfo : GTLRObject
+
+/** Source message ID */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MessageId *messageId;
+
+/**
+ *  messageType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_SourceMessageInfo_MessageType_InlineReply Value
+ *        "INLINE_REPLY"
+ *    @arg @c kGTLRCloudSearch_SourceMessageInfo_MessageType_RootMessage Value
+ *        "ROOT_MESSAGE"
+ *    @arg @c kGTLRCloudSearch_SourceMessageInfo_MessageType_SourceMessageTypeUndefined
+ *        Value "SOURCE_MESSAGE_TYPE_UNDEFINED"
+ */
+@property(nonatomic, copy, nullable) NSString *messageType;
+
+@end
+
+
+/**
  *  Per source result count information.
  */
 @interface GTLRCloudSearch_SourceResultCount : GTLRObject
@@ -24735,6 +25689,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** The suggested spelling of the query. */
 @property(nonatomic, copy, nullable) NSString *suggestedQuery;
+
+/**
+ *  Suggestion triggered for the current query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_SpellResult_SuggestionType_NonEmptyResultsSpellSuggestion
+ *        Spell suggestion without any results changed. The results are still
+ *        shown for the original query (which has non zero / results) with a
+ *        suggestion for spelling that would have results. (Value:
+ *        "NON_EMPTY_RESULTS_SPELL_SUGGESTION")
+ *    @arg @c kGTLRCloudSearch_SpellResult_SuggestionType_SuggestionTypeUnspecified
+ *        Default spell check type (Value: "SUGGESTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_SpellResult_SuggestionType_ZeroResultsFullPageReplacement
+ *        Spell suggestion triggered when original query has no results. When
+ *        the original query has no results, and spell suggestion has results we
+ *        trigger results for the spell corrected query. (Value:
+ *        "ZERO_RESULTS_FULL_PAGE_REPLACEMENT")
+ */
+@property(nonatomic, copy, nullable) NSString *suggestionType;
 
 @end
 
@@ -26314,6 +27287,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata *dlpMetricsMetadata;
 
 /**
+ *  Message component search metadata for this upload_metadata (currently used
+ *  for message highlighting and snippeting). For use by Search backend only;
+ *  clients should get upload_metadata search info from
+ *  Annotation.component_search_info. This field is necessary because backend
+ *  Message keeps UploadMetadata in a separate field. Upon converting from
+ *  backend message to frontend message, this field will be copied to
+ *  Annotation.component_search_info while the corresponding UploadMetadata is
+ *  converted into an Annotation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo *internalOnlyComponentSearchInfo;
+
+/**
  *  The timestamp of the most recent virus scan completed (in microseconds).
  *
  *  Uses NSNumber of longLongValue.
@@ -26567,6 +27552,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  User's single or bulk query activity. This can be a logging query or
+ *  deletion query.
+ */
+@interface GTLRCloudSearch_UserActivity : GTLRObject
+
+/** Contains data which needs to be logged/removed. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_QueryActivity *queryActivity;
+
+@end
+
+
+/**
  *  Resource for displaying user info
  */
 @interface GTLRCloudSearch_UserDisplayInfo : GTLRObject
@@ -26797,14 +27794,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_FailedToAdd
  *        Server-generated user mention, for clients to strikethrough. (Value:
  *        "FAILED_TO_ADD")
- *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_Invite Value "INVITE"
- *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_Mention Value "MENTION"
- *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_MentionAll Value
- *        "MENTION_ALL"
+ *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_Invite An \@mention that
+ *        invites a new member into the space (Value: "INVITE")
+ *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_Mention An \@mention of
+ *        an existing member in the space. (Value: "MENTION")
+ *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_MentionAll An \@mention
+ *        of all members in the space. (Value: "MENTION_ALL")
  *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_TypeUnspecified Default
  *        value for the enum. DO NOT USE. (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite Value
- *        "UNINVITE"
+ *    @arg @c kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite DEPRECATED: An
+ *        \@mention that removes a member from a space. Support for this has
+ *        been removed. (Value: "UNINVITE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

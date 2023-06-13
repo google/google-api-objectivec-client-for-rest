@@ -74,6 +74,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Kaj
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.partner
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns = @"LOCAL_CONTROLS_BY_S3NS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified = @"PARTNER_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn = @"SOVEREIGN_CONTROLS_BY_PSN";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsBySiaMinsait = @"SOVEREIGN_CONTROLS_BY_SIA_MINSAIT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems = @"SOVEREIGN_CONTROLS_BY_T_SYSTEMS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningErrorDomain
@@ -83,6 +85,12 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmP
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_GoogleServerError = @"GOOGLE_SERVER_ERROR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_TimeoutError = @"TIMEOUT_ERROR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_UnspecifiedError = @"UNSPECIFIED_ERROR";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningErrorMapping
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_EkmProvisioningErrorMappingUnspecified = @"EKM_PROVISIONING_ERROR_MAPPING_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_InvalidServiceAccount = @"INVALID_SERVICE_ACCOUNT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_MissingEkmConnectionAdminPermission = @"MISSING_EKM_CONNECTION_ADMIN_PERMISSION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_MissingMetricsScopeAdminPermission = @"MISSING_METRICS_SCOPE_ADMIN_PERMISSION";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningState
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateCompleted = @"EKM_PROVISIONING_STATE_COMPLETED";
@@ -319,8 +327,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
          compliantButDisallowedServices, createTime, displayName,
          ekmProvisioningResponse, enableSovereignControls, ETag,
          kajEnrollmentState, kmsSettings, labels, name, partner,
-         provisionedResourcesParent, resources, resourceSettings,
-         saaEnrollmentResponse;
+         partnerPermissions, provisionedResourcesParent, resources,
+         resourceSettings, saaEnrollmentResponse, violationNotificationsEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -368,7 +376,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse
-@dynamic ekmProvisioningErrorDomain, ekmProvisioningErrorMessage,
+@dynamic ekmProvisioningErrorDomain, ekmProvisioningErrorMapping,
          ekmProvisioningState;
 @end
 
@@ -389,7 +397,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions
-@dynamic dataLogsViewer, remediateFolderViolations, serviceAccessApprover;
+@dynamic dataLogsViewer, remediateFolderViolations;
 @end
 
 

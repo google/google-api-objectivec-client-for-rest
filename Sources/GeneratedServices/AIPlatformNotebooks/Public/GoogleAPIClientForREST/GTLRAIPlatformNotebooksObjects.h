@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRAIPlatformNotebooks_Location : GTLRObject
 

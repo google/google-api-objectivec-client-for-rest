@@ -21,6 +21,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonEnhancedCpc;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonFrequencyCapEntry;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonKeyword;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonKeywordInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonLanguageInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonListingGroupInfo;
@@ -34,6 +35,11 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonMetrics;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonPercentCpc;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonRealTimeBiddingSetting;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedDynamicSearchAdInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedTextAdInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ProductAdInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ResponsiveSearchAdInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360TextAdInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonSegments;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetCpa;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetCpm;
@@ -3913,7 +3919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Promotion;
 /**
- *  The asset is linked for use as a Sitelink extension.
+ *  The asset is linked for use as a Sitelink.
  *
  *  Value: "SITELINK"
  */
@@ -5602,41 +5608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request_SummaryRowSetting_Unspecified;
 
-// ----------------------------------------------------------------------------
-// GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest.summaryRowSetting
-
-/**
- *  Do not return summary row.
- *
- *  Value: "NO_SUMMARY_ROW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_NoSummaryRow;
-/**
- *  Return summary row only and return no results.
- *
- *  Value: "SUMMARY_ROW_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_SummaryRowOnly;
-/**
- *  Return summary row along with results. The summary row will be returned in
- *  the last batch alone (last batch will contain no results).
- *
- *  Value: "SUMMARY_ROW_WITH_RESULTS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_SummaryRowWithResults;
-/**
- *  Represent unknown values of return summary row.
- *
- *  Value: "UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_Unknown;
-/**
- *  Not specified.
- *
- *  Value: "UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_Unspecified;
-
 /**
  *  An age range criterion.
  */
@@ -5756,6 +5727,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A Keyword criterion segment.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonKeyword : GTLRObject
+
+/** The AdGroupCriterion resource name. */
+@property(nonatomic, copy, nullable) NSString *adGroupCriterion;
+
+/** Keyword info. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonKeywordInfo *info;
 
 @end
 
@@ -6658,6 +6643,121 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  An expanded dynamic search ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedDynamicSearchAdInfo : GTLRObject
+
+/**
+ *  The tracking id of the ad.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adTrackingId;
+
+/** The first line of the ad's description. */
+@property(nonatomic, copy, nullable) NSString *description1;
+
+/** The second line of the ad's description. */
+@property(nonatomic, copy, nullable) NSString *description2;
+
+@end
+
+
+/**
+ *  A Search Ads 360 expanded text ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedTextAdInfo : GTLRObject
+
+/**
+ *  The tracking id of the ad.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adTrackingId;
+
+/** The first line of the ad's description. */
+@property(nonatomic, copy, nullable) NSString *description1;
+
+/** The second line of the ad's description. */
+@property(nonatomic, copy, nullable) NSString *description2;
+
+/** The headline of the ad. */
+@property(nonatomic, copy, nullable) NSString *headline;
+
+/** The second headline of the ad. */
+@property(nonatomic, copy, nullable) NSString *headline2;
+
+/** The third headline of the ad. */
+@property(nonatomic, copy, nullable) NSString *headline3;
+
+/** Text appended to the auto-generated visible URL with a delimiter. */
+@property(nonatomic, copy, nullable) NSString *path1;
+
+/** Text appended to path1 with a delimiter. */
+@property(nonatomic, copy, nullable) NSString *path2;
+
+@end
+
+
+/**
+ *  A Search Ads 360 product ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ProductAdInfo : GTLRObject
+@end
+
+
+/**
+ *  A Search Ads 360 responsive search ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ResponsiveSearchAdInfo : GTLRObject
+
+/**
+ *  The tracking id of the ad.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adTrackingId;
+
+/** Text appended to the auto-generated visible URL with a delimiter. */
+@property(nonatomic, copy, nullable) NSString *path1;
+
+/** Text appended to path1 with a delimiter. */
+@property(nonatomic, copy, nullable) NSString *path2;
+
+@end
+
+
+/**
+ *  A Search Ads 360 text ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360TextAdInfo : GTLRObject
+
+/**
+ *  The tracking id of the ad.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adTrackingId;
+
+/** The first line of the ad's description. */
+@property(nonatomic, copy, nullable) NSString *description1;
+
+/** The second line of the ad's description. */
+@property(nonatomic, copy, nullable) NSString *description2;
+
+/** The displayed mobile URL of the ad. */
+@property(nonatomic, copy, nullable) NSString *displayMobileUrl;
+
+/** The displayed URL of the ad. */
+@property(nonatomic, copy, nullable) NSString *displayUrl;
+
+/** The headline of the ad. */
+@property(nonatomic, copy, nullable) NSString *headline;
+
+@end
+
+
+/**
  *  Segment only fields.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0CommonSegments : GTLRObject
@@ -6792,6 +6892,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *device;
+
+/** Keyword criterion. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonKeyword *keyword;
 
 /**
  *  Month as represented by the date of the first day of a month. Formatted as
@@ -7901,6 +8004,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The URL that appears in the ad description for some ad formats. */
 @property(nonatomic, copy, nullable) NSString *displayUrl;
 
+/** Immutable. Details pertaining to an expanded dynamic search ad. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedDynamicSearchAdInfo *expandedDynamicSearchAd;
+
+/** Immutable. Details pertaining to an expanded text ad. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedTextAdInfo *expandedTextAd;
+
 /**
  *  The list of possible final URLs after all cross-domain redirects for the ad.
  */
@@ -7923,11 +8032,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Immutable. Details pertaining to a product ad. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ProductAdInfo *productAd;
+
 /**
  *  Immutable. The resource name of the ad. Ad resource names have the form:
  *  `customers/{customer_id}/ads/{ad_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Immutable. Details pertaining to a responsive search ad. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ResponsiveSearchAdInfo *responsiveSearchAd;
+
+/** Immutable. Details pertaining to a text ad. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360TextAdInfo *textAd;
 
 /**
  *  Output only. The type of ad.
@@ -8560,7 +8678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** Immutable. Listing group. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonListingGroupInfo *listingGroup;
 
-/** Immutable. Location. */
+/** Output only. Location. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonLocationInfo *location;
 
 /**
@@ -11688,79 +11806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalResultsCount;
-
-@end
-
-
-/**
- *  Request message for SearchAds360Service.SearchStream.
- */
-@interface GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest : GTLRObject
-
-/**
- *  The number of rows that are returned in each stream response batch. When too
- *  large batch is requested, the server may decide to further limit the number
- *  of returned rows.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *batchSize;
-
-/** Required. The query string. */
-@property(nonatomic, copy, nullable) NSString *query;
-
-/**
- *  Determines whether a summary row will be returned. By default, summary row
- *  is not returned. If requested, the summary row will be sent in a response by
- *  itself after all other query results are returned.
- *
- *  Likely values:
- *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_NoSummaryRow
- *        Do not return summary row. (Value: "NO_SUMMARY_ROW")
- *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_SummaryRowOnly
- *        Return summary row only and return no results. (Value:
- *        "SUMMARY_ROW_ONLY")
- *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_SummaryRowWithResults
- *        Return summary row along with results. The summary row will be
- *        returned in the last batch alone (last batch will contain no results).
- *        (Value: "SUMMARY_ROW_WITH_RESULTS")
- *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_Unknown
- *        Represent unknown values of return summary row. (Value: "UNKNOWN")
- *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_Unspecified
- *        Not specified. (Value: "UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *summaryRowSetting;
-
-@end
-
-
-/**
- *  Response message for SearchAds360Service.SearchStream.
- */
-@interface GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamResponse : GTLRObject
-
-/** The headers of the custom columns in the results. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader *> *customColumnHeaders;
-
-/**
- *  FieldMask that represents what fields were requested by the user.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *fieldMask;
-
-/** The unique id of the request that is used for debugging purposes. */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/** The list of rows that matched the query. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row *> *results;
-
-/**
- *  Summary row that contains summary of metrics in results. Summary of metrics
- *  means aggregation of metrics across all results, here aggregation could be
- *  sum, average, rate, etc.
- */
-@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row *summaryRow;
 
 @end
 

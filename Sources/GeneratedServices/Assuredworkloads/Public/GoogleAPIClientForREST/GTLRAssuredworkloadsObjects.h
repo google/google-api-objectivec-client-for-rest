@@ -377,6 +377,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /** Value: "PARTNER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified;
 /**
+ *  Enum representing PSN (TIM) partner.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_PSN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn;
+/**
+ *  Enum representing SIA_MINSAIT (Indra) partner.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_SIA_MINSAIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsBySiaMinsait;
+/**
  *  Enum representing T_SYSTEM (TSI) partner.
  *
  *  Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS"
@@ -422,6 +434,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "UNSPECIFIED_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_UnspecifiedError;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningErrorMapping
+
+/**
+ *  Error is unspecified.
+ *
+ *  Value: "EKM_PROVISIONING_ERROR_MAPPING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_EkmProvisioningErrorMappingUnspecified;
+/**
+ *  Service account is used is invalid.
+ *
+ *  Value: "INVALID_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_InvalidServiceAccount;
+/**
+ *  Iam permission cloudkms.ekmConnectionsAdmin wasn't applied.
+ *
+ *  Value: "MISSING_EKM_CONNECTION_ADMIN_PERMISSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_MissingEkmConnectionAdminPermission;
+/**
+ *  Iam permission monitoring.MetricsScopeAdmin wasn't applied.
+ *
+ *  Value: "MISSING_METRICS_SCOPE_ADMIN_PERMISSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_MissingMetricsScopeAdminPermission;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningState
@@ -790,7 +830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Workload monitoring Violation. Next Id: 22
+ *  Workload monitoring Violation. Next Id: 27
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation : GTLRObject
 
@@ -802,8 +842,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, strong, nullable) NSNumber *acknowledged;
 
 /**
- *  Optional. Timestamp when this violation was acknowledged last. This will be
- *  absent when acknowledged field is marked as false.
+ *  Optional. Timestamp when this violation was acknowledged first. Check
+ *  exception_contexts to find the last time the violation was acknowledged when
+ *  there are more than one violations. This field will be absent when
+ *  acknowledged field is marked as false.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *acknowledgementTime;
 
@@ -1124,11 +1166,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
  *        Value "PARTNER_UNSPECIFIED"
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn
+ *        Enum representing PSN (TIM) partner. (Value:
+ *        "SOVEREIGN_CONTROLS_BY_PSN")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsBySiaMinsait
+ *        Enum representing SIA_MINSAIT (Indra) partner. (Value:
+ *        "SOVEREIGN_CONTROLS_BY_SIA_MINSAIT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems
  *        Enum representing T_SYSTEM (TSI) partner. (Value:
  *        "SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
  */
 @property(nonatomic, copy, nullable) NSString *partner;
+
+/**
+ *  Optional. Permissions granted to the AW Partner SA account for the customer
+ *  workload
+ */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions *partnerPermissions;
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
@@ -1158,6 +1212,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  cases, user friendly error message is shown in SAA details page.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse *saaEnrollmentResponse;
+
+/**
+ *  Optional. Indicates whether the e-mail notification for a violation is
+ *  enabled for a workload. This value will be by default True, and if not
+ *  present will be considered as true. This should only be updated via
+ *  updateWorkload call. Any Changes to this field during the createWorkload
+ *  call will not be honored. This will always be true while creating the
+ *  workload.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *violationNotificationsEnabled;
 
 @end
 
@@ -1224,8 +1290,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorDomain;
 
-/** Detailed error message if Ekm provisioning fails */
-@property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorMessage;
+/**
+ *  Detailed error message if Ekm provisioning fails
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_EkmProvisioningErrorMappingUnspecified
+ *        Error is unspecified. (Value:
+ *        "EKM_PROVISIONING_ERROR_MAPPING_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_InvalidServiceAccount
+ *        Service account is used is invalid. (Value: "INVALID_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_MissingEkmConnectionAdminPermission
+ *        Iam permission cloudkms.ekmConnectionsAdmin wasn't applied. (Value:
+ *        "MISSING_EKM_CONNECTION_ADMIN_PERMISSION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorMapping_MissingMetricsScopeAdminPermission
+ *        Iam permission monitoring.MetricsScopeAdmin wasn't applied. (Value:
+ *        "MISSING_METRICS_SCOPE_ADMIN_PERMISSION")
+ */
+@property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorMapping;
 
 /**
  *  Indicates Ekm enrollment Provisioning of a given workload.
@@ -1289,13 +1370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *remediateFolderViolations;
-
-/**
- *  Allow partner to approve or reject Service Access requests
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *serviceAccessApprover;
 
 @end
 

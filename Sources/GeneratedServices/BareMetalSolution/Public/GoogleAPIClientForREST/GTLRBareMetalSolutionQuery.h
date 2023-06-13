@@ -94,34 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create an Instance.
- *
- *  Method: baremetalsolution.projects.locations.instances.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
- */
-@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesCreate : GTLRBareMetalSolutionQuery
-
-/** Required. The parent project and location. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRBareMetalSolution_Operation.
- *
- *  Create an Instance.
- *
- *  @param object The @c GTLRBareMetalSolution_Instance to include in the query.
- *  @param parent Required. The parent project and location.
- *
- *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesCreate
- */
-+ (instancetype)queryWithObject:(GTLRBareMetalSolution_Instance *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Detach LUN from Instance.
  *
  *  Method: baremetalsolution.projects.locations.instances.detachLun

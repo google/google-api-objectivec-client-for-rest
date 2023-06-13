@@ -1408,7 +1408,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. If set to true, then deleting an already deleted or non-existing
- *  DeliveryPipeline will succeed.
+ *  `Target` will succeed.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 

@@ -222,6 +222,139 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.groups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGetIamPolicy : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.groups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsSetIamPolicy : GTLRNetworkconnectivityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.groups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsTestIamPermissions : GTLRNetworkconnectivityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists the Network Connectivity Center hubs associated with a given project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.list
@@ -960,6 +1093,73 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a single ServiceClass.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceClasses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the ServiceClass to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single ServiceClass.
+ *
+ *  @param name Required. The name of the ServiceClass to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ServiceClass.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceClasses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the ServiceClass to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ServiceClass.
+ *
+ *  Gets details of a single ServiceClass.
+ *
+ *  @param name Required. Name of the ServiceClass to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1005,6 +1205,109 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ServiceClasses in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceClasses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results per page that should be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListServiceClassesResponse.
+ *
+ *  Lists ServiceClasses in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single ServiceClass.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceClasses.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Immutable. The name of a ServiceClass resource. Format:
+ *  projects/{project}/locations/{location}/serviceClasses/{service_class} See:
+ *  https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  ServiceClass resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single ServiceClass.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_ServiceClass to include in the
+ *    query.
+ *  @param name Immutable. The name of a ServiceClass resource. Format:
+ *    projects/{project}/locations/{location}/serviceClasses/{service_class}
+ *    See: https://google.aip.dev/122#fields-representing-resource-names
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceClass *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1093,6 +1396,126 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new ServiceConnectionMap in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the ServiceConnectionMap. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Resource ID (i.e. 'foo' in
+ *  '[...]/projects/p/locations/l/serviceConnectionMaps/foo') See
+ *  https://google.aip.dev/122#resource-id-segments Unique per location. If one
+ *  is not provided, one will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionMapId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new ServiceConnectionMap in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionMap to include
+ *    in the query.
+ *  @param parent Required. The parent resource's name of the
+ *    ServiceConnectionMap.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionMap *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ServiceConnectionMap.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the ServiceConnectionMap to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single ServiceConnectionMap.
+ *
+ *  @param name Required. The name of the ServiceConnectionMap to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ServiceConnectionMap.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the ServiceConnectionMap to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ServiceConnectionMap.
+ *
+ *  Gets details of a single ServiceConnectionMap.
+ *
+ *  @param name Required. Name of the ServiceConnectionMap to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1138,6 +1561,109 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ServiceConnectionMaps in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results per page that should be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListServiceConnectionMapsResponse.
+ *
+ *  Lists ServiceConnectionMaps in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single ServiceConnectionMap.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Immutable. The name of a ServiceConnectionMap. Format:
+ *  projects/{project}/locations/{location}/serviceConnectionMaps/{service_connection_map}
+ *  See: https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  ServiceConnectionMap resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single ServiceConnectionMap.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionMap to include
+ *    in the query.
+ *  @param name Immutable. The name of a ServiceConnectionMap. Format:
+ *    projects/{project}/locations/{location}/serviceConnectionMaps/{service_connection_map}
+ *    See: https://google.aip.dev/122#fields-representing-resource-names
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionMap *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1226,6 +1752,125 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new ServiceConnectionPolicy in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the ServiceConnectionPolicy. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Resource ID (i.e. 'foo' in
+ *  '[...]/projects/p/locations/l/serviceConnectionPolicies/foo') See
+ *  https://google.aip.dev/122#resource-id-segments Unique per location.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionPolicyId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new ServiceConnectionPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionPolicy to
+ *    include in the query.
+ *  @param parent Required. The parent resource's name of the
+ *    ServiceConnectionPolicy.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ServiceConnectionPolicy.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the ServiceConnectionPolicy to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single ServiceConnectionPolicy.
+ *
+ *  @param name Required. The name of the ServiceConnectionPolicy to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ServiceConnectionPolicy.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the ServiceConnectionPolicy to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ServiceConnectionPolicy.
+ *
+ *  Gets details of a single ServiceConnectionPolicy.
+ *
+ *  @param name Required. Name of the ServiceConnectionPolicy to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1271,6 +1916,109 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ServiceConnectionPolicies in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results per page that should be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListServiceConnectionPoliciesResponse.
+ *
+ *  Lists ServiceConnectionPolicies in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single ServiceConnectionPolicy.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Immutable. The name of a ServiceConnectionPolicy. Format:
+ *  projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy}
+ *  See: https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  ServiceConnectionPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single ServiceConnectionPolicy.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionPolicy to
+ *    include in the query.
+ *  @param name Immutable. The name of a ServiceConnectionPolicy. Format:
+ *    projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy}
+ *    See: https://google.aip.dev/122#fields-representing-resource-names
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionPolicy *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1355,6 +2103,168 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new ServiceConnectionToken in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionTokens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the ServiceConnectionToken. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Resource ID (i.e. 'foo' in
+ *  '[...]/projects/p/locations/l/ServiceConnectionTokens/foo') See
+ *  https://google.aip.dev/122#resource-id-segments Unique per location. If one
+ *  is not provided, one will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionTokenId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new ServiceConnectionToken in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionToken to
+ *    include in the query.
+ *  @param parent Required. The parent resource's name of the
+ *    ServiceConnectionToken.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionToken *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ServiceConnectionToken.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionTokens.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the ServiceConnectionToken to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single ServiceConnectionToken.
+ *
+ *  @param name Required. The name of the ServiceConnectionToken to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ServiceConnectionToken.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionTokens.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the ServiceConnectionToken to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ServiceConnectionToken.
+ *
+ *  Gets details of a single ServiceConnectionToken.
+ *
+ *  @param name Required. Name of the ServiceConnectionToken to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ServiceConnectionTokens in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.serviceConnectionTokens.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results per page that should be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListServiceConnectionTokensResponse.
+ *
+ *  Lists ServiceConnectionTokens in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -336,7 +336,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic allowVerticalScale, enabled, git, oci, preventDrift, sourceFormat;
+@dynamic allowVerticalScale, enabled, git, managed,
+         metricsGcpServiceAccountEmail, oci, preventDrift, sourceFormat;
 @end
 
 
@@ -353,11 +354,29 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ConfigManagementConfigSyncError
+//
+
+@implementation GTLRGKEHub_ConfigManagementConfigSyncError
+@dynamic errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ConfigManagementConfigSyncState
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSyncState
-@dynamic deploymentState, syncState, version;
+@dynamic deploymentState, errors, syncState, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRGKEHub_ConfigManagementConfigSyncError class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -472,11 +491,21 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ConfigManagementManaged
+//
+
+@implementation GTLRGKEHub_ConfigManagementManaged
+@dynamic enabled, stopSyncing;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ConfigManagementMembershipSpec
 //
 
 @implementation GTLRGKEHub_ConfigManagementMembershipSpec
-@dynamic configSync, hierarchyController, policyController, version;
+@dynamic cluster, configSync, hierarchyController, policyController, version;
 @end
 
 
@@ -1152,8 +1181,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_Membership
 @dynamic authority, createTime, deleteTime, descriptionProperty, endpoint,
-         externalId, labels, lastConnectionTime, name, state, uniqueId,
-         updateTime;
+         externalId, labels, lastConnectionTime, monitoringConfig, name, state,
+         uniqueId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1237,6 +1266,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_MembershipState
 @dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MonitoringConfig
+//
+
+@implementation GTLRGKEHub_MonitoringConfig
+@dynamic cluster, clusterHash, kubernetesMetricsPrefix, location, projectId;
 @end
 
 
@@ -1368,7 +1407,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_Scope
-@dynamic createTime, deleteTime, name, state, uid, updateTime;
+@dynamic allMemberships, createTime, deleteTime, name, state, uid, updateTime;
 @end
 
 

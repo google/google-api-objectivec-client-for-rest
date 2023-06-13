@@ -26,6 +26,7 @@
 @class GTLRCompute_AcceleratorTypesScopedList_Warning_Data_Item;
 @class GTLRCompute_AccessConfig;
 @class GTLRCompute_Address;
+@class GTLRCompute_Address_Labels;
 @class GTLRCompute_AddressAggregatedList_Items;
 @class GTLRCompute_AddressAggregatedList_Warning;
 @class GTLRCompute_AddressAggregatedList_Warning_Data_Item;
@@ -75,6 +76,7 @@
 @class GTLRCompute_BackendBucketList_Warning;
 @class GTLRCompute_BackendBucketList_Warning_Data_Item;
 @class GTLRCompute_BackendService;
+@class GTLRCompute_BackendService_Metadatas;
 @class GTLRCompute_BackendServiceAggregatedList_Items;
 @class GTLRCompute_BackendServiceAggregatedList_Warning;
 @class GTLRCompute_BackendServiceAggregatedList_Warning_Data_Item;
@@ -122,15 +124,21 @@
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
+@class GTLRCompute_Disk_AsyncSecondaryDisks;
 @class GTLRCompute_Disk_Labels;
 @class GTLRCompute_DiskAggregatedList_Items;
 @class GTLRCompute_DiskAggregatedList_Warning;
 @class GTLRCompute_DiskAggregatedList_Warning_Data_Item;
+@class GTLRCompute_DiskAsyncReplication;
+@class GTLRCompute_DiskAsyncReplicationList;
 @class GTLRCompute_DiskInstantiationConfig;
 @class GTLRCompute_DiskList_Warning;
 @class GTLRCompute_DiskList_Warning_Data_Item;
 @class GTLRCompute_DiskParams;
 @class GTLRCompute_DiskParams_ResourceManagerTags;
+@class GTLRCompute_DiskResourceStatus;
+@class GTLRCompute_DiskResourceStatus_AsyncSecondaryDisks;
+@class GTLRCompute_DiskResourceStatusAsyncReplicationStatus;
 @class GTLRCompute_DisksScopedList;
 @class GTLRCompute_DisksScopedList_Warning;
 @class GTLRCompute_DisksScopedList_Warning_Data_Item;
@@ -306,10 +314,14 @@
 @class GTLRCompute_InstanceWithNamedPorts;
 @class GTLRCompute_Int64RangeMatch;
 @class GTLRCompute_Interconnect;
+@class GTLRCompute_Interconnect_Labels;
 @class GTLRCompute_InterconnectAttachment;
+@class GTLRCompute_InterconnectAttachment_Labels;
 @class GTLRCompute_InterconnectAttachmentAggregatedList_Items;
 @class GTLRCompute_InterconnectAttachmentAggregatedList_Warning;
 @class GTLRCompute_InterconnectAttachmentAggregatedList_Warning_Data_Item;
+@class GTLRCompute_InterconnectAttachmentConfigurationConstraints;
+@class GTLRCompute_InterconnectAttachmentConfigurationConstraintsBgpPeerASNRange;
 @class GTLRCompute_InterconnectAttachmentList_Warning;
 @class GTLRCompute_InterconnectAttachmentList_Warning_Data_Item;
 @class GTLRCompute_InterconnectAttachmentPartnerMetadata;
@@ -330,6 +342,12 @@
 @class GTLRCompute_InterconnectLocationList_Warning_Data_Item;
 @class GTLRCompute_InterconnectLocationRegionInfo;
 @class GTLRCompute_InterconnectOutageNotification;
+@class GTLRCompute_InterconnectRemoteLocation;
+@class GTLRCompute_InterconnectRemoteLocationConstraints;
+@class GTLRCompute_InterconnectRemoteLocationConstraintsSubnetLengthRange;
+@class GTLRCompute_InterconnectRemoteLocationList_Warning;
+@class GTLRCompute_InterconnectRemoteLocationList_Warning_Data_Item;
+@class GTLRCompute_InterconnectRemoteLocationPermittedConnections;
 @class GTLRCompute_License;
 @class GTLRCompute_LicenseCodeLicenseAlias;
 @class GTLRCompute_LicenseResourceCommitment;
@@ -552,6 +570,7 @@
 @class GTLRCompute_ResourcePolicyAggregatedList_Warning;
 @class GTLRCompute_ResourcePolicyAggregatedList_Warning_Data_Item;
 @class GTLRCompute_ResourcePolicyDailyCycle;
+@class GTLRCompute_ResourcePolicyDiskConsistencyGroupPolicy;
 @class GTLRCompute_ResourcePolicyGroupPlacementPolicy;
 @class GTLRCompute_ResourcePolicyHourlyCycle;
 @class GTLRCompute_ResourcePolicyInstanceSchedulePolicy;
@@ -612,6 +631,7 @@
 @class GTLRCompute_SecurityPoliciesScopedList_Warning_Data_Item;
 @class GTLRCompute_SecurityPoliciesWafConfig;
 @class GTLRCompute_SecurityPolicy;
+@class GTLRCompute_SecurityPolicy_Labels;
 @class GTLRCompute_SecurityPolicyAdaptiveProtectionConfig;
 @class GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig;
 @class GTLRCompute_SecurityPolicyAdvancedOptionsConfig;
@@ -629,6 +649,7 @@
 @class GTLRCompute_SecurityPolicyRulePreconfiguredWafConfigExclusion;
 @class GTLRCompute_SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams;
 @class GTLRCompute_SecurityPolicyRuleRateLimitOptions;
+@class GTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig;
 @class GTLRCompute_SecurityPolicyRuleRateLimitOptionsThreshold;
 @class GTLRCompute_SecurityPolicyRuleRedirectOptions;
 @class GTLRCompute_SecuritySettings;
@@ -750,6 +771,7 @@
 @class GTLRCompute_TargetTcpProxyList_Warning;
 @class GTLRCompute_TargetTcpProxyList_Warning_Data_Item;
 @class GTLRCompute_TargetVpnGateway;
+@class GTLRCompute_TargetVpnGateway_Labels;
 @class GTLRCompute_TargetVpnGatewayAggregatedList_Items;
 @class GTLRCompute_TargetVpnGatewayAggregatedList_Warning;
 @class GTLRCompute_TargetVpnGatewayAggregatedList_Warning_Data_Item;
@@ -800,6 +822,7 @@
 @class GTLRCompute_VpnGatewayStatusVpnConnection;
 @class GTLRCompute_VpnGatewayVpnGatewayInterface;
 @class GTLRCompute_VpnTunnel;
+@class GTLRCompute_VpnTunnel_Labels;
 @class GTLRCompute_VpnTunnelAggregatedList_Items;
 @class GTLRCompute_VpnTunnelAggregatedList_Warning;
 @class GTLRCompute_VpnTunnelAggregatedList_Warning_Data_Item;
@@ -896,6 +919,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Wa
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -1074,6 +1104,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -1250,6 +1287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -1624,6 +1668,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -1800,6 +1851,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -1978,6 +2036,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Invalid
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -2142,6 +2207,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadOnly;
  *  Value: "READ_WRITE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_AttachedDisk.savedState
+
+/**
+ *  *[Default]* Disk state has not been preserved.
+ *
+ *  Value: "DISK_SAVED_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_SavedState_DiskSavedStateUnspecified;
+/**
+ *  Disk state has been preserved.
+ *
+ *  Value: "PRESERVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_SavedState_Preserved;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.type
@@ -2354,6 +2435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -2531,6 +2619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Inva
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -2707,6 +2802,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Co
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -3171,6 +3273,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_I
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -3583,6 +3692,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -3811,6 +3927,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -4078,6 +4201,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -4333,6 +4463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d;
 /** Value: "GENERAL_PURPOSE_T2D" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d;
+/** Value: "GRAPHICS_OPTIMIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimized;
 /** Value: "MEMORY_OPTIMIZED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized;
 /** Value: "MEMORY_OPTIMIZED_M3" */
@@ -4407,6 +4539,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -4585,6 +4724,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Inva
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -4761,6 +4907,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Co
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -5133,6 +5286,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -5370,6 +5530,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_InvalidHea
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -5480,6 +5647,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_Undeclared
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_DiskResourceStatusAsyncReplicationStatus.state
+
+/**
+ *  Replication is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Active;
+/**
+ *  Secondary disk is created and is waiting for replication to start.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Created;
+/**
+ *  Replication is starting.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Starting;
+/** Value: "STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_StateUnspecified;
+/**
+ *  Replication is stopped.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Stopped;
+/**
+ *  Replication is stopping.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Stopping;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_DisksScopedList_Warning.code
 
 /**
@@ -5546,6 +5749,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Inv
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -5724,6 +5934,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -5901,6 +6118,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_Invali
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -6077,6 +6301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -6309,6 +6540,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -6526,6 +6764,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -6729,6 +6974,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_Invali
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -6913,6 +7165,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -7219,6 +7478,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -7396,6 +7662,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -7572,6 +7845,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warnin
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -7818,6 +8098,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Inv
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -7994,6 +8281,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -8191,6 +8485,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -8367,6 +8668,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_C
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -8689,6 +8997,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -8934,6 +9249,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -9172,6 +9494,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_InvalidHe
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -9465,6 +9794,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -9642,6 +9978,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warn
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -9818,6 +10161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_I
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -10015,6 +10365,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedLi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -10191,6 +10548,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -10427,6 +10791,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInst
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -10603,6 +10974,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -10892,6 +11270,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warn
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -11085,6 +11470,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -11262,6 +11654,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_Invali
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -11438,6 +11837,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Co
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -11772,6 +12178,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -11948,6 +12361,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateAggregatedList_W
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -12126,6 +12546,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -12302,6 +12729,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warn
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -12831,6 +13265,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregated
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -12941,6 +13382,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregated
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectAttachmentConfigurationConstraints.bgpMd5
+
+/**
+ *  MD5_OPTIONAL: BGP MD5 authentication is supported and can optionally be
+ *  configured.
+ *
+ *  Value: "MD5_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Optional;
+/**
+ *  MD5_REQUIRED: BGP MD5 authentication must be configured.
+ *
+ *  Value: "MD5_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Required;
+/**
+ *  MD5_UNSUPPORTED: BGP MD5 authentication must not be configured
+ *
+ *  Value: "MD5_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Unsupported;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachmentList_Warning.code
 
 /**
@@ -13007,6 +13471,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -13184,6 +13655,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedLis
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -13468,6 +13946,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_In
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -13684,6 +14169,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -13915,6 +14407,281 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_S
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsCanceled;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectRemoteLocation.continent
+
+/** Value: "AFRICA" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Continent_Africa;
+/** Value: "ASIA_PAC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Continent_AsiaPac;
+/** Value: "EUROPE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Continent_Europe;
+/** Value: "NORTH_AMERICA" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Continent_NorthAmerica;
+/** Value: "SOUTH_AMERICA" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Continent_SouthAmerica;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectRemoteLocation.lacp
+
+/**
+ *  LACP_SUPPORTED: LACP is supported, and enabled by default on the Cross-Cloud
+ *  Interconnect.
+ *
+ *  Value: "LACP_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Lacp_LacpSupported;
+/**
+ *  LACP_UNSUPPORTED: LACP is not supported and is not be enabled on this port.
+ *  GetDiagnostics shows bundleAggregationType as "static". GCP does not support
+ *  LAGs without LACP, so requestedLinkCount must be 1.
+ *
+ *  Value: "LACP_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Lacp_LacpUnsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectRemoteLocation.status
+
+/**
+ *  The InterconnectRemoteLocation is available for provisioning new Cross-Cloud
+ *  Interconnects.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Status_Available;
+/**
+ *  The InterconnectRemoteLocation is closed for provisioning new Cross-Cloud
+ *  Interconnects.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocation_Status_Closed;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectRemoteLocationConstraints.portPairRemoteLocation
+
+/**
+ *  If PORT_PAIR_MATCHING_REMOTE_LOCATION, the remote cloud provider allocates
+ *  ports in pairs, and the user should choose the same remote location for both
+ *  ports.
+ *
+ *  Value: "PORT_PAIR_MATCHING_REMOTE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairRemoteLocation_PortPairMatchingRemoteLocation;
+/**
+ *  If PORT_PAIR_UNCONSTRAINED_REMOTE_LOCATION, a user may opt to provision a
+ *  redundant pair of Cross-Cloud Interconnects using two different remote
+ *  locations in the same city.
+ *
+ *  Value: "PORT_PAIR_UNCONSTRAINED_REMOTE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairRemoteLocation_PortPairUnconstrainedRemoteLocation;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectRemoteLocationConstraints.portPairVlan
+
+/**
+ *  If PORT_PAIR_MATCHING_VLAN, the Interconnect for this attachment is part of
+ *  a pair of ports that should have matching VLAN allocations. This occurs with
+ *  Cross-Cloud Interconnect to Azure remote locations. While GCP's API does not
+ *  explicitly group pairs of ports, the UI uses this field to ensure matching
+ *  VLAN ids when configuring a redundant VLAN pair.
+ *
+ *  Value: "PORT_PAIR_MATCHING_VLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairVlan_PortPairMatchingVlan;
+/**
+ *  PORT_PAIR_UNCONSTRAINED_VLAN means there is no constraint.
+ *
+ *  Value: "PORT_PAIR_UNCONSTRAINED_VLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairVlan_PortPairUnconstrainedVlan;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectRemoteLocationList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ListOverheadQuotaExceed;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_LicenseCode.state
 
 /**
@@ -14012,6 +14779,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Cod
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -14295,6 +15069,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineImageList_Warning_Code_In
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineImageList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineImageList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -14471,6 +15252,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warnin
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -14649,6 +15437,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Inv
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -14825,6 +15620,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_C
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -15248,6 +16050,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -15462,6 +16271,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -15638,6 +16454,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_War
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -15816,6 +16639,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggreg
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -15992,6 +16822,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScope
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -16219,6 +17056,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedLi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -16395,6 +17239,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -16628,6 +17479,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetwork
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -16804,6 +17662,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -17035,6 +17900,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_Invalid
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -17318,6 +18190,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -17518,6 +18397,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Inval
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -17720,6 +18606,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -17896,6 +18789,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Cod
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -18112,6 +19012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -18288,6 +19195,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_In
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -18466,6 +19380,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -18642,6 +19563,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_C
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -18820,6 +19748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_Invali
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -18997,6 +19932,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -19173,6 +20115,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -19361,6 +20310,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Inv
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -19537,6 +20493,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -19715,6 +20678,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_Inval
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -19891,6 +20861,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Cod
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -20118,6 +21095,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Wa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -20317,6 +21301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -20493,6 +21484,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -20869,6 +21867,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -21076,6 +22081,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedL
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -21252,6 +22264,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedLis
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -21430,6 +22449,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -21600,6 +22626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA100
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA100Gpus;
 /** Value: "COMMITTED_NVIDIA_K80_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus;
+/** Value: "COMMITTED_NVIDIA_L4_GPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaL4Gpus;
 /** Value: "COMMITTED_NVIDIA_P100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus;
 /** Value: "COMMITTED_NVIDIA_P4_GPUS" */
@@ -21931,6 +22959,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -22107,6 +23142,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -22285,6 +23327,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -22461,6 +23510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_W
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -22697,6 +23753,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListI
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -22873,6 +23936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstance
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -23066,6 +24136,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_InvalidH
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -23311,6 +24388,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -23488,6 +24572,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_Inv
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -23664,6 +24755,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_C
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -23855,6 +24953,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -24063,6 +25168,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -24247,6 +25359,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -24498,6 +25617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Invalid
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -24687,6 +25813,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_InvalidHe
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -24863,6 +25996,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Cod
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -25136,6 +26276,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_InvalidH
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -25413,6 +26560,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_I
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -25834,6 +26988,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -26010,6 +27171,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -26230,6 +27398,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -26405,6 +27580,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptio
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig.enforceOnKeyType
+
+/** Value: "ALL" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_All;
+/** Value: "HTTP_COOKIE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_HttpCookie;
+/** Value: "HTTP_HEADER" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_HttpHeader;
+/** Value: "HTTP_PATH" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_HttpPath;
+/** Value: "IP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Ip;
+/** Value: "REGION_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_RegionCode;
+/** Value: "SNI" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Sni;
+/** Value: "XFF_IP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_XffIp;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SecurityPolicyRuleRedirectOptions.type
 
 /** Value: "EXTERNAL_302" */
@@ -26507,6 +27702,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -26722,6 +27924,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -26898,6 +28107,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_War
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -27176,6 +28392,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Invali
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -27393,6 +28616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -27569,6 +28799,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -27838,6 +29075,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -28049,6 +29293,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -28226,6 +29477,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Inv
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -28402,6 +29660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Co
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -28633,6 +29898,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Inv
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -28941,6 +30213,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -29117,6 +30396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Inva
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -29321,6 +30607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -29524,6 +30817,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -29700,6 +31000,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warn
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -29878,6 +31185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -30054,6 +31368,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_War
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -30278,6 +31599,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -30454,6 +31782,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Cod
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -30642,6 +31977,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -30819,6 +32161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -30995,6 +32344,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warnin
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -31240,6 +32596,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -31417,6 +32780,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Inva
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -31593,6 +32963,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Co
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -31787,6 +33164,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -31963,6 +33347,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warni
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -32157,6 +33548,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -32333,6 +33731,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -32523,6 +33928,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -32700,6 +34112,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -32876,6 +34295,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warn
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -33088,6 +34514,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_InvalidH
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -33265,6 +34698,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -33441,6 +34881,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_I
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -33727,6 +35174,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -33903,6 +35357,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warnin
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -34097,6 +35558,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -34274,6 +35742,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Inva
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -34450,6 +35925,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Co
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -34741,6 +36223,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -34917,6 +36406,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_Inval
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -35095,6 +36591,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_LargeDeploymentWarning;
 /**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ListOverheadQuotaExceed;
+/**
  *  A resource depends on a missing type
  *
  *  Value: "MISSING_TYPE_DEPENDENCY"
@@ -35271,6 +36774,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_Invalid
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -35464,6 +36974,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_InvalidHea
  *  Value: "LARGE_DEPLOYMENT_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  Resource can't be retrieved due to list overhead quota exceed which captures
+ *  the amount of resources filtered out by user-defined list filter.
+ *
+ *  Value: "LIST_OVERHEAD_QUOTA_EXCEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ListOverheadQuotaExceed;
 /**
  *  A resource depends on a missing type
  *
@@ -35758,6 +37275,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -35939,6 +37460,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -36089,6 +37614,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -36363,6 +37892,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  A fingerprint for the labels being applied to this Address, which is
+ *  essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet. To see the latest fingerprint,
+ *  make a get() request to retrieve an Address.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Address_Labels *labels;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -36496,6 +38046,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_Address_Labels : GTLRObject
+@end
+
+
+/**
  *  GTLRCompute_AddressAggregatedList
  */
 @interface GTLRCompute_AddressAggregatedList : GTLRObject
@@ -36590,6 +38154,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -36740,6 +38308,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -36921,6 +38493,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AddressList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_NextHopAddressNotAssigned
@@ -37346,6 +38922,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
+/**
+ *  For LocalSSD disks on VM Instances in STOPPED or SUSPENDED state, this field
+ *  is set to PRESERVED if the LocalSSD data has been saved to a persistent
+ *  location by customer request. (see the discard_local_ssd option on
+ *  Stop/Suspend). Read-only in the api.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AttachedDisk_SavedState_DiskSavedStateUnspecified
+ *        *[Default]* Disk state has not been preserved. (Value:
+ *        "DISK_SAVED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_AttachedDisk_SavedState_Preserved Disk state has been
+ *        preserved. (Value: "PRESERVED")
+ */
+@property(nonatomic, copy, nullable) NSString *savedState;
+
 /** [Output Only] shielded vm initial state stored on disk */
 @property(nonatomic, strong, nullable) GTLRCompute_InitialStateConfig *shieldedInstanceInitialState;
 
@@ -37472,6 +39063,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *provisionedIops;
+
+/**
+ *  Indicates how much throughput to provision for the disk. This sets the
+ *  number of throughput mb per second that the disk can handle. Values must be
+ *  between 1 and 7,124.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+/**
+ *  Required for each regional disk associated with the instance. Specify the
+ *  URLs of the zones where the disk should be replicated to. You must provide
+ *  exactly two replica zones, and one zone must be the same as the instance
+ *  zone. You can't use this option with boot disks.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaZones;
 
 /**
  *  Resource manager tags to be bound to the disk. Tag keys and values have the
@@ -37901,6 +39509,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -38082,6 +39694,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_NextHopAddressNotAssigned
@@ -38231,6 +39847,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -38446,13 +40066,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AutoscalingPolicy : GTLRObject
 
 /**
- *  The number of seconds that the autoscaler waits before it starts collecting
- *  information from a new instance. This prevents the autoscaler from
- *  collecting information when the instance is initializing, during which the
- *  collected usage would not be reliable. The default time autoscaler waits is
- *  60 seconds. Virtual machine initialization times might vary because of
- *  numerous factors. We recommend that you test how long an instance may take
- *  to initialize. To do this, create an instance and time the startup process.
+ *  The number of seconds that your application takes to initialize on a VM
+ *  instance. This is referred to as the [initialization
+ *  period](/compute/docs/autoscaler#cool_down_period). Specifying an accurate
+ *  initialization period improves autoscaler decisions. For example, when
+ *  scaling out, the autoscaler ignores data from VMs that are still
+ *  initializing because those VMs might not yet represent normal usage of your
+ *  application. The default initialization period is 60 seconds. Initialization
+ *  periods might vary because of numerous factors. We recommend that you test
+ *  how long your application takes to initialize. To do this, create a VM and
+ *  time your application's startup process.
  *
  *  Uses NSNumber of intValue.
  */
@@ -38489,7 +40112,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *minNumReplicas;
 
 /**
- *  Defines operating mode for this policy.
+ *  Defines the operating mode for this policy. The following modes are
+ *  available: - OFF: Disables the autoscaler but maintains its configuration. -
+ *  ONLY_SCALE_OUT: Restricts the autoscaler to add VM instances only. - ON:
+ *  Enables all autoscaler activities according to its policy. For more
+ *  information, see "Turning off or restricting an autoscaler"
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_AutoscalingPolicy_Mode_Off Do not automatically scale
@@ -39306,6 +40933,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -39694,6 +41325,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *maxStreamDuration;
 
 /**
+ *  Deployment metadata associated with the resource to be set by a GKE hub
+ *  controller and read by the backend RCTH
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_BackendService_Metadatas *metadatas;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -39860,6 +41497,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Deployment metadata associated with the resource to be set by a GKE hub
+ *  controller and read by the backend RCTH
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_BackendService_Metadatas : GTLRObject
+@end
+
+
+/**
  *  Contains a list of BackendServicesScopedList.
  */
 @interface GTLRCompute_BackendServiceAggregatedList : GTLRObject
@@ -39951,6 +41601,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -40544,6 +42198,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -40850,6 +42508,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -41309,6 +42971,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  A transient resource used in compute.disks.bulkInsert and
+ *  compute.regionDisks.bulkInsert. It is only used to process requests and is
+ *  not persisted.
+ */
+@interface GTLRCompute_BulkInsertDiskResource : GTLRObject
+
+/**
+ *  The URL of the DiskConsistencyGroupPolicy for the group of disks to clone.
+ *  This may be a full or partial URL, such as: -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region
+ *  /resourcePolicies/resourcePolicy -
+ *  projects/project/regions/region/resourcePolicies/resourcePolicy -
+ *  regions/region/resourcePolicies/resourcePolicy
+ */
+@property(nonatomic, copy, nullable) NSString *sourceConsistencyGroupPolicy;
+
+@end
+
+
+/**
  *  A transient resource used in compute.instances.bulkInsert and
  *  compute.regionInstances.bulkInsert . This resource is not persisted
  *  anywhere, it is used only for processing the requests.
@@ -41650,7 +43332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Source commitment to be splitted into a new commitment. */
+/** Source commitment to be split into a new commitment. */
 @property(nonatomic, copy, nullable) NSString *splitSourceCommitment;
 
 /** [Output Only] Commitment start time in RFC3339 text format. */
@@ -41700,6 +43382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "GENERAL_PURPOSE_N2D"
  *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeT2d Value
  *        "GENERAL_PURPOSE_T2D"
+ *    @arg @c kGTLRCompute_Commitment_Type_GraphicsOptimized Value
+ *        "GRAPHICS_OPTIMIZED"
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimized Value
  *        "MEMORY_OPTIMIZED"
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedM3 Value
@@ -41807,6 +43491,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -41988,6 +43676,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_NextHopAddressNotAssigned
@@ -42137,6 +43829,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -42596,6 +44292,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *architecture;
 
+/** Disk asynchronously replicated into this disk. */
+@property(nonatomic, strong, nullable) GTLRCompute_DiskAsyncReplication *asyncPrimaryDisk;
+
+/**
+ *  [Output Only] A list of disks this disk is asynchronously replicated to.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Disk_AsyncSecondaryDisks *asyncSecondaryDisks;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -42730,6 +44434,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *provisionedIops;
 
 /**
+ *  Indicates how much throughput to provision for the disk. This sets the
+ *  number of throughput mb per second that the disk can handle. Values must be
+ *  between 1 and 7,124.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+/**
  *  [Output Only] URL of the region where the disk resides. Only applicable for
  *  regional resources. You must specify this field as part of the HTTP request
  *  URL. It is not settable as a field in the request body.
@@ -42746,6 +44459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Resource policies applied to this disk for automatic snapshot creations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
+
+/** [Output Only] Status information for the disk resource. */
+@property(nonatomic, strong, nullable) GTLRCompute_DiskResourceStatus *resourceStatus;
 
 /**
  *  [Output Only] Reserved for future use.
@@ -42768,6 +44484,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/**
+ *  [Output Only] URL of the DiskConsistencyGroupPolicy for a secondary disk
+ *  that was created using a consistency group.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceConsistencyGroupPolicy;
+
+/**
+ *  [Output Only] ID of the DiskConsistencyGroupPolicy for a secondary disk that
+ *  was created using a consistency group.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceConsistencyGroupPolicyId;
 
 /**
  *  The source disk used to create this disk. You can provide this as a partial
@@ -42901,6 +44629,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  [Output Only] A list of disks this disk is asynchronously replicated to.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_DiskAsyncReplicationList. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_Disk_AsyncSecondaryDisks : GTLRObject
+@end
+
+
+/**
  *  Labels to apply to this disk. These can be later modified by the setLabels
  *  method.
  *
@@ -43008,6 +44748,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -43095,6 +44839,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_DiskAsyncReplication
+ */
+@interface GTLRCompute_DiskAsyncReplication : GTLRObject
+
+/**
+ *  [Output Only] URL of the DiskConsistencyGroupPolicy if replication was
+ *  started on the disk as a member of a group.
+ */
+@property(nonatomic, copy, nullable) NSString *consistencyGroupPolicy;
+
+/**
+ *  [Output Only] ID of the DiskConsistencyGroupPolicy if replication was
+ *  started on the disk as a member of a group.
+ */
+@property(nonatomic, copy, nullable) NSString *consistencyGroupPolicyId;
+
+/**
+ *  The other disk asynchronously replicated to or from the current disk. You
+ *  can provide this as a partial or full URL to the resource. For example, the
+ *  following are valid values: -
+ *  https://www.googleapis.com/compute/v1/projects/project/zones/zone
+ *  /disks/disk - projects/project/zones/zone/disks/disk - zones/zone/disks/disk
+ */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/**
+ *  [Output Only] The unique ID of the other disk asynchronously replicated to
+ *  or from the current disk. This value identifies the exact disk that was used
+ *  to create this replication. For example, if you started replicating the
+ *  persistent disk from a disk that was later deleted and recreated under the
+ *  same name, the disk ID would identify the exact version of the disk that was
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *diskId;
+
+@end
+
+
+/**
+ *  GTLRCompute_DiskAsyncReplicationList
+ */
+@interface GTLRCompute_DiskAsyncReplicationList : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_DiskAsyncReplication *asyncReplicationDisk;
 
 @end
 
@@ -43263,6 +45056,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_DiskList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_NextHopAddressNotAssigned The
@@ -43407,6 +45204,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_DiskResourceStatus
+ */
+@interface GTLRCompute_DiskResourceStatus : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_DiskResourceStatusAsyncReplicationStatus *asyncPrimaryDisk;
+
+/** Key: disk, value: AsyncReplicationStatus message */
+@property(nonatomic, strong, nullable) GTLRCompute_DiskResourceStatus_AsyncSecondaryDisks *asyncSecondaryDisks;
+
+@end
+
+
+/**
+ *  Key: disk, value: AsyncReplicationStatus message
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_DiskResourceStatusAsyncReplicationStatus. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_DiskResourceStatus_AsyncSecondaryDisks : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_DiskResourceStatusAsyncReplicationStatus
+ */
+@interface GTLRCompute_DiskResourceStatusAsyncReplicationStatus : GTLRObject
+
+/**
+ *  state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Active
+ *        Replication is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Created
+ *        Secondary disk is created and is waiting for replication to start.
+ *        (Value: "CREATED")
+ *    @arg @c kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Starting
+ *        Replication is starting. (Value: "STARTING")
+ *    @arg @c kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_StateUnspecified
+ *        Value "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Stopped
+ *        Replication is stopped. (Value: "STOPPED")
+ *    @arg @c kGTLRCompute_DiskResourceStatusAsyncReplicationStatus_State_Stopping
+ *        Replication is stopping. (Value: "STOPPING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  GTLRCompute_DisksAddResourcePoliciesRequest
  */
 @interface GTLRCompute_DisksAddResourcePoliciesRequest : GTLRObject
@@ -43505,6 +45356,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -43591,6 +45446,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_DisksStartAsyncReplicationRequest
+ */
+@interface GTLRCompute_DisksStartAsyncReplicationRequest : GTLRObject
+
+/**
+ *  The secondary disk to start asynchronous replication to. You can provide
+ *  this as a partial or full URL to the resource. For example, the following
+ *  are valid values: -
+ *  https://www.googleapis.com/compute/v1/projects/project/zones/zone
+ *  /disks/disk -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region
+ *  /disks/disk - projects/project/zones/zone/disks/disk -
+ *  projects/project/regions/region/disks/disk - zones/zone/disks/disk -
+ *  regions/region/disks/disk
+ */
+@property(nonatomic, copy, nullable) NSString *asyncSecondaryDisk;
+
+@end
+
+
+/**
+ *  A transient resource used in compute.disks.stopGroupAsyncReplication and
+ *  compute.regionDisks.stopGroupAsyncReplication. It is only used to process
+ *  requests and is not persisted.
+ */
+@interface GTLRCompute_DisksStopGroupAsyncReplicationResource : GTLRObject
+
+/**
+ *  The URL of the DiskConsistencyGroupPolicy for the group of disks to stop.
+ *  This may be a full or partial URL, such as: -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region
+ *  /resourcePolicies/resourcePolicy -
+ *  projects/project/regions/region/resourcePolicies/resourcePolicy -
+ *  regions/region/resourcePolicies/resourcePolicy
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePolicy;
 
 @end
 
@@ -43765,6 +45661,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -43945,6 +45845,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -44093,6 +45997,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -44482,6 +46390,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -44876,6 +46788,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -45313,6 +47229,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_FirewallList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_NextHopAddressNotAssigned
@@ -45685,6 +47605,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_FirewallPolicyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_FirewallPolicyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_FirewallPolicyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -46078,6 +48002,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *allowGlobalAccess;
 
 /**
+ *  This is used in PSC consumer ForwardingRule to control whether the PSC
+ *  endpoint can be accessed from another region.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPscGlobalAccess;
+
+/**
  *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
  *  By internal TCP/UDP load balancers, backend service-based network load
  *  balancers, and internal and external protocol forwarding. Set this field to
@@ -46289,9 +48221,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  This field is not used for external load balancing. For Internal TCP/UDP
  *  Load Balancing, this field identifies the network that the load balanced IP
- *  should belong to for this Forwarding Rule. If this field is not specified,
- *  the default network will be used. For Private Service Connect forwarding
- *  rules that forward traffic to Google APIs, a network must be provided.
+ *  should belong to for this Forwarding Rule. If the subnetwork is specified,
+ *  the network of the subnetwork will be used. If neither subnetwork nor this
+ *  field is specified, the default network will be used. For Private Service
+ *  Connect forwarding rules that forward traffic to Google APIs, a network must
+ *  be provided.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -46572,6 +48506,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -46750,6 +48688,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -46938,6 +48880,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -47025,6 +48971,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_GlobalAddressesMoveRequest
+ */
+@interface GTLRCompute_GlobalAddressesMoveRequest : GTLRObject
+
+/**
+ *  An optional destination address description if intended to be different from
+ *  the source.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The URL of the destination address to move to. This can be a full or partial
+ *  URL. For example, the following are all valid URLs to a address: -
+ *  https://www.googleapis.com/compute/v1/projects/project
+ *  /global/addresses/address - projects/project/global/addresses/address Note
+ *  that destination project must be different from the source project. So
+ *  /global/addresses/address is not valid partial url.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationAddress;
 
 @end
 
@@ -47299,8 +49271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  separate values. Set to one or more of the following values: -
  *  VIRTIO_SCSI_MULTIQUEUE - WINDOWS - MULTI_IP_SUBNET - UEFI_COMPATIBLE - GVNIC
  *  - SEV_CAPABLE - SUSPEND_RESUME_COMPATIBLE - SEV_LIVE_MIGRATABLE -
- *  SEV_SNP_CAPABLE - TDX_CAPABLE For more information, see Enabling guest
- *  operating system features.
+ *  SEV_SNP_CAPABLE For more information, see Enabling guest operating system
+ *  features.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified Value
@@ -47331,11 +49303,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Regional](/compute/docs/reference/rest/v1/regionHealthChecks) Internal
  *  HTTP(S) load balancers must use regional health checks
  *  (`compute.v1.regionHealthChecks`). Traffic Director must use global health
- *  checks (`compute.v1.HealthChecks`). Internal TCP/UDP load balancers can use
+ *  checks (`compute.v1.healthChecks`). Internal TCP/UDP load balancers can use
  *  either regional or global health checks (`compute.v1.regionHealthChecks` or
- *  `compute.v1.HealthChecks`). External HTTP(S), TCP proxy, and SSL proxy load
+ *  `compute.v1.healthChecks`). External HTTP(S), TCP proxy, and SSL proxy load
  *  balancers as well as managed instance group auto-healing must use global
- *  health checks (`compute.v1.HealthChecks`). Backend service-based network
+ *  health checks (`compute.v1.healthChecks`). Backend service-based network
  *  load balancers must use regional health checks
  *  (`compute.v1.regionHealthChecks`). Target pool-based network load balancers
  *  must use legacy HTTP health checks (`compute.v1.httpHealthChecks`). For more
@@ -47538,6 +49510,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_NextHopAddressNotAssigned
@@ -47751,6 +49727,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -48071,6 +50051,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -48221,6 +50205,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -49103,6 +51091,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -49587,6 +51579,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataFilter *> *metadataFilters;
 
 /**
+ *  If specified, the route is a pattern match expression that must match the
+ *  :path header once the query string is removed. A pattern match allows you to
+ *  match - The value must be between 1 and 1024 characters - The pattern must
+ *  start with a leading slash ("/") - There may be no more than 5 operators in
+ *  pattern Precisely one of prefix_match, full_path_match, regex_match or
+ *  path_template_match must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *pathTemplateMatch;
+
+/**
  *  For satisfying the matchRule condition, the request's path must begin with
  *  the specified prefixMatch. prefixMatch must begin with a /. The value must
  *  be from 1 to 1024 characters. Only one of prefixMatch, fullPathMatch or
@@ -49894,6 +51896,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -50390,6 +52396,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ImageList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_NextHopAddressNotAssigned The
@@ -50930,6 +52940,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -51279,6 +53293,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -51460,6 +53478,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -51948,6 +53970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -52048,12 +54074,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *healthCheck;
 
 /**
- *  The number of seconds that the managed instance group waits before it
- *  applies autohealing policies to new instances or recently recreated
- *  instances. This initial delay allows instances to initialize and run their
- *  startup scripts before the instance group determines that they are
- *  UNHEALTHY. This prevents the managed instance group from recreating its
- *  instances prematurely. This value must be from range [0, 3600].
+ *  The initial delay is the number of seconds that a new VM takes to initialize
+ *  and run its startup script. During a VM's initial delay period, the MIG
+ *  ignores unsuccessful health checks because the VM might be in the startup
+ *  process. This prevents the MIG from prematurely recreating a VM. If the
+ *  health check receives a healthy response during the initial delay, it
+ *  indicates that the startup process is complete and the VM is ready. The
+ *  value of initial delay must be between 0 and 3600 seconds. The default value
+ *  is 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -52152,6 +54180,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -52514,6 +54546,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -52695,6 +54731,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -53210,6 +55250,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -53396,6 +55440,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -53602,6 +55650,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_NextHopAddressNotAssigned
@@ -53781,6 +55833,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -54389,6 +56445,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -54765,6 +56825,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -54946,6 +57010,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -55099,6 +57167,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -55355,6 +57427,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  A fingerprint for the labels being applied to this Interconnect, which is
+ *  essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet. To see the latest fingerprint,
+ *  make a get() request to retrieve an Interconnect.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Interconnect_Labels *labels;
+
+/**
  *  Type of link requested, which can take one of the following values: -
  *  LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics -
  *  LINK_TYPE_ETHERNET_100G_LR: A 100G Ethernet with LR optics. Note that this
@@ -55432,6 +57525,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *provisionedLinkCount;
 
 /**
+ *  Indicates that this is a Cross-Cloud Interconnect. This field specifies the
+ *  location outside of Google's network that the interconnect is connected to.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteLocation;
+
+/**
  *  Target number of physical links in the link bundle, as requested by the
  *  customer.
  *
@@ -55468,6 +57567,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_Interconnect_Labels : GTLRObject
 @end
 
 
@@ -55554,6 +57667,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** This field is not available. */
 @property(nonatomic, copy, nullable) NSString *cloudRouterIpv6InterfaceId;
+
+/**
+ *  [Output Only] Constraints for this attachment, if any. The attachment does
+ *  not work if these constraints are not met.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentConfigurationConstraints *configurationConstraints;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -55681,6 +57800,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  A fingerprint for the labels being applied to this InterconnectAttachment,
+ *  which is essentially a hash of the labels set used for optimistic locking.
+ *  The fingerprint is initially generated by Compute Engine and changes after
+ *  every request to modify or update labels. You must always provide an
+ *  up-to-date fingerprint hash in order to update or change labels, otherwise
+ *  the request will fail with error 412 conditionNotMet. To see the latest
+ *  fingerprint, make a get() request to retrieve an InterconnectAttachment.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachment_Labels *labels;
+
+/**
  *  Maximum Transmission Unit (MTU), in bytes, of packets passing through this
  *  interconnect attachment. Only 1440 and 1500 are allowed. If not specified,
  *  the value will default to 1440.
@@ -55754,6 +57894,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  not settable as a field in the request body.
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  [Output Only] If the attachment is on a Cross-Cloud Interconnect connection,
+ *  this field contains the interconnect's remote location service provider.
+ *  Example values: "Amazon Web Services" "Microsoft Azure". The field is set
+ *  only for attachments on Cross-Cloud Interconnect connections. Its value is
+ *  copied from the InterconnectRemoteLocation remoteService field.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteService;
 
 /**
  *  URL of the Cloud Router to be used for dynamic routing. This router must be
@@ -55833,6 +57982,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Length of the IPv4 subnet mask. Allowed values: - 29 (default) - 30 The
+ *  default value is 29, except for Cross-Cloud Interconnect connections that
+ *  use an InterconnectRemoteLocation with a constraints.subnetLengthRange.min
+ *  equal to 30. For example, connections that use an Azure remote location fall
+ *  into this category. In these cases, the default value is 30, and requesting
+ *  29 returns an error. Where both 29 and 30 are allowed, 29 is preferred,
+ *  because it gives Google Cloud Support more debugging visibility.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subnetLength;
+
+/**
  *  The type of interconnect attachment this is, which can take one of the
  *  following values: - DEDICATED: an attachment to a Dedicated Interconnect. -
  *  PARTNER: an attachment to a Partner Interconnect, created by the customer. -
@@ -55858,6 +58020,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *vlanTag8021q;
 
+@end
+
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InterconnectAttachment_Labels : GTLRObject
 @end
 
 
@@ -55958,6 +58134,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -56045,6 +58225,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentConfigurationConstraints
+ */
+@interface GTLRCompute_InterconnectAttachmentConfigurationConstraints : GTLRObject
+
+/**
+ *  [Output Only] Whether the attachment's BGP session requires/allows/disallows
+ *  BGP MD5 authentication. This can take one of the following values:
+ *  MD5_OPTIONAL, MD5_REQUIRED, MD5_UNSUPPORTED. For example, a Cross-Cloud
+ *  Interconnect connection to a remote cloud provider that requires BGP MD5
+ *  authentication has the interconnectRemoteLocation
+ *  attachment_configuration_constraints.bgp_md5 field set to MD5_REQUIRED, and
+ *  that property is propagated to the attachment. Similarly, if BGP MD5 is
+ *  MD5_UNSUPPORTED, an error is returned if MD5 is requested.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Optional
+ *        MD5_OPTIONAL: BGP MD5 authentication is supported and can optionally
+ *        be configured. (Value: "MD5_OPTIONAL")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Required
+ *        MD5_REQUIRED: BGP MD5 authentication must be configured. (Value:
+ *        "MD5_REQUIRED")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Unsupported
+ *        MD5_UNSUPPORTED: BGP MD5 authentication must not be configured (Value:
+ *        "MD5_UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *bgpMd5;
+
+/**
+ *  [Output Only] List of ASN ranges that the remote location is known to
+ *  support. Formatted as an array of inclusive ranges {min: min-value, max:
+ *  max-value}. For example, [{min: 123, max: 123}, {min: 64512, max: 65534}]
+ *  allows the peer ASN to be 123 or anything in the range 64512-65534. This
+ *  field is only advisory. Although the API accepts other ranges, these are the
+ *  ranges that we recommend.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectAttachmentConfigurationConstraintsBgpPeerASNRange *> *bgpPeerAsnRanges;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectAttachmentConfigurationConstraintsBgpPeerASNRange
+ */
+@interface GTLRCompute_InterconnectAttachmentConfigurationConstraintsBgpPeerASNRange : GTLRObject
+
+/**
+ *  max
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  min
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -56140,6 +58383,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -56337,6 +58584,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -56731,6 +58982,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopAddressNotAssigned
@@ -57048,6 +59303,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -57283,6 +59542,454 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        before the outage was due to start. (Value: "NS_CANCELED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Represents a Cross-Cloud Interconnect Remote Location resource. You can use
+ *  this resource to find remote location details about an Interconnect
+ *  attachment (VLAN).
+ */
+@interface GTLRCompute_InterconnectRemoteLocation : GTLRObject
+
+/**
+ *  [Output Only] The postal address of the Point of Presence, each line in the
+ *  address is separated by a newline character.
+ */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  [Output Only] Subset of fields from InterconnectAttachment's
+ *  |configurationConstraints| field that apply to all attachments for this
+ *  remote location.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentConfigurationConstraints *attachmentConfigurationConstraints;
+
+/**
+ *  [Output Only] Metropolitan area designator that indicates which city an
+ *  interconnect is located. For example: "Chicago, IL", "Amsterdam,
+ *  Netherlands".
+ */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/**
+ *  [Output Only] Constraints on the parameters for creating Cross-Cloud
+ *  Interconnect and associated InterconnectAttachments.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectRemoteLocationConstraints *constraints;
+
+/**
+ *  [Output Only] Continent for this location, which can take one of the
+ *  following values: - AFRICA - ASIA_PAC - EUROPE - NORTH_AMERICA -
+ *  SOUTH_AMERICA
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Continent_Africa Value
+ *        "AFRICA"
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Continent_AsiaPac Value
+ *        "ASIA_PAC"
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Continent_Europe Value
+ *        "EUROPE"
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Continent_NorthAmerica
+ *        Value "NORTH_AMERICA"
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Continent_SouthAmerica
+ *        Value "SOUTH_AMERICA"
+ */
+@property(nonatomic, copy, nullable) NSString *continent;
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  [Output Only] An optional description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The name of the provider for this facility (e.g., EQUINIX).
+ */
+@property(nonatomic, copy, nullable) NSString *facilityProvider;
+
+/**
+ *  [Output Only] A provider-assigned Identifier for this facility (e.g.,
+ *  Ashburn-DC1).
+ */
+@property(nonatomic, copy, nullable) NSString *facilityProviderFacilityId;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of the resource. Always
+ *  compute#interconnectRemoteLocation for interconnect remote locations.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] Link Aggregation Control Protocol (LACP) constraints, which
+ *  can take one of the following values: LACP_SUPPORTED, LACP_UNSUPPORTED
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Lacp_LacpSupported
+ *        LACP_SUPPORTED: LACP is supported, and enabled by default on the
+ *        Cross-Cloud Interconnect. (Value: "LACP_SUPPORTED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Lacp_LacpUnsupported
+ *        LACP_UNSUPPORTED: LACP is not supported and is not be enabled on this
+ *        port. GetDiagnostics shows bundleAggregationType as "static". GCP does
+ *        not support LAGs without LACP, so requestedLinkCount must be 1.
+ *        (Value: "LACP_UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *lacp;
+
+/**
+ *  [Output Only] The maximum number of 100 Gbps ports supported in a link
+ *  aggregation group (LAG). When linkType is 100 Gbps, requestedLinkCount
+ *  cannot exceed max_lag_size_100_gbps.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxLagSize100Gbps;
+
+/**
+ *  [Output Only] The maximum number of 10 Gbps ports supported in a link
+ *  aggregation group (LAG). When linkType is 10 Gbps, requestedLinkCount cannot
+ *  exceed max_lag_size_10_gbps.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxLagSize10Gbps;
+
+/** [Output Only] Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output Only] The peeringdb identifier for this facility (corresponding with
+ *  a netfac type in peeringdb).
+ */
+@property(nonatomic, copy, nullable) NSString *peeringdbFacilityId;
+
+/** [Output Only] Permitted connections. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectRemoteLocationPermittedConnections *> *permittedConnections;
+
+/**
+ *  [Output Only] Indicates the service provider present at the remote location.
+ *  Example values: "Amazon Web Services", "Microsoft Azure".
+ */
+@property(nonatomic, copy, nullable) NSString *remoteService;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  [Output Only] The status of this InterconnectRemoteLocation, which can take
+ *  one of the following values: - CLOSED: The InterconnectRemoteLocation is
+ *  closed and is unavailable for provisioning new Cross-Cloud Interconnects. -
+ *  AVAILABLE: The InterconnectRemoteLocation is available for provisioning new
+ *  Cross-Cloud Interconnects.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Status_Available The
+ *        InterconnectRemoteLocation is available for provisioning new
+ *        Cross-Cloud Interconnects. (Value: "AVAILABLE")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocation_Status_Closed The
+ *        InterconnectRemoteLocation is closed for provisioning new Cross-Cloud
+ *        Interconnects. (Value: "CLOSED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectRemoteLocationConstraints
+ */
+@interface GTLRCompute_InterconnectRemoteLocationConstraints : GTLRObject
+
+/**
+ *  [Output Only] Port pair remote location constraints, which can take one of
+ *  the following values: PORT_PAIR_UNCONSTRAINED_REMOTE_LOCATION,
+ *  PORT_PAIR_MATCHING_REMOTE_LOCATION. GCP's API refers only to individual
+ *  ports, but the UI uses this field when ordering a pair of ports, to prevent
+ *  users from accidentally ordering something that is incompatible with their
+ *  cloud provider. Specifically, when ordering a redundant pair of Cross-Cloud
+ *  Interconnect ports, and one of them uses a remote location with
+ *  portPairMatchingRemoteLocation set to matching, the UI requires that both
+ *  ports use the same remote location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairRemoteLocation_PortPairMatchingRemoteLocation
+ *        If PORT_PAIR_MATCHING_REMOTE_LOCATION, the remote cloud provider
+ *        allocates ports in pairs, and the user should choose the same remote
+ *        location for both ports. (Value: "PORT_PAIR_MATCHING_REMOTE_LOCATION")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairRemoteLocation_PortPairUnconstrainedRemoteLocation
+ *        If PORT_PAIR_UNCONSTRAINED_REMOTE_LOCATION, a user may opt to
+ *        provision a redundant pair of Cross-Cloud Interconnects using two
+ *        different remote locations in the same city. (Value:
+ *        "PORT_PAIR_UNCONSTRAINED_REMOTE_LOCATION")
+ */
+@property(nonatomic, copy, nullable) NSString *portPairRemoteLocation;
+
+/**
+ *  [Output Only] Port pair VLAN constraints, which can take one of the
+ *  following values: PORT_PAIR_UNCONSTRAINED_VLAN, PORT_PAIR_MATCHING_VLAN
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairVlan_PortPairMatchingVlan
+ *        If PORT_PAIR_MATCHING_VLAN, the Interconnect for this attachment is
+ *        part of a pair of ports that should have matching VLAN allocations.
+ *        This occurs with Cross-Cloud Interconnect to Azure remote locations.
+ *        While GCP's API does not explicitly group pairs of ports, the UI uses
+ *        this field to ensure matching VLAN ids when configuring a redundant
+ *        VLAN pair. (Value: "PORT_PAIR_MATCHING_VLAN")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationConstraints_PortPairVlan_PortPairUnconstrainedVlan
+ *        PORT_PAIR_UNCONSTRAINED_VLAN means there is no constraint. (Value:
+ *        "PORT_PAIR_UNCONSTRAINED_VLAN")
+ */
+@property(nonatomic, copy, nullable) NSString *portPairVlan;
+
+/**
+ *  [Output Only] [min-length, max-length] The minimum and maximum value
+ *  (inclusive) for the IPv4 subnet length. For example, an
+ *  interconnectRemoteLocation for Azure has {min: 30, max: 30} because Azure
+ *  requires /30 subnets. This range specifies the values supported by both
+ *  cloud providers. Interconnect currently supports /29 and /30 IPv4 subnet
+ *  lengths. If a remote cloud has no constraint on IPv4 subnet length, the
+ *  range would thus be {min: 29, max: 30}.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectRemoteLocationConstraintsSubnetLengthRange *subnetLengthRange;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectRemoteLocationConstraintsSubnetLengthRange
+ */
+@interface GTLRCompute_InterconnectRemoteLocationConstraintsSubnetLengthRange : GTLRObject
+
+/**
+ *  max
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  min
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
+
+@end
+
+
+/**
+ *  Response to the list request, and contains a list of interconnect remote
+ *  locations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_InterconnectRemoteLocationList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of InterconnectRemoteLocation resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectRemoteLocation *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always
+ *  compute#interconnectRemoteLocationList for lists of interconnect remote
+ *  locations.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token lets you get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_InterconnectRemoteLocationList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_InterconnectRemoteLocationList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_Unreachable
+ *        A given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InterconnectRemoteLocationList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectRemoteLocationList_Warning_Data_Item
+ */
+@interface GTLRCompute_InterconnectRemoteLocationList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_InterconnectRemoteLocationPermittedConnections
+ */
+@interface GTLRCompute_InterconnectRemoteLocationPermittedConnections : GTLRObject
+
+/**
+ *  [Output Only] URL of an Interconnect location that is permitted to connect
+ *  to this Interconnect remote location.
+ */
+@property(nonatomic, copy, nullable) NSString *interconnectLocation;
 
 @end
 
@@ -57593,6 +60300,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -58154,6 +60865,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_NextHopAddressNotAssigned
@@ -58369,7 +61084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *guestAcceleratorCount;
 
 /**
- *  The accelerator type resource name, not a full URL, e.g. 'nvidia-tesla-k80'.
+ *  The accelerator type resource name, not a full URL, e.g. nvidia-tesla-t4.
  */
 @property(nonatomic, copy, nullable) NSString *guestAcceleratorType;
 
@@ -58486,6 +61201,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -58667,6 +61386,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -58816,6 +61539,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -59512,9 +62239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  [Output Only] Fingerprint of this resource. A hash of the contents stored in
- *  this object. This field is used in optimistic locking. An up-to-date
- *  fingerprint must be provided in order to patch.
+ *  Fingerprint of this resource. A hash of the contents stored in this object.
+ *  This field is used in optimistic locking. An up-to-date fingerprint must be
+ *  provided in order to patch.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -59547,7 +62274,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] The URL of the network which the Network Attachment belongs
- *  to.
+ *  to. Practically it is inferred by fetching the network of the first
+ *  subnetwork associated. Because it is required that all the subnetworks must
+ *  be from the same network, it is assured that the Network Attachment belongs
+ *  to the same network as all the subnetworks.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -59676,6 +62406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -59773,7 +62507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_NetworkAttachmentConnectedEndpoint : GTLRObject
 
 /**
- *  The IP address assigned to the producer instance network interface. This
+ *  The IPv4 address assigned to the producer instance network interface. This
  *  value will be a range in case of Serverless.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
@@ -59781,7 +62515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** The project id or number of the interface to which the IP was assigned. */
 @property(nonatomic, copy, nullable) NSString *projectIdOrNum;
 
-/** Alias IP ranges from the same subnetwork */
+/** Alias IP ranges from the same subnetwork. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryIpCidrRanges;
 
 /**
@@ -59902,6 +62636,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkAttachmentList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -60052,6 +62790,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -60322,6 +63064,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -60472,6 +63218,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -60883,6 +63633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -61164,6 +63918,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -61435,6 +64193,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -61588,6 +64350,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -61941,6 +64707,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NetworkList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_NextHopAddressNotAssigned
@@ -62535,6 +65305,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -62756,6 +65530,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_NextHopAddressNotAssigned
@@ -63052,6 +65830,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -63202,6 +65984,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -63539,6 +66325,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -63720,6 +66510,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_NextHopAddressNotAssigned
@@ -63881,6 +66675,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -64148,6 +66946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -64329,6 +67131,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -64477,6 +67283,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -64769,6 +67579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -65092,6 +67906,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned
@@ -65319,6 +68137,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -65501,6 +68323,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_OperationList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_NextHopAddressNotAssigned
@@ -65649,6 +68475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -66114,6 +68944,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -66352,6 +69186,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -66581,6 +69419,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -67486,6 +70328,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -67825,6 +70671,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -67977,6 +70827,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -68158,6 +71012,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -68358,6 +71216,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_NVIDIA_A100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus Value
  *        "COMMITTED_NVIDIA_K80_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaL4Gpus Value
+ *        "COMMITTED_NVIDIA_L4_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus Value
  *        "COMMITTED_NVIDIA_P100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaP4Gpus Value
@@ -68707,6 +71567,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_RegionAddressesMoveRequest
+ */
+@interface GTLRCompute_RegionAddressesMoveRequest : GTLRObject
+
+/**
+ *  An optional destination address description if intended to be different from
+ *  the source.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The URL of the destination address to move to. This can be a full or partial
+ *  URL. For example, the following are all valid URLs to a address: -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region
+ *  /addresses/address - projects/project/regions/region/addresses/address Note
+ *  that destination project must be different from the source project. So
+ *  /regions/region/addresses/address is not valid partial url.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationAddress;
+
+@end
+
+
+/**
  *  Contains a list of autoscalers.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -68793,6 +71679,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -68922,6 +71812,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_RegionDisksStartAsyncReplicationRequest
+ */
+@interface GTLRCompute_RegionDisksStartAsyncReplicationRequest : GTLRObject
+
+/**
+ *  The secondary disk to start asynchronous replication to. You can provide
+ *  this as a partial or full URL to the resource. For example, the following
+ *  are valid values: -
+ *  https://www.googleapis.com/compute/v1/projects/project/zones/zone
+ *  /disks/disk -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region
+ *  /disks/disk - projects/project/zones/zone/disks/disk -
+ *  projects/project/regions/region/disks/disk - zones/zone/disks/disk -
+ *  regions/region/disks/disk
+ */
+@property(nonatomic, copy, nullable) NSString *asyncSecondaryDisk;
+
+@end
+
+
+/**
  *  GTLRCompute_RegionDiskTypeList
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -69011,6 +71922,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -69189,6 +72104,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -69385,6 +72304,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -69715,6 +72638,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -69990,6 +72917,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -70223,6 +73154,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RegionList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_NextHopAddressNotAssigned The
@@ -70734,6 +73669,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -70916,6 +73855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ReservationList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_NextHopAddressNotAssigned
@@ -71081,6 +74024,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -71285,6 +74232,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -71392,6 +74343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Resource policy for disk consistency groups. */
+@property(nonatomic, strong, nullable) GTLRCompute_ResourcePolicyDiskConsistencyGroupPolicy *diskConsistencyGroupPolicy;
 
 /** Resource policy for instances for placement configuration. */
 @property(nonatomic, strong, nullable) GTLRCompute_ResourcePolicyGroupPlacementPolicy *groupPlacementPolicy;
@@ -71550,6 +74504,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -71667,6 +74625,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
+@end
+
+
+/**
+ *  Resource policy for disk consistency groups.
+ */
+@interface GTLRCompute_ResourcePolicyDiskConsistencyGroupPolicy : GTLRObject
 @end
 
 
@@ -71870,6 +74835,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -72376,6 +75345,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned
@@ -72587,6 +75560,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RouteList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_NextHopAddressNotAssigned The
@@ -72874,6 +75851,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -73405,6 +76386,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RouterList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_NextHopAddressNotAssigned The
@@ -73630,9 +76615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  IP ranges in every Subnetwork are allowed to Nat. - LIST_OF_SUBNETWORKS: A
  *  list of Subnetworks are allowed to Nat (specified in the field subnetwork
  *  below) The default is SUBNETWORK_IP_RANGE_TO_NAT_OPTION_UNSPECIFIED. Note
- *  that if this field contains ALL_SUBNETWORKS_ALL_IP_RANGES or
- *  ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any other
- *  Router.Nat section in any Router for this network in this region.
+ *  that if this field contains ALL_SUBNETWORKS_ALL_IP_RANGES then there should
+ *  not be any other Router.Nat section in any Router for this network in this
+ *  region.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllIpRanges
@@ -73878,6 +76863,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -74705,6 +77694,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -74865,6 +77858,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -75020,6 +78017,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  A fingerprint for the labels being applied to this security policy, which is
+ *  essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels. To see the latest
+ *  fingerprint, make get() request to the security policy.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicy_Labels *labels;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -75082,6 +78099,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_SecurityPolicy_Labels : GTLRObject
+@end
+
+
+/**
  *  Configuration options for Cloud Armor Adaptive Protection (CAAP).
  */
 @interface GTLRCompute_SecurityPolicyAdaptiveProtectionConfig : GTLRObject
@@ -75093,12 +78124,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Configuration options for L7 DDoS detection.
+ *  Configuration options for L7 DDoS detection. This field is only supported in
+ *  Global Security Policies of type CLOUD_ARMOR.
  */
 @interface GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig : GTLRObject
 
 /**
- *  If set to true, enables CAAP for L7 DDoS detection.
+ *  If set to true, enables CAAP for L7 DDoS detection. This field is only
+ *  supported in Global Security Policies of type CLOUD_ARMOR.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -75106,7 +78139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Rule visibility can be one of the following: STANDARD - opaque rules.
- *  (default) PREMIUM - transparent rules.
+ *  (default) PREMIUM - transparent rules. This field is only supported in
+ *  Global Security Policies of type CLOUD_ARMOR.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig_RuleVisibility_Premium
@@ -75278,6 +78312,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -75379,7 +78417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  rules using the redirect action with the type of GOOGLE_RECAPTCHA under the
  *  security policy. The specified site key needs to be created from the
  *  reCAPTCHA API. The user is responsible for the validity of the specified
- *  site key. If not specified, a Google-managed site key is used.
+ *  site key. If not specified, a Google-managed site key is used. This field is
+ *  only supported in Global Security Policies of type CLOUD_ARMOR.
  */
 @property(nonatomic, copy, nullable) NSString *redirectSiteKey;
 
@@ -75412,8 +78451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Requires rate_limit_options to be set. - redirect: redirect to a different
  *  target. This can either be an internal reCAPTCHA redirect, or an external
  *  URL-based redirect via a 302 response. Parameters for this action can be
- *  configured via redirectOptions. - throttle: limit client traffic to the
- *  configured threshold. Configure parameters for this action in
+ *  configured via redirectOptions. This action is only supported in Global
+ *  Security Policies of type CLOUD_ARMOR. - throttle: limit client traffic to
+ *  the configured threshold. Configure parameters for this action in
  *  rateLimitOptions. Requires rate_limit_options to be set for this.
  */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -75426,7 +78466,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Optional, additional actions that are performed on headers. */
+/**
+ *  Optional, additional actions that are performed on headers. This field is
+ *  only supported in Global Security Policies of type CLOUD_ARMOR.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleHttpHeaderAction *headerAction;
 
 /**
@@ -75473,7 +78516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Parameters defining the redirect action. Cannot be specified for any other
- *  actions.
+ *  actions. This field is only supported in Global Security Policies of type
+ *  CLOUD_ARMOR.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleRedirectOptions *redirectOptions;
 
@@ -75523,7 +78567,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  User defined CEVAL expression. A CEVAL expression is used to specify match
  *  criteria such as origin.ip, source.region_code and contents in the request
- *  header.
+ *  header. Expressions containing `evaluateThreatIntelligence` require Cloud
+ *  Armor Managed Protection Plus tier and are not supported in Edge Policies
+ *  nor in Regional Policies. Expressions containing
+ *  `evaluatePreconfiguredExpr('sourceiplist-*')` require Cloud Armor Managed
+ *  Protection Plus tier and are only supported in Global Security Policies.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Expr *expr;
 
@@ -75713,6 +78761,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *enforceOnKey;
 
 /**
+ *  If specified, any combination of values of
+ *  enforce_on_key_type/enforce_on_key_name is treated as the key on which
+ *  ratelimit threshold/action is enforced. You can specify up to 3
+ *  enforce_on_key_configs. If enforce_on_key_configs is specified,
+ *  enforce_on_key must not be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig *> *enforceOnKeyConfigs;
+
+/**
  *  Rate limit key name applicable only for the following key types: HTTP_HEADER
  *  -- Name of the HTTP header whose value is taken as the key value.
  *  HTTP_COOKIE -- Name of the HTTP cookie whose value is taken as the key
@@ -75725,18 +78782,78 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  threshold, to either deny with a specified HTTP response code, or redirect
  *  to a different endpoint. Valid options are `deny(STATUS)`, where valid
  *  values for `STATUS` are 403, 404, 429, and 502, and `redirect`, where the
- *  redirect parameters come from `exceedRedirectOptions` below.
+ *  redirect parameters come from `exceedRedirectOptions` below. The `redirect`
+ *  action is only supported in Global Security Policies of type CLOUD_ARMOR.
  */
 @property(nonatomic, copy, nullable) NSString *exceedAction;
 
 /**
  *  Parameters defining the redirect action that is used as the exceed action.
- *  Cannot be specified if the exceed action is not redirect.
+ *  Cannot be specified if the exceed action is not redirect. This field is only
+ *  supported in Global Security Policies of type CLOUD_ARMOR.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleRedirectOptions *exceedRedirectOptions;
 
 /** Threshold at which to begin ratelimiting. */
 @property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleRateLimitOptionsThreshold *rateLimitThreshold;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig
+ */
+@interface GTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig : GTLRObject
+
+/**
+ *  Rate limit key name applicable only for the following key types: HTTP_HEADER
+ *  -- Name of the HTTP header whose value is taken as the key value.
+ *  HTTP_COOKIE -- Name of the HTTP cookie whose value is taken as the key
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *enforceOnKeyName;
+
+/**
+ *  Determines the key to enforce the rate_limit_threshold on. Possible values
+ *  are: - ALL: A single rate limit threshold is applied to all the requests
+ *  matching this rule. This is the default value if "enforceOnKeyConfigs" is
+ *  not configured. - IP: The source IP address of the request is the key. Each
+ *  IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP
+ *  header whose name is configured under "enforceOnKeyName". The key value is
+ *  truncated to the first 128 bytes of the header value. If no such header is
+ *  present in the request, the key type defaults to ALL. - XFF_IP: The first IP
+ *  address (i.e. the originating client IP address) specified in the list of
+ *  IPs under X-Forwarded-For HTTP header. If no such header is present or the
+ *  value is not a valid IP, the key defaults to the source IP address of the
+ *  request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose
+ *  name is configured under "enforceOnKeyName". The key value is truncated to
+ *  the first 128 bytes of the cookie value. If no such cookie is present in the
+ *  request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP
+ *  request. The key value is truncated to the first 128 bytes. - SNI: Server
+ *  name indication in the TLS session of the HTTPS request. The key value is
+ *  truncated to the first 128 bytes. The key type defaults to ALL on a HTTP
+ *  session. - REGION_CODE: The country/region from which the request
+ *  originates.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_All
+ *        Value "ALL"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_HttpCookie
+ *        Value "HTTP_COOKIE"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_HttpHeader
+ *        Value "HTTP_HEADER"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_HttpPath
+ *        Value "HTTP_PATH"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Ip
+ *        Value "IP"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_RegionCode
+ *        Value "REGION_CODE"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Sni
+ *        Value "SNI"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_XffIp
+ *        Value "XFF_IP"
+ */
+@property(nonatomic, copy, nullable) NSString *enforceOnKeyType;
 
 @end
 
@@ -75798,7 +78915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  describes how clients should authenticate with this service's backends.
  *  clientTlsPolicy only applies to a global BackendService with the
  *  loadBalancingScheme set to INTERNAL_SELF_MANAGED. If left blank,
- *  communications are not encrypted. Note: This field currently has no impact.
+ *  communications are not encrypted.
  */
 @property(nonatomic, copy, nullable) NSString *clientTlsPolicy;
 
@@ -75814,8 +78931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the Public Key Infrastructure which provisions server identities. Only
  *  applies to a global BackendService with loadBalancingScheme set to
  *  INTERNAL_SELF_MANAGED. Only applies when BackendService has an attached
- *  clientTlsPolicy with clientCertificate (mTLS mode). Note: This field
- *  currently has no impact.
+ *  clientTlsPolicy with clientCertificate (mTLS mode).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAltNames;
 
@@ -76024,6 +79140,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_Uint128 *pscServiceAttachmentId;
 
 /**
+ *  This flag determines whether a consumer accept/reject list change can
+ *  reconcile the statuses of existing ACCEPTED or REJECTED PSC endpoints. - If
+ *  false, connection policy update will only affect existing PENDING PSC
+ *  endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched
+ *  regardless how the connection policy is modified . - If true, update will
+ *  affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an
+ *  ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to
+ *  the reject list. For newly created service attachment, this boolean defaults
+ *  to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconcileConnections;
+
+/**
  *  [Output Only] URL of the region where the service attachment resides. This
  *  field applies only to the region resource. You must specify this field as
  *  part of the HTTP request URL. It is not settable as a field in the request
@@ -76136,6 +79267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -76378,6 +79513,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ServiceAttachmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ServiceAttachmentList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ServiceAttachmentList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -76528,6 +79667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -77136,6 +80279,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_NextHopAddressNotAssigned
@@ -77596,6 +80743,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -77774,6 +80925,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -78012,6 +81167,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -78281,6 +81440,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -78462,6 +81625,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopAddressNotAssigned
@@ -78621,6 +81788,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -78876,6 +82047,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopAddressNotAssigned
@@ -79064,8 +82239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Whether to enable flow logging for this subnetwork. If this field is not
  *  explicitly set, it will not appear in get listings. If not set the default
  *  behavior is determined by the org policy, if there is no org policy
- *  specified, then it will default to disabled. This field isn't supported with
- *  the purpose field set to INTERNAL_HTTPS_LOAD_BALANCER.
+ *  specified, then it will default to disabled. This field isn't supported if
+ *  the subnet purpose field is set to REGIONAL_MANAGED_PROXY.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -79194,12 +82369,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
 
 /**
- *  The purpose of the resource. This field can be either PRIVATE_RFC_1918 or
- *  INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to
- *  INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved
- *  for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to
- *  PRIVATE_RFC_1918. The enableFlowLogs field isn't supported with the purpose
- *  field set to INTERNAL_HTTPS_LOAD_BALANCER.
+ *  The purpose of the resource. This field can be either PRIVATE,
+ *  REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or
+ *  INTERNAL_HTTPS_LOAD_BALANCER. PRIVATE is the default purpose for
+ *  user-created subnets or subnets that are automatically created in auto mode
+ *  networks. A subnet with purpose set to REGIONAL_MANAGED_PROXY is a
+ *  user-created subnetwork that is reserved for regional Envoy-based load
+ *  balancers. A subnet with purpose set to PRIVATE_SERVICE_CONNECT is used to
+ *  publish services using Private Service Connect. A subnet with purpose set to
+ *  INTERNAL_HTTPS_LOAD_BALANCER is a proxy-only subnet that can be used only by
+ *  regional internal HTTP(S) load balancers. Note that REGIONAL_MANAGED_PROXY
+ *  is the preferred setting for all regional Envoy load balancers. If
+ *  unspecified, the subnet purpose defaults to PRIVATE. The enableFlowLogs
+ *  field isn't supported if the subnet purpose field is set to
+ *  REGIONAL_MANAGED_PROXY.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer Subnet
@@ -79226,11 +82409,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The role of subnetwork. Currently, this field is only used when purpose =
- *  INTERNAL_HTTPS_LOAD_BALANCER. The value can be set to ACTIVE or BACKUP. An
- *  ACTIVE subnetwork is one that is currently being used for Internal HTTP(S)
- *  Load Balancing. A BACKUP subnetwork is one that is ready to be promoted to
- *  ACTIVE or is currently draining. This field can be updated with a patch
- *  request.
+ *  REGIONAL_MANAGED_PROXY. The value can be set to ACTIVE or BACKUP. An ACTIVE
+ *  subnetwork is one that is currently being used for Envoy-based load
+ *  balancers in a region. A BACKUP subnetwork is one that is ready to be
+ *  promoted to ACTIVE or is currently draining. This field can be updated with
+ *  a patch request.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_Role_Active The ACTIVE subnet that is
@@ -79380,6 +82563,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -79561,6 +82748,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_NextHopAddressNotAssigned
@@ -79682,7 +82873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Whether to enable flow logging for this subnetwork. If this field is not
  *  explicitly set, it will not appear in get listings. If not set the default
  *  behavior is determined by the org policy, if there is no org policy
- *  specified, then it will default to disabled.
+ *  specified, then it will default to disabled. Flow logging isn't supported if
+ *  the subnet purpose field is set to REGIONAL_MANAGED_PROXY.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -79828,6 +83020,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -80173,6 +83369,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -80323,6 +83523,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -80653,6 +83857,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -80803,6 +84011,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -80899,7 +84111,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest : GTLRObject
 
-/** URL of the Certificate Map to associate with this TargetHttpsProxy. */
+/**
+ *  URL of the Certificate Map to associate with this TargetHttpsProxy. Accepted
+ *  format is //certificatemanager.googleapis.com/projects/{project
+ *  }/locations/{location}/certificateMaps/{resourceName}.
+ */
 @property(nonatomic, copy, nullable) NSString *certificateMap;
 
 @end
@@ -80972,7 +84188,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  URL of a certificate map that identifies a certificate map associated with
  *  the given target proxy. This field can only be set for global target
- *  proxies. If set, sslCertificates will be ignored.
+ *  proxies. If set, sslCertificates will be ignored. Accepted format is
+ *  //certificatemanager.googleapis.com/projects/{project
+ *  }/locations/{location}/certificateMaps/{resourceName}.
  */
 @property(nonatomic, copy, nullable) NSString *certificateMap;
 
@@ -81208,6 +84426,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -81389,6 +84611,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -81662,6 +84888,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -81840,6 +85070,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -81990,6 +85224,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -82321,6 +85559,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -82518,6 +85760,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_NextHopAddressNotAssigned
@@ -82725,6 +85971,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -82842,7 +86092,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_TargetSslProxiesSetCertificateMapRequest : GTLRObject
 
-/** URL of the Certificate Map to associate with this TargetSslProxy. */
+/**
+ *  URL of the Certificate Map to associate with this TargetSslProxy. Accepted
+ *  format is //certificatemanager.googleapis.com/projects/{project
+ *  }/locations/{location}/certificateMaps/{resourceName}.
+ */
 @property(nonatomic, copy, nullable) NSString *certificateMap;
 
 @end
@@ -82894,7 +86148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  URL of a certificate map that identifies a certificate map associated with
  *  the given target proxy. This field can only be set for global target
- *  proxies. If set, sslCertificates will be ignored.
+ *  proxies. If set, sslCertificates will be ignored. Accepted format is
+ *  //certificatemanager.googleapis.com/projects/{project
+ *  }/locations/{location}/certificateMaps/{resourceName}.
  */
 @property(nonatomic, copy, nullable) NSString *certificateMap;
 
@@ -83057,6 +86313,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -83207,6 +86467,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -83509,6 +86773,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -83687,6 +86955,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -83820,6 +87092,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  A fingerprint for the labels being applied to this TargetVpnGateway, which
+ *  is essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet. To see the latest fingerprint,
+ *  make a get() request to retrieve a TargetVpnGateway.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGateway_Labels *labels;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -83865,6 +87158,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tunnels;
 
+@end
+
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_TargetVpnGateway_Labels : GTLRObject
 @end
 
 
@@ -83964,6 +87271,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -84145,6 +87456,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -84295,6 +87610,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -84800,6 +88119,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_NextHopAddressNotAssigned The
@@ -84991,6 +88314,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -85141,6 +88468,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -85394,6 +88725,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *pathPrefixRewrite;
 
+/**
+ *  If specified, the pattern rewrites the URL path (based on the :path header)
+ *  using the HTTP template syntax. A corresponding path_template_match must be
+ *  specified. Any template variables must exist in the path_template_match
+ *  field. - -At least one variable must be specified in the path_template_match
+ *  field - You can omit variables from the rewritten URL - The * and **
+ *  operators cannot be matched unless they have a corresponding variable name -
+ *  e.g. {format=*} or {var=**}. For example, a path_template_match of
+ *  /static/{format=**} could be rewritten as /static/content/{format} to prefix
+ *  /content to the URL. Variables can also be re-ordered in a rewrite, so that
+ *  /{country}/{format}/{suffix=**} can be rewritten as
+ *  /content/{format}/{country}/{suffix}. At least one non-empty
+ *  routeRules[].matchRules[].path_template_match is required. Only one of
+ *  path_prefix_rewrite or path_template_rewrite may be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *pathTemplateRewrite;
+
 @end
 
 
@@ -85436,12 +88784,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The purpose of the resource. This field can be either PRIVATE_RFC_1918 or
- *  INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to
- *  INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved
- *  for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to
- *  PRIVATE_RFC_1918. The enableFlowLogs field isn't supported with the purpose
- *  field set to INTERNAL_HTTPS_LOAD_BALANCER.
+ *  The purpose of the resource. This field can be either PRIVATE,
+ *  REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or
+ *  INTERNAL_HTTPS_LOAD_BALANCER. PRIVATE is the default purpose for
+ *  user-created subnets or subnets that are automatically created in auto mode
+ *  networks. A subnet with purpose set to REGIONAL_MANAGED_PROXY is a
+ *  user-created subnetwork that is reserved for regional Envoy-based load
+ *  balancers. A subnet with purpose set to PRIVATE_SERVICE_CONNECT is used to
+ *  publish services using Private Service Connect. A subnet with purpose set to
+ *  INTERNAL_HTTPS_LOAD_BALANCER is a proxy-only subnet that can be used only by
+ *  regional internal HTTP(S) load balancers. Note that REGIONAL_MANAGED_PROXY
+ *  is the preferred setting for all regional Envoy load balancers. If
+ *  unspecified, the subnet purpose defaults to PRIVATE. The enableFlowLogs
+ *  field isn't supported if the subnet purpose field is set to
+ *  REGIONAL_MANAGED_PROXY.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_InternalHttpsLoadBalancer
@@ -85462,11 +88818,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The role of subnetwork. Currently, this field is only used when purpose =
- *  INTERNAL_HTTPS_LOAD_BALANCER. The value can be set to ACTIVE or BACKUP. An
- *  ACTIVE subnetwork is one that is currently being used for Internal HTTP(S)
- *  Load Balancing. A BACKUP subnetwork is one that is ready to be promoted to
- *  ACTIVE or is currently draining. This field can be updated with a patch
- *  request.
+ *  REGIONAL_MANAGED_PROXY. The value can be set to ACTIVE or BACKUP. An ACTIVE
+ *  subnetwork is one that is currently being used for Envoy-based load
+ *  balancers in a region. A BACKUP subnetwork is one that is ready to be
+ *  promoted to ACTIVE or is currently draining. This field can be updated with
+ *  a patch request.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_UsableSubnetwork_Role_Active The ACTIVE subnet that
@@ -85594,6 +88950,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -85931,6 +89291,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -86228,6 +89592,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -86408,6 +89776,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopAddressNotAssigned
@@ -86567,6 +89939,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -86723,7 +90099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The peer gateway interface this VPN tunnel is connected to, the peer gateway
- *  could either be an external VPN gateway or GCP VPN gateway.
+ *  could either be an external VPN gateway or a Google Cloud VPN gateway.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -86737,8 +90113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  A VPN connection contains all VPN tunnels connected from this VpnGateway to
- *  the same peer gateway. The peer gateway could either be a external VPN
- *  gateway or GCP VPN gateway.
+ *  the same peer gateway. The peer gateway could either be an external VPN
+ *  gateway or a Google Cloud VPN gateway.
  */
 @interface GTLRCompute_VpnGatewayStatusVpnConnection : GTLRObject
 
@@ -86847,6 +90223,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Output Only] Type of resource. Always compute#vpnTunnel for VPN tunnels.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A fingerprint for the labels being applied to this VpnTunnel, which is
+ *  essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet. To see the latest fingerprint,
+ *  make a get() request to retrieve a VpnTunnel.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnTunnel_Labels *labels;
 
 /**
  *  Local traffic selector to use when establishing the VPN tunnel with the peer
@@ -87004,6 +90401,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_VpnTunnel_Labels : GTLRObject
+@end
+
+
+/**
  *  GTLRCompute_VpnTunnelAggregatedList
  */
 @interface GTLRCompute_VpnTunnelAggregatedList : GTLRObject
@@ -87097,6 +90508,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -87277,6 +90692,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_NextHopAddressNotAssigned
@@ -87425,6 +90844,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
@@ -87702,6 +91125,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_NextHopAddressNotAssigned
@@ -87967,6 +91394,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_ZoneList_Warning_Code_ListOverheadQuotaExceed
+ *        Resource can't be retrieved due to list overhead quota exceed which
+ *        captures the amount of resources filtered out by user-defined list
+ *        filter. (Value: "LIST_OVERHEAD_QUOTA_EXCEED")
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_MissingTypeDependency A
  *        resource depends on a missing type (Value: "MISSING_TYPE_DEPENDENCY")
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_NextHopAddressNotAssigned The

@@ -176,6 +176,16 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_Running = @"R
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_Succeeded = @"SUCCEEDED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1Job.trigger
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_RunRequest = @"RUN_REQUEST";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TaskConfig = @"TASK_CONFIG";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1JobEvent.executionTrigger
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_ExecutionTriggerUnspecified = @"EXECUTION_TRIGGER_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_RunRequest = @"RUN_REQUEST";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_TaskConfig = @"TASK_CONFIG";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1JobEvent.service
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_Service_Dataproc = @"DATAPROC";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_Service_ServiceUnspecified = @"SERVICE_UNSPECIFIED";
@@ -879,6 +889,25 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec
+@dynamic excludeFields, includeFields, rowFilter, samplingPercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields
+@dynamic fieldNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1027,7 +1056,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec
-@dynamic rules;
+@dynamic rowFilter, rules, samplingPercent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1077,8 +1106,19 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent
-@dynamic dataProfile, dataQuality, dataSource, endTime, jobId, message, scope,
-         specVersion, startTime, state, trigger, type;
+@dynamic dataProfile, dataProfileConfigs, dataQuality, dataQualityConfigs,
+         dataSource, endTime, jobId, message, scope, specVersion, startTime,
+         state, trigger, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs
+@dynamic rowFilterApplied, samplingPercent;
 @end
 
 
@@ -1089,6 +1129,16 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult
 @dynamic rowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs
+@dynamic rowFilterApplied, samplingPercent;
 @end
 
 
@@ -1426,8 +1476,22 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1Job
-@dynamic endTime, message, name, retryCount, service, serviceJob, startTime,
-         state, uid;
+@dynamic endTime, executionSpec, labels, message, name, retryCount, service,
+         serviceJob, startTime, state, trigger, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1437,8 +1501,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1JobEvent
-@dynamic endTime, jobId, message, retries, service, serviceJob, startTime,
-         state, type;
+@dynamic endTime, executionTrigger, jobId, message, retries, service,
+         serviceJob, startTime, state, type;
 @end
 
 
@@ -1929,6 +1993,35 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest
+@dynamic args, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

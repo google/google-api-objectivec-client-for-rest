@@ -1073,10 +1073,10 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 @dynamic appRestrictionsSchema, appTracks, appVersion, authorName,
          availableCountries, availableTracks, category, contentRating,
          descriptionProperty, detailsUrl, distributionChannel, features,
-         iconUrl, lastUpdatedTimestampMillis, minAndroidSdkVersion, permissions,
-         productId, productPricing, recentChanges, requiresContainerApp,
-         screenshotUrls, signingCertificate, smallIconUrl, title,
-         workDetailsUrl;
+         fullDescription, iconUrl, lastUpdatedTimestampMillis,
+         minAndroidSdkVersion, permissions, productId, productPricing,
+         recentChanges, requiresContainerApp, screenshotUrls,
+         signingCertificate, smallIconUrl, title, workDetailsUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

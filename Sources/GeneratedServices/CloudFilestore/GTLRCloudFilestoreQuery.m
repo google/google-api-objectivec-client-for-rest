@@ -285,6 +285,33 @@
 
 @end
 
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_RevertInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revert";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.revert";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsCreate
 
 @dynamic parent, snapshotId;

@@ -41,7 +41,7 @@
 
 @implementation GTLRDataCatalogQuery_EntriesLookup
 
-@dynamic fullyQualifiedName, linkedResource, sqlResource;
+@dynamic fullyQualifiedName, linkedResource, location, project, sqlResource;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/entries:lookup";

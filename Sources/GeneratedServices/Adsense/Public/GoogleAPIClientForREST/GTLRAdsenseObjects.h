@@ -454,7 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *reportingDimensionId;
 
 /**
- *  State of the ad unit.
+ *  Required. State of the ad unit.
  *
  *  Likely values:
  *    @arg @c kGTLRAdsense_AdUnit_State_Active Ad unit has been activated by the

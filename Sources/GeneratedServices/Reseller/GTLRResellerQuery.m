@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// action
+NSString * const kGTLRResellerActionActionUnspecified = @"actionUnspecified";
+NSString * const kGTLRResellerActionBuy               = @"buy";
+NSString * const kGTLRResellerActionSwitch            = @"switch";
+
 // deletionType
 NSString * const kGTLRResellerDeletionTypeCancel               = @"cancel";
 NSString * const kGTLRResellerDeletionTypeDeletionTypeUndefined = @"deletion_type_undefined";
@@ -340,7 +345,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect     = @"transfer_to_d
 
 @implementation GTLRResellerQuery_SubscriptionsInsert
 
-@dynamic customerAuthToken, customerId;
+@dynamic action, customerAuthToken, customerId, sourceSkuId;
 
 + (instancetype)queryWithObject:(GTLRReseller_Subscription *)object
                      customerId:(NSString *)customerId {

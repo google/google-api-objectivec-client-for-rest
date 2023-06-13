@@ -727,6 +727,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *privateInstance;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. Deprecated. Use tenant_project_id instead to extract the tenant
  *  project ID.
  */
@@ -974,7 +981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDataFusion_Location : GTLRObject
 

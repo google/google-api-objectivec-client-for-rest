@@ -16,6 +16,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// capability
+NSString * const kGTLRWebfontsCapabilityCapabilityUnspecified = @"CAPABILITY_UNSPECIFIED";
+NSString * const kGTLRWebfontsCapabilityVf                    = @"VF";
+NSString * const kGTLRWebfontsCapabilityWoff2                 = @"WOFF2";
+
 // sort
 NSString * const kGTLRWebfontsSortAlpha         = @"ALPHA";
 NSString * const kGTLRWebfontsSortDate          = @"DATE";
@@ -36,7 +41,15 @@ NSString * const kGTLRWebfontsSortTrending      = @"TRENDING";
 
 @implementation GTLRWebfontsQuery_WebfontsList
 
-@dynamic sort;
+@dynamic capability, family, sort, subset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capability" : [NSString class],
+    @"family" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/webfonts";

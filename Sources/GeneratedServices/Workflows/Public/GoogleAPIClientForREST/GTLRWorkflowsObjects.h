@@ -193,7 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRWorkflows_Location : GTLRObject
 
@@ -492,8 +492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *  Output only. The revision of the workflow. A new revision of a workflow is
  *  created as a result of updating the following properties of a workflow: -
  *  Service account - Workflow code to be executed The format is "000001-a4d",
- *  where the first 6 characters define the zero-padded revision ordinal number.
- *  They are followed by a hyphen and 3 hexadecimal random characters.
+ *  where the first six characters define the zero-padded revision ordinal
+ *  number. They are followed by a hyphen and three hexadecimal random
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 

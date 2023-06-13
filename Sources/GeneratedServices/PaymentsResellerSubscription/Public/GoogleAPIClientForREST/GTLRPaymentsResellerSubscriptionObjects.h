@@ -918,7 +918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload : GTLRObject
 
-/** Payload specific to Google One products. */
+/** Product-specific payloads. Payload specific to Google One products. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload *googleOnePayload;
 
 /** Payload specific to Youtube products. */
@@ -1141,7 +1141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, copy, nullable) NSString *processingState;
 
 /**
- *  Required. Deprecated: consider using `line_items` as the input. Required.
+ *  Optional. Deprecated: consider using `line_items` as the input. Required.
  *  Resource name that identifies the purchased products. The format will be
  *  'partners/{partner_id}/products/{product_id}'.
  */
@@ -1299,6 +1299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  same as createTime if no free trial promotion is specified.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lineItemFreeTrialEndTime;
+
+/**
+ *  Output only. A unique index of the subscription line item.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineItemIndex;
 
 /**
  *  Optional. The promotions applied on the line item. It can be: - a free trial
@@ -1479,6 +1486,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Payload specific to Youtube products.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload : GTLRObject
+
+/** Output only. The access expiration time for this line item. */
+@property(nonatomic, strong, nullable) GTLRDateTime *accessEndTime;
 
 /** The list of eligibility_ids which are applicable for the line item. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *partnerEligibilityIds;

@@ -364,7 +364,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Inserts a resource containing information about a database inside a Cloud
- *  SQL instance.
+ *  SQL instance. **Note:** You can't modify the default character set and
+ *  collation.
  *
  *  Method: sql.databases.insert
  *
@@ -384,7 +385,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Inserts a resource containing information about a database inside a Cloud
- *  SQL instance.
+ *  SQL instance. **Note:** You can't modify the default character set and
+ *  collation.
  *
  *  @param object The @c GTLRSQLAdmin_Database to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -1314,6 +1316,38 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Cancels an instance operation that has been performed on an instance.
+ *
+ *  Method: sql.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_OperationsCancel : GTLRSQLAdminQuery
+
+/** Instance operation ID. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Empty.
+ *
+ *  Cancels an instance operation that has been performed on an instance.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param operation Instance operation ID.
+ *
+ *  @return GTLRSQLAdminQuery_OperationsCancel
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                       operation:(NSString *)operation;
 
 @end
 

@@ -1075,6 +1075,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_LatLngBounds *sequenceBounds;
 
 /**
+ *  Output only. Set if a Photo within the PhotoSequence contains a takedown.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *takedown;
+
+/**
  *  Input only. Required when creating photo sequence. The resource name where
  *  the bytes of the photo sequence (in the form of video) are uploaded.
  */

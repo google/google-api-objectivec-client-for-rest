@@ -12,6 +12,7 @@
 // Constants
 
 // GTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata.operationType
+NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 

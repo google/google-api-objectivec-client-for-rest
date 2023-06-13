@@ -333,7 +333,7 @@
 
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic customRulesBucket, filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

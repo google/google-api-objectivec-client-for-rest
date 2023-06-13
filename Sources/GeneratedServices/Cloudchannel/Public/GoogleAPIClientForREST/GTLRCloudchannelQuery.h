@@ -2269,6 +2269,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @interface GTLRCloudchannelQuery_AccountsCustomersListPurchasableOffers : GTLRCloudchannelQuery
 
 /**
+ *  Optional. Resource name of the new target Billing Account. Provide this
+ *  Billing Account when setting up billing for a trial subscription. Format:
+ *  accounts/{account_id}/billing_accounts/{billing_account_id}. This field is
+ *  only relevant for multi-currency accounts. It should be left empty for
+ *  single currency accounts.
+ */
+@property(nonatomic, copy, nullable) NSString *changeOfferPurchaseBillingAccount;
+
+/**
  *  Required. Resource name of the entitlement. Format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
@@ -2280,6 +2289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  products/{product_id}/skus/{sku_id}
  */
 @property(nonatomic, copy, nullable) NSString *changeOfferPurchaseNewSku;
+
+/**
+ *  Optional. Billing account that the result should be restricted to. Format:
+ *  accounts/{account_id}/billing_accounts/{billing_account_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *createEntitlementPurchaseBillingAccount;
 
 /**
  *  Required. SKU that the result should be restricted to. Format:
@@ -2519,6 +2534,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ProvisionCloudIdentityRequest *)object
                        customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Lists the billing accounts that are eligible to purchase particular SKUs for
+ *  a given customer. Possible error codes: * PERMISSION_DENIED: The customer
+ *  doesn't belong to the reseller. * INVALID_ARGUMENT: Required request
+ *  parameters are missing or invalid. Return value: Based on the provided list
+ *  of SKUs, returns a list of SKU groups that must be purchased using the same
+ *  billing account and the billing accounts eligible to purchase each SKU
+ *  group.
+ *
+ *  Method: cloudchannel.accounts.customers.queryEligibleBillingAccounts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersQueryEligibleBillingAccounts : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the customer to list eligible billing
+ *  accounts for. Format: accounts/{account_id}/customers/{customer_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Required. List of SKUs to list eligible billing accounts for. At least one
+ *  SKU is required. Format: products/{product_id}/skus/{sku_id}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *skus;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1QueryEligibleBillingAccountsResponse.
+ *
+ *  Lists the billing accounts that are eligible to purchase particular SKUs for
+ *  a given customer. Possible error codes: * PERMISSION_DENIED: The customer
+ *  doesn't belong to the reseller. * INVALID_ARGUMENT: Required request
+ *  parameters are missing or invalid. Return value: Based on the provided list
+ *  of SKUs, returns a list of SKU groups that must be purchased using the same
+ *  billing account and the billing accounts eligible to purchase each SKU
+ *  group.
+ *
+ *  @param customer Required. The resource name of the customer to list eligible
+ *    billing accounts for. Format:
+ *    accounts/{account_id}/customers/{customer_id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersQueryEligibleBillingAccounts
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
 
 @end
 
@@ -3088,6 +3153,135 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1RunReportJobRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the Billable SKUs in a given SKU group. Possible error codes:
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried for are different, or the account doesn't exist. INVALID_ARGUMENT:
+ *  Missing or invalid required parameters in the request. INTERNAL: Any
+ *  non-user error related to technical issue in the backend. In this case,
+ *  contact cloud channel support. Return Value: If successful, the BillableSku
+ *  resources. The data for each resource is displayed in the ascending order
+ *  of: * BillableSku.service_display_name * BillableSku.sku_display_name If
+ *  unsuccessful, returns an error.
+ *
+ *  Method: cloudchannel.accounts.skuGroups.billableSkus.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsSkuGroupsBillableSkusList : GTLRCloudchannelQuery
+
+/**
+ *  Optional. The maximum number of SKUs to return. The service may return fewer
+ *  than this value. If unspecified, returns a maximum of 100000 SKUs. The
+ *  maximum value is 100000; values above 100000 will be coerced to 100000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results beyond the first page.
+ *  Obtained through ListSkuGroupBillableSkus.next_page_token of the previous
+ *  CloudChannelService.ListSkuGroupBillableSkus call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the SKU group. Format:
+ *  accounts/{account}/skuGroups/{sku_group}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupBillableSkusResponse.
+ *
+ *  Lists the Billable SKUs in a given SKU group. Possible error codes:
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried for are different, or the account doesn't exist. INVALID_ARGUMENT:
+ *  Missing or invalid required parameters in the request. INTERNAL: Any
+ *  non-user error related to technical issue in the backend. In this case,
+ *  contact cloud channel support. Return Value: If successful, the BillableSku
+ *  resources. The data for each resource is displayed in the ascending order
+ *  of: * BillableSku.service_display_name * BillableSku.sku_display_name If
+ *  unsuccessful, returns an error.
+ *
+ *  @param parent Required. Resource name of the SKU group. Format:
+ *    accounts/{account}/skuGroups/{sku_group}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsSkuGroupsBillableSkusList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the Rebilling supported SKU groups the account is authorized to sell.
+ *  Reference: https://cloud.google.com/skus/sku-groups Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different, or the account doesn't exist. * INTERNAL: Any
+ *  non-user error related to technical issues in the backend. In this case,
+ *  contact Cloud Channel support. Return Value: If successful, the SkuGroup
+ *  resources. The data for each resource is displayed in the alphabetical order
+ *  of SKU group display name. The data for each resource is displayed in the
+ *  ascending order of SkuGroup.display_name If unsuccessful, returns an error.
+ *
+ *  Method: cloudchannel.accounts.skuGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsSkuGroupsList : GTLRCloudchannelQuery
+
+/**
+ *  Optional. The maximum number of SKU groups to return. The service may return
+ *  fewer than this value. If unspecified, returns a maximum of 1000 SKU groups.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results beyond the first page.
+ *  Obtained through ListSkuGroups.next_page_token of the previous
+ *  CloudChannelService.ListSkuGroups call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the account from which to list SKU groups.
+ *  Parent uses the format: accounts/{account}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupsResponse.
+ *
+ *  Lists the Rebilling supported SKU groups the account is authorized to sell.
+ *  Reference: https://cloud.google.com/skus/sku-groups Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different, or the account doesn't exist. * INTERNAL: Any
+ *  non-user error related to technical issues in the backend. In this case,
+ *  contact Cloud Channel support. Return Value: If successful, the SkuGroup
+ *  resources. The data for each resource is displayed in the alphabetical order
+ *  of SKU group display name. The data for each resource is displayed in the
+ *  ascending order of SkuGroup.display_name If unsuccessful, returns an error.
+ *
+ *  @param parent Required. The resource name of the account from which to list
+ *    SKU groups. Parent uses the format: accounts/{account}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsSkuGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

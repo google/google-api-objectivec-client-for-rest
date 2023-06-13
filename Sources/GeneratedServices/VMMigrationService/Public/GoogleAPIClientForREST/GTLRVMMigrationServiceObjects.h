@@ -20,6 +20,7 @@
 @class GTLRVMMigrationService_ApplianceVersion;
 @class GTLRVMMigrationService_AppliedLicense;
 @class GTLRVMMigrationService_AvailableUpdates;
+@class GTLRVMMigrationService_AwsDiskDetails;
 @class GTLRVMMigrationService_AwsSecurityGroup;
 @class GTLRVMMigrationService_AwsSourceDetails;
 @class GTLRVMMigrationService_AwsSourceDetails_MigrationResourcesUserTags;
@@ -1076,6 +1077,31 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  The details of an AWS instance disk.
+ */
+@interface GTLRVMMigrationService_AwsDiskDetails : GTLRObject
+
+/**
+ *  The ordinal number of the disk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskNumber;
+
+/**
+ *  Size in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/** AWS volume ID. */
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+@end
+
+
+/**
  *  AwsSecurityGroup describes a security group of an AWS VM.
  */
 @interface GTLRVMMigrationService_AwsSecurityGroup : GTLRObject
@@ -1176,6 +1202,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
+
+/** The disks attached to the source VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AwsDiskDetails *> *disks;
 
 /**
  *  The firmware type of the source VM.
@@ -2475,7 +2504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRVMMigrationService_Location : GTLRObject
 
@@ -3524,6 +3553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  in a GET operation.
  */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/** The hostname of the vcenter. */
+@property(nonatomic, copy, nullable) NSString *resolvedVcenterHost;
 
 /** The thumbprint representing the certificate for the vcenter. */
 @property(nonatomic, copy, nullable) NSString *thumbprint;

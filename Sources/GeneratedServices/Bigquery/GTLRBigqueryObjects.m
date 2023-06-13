@@ -83,6 +83,7 @@ NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified =
 // GTLRBigquery_Model.modelType
 NSString * const kGTLRBigquery_Model_ModelType_Arima           = @"ARIMA";
 NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus       = @"ARIMA_PLUS";
+NSString * const kGTLRBigquery_Model_ModelType_ArimaPlusXreg   = @"ARIMA_PLUS_XREG";
 NSString * const kGTLRBigquery_Model_ModelType_Autoencoder     = @"AUTOENCODER";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier = @"AUTOML_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
@@ -97,10 +98,19 @@ NSString * const kGTLRBigquery_Model_ModelType_LinearRegression = @"LINEAR_REGRE
 NSString * const kGTLRBigquery_Model_ModelType_LogisticRegression = @"LOGISTIC_REGRESSION";
 NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization = @"MATRIX_FACTORIZATION";
 NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_Model_ModelType_Onnx            = @"ONNX";
 NSString * const kGTLRBigquery_Model_ModelType_Pca             = @"PCA";
 NSString * const kGTLRBigquery_Model_ModelType_RandomForestClassifier = @"RANDOM_FOREST_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_RandomForestRegressor = @"RANDOM_FOREST_REGRESSOR";
 NSString * const kGTLRBigquery_Model_ModelType_Tensorflow      = @"TENSORFLOW";
+NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite  = @"TENSORFLOW_LITE";
+NSString * const kGTLRBigquery_Model_ModelType_Xgboost         = @"XGBOOST";
+
+// GTLRBigquery_RemoteModelInfo.remoteServiceType
+NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1 = @"CLOUD_AI_NATURAL_LANGUAGE_V1";
+NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiTranslateV3 = @"CLOUD_AI_TRANSLATE_V3";
+NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiVisionV1 = @"CLOUD_AI_VISION_V1";
+NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified = @"REMOTE_SERVICE_TYPE_UNSPECIFIED";
 
 // GTLRBigquery_Routine.determinismLevel
 NSString * const kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified = @"DETERMINISM_LEVEL_UNSPECIFIED";
@@ -116,6 +126,7 @@ NSString * const kGTLRBigquery_Routine_Language_Scala          = @"SCALA";
 NSString * const kGTLRBigquery_Routine_Language_Sql            = @"SQL";
 
 // GTLRBigquery_Routine.routineType
+NSString * const kGTLRBigquery_Routine_RoutineType_AggregateFunction = @"AGGREGATE_FUNCTION";
 NSString * const kGTLRBigquery_Routine_RoutineType_Procedure   = @"PROCEDURE";
 NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction = @"SCALAR_FUNCTION";
@@ -1190,8 +1201,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, avroOptions, bigtableOptions, compression, connectionId,
          csvOptions, decimalTargetTypes, googleSheetsOptions,
-         hivePartitioningOptions, ignoreUnknownValues, maxBadRecords,
-         metadataCacheMode, objectMetadata, parquetOptions,
+         hivePartitioningOptions, ignoreUnknownValues, jsonOptions,
+         maxBadRecords, metadataCacheMode, objectMetadata, parquetOptions,
          referenceFileSchemaUri, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1304,7 +1315,15 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_HivePartitioningOptions
-@dynamic mode, requirePartitionFilter, sourceUriPrefix;
+@dynamic fields, mode, requirePartitionFilter, sourceUriPrefix;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1831,6 +1850,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_JsonOptions
+//
+
+@implementation GTLRBigquery_JsonOptions
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ListModelsResponse
 //
 
@@ -1949,7 +1978,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          encryptionConfiguration, ETag, expirationTime, featureColumns,
          friendlyName, hparamSearchSpaces, hparamTrials, labelColumns, labels,
          lastModifiedTime, location, modelReference, modelType, optimalTrialIds,
-         trainingRuns;
+         remoteModelInfo, trainingRuns;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2367,6 +2396,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_RemoteModelInfo
+//
+
+@implementation GTLRBigquery_RemoteModelInfo
+@dynamic connection, endpoint, maxBatchingRows, remoteServiceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Routine
 //
 
@@ -2719,26 +2758,18 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          ETag, expirationTime, externalDataConfiguration, friendlyName,
          identifier, kind, labels, lastModifiedTime, location, materializedView,
          maxStaleness, model, numActiveLogicalBytes, numActivePhysicalBytes,
-         numLongTermLogicalBytes, numLongTermPhysicalBytes, numPartitions,
+         numBytes, numLongTermBytes, numLongTermLogicalBytes,
+         numLongTermPhysicalBytes, numPartitions, numPhysicalBytes, numRows,
          numTimeTravelPhysicalBytes, numTotalLogicalBytes,
-         numTotalPhysicalBytes, numBytes, numLongTermBytes, numPhysicalBytes,
-         numRows, rangePartitioning, requirePartitionFilter, schema, selfLink,
-         snapshotDefinition, streamingBuffer, tableReference, timePartitioning,
-         type, view;
+         numTotalPhysicalBytes, rangePartitioning, requirePartitionFilter,
+         schema, selfLink, snapshotDefinition, streamingBuffer,
+         tableConstraints, tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"ETag" : @"etag",
-    @"identifier" : @"id",
-    @"numActiveLogicalBytes" : @"num_active_logical_bytes",
-    @"numActivePhysicalBytes" : @"num_active_physical_bytes",
-    @"numLongTermLogicalBytes" : @"num_long_term_logical_bytes",
-    @"numLongTermPhysicalBytes" : @"num_long_term_physical_bytes",
-    @"numPartitions" : @"num_partitions",
-    @"numTimeTravelPhysicalBytes" : @"num_time_travel_physical_bytes",
-    @"numTotalLogicalBytes" : @"num_total_logical_bytes",
-    @"numTotalPhysicalBytes" : @"num_total_physical_bytes"
+    @"identifier" : @"id"
   };
   return map;
 }
@@ -2767,6 +2798,80 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_TableCell
 @dynamic v;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableConstraints
+//
+
+@implementation GTLRBigquery_TableConstraints
+@dynamic foreignKeys, primaryKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"foreignKeys" : [GTLRBigquery_TableConstraints_ForeignKeys_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableConstraints_ForeignKeys_Item
+//
+
+@implementation GTLRBigquery_TableConstraints_ForeignKeys_Item
+@dynamic columnReferences, name, referencedTable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnReferences" : [GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableConstraints_PrimaryKey
+//
+
+@implementation GTLRBigquery_TableConstraints_PrimaryKey
+@dynamic columns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item
+//
+
+@implementation GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item
+@dynamic referencedColumn, referencingColumn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable
+//
+
+@implementation GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable
+@dynamic datasetId, projectId, tableId;
 @end
 
 
@@ -3081,25 +3186,26 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_TrainingOptions
-@dynamic adjustStepChanges, autoArima, autoArimaMaxOrder, batchSize,
-         boosterType, calculatePValues, cleanSpikesAndDips, colorSpace,
-         colsampleBylevel, colsampleBynode, colsampleBytree, dartNormalizeType,
-         dataFrequency, dataSplitColumn, dataSplitEvalFraction, dataSplitMethod,
+@dynamic adjustStepChanges, approxGlobalFeatureContrib, autoArima,
+         autoArimaMaxOrder, autoArimaMinOrder, batchSize, boosterType,
+         calculatePValues, cleanSpikesAndDips, colorSpace, colsampleBylevel,
+         colsampleBynode, colsampleBytree, dartNormalizeType, dataFrequency,
+         dataSplitColumn, dataSplitEvalFraction, dataSplitMethod,
          decomposeTimeSeries, distanceType, dropout, earlyStop,
          enableGlobalExplain, feedbackType, hiddenUnits, holidayRegion, horizon,
          hparamTuningObjectives, includeDrift, initialLearnRate,
-         inputLabelColumns, integratedGradientsNumSteps, itemColumn,
-         kmeansInitializationColumn, kmeansInitializationMethod,
+         inputLabelColumns, instanceWeightColumn, integratedGradientsNumSteps,
+         itemColumn, kmeansInitializationColumn, kmeansInitializationMethod,
          l1Regularization, l2Regularization, labelClassWeights, learnRate,
          learnRateStrategy, lossType, maxIterations, maxParallelTrials,
          maxTimeSeriesLength, maxTreeDepth, minRelativeProgress, minSplitLoss,
          minTimeSeriesLength, minTreeChildWeight, modelUri, nonSeasonalOrder,
          numClusters, numFactors, numParallelTree, numTrials,
          optimizationStrategy, preserveInputStructs, sampledShapleyNumPaths,
-         subsample, timeSeriesDataColumn, timeSeriesIdColumn,
+         subsample, tfVersion, timeSeriesDataColumn, timeSeriesIdColumn,
          timeSeriesIdColumns, timeSeriesLengthFraction,
          timeSeriesTimestampColumn, treeMethod, trendSmoothingWindowSize,
-         userColumn, walsAlpha, warmStart;
+         userColumn, walsAlpha, warmStart, xgboostVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

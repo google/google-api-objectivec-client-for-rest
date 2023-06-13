@@ -36,6 +36,12 @@ NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
+// GTLRFirestore_GoogleFirestoreAdminV1Backup.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Creating = @"CREATING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_NotAvailable = @"NOT_AVAILABLE";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Ready = @"READY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified = @"APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Disabled = @"DISABLED";
@@ -46,6 +52,16 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_C
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups = @"OPTIMISTIC_WITH_ENTITY_GROUPS";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Database.deleteProtectionState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionDisabled = @"DELETE_PROTECTION_DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionEnabled = @"DELETE_PROTECTION_ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionStateUnspecified = @"DELETE_PROTECTION_STATE_UNSPECIFIED";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Database.pointInTimeRecoveryEnablement
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryDisabled = @"POINT_IN_TIME_RECOVERY_DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnabled = @"POINT_IN_TIME_RECOVERY_ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnablementUnspecified = @"POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
@@ -132,6 +148,16 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_StateUnspe
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Add = @"ADD";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove = @"REMOVE";
+
+// GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence.day
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Friday = @"FRIDAY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Monday = @"MONDAY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Wednesday = @"WEDNESDAY";
 
 // GTLRFirestore_Order.direction
 NSString * const kGTLRFirestore_Order_Direction_Ascending      = @"ASCENDING";
@@ -303,6 +329,26 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_BeginTransactionResponse
 @dynamic transaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_BitSequence
+//
+
+@implementation GTLRFirestore_BitSequence
+@dynamic bitmap, padding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_BloomFilter
+//
+
+@implementation GTLRFirestore_BloomFilter
+@dynamic bits, hashCount;
 @end
 
 
@@ -546,7 +592,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ExistenceFilter
-@dynamic count, targetId;
+@dynamic count, targetId, unchangedNames;
 @end
 
 
@@ -593,12 +639,44 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1Backup
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1Backup
+@dynamic database, databaseUid, expireTime, name, snapshotTime, state, stats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule
+@dynamic createTime, dailyRecurrence, name, retention, updateTime,
+         weeklyRecurrence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1Database
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
-@dynamic appEngineIntegrationMode, concurrencyMode, createTime, ETag, keyPrefix,
-         locationId, name, type, uid, updateTime;
+@dynamic appEngineIntegrationMode, concurrencyMode, createTime,
+         deleteProtectionState, earliestVersionTime, ETag, keyPrefix,
+         locationId, name, pointInTimeRecoveryEnablement, type, uid, updateTime,
+         versionRetentionPeriod;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -633,7 +711,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest
-@dynamic collectionIds, namespaceIds, outputUriPrefix;
+@dynamic collectionIds, namespaceIds, outputUriPrefix, snapshotTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -792,6 +870,43 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1ListBackupSchedulesResponse
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ListBackupSchedulesResponse
+@dynamic backupSchedules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupSchedules" : [GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse
+@dynamic backups, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRFirestore_GoogleFirestoreAdminV1Backup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse
 //
 
@@ -873,6 +988,26 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest
+@dynamic backup, databaseId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1Stats
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1Stats
+@dynamic documentCount, indexCount, sizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1TtlConfig
 //
 
@@ -897,6 +1032,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence
+@dynamic day;
 @end
 
 
@@ -1372,7 +1517,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_Target
-@dynamic documents, once, query, readTime, resumeToken, targetId;
+@dynamic documents, expectedCount, once, query, readTime, resumeToken, targetId;
 @end
 
 

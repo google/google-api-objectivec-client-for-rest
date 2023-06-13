@@ -336,17 +336,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 
 
 /**
- *  Request message for Locations.AssociateLocationRequest.
- */
-@interface GTLRMyBusinessBusinessInformation_AssociateLocationRequest : GTLRObject
-
-/** The association to establish. If not set, it indicates no match. */
-@property(nonatomic, copy, nullable) NSString *placeId;
-
-@end
-
-
-/**
  *  A location attribute. Attributes provide additional information about a
  *  location. The attributes that can be set on a location may vary based on the
  *  properties of that location (for example, category). Available attributes
@@ -651,13 +640,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 /** The uri for this chain. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
-@end
-
-
-/**
- *  Request message for Locations.ClearLocationAssociationRequest.
- */
-@interface GTLRMyBusinessBusinessInformation_ClearLocationAssociationRequest : GTLRObject
 @end
 
 

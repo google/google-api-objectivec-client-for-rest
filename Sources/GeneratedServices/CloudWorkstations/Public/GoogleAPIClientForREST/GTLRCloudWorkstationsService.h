@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Workstations API (workstations/v1beta)
+// Description:
+//   Allows administrators to create managed developer environments in the
+//   cloud.
 // Documentation:
 //   https://cloud.google.com/workstations
 
@@ -36,6 +39,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudWorkstationsCloudPlatform;
 
 /**
  *  Service for executing Cloud Workstations API queries.
+ *
+ *  Allows administrators to create managed developer environments in the cloud.
  */
 @interface GTLRCloudWorkstationsService : GTLRService
 

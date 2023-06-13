@@ -518,6 +518,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Verifies that Cloud KMS can successfully connect to the external key manager
+ *  specified by an EkmConnection. If there is an error connecting to the EKM,
+ *  this method returns a FAILED_PRECONDITION status containing structured
+ *  information as described at
+ *  https://cloud.google.com/kms/docs/reference/ekm_errors.
+ *
+ *  Method: cloudkms.projects.locations.ekmConnections.verifyConnectivity
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsVerifyConnectivity : GTLRCloudKMSQuery
+
+/** Required. The name of the EkmConnection to verify. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_VerifyConnectivityResponse.
+ *
+ *  Verifies that Cloud KMS can successfully connect to the external key manager
+ *  specified by an EkmConnection. If there is an error connecting to the EKM,
+ *  this method returns a FAILED_PRECONDITION status containing structured
+ *  information as described at
+ *  https://cloud.google.com/kms/docs/reference/ekm_errors.
+ *
+ *  @param name Required. The name of the EkmConnection to verify.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsVerifyConnectivity
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Generate random bytes using the Cloud KMS randomness source in the provided
  *  location.
  *

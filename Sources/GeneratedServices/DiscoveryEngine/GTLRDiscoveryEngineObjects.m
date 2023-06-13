@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite.type
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Exclude = @"EXCLUDE";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Include = @"INCLUDE";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest.reconciliationMode
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest_ReconciliationMode_Full = @"FULL";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
@@ -66,7 +71,36 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog
-@dynamic context, importPayload, message, serviceContext, status;
+@dynamic context, importPayload, message, requestPayload, responsePayload,
+         serviceContext, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -107,6 +141,24 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation
 @dynamic functionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse
+@dynamic targetSites;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -178,6 +230,34 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsResponse
+@dynamic purgeCount, purgeSample;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"purgeSample" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema
 //
 
@@ -197,6 +277,17 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite
+@dynamic exactMatch, generatedUriPattern, name, providedUriPattern, type,
+         updateTime;
 @end
 
 
@@ -275,7 +366,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentInfo
-@dynamic identifier, name, promotionIds, quantity;
+@dynamic identifier, name, promotionIds, quantity, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -325,8 +416,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
-@dynamic bigquerySource, errorConfig, gcsSource, inlineSource,
-         reconciliationMode;
+@dynamic autoGenerateIds, bigquerySource, errorConfig, gcsSource, idField,
+         inlineSource, reconciliationMode;
 @end
 
 
@@ -481,6 +572,44 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPanelInfo
 @dynamic displayName, panelId, panelPosition, totalPanels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
+@dynamic filter, force;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsResponse
+@dynamic purgeCount, purgeSample;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"purgeSample" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -658,6 +787,124 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserInfo
 @dynamic userAgent, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsResponse
+@dynamic errorConfig, errorSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRDiscoveryEngine_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig
+@dynamic gcsPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsResponse
+@dynamic errorConfig, errorSamples, joinedEventsCount, unjoinedEventsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRDiscoveryEngine_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsResponse
+@dynamic purgeCount, purgeSample;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"purgeSample" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema
+@dynamic jsonSchema, name, structSchema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema_StructSchema
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema_StructSchema
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

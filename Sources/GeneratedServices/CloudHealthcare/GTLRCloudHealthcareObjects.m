@@ -553,7 +553,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyConfig
-@dynamic dicom, fhir, image, text;
+@dynamic dicom, fhir, image, text, useRegionalDataProcessing;
 @end
 
 
@@ -879,17 +879,28 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_FhirNotificationConfig
+//
+
+@implementation GTLRCloudHealthcare_FhirNotificationConfig
+@dynamic pubsubTopic, sendFullResource, sendPreviousResourceOnDelete;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_FhirStore
 //
 
 @implementation GTLRCloudHealthcare_FhirStore
 @dynamic complexDataTypeReferenceParsing, defaultSearchHandlingStrict,
          disableReferentialIntegrity, disableResourceVersioning,
-         enableUpdateCreate, labels, name, notificationConfig, streamConfigs,
-         validationConfig, version;
+         enableUpdateCreate, labels, name, notificationConfig,
+         notificationConfigs, streamConfigs, validationConfig, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"notificationConfigs" : [GTLRCloudHealthcare_FhirNotificationConfig class],
     @"streamConfigs" : [GTLRCloudHealthcare_StreamConfig class]
   };
   return map;
@@ -2234,10 +2245,12 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_TextConfig
-@dynamic transformations;
+@dynamic additionalTransformations, excludeInfoTypes, transformations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalTransformations" : [GTLRCloudHealthcare_InfoTypeTransformation class],
+    @"excludeInfoTypes" : [NSString class],
     @"transformations" : [GTLRCloudHealthcare_InfoTypeTransformation class]
   };
   return map;

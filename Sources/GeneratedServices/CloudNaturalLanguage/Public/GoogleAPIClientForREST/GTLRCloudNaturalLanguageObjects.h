@@ -1704,6 +1704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCate
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
+/** Harmful and sensitive categories identified in the input document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_ClassificationCategory *> *moderationCategories;
+
 /**
  *  Sentences in the input document. Populated if the user enables
  *  AnnotateTextRequest.Features.extract_syntax.
@@ -1732,10 +1735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCate
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/**
- *  The name of the category representing the document, from the [predefined
- *  taxonomy](https://cloud.google.com/natural-language/docs/categories).
- */
+/** The name of the category representing the document. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2216,6 +2216,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCate
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *extractSyntax;
+
+/**
+ *  Moderate the document for harmful and sensitive categories.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *moderateText;
+
+@end
+
+
+/**
+ *  The document moderation request message.
+ */
+@interface GTLRCloudNaturalLanguage_ModerateTextRequest : GTLRObject
+
+/** Required. Input document. */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
+
+@end
+
+
+/**
+ *  The document moderation response message.
+ */
+@interface GTLRCloudNaturalLanguage_ModerateTextResponse : GTLRObject
+
+/** Harmful and sensitive categories representing the input document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_ClassificationCategory *> *moderationCategories;
 
 @end
 

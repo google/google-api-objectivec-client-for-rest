@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Migration Center API (migrationcenter/v1alpha1)
+// Description:
+//   A unified platform that helps you accelerate your end-to-end cloud journey
+//   from your current on-premises or cloud environments to Google Cloud.
 // Documentation:
 //   https://cloud.google.com/migration-center
 
@@ -51,6 +54,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard;
  *  Value: "ASSET_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewUnspecified;
+/**
+ *  Include basic frame data, but not the full contents.
+ *
+ *  Value: "ERROR_FRAME_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewBasic;
+/**
+ *  Include everything.
+ *
+ *  Value: "ERROR_FRAME_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewFull;
+/**
+ *  Value is unset. The system will fallback to the default value.
+ *
+ *  Value: "ERROR_FRAME_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewUnspecified;
 /**
  *  The import job view includes basic metadata of an import job. This view does
  *  not include payload information.
@@ -201,7 +222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @end
 
 /**
- *  Deletes an asset. Deprecated: Please use BatchDeleteAssets API instead.
+ *  Deletes an asset.
  *
  *  Method: migrationcenter.projects.locations.assets.delete
  *
@@ -229,9 +250,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *  Fetches a @c GTLRMigrationCenterAPI_Empty.
  *
- *  Deletes an asset. Deprecated: Please use BatchDeleteAssets API instead.
+ *  Deletes an asset.
  *
  *  @param name Required. Name of the resource.
  *
@@ -351,8 +372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @end
 
 /**
- *  Updates the parameters of an asset. Deprecated: Please use BatchUpdateAssets
- *  API instead.
+ *  Updates the parameters of an asset.
  *
  *  Method: migrationcenter.projects.locations.assets.patch
  *
@@ -391,10 +411,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *  Fetches a @c GTLRMigrationCenterAPI_Asset.
  *
- *  Updates the parameters of an asset. Deprecated: Please use BatchUpdateAssets
- *  API instead.
+ *  Updates the parameters of an asset.
  *
  *  @param object The @c GTLRMigrationCenterAPI_Asset to include in the query.
  *  @param name Output only. The full name of the asset.
@@ -2126,6 +2145,106 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of an error frame.
+ *
+ *  Method: migrationcenter.projects.locations.sources.errorFrames.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesGet : GTLRMigrationCenterAPIQuery
+
+/**
+ *  Required. The name of the frame to retrieve. Format:
+ *  projects/{project}/locations/{location}/sources/{source}/errorFrames/{error_frame}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional view mode to control the level of details for the
+ *  frame. The default is a basic frame view.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPIViewErrorFrameViewUnspecified Value is
+ *        unset. The system will fallback to the default value. (Value:
+ *        "ERROR_FRAME_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPIViewErrorFrameViewBasic Include basic frame
+ *        data, but not the full contents. (Value: "ERROR_FRAME_VIEW_BASIC")
+ *    @arg @c kGTLRMigrationCenterAPIViewErrorFrameViewFull Include everything.
+ *        (Value: "ERROR_FRAME_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_ErrorFrame.
+ *
+ *  Gets the details of an error frame.
+ *
+ *  @param name Required. The name of the frame to retrieve. Format:
+ *    projects/{project}/locations/{location}/sources/{source}/errorFrames/{error_frame}
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all error frames in a given source and location.
+ *
+ *  Method: migrationcenter.projects.locations.sources.errorFrames.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesList : GTLRMigrationCenterAPIQuery
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value (the source) for `ListErrorFramesRequest`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional view mode to control the level of details of each
+ *  error frame. The default is a BASIC frame view.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPIViewErrorFrameViewUnspecified Value is
+ *        unset. The system will fallback to the default value. (Value:
+ *        "ERROR_FRAME_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPIViewErrorFrameViewBasic Include basic frame
+ *        data, but not the full contents. (Value: "ERROR_FRAME_VIEW_BASIC")
+ *    @arg @c kGTLRMigrationCenterAPIViewErrorFrameViewFull Include everything.
+ *        (Value: "ERROR_FRAME_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_ListErrorFramesResponse.
+ *
+ *  Lists all error frames in a given source and location.
+ *
+ *  @param parent Required. Parent value (the source) for
+ *    `ListErrorFramesRequest`.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

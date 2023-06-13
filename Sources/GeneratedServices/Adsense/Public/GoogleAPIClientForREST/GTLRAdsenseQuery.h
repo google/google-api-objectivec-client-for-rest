@@ -497,6 +497,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsCostPerClick;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsEstimatedEarnings;
 /**
+ *  Number of times a user clicked on a non-ad unit, triggering further ad
+ *  requests. For more information, see [Funnel
+ *  clicks](https://support.google.com/adsense/answer/11586382).
+ *
+ *  Value: "FUNNEL_CLICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelClicks;
+/**
+ *  Number of requests for non-ad units ads that returned content that was shown
+ *  to the user. For more information, see [Funnel
+ *  impressions](https://support.google.com/adsense/answer/11585767).
+ *
+ *  Value: "FUNNEL_IMPRESSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelImpressions;
+/**
+ *  Number of requests for non-ad units (for example a related search unit). For
+ *  more information, see [Funnel
+ *  requests](https://support.google.com/adsense/answer/11586959).
+ *
+ *  Value: "FUNNEL_REQUESTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelRequests;
+/**
+ *  Revenue per thousand funnel impressions. This is calculated by dividing
+ *  estimated revenue by the number of funnel impressions multiplied by 1000.
+ *  For more information, see [Funnel
+ *  RPM](https://support.google.com/adsense/answer/11585979).
+ *
+ *  Value: "FUNNEL_RPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelRpm;
+/**
  *  Impressions. An impression is counted for each ad request where at least one
  *  ad has been downloaded to the user’s device and has begun to load. It is the
  *  number of ad units (for content ads) or search queries (for search ads) that
@@ -1932,6 +1965,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
  *        (Value: "WEBSEARCH_RESULT_PAGES")
+ *    @arg @c kGTLRAdsenseMetricsFunnelRequests Number of requests for non-ad
+ *        units (for example a related search unit). For more information, see
+ *        [Funnel requests](https://support.google.com/adsense/answer/11586959).
+ *        (Value: "FUNNEL_REQUESTS")
+ *    @arg @c kGTLRAdsenseMetricsFunnelImpressions Number of requests for non-ad
+ *        units ads that returned content that was shown to the user. For more
+ *        information, see [Funnel
+ *        impressions](https://support.google.com/adsense/answer/11585767).
+ *        (Value: "FUNNEL_IMPRESSIONS")
+ *    @arg @c kGTLRAdsenseMetricsFunnelClicks Number of times a user clicked on
+ *        a non-ad unit, triggering further ad requests. For more information,
+ *        see [Funnel
+ *        clicks](https://support.google.com/adsense/answer/11586382). (Value:
+ *        "FUNNEL_CLICKS")
+ *    @arg @c kGTLRAdsenseMetricsFunnelRpm Revenue per thousand funnel
+ *        impressions. This is calculated by dividing estimated revenue by the
+ *        number of funnel impressions multiplied by 1000. For more information,
+ *        see [Funnel RPM](https://support.google.com/adsense/answer/11585979).
+ *        (Value: "FUNNEL_RPM")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
@@ -2332,6 +2384,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
  *        (Value: "WEBSEARCH_RESULT_PAGES")
+ *    @arg @c kGTLRAdsenseMetricsFunnelRequests Number of requests for non-ad
+ *        units (for example a related search unit). For more information, see
+ *        [Funnel requests](https://support.google.com/adsense/answer/11586959).
+ *        (Value: "FUNNEL_REQUESTS")
+ *    @arg @c kGTLRAdsenseMetricsFunnelImpressions Number of requests for non-ad
+ *        units ads that returned content that was shown to the user. For more
+ *        information, see [Funnel
+ *        impressions](https://support.google.com/adsense/answer/11585767).
+ *        (Value: "FUNNEL_IMPRESSIONS")
+ *    @arg @c kGTLRAdsenseMetricsFunnelClicks Number of times a user clicked on
+ *        a non-ad unit, triggering further ad requests. For more information,
+ *        see [Funnel
+ *        clicks](https://support.google.com/adsense/answer/11586382). (Value:
+ *        "FUNNEL_CLICKS")
+ *    @arg @c kGTLRAdsenseMetricsFunnelRpm Revenue per thousand funnel
+ *        impressions. This is calculated by dividing estimated revenue by the
+ *        number of funnel impressions multiplied by 1000. For more information,
+ *        see [Funnel RPM](https://support.google.com/adsense/answer/11585979).
+ *        (Value: "FUNNEL_RPM")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 

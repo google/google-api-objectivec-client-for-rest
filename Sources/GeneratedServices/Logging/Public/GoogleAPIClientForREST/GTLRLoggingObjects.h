@@ -1298,7 +1298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  The referer URL of the request, as defined in HTTP/1.1 Header Field
- *  Definitions (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+ *  Definitions (https://datatracker.ietf.org/doc/html/rfc2616#section-14.36).
  */
 @property(nonatomic, copy, nullable) NSString *referer;
 
@@ -1681,11 +1681,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_ListLogEntriesRequest : GTLRObject
 
 /**
- *  Optional. Only log entries that match the filter are returned. An empty
- *  filter matches all log entries in the resources listed in resource_names.
- *  Referencing a parent resource that is not listed in resource_names will
- *  cause the filter to return no results. The maximum length of a filter is
- *  20,000 characters.
+ *  Optional. A filter that chooses which log entries to return. For more
+ *  information, see Logging query language
+ *  (https://cloud.google.com/logging/docs/view/logging-query-language).Only log
+ *  entries that match the filter are returned. An empty filter matches all log
+ *  entries in the resources listed in resource_names. Referencing a parent
+ *  resource that is not listed in resource_names will cause the filter to
+ *  return no results. The maximum length of a filter is 20,000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1935,7 +1937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRLogging_Location : GTLRObject
 
@@ -2729,10 +2731,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Required. The export destination: "storage.googleapis.com/[GCS_BUCKET]"
  *  "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
- *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]" The sink's
- *  writer_identity, set when the sink is created, must have permission to write
- *  to the destination or else the log entries are not exported. For more
- *  information, see Exporting Logs with Sinks
+ *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]"
+ *  "logging.googleapis.com/projects/[PROJECT_ID]" The sink's writer_identity,
+ *  set when the sink is created, must have permission to write to the
+ *  destination or else the log entries are not exported. For more information,
+ *  see Exporting Logs with Sinks
  *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
  */
 @property(nonatomic, copy, nullable) NSString *destination;
@@ -3665,6 +3668,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *kmsServiceAccountId;
+
+/**
+ *  Output only. The service account for the given container. Sinks use this
+ *  service account as their writer_identity if no custom service account is
+ *  provided.
+ */
+@property(nonatomic, copy, nullable) NSString *loggingServiceAccountId;
 
 /** Output only. The resource name of the settings. */
 @property(nonatomic, copy, nullable) NSString *name;

@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Migration Center API (migrationcenter/v1alpha1)
+// Description:
+//   A unified platform that helps you accelerate your end-to-end cloud journey
+//   from your current on-premises or cloud environments to Google Cloud.
 // Documentation:
 //   https://cloud.google.com/migration-center
 
@@ -16,6 +19,9 @@ NSString * const kGTLRMigrationCenterAPIViewAssetViewBasic     = @"ASSET_VIEW_BA
 NSString * const kGTLRMigrationCenterAPIViewAssetViewFull      = @"ASSET_VIEW_FULL";
 NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard  = @"ASSET_VIEW_STANDARD";
 NSString * const kGTLRMigrationCenterAPIViewAssetViewUnspecified = @"ASSET_VIEW_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewBasic = @"ERROR_FRAME_VIEW_BASIC";
+NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewFull = @"ERROR_FRAME_VIEW_FULL";
+NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewUnspecified = @"ERROR_FRAME_VIEW_UNSPECIFIED";
 NSString * const kGTLRMigrationCenterAPIViewImportJobViewBasic = @"IMPORT_JOB_VIEW_BASIC";
 NSString * const kGTLRMigrationCenterAPIViewImportJobViewFull  = @"IMPORT_JOB_VIEW_FULL";
 NSString * const kGTLRMigrationCenterAPIViewImportJobViewUnspecified = @"IMPORT_JOB_VIEW_UNSPECIFIED";
@@ -127,7 +133,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Empty class];
   query.loggingName = @"migrationcenter.projects.locations.assets.delete";
   return query;
 }
@@ -192,7 +198,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Asset class];
   query.loggingName = @"migrationcenter.projects.locations.assets.patch";
   return query;
 }
@@ -1101,6 +1107,44 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
   query.name = name;
   query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
   query.loggingName = @"migrationcenter.projects.locations.sources.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_ErrorFrame class];
+  query.loggingName = @"migrationcenter.projects.locations.sources.errorFrames.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesList
+
+@dynamic pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha1/{+parent}/errorFrames";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_ListErrorFramesResponse class];
+  query.loggingName = @"migrationcenter.projects.locations.sources.errorFrames.list";
   return query;
 }
 

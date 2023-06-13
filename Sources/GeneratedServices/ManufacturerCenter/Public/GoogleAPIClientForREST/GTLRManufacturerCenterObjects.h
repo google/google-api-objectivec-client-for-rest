@@ -476,6 +476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *videoLink;
 
+/** Virtual Model (3d) asset link. */
+@property(nonatomic, copy, nullable) NSString *virtualModelLink;
+
 @end
 
 

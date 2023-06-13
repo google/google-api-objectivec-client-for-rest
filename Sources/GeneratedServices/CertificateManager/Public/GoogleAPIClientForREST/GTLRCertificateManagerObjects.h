@@ -27,6 +27,7 @@
 @class GTLRCertificateManager_DnsAuthorization_Labels;
 @class GTLRCertificateManager_DnsResourceRecord;
 @class GTLRCertificateManager_GclbTarget;
+@class GTLRCertificateManager_IntermediateCA;
 @class GTLRCertificateManager_IpConfig;
 @class GTLRCertificateManager_Location;
 @class GTLRCertificateManager_Location_Labels;
@@ -39,6 +40,10 @@
 @class GTLRCertificateManager_SelfManagedCertificate;
 @class GTLRCertificateManager_Status;
 @class GTLRCertificateManager_Status_Details_Item;
+@class GTLRCertificateManager_TrustAnchor;
+@class GTLRCertificateManager_TrustConfig;
+@class GTLRCertificateManager_TrustConfig_Labels;
+@class GTLRCertificateManager_TrustStore;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -91,8 +96,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_Authorized;
 /**
- *  Certificate provisioning for this domain is under way. GCP will attempt to
- *  authorize the domain.
+ *  Certificate provisioning for this domain is under way. Google Cloud will
+ *  attempt to authorize the domain.
  *
  *  Value: "AUTHORIZING"
  */
@@ -124,7 +129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_Default;
 /**
  *  Certificates with scope EDGE_CACHE are special-purposed certificates, served
- *  from non-core Google data centers.
+ *  from Edge Points of Presence. See
+ *  https://cloud.google.com/vpc/docs/edge-locations.
  *
  *  Value: "EDGE_CACHE"
  */
@@ -290,8 +296,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        A managed certificate can be provisioned, no issues for this domain.
  *        (Value: "AUTHORIZED")
  *    @arg @c kGTLRCertificateManager_AuthorizationAttemptInfo_State_Authorizing
- *        Certificate provisioning for this domain is under way. GCP will
- *        attempt to authorize the domain. (Value: "AUTHORIZING")
+ *        Certificate provisioning for this domain is under way. Google Cloud
+ *        will attempt to authorize the domain. (Value: "AUTHORIZING")
  *    @arg @c kGTLRCertificateManager_AuthorizationAttemptInfo_State_Failed
  *        Attempt to authorize the domain failed. This prevents the Managed
  *        Certificate from being issued. See `failure_reason` and `details`
@@ -361,7 +367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        unsure, choose this option. (Value: "DEFAULT")
  *    @arg @c kGTLRCertificateManager_Certificate_Scope_EdgeCache Certificates
  *        with scope EDGE_CACHE are special-purposed certificates, served from
- *        non-core Google data centers. (Value: "EDGE_CACHE")
+ *        Edge Points of Presence. See
+ *        https://cloud.google.com/vpc/docs/edge-locations. (Value:
+ *        "EDGE_CACHE")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -738,6 +746,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
+ *  Defines an intermediate CA.
+ */
+@interface GTLRCertificateManager_IntermediateCA : GTLRObject
+
+/**
+ *  PEM intermediate certificate used for building up paths for validation. Each
+ *  certificate provided in PEM format may occupy up to 5kB.
+ */
+@property(nonatomic, copy, nullable) NSString *pemCertificate;
+
+@end
+
+
+/**
  *  Defines IP configuration where this Certificate Map is serving.
  */
 @interface GTLRCertificateManager_IpConfig : GTLRObject
@@ -959,7 +981,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  Response for the `ListTrustConfigs` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "trustConfigs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCertificateManager_ListTrustConfigsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of TrustConfigs for the parent resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_TrustConfig *> *trustConfigs;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCertificateManager_Location : GTLRObject
 
@@ -1293,6 +1346,98 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCertificateManager_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Defines a trust anchor.
+ */
+@interface GTLRCertificateManager_TrustAnchor : GTLRObject
+
+/**
+ *  PEM root certificate of the PKI used for validation. Each certificate
+ *  provided in PEM format may occupy up to 5kB.
+ */
+@property(nonatomic, copy, nullable) NSString *pemCertificate;
+
+@end
+
+
+/**
+ *  Defines a trust config.
+ */
+@interface GTLRCertificateManager_TrustConfig : GTLRObject
+
+/** Output only. The creation timestamp of a TrustConfig. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  One or more paragraphs of text description of a TrustConfig.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Set of labels associated with a TrustConfig. */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_TrustConfig_Labels *labels;
+
+/**
+ *  A user-defined name of the trust config. TrustConfig names must be unique
+ *  globally and match pattern `projects/ * /locations/ * /trustConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Set of trust stores to perform validation against. This field is supported
+ *  when TrustConfig is configured with Load Balancers, currently not supported
+ *  for SPIFFE certificate validation. Only one TrustStore specified is
+ *  currently allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_TrustStore *> *trustStores;
+
+/** Output only. The last update timestamp of a TrustConfig. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Set of labels associated with a TrustConfig.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_TrustConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  Defines a trust store.
+ */
+@interface GTLRCertificateManager_TrustStore : GTLRObject
+
+/**
+ *  Set of intermediate CA certificates used for the path building phase of
+ *  chain validation. The field is currently not supported if TrustConfig is
+ *  used for the workload certificate feature.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_IntermediateCA *> *intermediateCas;
+
+/**
+ *  List of Trust Anchors to be used while performing validation against a given
+ *  TrustStore.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_TrustAnchor *> *trustAnchors;
+
 @end
 
 NS_ASSUME_NONNULL_END

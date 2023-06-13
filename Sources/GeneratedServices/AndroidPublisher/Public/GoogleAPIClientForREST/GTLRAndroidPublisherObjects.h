@@ -30,6 +30,7 @@
 @class GTLRAndroidPublisher_ConvertedRegionPrice;
 @class GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices;
 @class GTLRAndroidPublisher_CountryTargeting;
+@class GTLRAndroidPublisher_DeferredItemReplacement;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_DeveloperInitiatedCancellation;
@@ -323,11 +324,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalTransaction_Tra
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified;
 /**
- *  View app information (read-only).
+ *  View app information (read-only). Deprecated: Try defining a more granular
+ *  capability. Otherwise, check AppLevelPermission.CAN_VIEW_NON_FINANCIAL_DATA.
  *
  *  Value: "CAN_ACCESS_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp;
+/**
+ *  Manage policy related pages.
+ *
+ *  Value: "CAN_MANAGE_APP_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent;
 /**
  *  Edit and delete draft apps.
  *
@@ -377,11 +385,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissio
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanReplyToReviews;
 /**
+ *  View app quality data such as Vitals, Crashes etc.
+ *
+ *  Value: "CAN_VIEW_APP_QUALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewAppQuality;
+/**
  *  View financial data.
  *
  *  Value: "CAN_VIEW_FINANCIAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewFinancialData;
+/**
+ *  View app information (read-only).
+ *
+ *  Value: "CAN_VIEW_NON_FINANCIAL_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewNonFinancialData;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_InAppProduct.purchaseType
@@ -795,6 +815,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal;
 /**
+ *  Manage policy related pages on all apps for the developer.
+ *
+ *  Value: "CAN_MANAGE_APP_CONTENT_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal;
+/**
  *  Create, edit, and delete draft apps.
  *
  *  Value: "CAN_MANAGE_DRAFT_APPS_GLOBAL"
@@ -855,11 +881,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps;
 /**
+ *  View app quality information for all apps for the developer.
+ *
+ *  Value: "CAN_VIEW_APP_QUALITY_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewAppQualityGlobal;
+/**
  *  View financial data, orders, and cancellation survey responses.
  *
  *  Value: "CAN_VIEW_FINANCIAL_DATA_GLOBAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal;
+/**
+ *  View app information and download bulk reports (read-only).
+ *
+ *  Value: "CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewNonFinancialDataGlobal;
 /**
  *  Unknown or unspecified permission.
  *
@@ -1401,6 +1439,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Request message for DeactivateSubscriptionOffer.
  */
 @interface GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest : GTLRObject
+@end
+
+
+/**
+ *  Information related to deferred item replacement.
+ */
+@interface GTLRAndroidPublisher_DeferredItemReplacement : GTLRObject
+
+/** The product_id going to replace the existing product_id. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 @end
 
 
@@ -3328,13 +3377,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  The version of the available regions being used for the specified resource.
+ *  A string representing the version of available regions being used for the
+ *  specified resource. Regional prices for the resource have to be specified
+ *  according to the information published in [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  */
 @interface GTLRAndroidPublisher_RegionsVersion : GTLRObject
 
-/**
- *  Required. A string representing version of the available regions being used
- *  for the specified resource. The current version is 2022/02.
- */
+/** Required. The latest version is 2022/02. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -4022,6 +4072,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** The item is auto renewing. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_AutoRenewingPlan *autoRenewingPlan;
+
+/** Information for deferred item replacement. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeferredItemReplacement *deferredItemReplacement;
 
 /**
  *  Time at which the subscription expired or will expire unless the access is

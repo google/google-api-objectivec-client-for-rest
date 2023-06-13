@@ -13,7 +13,11 @@
 #endif
 
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Anomaly;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1App;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DecimalConfidenceInterval;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceId;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceModelSummary;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DimensionValue;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport;
@@ -21,7 +25,10 @@
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricValue;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Release;
 @class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec;
+@class GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Track;
 @class GTLRPlaydeveloperreporting_GoogleTypeDateTime;
 @class GTLRPlaydeveloperreporting_GoogleTypeDecimal;
 @class GTLRPlaydeveloperreporting_GoogleTypeTimeZone;
@@ -100,6 +107,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_Daily;
 /**
+ *  Data is aggregated over the full timeline range. Effectively this produces a
+ *  single value rather than a timeline.
+ *
+ *  Value: "FULL_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_FullRange;
+/**
  *  Data is aggregated in hourly intervals.
  *
  *  Value: "HOURLY"
@@ -121,6 +135,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  Value: "DAILY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Daily;
+/**
+ *  Data is aggregated over the full timeline range. Effectively this produces a
+ *  single value rather than a timeline.
+ *
+ *  Value: "FULL_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_FullRange;
 /**
  *  Data is aggregated in hourly intervals.
  *
@@ -330,6 +351,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Daily;
 /**
+ *  Data is aggregated over the full timeline range. Effectively this produces a
+ *  single value rather than a timeline.
+ *
+ *  Value: "FULL_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_FullRange;
+/**
  *  Data is aggregated in hourly intervals.
  *
  *  Value: "HOURLY"
@@ -378,39 +406,45 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  produce a normalized metric independent of user counts. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the only supported timezone is
- *  `America/Los_Angeles`. **Supported metrics:** * `anrRate`
- *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
- *  period that experienced at least one ANR. * `anrRate7dUserWeighted`
- *  (`google.type.Decimal`): Rolling average value of `anrRate` in the last 7
- *  days. The daily values are weighted by the count of distinct users for the
- *  day. * `anrRate28dUserWeighted` (`google.type.Decimal`): Rolling average
- *  value of `anrRate` in the last 28 days. The daily values are weighted by the
- *  count of distinct users for the day. * `userPerceivedAnrRate`
- *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
- *  period that experienced at least one user-perceived ANR. User-perceived ANRs
- *  are currently those of 'Input dispatching' type. *
+ *  `America/Los_Angeles`. * HOURLY: metrics are aggregated in hourly intervals.
+ *  The default and only supported timezone is `UTC`. **Supported metrics:** *
+ *  `anrRate` (`google.type.Decimal`): Percentage of distinct users in the
+ *  aggregation period that experienced at least one ANR. *
+ *  `anrRate7dUserWeighted` (`google.type.Decimal`): Rolling average value of
+ *  `anrRate` in the last 7 days. The daily values are weighted by the count of
+ *  distinct users for the day. Not supported in HOURLY granularity. *
+ *  `anrRate28dUserWeighted` (`google.type.Decimal`): Rolling average value of
+ *  `anrRate` in the last 28 days. The daily values are weighted by the count of
+ *  distinct users for the day. Not supported in HOURLY granularity. *
+ *  `userPerceivedAnrRate` (`google.type.Decimal`): Percentage of distinct users
+ *  in the aggregation period that experienced at least one user-perceived ANR.
+ *  User-perceived ANRs are currently those of 'Input dispatching' type. *
  *  `userPerceivedAnrRate7dUserWeighted` (`google.type.Decimal`): Rolling
  *  average value of `userPerceivedAnrRate` in the last 7 days. The daily values
- *  are weighted by the count of distinct users for the day. *
- *  `userPerceivedAnrRate28dUserWeighted` (`google.type.Decimal`): Rolling
- *  average value of `userPerceivedAnrRate` in the last 28 days. The daily
- *  values are weighted by the count of distinct users for the day. *
- *  `distinctUsers` (`google.type.Decimal`): Count of distinct users in the
- *  aggregation period that were used as normalization value for the `anrRate`
- *  and `userPerceivedAnrRate` metrics. A user is counted in this metric if they
- *  used the app in the foreground during the aggregation period. Care must be
- *  taken not to aggregate this count further, as it may result in users being
- *  counted multiple times. The value is rounded to the nearest multiple of 10,
- *  100, 1,000 or 1,000,000, depending on the magnitude of the value.
- *  **Supported dimensions:** * `apiLevel` (string): the API level of Android
- *  that was running on the user's device. * `versionCode` (int64): version of
- *  the app that was running on the user's device. * `deviceModel` (string):
- *  unique identifier of the user's device model. * `deviceType` (string): the
- *  type (also known as form factor) of the user's device. * `countryCode`
- *  (string): the country or region of the user's device based on their IP
- *  address, represented as a 2-letter ISO-3166 code (e.g. US for the United
- *  States). * `deviceRamBucket` (int64): RAM of the device, in MB, in buckets
- *  (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the device's primary
+ *  are weighted by the count of distinct users for the day. Not supported in
+ *  HOURLY granularity. * `userPerceivedAnrRate28dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `userPerceivedAnrRate` in
+ *  the last 28 days. The daily values are weighted by the count of distinct
+ *  users for the day. * `distinctUsers` (`google.type.Decimal`): Count of
+ *  distinct users in the aggregation period that were used as normalization
+ *  value for the `anrRate` and `userPerceivedAnrRate` metrics. A user is
+ *  counted in this metric if they used the app in the foreground during the
+ *  aggregation period. Care must be taken not to aggregate this count further,
+ *  as it may result in users being counted multiple times. The value is rounded
+ *  to the nearest multiple of 10, 100, 1,000 or 1,000,000, depending on the
+ *  magnitude of the value. **Supported dimensions:** * `apiLevel` (string): the
+ *  API level of Android that was running on the user's device, e.g., 26. *
+ *  `versionCode` (int64): version of the app that was running on the user's
+ *  device. * `deviceModel` (string): unique identifier of the user's device
+ *  model. The form of the identifier is 'deviceBrand/device', where deviceBrand
+ *  corresponds to Build.BRAND and device corresponds to Build.DEVICE, e.g.,
+ *  google/coral. * `deviceBrand` (string): unique identifier of the user's
+ *  device brand, e.g., google. * `deviceType` (string): the type (also known as
+ *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
+ *  the country or region of the user's device based on their IP address,
+ *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
+ *  etc.). * `deviceSocMake` (string): Make of the device's primary
  *  system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
@@ -443,42 +477,85 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  A representation of an app in the Play Store.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1App : GTLRObject
+
+/**
+ *  Title of the app. This is the latest title as set in the Play Console and
+ *  may not yet have been reviewed, so might not match the Play Store. Example:
+ *  `Google Maps`.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The resource name. Format: apps/{app} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Package name of the app. Example: `com.example.app123`. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  Representations of an app version.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion : GTLRObject
+
+/**
+ *  Numeric version code of the app version (set by the app's developer).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
+
+@end
+
+
+/**
  *  Singleton resource representing the set of crashrate metrics. This metric
  *  set contains crashes data combined with usage data to produce a normalized
  *  metric independent of user counts. **Supported aggregation periods:** *
  *  DAILY: metrics are aggregated in calendar date intervals. Due to historical
- *  constraints, the only supported timezone is `America/Los_Angeles`.
- *  **Supported metrics:** * `crashRate` (`google.type.Decimal`): Percentage of
- *  distinct users in the aggregation period that experienced at least one
- *  crash. * `crashRate7dUserWeighted` (`google.type.Decimal`): Rolling average
- *  value of `crashRate` in the last 7 days. The daily values are weighted by
- *  the count of distinct users for the day. * `crashRate28dUserWeighted`
+ *  constraints, the only supported timezone is `America/Los_Angeles`. * HOURLY:
+ *  metrics are aggregated in hourly intervals. The default and only supported
+ *  timezone is `UTC`. **Supported metrics:** * `crashRate`
+ *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
+ *  period that experienced at least one crash. * `crashRate7dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `crashRate` in the last 7
+ *  days. The daily values are weighted by the count of distinct users for the
+ *  day. Not supported in HOURLY granularity. * `crashRate28dUserWeighted`
  *  (`google.type.Decimal`): Rolling average value of `crashRate` in the last 28
  *  days. The daily values are weighted by the count of distinct users for the
- *  day. * `userPerceivedCrashRate` (`google.type.Decimal`): Percentage of
- *  distinct users in the aggregation period that experienced at least one crash
- *  while they were actively using your app (a user-perceived crash). An app is
- *  considered to be in active use if it is displaying any activity or executing
- *  any foreground service. * `userPerceivedCrashRate7dUserWeighted`
- *  (`google.type.Decimal`): Rolling average value of `userPerceivedCrashRate`
- *  in the last 7 days. The daily values are weighted by the count of distinct
- *  users for the day. * `userPerceivedCrashRate28dUserWeighted`
+ *  day. Not supported in HOURLY granularity. * `userPerceivedCrashRate`
+ *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
+ *  period that experienced at least one crash while they were actively using
+ *  your app (a user-perceived crash). An app is considered to be in active use
+ *  if it is displaying any activity or executing any foreground service. *
+ *  `userPerceivedCrashRate7dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `userPerceivedCrashRate` in the last 7 days. The daily
+ *  values are weighted by the count of distinct users for the day. Not
+ *  supported in HOURLY granularity. * `userPerceivedCrashRate28dUserWeighted`
  *  (`google.type.Decimal`): Rolling average value of `userPerceivedCrashRate`
  *  in the last 28 days. The daily values are weighted by the count of distinct
- *  users for the day. * `distinctUsers` (`google.type.Decimal`): Count of
- *  distinct users in the aggregation period that were used as normalization
- *  value for the `crashRate` and `userPerceivedCrashRate` metrics. A user is
- *  counted in this metric if they used the app actively during the aggregation
- *  period. An app is considered to be in active use if it is displaying any
- *  activity or executing any foreground service. Care must be taken not to
- *  aggregate this count further, as it may result in users being counted
- *  multiple times. The value is rounded to the nearest multiple of 10, 100,
- *  1,000 or 1,000,000, depending on the magnitude of the value. **Supported
- *  dimensions:** * `apiLevel` (string): the API level of Android that was
- *  running on the user's device. * `versionCode` (int64): version of the app
- *  that was running on the user's device. * `deviceModel` (string): unique
- *  identifier of the user's device model. * `deviceType` (string): the type
- *  (also known as form factor) of the user's device. * `countryCode` (string):
+ *  users for the day. Not supported in HOURLY granularity. * `distinctUsers`
+ *  (`google.type.Decimal`): Count of distinct users in the aggregation period
+ *  that were used as normalization value for the `crashRate` and
+ *  `userPerceivedCrashRate` metrics. A user is counted in this metric if they
+ *  used the app actively during the aggregation period. An app is considered to
+ *  be in active use if it is displaying any activity or executing any
+ *  foreground service. Care must be taken not to aggregate this count further,
+ *  as it may result in users being counted multiple times. The value is rounded
+ *  to the nearest multiple of 10, 100, 1,000 or 1,000,000, depending on the
+ *  magnitude of the value. **Supported dimensions:** * `apiLevel` (string): the
+ *  API level of Android that was running on the user's device, e.g., 26. *
+ *  `versionCode` (int64): version of the app that was running on the user's
+ *  device. * `deviceModel` (string): unique identifier of the user's device
+ *  model. The form of the identifier is 'deviceBrand/device', where deviceBrand
+ *  corresponds to Build.BRAND and device corresponds to Build.DEVICE, e.g.,
+ *  google/coral. * `deviceBrand` (string): unique identifier of the user's
+ *  device brand, e.g., google. * `deviceType` (string): the type (also known as
+ *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
  *  the country or region of the user's device based on their IP address,
  *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
  *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
@@ -529,6 +606,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  Identifier of a device.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceId : GTLRObject
+
+/** Value of Build.BRAND. */
+@property(nonatomic, copy, nullable) NSString *buildBrand;
+
+/** Value of Build.DEVICE. */
+@property(nonatomic, copy, nullable) NSString *buildDevice;
+
+@end
+
+
+/**
+ *  Summary of a device
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceModelSummary : GTLRObject
+
+/** Identifier of the device. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceId *deviceId;
+
+/** Link to the device in Play Device Catalog. */
+@property(nonatomic, copy, nullable) NSString *deviceUri;
+
+/** Display name of the device. */
+@property(nonatomic, copy, nullable) NSString *marketingName;
+
+@end
+
+
+/**
  *  Represents the value of a single dimension.
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DimensionValue : GTLRObject
@@ -573,14 +681,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  field in query requests. * `reportType` (string): the type of error. The
  *  value should correspond to one of the possible values in ErrorType.
  *  **Supported dimensions:** * `apiLevel` (string): the API level of Android
- *  that was running on the user's device. * `versionCode` (int64): version of
- *  the app that was running on the user's device. * `deviceModel` (string):
- *  unique identifier of the user's device model. * `deviceType` (string):
- *  identifier of the device's form factor, e.g., PHONE. * `issueId` (string):
- *  the id an error was assigned to. The value should correspond to the
- *  `{issue}` component of the issue name. * `deviceRamBucket` (int64): RAM of
- *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
- *  Make of the device's primary system-on-chip, e.g., Samsung.
+ *  that was running on the user's device, e.g., 26. * `versionCode` (int64):
+ *  version of the app that was running on the user's device. * `deviceModel`
+ *  (string): unique identifier of the user's device model. The form of the
+ *  identifier is 'deviceBrand/device', where deviceBrand corresponds to
+ *  Build.BRAND and device corresponds to Build.DEVICE, e.g., google/coral. *
+ *  `deviceType` (string): identifier of the device's form factor, e.g., PHONE.
+ *  * `issueId` (string): the id an error was assigned to. The value should
+ *  correspond to the `{issue}` component of the issue name. * `deviceRamBucket`
+ *  (int64): RAM of the device, in MB, in buckets (3GB, 4GB, etc.). *
+ *  `deviceSocMake` (string): Make of the device's primary system-on-chip, e.g.,
+ *  Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -634,6 +745,64 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, copy, nullable) NSString *cause;
 
 /**
+ *  An estimate of the number of unique users who have experienced this issue
+ *  (only considering occurrences matching the filters and within the requested
+ *  time period).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distinctUsers;
+
+/**
+ *  An estimated percentage of users affected by any issue that are affected by
+ *  this issue (only considering occurrences matching the filters and within the
+ *  requested time period).
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GoogleTypeDecimal *distinctUsersPercent;
+
+/**
+ *  The total number of error reports in this issue (only considering
+ *  occurrences matching the filters and within the requested time period).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorReportCount;
+
+/**
+ *  The earliest (inclusive) app version appearing in this ErrorIssue in the
+ *  requested time period (only considering occurrences matching the filters).
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion *firstAppVersion;
+
+/**
+ *  The smallest OS version in which this error cluster has occurred in the
+ *  requested time period (only considering occurrences matching the filters and
+ *  within the requested time period).
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion *firstOsVersion;
+
+/** Link to the issue in Android vitals in the Play Console. */
+@property(nonatomic, copy, nullable) NSString *issueUri;
+
+/**
+ *  The latest (inclusive) app version appearing in this ErrorIssue in the
+ *  requested time period (only considering occurrences matching the filters).
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion *lastAppVersion;
+
+/**
+ *  Start of the hour during which the last error report in this issue occurred.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastErrorReportTime;
+
+/**
+ *  The latest OS version in which this error cluster has occurred in the
+ *  requested time period (only considering occurrences matching the filters and
+ *  within the requested time period).
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion *lastOsVersion;
+
+/**
  *  Location where the issue happened. Depending on the type this can be either:
  *  * APPLICATION_NOT_RESPONDING: the name of the activity or service that
  *  stopped responding. * CRASH: the likely method name that caused the error.
@@ -673,6 +842,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport : GTLRObject
 
+/** A device model on which an event in this error report occurred on. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceModelSummary *deviceModel;
+
+/**
+ *  Start of the hour during which the latest event in this error report
+ *  occurred.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
 /**
  *  The issue this report was associated with. **Please note:** this resource is
  *  currently in Alpha. There could be changes to the issue grouping that would
@@ -685,6 +863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  The resource name of the report. Format: apps/{app}/errorReports/{report}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** The OS version on which an event in this error report occurred on. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion *osVersion;
 
 /**
  *  Textual representation of the error report. These textual reports are
@@ -739,15 +920,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  users being counted multiple times. The value is rounded to the nearest
  *  multiple of 10, 100, 1,000 or 1,000,000, depending on the magnitude of the
  *  value. **Supported dimensions:** * `apiLevel` (string): the API level of
- *  Android that was running on the user's device. * `versionCode` (int64):
- *  version of the app that was running on the user's device. * `deviceModel`
- *  (string): unique identifier of the user's device model. * `deviceType`
- *  (string): the type (also known as form factor) of the user's device. *
- *  `countryCode` (string): the country or region of the user's device based on
- *  their IP address, represented as a 2-letter ISO-3166 code (e.g. US for the
- *  United States). * `deviceRamBucket` (int64): RAM of the device, in MB, in
- *  buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the device's
- *  primary system-on-chip, e.g., Samsung.
+ *  Android that was running on the user's device, e.g., 26. * `versionCode`
+ *  (int64): version of the app that was running on the user's device. *
+ *  `deviceModel` (string): unique identifier of the user's device model. The
+ *  form of the identifier is 'deviceBrand/device', where deviceBrand
+ *  corresponds to Build.BRAND and device corresponds to Build.DEVICE, e.g.,
+ *  google/coral. * `deviceBrand` (string): unique identifier of the user's
+ *  device brand, e.g., google. * `deviceType` (string): the type (also known as
+ *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
+ *  the country or region of the user's device based on their IP address,
+ *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
+ *  etc.). * `deviceSocMake` (string): Make of the device's primary
+ *  system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -806,6 +991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        Unspecified granularity. (Value: "AGGREGATION_PERIOD_UNSPECIFIED")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_Daily
  *        Data is aggregated in daily intervals. (Value: "DAILY")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_FullRange
+ *        Data is aggregated over the full timeline range. Effectively this
+ *        produces a single value rather than a timeline. (Value: "FULL_RANGE")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_Hourly
  *        Data is aggregated in hourly intervals. (Value: "HOURLY")
  */
@@ -862,6 +1050,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        Unspecified granularity. (Value: "AGGREGATION_PERIOD_UNSPECIFIED")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Daily
  *        Data is aggregated in daily intervals. (Value: "DAILY")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_FullRange
+ *        Data is aggregated over the full timeline range. Effectively this
+ *        produces a single value rather than a timeline. (Value: "FULL_RANGE")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Hourly
  *        Data is aggregated in hourly intervals. (Value: "HOURLY")
  */
@@ -890,11 +1081,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Actual value, represented as a decimal number. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GoogleTypeDecimal *decimalValue;
 
-/** Confidence interval of a value that is of type type.Decimal. */
+/** Confidence interval of a value that is of type `type.Decimal`. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DecimalConfidenceInterval *decimalValueConfidenceInterval;
 
 /** Name of the metric. */
 @property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Representation of an OS version.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion : GTLRObject
+
+/**
+ *  Numeric version code of the OS - API level
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *apiLevel;
 
 @end
 
@@ -906,15 +1112,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the metrics by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): the type (also known as form factor) of the
- *  user's device. * `countryCode` (string): the country or region of the user's
- *  device based on their IP address, represented as a 2-letter ISO-3166 code
- *  (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of the
- *  device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make
- *  of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -945,21 +1155,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  period that experienced at least one ANR. * `anrRate7dUserWeighted`
  *  (`google.type.Decimal`): Rolling average value of `anrRate` in the last 7
  *  days. The daily values are weighted by the count of distinct users for the
- *  day. * `anrRate28dUserWeighted` (`google.type.Decimal`): Rolling average
- *  value of `anrRate` in the last 28 days. The daily values are weighted by the
- *  count of distinct users for the day. * `userPerceivedAnrRate`
+ *  day. Not supported in HOURLY granularity. * `anrRate28dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `anrRate` in the last 28
+ *  days. The daily values are weighted by the count of distinct users for the
+ *  day. Not supported in HOURLY granularity. * `userPerceivedAnrRate`
  *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
  *  period that experienced at least one user-perceived ANR. User-perceived ANRs
  *  are currently those of 'Input dispatching' type. *
  *  `userPerceivedAnrRate7dUserWeighted` (`google.type.Decimal`): Rolling
  *  average value of `userPerceivedAnrRate` in the last 7 days. The daily values
- *  are weighted by the count of distinct users for the day. *
- *  `userPerceivedAnrRate28dUserWeighted` (`google.type.Decimal`): Rolling
- *  average value of `userPerceivedAnrRate` in the last 28 days. The daily
- *  values are weighted by the count of distinct users for the day. *
- *  `distinctUsers` (`google.type.Decimal`): Count of distinct users in the
- *  aggregation period that were used as normalization value for the `anrRate`
- *  and `userPerceivedAnrRate` metrics. A user is counted in this metric if they
+ *  are weighted by the count of distinct users for the day. Not supported in
+ *  HOURLY granularity. * `userPerceivedAnrRate28dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `userPerceivedAnrRate` in
+ *  the last 28 days. The daily values are weighted by the count of distinct
+ *  users for the day. Not . supported in HOURLY granularity. * `distinctUsers`
+ *  (`google.type.Decimal`): Count of distinct users in the aggregation period
+ *  that were used as normalization value for the `anrRate` and
+ *  `userPerceivedAnrRate` metrics. A user is counted in this metric if they
  *  used the app in the foreground during the aggregation period. Care must be
  *  taken not to aggregate this count further, as it may result in users being
  *  counted multiple times. The value is rounded to the nearest multiple of 10,
@@ -987,7 +1199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the default and only supported
- *  timezone is `America/Los_Angeles`.
+ *  timezone is `America/Los_Angeles`. * HOURLY: metrics are aggregated in
+ *  hourly intervals. The default and only supported timezone is `UTC`.
  */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
@@ -1053,15 +1266,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the metrics by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): the type (also known as form factor) of the
- *  user's device. * `countryCode` (string): the country or region of the user's
- *  device based on their IP address, represented as a 2-letter ISO-3166 code
- *  (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of the
- *  device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make
- *  of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1094,26 +1311,27 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  days. The daily values are weighted by the count of distinct users for the
  *  day. * `crashRate28dUserWeighted` (`google.type.Decimal`): Rolling average
  *  value of `crashRate` in the last 28 days. The daily values are weighted by
- *  the count of distinct users for the day. * `userPerceivedCrashRate`
- *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
- *  period that experienced at least one crash while they were actively using
- *  your app (a user-perceived crash). An app is considered to be in active use
- *  if it is displaying any activity or executing any foreground service. *
- *  `userPerceivedCrashRate7dUserWeighted` (`google.type.Decimal`): Rolling
- *  average value of `userPerceivedCrashRate` in the last 7 days. The daily
- *  values are weighted by the count of distinct users for the day. *
+ *  the count of distinct users for the day. Not supported in HOURLY
+ *  granularity. * `userPerceivedCrashRate` (`google.type.Decimal`): Percentage
+ *  of distinct users in the aggregation period that experienced at least one
+ *  crash while they were actively using your app (a user-perceived crash). An
+ *  app is considered to be in active use if it is displaying any activity or
+ *  executing any foreground service. * `userPerceivedCrashRate7dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `userPerceivedCrashRate`
+ *  in the last 7 days. The daily values are weighted by the count of distinct
+ *  users for the day. Not supported in HOURLY granularity. *
  *  `userPerceivedCrashRate28dUserWeighted` (`google.type.Decimal`): Rolling
  *  average value of `userPerceivedCrashRate` in the last 28 days. The daily
- *  values are weighted by the count of distinct users for the day. *
- *  `distinctUsers` (`google.type.Decimal`): Count of distinct users in the
- *  aggregation period that were used as normalization value for the `crashRate`
- *  and `userPerceivedCrashRate` metrics. A user is counted in this metric if
- *  they used the app actively during the aggregation period. An app is
- *  considered to be in active use if it is displaying any activity or executing
- *  any foreground service. Care must be taken not to aggregate this count
- *  further, as it may result in users being counted multiple times. The value
- *  is rounded to the nearest multiple of 10, 100, 1,000 or 1,000,000, depending
- *  on the magnitude of the value.
+ *  values are weighted by the count of distinct users for the day. Not
+ *  supported in HOURLY granularity. * `distinctUsers` (`google.type.Decimal`):
+ *  Count of distinct users in the aggregation period that were used as
+ *  normalization value for the `crashRate` and `userPerceivedCrashRate`
+ *  metrics. A user is counted in this metric if they used the app actively
+ *  during the aggregation period. An app is considered to be in active use if
+ *  it is displaying any activity or executing any foreground service. Care must
+ *  be taken not to aggregate this count further, as it may result in users
+ *  being counted multiple times. The value is rounded to the nearest multiple
+ *  of 10, 100, 1,000 or 1,000,000, depending on the magnitude of the value.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
@@ -1137,7 +1355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the default and only supported
- *  timezone is `America/Los_Angeles`.
+ *  timezone is `America/Los_Angeles`. * HOURLY: metrics are aggregated in
+ *  hourly intervals. The default and only supported timezone is `UTC`.
  */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
@@ -1203,16 +1422,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): identifier of the device's form factor,
- *  e.g., PHONE. * `reportType` (string): the type of error. The value should
- *  correspond to one of the possible values in ErrorType. * `issueId` (string):
- *  the id an error was assigned to. The value should correspond to the
- *  `{issue}` component of the issue name. * `deviceRamBucket` (int64): RAM of
- *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
- *  Make of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): unique identifier of the user's device
+ *  model. The form of the identifier is 'deviceBrand/device', where deviceBrand
+ *  corresponds to Build.BRAND and device corresponds to Build.DEVICE, e.g.,
+ *  google/coral. * `deviceModel` (string): unique identifier of the user's
+ *  device model. * `deviceType` (string): identifier of the device's form
+ *  factor, e.g., PHONE. * `reportType` (string): the type of error. The value
+ *  should correspond to one of the possible values in ErrorType. *
+ *  `isUserPerceived` (string): denotes whether error is user perceived or not,
+ *  USER_PERCEIVED or NOT_USER_PERCEIVED. * `issueId` (string): the id an error
+ *  was assigned to. The value should correspond to the `{issue}` component of
+ *  the issue name. * `deviceRamBucket` (int64): RAM of the device, in MB, in
+ *  buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the device's
+ *  primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1305,15 +1528,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): the type (also known as form factor) of the
- *  user's device. * `countryCode` (string): the country or region of the user's
- *  device based on their IP address, represented as a 2-letter ISO-3166 code
- *  (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of the
- *  device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make
- *  of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1445,15 +1672,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): the type (also known as form factor) of the
- *  user's device. * `countryCode` (string): the country or region of the user's
- *  device based on their IP address, represented as a 2-letter ISO-3166 code
- *  (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of the
- *  device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make
- *  of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1591,15 +1822,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): the type (also known as form factor) of the
- *  user's device. * `countryCode` (string): the country or region of the user's
- *  device based on their IP address, represented as a 2-letter ISO-3166 code
- *  (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of the
- *  device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make
- *  of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1729,15 +1964,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 /**
  *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device. *
- *  `versionCode` (int64): version of the app that was running on the user's
- *  device. * `deviceModel` (string): unique identifier of the user's device
- *  model. * `deviceType` (string): the type (also known as form factor) of the
- *  user's device. * `countryCode` (string): the country or region of the user's
- *  device based on their IP address, represented as a 2-letter ISO-3166 code
- *  (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of the
- *  device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make
- *  of the device's primary system-on-chip, e.g., Samsung.
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1863,6 +2102,66 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  A representation of an app release.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Release : GTLRObject
+
+/** Readable identifier of the release. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The version codes contained in this release.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
+
+@end
+
+
+/**
+ *  A set of filtering options for releases and version codes specific to an
+ *  app.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ReleaseFilterOptions : GTLRObject
+
+/**
+ *  List of tracks to filter releases over. Provides the grouping of version
+ *  codes under releases and tracks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Track *> *tracks;
+
+@end
+
+
+/**
+ *  Response message for SearchAccessibleApps.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "apps" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchAccessibleAppsResponse : GTLRCollectionObject
+
+/**
+ *  The apps accessible to the user calling the endpoint.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1App *> *apps;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response with a paginated list of issues that matched the request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1944,15 +2243,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  multiple times. The value is rounded to the nearest multiple of 10, 100,
  *  1,000 or 1,000,000, depending on the magnitude of the value. **Supported
  *  dimensions:** * `apiLevel` (string): the API level of Android that was
- *  running on the user's device. * `versionCode` (int64): version of the app
- *  that was running on the user's device. * `deviceModel` (string): unique
- *  identifier of the user's device model. * `deviceType` (string): the type
- *  (also known as form factor) of the user's device. * `countryCode` (string):
- *  the country or region of the user's device based on their IP address,
- *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  running on the user's device, e.g., 26. * `versionCode` (int64): version of
+ *  the app that was running on the user's device. * `deviceModel` (string):
+ *  unique identifier of the user's device model. The form of the identifier is
+ *  'deviceBrand/device', where deviceBrand corresponds to Build.BRAND and
+ *  device corresponds to Build.DEVICE, e.g., google/coral. * `deviceBrand`
+ *  (string): unique identifier of the user's device brand, e.g., google. *
+ *  `deviceType` (string): the type (also known as form factor) of the user's
+ *  device, e.g., PHONE. * `countryCode` (string): the country or region of the
+ *  user's device based on their IP address, represented as a 2-letter ISO-3166
+ *  code (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of
+ *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
+ *  Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2004,15 +2306,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  be specified with each request for the request to be valid. * `startType`
  *  (string): the type of start that was measured. Valid types are `HOT`, `WARM`
  *  and `COLD`. **Supported dimensions:** * `apiLevel` (string): the API level
- *  of Android that was running on the user's device. * `versionCode` (int64):
- *  version of the app that was running on the user's device. * `deviceModel`
- *  (string): unique identifier of the user's device model. * `deviceType`
- *  (string): the type (also known as form factor) of the user's device. *
- *  `countryCode` (string): the country or region of the user's device based on
- *  their IP address, represented as a 2-letter ISO-3166 code (e.g. US for the
- *  United States). * `deviceRamBucket` (int64): RAM of the device, in MB, in
- *  buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the device's
- *  primary system-on-chip, e.g., Samsung.
+ *  of Android that was running on the user's device, e.g., 26. * `versionCode`
+ *  (int64): version of the app that was running on the user's device. *
+ *  `deviceModel` (string): unique identifier of the user's device model. The
+ *  form of the identifier is 'deviceBrand/device', where deviceBrand
+ *  corresponds to Build.BRAND and device corresponds to Build.DEVICE, e.g.,
+ *  google/coral. * `deviceBrand` (string): unique identifier of the user's
+ *  device brand, e.g., google. * `deviceType` (string): the type (also known as
+ *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
+ *  the country or region of the user's device based on their IP address,
+ *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
+ *  etc.). * `deviceSocMake` (string): Make of the device's primary
+ *  system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2065,15 +2371,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  multiple times. The value is rounded to the nearest multiple of 10, 100,
  *  1,000 or 1,000,000, depending on the magnitude of the value. **Supported
  *  dimensions:** * `apiLevel` (string): the API level of Android that was
- *  running on the user's device. * `versionCode` (int64): version of the app
- *  that was running on the user's device. * `deviceModel` (string): unique
- *  identifier of the user's device model. * `deviceType` (string): the type
- *  (also known as form factor) of the user's device. * `countryCode` (string):
- *  the country or region of the user's device based on their IP address,
- *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  running on the user's device, e.g., 26. * `versionCode` (int64): version of
+ *  the app that was running on the user's device. * `deviceModel` (string):
+ *  unique identifier of the user's device model. The form of the identifier is
+ *  'deviceBrand/device', where deviceBrand corresponds to Build.BRAND and
+ *  device corresponds to Build.DEVICE, e.g., google/coral. * `deviceBrand`
+ *  (string): unique identifier of the user's device brand, e.g., google. *
+ *  `deviceType` (string): the type (also known as form factor) of the user's
+ *  device, e.g., PHONE. * `countryCode` (string): the country or region of the
+ *  user's device based on their IP address, represented as a 2-letter ISO-3166
+ *  code (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of
+ *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
+ *  Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2131,6 +2440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        Unspecified granularity. (Value: "AGGREGATION_PERIOD_UNSPECIFIED")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Daily
  *        Data is aggregated in daily intervals. (Value: "DAILY")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_FullRange
+ *        Data is aggregated over the full timeline range. Effectively this
+ *        produces a single value rather than a timeline. (Value: "FULL_RANGE")
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Hourly
  *        Data is aggregated in hourly intervals. (Value: "HOURLY")
  */
@@ -2155,6 +2467,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  timezone of the start point.
  */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GoogleTypeDateTime *startTime;
+
+@end
+
+
+/**
+ *  A representation of a Play release track.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Track : GTLRObject
+
+/** Readable identifier of the track. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Represents all active releases in the track. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Release *> *servingReleases;
+
+/** The type of the track. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

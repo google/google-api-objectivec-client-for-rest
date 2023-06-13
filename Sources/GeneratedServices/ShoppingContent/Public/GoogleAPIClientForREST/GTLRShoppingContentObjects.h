@@ -55,6 +55,7 @@
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
+@class GTLRShoppingContent_CloudExportAdditionalProperties;
 @class GTLRShoppingContent_Collection;
 @class GTLRShoppingContent_CollectionFeaturedProduct;
 @class GTLRShoppingContent_CollectionStatus;
@@ -63,6 +64,7 @@
 @class GTLRShoppingContent_ConversionSource;
 @class GTLRShoppingContent_Css;
 @class GTLRShoppingContent_CustomAttribute;
+@class GTLRShoppingContent_CustomerLoyaltyData;
 @class GTLRShoppingContent_CustomerReturnReason;
 @class GTLRShoppingContent_CutoffTime;
 @class GTLRShoppingContent_Datafeed;
@@ -81,6 +83,7 @@
 @class GTLRShoppingContent_DeliveryArea;
 @class GTLRShoppingContent_DeliveryAreaPostalCodeRange;
 @class GTLRShoppingContent_DeliveryTime;
+@class GTLRShoppingContent_Distance;
 @class GTLRShoppingContent_ECommercePlatformLinkInfo;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
@@ -207,6 +210,7 @@
 @class GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity;
 @class GTLRShoppingContent_ProductViewItemIssueItemIssueType;
 @class GTLRShoppingContent_ProductWeight;
+@class GTLRShoppingContent_Promotion;
 @class GTLRShoppingContent_PromotionPromotionStatus;
 @class GTLRShoppingContent_PromotionPromotionStatusDestinationStatus;
 @class GTLRShoppingContent_PromotionPromotionStatusPromotionIssue;
@@ -256,6 +260,9 @@
 @class GTLRShoppingContent_Row;
 @class GTLRShoppingContent_Segments;
 @class GTLRShoppingContent_Service;
+@class GTLRShoppingContent_ServiceStoreConfig;
+@class GTLRShoppingContent_ServiceStoreConfigCutoffConfig;
+@class GTLRShoppingContent_ServiceStoreConfigCutoffConfigLocalCutoffTime;
 @class GTLRShoppingContent_SettlementReport;
 @class GTLRShoppingContent_SettlementTransaction;
 @class GTLRShoppingContent_SettlementTransactionAmount;
@@ -388,7 +395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_Attr
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelDataDriven;
 /**
- *  Cross-channel Frist Click model.
+ *  Cross-channel First Click model.
  *
  *  Value: "CROSS_CHANNEL_FIRST_CLICK"
  */
@@ -1408,6 +1415,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationDescriptio
  *  Value: "INTERACTION_CLICK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick;
+/**
+ *  When a recommendation is dismissed.
+ *
+ *  Value: "INTERACTION_DISMISS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionDismiss;
 /**
  *  Default value. If provided, the service will throw ApiError with description
  *  "Required parameter: interactionType".
@@ -3579,7 +3592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelDataDriven
  *        Cross-channel Data Driven model. (Value: "CROSS_CHANNEL_DATA_DRIVEN")
  *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelFirstClick
- *        Cross-channel Frist Click model. (Value: "CROSS_CHANNEL_FIRST_CLICK")
+ *        Cross-channel First Click model. (Value: "CROSS_CHANNEL_FIRST_CLICK")
  *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLastClick
  *        Cross-channel Last Click model. (Value: "CROSS_CHANNEL_LAST_CLICK")
  *    @arg @c kGTLRShoppingContent_AttributionSettings_AttributionModel_CrossChannelLinear
@@ -3981,6 +3994,77 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Product property for the Cloud Retail API. For example, properties for a TV
+ *  product could be "Screen-Resolution" or "Screen-Size".
+ */
+@interface GTLRShoppingContent_CloudExportAdditionalProperties : GTLRObject
+
+/**
+ *  Boolean value of the given property. For example for a TV product, "True" or
+ *  "False" if the screen is UHD.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Float values of the given property. For example for a TV product 1.2345.
+ *  Maximum number of specified values for this field is 400. Values are stored
+ *  in an arbitrary but consistent order.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *floatValue;
+
+/**
+ *  Integer values of the given property. For example, 1080 for a screen
+ *  resolution of a TV product. Maximum number of specified values for this
+ *  field is 400. Values are stored in an arbitrary but consistent order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *intValue;
+
+/**
+ *  Maximum float value of the given property. For example for a TV product
+ *  100.00.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
+
+/**
+ *  Minimum float value of the given property. For example for a TV product
+ *  1.00.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValue;
+
+/**
+ *  Name of the given property. For example, "Screen-Resolution" for a TV
+ *  product. Maximum string size is 256 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *propertyName;
+
+/**
+ *  Text value of the given property. For example, "8K(UHD)" could be a text
+ *  value for a TV product. Maximum number of specified values for this field is
+ *  400. Values are stored in an arbitrary but consistent order. Maximum string
+ *  size is 256 characters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *textValue;
+
+/**
+ *  Unit of the given property. For example, "Pixels" for a TV product. Maximum
+ *  string size is 256 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *unitCode;
+
+@end
+
+
+/**
  *  The collection message.
  */
 @interface GTLRShoppingContent_Collection : GTLRObject
@@ -4320,6 +4404,34 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** The value of the attribute. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The object representing a customer to update data for. Includes a customer
+ *  identifier (such as email address) and any associated metadata to add.
+ *  LoyaltyData triggers adding customer data for the purpose of loyalty
+ *  personalization.
+ */
+@interface GTLRShoppingContent_Customer : GTLRObject
+
+/** The customer's email address. No extra string processing needed. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
+
+/** Loyalty data associated with the customer. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_CustomerLoyaltyData *loyaltyData;
+
+@end
+
+
+/**
+ *  The loyalty data of the customer.
+ */
+@interface GTLRShoppingContent_CustomerLoyaltyData : GTLRObject
+
+/** The tier information for the given user. Can be an empty string. */
+@property(nonatomic, copy, nullable) NSString *loyaltyTier;
 
 @end
 
@@ -5155,8 +5267,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_DeliveryTime : GTLRObject
 
 /**
- *  Business days cutoff time definition. If not configured the cutoff time will
- *  be defaulted to 8AM PST.
+ *  Business days cutoff time definition. If not configured, the cutoff time
+ *  will be defaulted to 8AM PST. If local delivery, use
+ *  Service.StoreConfig.CutoffConfig.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_CutoffTime *cutoffTime;
 
@@ -5226,6 +5339,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  When set, no other transit time related field in DeliveryTime should be set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_WarehouseBasedDeliveryTime *> *warehouseBasedDeliveryTimes;
+
+@end
+
+
+/**
+ *  Distance represented by an integer and unit.
+ */
+@interface GTLRShoppingContent_Distance : GTLRObject
+
+/**
+ *  The distance unit. Acceptable values are `None`, `Miles`, and `Kilometers`.
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  The distance represented as a number.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -6396,6 +6529,33 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Response message for Promotions.List method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "promotions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_ListPromotionResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of all available promotions for the merchant.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Promotion *> *promotions;
+
+@end
+
+
+/**
  *  Response message for the `ListRegions` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6851,8 +7011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The quota information per method in the Content API. Includes only methods
- *  with current usage greater than zero for your account.
+ *  The quota information per method in the Content API.
  */
 @interface GTLRShoppingContent_MethodQuota : GTLRObject
 
@@ -10823,6 +10982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
+/** Extra fields to export to the Cloud Retail program. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CloudExportAdditionalProperties *> *cloudExportAdditionalProperties;
+
 /** Color of the item. */
 @property(nonatomic, copy, nullable) NSString *color;
 
@@ -10865,6 +11027,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The date time when an offer becomes visible in search results across
+ *  Google’s YouTube surfaces, in [ISO
+ *  8601](http://en.wikipedia.org/wiki/ISO_8601) format. See [Disclosure
+ *  date](https://support.google.com/merchants/answer/13034208) for more
+ *  information.
+ */
+@property(nonatomic, copy, nullable) NSString *disclosureDate;
 
 /** An identifier for an item for dynamic remarketing campaigns. */
 @property(nonatomic, copy, nullable) NSString *displayAdsId;
@@ -11788,7 +11959,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pendingCountries;
 
-/** Destination approval status in `targetCountry` of the offer. */
+/**
+ *  Deprecated. Destination approval status in `targetCountry` of the offer.
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 @end
@@ -12317,6 +12490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Canonical attribute name for attribute-specific issues. */
 @property(nonatomic, copy, nullable) NSString *canonicalAttribute;
+
+/** Error code of the issue. */
+@property(nonatomic, copy, nullable) NSString *code;
 
 @end
 
@@ -13218,6 +13394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick
  *        When a recommendation is clicked. (Value: "INTERACTION_CLICK")
+ *    @arg @c kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionDismiss
+ *        When a recommendation is dismissed. (Value: "INTERACTION_DISMISS")
  *    @arg @c kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionTypeUnspecified
  *        Default value. If provided, the service will throw ApiError with
  *        description "Required parameter: interactionType". (Value:
@@ -14870,9 +15048,94 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Type of locations this service ships orders to. Acceptable values are: -
- *  "`delivery`" - "`pickup`"
+ *  "`delivery`" - "`pickup`" - "`local_delivery`"
  */
 @property(nonatomic, copy, nullable) NSString *shipmentType;
+
+/**
+ *  A list of stores your products are delivered from. This is only available
+ *  for the local delivery shipment type.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ServiceStoreConfig *storeConfig;
+
+@end
+
+
+/**
+ *  Stores that provide local delivery. Only valid with local delivery
+ *  fulfillment.
+ */
+@interface GTLRShoppingContent_ServiceStoreConfig : GTLRObject
+
+/**
+ *  Time local delivery ends for the day. This can be either `local_cutoff_time`
+ *  or `store_close_offset_hours`, if both are provided an error is thrown.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ServiceStoreConfigCutoffConfig *cutoffConfig;
+
+/**
+ *  Maximum delivery radius. Only needed for local delivery fulfillment type.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Distance *serviceRadius;
+
+/**
+ *  A list of store codes that provide local delivery. If empty, then
+ *  `store_service_type` must be `all_stores`, or an error is thrown. If not
+ *  empty, then `store_service_type` must be `selected_stores`, or an error is
+ *  thrown.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *storeCodes;
+
+/**
+ *  Indicates whether all stores listed by this merchant provide local delivery
+ *  or not. Acceptable values are `all stores` and `selected stores`
+ */
+@property(nonatomic, copy, nullable) NSString *storeServiceType;
+
+@end
+
+
+/**
+ *  Time local delivery ends for the day based on the local timezone of the
+ *  store. `local_cutoff_time` and `store_close_offset_hours` are mutually
+ *  exclusive.
+ */
+@interface GTLRShoppingContent_ServiceStoreConfigCutoffConfig : GTLRObject
+
+/**
+ *  Time in hours and minutes in the local timezone when local delivery ends.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ServiceStoreConfigCutoffConfigLocalCutoffTime *localCutoffTime;
+
+/**
+ *  Represents cutoff time as the number of hours before store closing. Mutually
+ *  exclusive with other fields (hour and minute).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storeCloseOffsetHours;
+
+@end
+
+
+/**
+ *  Time in hours and minutes in the local timezone when local delivery ends.
+ */
+@interface GTLRShoppingContent_ServiceStoreConfigCutoffConfigLocalCutoffTime : GTLRObject
+
+/**
+ *  Hour local delivery orders must be placed by to process the same day.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hour;
+
+/**
+ *  Minute local delivery orders must be placed by to process the same day.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minute;
 
 @end
 

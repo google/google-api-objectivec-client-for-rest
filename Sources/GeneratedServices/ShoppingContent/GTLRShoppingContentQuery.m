@@ -1328,6 +1328,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_CustomersCreate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_Customer *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/customers";
+  GTLRShoppingContentQuery_CustomersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_Customer class];
+  query.loggingName = @"content.customers.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_DatafeedsCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_DatafeedsCustomBatchRequest *)object {
@@ -3400,6 +3427,25 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRShoppingContent_Promotion class];
   query.loggingName = @"content.promotions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_PromotionsList
+
+@dynamic countryCode, languageCode, merchantId, pageSize, pageToken;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/promotions";
+  GTLRShoppingContentQuery_PromotionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListPromotionResponse class];
+  query.loggingName = @"content.promotions.list";
   return query;
 }
 

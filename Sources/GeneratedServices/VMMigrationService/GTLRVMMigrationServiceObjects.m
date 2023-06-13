@@ -256,6 +256,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_AwsDiskDetails
+//
+
+@implementation GTLRVMMigrationService_AwsDiskDetails
+@dynamic diskNumber, sizeGb, volumeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_AwsSecurityGroup
 //
 
@@ -309,7 +319,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AwsSourceVmDetails
-@dynamic committedStorageBytes, firmware;
+@dynamic committedStorageBytes, disks, firmware;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disks" : [GTLRVMMigrationService_AwsDiskDetails class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1419,7 +1437,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_VmwareSourceDetails
-@dynamic password, thumbprint, username, vcenterIp;
+@dynamic password, resolvedVcenterHost, thumbprint, username, vcenterIp;
 @end
 
 

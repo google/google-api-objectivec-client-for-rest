@@ -226,7 +226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRServerlessVPCAccess_Location : GTLRObject
 

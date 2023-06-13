@@ -30,11 +30,15 @@
 @class GTLRHangoutsChat_CommonEventObject;
 @class GTLRHangoutsChat_CommonEventObject_FormInputs;
 @class GTLRHangoutsChat_CommonEventObject_Parameters;
+@class GTLRHangoutsChat_CustomEmoji;
 @class GTLRHangoutsChat_DateInput;
 @class GTLRHangoutsChat_DateTimeInput;
+@class GTLRHangoutsChat_DeletionMetadata;
 @class GTLRHangoutsChat_Dialog;
 @class GTLRHangoutsChat_DialogAction;
 @class GTLRHangoutsChat_DriveDataRef;
+@class GTLRHangoutsChat_Emoji;
+@class GTLRHangoutsChat_EmojiReactionSummary;
 @class GTLRHangoutsChat_FormAction;
 @class GTLRHangoutsChat_GoogleAppsCardV1Action;
 @class GTLRHangoutsChat_GoogleAppsCardV1ActionParameter;
@@ -45,6 +49,8 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1CardAction;
 @class GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter;
 @class GTLRHangoutsChat_GoogleAppsCardV1CardHeader;
+@class GTLRHangoutsChat_GoogleAppsCardV1Column;
+@class GTLRHangoutsChat_GoogleAppsCardV1Columns;
 @class GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker;
 @class GTLRHangoutsChat_GoogleAppsCardV1DecoratedText;
 @class GTLRHangoutsChat_GoogleAppsCardV1Divider;
@@ -65,6 +71,7 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1TextInput;
 @class GTLRHangoutsChat_GoogleAppsCardV1TextParagraph;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widget;
+@class GTLRHangoutsChat_GoogleAppsCardV1Widgets;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
 @class GTLRHangoutsChat_Inputs;
@@ -74,6 +81,7 @@
 @class GTLRHangoutsChat_Message;
 @class GTLRHangoutsChat_OnClick;
 @class GTLRHangoutsChat_OpenLink;
+@class GTLRHangoutsChat_Reaction;
 @class GTLRHangoutsChat_Section;
 @class GTLRHangoutsChat_SlashCommand;
 @class GTLRHangoutsChat_SlashCommandMetadata;
@@ -117,28 +125,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_Dialog;
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage;
 /**
- *  Privately ask the user for additional auth or config.
+ *  Privately ask the user for additional authentication or configuration.
  *
  *  Value: "REQUEST_CONFIG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig;
 /**
- *  Default type; will be handled as NEW_MESSAGE.
+ *  Default type that's handled as `NEW_MESSAGE`.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified;
 /**
- *  Update the Chat app's message. This is only permitted on a CARD_CLICKED
- *  event where the message sender type is BOT.
+ *  Update the Chat app's message. This is only permitted on a `CARD_CLICKED`
+ *  event where the message sender type is `BOT`.
  *
  *  Value: "UPDATE_MESSAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage;
 /**
  *  Update the cards on a user's message. This is only permitted as a response
- *  to a MESSAGE event with a matched url, or a CARD_CLICKED event where the
- *  message sender type is HUMAN. Text will be ignored.
+ *  to a `MESSAGE` event with a matched url, or a `CARD_CLICKED` event where the
+ *  message sender type is `HUMAN`. Text is ignored.
  *
  *  Value: "UPDATE_USER_MESSAGE_CARDS"
  */
@@ -312,7 +320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unk
 // GTLRHangoutsChat_Annotation.type
 
 /**
- *  Default value for the enum. DO NOT USE.
+ *  Default value for the enum. Don't use.
  *
  *  Value: "ANNOTATION_TYPE_UNSPECIFIED"
  */
@@ -441,6 +449,52 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Web;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_DeletionMetadata.deletionType
+
+/**
+ *  A Google Workspace admin deleted the message.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_Admin;
+/**
+ *  A Chat app deleted its own message when it expired.
+ *
+ *  Value: "APP_MESSAGE_EXPIRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_AppMessageExpiry;
+/**
+ *  User deleted their own message.
+ *
+ *  Value: "CREATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_Creator;
+/**
+ *  A Chat app deleted the message on behalf of the user.
+ *
+ *  Value: "CREATOR_VIA_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_CreatorViaApp;
+/**
+ *  This value is unused.
+ *
+ *  Value: "DELETION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_DeletionTypeUnspecified;
+/**
+ *  The space owner deleted the message.
+ *
+ *  Value: "SPACE_OWNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceOwner;
+/**
+ *  A Chat app deleted the message on behalf of the space owner.
+ *
+ *  Value: "SPACE_OWNER_VIA_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceOwnerViaApp;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.dialogEventType
 
 /**
@@ -547,7 +601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Load
 // GTLRHangoutsChat_GoogleAppsCardV1BorderStyle.type
 
 /**
- *  No value specified.
+ *  Don't use. Unspecified.
  *
  *  Value: "BORDER_TYPE_UNSPECIFIED"
  */
@@ -569,7 +623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle
 // GTLRHangoutsChat_GoogleAppsCardV1Card.displayStyle
 
 /**
- *  Do not use.
+ *  Don't use. Unspecified.
  *
  *  Value: "DISPLAY_STYLE_UNSPECIFIED"
  */
@@ -610,22 +664,107 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Square;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Column.horizontalAlignment
+
+/**
+ *  Aligns widgets to the center of the column.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_Center;
+/**
+ *  Aligns widgets to the end position of the column. For left-to-right layouts,
+ *  aligns widgets to the right. For right-to-left layouts, aligns widgets to
+ *  the left.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_End;
+/**
+ *  Don't use. Unspecified.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Default value. Aligns widgets to the start position of the column. For
+ *  left-to-right layouts, aligns to the left. For right-to-left layouts, aligns
+ *  to the right.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_Start;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Column.horizontalSizeStyle
+
+/**
+ *  Default value. Column fills the available space, up to 70% of the card's
+ *  width. If both columns are set to `FILL_AVAILABLE_SPACE`, each column fills
+ *  50% of the space.
+ *
+ *  Value: "FILL_AVAILABLE_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalSizeStyle_FillAvailableSpace;
+/**
+ *  Column fills the least amount of space possible and no more than 30% of the
+ *  card's width.
+ *
+ *  Value: "FILL_MINIMUM_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalSizeStyle_FillMinimumSpace;
+/**
+ *  Don't use. Unspecified.
+ *
+ *  Value: "HORIZONTAL_SIZE_STYLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalSizeStyle_HorizontalSizeStyleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Column.verticalAlignment
+
+/**
+ *  Aligns widgets to the bottom of a column.
+ *
+ *  Value: "BOTTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_Bottom;
+/**
+ *  Default value. Aligns widgets to the center of a column.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_Center;
+/**
+ *  Aligns widgets to the top of a column.
+ *
+ *  Value: "TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_Top;
+/**
+ *  Don't use. Unspecified.
+ *
+ *  Value: "VERTICAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_VerticalAlignmentUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker.type
 
 /**
- *  The user can select a date and time.
+ *  Users input a date and time.
  *
  *  Value: "DATE_AND_TIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateAndTime;
 /**
- *  The user can only select a date.
+ *  Users input a date.
  *
  *  Value: "DATE_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly;
 /**
- *  The user can only select a time.
+ *  Users input a time.
  *
  *  Value: "TIME_ONLY"
  */
@@ -635,7 +774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePic
 // GTLRHangoutsChat_GoogleAppsCardV1GridItem.layout
 
 /**
- *  No layout specified.
+ *  Don't use. Unspecified.
  *
  *  Value: "GRID_ITEM_LAYOUT_UNSPECIFIED"
  */
@@ -681,7 +820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageT
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Circle;
 /**
- *  No value specified. Do not use.
+ *  Don't use. Unspecified.
  *
  *  Value: "IMAGE_CROP_TYPE_UNSPECIFIED"
  */
@@ -710,14 +849,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropSt
 // GTLRHangoutsChat_GoogleAppsCardV1OpenLink.onClose
 
 /**
- *  Default value. The card does not reload; nothing happens.
+ *  Default value. The card doesn't reload; nothing happens.
  *
  *  Value: "NOTHING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Nothing;
 /**
  *  Reloads the card after the child window closes. If used in conjunction with
- *  [OpenAs.OVERLAY](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
+ *  [`OpenAs.OVERLAY`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
  *  the child window acts as a modal dialog and the parent card is blocked until
  *  the child window closes.
  *
@@ -729,8 +868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_On
 // GTLRHangoutsChat_GoogleAppsCardV1OpenLink.openAs
 
 /**
- *  The link opens as a full size window (if that's the frame used by the
- *  client.
+ *  The link opens as a full-size window (if that's the frame used by the
+ *  client).
  *
  *  Value: "FULL_SIZE"
  */
@@ -746,29 +885,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_Op
 // GTLRHangoutsChat_GoogleAppsCardV1SelectionInput.type
 
 /**
- *  A set of checkboxes. Users can select multiple check boxes per selection
- *  input.
+ *  A set of checkboxes. Users can select one or more checkboxes.
  *
  *  Value: "CHECK_BOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox;
 /**
- *  A dropdown menu. Users can select one dropdown menu item per selection
- *  input.
+ *  A dropdown menu. Users can select one item from the menu.
  *
  *  Value: "DROPDOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown;
 /**
- *  A set of radio buttons. Users can select one radio button per selection
- *  input.
+ *  A set of radio buttons. Users can select one radio button.
  *
  *  Value: "RADIO_BUTTON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton;
 /**
- *  A set of switches. Users can turn on multiple switches at once per selection
- *  input.
+ *  A set of switches. Users can turn on one or more switches.
  *
  *  Value: "SWITCH"
  */
@@ -811,6 +946,38 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_T
  *  Value: "SINGLE_LINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Widget.horizontalAlignment
+
+/**
+ *  Aligns widgets to the center of the column.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center;
+/**
+ *  Aligns widgets to the end position of the column. For left-to-right layouts,
+ *  aligns widgets to the right. For right-to-left layouts, aligns widgets to
+ *  the left.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End;
+/**
+ *  Don't use. Unspecified.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Default value. Aligns widgets to the start position of the column. For
+ *  left-to-right layouts, aligns to the left. For right-to-left layouts, aligns
+ *  to the right.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ImageButton.icon
@@ -948,15 +1115,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay;
 // GTLRHangoutsChat_Membership.role
 
 /**
- *  Default value. The user isn't a member of the space, but might be invited.
+ *  Default value. For users: they aren't a member of the space, but can be
+ *  invited. For Google Groups: they're always assigned this role (other enum
+ *  values might be used in the future).
  *
  *  Value: "MEMBERSHIP_ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified;
 /**
  *  A space manager. The user has all basic permissions plus administrative
- *  permissions that allow them to manage the space, like adding or removing
- *  members. Only supported in SpaceType.SPACE.
+ *  permissions that let them manage the space, like adding or removing members.
+ *  Only supported in SpaceType.SPACE.
  *
  *  Value: "ROLE_MANAGER"
  */
@@ -974,7 +1143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Role_RoleMember;
 // GTLRHangoutsChat_Membership.state
 
 /**
- *  The user has been invited, is able to join the space, but currently has not
+ *  The user has been invited, is able to join the space, but currently hasn't
  *  joined.
  *
  *  Value: "INVITED"
@@ -987,14 +1156,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Invited;
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Joined;
 /**
- *  Default, do not use.
+ *  Default, don't use.
  *
  *  Value: "MEMBERSHIP_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified;
 /**
- *  The user is not a member of the space, has not been invited and is not able
- *  to join the space.
+ *  The user isn't a member of the space, hasn't been invited and isn't able to
+ *  join the space.
  *
  *  Value: "NOT_A_MEMBER"
  */
@@ -1016,11 +1185,36 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Invoke;
 /**
- *  Default value for the enum. DO NOT USE.
+ *  Default value for the enum. Don't use.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Space.spaceHistoryState
+
+/**
+ *  History off. [Messages and threads are kept for 24
+ *  hours](https://support.google.com/chat/answer/7664687).
+ *
+ *  Value: "HISTORY_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceHistoryState_HistoryOff;
+/**
+ *  History on. The organization's [Vault retention
+ *  rules](https://support.google.com/vault/answer/7657597) specify for how long
+ *  messages and threads are kept.
+ *
+ *  Value: "HISTORY_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceHistoryState_HistoryOn;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "HISTORY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceHistoryState_HistoryStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Space.spaceThreadingState
@@ -1055,11 +1249,41 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_T
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_UnthreadedMessages;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Space.spaceType
+
+/**
+ *  1:1 messages between two humans or a human and a Chat app.
+ *
+ *  Value: "DIRECT_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceType_DirectMessage;
+/**
+ *  Group conversations between 3 or more people. A `GROUP_CHAT` can include
+ *  Chat apps.
+ *
+ *  Value: "GROUP_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceType_GroupChat;
+/**
+ *  A place where people send messages, share files, and collaborate. A `SPACE`
+ *  can include Chat apps.
+ *
+ *  Value: "SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceType_Space;
+/**
+ *  Reserved.
+ *
+ *  Value: "SPACE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceType_SpaceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Space.type
 
 /**
  *  1:1 Direct Message between a human and a Chat app, where all messages are
- *  flat. Note that this does not include direct messages between two humans.
+ *  flat. Note that this doesn't include direct messages between two humans.
  *
  *  Value: "DM"
  */
@@ -1111,7 +1335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ad
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Mention;
 /**
- *  Default value for the enum. DO NOT USE.
+ *  Default value for the enum. Don't use.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -1119,8 +1343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  List of string parameters to supply when the action method is invoked. For
- *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
- *  next week. You might use action method = snooze(), passing the snooze type
+ *  example, consider three snooze buttons: snooze now, snooze one day, snooze
+ *  next week. You might use `action method = snooze()`, passing the snooze type
  *  and snooze time in the list of string parameters.
  */
 @interface GTLRHangoutsChat_ActionParameter : GTLRObject
@@ -1156,23 +1380,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_NewMessage Post as a new
  *        message in the topic. (Value: "NEW_MESSAGE")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_RequestConfig Privately ask
- *        the user for additional auth or config. (Value: "REQUEST_CONFIG")
- *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified Default
- *        type; will be handled as NEW_MESSAGE. (Value: "TYPE_UNSPECIFIED")
+ *        the user for additional authentication or configuration. (Value:
+ *        "REQUEST_CONFIG")
+ *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified Default type
+ *        that's handled as `NEW_MESSAGE`. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage Update the
- *        Chat app's message. This is only permitted on a CARD_CLICKED event
- *        where the message sender type is BOT. (Value: "UPDATE_MESSAGE")
+ *        Chat app's message. This is only permitted on a `CARD_CLICKED` event
+ *        where the message sender type is `BOT`. (Value: "UPDATE_MESSAGE")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards
  *        Update the cards on a user's message. This is only permitted as a
- *        response to a MESSAGE event with a matched url, or a CARD_CLICKED
- *        event where the message sender type is HUMAN. Text will be ignored.
+ *        response to a `MESSAGE` event with a matched url, or a `CARD_CLICKED`
+ *        event where the message sender type is `HUMAN`. Text is ignored.
  *        (Value: "UPDATE_USER_MESSAGE_CARDS")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Input only. URL for users to auth or config. (Only for REQUEST_CONFIG
- *  response types.)
+ *  Input only. URL for users to authenticate or configure. (Only for
+ *  `REQUEST_CONFIG` response types.)
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -1335,7 +1560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified
- *        Default value for the enum. DO NOT USE. (Value:
+ *        Default value for the enum. Don't use. (Value:
  *        "ANNOTATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_Annotation_Type_SlashCommand A slash command is
  *        invoked. (Value: "SLASH_COMMAND")
@@ -1356,7 +1581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Attachment : GTLRObject
 
 /**
- *  A reference to the attachment data. This is used with the media API to
+ *  A reference to the attachment data. This field is used with the media API to
  *  download the attachment data.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_AttachmentDataRef *attachmentDataRef;
@@ -1369,17 +1594,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Output only. The download URL which should be used to allow a human user to
- *  download the attachment. Chat apps should not use this URL to download
+ *  download the attachment. Chat apps shouldn't use this URL to download
  *  attachment content.
  */
 @property(nonatomic, copy, nullable) NSString *downloadUri;
 
-/** A reference to the drive attachment. This is used with the Drive API. */
+/**
+ *  A reference to the drive attachment. This field is used with the Drive API.
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DriveDataRef *driveDataRef;
 
 /**
- *  Resource name of the attachment, in the form "spaces/ * /messages/ *
- *  /attachments/ *".
+ *  Resource name of the attachment, in the form `spaces/ * /messages/ *
+ *  /attachments/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1397,7 +1624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Output only. The thumbnail URL which should be used to preview the
- *  attachment to a human user. Chat apps should not use this URL to download
+ *  attachment to a human user. Chat apps shouldn't use this URL to download
  *  attachment content.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailUri;
@@ -1411,8 +1638,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_AttachmentDataRef : GTLRObject
 
 /**
- *  The resource name of the attachment data. This is used with the media API to
- *  download the attachment data.
+ *  Opaque token containing a reference to an uploaded attachment. Treated by
+ *  clients as an opaque string and used to create or update Chat messages with
+ *  attachments.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentUploadToken;
+
+/**
+ *  The resource name of the attachment data. This field is used with the media
+ *  API to download the attachment data.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -1424,17 +1658,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_Button : GTLRObject
 
-/** A button with image and onclick action. */
+/** A button with image and `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ImageButton *imageButton;
 
-/** A button with text and onclick action. */
+/** A button with text and `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_TextButton *textButton;
 
 @end
 
 
 /**
- *  A card is a UI element that can contain UI widgets such as texts, images.
+ *  A card is a UI element that can contain UI widgets such as text and images.
  */
 @interface GTLRHangoutsChat_Card : GTLRObject
 
@@ -1475,7 +1709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_CardHeader : GTLRObject
 
 /**
- *  The image's type (e.g. square border or circular border).
+ *  The image's type (for example, square border or circular border).
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar Circular border.
@@ -1495,8 +1729,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The title must be specified. The header has a fixed height: if both a title
- *  and subtitle is specified, each will take up 1 line. If only the title is
- *  specified, it will take up both lines.
+ *  and subtitle is specified, each takes up one line. If only the title is
+ *  specified, it takes up both lines.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -1551,19 +1785,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Represents a color in the RGBA color space. This representation is designed
- *  for simplicity of conversion to/from color representations in various
+ *  for simplicity of conversion to and from color representations in various
  *  languages over compactness. For example, the fields of this representation
  *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
  *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't have
  *  information about the absolute color space that should be used to interpret
- *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default,
  *  applications should assume the sRGB color space. When color equality needs
  *  to be decided, implementations, unless documented otherwise, treat two
  *  colors as equal if all their red, green, blue, and alpha values each differ
- *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
- *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  by at most `1e-5`. Example (Java): import com.google.type.Color; // ...
+ *  public static java.awt.Color fromProto(Color protocolor) { float alpha =
  *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
  *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
  *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
@@ -1715,12 +1949,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *platform;
 
-/** The timezone ID and offset from Coordinated Universal Time (UTC). */
+/**
+ *  The timezone ID and offset from Coordinated Universal Time (UTC). Only
+ *  supported for the event types
+ *  [`CARD_CLICKED`](https://developers.google.com/chat/api/reference/rest/v1/EventType#ENUM_VALUES.CARD_CLICKED)
+ *  and
+ *  [`SUBMIT_DIALOG`](https://developers.google.com/chat/api/reference/rest/v1/DialogEventType#ENUM_VALUES.SUBMIT_DIALOG).
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_TimeZone *timeZone;
 
 /**
  *  The full `locale.displayName` in the format of [ISO 639 language code]-[ISO
- *  3166 country/region code] such as "en-US". Not supported by Chat apps.
+ *  3166 country/region code] such as "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *userLocale;
 
@@ -1760,7 +2000,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Date input values. Not supported by Chat apps.
+ *  Represents a custom emoji.
+ */
+@interface GTLRHangoutsChat_CustomEmoji : GTLRObject
+
+/** Unique key for the custom emoji resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  Date input values.
  */
 @interface GTLRHangoutsChat_DateInput : GTLRObject
 
@@ -1775,7 +2026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Date and time input values. Not supported by Chat apps.
+ *  Date and time input values.
  */
 @interface GTLRHangoutsChat_DateTimeInput : GTLRObject
 
@@ -1804,7 +2055,42 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Google Chat events.
+ *  Information about a deleted message. A message is deleted when `delete_time`
+ *  is set.
+ */
+@interface GTLRHangoutsChat_DeletionMetadata : GTLRObject
+
+/**
+ *  Indicates who deleted the message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_Admin A Google
+ *        Workspace admin deleted the message. (Value: "ADMIN")
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_AppMessageExpiry A
+ *        Chat app deleted its own message when it expired. (Value:
+ *        "APP_MESSAGE_EXPIRY")
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_Creator User
+ *        deleted their own message. (Value: "CREATOR")
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_CreatorViaApp A
+ *        Chat app deleted the message on behalf of the user. (Value:
+ *        "CREATOR_VIA_APP")
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_DeletionTypeUnspecified
+ *        This value is unused. (Value: "DELETION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceOwner The
+ *        space owner deleted the message. (Value: "SPACE_OWNER")
+ *    @arg @c kGTLRHangoutsChat_DeletionMetadata_DeletionType_SpaceOwnerViaApp A
+ *        Chat app deleted the message on behalf of the space owner. (Value:
+ *        "SPACE_OWNER_VIA_APP")
+ */
+@property(nonatomic, copy, nullable) NSString *deletionType;
+
+@end
+
+
+/**
+ *  Google Chat events. To learn how to use events, see [Receive and respond to
+ *  Google Chat
+ *  events](https://developers.google.com/chat/api/guides/message-formats).
  */
 @interface GTLRHangoutsChat_DeprecatedEvent : GTLRObject
 
@@ -1922,7 +2208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Input only. Body of the dialog, which is rendered in a modal. Google Chat
- *  apps do not support the following card entities: `DateTimePicker`,
+ *  apps don't support the following card entities: `DateTimePicker`,
  *  `OnChangeAction`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Card *body;
@@ -1958,8 +2244,40 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_DriveDataRef : GTLRObject
 
-/** The id for the drive file, for use with the Drive API. */
+/** The ID for the drive file. Use with the Drive API. */
 @property(nonatomic, copy, nullable) NSString *driveFileId;
+
+@end
+
+
+/**
+ *  An emoji that is used as a reaction to a message.
+ */
+@interface GTLRHangoutsChat_Emoji : GTLRObject
+
+/** Output only. A custom emoji. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CustomEmoji *customEmoji;
+
+/** A basic emoji represented by a unicode string. */
+@property(nonatomic, copy, nullable) NSString *unicode;
+
+@end
+
+
+/**
+ *  The number of people who reacted to a message with a specific emoji.
+ */
+@interface GTLRHangoutsChat_EmojiReactionSummary : GTLRObject
+
+/** Emoji associated with the reactions. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Emoji *emoji;
+
+/**
+ *  The total number of reactions using the associated emoji.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reactionCount;
 
 @end
 
@@ -1976,15 +2294,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A form action describes the behavior when the form is submitted. For
- *  example, an Apps Script can be invoked to handle the form.
+ *  example, you can invoke Apps Script to handle the form.
  */
 @interface GTLRHangoutsChat_FormAction : GTLRObject
 
 /**
  *  The method name is used to identify which part of the form triggered the
  *  form submission. This information is echoed back to the Chat app as part of
- *  the card click event. The same method name can be used for several elements
- *  that trigger a common behavior if desired.
+ *  the card click event. You can use the same method name for several elements
+ *  that trigger a common behavior.
  */
 @property(nonatomic, copy, nullable) NSString *actionMethodName;
 
@@ -1996,8 +2314,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  An action that describes the behavior when the form is submitted. For
- *  example, an Apps Script can be invoked to handle the form. If the action is
- *  triggered, the form values are sent to the server.
+ *  example, you can invoke an Apps Script script to handle the form. If the
+ *  action is triggered, the form values are sent to the server.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Action : GTLRObject
 
@@ -2011,13 +2329,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Optional. Required when opening a
  *  [dialog](https://developers.google.com/chat/how-tos/dialogs). What to do in
- *  response to an interaction with a user, such as a user clicking button on a
- *  card message. If unspecified, the app responds by executing an `action` -
- *  like opening a link or running a function - as normal. By specifying an
- *  `interaction`, the app can respond in special interactive ways. For example,
- *  by setting `interaction` to `OPEN_DIALOG`, the app can open a
+ *  response to an interaction with a user, such as a user clicking a button in
+ *  a card message. If unspecified, the app responds by executing an
+ *  `action`—like opening a link or running a function—as normal. By specifying
+ *  an `interaction`, the app can respond in special interactive ways. For
+ *  example, by setting `interaction` to `OPEN_DIALOG`, the app can open a
  *  [dialog](https://developers.google.com/chat/how-tos/dialogs). When
- *  specified, a loading indicator is not shown. Supported by Chat apps, but not
+ *  specified, a loading indicator isn't shown. Supported by Chat apps, but not
  *  Google Workspace Add-ons. If specified for an add-on, the entire card is
  *  stripped and nothing is shown in the client.
  *
@@ -2055,17 +2373,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Indicates whether form values persist after the action. The default value is
  *  `false`. If `true`, form values remain after the action is triggered. To let
  *  the user make changes while the action is being processed, set
- *  [LoadIndicator](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  [`LoadIndicator`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
  *  to `NONE`. For [card
  *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
  *  in Chat apps, you must also set the action's
- *  [ResponseType](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#responsetype)
+ *  [`ResponseType`](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#responsetype)
  *  to `UPDATE_MESSAGE` and use the same
  *  [`card_id`](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#CardWithId)
  *  from the card that contained the action. If `false`, the form values are
  *  cleared when the action is triggered. To prevent the user from making
  *  changes while the action is being processed, set
- *  [LoadIndicator](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  [`LoadIndicator`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
  *  to `SPINNER`.
  *
  *  Uses NSNumber of boolValue.
@@ -2077,10 +2395,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  List of string parameters to supply when the action method is invoked. For
- *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
- *  next week. You might use action method = snooze(), passing the snooze type
- *  and snooze time in the list of string parameters. To learn more, see
- *  [CommonEventObject](https://developers.google.com/chat/api/reference/rest/v1/Event#commoneventobject).
+ *  example, consider three snooze buttons: snooze now, snooze one day, or
+ *  snooze next week. You might use `action method = snooze()`, passing the
+ *  snooze type and snooze time in the list of string parameters. To learn more,
+ *  see
+ *  [`CommonEventObject`](https://developers.google.com/chat/api/reference/rest/v1/Event#commoneventobject).
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1ActionParameter : GTLRObject
 
@@ -2114,7 +2433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_BorderTypeUnspecified
- *        No value specified. (Value: "BORDER_TYPE_UNSPECIFIED")
+ *        Don't use. Unspecified. (Value: "BORDER_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder
  *        Default value. No border. (Value: "NO_BORDER")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_Stroke Outline.
@@ -2126,38 +2445,35 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A text, icon, or text + icon button that users can click. To make an image a
- *  clickable button, specify an Image (not an ImageComponent) and set an
- *  `onClick` action. Currently supported in Chat apps (including [dialogs]
- *  (https://developers.google.com/chat/how-tos/dialogs) and [card messages]
- *  (https://developers.google.com/chat/api/guides/message-formats/cards)) and
- *  Google Workspace Add-ons.
+ *  A text, icon, or text and icon button that users can click. To make an image
+ *  a clickable button, specify an `Image` (not an `ImageComponent`) and set an
+ *  `onClick` action.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Button : GTLRObject
 
 /**
- *  The alternative text used for accessibility. Set descriptive text that lets
- *  users know what the button does. For example, if a button opens a hyperlink,
- *  you might write: "Opens a new browser tab and navigates to the Google Chat
- *  developer documentation at https://developers.google.com/chat".
+ *  The alternative text that's used for accessibility. Set descriptive text
+ *  that lets users know what the button does. For example, if a button opens a
+ *  hyperlink, you might write: "Opens a new browser tab and navigates to the
+ *  Google Chat developer documentation at https://developers.google.com/chat".
  */
 @property(nonatomic, copy, nullable) NSString *altText;
 
 /**
  *  If set, the button is filled with a solid background color and the font
  *  color changes to maintain contrast with the background color. For example,
- *  setting a blue background will likely result in white text. If unset, the
- *  image background is white and the font color is blue. For red, green and
- *  blue, the value of each field is a `float` number that can be expressed in
- *  either of two ways: as a number between 0 and 255 divided by 255 (153/255)
- *  or as a value between 0 and 1 (0.6). 0 represents the absence of a color and
- *  1 or 255/255 represent the full presence of that color on the RGB scale.
- *  Optionally set alpha, which sets a level of transparency using this
+ *  setting a blue background likely results in white text. If unset, the image
+ *  background is white and the font color is blue. For red, green, and blue,
+ *  the value of each field is a `float` number that you can express in either
+ *  of two ways: as a number between 0 and 255 divided by 255 (153/255), or as a
+ *  value between 0 and 1 (0.6). 0 represents the absence of a color and 1 or
+ *  255/255 represent the full presence of that color on the RGB scale.
+ *  Optionally set `alpha`, which sets a level of transparency using this
  *  equation: ``` pixel color = alpha * (this color) + (1.0 - alpha) *
- *  (background color) ``` For alpha, a value of 1 corresponds with a solid
- *  color, and a value of 0 corresponds with a completely transparent color. For
- *  example, the following color represents a half transparent red: ``` "color":
- *  { "red": 1, "green": 0, "blue": 0, "alpha": 0.5 } ```
+ *  (background color) ``` For `alpha`, a value of `1` corresponds with a solid
+ *  color, and a value of `0` corresponds with a completely transparent color.
+ *  For example, the following color represents a half transparent red: ```
+ *  "color": { "red": 1, "green": 0, "blue": 0, "alpha": 0.5 } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *color;
 
@@ -2176,8 +2492,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
 
 /**
- *  Required. The action to perform when the button is clicked, such as opening
- *  a hyperlink or running a custom function.
+ *  Required. The action to perform when a user clicks the button, such as
+ *  opening a hyperlink or running a custom function.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
 
@@ -2206,9 +2522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  text message, just beneath the text message. - As a
  *  [dialog](https://developers.google.com/chat/how-tos/dialogs). The following
  *  example JSON creates a "contact card" that features: - A header with the
- *  contact's name, job title, avatar picture. - A section with the contact
+ *  contact's name, job title, and avatar picture. - A section with the contact
  *  information, including formatted text. - Buttons that users can click to
- *  share the contact or see more or less info. ![Example contact
+ *  share the contact, or see more or less information. ![Example contact
  *  card](https://developers.google.com/chat/images/card_api_reference.png) ```
  *  { "cardsV2": [ { "cardId": "unique-card-id", "card": { "header": { "title":
  *  "Sasha", "subtitle": "Software Engineer", "imageUrl":
@@ -2229,11 +2545,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The card's actions. Actions are added to the card's toolbar menu. Because
- *  Chat app cards have no toolbar, `cardActions[]` is not supported by Chat
+ *  Chat app cards have no toolbar, `cardActions[]` isn't supported by Chat
  *  apps. For example, the following JSON constructs a card action menu with
- *  Settings and Send Feedback options: ``` "card_actions": [ { "actionLabel":
- *  "Settings", "onClick": { "action": { "functionName": "goToView",
- *  "parameters": [ { "key": "viewType", "value": "SETTING" } ],
+ *  `Settings` and `Send Feedback` options: ``` "card_actions": [ {
+ *  "actionLabel": "Settings", "onClick": { "action": { "functionName":
+ *  "goToView", "parameters": [ { "key": "viewType", "value": "SETTING" } ],
  *  "loadIndicator": "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send
  *  Feedback", "onClick": { "openLink": { "url": "https://example.com/feedback"
  *  } } } ] ```
@@ -2246,7 +2562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_DisplayStyleUnspecified
- *        Do not use. (Value: "DISPLAY_STYLE_UNSPECIFIED")
+ *        Don't use. Unspecified. (Value: "DISPLAY_STYLE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Peek The
  *        header of the card appears at the bottom of the sidebar, partially
  *        covering the current top card of the stack. Clicking the header pops
@@ -2261,9 +2577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The fixed footer shown at the bottom of this card. Setting `fixedFooter`
  *  without specifying a `primaryButton` or a `secondaryButton` causes an error.
- *  Chat apps support `fixedFooter` in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not in
- *  [card
+ *  Supported by Google Workspace Add-ons and Chat apps. For Chat apps, you can
+ *  use fixed footers in
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not [card
  *  messages](https://developers.google.com/chat/api/guides/message-formats/cards).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter *fixedFooter;
@@ -2315,9 +2631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A persistent (sticky) footer that that appears at the bottom of the card.
  *  Setting `fixedFooter` without specifying a `primaryButton` or a
- *  `secondaryButton` causes an error. Chat apps support `fixedFooter` in
- *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not in
- *  [card
+ *  `secondaryButton` causes an error. Supported by Google Workspace Add-ons and
+ *  Chat apps. For Chat apps, you can use fixed footers in
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not [card
  *  messages](https://developers.google.com/chat/api/guides/message-formats/cards).
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter : GTLRObject
@@ -2330,8 +2646,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The secondary button of the fixed footer. The button must be a text button
- *  with text and color set. `primaryButton` must be set if `secondaryButton` is
- *  set.
+ *  with text and color set. If `secondaryButton` is set, you must also set
+ *  `primaryButton`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Button *secondaryButton;
 
@@ -2343,7 +2659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CardHeader : GTLRObject
 
-/** The alternative text of this image which is used for accessibility. */
+/** The alternative text of this image that's used for accessibility. */
 @property(nonatomic, copy, nullable) NSString *imageAltText;
 
 /**
@@ -2379,65 +2695,156 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Lets users specify a date, a time, or both a date and a time. Accepts text
- *  input from users, but features an interactive date and time selector that
- *  helps users enter correctly-formatted dates and times. If users enter a date
- *  or time incorrectly, the widget shows an error that prompts users to enter
- *  the correct format. Not supported by Chat apps. Support by Chat apps coming
- *  soon.
+ *  A column.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Column : GTLRObject
+
+/**
+ *  Specifies whether widgets align to the left, right, or center of a column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_Center
+ *        Aligns widgets to the center of the column. (Value: "CENTER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_End
+ *        Aligns widgets to the end position of the column. For left-to-right
+ *        layouts, aligns widgets to the right. For right-to-left layouts,
+ *        aligns widgets to the left. (Value: "END")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *        Don't use. Unspecified. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalAlignment_Start
+ *        Default value. Aligns widgets to the start position of the column. For
+ *        left-to-right layouts, aligns to the left. For right-to-left layouts,
+ *        aligns to the right. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+/**
+ *  Specifies how a column fills the width of the card.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalSizeStyle_FillAvailableSpace
+ *        Default value. Column fills the available space, up to 70% of the
+ *        card's width. If both columns are set to `FILL_AVAILABLE_SPACE`, each
+ *        column fills 50% of the space. (Value: "FILL_AVAILABLE_SPACE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalSizeStyle_FillMinimumSpace
+ *        Column fills the least amount of space possible and no more than 30%
+ *        of the card's width. (Value: "FILL_MINIMUM_SPACE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_HorizontalSizeStyle_HorizontalSizeStyleUnspecified
+ *        Don't use. Unspecified. (Value: "HORIZONTAL_SIZE_STYLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalSizeStyle;
+
+/**
+ *  Specifies whether widgets align to the top, bottom, or center of a column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_Bottom
+ *        Aligns widgets to the bottom of a column. (Value: "BOTTOM")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_Center
+ *        Default value. Aligns widgets to the center of a column. (Value:
+ *        "CENTER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_Top
+ *        Aligns widgets to the top of a column. (Value: "TOP")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Column_VerticalAlignment_VerticalAlignmentUnspecified
+ *        Don't use. Unspecified. (Value: "VERTICAL_ALIGNMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verticalAlignment;
+
+/**
+ *  An array of widgets included in a column. Widgets appear in the order that
+ *  they are specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Widgets *> *widgets;
+
+@end
+
+
+/**
+ *  The `Columns` widget displays up to 2 columns in a card message or dialog.
+ *  You can add widgets to each column; the widgets appear in the order that
+ *  they are specified. The height of each column is determined by the taller
+ *  column. For example, if the first column is taller than the second column,
+ *  both columns have the height of the first column. Because each column can
+ *  contain a different number of widgets, you can't define rows or align
+ *  widgets between the columns. Columns are displayed side-by-side. You can
+ *  customize the width of each column using the `HorizontalSizeStyle` field. If
+ *  the user's screen width is too narrow, the second column wraps below the
+ *  first: * On web, the second column wraps if the screen width is less than or
+ *  equal to 480 pixels. * On iOS devices, the second column wraps if the screen
+ *  width is less than or equal to 300 pt. * On Android devices, the second
+ *  column wraps if the screen width is less than or equal to 320 dp. To include
+ *  more than 2 columns, or to use rows, use the `Grid` widget. Supported by
+ *  Chat apps, but not Google Workspace Add-ons.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Columns : GTLRObject
+
+/**
+ *  An array of columns. You can include up to 2 columns in a card or dialog.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Column *> *columnItems;
+
+@end
+
+
+/**
+ *  Lets users input a date, a time, or both a date and a time. Users can input
+ *  text or use the picker to select dates and times. If users input an invalid
+ *  date or time, the picker shows an error that prompts users to input the
+ *  information correctly.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker : GTLRObject
 
 /**
- *  The text that prompts users to enter a date, time, or datetime. Specify text
- *  that helps the user enter the information your app needs. For example, if
- *  users are setting an appointment, then a label like "Appointment date" or
- *  "Appointment date and time" might work well.
+ *  The text that prompts users to input a date, a time, or a date and time. For
+ *  example, if users are scheduling an appointment, use a label such as
+ *  `Appointment date` or `Appointment date and time`.
  */
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The name by which the datetime picker is identified in a form input event.
+ *  The name by which the `DateTimePicker` is identified in a form input event.
  *  For details about working with form inputs, see [Receive form
  *  data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Triggered when the user clicks **Save** or **Clear** from the datetime
- *  picker interface.
+ *  Triggered when the user clicks **Save** or **Clear** from the
+ *  `DateTimePicker` interface.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
 
 /**
  *  The number representing the time zone offset from UTC, in minutes. If set,
- *  the `value_ms_epoch` is displayed in the specified time zone. If not set, it
- *  uses the user's time zone setting on the client side.
+ *  the `value_ms_epoch` is displayed in the specified time zone. If unset, the
+ *  value defaults to the user's time zone setting.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timezoneOffsetDate;
 
 /**
- *  What kind of date and time input the datetime picker supports.
+ *  Whether the widget supports inputting a date, a time, or the date and time.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateAndTime
- *        The user can select a date and time. (Value: "DATE_AND_TIME")
- *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly The
- *        user can only select a date. (Value: "DATE_ONLY")
- *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly The
- *        user can only select a time. (Value: "TIME_ONLY")
+ *        Users input a date and time. (Value: "DATE_AND_TIME")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly
+ *        Users input a date. (Value: "DATE_ONLY")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly
+ *        Users input a time. (Value: "TIME_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The value displayed as the default value before user input or previous user
- *  input, represented in milliseconds ([Epoch
- *  time](https://en.wikipedia.org/wiki/Unix_time)). For `DATE_AND_TIME` type,
- *  the full epoch value is used. For `DATE_ONLY` type, only date of the epoch
- *  time is used. For `TIME_ONLY` type, only time of the epoch time is used. For
- *  example, to represent 3:00 AM, set epoch time to `3 * 60 * 60 * 1000`.
+ *  The default value displayed in the widget, in milliseconds since [Unix epoch
+ *  time](https://en.wikipedia.org/wiki/Unix_time). Specify the value based on
+ *  the type of picker (`DateTimePickerType`): * `DATE_AND_TIME`: a calendar
+ *  date and time in UTC. For example, to represent January 1, 2023 at 12:00 PM
+ *  UTC, use `1672574400000`. * `DATE_ONLY`: a calendar date at 00:00:00 UTC.
+ *  For example, to represent January 1, 2023, use `1672531200000`. *
+ *  `TIME_ONLY`: a time in UTC. For example, to represent 12:00 PM, use
+ *  `43200000` (or `12 * 60 * 60 * 1000`).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2448,15 +2855,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A widget that displays text with optional decorations such as a label above
- *  or below the text, an icon in front of the text, a selection widget or a
+ *  or below the text, an icon in front of the text, a selection widget, or a
  *  button after the text.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1DecoratedText : GTLRObject
 
-/** The text that appears below `text`. Always truncates. */
+/** The text that appears below `text`. Always wraps. */
 @property(nonatomic, copy, nullable) NSString *bottomLabel;
 
-/** A button that can be clicked to trigger an action. */
+/** A button that a user can click to trigger an action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Button *button;
 
 /**
@@ -2471,20 +2878,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** Deprecated in favor of `startIcon`. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
 
-/** When users click on `topLabel` or `bottomLabel`, this action triggers. */
+/** This action is triggered when users click `topLabel` or `bottomLabel`. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
 
 /** The icon displayed in front of the text. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *startIcon;
 
 /**
- *  A switch widget can be clicked to change its state and trigger an action.
+ *  A switch widget that a user can click to change its state and trigger an
+ *  action.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1SwitchControl *switchControl;
 
 /**
- *  Required. The primary text. Supports simple formatting. See Text formatting
- *  for formatting details.
+ *  Required. The primary text. Supports simple formatting. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -2504,7 +2915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Displays a divider between widgets, a horizontal line. For example, the
+ *  Displays a divider between widgets as a horizontal line. For example, the
  *  following JSON creates a divider: ``` "divider": {} ```
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Divider : GTLRObject
@@ -2512,17 +2923,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Displays a grid with a collection of items. A grid supports any number of
- *  columns and items. The number of rows is determined by items divided by
- *  columns. A grid with 10 items and 2 columns has 5 rows. A grid with 11 items
- *  and 2 columns has 6 rows. For example, the following JSON creates a 2 column
- *  grid with a single item: ``` "grid": { "title": "A fine collection of
- *  items", "columnCount": 2, "borderStyle": { "type": "STROKE", "cornerRadius":
- *  4 }, "items": [ { "image": { "imageUri":
- *  "https://www.example.com/image.png", "cropStyle": { "type": "SQUARE" },
- *  "borderStyle": { "type": "STROKE" } }, "title": "An item", "textAlignment":
- *  "CENTER" } ], "onClick": { "openLink": { "url": "https://www.example.com" }
- *  } } ```
+ *  Displays a grid with a collection of items. Items can only include text or
+ *  images. A grid supports any number of columns and items. The number of rows
+ *  is determined by items divided by columns. A grid with 10 items and 2
+ *  columns has 5 rows. A grid with 11 items and 2 columns has 6 rows. For
+ *  responsive columns, or to include more than text or images, use `Columns`.
+ *  For example, the following JSON creates a 2 column grid with a single item:
+ *  ``` "grid": { "title": "A fine collection of items", "columnCount": 2,
+ *  "borderStyle": { "type": "STROKE", "cornerRadius": 4 }, "items": [ {
+ *  "image": { "imageUri": "https://www.example.com/image.png", "cropStyle": {
+ *  "type": "SQUARE" }, "borderStyle": { "type": "STROKE" } }, "title": "An
+ *  item", "textAlignment": "CENTER" } ], "onClick": { "openLink": { "url":
+ *  "https://www.example.com" } } } ```
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -2562,13 +2974,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represents a single item in the grid layout.
+ *  Represents an item in a grid layout. Items can contain text, an image, or
+ *  both text and an image.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1GridItem : GTLRObject
 
 /**
  *  A user-specified identifier for this grid item. This identifier is returned
- *  in the parent Grid's onClick callback parameters.
+ *  in the parent grid's `onClick` callback parameters.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2582,7 +2995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_GridItemLayoutUnspecified
- *        No layout specified. (Value: "GRID_ITEM_LAYOUT_UNSPECIFIED")
+ *        Don't use. Unspecified. (Value: "GRID_ITEM_LAYOUT_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextAbove The
  *        title and subtitle are shown above the grid item's image. (Value:
  *        "TEXT_ABOVE")
@@ -2612,11 +3025,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Optional. A description of the icon used for accessibility. If unspecified,
- *  the default value "Button" is provided. As a best practice, you should set a
+ *  the default value `Button` is provided. As a best practice, you should set a
  *  helpful description for what the icon displays, and if applicable, what it
  *  does. For example, `A user's account portrait`, or `Opens a new browser tab
  *  and navigates to the Google Chat developer documentation at
- *  https://developers.google.com/chat`. If the icon is set in a Button, the
+ *  https://developers.google.com/chat`. If the icon is set in a `Button`, the
  *  `altText` appears as helper text when the user hovers over the button.
  *  However, if the button also sets `text`, the icon's `altText` is ignored.
  */
@@ -2659,16 +3072,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Image : GTLRObject
 
-/** The alternative text of this image, used for accessibility. */
+/** The alternative text of this image that's used for accessibility. */
 @property(nonatomic, copy, nullable) NSString *altText;
 
 /**
- *  The `https` URL that hosts the image. For example: ```
+ *  The HTTPS URL that hosts the image. For example: ```
  *  https://developers.google.com/chat/images/quickstart-app-avatar.png ```
  */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
-/** When a user clicks on the image, the click triggers this action. */
+/** When a user clicks the image, the click triggers this action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
 
 @end
@@ -2696,14 +3109,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Represents the crop style applied to an image. For example, here's how to
- *  apply a 16 by 9 aspect ratio: ``` cropStyle { "type": "RECTANGLE_CUSTOM",
+ *  apply a 16:9 aspect ratio: ``` cropStyle { "type": "RECTANGLE_CUSTOM",
  *  "aspectRatio": 16/9 } ```
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle : GTLRObject
 
 /**
  *  The aspect ratio to use if the crop type is `RECTANGLE_CUSTOM`. For example,
- *  here's how to apply a 16 by 9 aspect ratio: ``` cropStyle { "type":
+ *  here's how to apply a 16:9 aspect ratio: ``` cropStyle { "type":
  *  "RECTANGLE_CUSTOM", "aspectRatio": 16/9 } ```
  *
  *  Uses NSNumber of doubleValue.
@@ -2717,7 +3130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Circle
  *        Applies a circular crop. (Value: "CIRCLE")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_ImageCropTypeUnspecified
- *        No value specified. Do not use. (Value: "IMAGE_CROP_TYPE_UNSPECIFIED")
+ *        Don't use. Unspecified. (Value: "IMAGE_CROP_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Rectangle43
  *        Applies a rectangular crop with a 4:3 aspect ratio. (Value:
  *        "RECTANGLE_4_3")
@@ -2772,10 +3185,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Nothing Default
- *        value. The card does not reload; nothing happens. (Value: "NOTHING")
+ *        value. The card doesn't reload; nothing happens. (Value: "NOTHING")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Reload Reloads
  *        the card after the child window closes. If used in conjunction with
- *        [OpenAs.OVERLAY](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
+ *        [`OpenAs.OVERLAY`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
  *        the child window acts as a modal dialog and the parent card is blocked
  *        until the child window closes. (Value: "RELOAD")
  */
@@ -2786,8 +3199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_FullSize The
- *        link opens as a full size window (if that's the frame used by the
- *        client. (Value: "FULL_SIZE")
+ *        link opens as a full-size window (if that's the frame used by the
+ *        client). (Value: "FULL_SIZE")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_Overlay The link
  *        opens as an overlay, such as a pop-up. (Value: "OVERLAY")
  */
@@ -2801,7 +3214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A section contains a collection of widgets that are rendered vertically in
- *  the order that they are specified.
+ *  the order that they're specified.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Section : GTLRObject
 
@@ -2817,8 +3230,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *collapsible;
 
 /**
- *  Text that appears at the top of a section. Supports [simple HTML formatted
- *  text](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ *  Text that appears at the top of a section. Supports simple HTML formatted
+ *  text. For more information about formatting text, see [Formatting text in
+ *  Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
 @property(nonatomic, copy, nullable) NSString *header;
 
@@ -2834,21 +3251,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *uncollapsibleWidgetsCount;
 
-/** All the widgets in the section. Must contain at least 1 widget. */
+/** All the widgets in the section. Must contain at least one widget. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Widget *> *widgets;
 
 @end
 
 
 /**
- *  A widget that creates a UI item with options for users to select. For
- *  example, a dropdown menu or check list. Chat apps receive and can process
- *  the value of entered text during form input events. For details about
- *  working with form inputs, see [Receive form
+ *  A widget that creates one or more UI items that users can select. For
+ *  example, a dropdown menu or checkboxes. You can use this widget to collect
+ *  data that can be predicted or enumerated. Chat apps can process the value of
+ *  items that users select or input. For details about working with form
+ *  inputs, see [Receive form
  *  data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
- *  When you need to collect data from users that matches options you set, use a
- *  selection input. To collect abstract data from users, use the text input
- *  widget instead.
+ *  To collect undefined or abstract data from users, use the TextInput widget.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -2856,7 +3272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_GoogleAppsCardV1SelectionInput : GTLRCollectionObject
 
 /**
- *  An array of the selected items. For example, all the selected check boxes.
+ *  An array of selectable items. For example, an array of radio buttons or
+ *  checkboxes. Supports up to 100 items.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2872,8 +3289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The name by which the selection input is identified in a form input event.
- *  For details about working with form inputs, see [Receive form
+ *  The name that identifies the selection input in a form input event. For
+ *  details about working with form inputs, see [Receive form
  *  data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2887,25 +3304,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
 
 /**
- *  The way that an option appears to users. Different options support different
- *  types of interactions. For example, users can enable multiple check boxes,
- *  but can only select one value from a dropdown menu. Each selection input
- *  supports one type of selection. Mixing check boxes and switches, for
- *  example, is not supported.
+ *  The type of items that are displayed to users in a `SelectionInput` widget.
+ *  Selection types support different types of interactions. For example, users
+ *  can select one or more checkboxes, but they can only select one value from a
+ *  dropdown menu.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox A
- *        set of checkboxes. Users can select multiple check boxes per selection
- *        input. (Value: "CHECK_BOX")
+ *        set of checkboxes. Users can select one or more checkboxes. (Value:
+ *        "CHECK_BOX")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown A
- *        dropdown menu. Users can select one dropdown menu item per selection
- *        input. (Value: "DROPDOWN")
+ *        dropdown menu. Users can select one item from the menu. (Value:
+ *        "DROPDOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton
- *        A set of radio buttons. Users can select one radio button per
- *        selection input. (Value: "RADIO_BUTTON")
+ *        A set of radio buttons. Users can select one radio button. (Value:
+ *        "RADIO_BUTTON")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Switch A set
- *        of switches. Users can turn on multiple switches at once per selection
- *        input. (Value: "SWITCH")
+ *        of switches. Users can turn on one or more switches. (Value: "SWITCH")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2913,20 +3328,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A selectable item in a selection input, such as a check box or a switch.
+ *  An item that users can select in a selection input, such as a checkbox or
+ *  switch.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1SelectionItem : GTLRObject
 
 /**
- *  When `true`, more than one item is selected. If more than one item is
- *  selected for radio buttons and dropdown menus, the first selected item is
- *  received and the ones after are ignored.
+ *  Whether the item is selected by default. If the selection input only accepts
+ *  one value (such as for radio buttons or a dropdown menu), only set this
+ *  field for one item.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *selected;
 
-/** The text displayed to users. */
+/** The text that identifies or describes the item to users. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
@@ -2946,7 +3362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The value of a suggested input to a text input field. This is equivalent to
- *  what users would enter themselves.
+ *  what users enter themselves.
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -2958,12 +3374,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  inside the text input field. As users type, the suggested values dynamically
  *  filter to match what the users have typed. For example, a text input field
  *  for programming language might suggest Java, JavaScript, Python, and C++.
- *  When users start typing "Jav", the list of suggestions filters to show just
- *  Java and JavaScript. Suggested values help guide users to enter values that
- *  your app can make sense of. When referring to JavaScript, some users might
- *  enter "javascript" and others "java script". Suggesting "JavaScript" can
- *  standardize how users interact with your app. When specified,
- *  `TextInput.type` is always `SINGLE_LINE`, even if it is set to
+ *  When users start typing `Jav`, the list of suggestions filters to show
+ *  `Java` and `JavaScript`. Suggested values help guide users to enter values
+ *  that your app can make sense of. When referring to JavaScript, some users
+ *  might enter `javascript` and others `java script`. Suggesting `JavaScript`
+ *  can standardize how users interact with your app. When specified,
+ *  `TextInput.type` is always `SINGLE_LINE`, even if it's set to
  *  `MULTIPLE_LINE`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2985,7 +3401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Either a toggle-style switch or a checkbox inside a `decoratedText` widget.
- *  Only supported on the `decoratedText` widget.
+ *  Only supported in the `decoratedText` widget.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1SwitchControl : GTLRObject
 
@@ -3038,8 +3454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  form input events. For details about working with form inputs, see [Receive
  *  form
  *  data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
- *  When you need to collect abstract data from users, use a text input. To
- *  collect defined data from users, use the selection input widget instead.
+ *  When you need to collect undefined or abstract data from users, use a text
+ *  input. To collect defined or enumerated data from users, use the
+ *  SelectionInput widget.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1TextInput : GTLRObject
 
@@ -3064,12 +3481,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  inside the text input field. As users type, the suggested values dynamically
  *  filter to match what the users have typed. For example, a text input field
  *  for programming language might suggest Java, JavaScript, Python, and C++.
- *  When users start typing "Jav", the list of suggestions filters to show just
- *  Java and JavaScript. Suggested values help guide users to enter values that
- *  your app can make sense of. When referring to JavaScript, some users might
- *  enter "javascript" and others "java script". Suggesting "JavaScript" can
- *  standardize how users interact with your app. When specified,
- *  `TextInput.type` is always `SINGLE_LINE`, even if it is set to
+ *  When users start typing `Jav`, the list of suggestions filters to show just
+ *  `Java` and `JavaScript`. Suggested values help guide users to enter values
+ *  that your app can make sense of. When referring to JavaScript, some users
+ *  might enter `javascript` and others `java script`. Suggesting `JavaScript`
+ *  can standardize how users interact with your app. When specified,
+ *  `TextInput.type` is always `SINGLE_LINE`, even if it's set to
  *  `MULTIPLE_LINE`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Suggestions *initialSuggestions;
@@ -3078,7 +3495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  The text that appears above the text input field in the user interface.
  *  Specify text that helps the user enter the information your app needs. For
  *  example, if you are asking someone's name, but specifically need their
- *  surname, write "surname" instead of "name". Required if `hintText` is
+ *  surname, write `surname` instead of `name`. Required if `hintText` is
  *  unspecified. Otherwise, optional.
  */
 @property(nonatomic, copy, nullable) NSString *label;
@@ -3091,9 +3508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  What to do when a change occurs in the text input field. Examples of changes
- *  include a user adding to the field, or deleting text. Examples of actions to
- *  take include running a custom function or opening a
+ *  What to do when a change occurs in the text input field. For example, a user
+ *  adding to the field or deleting text. Examples of actions to take include
+ *  running a custom function or opening a
  *  [dialog](https://developers.google.com/chat/how-tos/dialogs) in Google Chat.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
@@ -3123,9 +3540,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A paragraph of text that supports formatting. See [Text
- *  formatting](https://developers.google.com/workspace/add-ons/concepts/widgets#text_formatting)
- *  for details.
+ *  A paragraph of text that supports formatting. For more information about
+ *  formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1TextParagraph : GTLRObject
 
@@ -3152,12 +3571,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
 
 /**
- *  Displays a selection/input widget for date, time, or date and time. Not
- *  supported by Chat apps. Support by Chat apps is coming soon. For example,
- *  the following JSON creates a datetime picker to schedule an appointment: ```
- *  "dateTimePicker": { "name": "appointment_time", "label": "Book your
- *  appointment at:", "type": "DATE_AND_TIME", "valueMsEpoch": "796435200000" }
- *  ```
+ *  Displays up to 2 columns. To include more than 2 columns, or to use rows,
+ *  use the `Grid` widget. For example, the following JSON creates 2 columns
+ *  that each contain text paragraphs: ``` "columns": { "columnItems": [ {
+ *  "horizontalSizeStyle": "FILL_AVAILABLE_SPACE", "horizontalAlignment":
+ *  "CENTER", "verticalAlignment": "CENTER", "widgets": [ { "textParagraph": {
+ *  "text": "First column text paragraph" } } ] }, { "horizontalSizeStyle":
+ *  "FILL_AVAILABLE_SPACE", "horizontalAlignment": "CENTER",
+ *  "verticalAlignment": "CENTER", "widgets": [ { "textParagraph": { "text":
+ *  "Second column text paragraph" } } ] } ] } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Columns *columns;
+
+/**
+ *  Displays a widget that lets users input a date, time, or date and time. For
+ *  example, the following JSON creates a date time picker to schedule an
+ *  appointment: ``` "dateTimePicker": { "name": "appointment_time", "label":
+ *  "Book your appointment at:", "type": "DATE_AND_TIME", "valueMsEpoch":
+ *  "796435200000" } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker *dateTimePicker;
 
@@ -3193,6 +3624,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Grid *grid;
 
 /**
+ *  Specifies whether widgets align to the left, right, or center of a column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center
+ *        Aligns widgets to the center of the column. (Value: "CENTER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End
+ *        Aligns widgets to the end position of the column. For left-to-right
+ *        layouts, aligns widgets to the right. For right-to-left layouts,
+ *        aligns widgets to the left. (Value: "END")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *        Don't use. Unspecified. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start
+ *        Default value. Aligns widgets to the start position of the column. For
+ *        left-to-right layouts, aligns to the left. For right-to-left layouts,
+ *        aligns to the right. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+/**
  *  Displays an image. For example, the following JSON creates an image with
  *  alternative text: ``` "image": { "imageUrl":
  *  "https://developers.google.com/chat/images/quickstart-app-avatar.png",
@@ -3202,7 +3652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Displays a selection control that lets users select items. Selection
- *  controls can be check boxes, radio buttons, switches, or dropdown menus. For
+ *  controls can be checkboxes, radio buttons, switches, or dropdown menus. For
  *  example, the following JSON creates a dropdown menu that lets users choose a
  *  size: ``` "selectionInput": { "name": "size", "label": "Size" "type":
  *  "DROPDOWN", "items": [ { "text": "S", "value": "small", "selected": false },
@@ -3225,8 +3675,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextInput *textInput;
 
 /**
- *  Displays a text paragraph. Supports [simple HTML formatted
- *  text](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ *  Displays a text paragraph. Supports simple HTML formatted text. For more
+ *  information about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  *  For example, the following JSON creates a bolded text: ``` "textParagraph":
  *  { "text": " *bold text*" } ```
  */
@@ -3236,14 +3689,43 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  An image that is specified by a URL and can have an onclick action.
+ *  The supported widgets that you can include in a column.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Widgets : GTLRObject
+
+/** ButtonList widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
+
+/** DateTimePicker widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker *dateTimePicker;
+
+/** DecoratedText widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DecoratedText *decoratedText;
+
+/** Image widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Image *image;
+
+/** SelectionInput widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1SelectionInput *selectionInput;
+
+/** TextInput widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextInput *textInput;
+
+/** TextParagraph widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *textParagraph;
+
+@end
+
+
+/**
+ *  An image that's specified by a URL and can have an `onclick` action.
  */
 @interface GTLRHangoutsChat_Image : GTLRObject
 
 /**
- *  The aspect ratio of this image (width/height). This field allows clients to
+ *  The aspect ratio of this image (width and height). This field lets you
  *  reserve the right height for the image while waiting for it to load. It's
- *  not meant to override the native aspect ratio of the image. If unset, the
+ *  not meant to override the built-in aspect ratio of the image. If unset, the
  *  server fills it by prefetching the image.
  *
  *  Uses NSNumber of doubleValue.
@@ -3253,19 +3735,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** The URL of the image. */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
-/** The onclick action. */
+/** The `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_OnClick *onClick;
 
 @end
 
 
 /**
- *  An image button with an onclick action.
+ *  An image button with an `onclick` action.
  */
 @interface GTLRHangoutsChat_ImageButton : GTLRObject
 
 /**
- *  The icon specified by an enum that indices to an icon provided by Chat API.
+ *  The icon specified by an `enum` that indices to an icon provided by Chat
+ *  API.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_ImageButton_Icon_Airplane Value "AIRPLANE"
@@ -3316,12 +3799,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
- *  The name of this image_button which will be used for accessibility. Default
- *  value will be provided if developers don't specify.
+ *  The name of this `image_button` that's used for accessibility. Default value
+ *  is provided if this name isn't specified.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The onclick action. */
+/** The `onclick` action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_OnClick *onClick;
 
 @end
@@ -3332,10 +3815,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_Inputs : GTLRObject
 
-/** Date input values. Not supported by Chat apps. */
+/** Date input values. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DateInput *dateInput;
 
-/** Date and time input values. Not supported by Chat apps. */
+/** Date and time input values. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DateTimeInput *dateTimeInput;
 
 /**
@@ -3345,25 +3828,37 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_StringInputs *stringInputs;
 
-/** Time input values. Not supported by Chat apps. */
+/** Time input values. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_TimeInput *timeInput;
 
 @end
 
 
 /**
- *  A UI element contains a key (label) and a value (content). And this element
- *  may also contain some actions such as onclick button.
+ *  A UI element contains a key (label) and a value (content). This element can
+ *  also contain some actions such as `onclick` button.
  */
 @interface GTLRHangoutsChat_KeyValue : GTLRObject
 
-/** The text of the bottom label. Formatted text supported. */
+/**
+ *  The text of the bottom label. Formatted text supported. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *bottomLabel;
 
 /** A button that can be clicked to trigger an action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Button *button;
 
-/** The text of the content. Formatted text supported and always required. */
+/**
+ *  The text of the content. Formatted text supported and always required. For
+ *  more information about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
@@ -3374,8 +3869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *contentMultiline;
 
 /**
- *  An enum value that will be replaced by the Chat API with the corresponding
- *  icon image.
+ *  An enum value that's replaced by the Chat API with the corresponding icon
+ *  image.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_KeyValue_Icon_Airplane Value "AIRPLANE"
@@ -3424,12 +3919,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
- *  The onclick action. Only the top label, bottom label and content region are
- *  clickable.
+ *  The `onclick` action. Only the top label, bottom label, and content region
+ *  are clickable.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_OnClick *onClick;
 
-/** The text of the top label. Formatted text supported. */
+/**
+ *  The text of the top label. Formatted text supported. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *topLabel;
 
 @end
@@ -3454,10 +3955,64 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Membership *> *memberships;
 
 /**
- *  A token that can be sent as `pageToken` to retrieve the next page of
+ *  A token that you can send as `pageToken` to retrieve the next page of
  *  results. If empty, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_ListMessagesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "messages" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_ListMessagesResponse : GTLRCollectionObject
+
+/**
+ *  List of messages.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Message *> *messages;
+
+/**
+ *  You can send a token as `pageToken` to retrieve the next page of results. If
+ *  empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_ListReactionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "reactions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_ListReactionsResponse : GTLRCollectionObject
+
+/**
+ *  Continuation token to retrieve the next page of results. It's empty for the
+ *  last page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of reactions in the requested (or first) page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Reaction *> *reactions;
 
 @end
 
@@ -3473,8 +4028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_ListSpacesResponse : GTLRCollectionObject
 
 /**
- *  A token that can be sent as `pageToken` to retrieve the next page of
- *  results. If empty, there are no subsequent pages.
+ *  You can send a token as `pageToken` to retrieve the next page of results. If
+ *  empty, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3490,13 +4045,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A matched url in a Chat message. Chat apps can preview matched URLs. For
- *  more information, refer to [Preview
+ *  A matched URL in a Chat message. Chat apps can preview matched URLs. For
+ *  more information, see [Preview
  *  links](https://developers.google.com/chat/how-tos/preview-links).
  */
 @interface GTLRHangoutsChat_MatchedUrl : GTLRObject
 
-/** Output only. The url that was matched. */
+/** Output only. The URL that was matched. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -3525,12 +4080,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** The Google Chat user or app the membership corresponds to. */
+/**
+ *  The Google Chat user or app the membership corresponds to. If your Chat app
+ *  [authenticates as a
+ *  user](https://developers.google.com/chat/api/guides/auth/users), the output
+ *  populates the
+ *  [user](https://developers.google.com/chat/api/reference/rest/v1/User) `name`
+ *  and `type`.
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
 /**
  *  Resource name of the membership, assigned by the server. Format:
- *  spaces/{space}/members/{member}
+ *  `spaces/{space}/members/{member}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3540,11 +4102,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified
- *        Default value. The user isn't a member of the space, but might be
- *        invited. (Value: "MEMBERSHIP_ROLE_UNSPECIFIED")
+ *        Default value. For users: they aren't a member of the space, but can
+ *        be invited. For Google Groups: they're always assigned this role
+ *        (other enum values might be used in the future). (Value:
+ *        "MEMBERSHIP_ROLE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_Membership_Role_RoleManager A space manager. The
  *        user has all basic permissions plus administrative permissions that
- *        allow them to manage the space, like adding or removing members. Only
+ *        let them manage the space, like adding or removing members. Only
  *        supported in SpaceType.SPACE. (Value: "ROLE_MANAGER")
  *    @arg @c kGTLRHangoutsChat_Membership_Role_RoleMember A member of the
  *        space. The user has basic permissions, like sending messages to the
@@ -3558,14 +4122,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_State_Invited The user has been
- *        invited, is able to join the space, but currently has not joined.
+ *        invited, is able to join the space, but currently hasn't joined.
  *        (Value: "INVITED")
  *    @arg @c kGTLRHangoutsChat_Membership_State_Joined The user has joined the
  *        space. (Value: "JOINED")
  *    @arg @c kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified
- *        Default, do not use. (Value: "MEMBERSHIP_STATE_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChat_Membership_State_NotAMember The user is not a
- *        member of the space, has not been invited and is not able to join the
+ *        Default, don't use. (Value: "MEMBERSHIP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_Membership_State_NotAMember The user isn't a
+ *        member of the space, hasn't been invited and isn't able to join the
  *        space. (Value: "NOT_A_MEMBER")
  */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -3584,7 +4148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ActionResponse *actionResponse;
 
-/** Output only. Annotations associated with the text in this message. */
+/** Output only. Annotations associated with the `text` in this message. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Annotation *> *annotations;
 
 /**
@@ -3597,10 +4161,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Attachment *> *attachment;
 
 /**
- *  Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards
- *  that can be used to display UI elements such as: formatted texts, buttons,
- *  clickable images. Cards are normally displayed below the plain-text body of
- *  the message. `cards` and `cards_v2` can have a maximum size of 32 KB.
+ *  Deprecated: Use `cards_v2` instead. Rich, formatted, and interactive cards
+ *  that you can use to display UI elements such as: formatted texts, buttons,
+ *  and clickable images. Cards are normally displayed below the plain-text body
+ *  of the message. `cards` and `cards_v2` can have a maximum size of 32 KB.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards;
 
@@ -3621,20 +4185,45 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  A custom name for a Chat message assigned at creation. Must start with
  *  `client-` and contain only lowercase letters, numbers, and hyphens up to 63
  *  characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. For example usage, see [Name a created
+ *  message with the specified value. Assigning a custom name lets a Chat app
+ *  recall the message without saving the message `name` from the [response
+ *  body](/chat/api/reference/rest/v1/spaces.messages/get#response-body)
+ *  returned when creating the message. Assigning a custom name doesn't replace
+ *  the generated `name` field, the message's resource name. Instead, it sets
+ *  the custom name as the `clientAssignedMessageId` field, which you can
+ *  reference while processing later operations, like updating or deleting the
+ *  message. For example usage, see [Name a created
  *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *clientAssignedMessageId;
 
 /**
- *  Output only. The time at which the message was created in Google Chat
- *  server.
+ *  For spaces created in Chat, the time at which the message was created. This
+ *  field is output only, except when used in imported spaces. [Developer
+ *  Preview](https://developers.google.com/workspace/preview): For imported
+ *  spaces, set this field to the historical timestamp at which the message was
+ *  created in the source in order to preserve the original creation time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The time at which the message was deleted in Google Chat. If
+ *  the message is never deleted, this field is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. Information about a deleted message. A message is deleted when
+ *  `delete_time` is set.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_DeletionMetadata *deletionMetadata;
+
+/** Output only. The list of emoji reaction summaries on the message. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_EmojiReactionSummary *> *emojiReactionSummaries;
+
+/**
  *  A plain-text description of the message's cards, used when the actual cards
- *  cannot be displayed (e.g. mobile notifications).
+ *  can't be displayed—for example, mobile notifications.
  */
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
@@ -3646,7 +4235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Output only. A URL in `spaces.messages.text` that matches a link preview
- *  pattern. For more information, refer to [Preview
+ *  pattern. For more information, see [Preview
  *  links](https://developers.google.com/chat/how-tos/preview-links).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_MatchedUrl *matchedUrl;
@@ -3706,14 +4295,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  An onclick action (e.g. open a link).
+ *  An `onclick` action (for example, open a link).
  */
 @interface GTLRHangoutsChat_OnClick : GTLRObject
 
-/** A form action will be triggered by this onclick if specified. */
+/** A form action is triggered by this `onclick` action if specified. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_FormAction *action;
 
-/** This onclick triggers an open link action if specified. */
+/** This `onclick` action triggers an open link action if specified. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_OpenLink *openLink;
 
 @end
@@ -3731,18 +4320,91 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  A reaction to a message.
+ */
+@interface GTLRHangoutsChat_Reaction : GTLRObject
+
+/** The emoji used in the reaction. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Emoji *emoji;
+
+/**
+ *  The resource name of the reaction. Format:
+ *  `spaces/{space}/messages/{message}/reactions/{reaction}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The user who created the reaction. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_User *user;
+
+@end
+
+
+/**
  *  A section contains a collection of widgets that are rendered (vertically) in
  *  the order that they are specified. Across all platforms, cards have a narrow
- *  fixed width, so there is currently no need for layout properties (e.g.
- *  float).
+ *  fixed width, so there's currently no need for layout properties (for
+ *  example, float).
  */
 @interface GTLRHangoutsChat_Section : GTLRObject
 
-/** The header of the section, text formatted supported. */
+/**
+ *  The header of the section. Formatted text is supported. For more information
+ *  about formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
+ */
 @property(nonatomic, copy, nullable) NSString *header;
 
-/** A section must contain at least 1 widget. */
+/** A section must contain at least one widget. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_WidgetMarkup *> *widgets;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_SetUpSpaceRequest
+ */
+@interface GTLRHangoutsChat_SetUpSpaceRequest : GTLRObject
+
+/**
+ *  Optional. The initial set of in-domain users invited to join the space. The
+ *  calling user is automatically added to the space, and shouldn't be specified
+ *  as a membership. The set currently allows up to 20 memberships (in addition
+ *  to the caller). The `Membership.member` field must contain a user with
+ *  `name` populated and `User.Type.HUMAN`. All other fields are ignored.
+ *  Optional when setting `Space.spaceType` to `SPACE`. Required when setting
+ *  `Space.spaceType` to `GROUP_CHAT`, along with at least two memberships.
+ *  Required when setting `Space.spaceType` to `DIRECT_MESSAGE` with a human
+ *  user, along with exactly one membership. Must be empty when creating a 1:1
+ *  conversation between a human and the calling Chat app (when setting
+ *  `Space.spaceType` to `DIRECT_MESSAGE` and `Space.singleUserBotDm` to
+ *  `true`). Not supported: Inviting guest users, or adding other Chat apps.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Membership *> *memberships;
+
+/**
+ *  Optional. A unique identifier for this request. A random UUID is
+ *  recommended. Specifying an existing request ID returns the space created
+ *  with that ID instead of creating a new space. Specifying an existing request
+ *  ID from the same Chat app with a different authenticated user returns an
+ *  error.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The `Space.spaceType` field is required. To create a space, set
+ *  `Space.spaceType` to `SPACE` and set `Space.displayName`. To create a group
+ *  chat, set `Space.spaceType` to `GROUP_CHAT`. Don't set `Space.displayName`.
+ *  To create a 1:1 conversation between humans, set `Space.spaceType` to
+ *  `DIRECT_MESSAGE` and set `Space.singleUserBotDm` to `false`. Don't set
+ *  `Space.displayName` or `Space.spaceDetails`. To create an 1:1 conversation
+ *  between a human and the calling Chat app, set `Space.spaceType` to
+ *  `DIRECT_MESSAGE` and `Space.singleUserBotDm` to `true`. Don't set
+ *  `Space.displayName` or `Space.spaceDetails`. If a `DIRECT_MESSAGE` space
+ *  already exists, that space is returned instead of creating a new space.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 @end
 
@@ -3754,7 +4416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_SlashCommand : GTLRObject
 
 /**
- *  The id of the slash command invoked.
+ *  The ID of the slash command invoked.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3772,7 +4434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *bot;
 
 /**
- *  The command id of the invoked slash command.
+ *  The command ID of the invoked slash command.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3782,7 +4444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *commandName;
 
 /**
- *  Indicating whether the slash command is for a dialog.
+ *  Indicates whether the slash command is for a dialog.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3797,7 +4459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_SlashCommandMetadata_Type_Invoke Invoke slash
  *        command in space. (Value: "INVOKE")
  *    @arg @c kGTLRHangoutsChat_SlashCommandMetadata_Type_TypeUnspecified
- *        Default value for the enum. DO NOT USE. (Value: "TYPE_UNSPECIFIED")
+ *        Default value for the enum. Don't use. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3824,11 +4486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The space's display name. Required when [creating a
  *  space](https://developers.google.com/chat/api/reference/rest/v1/spaces/create).
- *  For direct messages, this field may be empty. Supports up to 128 characters.
+ *  For direct messages, this field might be empty. Supports up to 128
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Resource name of the space. Format: spaces/{space} */
+/** Resource name of the space. Format: `spaces/{space}` */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3840,6 +4503,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** Details about the space including description and rules. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_SpaceDetails *spaceDetails;
+
+/**
+ *  The message history state for messages and threads in this space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceHistoryState_HistoryOff History off.
+ *        [Messages and threads are kept for 24
+ *        hours](https://support.google.com/chat/answer/7664687). (Value:
+ *        "HISTORY_OFF")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceHistoryState_HistoryOn History on.
+ *        The organization's [Vault retention
+ *        rules](https://support.google.com/vault/answer/7657597) specify for
+ *        how long messages and threads are kept. (Value: "HISTORY_ON")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceHistoryState_HistoryStateUnspecified
+ *        Default value. Do not use. (Value: "HISTORY_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spaceHistoryState;
 
 /**
  *  Output only. The threading state in the Chat space.
@@ -3861,6 +4541,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *spaceThreadingState;
 
 /**
+ *  The type of space. Required when creating a space or updating the space type
+ *  of a space. Output only for other usage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceType_DirectMessage 1:1 messages
+ *        between two humans or a human and a Chat app. (Value:
+ *        "DIRECT_MESSAGE")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceType_GroupChat Group conversations
+ *        between 3 or more people. A `GROUP_CHAT` can include Chat apps.
+ *        (Value: "GROUP_CHAT")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceType_Space A place where people send
+ *        messages, share files, and collaborate. A `SPACE` can include Chat
+ *        apps. (Value: "SPACE")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceType_SpaceTypeUnspecified Reserved.
+ *        (Value: "SPACE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spaceType;
+
+/**
  *  Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages
  *  are threaded in this space.
  *
@@ -3869,12 +4568,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *threaded;
 
 /**
- *  Output only. Deprecated: Use `singleUserBotDm` or `spaceType` (developer
- *  preview) instead. The type of a space.
+ *  Output only. Deprecated: Use `space_type` instead. The type of a space.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
- *        and a Chat app, where all messages are flat. Note that this does not
+ *        and a Chat app, where all messages are flat. Note that this doesn't
  *        include direct messages between two humans. (Value: "DM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_Room Conversations between two or
  *        more humans. (Value: "ROOM")
@@ -3892,7 +4590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_SpaceDetails : GTLRObject
 
 /**
- *  Optional. A description of the space. It could describe the space's
+ *  Optional. A description of the space. For example, describe the space's
  *  discussion topic, functional purpose, or participants. Supports up to 150
  *  characters.
  *
@@ -3968,11 +4666,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A button with text and onclick action.
+ *  A button with text and `onclick` action.
  */
 @interface GTLRHangoutsChat_TextButton : GTLRObject
 
-/** The onclick action of the button. */
+/** The `onclick` action of the button. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_OnClick *onClick;
 
 /** The text of the button. */
@@ -3982,7 +4680,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A paragraph of text. Formatted text supported.
+ *  A paragraph of text. Formatted text supported. For more information about
+ *  formatting text, see [Formatting text in Google Chat
+ *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  and [Formatting text in Google Workspace
+ *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
 @interface GTLRHangoutsChat_TextParagraph : GTLRObject
 
@@ -3996,7 +4698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_Thread : GTLRObject
 
-/** Resource name of the thread. Example: spaces/{space}/threads/{thread} */
+/** Resource name of the thread. Example: `spaces/{space}/threads/{thread}` */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4012,7 +4714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Time input values. Not supported by Chat apps.
+ *  Time input values.
  */
 @interface GTLRHangoutsChat_TimeInput : GTLRObject
 
@@ -4034,8 +4736,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  The timezone ID and offset from Coordinated Universal Time (UTC). Not
- *  supported by Chat apps.
+ *  The timezone ID and offset from Coordinated Universal Time (UTC). Only
+ *  supported for the event types
+ *  [`CARD_CLICKED`](https://developers.google.com/chat/api/reference/rest/v1/EventType#ENUM_VALUES.CARD_CLICKED)
+ *  and
+ *  [`SUBMIT_DIALOG`](https://developers.google.com/chat/api/reference/rest/v1/DialogEventType#ENUM_VALUES.SUBMIT_DIALOG).
  */
 @interface GTLRHangoutsChat_TimeZone : GTLRObject
 
@@ -4054,6 +4759,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offset;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_UploadAttachmentRequest
+ */
+@interface GTLRHangoutsChat_UploadAttachmentRequest : GTLRObject
+
+/** Required. The filename of the attachment, including the file extension. */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_UploadAttachmentResponse
+ */
+@interface GTLRHangoutsChat_UploadAttachmentResponse : GTLRObject
+
+/** Reference to the uploaded attachment. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AttachmentDataRef *attachmentDataRef;
 
 @end
 
@@ -4118,7 +4845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_UserMentionMetadata_Type_Mention Mention user in
  *        space. (Value: "MENTION")
  *    @arg @c kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified Default
- *        value for the enum. DO NOT USE. (Value: "TYPE_UNSPECIFIED")
+ *        value for the enum. Don't use. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4129,12 +4856,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A widget is a UI element that presents texts, images, etc.
+ *  A widget is a UI element that presents text and images.
  */
 @interface GTLRHangoutsChat_WidgetMarkup : GTLRObject
 
 /**
- *  A list of buttons. Buttons is also oneof data and only one of these fields
+ *  A list of buttons. Buttons is also `oneof data` and only one of these fields
  *  should be set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Button *> *buttons;

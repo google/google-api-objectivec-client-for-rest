@@ -981,6 +981,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 @end
 
+
+/**
+ *  API requires a return message, but currently all response strings will fit
+ *  in the status and public message. In the future, this response can hold AST
+ *  validation info.
+ */
+@interface GTLRCloudIAP_ValidateIapAttributeExpressionResponse : GTLRObject
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

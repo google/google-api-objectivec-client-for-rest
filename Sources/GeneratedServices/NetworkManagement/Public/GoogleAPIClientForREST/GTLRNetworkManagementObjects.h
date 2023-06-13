@@ -37,6 +37,7 @@
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
 @class GTLRNetworkManagement_GKEMasterInfo;
+@class GTLRNetworkManagement_GoogleServiceInfo;
 @class GTLRNetworkManagement_InstanceInfo;
 @class GTLRNetworkManagement_LoadBalancerBackend;
 @class GTLRNetworkManagement_LoadBalancerInfo;
@@ -148,6 +149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSour
  *  Value: "PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied;
+/**
+ *  Aborted because expected resource configuration was missing.
+ *
+ *  Value: "RESOURCE_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound;
 /**
  *  Aborted because the source endpoint could not be found.
  *
@@ -448,12 +455,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePscE
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering;
 /**
+ *  Packet was dropped because the Google-managed service uses Private Service
+ *  Connect (PSC), but the PSC endpoint is not found in the project.
+ *
+ *  Value: "GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint;
+/**
  *  Packet is sent from or to a Compute Engine instance that is not in a running
  *  state.
  *
  *  Value: "INSTANCE_NOT_RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
+/**
+ *  Packet sent to a load balancer, which requires a proxy-only subnet and the
+ *  subnet is not found.
+ *
+ *  Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet;
 /**
  *  Instance with only an internal IP address tries to access external hosts,
  *  but Cloud NAT is not enabled in the subnet, unless special configurations on
@@ -558,8 +579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConn
 // GTLRNetworkManagement_Endpoint.networkType
 
 /**
- *  A network hosted within Google Cloud Platform. To receive more detailed
- *  output, specify the URI for the source or destination network.
+ *  A network hosted within Google Cloud. To receive more detailed output,
+ *  specify the URI for the source or destination network.
  *
  *  Value: "GCP_NETWORK"
  */
@@ -571,8 +592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_G
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified;
 /**
- *  A network hosted outside of Google Cloud Platform. This can be an
- *  on-premises network, or a network hosted by another cloud provider.
+ *  A network hosted outside of Google Cloud. This can be an on-premises
+ *  network, or a network hosted by another cloud provider.
  *
  *  Value: "NON_GCP_NETWORK"
  */
@@ -676,6 +697,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Tar
  *  Value: "VPN_GATEWAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_GoogleServiceInfo.googleServiceType
+
+/**
+ *  Connectivity from Cloud DNS to forwarding targets or alternate name servers
+ *  that use private routing.
+ *  https://cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules
+ *  https://cloud.google.com/dns/docs/policies#firewall-rules
+ *
+ *  Value: "CLOUD_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_CloudDns;
+/**
+ *  One of two services sharing IP ranges: * Load Balancer proxy * Centralized
+ *  Health Check prober
+ *  https://cloud.google.com/load-balancing/docs/firewall-rules
+ *
+ *  Value: "GFE_PROXY_OR_HEALTH_CHECK_PROBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_GfeProxyOrHealthCheckProber;
+/**
+ *  Unspecified Google Service. Includes most of Google APIs and services.
+ *
+ *  Value: "GOOGLE_SERVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_GoogleServiceTypeUnspecified;
+/**
+ *  Identity aware proxy. https://cloud.google.com/iap/docs/using-tcp-forwarding
+ *
+ *  Value: "IAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_Iap;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
@@ -1095,6 +1149,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCl
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromGkeMaster;
 /**
+ *  Initial state: packet originating from a Google service. Some Google
+ *  services, such as health check probers or Identity Aware Proxy use special
+ *  routes, outside VPC routing configuration to reach Compute Engine Instances.
+ *
+ *  Value: "START_FROM_GOOGLE_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromGoogleService;
+/**
  *  Initial state: packet originating from a Compute Engine instance. An
  *  InstanceInfo is populated with starting instance information.
  *
@@ -1204,6 +1266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        because the user lacks the permission to access all or part of the
  *        network configurations required to run the test. (Value:
  *        "PERMISSION_DENIED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound
+ *        Aborted because expected resource configuration was missing. (Value:
+ *        "RESOURCE_CONFIG_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound
  *        Aborted because the source endpoint could not be found. (Value:
  *        "SOURCE_ENDPOINT_NOT_FOUND")
@@ -1243,7 +1308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  Wrapper for app engine service version attributes.
+ *  Wrapper for the App Engine service version attributes.
  */
 @interface GTLRNetworkManagement_AppEngineVersionEndpoint : GTLRObject
 
@@ -1743,9 +1808,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet was dropped because there is no peering between the originating
  *        network and the Google Managed Services Network. (Value:
  *        "GOOGLE_MANAGED_SERVICE_NO_PEERING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint
+ *        Packet was dropped because the Google-managed service uses Private
+ *        Service Connect (PSC), but the PSC endpoint is not found in the
+ *        project. (Value: "GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
  *        sent from or to a Compute Engine instance that is not in a running
  *        state. (Value: "INSTANCE_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet
+ *        Packet sent to a load balancer, which requires a proxy-only subnet and
+ *        the subnet is not found. (Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Instance
  *        with only an internal IP address tries to access external hosts, but
  *        Cloud NAT is not enabled in the subnet, unless special configurations
@@ -1864,15 +1936,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork A network
- *        hosted within Google Cloud Platform. To receive more detailed output,
- *        specify the URI for the source or destination network. (Value:
- *        "GCP_NETWORK")
+ *        hosted within Google Cloud. To receive more detailed output, specify
+ *        the URI for the source or destination network. (Value: "GCP_NETWORK")
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified
  *        Default type if unspecified. (Value: "NETWORK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork A
- *        network hosted outside of Google Cloud Platform. This can be an
- *        on-premises network, or a network hosted by another cloud provider.
- *        (Value: "NON_GCP_NETWORK")
+ *        network hosted outside of Google Cloud. This can be an on-premises
+ *        network, or a network hosted by another cloud provider. (Value:
+ *        "NON_GCP_NETWORK")
  */
 @property(nonatomic, copy, nullable) NSString *networkType;
 
@@ -1888,10 +1959,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Project ID where the endpoint is located. The Project ID can be derived from
  *  the URI if you provide a VM instance or network URI. The following are two
  *  cases where you must provide the project ID: 1. Only the IP address is
- *  specified, and the IP address is within a GCP project. 2. When you are using
- *  Shared VPC and the IP address that you provide is from the service project.
- *  In this case, the network that the IP address resides in is defined in the
- *  host project.
+ *  specified, and the IP address is within a Google Cloud project. 2. When you
+ *  are using Shared VPC and the IP address that you provide is from the service
+ *  project. In this case, the network that the IP address resides in is defined
+ *  in the host project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2161,6 +2232,45 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Details of a Google Service sending packets to a VPC
+ *  network. Although the source IP might be a publicly routable address, some
+ *  Google Services use special routes within Google production infrastructure
+ *  to reach Compute Engine Instances.
+ *  https://cloud.google.com/vpc/docs/routes#special_return_paths
+ */
+@interface GTLRNetworkManagement_GoogleServiceInfo : GTLRObject
+
+/**
+ *  Recognized type of a Google Service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_CloudDns
+ *        Connectivity from Cloud DNS to forwarding targets or alternate name
+ *        servers that use private routing.
+ *        https://cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules
+ *        https://cloud.google.com/dns/docs/policies#firewall-rules (Value:
+ *        "CLOUD_DNS")
+ *    @arg @c kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_GfeProxyOrHealthCheckProber
+ *        One of two services sharing IP ranges: * Load Balancer proxy *
+ *        Centralized Health Check prober
+ *        https://cloud.google.com/load-balancing/docs/firewall-rules (Value:
+ *        "GFE_PROXY_OR_HEALTH_CHECK_PROBER")
+ *    @arg @c kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_GoogleServiceTypeUnspecified
+ *        Unspecified Google Service. Includes most of Google APIs and services.
+ *        (Value: "GOOGLE_SERVICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_Iap
+ *        Identity aware proxy.
+ *        https://cloud.google.com/iap/docs/using-tcp-forwarding (Value: "IAP")
+ */
+@property(nonatomic, copy, nullable) NSString *googleServiceType;
+
+/** Source IP address. */
+@property(nonatomic, copy, nullable) NSString *sourceIp;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a Compute Engine instance.
  */
 @interface GTLRNetworkManagement_InstanceInfo : GTLRObject
@@ -2366,7 +2476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRNetworkManagement_Location : GTLRObject
 
@@ -2950,6 +3060,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Google Kubernetes Engine cluster master. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_GKEMasterInfo *gkeMaster;
 
+/** Display information of a Google service */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GoogleServiceInfo *googleService;
+
 /** Display information of a Compute Engine instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_InstanceInfo *instance;
 
@@ -3033,6 +3146,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        state: packet originating from a Google Kubernetes Engine cluster
  *        master. A GKEMasterInfo is populated with starting instance
  *        information. (Value: "START_FROM_GKE_MASTER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromGoogleService Initial
+ *        state: packet originating from a Google service. Some Google services,
+ *        such as health check probers or Identity Aware Proxy use special
+ *        routes, outside VPC routing configuration to reach Compute Engine
+ *        Instances. (Value: "START_FROM_GOOGLE_SERVICE")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromInstance Initial state:
  *        packet originating from a Compute Engine instance. An InstanceInfo is
  *        populated with starting instance information. (Value:

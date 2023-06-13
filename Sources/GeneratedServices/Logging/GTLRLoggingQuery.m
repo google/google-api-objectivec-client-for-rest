@@ -728,7 +728,7 @@
 
 @implementation GTLRLoggingQuery_BillingAccountsSinksCreate
 
-@dynamic parent, uniqueWriterIdentity;
+@dynamic customWriterIdentity, parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -812,7 +812,7 @@
 
 @implementation GTLRLoggingQuery_BillingAccountsSinksPatch
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -839,7 +839,7 @@
 
 @implementation GTLRLoggingQuery_BillingAccountsSinksUpdate
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -1775,7 +1775,7 @@
 
 @implementation GTLRLoggingQuery_FoldersSinksCreate
 
-@dynamic parent, uniqueWriterIdentity;
+@dynamic customWriterIdentity, parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -1859,7 +1859,7 @@
 
 @implementation GTLRLoggingQuery_FoldersSinksPatch
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -1886,7 +1886,7 @@
 
 @implementation GTLRLoggingQuery_FoldersSinksUpdate
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -3202,7 +3202,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsSinksCreate
 
-@dynamic parent, uniqueWriterIdentity;
+@dynamic customWriterIdentity, parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -3286,7 +3286,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsSinksPatch
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -3313,7 +3313,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsSinksUpdate
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -4215,7 +4215,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsSinksCreate
 
-@dynamic parent, uniqueWriterIdentity;
+@dynamic customWriterIdentity, parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -4299,7 +4299,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsSinksPatch
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -4326,7 +4326,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsSinksUpdate
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {
@@ -4353,7 +4353,7 @@
 
 @implementation GTLRLoggingQuery_SinksCreate
 
-@dynamic parent, uniqueWriterIdentity;
+@dynamic customWriterIdentity, parent, uniqueWriterIdentity;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                          parent:(NSString *)parent {
@@ -4437,7 +4437,7 @@
 
 @implementation GTLRLoggingQuery_SinksUpdate
 
-@dynamic sinkName, uniqueWriterIdentity, updateMask;
+@dynamic customWriterIdentity, sinkName, uniqueWriterIdentity, updateMask;
 
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName {

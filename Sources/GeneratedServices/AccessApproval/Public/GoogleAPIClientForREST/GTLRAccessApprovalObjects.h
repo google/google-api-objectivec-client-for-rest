@@ -6,7 +6,7 @@
 // Description:
 //   An API for controlling access to data by Google personnel.
 // Documentation:
-//   https://cloud.google.com/cloud-provider-access-management/access-approval/docs
+//   https://cloud.google.com/assured-workloads/access-approval/docs
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -309,10 +309,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Management Service * Compute Engine * Cloud Composer * Cloud Dataflow *
  *  Cloud Dataproc * Cloud DLP * Cloud EKM * Cloud Firestore * Cloud HSM * Cloud
  *  Identity and Access Management * Cloud Logging * Cloud NAT * Cloud Pub/Sub *
- *  Cloud Spanner * Cloud SQL * Cloud Storage * Google Kubernetes Engine *
- *  Organization Policy Serivice * Persistent Disk * Resource Manager * Secret
- *  Manager * Speaker ID Note: These values are supported as input for legacy
- *  purposes, but will not be returned from the API. * all * ga-only *
+ *  Cloud Spanner * Cloud SQL * Cloud Storage * Eventarc * Google Kubernetes
+ *  Engine * Organization Policy Serivice * Persistent Disk * Resource Manager *
+ *  Secret Manager * Speaker ID Note: These values are supported as input for
+ *  legacy purposes, but will not be returned from the API. * all * ga-only *
  *  appengine.googleapis.com * artifactregistry.googleapis.com *
  *  bigquery.googleapis.com * bigtable.googleapis.com * container.googleapis.com
  *  * cloudkms.googleapis.com * cloudresourcemanager.googleapis.com *
@@ -489,6 +489,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  maximum of 50 email addresses are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationEmails;
+
+/**
+ *  This preference is communicated to Google personnel when sending an approval
+ *  request but can be overridden if necessary.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preferNoBroadApprovalRequests;
+
+/**
+ *  This preference is shared with Google personnel, but can be overridden if
+ *  said personnel deems necessary. The approver ultimately can set the
+ *  expiration at approval time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preferredRequestExpirationDays;
 
 @end
 

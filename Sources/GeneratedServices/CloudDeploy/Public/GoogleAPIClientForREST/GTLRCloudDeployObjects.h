@@ -34,6 +34,7 @@
 @class GTLRCloudDeploy_DeliveryPipeline;
 @class GTLRCloudDeploy_DeliveryPipeline_Annotations;
 @class GTLRCloudDeploy_DeliveryPipeline_Labels;
+@class GTLRCloudDeploy_DeployArtifact;
 @class GTLRCloudDeploy_DeployJob;
 @class GTLRCloudDeploy_DeployJobRun;
 @class GTLRCloudDeploy_DeployJobRunMetadata;
@@ -134,6 +135,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTy
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
 
 /**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeProcessAborted;
+/**
  *  A Pub/Sub notification failed to be sent.
  *
  *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
@@ -145,6 +152,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceStateChange;
 /**
  *  Type is unspecified.
  *
@@ -326,6 +339,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_Terminating;
 // GTLRCloudDeploy_JobRunNotificationEvent.type
 
 /**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeProcessAborted;
+/**
  *  A Pub/Sub notification failed to be sent.
  *
  *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
@@ -337,6 +356,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceStateChange;
 /**
  *  Type is unspecified.
  *
@@ -422,6 +447,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Release_RenderState_Succeede
 // GTLRCloudDeploy_ReleaseNotificationEvent.type
 
 /**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeProcessAborted;
+/**
  *  A Pub/Sub notification failed to be sent.
  *
  *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
@@ -433,6 +464,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Typ
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceStateChange;
 /**
  *  Type is unspecified.
  *
@@ -604,6 +641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded;
 // GTLRCloudDeploy_RolloutNotificationEvent.type
 
 /**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeProcessAborted;
+/**
  *  A Pub/Sub notification failed to be sent.
  *
  *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
@@ -615,6 +658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceStateChange;
 /**
  *  Type is unspecified.
  *
@@ -654,6 +703,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_S
 // GTLRCloudDeploy_TargetNotificationEvent.type
 
 /**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeProcessAborted;
+/**
  *  A Pub/Sub notification failed to be sent.
  *
  *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
@@ -665,6 +720,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceStateChange;
 /**
  *  Type is unspecified.
  *
@@ -1416,16 +1477,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The artifacts produced by a deploy operation.
+ */
+@interface GTLRCloudDeploy_DeployArtifact : GTLRObject
+
+/**
+ *  Output only. URI of a directory containing the artifacts. All paths are
+ *  relative to this location.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactUri;
+
+/**
+ *  Output only. File paths of the manifests applied during the deploy operation
+ *  relative to the URI.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *manifestPaths;
 
 @end
 
@@ -1441,6 +1526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  DeployJobRun contains information specific to a deploy `JobRun`.
  */
 @interface GTLRCloudDeploy_DeployJobRun : GTLRObject
+
+/** Output only. The artifact of a deploy job run, if available. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployArtifact *artifact;
 
 /**
  *  Output only. The resource name of the Cloud Build `Build` object that is
@@ -1511,7 +1599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_DeploymentJobs : GTLRObject
 
-/** Output only. The deploy Job. This is the first job run in the phase. */
+/** Output only. The deploy Job. This is the deploy job in the phase. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *deployJob;
 
 /**
@@ -1860,12 +1948,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeProcessAborted A
+ *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -2087,7 +2179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudDeploy_Location : GTLRObject
 
@@ -2343,6 +2435,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Contains the paths to the artifacts, relative to the URI, for a phase.
  */
 @interface GTLRCloudDeploy_PhaseArtifact : GTLRObject
+
+/**
+ *  Output only. File path of the directory of rendered job manifests relative
+ *  to the URI. This is only set if it is applicable.
+ */
+@property(nonatomic, copy, nullable) NSString *jobManifestsPath;
 
 /** Output only. File path of the rendered manifest relative to the URI. */
 @property(nonatomic, copy, nullable) NSString *manifestPath;
@@ -2774,12 +2872,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3098,12 +3200,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3151,6 +3257,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  specified Service.
  */
 @property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  Optional. Whether to disable Pod overprovisioning. If Pod overprovisioning
+ *  is disabled then Cloud Deploy will limit the number of total Pods used for
+ *  the deployment strategy to the number of Pods the Deployment has on the
+ *  cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disablePodOverprovisioning;
 
 /** Required. Name of the Kubernetes Service. */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -3538,12 +3654,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeProcessAborted A
+ *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */

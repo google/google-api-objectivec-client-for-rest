@@ -395,12 +395,14 @@ NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V2 =
 //
 
 @implementation GTLRCloudNaturalLanguage_AnnotateTextResponse
-@dynamic categories, documentSentiment, entities, language, sentences, tokens;
+@dynamic categories, documentSentiment, entities, language,
+         moderationCategories, sentences, tokens;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"categories" : [GTLRCloudNaturalLanguage_ClassificationCategory class],
     @"entities" : [GTLRCloudNaturalLanguage_Entity class],
+    @"moderationCategories" : [GTLRCloudNaturalLanguage_ClassificationCategory class],
     @"sentences" : [GTLRCloudNaturalLanguage_Sentence class],
     @"tokens" : [GTLRCloudNaturalLanguage_Token class]
   };
@@ -527,7 +529,35 @@ NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V2 =
 
 @implementation GTLRCloudNaturalLanguage_Features
 @dynamic classificationModelOptions, classifyText, extractDocumentSentiment,
-         extractEntities, extractEntitySentiment, extractSyntax;
+         extractEntities, extractEntitySentiment, extractSyntax, moderateText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_ModerateTextRequest
+//
+
+@implementation GTLRCloudNaturalLanguage_ModerateTextRequest
+@dynamic document;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_ModerateTextResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_ModerateTextResponse
+@dynamic moderationCategories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"moderationCategories" : [GTLRCloudNaturalLanguage_ClassificationCategory class]
+  };
+  return map;
+}
+
 @end
 
 

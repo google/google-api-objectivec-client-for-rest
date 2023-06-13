@@ -733,11 +733,12 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_ListGatewaysResponse
-@dynamic gateways, nextPageToken;
+@dynamic gateways, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"gateways" : [GTLRNetworkServices_Gateway class]
+    @"gateways" : [GTLRNetworkServices_Gateway class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

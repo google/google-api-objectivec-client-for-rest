@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Workstations API (workstations/v1beta)
+// Description:
+//   Allows administrators to create managed developer environments in the
+//   cloud.
 // Documentation:
 //   https://cloud.google.com/workstations
 

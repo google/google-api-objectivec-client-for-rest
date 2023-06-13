@@ -157,7 +157,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_CustomClass
-@dynamic customClassId, items, name;
+@dynamic customClassId, items, kmsKeyName, kmsKeyVersionName, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -337,7 +337,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_PhraseSet
-@dynamic boost, name, phrases;
+@dynamic boost, kmsKeyName, kmsKeyVersionName, name, phrases;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

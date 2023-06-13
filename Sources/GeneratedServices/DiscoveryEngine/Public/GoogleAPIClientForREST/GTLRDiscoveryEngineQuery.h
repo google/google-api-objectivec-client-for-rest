@@ -47,11 +47,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The ID to use for the Document, which will become the final
  *  component of the Document.name. If the caller does not have permission to
  *  create the Document, regardless of whether or not it exists, a
- *  PERMISSION_DENIED error is returned. This field must be unique among all
- *  Documents with the same parent. Otherwise, an ALREADY_EXISTS error is
+ *  `PERMISSION_DENIED` error is returned. This field must be unique among all
+ *  Documents with the same parent. Otherwise, an `ALREADY_EXISTS` error is
  *  returned. This field must conform to
  *  [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit
- *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  of 63 characters. Otherwise, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
@@ -93,8 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Full resource name of Document, such as
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *  If the caller does not have permission to delete the Document, regardless of
- *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *  Document to delete does not exist, a NOT_FOUND error is returned.
+ *  whether or not it exists, a `PERMISSION_DENIED` error is returned. If the
+ *  Document to delete does not exist, a `NOT_FOUND` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -106,8 +106,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Full resource name of Document, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *    If the caller does not have permission to delete the Document, regardless
- *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *    Document to delete does not exist, a NOT_FOUND error is returned.
+ *    of whether or not it exists, a `PERMISSION_DENIED` error is returned. If
+ *    the Document to delete does not exist, a `NOT_FOUND` error is returned.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsDelete
  */
@@ -129,8 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Full resource name of Document, such as
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *  If the caller does not have permission to access the Document, regardless of
- *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *  requested Document does not exist, a NOT_FOUND error is returned.
+ *  whether or not it exists, a `PERMISSION_DENIED` error is returned. If the
+ *  requested Document does not exist, a `NOT_FOUND` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -142,8 +142,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Full resource name of Document, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *    If the caller does not have permission to access the Document, regardless
- *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *    requested Document does not exist, a NOT_FOUND error is returned.
+ *    of whether or not it exists, a `PERMISSION_DENIED` error is returned. If
+ *    the requested Document does not exist, a `NOT_FOUND` error is returned.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsGet
  */
@@ -204,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Maximum number of Documents to return. If unspecified, defaults to 100. The
  *  maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If
- *  this field is negative, an INVALID_ARGUMENT error is returned.
+ *  this field is negative, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  DocumentService.ListDocuments call. Provide this to retrieve the subsequent
  *  page. When paginating, all other parameters provided to
  *  DocumentService.ListDocuments must match the call that provided the page
- *  token. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  token. Otherwise, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -222,8 +222,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *  Use `default_branch` as the branch ID, to list documents under the default
  *  branch. If the caller does not have permission to list Documentss under this
- *  branch, regardless of whether or not this branch exists, a PERMISSION_DENIED
- *  error is returned.
+ *  branch, regardless of whether or not this branch exists, a
+ *  `PERMISSION_DENIED` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -238,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Use `default_branch` as the branch ID, to list documents under the default
  *    branch. If the caller does not have permission to list Documentss under
  *    this branch, regardless of whether or not this branch exists, a
- *    PERMISSION_DENIED error is returned.
+ *    `PERMISSION_DENIED` error is returned.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsList
  *
@@ -291,6 +291,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Permanently deletes all selected Documents in a branch. This process is
+ *  asynchronous. Depending on the number of Documents to be deleted, this
+ *  operation can take hours to complete. Before the delete operation completes,
+ *  some Documents might still be returned by DocumentService.GetDocument or
+ *  DocumentService.ListDocuments. To get a list of the Documents to be deleted,
+ *  set PurgeDocumentsRequest.force to false.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all selected Documents in a branch. This process is
+ *  asynchronous. Depending on the number of Documents to be deleted, this
+ *  operation can take hours to complete. Before the delete operation completes,
+ *  some Documents might still be returned by DocumentService.GetDocument or
+ *  DocumentService.ListDocuments. To get a list of the Documents to be deleted,
+ *  set PurgeDocumentsRequest.force to false.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -508,6 +552,77 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.schemas.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.schemas.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend
@@ -518,8 +633,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. Full resource name of the format: projects/ *
- *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
+ *  Required. Full resource name of the format: `projects/ *
+ *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ *` Before
  *  you can request recommendations from your model, you must create at least
  *  one serving config for it.
  */
@@ -534,10 +649,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
  *    include in the query.
- *  @param servingConfig Required. Full resource name of the format: projects/ *
- *    /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
- *    you can request recommendations from your model, you must create at least
- *    one serving config for it.
+ *  @param servingConfig Required. Full resource name of the format: `projects/
+ *    * /locations/global/collections/ * /dataStores/ * /servingConfigs/ *`
+ *    Before you can request recommendations from your model, you must create at
+ *    least one serving config for it.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend
  */
@@ -683,6 +798,77 @@ NS_ASSUME_NONNULL_BEGIN
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
+ *  Method: discoveryengine.projects.locations.collections.engines.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
  *  Method: discoveryengine.projects.locations.collections.operations.get
  *
  *  Authorization scope(s):
@@ -763,11 +949,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The ID to use for the Document, which will become the final
  *  component of the Document.name. If the caller does not have permission to
  *  create the Document, regardless of whether or not it exists, a
- *  PERMISSION_DENIED error is returned. This field must be unique among all
- *  Documents with the same parent. Otherwise, an ALREADY_EXISTS error is
+ *  `PERMISSION_DENIED` error is returned. This field must be unique among all
+ *  Documents with the same parent. Otherwise, an `ALREADY_EXISTS` error is
  *  returned. This field must conform to
  *  [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit
- *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  of 63 characters. Otherwise, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
@@ -809,8 +995,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Full resource name of Document, such as
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *  If the caller does not have permission to delete the Document, regardless of
- *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *  Document to delete does not exist, a NOT_FOUND error is returned.
+ *  whether or not it exists, a `PERMISSION_DENIED` error is returned. If the
+ *  Document to delete does not exist, a `NOT_FOUND` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -822,8 +1008,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Full resource name of Document, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *    If the caller does not have permission to delete the Document, regardless
- *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *    Document to delete does not exist, a NOT_FOUND error is returned.
+ *    of whether or not it exists, a `PERMISSION_DENIED` error is returned. If
+ *    the Document to delete does not exist, a `NOT_FOUND` error is returned.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsDelete
  */
@@ -845,8 +1031,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Full resource name of Document, such as
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *  If the caller does not have permission to access the Document, regardless of
- *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *  requested Document does not exist, a NOT_FOUND error is returned.
+ *  whether or not it exists, a `PERMISSION_DENIED` error is returned. If the
+ *  requested Document does not exist, a `NOT_FOUND` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -858,8 +1044,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Full resource name of Document, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
  *    If the caller does not have permission to access the Document, regardless
- *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
- *    requested Document does not exist, a NOT_FOUND error is returned.
+ *    of whether or not it exists, a `PERMISSION_DENIED` error is returned. If
+ *    the requested Document does not exist, a `NOT_FOUND` error is returned.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsGet
  */
@@ -920,7 +1106,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Maximum number of Documents to return. If unspecified, defaults to 100. The
  *  maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If
- *  this field is negative, an INVALID_ARGUMENT error is returned.
+ *  this field is negative, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -929,7 +1115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  DocumentService.ListDocuments call. Provide this to retrieve the subsequent
  *  page. When paginating, all other parameters provided to
  *  DocumentService.ListDocuments must match the call that provided the page
- *  token. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  token. Otherwise, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -938,8 +1124,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *  Use `default_branch` as the branch ID, to list documents under the default
  *  branch. If the caller does not have permission to list Documentss under this
- *  branch, regardless of whether or not this branch exists, a PERMISSION_DENIED
- *  error is returned.
+ *  branch, regardless of whether or not this branch exists, a
+ *  `PERMISSION_DENIED` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -954,7 +1140,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    Use `default_branch` as the branch ID, to list documents under the default
  *    branch. If the caller does not have permission to list Documentss under
  *    this branch, regardless of whether or not this branch exists, a
- *    PERMISSION_DENIED error is returned.
+ *    `PERMISSION_DENIED` error is returned.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsList
  *
@@ -1007,6 +1193,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Permanently deletes all selected Documents in a branch. This process is
+ *  asynchronous. Depending on the number of Documents to be deleted, this
+ *  operation can take hours to complete. Before the delete operation completes,
+ *  some Documents might still be returned by DocumentService.GetDocument or
+ *  DocumentService.ListDocuments. To get a list of the Documents to be deleted,
+ *  set PurgeDocumentsRequest.force to false.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.branches.documents.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all selected Documents in a branch. This process is
+ *  asynchronous. Depending on the number of Documents to be deleted, this
+ *  operation can take hours to complete. Before the delete operation completes,
+ *  some Documents might still be returned by DocumentService.GetDocument or
+ *  DocumentService.ListDocuments. To get a list of the Documents to be deleted,
+ *  set PurgeDocumentsRequest.force to false.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -1234,8 +1464,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. Full resource name of the format: projects/ *
- *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
+ *  Required. Full resource name of the format: `projects/ *
+ *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ *` Before
  *  you can request recommendations from your model, you must create at least
  *  one serving config for it.
  */
@@ -1250,10 +1480,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
  *    include in the query.
- *  @param servingConfig Required. Full resource name of the format: projects/ *
- *    /locations/global/collections/ * /dataStores/ * /servingConfigs/ * Before
- *    you can request recommendations from your model, you must create at least
- *    one serving config for it.
+ *  @param servingConfig Required. Full resource name of the format: `projects/
+ *    * /locations/global/collections/ * /dataStores/ * /servingConfigs/ *`
+ *    Before you can request recommendations from your model, you must create at
+ *    least one serving config for it.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend
  */

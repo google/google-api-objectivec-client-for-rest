@@ -987,13 +987,6 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request_SummaryRowSetting_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request_SummaryRowSetting_Unspecified = @"UNSPECIFIED";
 
-// GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest.summaryRowSetting
-NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_NoSummaryRow = @"NO_SUMMARY_ROW";
-NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_SummaryRowOnly = @"SUMMARY_ROW_ONLY";
-NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_SummaryRowWithResults = @"SUMMARY_ROW_WITH_RESULTS";
-NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_Unknown = @"UNKNOWN";
-NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest_SummaryRowSetting_Unspecified = @"UNSPECIFIED";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRSA360_GoogleAdsSearchads360V0CommonAgeRangeInfo
@@ -1049,6 +1042,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonKeyword
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonKeyword
+@dynamic adGroupCriterion, info;
 @end
 
 
@@ -1228,12 +1231,63 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedDynamicSearchAdInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedDynamicSearchAdInfo
+@dynamic adTrackingId, description1, description2;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedTextAdInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedTextAdInfo
+@dynamic adTrackingId, description1, description2, headline, headline2,
+         headline3, path1, path2;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ProductAdInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ProductAdInfo
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ResponsiveSearchAdInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ResponsiveSearchAdInfo
+@dynamic adTrackingId, path1, path2;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360TextAdInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360TextAdInfo
+@dynamic adTrackingId, description1, description2, displayMobileUrl, displayUrl,
+         headline;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0CommonSegments
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0CommonSegments
 @dynamic conversionAction, conversionActionCategory, conversionActionName, date,
-         dayOfWeek, device, month, quarter, week, year;
+         dayOfWeek, device, keyword, month, quarter, week, year;
 @end
 
 
@@ -1486,7 +1540,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAd
-@dynamic displayUrl, finalUrls, identifier, name, resourceName, type;
+@dynamic displayUrl, expandedDynamicSearchAd, expandedTextAd, finalUrls,
+         identifier, name, productAd, resourceName, responsiveSearchAd, textAd,
+         type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2200,35 +2256,6 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Str
 @implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Response
 @dynamic customColumnHeaders, fieldMask, nextPageToken, results, summaryRow,
          totalResultsCount;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customColumnHeaders" : [GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader class],
-    @"results" : [GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest
-//
-
-@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest
-@dynamic batchSize, query, summaryRowSetting;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamResponse
-//
-
-@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamResponse
-@dynamic customColumnHeaders, fieldMask, requestId, results, summaryRow;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

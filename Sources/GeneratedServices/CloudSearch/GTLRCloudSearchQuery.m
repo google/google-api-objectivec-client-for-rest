@@ -539,6 +539,28 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_QueryRemoveActivity
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_RemoveActivityRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/query:removeActivity";
+  GTLRCloudSearchQuery_QueryRemoveActivity *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudSearch_RemoveActivityResponse class];
+  query.loggingName = @"cloudsearch.query.removeActivity";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_QuerySearch
 
 + (instancetype)queryWithObject:(GTLRCloudSearch_SearchRequest *)object {

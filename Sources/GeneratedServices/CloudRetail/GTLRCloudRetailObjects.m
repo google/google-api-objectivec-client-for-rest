@@ -48,6 +48,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Pa
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Training = @"TRAINING";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_TrainingStateUnspecified = @"TRAINING_STATE_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModelFrequentlyBoughtTogetherFeaturesConfig.contextProductsType
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_ContextProductsTypeUnspecified = @"CONTEXT_PRODUCTS_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_MultipleContextProducts = @"MULTIPLE_CONTEXT_PRODUCTS";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_SingleContextProduct = @"SINGLE_CONTEXT_PRODUCT";
+
 // GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig.restriction
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_NoRestriction = @"NO_RESTRICTION";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_RestrictionUnspecified = @"RESTRICTION_UNSPECIFIED";
@@ -92,6 +97,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_ServingState_Tune
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_TrainingState_Paused = @"PAUSED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_TrainingState_Training = @"TRAINING";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_TrainingState_TrainingStateUnspecified = @"TRAINING_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2betaModelFrequentlyBoughtTogetherFeaturesConfig.contextProductsType
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_ContextProductsTypeUnspecified = @"CONTEXT_PRODUCTS_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_MultipleContextProducts = @"MULTIPLE_CONTEXT_PRODUCTS";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_SingleContextProduct = @"SINGLE_CONTEXT_PRODUCT";
 
 // GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.dynamicFacetableOption
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableDisabled = @"DYNAMIC_FACETABLE_DISABLED";
@@ -164,6 +174,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_ServingState_Tuned = 
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Paused = @"PAUSED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_Training = @"TRAINING";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Model_TrainingState_TrainingStateUnspecified = @"TRAINING_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig.contextProductsType
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_ContextProductsTypeUnspecified = @"CONTEXT_PRODUCTS_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_MultipleContextProducts = @"MULTIPLE_CONTEXT_PRODUCTS";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig_ContextProductsType_SingleContextProduct = @"SINGLE_CONTEXT_PRODUCT";
 
 // GTLRCloudRetail_GoogleCloudRetailV2Product.availability
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
@@ -645,7 +660,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink
 @dynamic branchId, feedFilters, feedLabel, identifier, languageCode,
-         merchantCenterAccountId, name, projectId, state;
+         merchantCenterAccountId, name, projectId, source, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -678,9 +693,9 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModel
 @dynamic createTime, dataState, displayName, filteringOption, lastTuneTime,
-         name, optimizationObjective, pageOptimizationConfig,
-         periodicTuningState, servingConfigLists, servingState, trainingState,
-         tuningOperation, type, updateTime;
+         modelFeaturesConfig, name, optimizationObjective,
+         pageOptimizationConfig, periodicTuningState, servingConfigLists,
+         servingState, trainingState, tuningOperation, type, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -689,6 +704,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModelFrequentlyBoughtTogetherFeaturesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModelFrequentlyBoughtTogetherFeaturesConfig
+@dynamic contextProductsType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModelModelFeaturesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModelModelFeaturesConfig
+@dynamic frequentlyBoughtTogetherConfig;
 @end
 
 
@@ -1191,7 +1226,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink
 @dynamic branchId, feedFilters, feedLabel, identifier, languageCode,
-         merchantCenterAccountId, name, projectId, state;
+         merchantCenterAccountId, name, projectId, source, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1224,8 +1259,9 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaModel
 @dynamic createTime, dataState, displayName, filteringOption, lastTuneTime,
-         name, optimizationObjective, periodicTuningState, servingConfigLists,
-         servingState, trainingState, tuningOperation, type, updateTime;
+         modelFeaturesConfig, name, optimizationObjective, periodicTuningState,
+         servingConfigLists, servingState, trainingState, tuningOperation, type,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1234,6 +1270,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaModelFrequentlyBoughtTogetherFeaturesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaModelFrequentlyBoughtTogetherFeaturesConfig
+@dynamic contextProductsType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaModelModelFeaturesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaModelModelFeaturesConfig
+@dynamic frequentlyBoughtTogetherConfig;
 @end
 
 
@@ -1280,6 +1336,34 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaPurgeMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaPurgeProductsMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaPurgeProductsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaPurgeProductsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaPurgeProductsResponse
+@dynamic purgeCount, purgeSample;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"purgeSample" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1627,7 +1711,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo
-@dynamic experimentName, servingConfigExperiment;
+@dynamic experiment, servingConfigExperiment;
 @end
 
 
@@ -1962,8 +2046,9 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2Model
 @dynamic createTime, dataState, displayName, filteringOption, lastTuneTime,
-         name, optimizationObjective, periodicTuningState, servingConfigLists,
-         servingState, trainingState, tuningOperation, type, updateTime;
+         modelFeaturesConfig, name, optimizationObjective, periodicTuningState,
+         servingConfigLists, servingState, trainingState, tuningOperation, type,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1972,6 +2057,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig
+@dynamic contextProductsType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ModelModelFeaturesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ModelModelFeaturesConfig
+@dynamic frequentlyBoughtTogetherConfig;
 @end
 
 
@@ -2245,6 +2350,44 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2PurgeMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsRequest
+@dynamic filter, force;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsResponse
+@dynamic purgeCount, purgeSample;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"purgeSample" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

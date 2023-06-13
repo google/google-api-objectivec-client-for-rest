@@ -928,11 +928,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organizatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_Cloud;
 /**
+ *  Generative AI - https://developers.generativeai.google
+ *
+ *  Value: "GENERATIVE_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_GenerativeAi;
+/**
+ *  Geo Org.
+ *
+ *  Value: "GEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_Geo;
+/**
  *  Photos Org.
  *
  *  Value: "PHOTOS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_Photos;
+/**
+ *  Shopping Org.
+ *
+ *  Value: "SHOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_Shopping;
 /**
  *  Street View Org.
  *
@@ -2153,6 +2171,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  String of comma or space separated case-sensitive words for which
+ *  method/field name replacement will be disabled by go/api-docgen.
+ */
+@property(nonatomic, copy, nullable) NSString *disableReplacementWords;
 
 /**
  *  The selector is a comma-separated list of patterns for any element such as a
@@ -4248,7 +4272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_MethodSettings *> *methodSettings;
 
 /**
- *  Link to a place that API users can report issues. Example:
+ *  Link to a *public* URI where users can report issues. Example:
  *  https://issuetracker.google.com/issues/new?component=190865&template=1161103
  */
 @property(nonatomic, copy, nullable) NSString *newIssueUri NS_RETURNS_NOT_RETAINED;
@@ -4263,8 +4287,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        Not useful. (Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED")
  *    @arg @c kGTLRServiceManagement_Publishing_Organization_Cloud Google Cloud
  *        Platform Org. (Value: "CLOUD")
+ *    @arg @c kGTLRServiceManagement_Publishing_Organization_GenerativeAi
+ *        Generative AI - https://developers.generativeai.google (Value:
+ *        "GENERATIVE_AI")
+ *    @arg @c kGTLRServiceManagement_Publishing_Organization_Geo Geo Org.
+ *        (Value: "GEO")
  *    @arg @c kGTLRServiceManagement_Publishing_Organization_Photos Photos Org.
  *        (Value: "PHOTOS")
+ *    @arg @c kGTLRServiceManagement_Publishing_Organization_Shopping Shopping
+ *        Org. (Value: "SHOPPING")
  *    @arg @c kGTLRServiceManagement_Publishing_Organization_StreetView Street
  *        View Org. (Value: "STREET_VIEW")
  */

@@ -85,7 +85,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAu
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType;
 /**
- *  Target ads to ads.txt authorized sellers.
+ *  Target ads to ads.txt authorized sellers. If no targeting option of this
+ *  type is assigned, the resource uses the "Authorized Direct Sellers and
+ *  Resellers" option by default.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
  */
@@ -580,22 +582,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by campaign properties. Supported syntax: * Filter
- *  expressions are made up of one or more restrictions. * Restrictions can be
- *  combined by `AND` or `OR` logical operators. A sequence of restrictions
- *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator used on `updateTime` must be `GREATER THAN OR EQUAL
- *  TO (>=)` or `LESS THAN OR EQUAL TO (<=)`. * The operator must be `EQUALS
- *  (=)`. * Supported fields: - `campaignId` - `displayName` - `entityStatus` -
- *  `updateTime` (input in ISO 8601 format, or YYYY-MM-DDTHH:MM:SSZ) Examples: *
- *  All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns under an
- *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  Allows filtering by campaign fields. Supported syntax: * Filter expressions
+ *  are made up of one or more restrictions. * Restrictions can be combined by
+ *  `AND` or `OR` logical operators. A sequence of restrictions implicitly uses
+ *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
+ *  `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS
+ *  THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS
+ *  (=)` operator. Supported fields: * `campaignId` * `displayName` *
+ *  `entityStatus` * `updateTime` (input in ISO 8601 format, or
+ *  `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All `ENTITY_STATUS_ACTIVE` or
+ *  `ENTITY_STATUS_PAUSED` campaigns under an advertiser:
+ *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED")` * All campaigns with an update time
- *  less than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
  *  `updateTime<="2020-11-04T18:54:47Z"` * All campaigns with an update time
- *  greater than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
  *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
- *  more than 500 characters.
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -659,18 +664,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long campaignId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR` on the same field. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
- *  Examples: * AssignedTargetingOptions of targeting type
- *  TARGETING_TYPE_LANGUAGE or TARGETING_TYPE_GENDER
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the `OR` logical operator. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `targetingType` * `inheritance` Examples: *
+ *  `AssignedTargetingOption` resources of targeting type
+ *  `TARGETING_TYPE_LANGUAGE` or `TARGETING_TYPE_GENDER`:
  *  `targetingType="TARGETING_TYPE_LANGUAGE" OR
- *  targetingType="TARGETING_TYPE_GENDER"` * AssignedTargetingOptions with
- *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
+ *  targetingType="TARGETING_TYPE_GENDER"` * `AssignedTargetingOption` resources
+ *  with inheritance status of `NOT_INHERITED` or `INHERITED_FROM_PARTNER`:
  *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -905,7 +912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -1090,7 +1099,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -1172,16 +1183,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long campaignId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedTargetingOptionId` - `inheritance` Examples: *
- *  AssignedTargetingOptions with ID 1 or 2 `assignedTargetingOptionId="1" OR
- *  assignedTargetingOptionId="2"` * AssignedTargetingOptions with inheritance
- *  status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the `OR` logical operator. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedTargetingOptionId` * `inheritance`
+ *  Examples: * `AssignedTargetingOption` resources with ID 1 or 2
+ *  `assignedTargetingOptionId="1" OR assignedTargetingOptionId="2"` *
+ *  `AssignedTargetingOption` resources with inheritance status of
+ *  `NOT_INHERITED` or `INHERITED_FROM_PARTNER` `inheritance="NOT_INHERITED" OR
+ *  inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1327,7 +1341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -1510,7 +1526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -1655,11 +1673,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by channel fields. Supported syntax: * Filter expressions
- *  for channel currently can only contain at most one * restriction. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All
- *  channels for which the display name contains "google": `displayName :
- *  "google"`. The length of this field should be no more than 500 characters.
+ *  for channel can only contain at most one restriction. * A restriction has
+ *  the form of `{field} {operator} {value}`. * All fields must use the `HAS
+ *  (:)` operator. Supported fields: * `displayName` Examples: * All channels
+ *  for which the display name contains "google": `displayName : "google"`. The
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1888,10 +1908,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by site fields. Supported syntax: * Filter expressions for
- *  site currently can only contain at most one * restriction. * A restriction
- *  has the form of `{field} {operator} {value}`. * The operator must be
- *  `CONTAINS (:)`. * Supported fields: - `urlOrAppId` Examples: * All sites for
- *  which the URL or app ID contains "google": `urlOrAppId : "google"`
+ *  site retrieval can only contain at most one restriction. * A restriction has
+ *  the form of `{field} {operator} {value}`. * All fields must use the `HAS
+ *  (:)` operator. Supported fields: * `urlOrAppId` Examples: * All sites for
+ *  which the URL or app ID contains "google": `urlOrAppId : "google"` The
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2117,44 +2140,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by creative properties. Supported syntax: * Filter
- *  expressions are made up of one or more restrictions. * Restriction for the
- *  same field must be combined by `OR`. * Restriction for different fields must
- *  be combined by `AND`. * Between `(` and `)` there can only be restrictions
- *  combined by `OR` for the same field. * A restriction has the form of
- *  `{field} {operator} {value}`. * The operator must be `EQUALS (=)` for the
- *  following fields: - `entityStatus` - `creativeType`. - `dimensions` -
- *  `minDuration` - `maxDuration` - `approvalStatus` - `exchangeReviewStatus` -
- *  `dynamic` - `creativeId` * The operator must be `HAS (:)` for the following
- *  fields: - `lineItemIds` * The operator must be `GREATER THAN OR EQUAL TO
- *  (>=)` or `LESS THAN OR EQUAL TO (<=)` for the following fields: -
- *  `updateTime` (input in ISO 8601 format, or YYYY-MM-DDTHH:MM:SSZ) * For
- *  `entityStatus`, `minDuration`, `maxDuration`, `updateTime`, and `dynamic`,
- *  there may be at most one restriction. * For `dimensions`, the value is in
- *  the form of `"{width}x{height}"`. * For `exchangeReviewStatus`, the value is
- *  in the form of `{exchange}-{reviewStatus}`. * For `minDuration` and
- *  `maxDuration`, the value is in the form of `"{duration}s"`. Only seconds are
- *  supported with millisecond granularity. * For `updateTime`, a creative
- *  resource's field value reflects the last time that a creative has been
- *  updated, which includes updates made by the system (e.g. creative review
- *  updates). * There may be multiple `lineItemIds` restrictions in order to
- *  search against multiple possible line item IDs. * There may be multiple
- *  `creativeId` restrictions in order to search against multiple possible
- *  creative IDs. Examples: * All native creatives:
- *  `creativeType="CREATIVE_TYPE_NATIVE"` * All active creatives with 300x400 or
- *  50x100 dimensions: `entityStatus="ENTITY_STATUS_ACTIVE" AND
- *  (dimensions="300x400" OR dimensions="50x100")` * All dynamic creatives that
- *  are approved by AdX or AppNexus, with a minimum duration of 5 seconds and
- *  200ms. `dynamic="true" AND minDuration="5.2s" AND
+ *  Allows filtering by creative fields. Supported syntax: * Filter expressions
+ *  are made up of one or more restrictions. * Restrictions can be combined by
+ *  `AND` or `OR` logical operators. A sequence of restrictions implicitly uses
+ *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
+ *  `lineItemIds` field must use the `HAS (:)` operator. * The `updateTime`
+ *  field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO
+ *  (<=)` operators. * All other fields must use the `EQUALS (=)` operator. *
+ *  For `entityStatus`, `minDuration`, `maxDuration`, `updateTime`, and
+ *  `dynamic` fields, there may be at most one restriction. Supported Fields: *
+ *  `approvalStatus` * `creativeId` * `creativeType` * `dimensions` (input in
+ *  the form of `{width}x{height}`) * `dynamic` * `entityStatus` *
+ *  `exchangeReviewStatus` (input in the form of `{exchange}-{reviewStatus}`) *
+ *  `lineItemIds` * `maxDuration` (input in the form of `{duration}s`. Only
+ *  seconds are supported) * `minDuration` (input in the form of `{duration}s`.
+ *  Only seconds are supported) * `updateTime` (input in ISO 8601 format, or
+ *  `YYYY-MM-DDTHH:MM:SSZ`) Notes: * For `updateTime`, a creative resource's
+ *  field value reflects the last time that a creative has been updated, which
+ *  includes updates made by the system (e.g. creative review updates).
+ *  Examples: * All native creatives: `creativeType="CREATIVE_TYPE_NATIVE"` *
+ *  All active creatives with 300x400 or 50x100 dimensions:
+ *  `entityStatus="ENTITY_STATUS_ACTIVE" AND (dimensions="300x400" OR
+ *  dimensions="50x100")` * All dynamic creatives that are approved by AdX or
+ *  AppNexus, with a minimum duration of 5 seconds and 200ms: `dynamic="true"
+ *  AND minDuration="5.2s" AND
  *  (exchangeReviewStatus="EXCHANGE_GOOGLE_AD_MANAGER-REVIEW_STATUS_APPROVED" OR
  *  exchangeReviewStatus="EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED")` * All
  *  video creatives that are associated with line item ID 1 or 2:
  *  `creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)` *
  *  Find creatives by multiple creative IDs: `creativeId=1 OR creativeId=2` *
  *  All creatives with an update time greater than or equal to
- *  `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  2020-11-04T18:54:47Z (format of ISO 8601):
  *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
- *  more than 500 characters.
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2459,28 +2479,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by insertion order properties. Supported syntax: * Filter
+ *  Allows filtering by insertion order fields. Supported syntax: * Filter
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator used on
- *  `budget.budget_segments.date_range.end_date` must be LESS THAN (<). * The
- *  operator used on `updateTime` must be `GREATER THAN OR EQUAL TO (>=)` or
- *  `LESS THAN OR EQUAL TO (<=)`. * The operators used on all other fields must
- *  be `EQUALS (=)`. * Supported fields: - `campaignId` - `displayName` -
- *  `entityStatus` - `budget.budget_segments.date_range.end_date` (input as
- *  YYYY-MM-DD) - `updateTime` (input in ISO 8601 format, or
- *  YYYY-MM-DDTHH:MM:SSZ) Examples: * All insertion orders under a campaign:
- *  `campaignId="1234"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`
- *  insertion orders under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE"
- *  OR entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders whose budget
- *  segments' dates end before March 28, 2019:
- *  `budget.budget_segments.date_range.end_date<"2019-03-28"` * All insertion
- *  orders with an update time less than or equal to `2020-11-04T18:54:47Z
- *  (format of ISO 8601)`: `updateTime<="2020-11-04T18:54:47Z"` * All insertion
- *  orders with an update time greater than or equal to `2020-11-04T18:54:47Z
- *  (format of ISO 8601)`: `updateTime>="2020-11-04T18:54:47Z"` The length of
- *  this field should be no more than 500 characters.
+ *  {value}`. * The `budget.budget_segments.date_range.end_date` field must use
+ *  the `LESS THAN (<)` operator. * The `updateTime` field must use the `GREATER
+ *  THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All
+ *  other fields must use the `EQUALS (=)` operator. Supported fields: *
+ *  `campaignId` * `displayName` * `entityStatus` *
+ *  `budget.budget_segments.date_range.end_date` (input in the form of
+ *  `YYYY-MM-DD`) * **Deprecated. Not available after June 21, 2023** *
+ *  `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples:
+ *  * All insertion orders under a campaign: `campaignId="1234"` * All
+ *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` insertion orders under an
+ *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders with an update
+ *  time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
+ *  `updateTime<="2020-11-04T18:54:47Z"` * All insertion orders with an update
+ *  time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
+ *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2542,18 +2563,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR` on the same field. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
- *  Examples: * AssignedTargetingOptions of targeting type
- *  TARGETING_TYPE_PROXIMITY_LOCATION_LIST or TARGETING_TYPE_CHANNEL
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR`. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `targetingType` * `inheritance` Examples: *
+ *  `AssignedTargetingOption` resources of targeting type
+ *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` or `TARGETING_TYPE_CHANNEL`:
  *  `targetingType="TARGETING_TYPE_PROXIMITY_LOCATION_LIST" OR
- *  targetingType="TARGETING_TYPE_CHANNEL"` * AssignedTargetingOptions with
- *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
+ *  targetingType="TARGETING_TYPE_CHANNEL"` * `AssignedTargetingOption`
+ *  resources with inheritance status of `NOT_INHERITED` or
+ *  `INHERITED_FROM_PARTNER`: `inheritance="NOT_INHERITED" OR
+ *  inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2802,7 +2826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -2993,7 +3019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -3201,7 +3229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -3391,7 +3421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -3610,7 +3642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -3809,7 +3843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -3885,16 +3921,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
  *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedTargetingOptionId` - `inheritance` Examples: *
- *  AssignedTargetingOptions with ID 1 or 2 `assignedTargetingOptionId="1" OR
- *  assignedTargetingOptionId="2"` * AssignedTargetingOptions with inheritance
- *  status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedTargetingOptionId` * `inheritance`
+ *  Examples: * `AssignedTargetingOption` resources with ID 1 or 2:
+ *  `assignedTargetingOptionId="1" OR assignedTargetingOptionId="2"` *
+ *  `AssignedTargetingOption` resources with inheritance status of
+ *  `NOT_INHERITED` or `INHERITED_FROM_PARTNER`: `inheritance="NOT_INHERITED" OR
+ *  inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4059,7 +4098,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -4256,7 +4297,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -4487,18 +4530,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
  *  can be combined by the logical operator `OR` on the same field. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
- *  Examples: * AssignedTargetingOptions of targeting type
- *  TARGETING_TYPE_PROXIMITY_LOCATION_LIST or TARGETING_TYPE_CHANNEL
+ *  restriction has the form of `{field} {operator} {value}`. * All fields must
+ *  use the `EQUALS (=)` operator. Supported fields: * `targetingType` *
+ *  `inheritance` Examples: * `AssignedTargetingOption` resources of targeting
+ *  type `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` or `TARGETING_TYPE_CHANNEL`:
  *  `targetingType="TARGETING_TYPE_PROXIMITY_LOCATION_LIST" OR
- *  targetingType="TARGETING_TYPE_CHANNEL"` * AssignedTargetingOptions with
- *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
+ *  targetingType="TARGETING_TYPE_CHANNEL"` * `AssignedTargetingOption`
+ *  resources with inheritance status of `NOT_INHERITED` or
+ *  `INHERITED_FROM_PARTNER`: `inheritance="NOT_INHERITED" OR
+ *  inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4776,44 +4822,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by line item properties. Supported syntax: * Filter
- *  expressions are made up of one or more restrictions. * Restrictions can be
- *  combined by `AND` or `OR` logical operators. A sequence of restrictions
- *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator used on `flight.dateRange.endDate` must be LESS
- *  THAN (<). * The operator used on `updateTime` must be `GREATER THAN OR EQUAL
- *  TO (>=)` or `LESS THAN OR EQUAL TO (<=)`. * The operator used on
- *  `warningMessages` must be `HAS (:)`. * The operators used on all other
- *  fields must be `EQUALS (=)`. * Supported properties: - `campaignId` -
- *  `displayName` - `insertionOrderId` - `entityStatus` - `lineItemId` -
- *  `lineItemType` - `flight.dateRange.endDate` (input formatted as YYYY-MM-DD)
- *  - `warningMessages` - `flight.triggerId` - `updateTime` (input in ISO 8601
- *  format, or YYYY-MM-DDTHH:MM:SSZ) - `targetedChannelId` -
- *  `targetedNegativeKeywordListId` Examples: * All line items under an
- *  insertion order: `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
+ *  Allows filtering by line item fields. Supported syntax: * Filter expressions
+ *  are made up of one or more restrictions. * Restrictions can be combined by
+ *  `AND` or `OR` logical operators. A sequence of restrictions implicitly uses
+ *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
+ *  `flight.dateRange.endDate` field must use the `LESS THAN (<)` operator. *
+ *  The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS
+ *  THAN OR EQUAL TO (<=)` operators. * The `warningMessages` field must use the
+ *  `HAS (:)` operator. * All other fields must use the `EQUALS (=)` operator.
+ *  Supported fields: * `campaignId` * `displayName` * `entityStatus` *
+ *  `flight.dateRange.endDate` (input formatted as `YYYY-MM-DD`) * **Deprecated.
+ *  Not available after June 21, 2023** * `flight.triggerId` * **Deprecated. Not
+ *  available after June 21, 2023** * `insertionOrderId` * `lineItemId` *
+ *  `lineItemType` * `targetedChannelId` * **Deprecated. Not available after
+ *  June 21, 2023** * `targetedNegativeKeywordListId` * **Deprecated. Not
+ *  available after June 21, 2023** * `updateTime` (input in ISO 8601 format, or
+ *  `YYYY-MM-DDTHH:MM:SSZ`) * `warningMessages` * **Deprecated. Not available
+ *  after June 21, 2023** Examples: * All line items under an insertion order:
+ *  `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
  *  `ENTITY_STATUS_PAUSED` and `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under
  *  an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED") AND
- *  lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` * All line items whose flight
- *  dates end before March 28, 2019: `flight.dateRange.endDate<"2019-03-28"` *
- *  All line items that have `NO_VALID_CREATIVE` in `warningMessages`:
- *  `warningMessages:"NO_VALID_CREATIVE"` * All line items with an update time
- *  less than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` * All line items with an
+ *  update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
  *  `updateTime<="2020-11-04T18:54:47Z"` * All line items with an update time
- *  greater than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
- *  `updateTime>="2020-11-04T18:54:47Z"` * All line items that are using both
- *  the specified channel and specified negative keyword list in their
- *  targeting: `targetedNegativeKeywordListId=789 AND targetedChannelId=12345`
- *  The length of this field should be no more than 500 characters.
+ *  greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
+ *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field by which to sort the list. Acceptable values are: * `displayName`
- *  (default) * `entityStatus` * `flight.dateRange.endDate` * `updateTime` The
- *  default sorting order is ascending. To specify descending order for a field,
- *  a suffix "desc" should be added to the field name. Example: `displayName
- *  desc`.
+ *  (default) * `entityStatus` * `flight.dateRange.endDate` * **Deprecated. Not
+ *  available after June 21, 2023** * `updateTime` The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix "desc" should
+ *  be added to the field name. Example: `displayName desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -5057,7 +5103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -5259,7 +5307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -5477,7 +5527,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -5678,7 +5730,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -5900,7 +5954,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -6103,7 +6159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -6179,16 +6237,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
  *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedTargetingOptionId` - `inheritance` Examples: *
- *  AssignedTargetingOptions with ID 1 or 2 `assignedTargetingOptionId="1" OR
- *  assignedTargetingOptionId="2"` * AssignedTargetingOptions with inheritance
- *  status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedTargetingOptionId` * `inheritance`
+ *  Examples: * `AssignedTargetingOption` resources with ID 1 or 2:
+ *  `assignedTargetingOptionId="1" OR assignedTargetingOptionId="2"` *
+ *  `AssignedTargetingOption` resources with inheritance status of
+ *  `NOT_INHERITED` or `INHERITED_FROM_PARTNER`: `inheritance="NOT_INHERITED" OR
+ *  inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6356,7 +6417,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -6556,7 +6619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -6634,21 +6699,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @interface GTLRDisplayVideoQuery_AdvertisersList : GTLRDisplayVideoQuery
 
 /**
- *  Allows filtering by advertiser properties. Supported syntax: * Filter
+ *  Allows filtering by advertiser fields. Supported syntax: * Filter
  *  expressions are made up of one or more restrictions. * Restrictions can be
- *  combined by `AND` or `OR` logical operators. A sequence of restrictions
- *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator used on `updateTime` must be `GREATER THAN OR EQUAL
- *  TO (>=)` or `LESS THAN OR EQUAL TO (<=)`. * The operator must be `EQUALS
- *  (=)`. * Supported fields: - `advertiserId` - `displayName` - `entityStatus`
- *  - `updateTime` (input in ISO 8601 format, or YYYY-MM-DDTHH:MM:SSZ) Examples:
- *  * All active advertisers under a partner:
- *  `entityStatus="ENTITY_STATUS_ACTIVE"` * All advertisers with an update time
- *  less than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
- *  `updateTime<="2020-11-04T18:54:47Z"` * All advertisers with an update time
- *  greater than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
- *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
- *  more than 500 characters.
+ *  combined by `AND` or `OR` logical operators. * A restriction has the form of
+ *  `{field} {operator} {value}`. * The `updateTime` field must use the `GREATER
+ *  THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All
+ *  other fields must use the `EQUALS (=)` operator. Supported fields: *
+ *  `advertiserId` * `displayName` * `entityStatus` * `updateTime` (input in ISO
+ *  8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All active advertisers
+ *  under a partner: `entityStatus="ENTITY_STATUS_ACTIVE"` * All advertisers
+ *  with an update time less than or equal to 2020-11-04T18:54:47Z (format of
+ *  ISO 8601): `updateTime<="2020-11-04T18:54:47Z"` * All advertisers with an
+ *  update time greater than or equal to 2020-11-04T18:54:47Z (format of ISO
+ *  8601): `updateTime>="2020-11-04T18:54:47Z"` The length of this field should
+ *  be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6712,13 +6778,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`.. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `targetingType` Examples: * targetingType with value
- *  TARGETING_TYPE_CHANNEL `targetingType="TARGETING_TYPE_CHANNEL"` The length
- *  of this field should be no more than 500 characters.
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the `OR` logical operator. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)
+ *  operator`. Supported fields: * `targetingType` Examples: * targetingType
+ *  with value TARGETING_TYPE_CHANNEL `targetingType="TARGETING_TYPE_CHANNEL"`
+ *  The length of this field should be no more than 500 characters. Reference
+ *  our [filter `LIST` requests](/display-video/api/guides/how-tos/filters)
+ *  guide for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6915,10 +6983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Allows filtering by location list assignment fields. Supported syntax: *
  *  Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedLocationId` The length of this field should be
- *  no more than 500 characters.
+ *  can be combined by the `OR` logical operator. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedLocationId` The length of this field
+ *  should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7061,10 +7131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `locationType` Examples: * All regional location list:
+ *  {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields:
+ *  * `locationType` Examples: * All regional location list:
  *  `locationType="TARGETING_LOCATION_TYPE_REGIONAL"` * All proximity location
- *  list: `locationType="TARGETING_LOCATION_TYPE_PROXIMITY"`
+ *  list: `locationType="TARGETING_LOCATION_TYPE_PROXIMITY"` The length of this
+ *  field should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7157,7 +7230,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Activates a manual trigger. Each activation of the manual trigger must be at
- *  least 5 minutes apart, otherwise an error will be returned.
+ *  least 5 minutes apart, otherwise an error will be returned. **Warning:**
+ *  Line Items using manual triggers no longer serve in Display & Video 360.
+ *  This method will sunset on August 1, 2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  Method: displayvideo.advertisers.manualTriggers.activate
  *
@@ -7176,7 +7253,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_ManualTrigger.
  *
  *  Activates a manual trigger. Each activation of the manual trigger must be at
- *  least 5 minutes apart, otherwise an error will be returned.
+ *  least 5 minutes apart, otherwise an error will be returned. **Warning:**
+ *  Line Items using manual triggers no longer serve in Display & Video 360.
+ *  This method will sunset on August 1, 2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  @param object The @c GTLRDisplayVideo_ActivateManualTriggerRequest to
  *    include in the query.
@@ -7194,7 +7275,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Creates a new manual trigger. Returns the newly created manual trigger if
- *  successful.
+ *  successful. **Warning:** Line Items using manual triggers no longer serve in
+ *  Display & Video 360. This method will sunset on August 1, 2023. Read our
+ *  [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  Method: displayvideo.advertisers.manualTriggers.create
  *
@@ -7213,7 +7298,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_ManualTrigger.
  *
  *  Creates a new manual trigger. Returns the newly created manual trigger if
- *  successful.
+ *  successful. **Warning:** Line Items using manual triggers no longer serve in
+ *  Display & Video 360. This method will sunset on August 1, 2023. Read our
+ *  [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  @param object The @c GTLRDisplayVideo_ManualTrigger to include in the query.
  *  @param advertiserId Required. Immutable. The unique ID of the advertiser
@@ -7227,7 +7316,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Deactivates a manual trigger.
+ *  Deactivates a manual trigger. **Warning:** Line Items using manual triggers
+ *  no longer serve in Display & Video 360. This method will sunset on August 1,
+ *  2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  Method: displayvideo.advertisers.manualTriggers.deactivate
  *
@@ -7245,7 +7338,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_ManualTrigger.
  *
- *  Deactivates a manual trigger.
+ *  Deactivates a manual trigger. **Warning:** Line Items using manual triggers
+ *  no longer serve in Display & Video 360. This method will sunset on August 1,
+ *  2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  @param object The @c GTLRDisplayVideo_DeactivateManualTriggerRequest to
  *    include in the query.
@@ -7262,7 +7359,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Gets a manual trigger.
+ *  Gets a manual trigger. **Warning:** Line Items using manual triggers no
+ *  longer serve in Display & Video 360. This method will sunset on August 1,
+ *  2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  Method: displayvideo.advertisers.manualTriggers.get
  *
@@ -7280,7 +7381,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_ManualTrigger.
  *
- *  Gets a manual trigger.
+ *  Gets a manual trigger. **Warning:** Line Items using manual triggers no
+ *  longer serve in Display & Video 360. This method will sunset on August 1,
+ *  2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  @param advertiserId Required. The ID of the advertiser this manual trigger
  *    belongs to.
@@ -7296,7 +7401,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Lists manual triggers that are accessible to the current user for a given
  *  advertiser ID. The order is defined by the order_by parameter. A single
- *  advertiser_id is required.
+ *  advertiser_id is required. **Warning:** Line Items using manual triggers no
+ *  longer serve in Display & Video 360. This method will sunset on August 1,
+ *  2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  Method: displayvideo.advertisers.manualTriggers.list
  *
@@ -7312,14 +7421,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by manual trigger properties. Supported syntax: * Filter
+ *  Allows filtering by manual trigger fields. Supported syntax: * Filter
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `displayName` - `state` Examples: * All active manual triggers under an
+ *  {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields:
+ *  * `displayName` * `state` Examples: * All active manual triggers under an
  *  advertiser: `state="ACTIVE"` The length of this field should be no more than
- *  500 characters.
+ *  500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7350,7 +7461,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *
  *  Lists manual triggers that are accessible to the current user for a given
  *  advertiser ID. The order is defined by the order_by parameter. A single
- *  advertiser_id is required.
+ *  advertiser_id is required. **Warning:** Line Items using manual triggers no
+ *  longer serve in Display & Video 360. This method will sunset on August 1,
+ *  2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  @param advertiserId Required. The ID of the advertiser that the fetched
  *    manual triggers belong to.
@@ -7367,6 +7482,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Updates a manual trigger. Returns the updated manual trigger if successful.
+ *  **Warning:** Line Items using manual triggers no longer serve in Display &
+ *  Video 360. This method will sunset on August 1, 2023. Read our [feature
+ *  deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  Method: displayvideo.advertisers.manualTriggers.patch
  *
@@ -7395,6 +7515,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_ManualTrigger.
  *
  *  Updates a manual trigger. Returns the updated manual trigger if successful.
+ *  **Warning:** Line Items using manual triggers no longer serve in Display &
+ *  Video 360. This method will sunset on August 1, 2023. Read our [feature
+ *  deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  *
  *  @param object The @c GTLRDisplayVideo_ManualTrigger to include in the query.
  *  @param advertiserId Required. Immutable. The unique ID of the advertiser
@@ -7727,11 +7852,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by negative keyword fields. Supported syntax: * Filter
- *  expressions for negative keyword currently can only contain at most one *
- *  restriction. * A restriction has the form of `{field} {operator} {value}`. *
- *  The operator must be `CONTAINS (:)`. * Supported fields: - `keywordValue`
+ *  expressions for negative keywords can only contain at most one restriction.
+ *  * A restriction has the form of `{field} {operator} {value}`. * All fields
+ *  must use the `HAS (:)` operator. Supported fields: * `keywordValue`
  *  Examples: * All negative keywords for which the keyword value contains
- *  "google": `keywordValue : "google"`
+ *  "google": `keywordValue : "google"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8043,7 +8171,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -8215,7 +8345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -8401,7 +8533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -8572,7 +8706,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -8762,7 +8898,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -8935,7 +9073,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -9010,13 +9150,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedTargetingOptionId` Examples: *
- *  AssignedTargetingOption with ID 123456 `assignedTargetingOptionId="123456"`
- *  The length of this field should be no more than 500 characters.
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the `OR` logical operator. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedTargetingOptionId` Examples: *
+ *  `AssignedTargetingOption` with ID 123456:
+ *  `assignedTargetingOptionId="123456"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9153,7 +9296,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -9324,7 +9469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -9436,16 +9583,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Allows filtering by custom YouTube ad group ad fields. Supported syntax: *
  *  Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by `AND` and `OR`. Only the restrictions for * the same
- *  field can be combined by `OR`. A sequence of restrictions * implicitly uses
- *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
- *  operator must be `EQUALS (=)`. * Supported properties: - `adGroupId` -
- *  `displayName` - `entityStatus` - `adGroupAdId` Examples: * All ad group ads
- *  under an ad group: `adGroupId="1234"` and its * entityStatus is
- *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`:
- *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  can be combined by `AND` and `OR`. A sequence of restrictions implicitly
+ *  uses `AND`. * A restriction has the form of `{field} {operator} {value}`. *
+ *  All fields must use the `EQUALS (=)` operator. Supported fields: *
+ *  `adGroupId` * `displayName` * `entityStatus` * `adGroupAdId` Examples: * All
+ *  ad group ads under an ad group: `adGroupId="1234"` * All ad group ads under
+ *  an ad group with an entityStatus of `ENTITY_STATUS_ACTIVE` or
+ *  `ENTITY_STATUS_PAUSED`: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED") AND adGroupId="12345"` The length of
- *  this field should be no more than 500 characters.
+ *  this field should be no more than 500 characters. Reference our [filter
+ *  `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9505,15 +9653,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR` on the same field. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `targetingType` Examples: *
- *  AssignedTargetingOptions of targeting type TARGETING_TYPE_YOUTUBE_VIDEO or
- *  TARGETING_TYPE_YOUTUBE_CHANNEL `targetingType="TARGETING_TYPE_YOUTUBE_VIDEO"
- *  OR targetingType="TARGETING_TYPE_YOUTUBE_CHANNEL"` The length of this field
- *  should be no more than 500 characters.
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR`. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `targetingType` Examples: *
+ *  `AssignedTargetingOption` resources of targeting type
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` or `TARGETING_TYPE_YOUTUBE_CHANNEL`:
+ *  `targetingType="TARGETING_TYPE_YOUTUBE_VIDEO" OR
+ *  targetingType="TARGETING_TYPE_YOUTUBE_CHANNEL"` The length of this field
+ *  should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9616,18 +9767,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Allows filtering by custom YouTube ad group fields. Supported syntax: *
  *  Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by `AND` and `OR`. Only the restrictions for * the same
- *  field can be combined by `OR`. A sequence of restrictions * implicitly uses
- *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
- *  operator must be `EQUALS (=)`. * Supported properties: - `adGroupId` -
- *  `displayName` - `entityStatus` - `lineItemId` - `adGroupFormat` Examples: *
- *  All ad groups under an line item: `lineItemId="1234"` * All
- *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and
+ *  can be combined by `AND` and `OR`. A sequence of restrictions implicitly
+ *  uses `AND`. * A restriction has the form of `{field} {operator} {value}`. *
+ *  All fields must use the `EQUALS (=)` operator. Supported properties: *
+ *  `adGroupId` * `displayName` * `entityStatus` * `lineItemId` *
+ *  `adGroupFormat` Examples: * All ad groups under an line item:
+ *  `lineItemId="1234"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`
  *  `YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_IN_STREAM` ad groups under an
  *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED") AND
  *  adGroupFormat="YOUTUBE_AND_PARTNERS_AD_GROUP_FORMAT_IN_STREAM"` The length
- *  of this field should be no more than 500 characters.
+ *  of this field should be no more than 500 characters. Reference our [filter
+ *  `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9805,7 +9957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -9991,7 +10145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -10068,14 +10224,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
  *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedTargetingOptionId` Examples: *
- *  AssignedTargetingOptions with ID 1 or 2 `assignedTargetingOptionId="1" OR
- *  assignedTargetingOptionId="2"` The length of this field should be no more
- *  than 500 characters.
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedTargetingOptionId` Examples: *
+ *  `AssignedTargetingOption` resources with ID 1 or 2:
+ *  `assignedTargetingOptionId="1" OR assignedTargetingOptionId="2"` The length
+ *  of this field should be no more than 500 characters. Reference our [filter
+ *  `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10215,7 +10373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -10399,7 +10559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -10516,12 +10678,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by combined audience fields. Supported syntax: * Filter
- *  expressions for combined audiences currently can only contain at most one
- *  restriction. * A restriction has the form of `{field} {operator} {value}`. *
- *  The operator must be `CONTAINS (:)`. * Supported fields: - `displayName`
- *  Examples: * All combined audiences for which the display name contains
- *  "Google": `displayName : "Google"`. The length of this field should be no
- *  more than 500 characters.
+ *  expressions for combined audiences can only contain at most one restriction.
+ *  * A restriction has the form of `{field} {operator} {value}`. * All fields
+ *  must use the `HAS (:)` operator. Supported fields: * `displayName` Examples:
+ *  * All combined audiences for which the display name contains "Google":
+ *  `displayName : "Google"`. The length of this field should be no more than
+ *  500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10652,20 +10816,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Allows filtering by custom bidding algorithm fields. Supported syntax: *
  *  Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by `AND`. A sequence of restrictions * implicitly uses
- *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
- *  operator must be `CONTAINS (:)` or `EQUALS (=)`. * The operator must be
- *  `CONTAINS (:)` for the following field: - `displayName` * The operator must
- *  be `EQUALS (=)` for the following field: - `customBiddingAlgorithmType` *
- *  For `displayName`, the value is a string. We return all custom bidding
- *  algorithms whose display_name contains such string. * For
- *  `customBiddingAlgorithmType`, the value is a string. We return all
- *  algorithms whose custom_bidding_algorithm_type is equal to the given type.
- *  Examples: * All custom bidding algorithms for which the display name
- *  contains "politics": `displayName:politics`. * All custom bidding algorithms
- *  for which the type is "SCRIPT_BASED":
- *  `customBiddingAlgorithmType=SCRIPT_BASED` The length of this field should be
- *  no more than 500 characters.
+ *  can be combined by `AND`. A sequence of restrictions implicitly uses `AND`.
+ *  * A restriction has the form of `{field} {operator} {value}`. * The
+ *  `customBiddingAlgorithmType` field must use the `EQUALS (=)` operator. * The
+ *  `displayName` field must use the `HAS (:)` operator. Supported fields: *
+ *  `customBiddingAlgorithmType` * `displayName` Examples: * All custom bidding
+ *  algorithms for which the display name contains "politics":
+ *  `displayName:"politics"`. * All custom bidding algorithms for which the type
+ *  is "SCRIPT_BASED": `customBiddingAlgorithmType=SCRIPT_BASED` The length of
+ *  this field should be no more than 500 characters. Reference our [filter
+ *  `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10994,12 +11155,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by custom list fields. Supported syntax: * Filter
- *  expressions for custom lists currently can only contain at most one
- *  restriction. * A restriction has the form of `{field} {operator} {value}`. *
- *  The operator must be `CONTAINS (:)`. * Supported fields: - `displayName`
- *  Examples: * All custom lists for which the display name contains "Google":
- *  `displayName : "Google"`. The length of this field should be no more than
- *  500 characters.
+ *  expressions for custom lists can only contain at most one restriction. * A
+ *  restriction has the form of `{field} {operator} {value}`. * All fields must
+ *  use the `HAS (:)` operator. Supported fields: * `displayName` Examples: *
+ *  All custom lists for which the display name contains "Google":
+ *  `displayName:"Google"`. The length of this field should be no more than 500
+ *  characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11168,12 +11331,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by first and third party audience fields. Supported syntax:
- *  * Filter expressions for first and third party audiences currently can only
- *  contain at most one restriction. * A restriction has the form of `{field}
- *  {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported
- *  fields: - `displayName` Examples: * All first and third party audiences for
- *  which the display name contains "Google": `displayName : "Google"`. The
- *  length of this field should be no more than 500 characters.
+ *  * Filter expressions for first and third party audiences can only contain at
+ *  most one restriction. * A restriction has the form of `{field} {operator}
+ *  {value}`. * All fields must use the `HAS (:)` operator. Supported fields: *
+ *  `displayName` Examples: * All first and third party audiences for which the
+ *  display name contains "Google": `displayName:"Google"`. The length of this
+ *  field should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11404,12 +11569,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by Google audience fields. Supported syntax: * Filter
- *  expressions for Google audiences currently can only contain at most one
- *  restriction. * A restriction has the form of `{field} {operator} {value}`. *
- *  The operator must be `CONTAINS (:)`. * Supported fields: - `displayName`
- *  Examples: * All Google audiences for which the display name contains
- *  "Google": `displayName : "Google"`. The length of this field should be no
- *  more than 500 characters.
+ *  expressions for Google audiences can only contain at most one restriction. *
+ *  A restriction has the form of `{field} {operator} {value}`. * All fields
+ *  must use the `HAS (:)` operator. Supported fields: * `displayName` Examples:
+ *  * All Google audiences for which the display name contains "Google":
+ *  `displayName:"Google"`. The length of this field should be no more than 500
+ *  characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11573,16 +11740,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by guaranteed order properties. * Filter expressions are
- *  made up of one or more restrictions. * Restrictions can be combined by `AND`
- *  or `OR` logical operators. A sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `guaranteed_order_id` -
- *  `exchange` - `display_name` - `status.entityStatus` Examples: * All active
- *  guaranteed orders: `status.entityStatus="ENTITY_STATUS_ACTIVE"` * Guaranteed
- *  orders belonging to Google Ad Manager or Rubicon exchanges:
+ *  Allows filtering by guaranteed order fields. * Filter expressions are made
+ *  up of one or more restrictions. * Restrictions can be combined by `AND` or
+ *  `OR` logical operators. A sequence of restrictions implicitly uses `AND`. *
+ *  A restriction has the form of `{field} {operator} {value}`. * All fields
+ *  must use the `EQUALS (=)` operator. Supported fields: *
+ *  `guaranteed_order_id` * `exchange` * `display_name` * `status.entityStatus`
+ *  Examples: * All active guaranteed orders:
+ *  `status.entityStatus="ENTITY_STATUS_ACTIVE"` * Guaranteed orders belonging
+ *  to Google Ad Manager or Rubicon exchanges:
  *  `exchange="EXCHANGE_GOOGLE_AD_MANAGER" OR exchange="EXCHANGE_RUBICON"` The
- *  length of this field should be no more than 500 characters.
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11839,10 +12009,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Allows filtering by assigned inventory source fields. Supported syntax: *
  *  Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedInventorySourceId` The length of this field
- *  should be no more than 500 characters.
+ *  can be combined by the `OR` logical operator. * A restriction has the form
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedInventorySourceId` The length of this
+ *  field should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12037,12 +12209,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by inventory source group properties. Supported syntax: *
+ *  Allows filtering by inventory source group fields. Supported syntax: *
  *  Filter expressions are made up of one or more restrictions. * Restrictions
  *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `inventorySourceGroupId` The length of this field should
- *  be no more than 500 characters.
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `inventorySourceGroupId` The length of this
+ *  field should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12257,17 +12431,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by inventory source properties. Supported syntax: * Filter
+ *  Allows filtering by inventory source fields. Supported syntax: * Filter
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `status.entityStatus` - `commitment` - `deliveryMethod` -
- *  `rateDetails.rateType` - `exchange` Examples: * All active inventory
+ *  {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields:
+ *  * `status.entityStatus` * `commitment` * `deliveryMethod` *
+ *  `rateDetails.rateType` * `exchange` Examples: * All active inventory
  *  sources: `status.entityStatus="ENTITY_STATUS_ACTIVE"` * Inventory sources
  *  belonging to Google Ad Manager or Rubicon exchanges:
  *  `exchange="EXCHANGE_GOOGLE_AD_MANAGER" OR exchange="EXCHANGE_RUBICON"` The
- *  length of this field should be no more than 500 characters.
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12531,11 +12707,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by channel fields. Supported syntax: * Filter expressions
- *  for channel currently can only contain at most one * restriction. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All
- *  channels for which the display name contains "google": `displayName :
- *  "google"`. The length of this field should be no more than 500 characters.
+ *  for channel can only contain at most one restriction. * A restriction has
+ *  the form of `{field} {operator} {value}`. * All fields must use the `HAS
+ *  (:)` operator. Supported fields: * `displayName` Examples: * All channels
+ *  for which the display name contains "google": `displayName : "google"`. The
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12764,10 +12942,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Allows filtering by site fields. Supported syntax: * Filter expressions for
- *  site currently can only contain at most one * restriction. * A restriction
- *  has the form of `{field} {operator} {value}`. * The operator must be
- *  `CONTAINS (:)`. * Supported fields: - `urlOrAppId` Examples: * All sites for
- *  which the URL or app ID contains "google": `urlOrAppId : "google"`
+ *  site retrieval can only contain at most one restriction. * A restriction has
+ *  the form of `{field} {operator} {value}`. * All fields must use the `HAS
+ *  (:)` operator. Supported fields: * `urlOrAppId` Examples: * All sites for
+ *  which the URL or app ID contains "google": `urlOrAppId : "google"` The
+ *  length of this field should be no more than 500 characters. Reference our
+ *  [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12933,14 +13114,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @interface GTLRDisplayVideoQuery_PartnersList : GTLRDisplayVideoQuery
 
 /**
- *  Allows filtering by partner properties. Supported syntax: * Filter
- *  expressions are made up of one or more restrictions. * Restrictions can be
- *  combined by `AND` or `OR` logical operators. A sequence of restrictions
- *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
+ *  Allows filtering by partner fields. Supported syntax: * Filter expressions
+ *  are made up of one or more restrictions. * Restrictions can be combined by
+ *  `AND` or `OR` logical operators. A sequence of restrictions implicitly uses
+ *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * All
+ *  fields must use the `EQUALS (=)` operator. Supported fields: *
  *  `entityStatus` Examples: * All active partners:
  *  `entityStatus="ENTITY_STATUS_ACTIVE"` The length of this field should be no
- *  more than 500 characters.
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13103,7 +13286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -13273,7 +13458,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -13457,7 +13644,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -13626,7 +13815,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -13813,7 +14004,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -13983,7 +14176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -14055,13 +14250,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @interface GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList : GTLRDisplayVideoQuery
 
 /**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  Allows filtering by assigned targeting option fields. Supported syntax: *
+ *  Filter expressions are made up of one or more restrictions. * Restrictions
  *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `assignedTargetingOptionId` Examples: *
- *  AssignedTargetingOption with ID 123456 `assignedTargetingOptionId="123456"`
- *  The length of this field should be no more than 500 characters.
+ *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedTargetingOptionId` Examples: *
+ *  `AssignedTargetingOption` resource with ID 123456:
+ *  `assignedTargetingOptionId="123456"` The length of this field should be no
+ *  more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14198,7 +14396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -14365,7 +14565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -14633,7 +14835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -14816,7 +15020,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -14890,19 +15096,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by targeting option properties. Supported syntax: * Filter
+ *  Allows filtering by targeting option fields. Supported syntax: * Filter
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `OR` logical operators. * A restriction has the form of `{field}
- *  {operator} {value}`. * The operator must be "=" (equal sign). * Supported
- *  fields: - `carrierAndIspDetails.type` - `geoRegionDetails.geoRegionType` -
- *  `targetingOptionId` Examples: * All `GEO REGION` targeting options that
- *  belong to sub type `GEO_REGION_TYPE_COUNTRY` or `GEO_REGION_TYPE_STATE`:
+ *  {operator} {value}`. * All fields must use the `EQUALS (=)` operator.
+ *  Supported fields: * `carrierAndIspDetails.type` *
+ *  `geoRegionDetails.geoRegionType` * `targetingOptionId` Examples: * All `GEO
+ *  REGION` targeting options that belong to sub type `GEO_REGION_TYPE_COUNTRY`
+ *  or `GEO_REGION_TYPE_STATE`:
  *  `geoRegionDetails.geoRegionType="GEO_REGION_TYPE_COUNTRY" OR
  *  geoRegionDetails.geoRegionType="GEO_REGION_TYPE_STATE"` * All `CARRIER AND
  *  ISP` targeting options that belong to sub type
  *  `CARRIER_AND_ISP_TYPE_CARRIER`:
- *  `carrierAndIspDetails.type="CARRIER_AND_ISP_TYPE_CARRIER"`. The length of
- *  this field should be no more than 500 characters.
+ *  `carrierAndIspDetails.type="CARRIER_AND_ISP_TYPE_CARRIER"` The length of
+ *  this field should be no more than 500 characters. Reference our [filter
+ *  `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15050,7 +15259,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -15231,7 +15442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -15413,7 +15626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -15583,7 +15798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *        a specific language (for example, English or Japanese). (Value:
  *        "TARGETING_TYPE_LANGUAGE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
  *        a specific regional location (for example, a city or state). (Value:
@@ -15648,7 +15865,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  user roles provided in
  *  BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign
  *  the user roles provided in
- *  BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
+ *  BulkEditAssignedUserRolesRequest.createdAssignedUserRoles. This method has
+ *  unique authentication requirements. Read the prerequisites in our [Managing
+ *  Users guide](/display-video/api/guides/users/overview#prerequisites) before
+ *  using this method. The "Try this method" feature does not work for this
+ *  method.
  *
  *  Method: displayvideo.users.bulkEditAssignedUserRoles
  *
@@ -15667,7 +15888,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  user roles provided in
  *  BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign
  *  the user roles provided in
- *  BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
+ *  BulkEditAssignedUserRolesRequest.createdAssignedUserRoles. This method has
+ *  unique authentication requirements. Read the prerequisites in our [Managing
+ *  Users guide](/display-video/api/guides/users/overview#prerequisites) before
+ *  using this method. The "Try this method" feature does not work for this
+ *  method.
  *
  *  @param object The @c GTLRDisplayVideo_BulkEditAssignedUserRolesRequest to
  *    include in the query.
@@ -15682,7 +15907,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Creates a new user. Returns the newly created user if successful.
+ *  Creates a new user. Returns the newly created user if successful. This
+ *  method has unique authentication requirements. Read the prerequisites in our
+ *  [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  Method: displayvideo.users.create
  *
@@ -15694,7 +15923,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_User.
  *
- *  Creates a new user. Returns the newly created user if successful.
+ *  Creates a new user. Returns the newly created user if successful. This
+ *  method has unique authentication requirements. Read the prerequisites in our
+ *  [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  @param object The @c GTLRDisplayVideo_User to include in the query.
  *
@@ -15705,7 +15938,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Deletes a user.
+ *  Deletes a user. This method has unique authentication requirements. Read the
+ *  prerequisites in our [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  Method: displayvideo.users.delete
  *
@@ -15720,7 +15956,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
- *  Deletes a user.
+ *  Deletes a user. This method has unique authentication requirements. Read the
+ *  prerequisites in our [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  @param userId Required. The ID of the user to delete.
  *
@@ -15731,7 +15970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Gets a user.
+ *  Gets a user. This method has unique authentication requirements. Read the
+ *  prerequisites in our [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  Method: displayvideo.users.get
  *
@@ -15746,7 +15988,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_User.
  *
- *  Gets a user.
+ *  Gets a user. This method has unique authentication requirements. Read the
+ *  prerequisites in our [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  @param userId Required. The ID of the user to fetch.
  *
@@ -15758,7 +16003,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Lists users that are accessible to the current user. If two users have user
- *  roles on the same partner or advertiser, they can access each other.
+ *  roles on the same partner or advertiser, they can access each other. This
+ *  method has unique authentication requirements. Read the prerequisites in our
+ *  [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  Method: displayvideo.users.list
  *
@@ -15768,28 +16017,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @interface GTLRDisplayVideoQuery_UsersList : GTLRDisplayVideoQuery
 
 /**
- *  Allows filtering by user properties. Supported syntax: * Filter expressions
- *  are made up of one or more restrictions. * Restrictions can be combined by
- *  the logical operator `AND`. * A restriction has the form of `{field}
- *  {operator} {value}`. * The operator must be `CONTAINS (:)` or `EQUALS (=)`.
- *  * The operator must be `CONTAINS (:)` for the following fields: -
- *  `displayName` - `email` * The operator must be `EQUALS (=)` for the
- *  following fields: - `assignedUserRole.userRole` -
- *  `assignedUserRole.partnerId` - `assignedUserRole.advertiserId` -
- *  `assignedUserRole.entityType`: A synthetic field of AssignedUserRole used
- *  for filtering. Identifies the type of entity to which the user role is
- *  assigned. Valid values are `Partner` and `Advertiser`. -
- *  `assignedUserRole.parentPartnerId`: A synthetic field of AssignedUserRole
- *  used for filtering. Identifies the parent partner of the entity to which the
- *  user role is assigned." Examples: * The user with displayName containing
- *  `foo`: `displayName:"foo"` * The user with email containing `bar`:
- *  `email:"bar"` * All users with standard user roles:
- *  `assignedUserRole.userRole="STANDARD"` * All users with user roles for
- *  partner 123: `assignedUserRole.partnerId="123"` * All users with user roles
- *  for advertiser 123: `assignedUserRole.advertiserId="123"` * All users with
+ *  Allows filtering by user fields. Supported syntax: * Filter expressions are
+ *  made up of one or more restrictions. * Restrictions can be combined by the
+ *  logical operator `AND`. * A restriction has the form of `{field} {operator}
+ *  {value}`. * The `budget.budget_segments.date_range.end_date` field must use
+ *  the `LESS THAN (<)` operator. * The `displayName and `email` field must use
+ *  the `HAS (:)` operator. * All other fields must use the `EQUALS (=)`
+ *  operator. Supported fields: * `assignedUserRole.advertiserId` *
+ *  `assignedUserRole.entityType` * This is synthetic field of
+ *  `AssignedUserRole` used for filtering. Identifies the type of entity to
+ *  which the user role is assigned. Valid values are `Partner` and
+ *  `Advertiser`. * `assignedUserRole.parentPartnerId` * This is a synthetic
+ *  field of `AssignedUserRole` used for filtering. Identifies the parent
+ *  partner of the entity to which the user role is assigned. *
+ *  `assignedUserRole.partnerId` * `assignedUserRole.userRole` * `displayName` *
+ *  `email` Examples: * The user with `displayName` containing "foo":
+ *  `displayName:"foo"` * The user with `email` containing "bar": `email:"bar"`
+ *  * All users with standard user roles: `assignedUserRole.userRole="STANDARD"`
+ *  * All users with user roles for partner 123:
+ *  `assignedUserRole.partnerId="123"` * All users with user roles for
+ *  advertiser 123: `assignedUserRole.advertiserId="123"` * All users with
  *  partner level user roles: `entityType="PARTNER"` * All users with user roles
  *  for partner 123 and advertisers under partner 123: `parentPartnerId="123"`
- *  The length of this field should be no more than 500 characters.
+ *  The length of this field should be no more than 500 characters. Reference
+ *  our [filter `LIST` requests](/display-video/api/guides/how-tos/filters)
+ *  guide for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15819,7 +16071,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_ListUsersResponse.
  *
  *  Lists users that are accessible to the current user. If two users have user
- *  roles on the same partner or advertiser, they can access each other.
+ *  roles on the same partner or advertiser, they can access each other. This
+ *  method has unique authentication requirements. Read the prerequisites in our
+ *  [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  @return GTLRDisplayVideoQuery_UsersList
  *
@@ -15832,7 +16088,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Updates an existing user. Returns the updated user if successful.
+ *  Updates an existing user. Returns the updated user if successful. This
+ *  method has unique authentication requirements. Read the prerequisites in our
+ *  [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  Method: displayvideo.users.patch
  *
@@ -15854,7 +16114,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_User.
  *
- *  Updates an existing user. Returns the updated user if successful.
+ *  Updates an existing user. Returns the updated user if successful. This
+ *  method has unique authentication requirements. Read the prerequisites in our
+ *  [Managing Users
+ *  guide](/display-video/api/guides/users/overview#prerequisites) before using
+ *  this method. The "Try this method" feature does not work for this method.
  *
  *  @param object The @c GTLRDisplayVideo_User to include in the query.
  *  @param userId Output only. The unique ID of the user. Assigned by the

@@ -341,7 +341,9 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
          analysisQueryIdentitySelectorIdentity,
          analysisQueryOptionsAnalyzeServiceAccountImpersonation,
          analysisQueryOptionsExpandGroups, analysisQueryOptionsExpandResources,
-         analysisQueryOptionsExpandRoles, analysisQueryOptionsOutputGroupEdges,
+         analysisQueryOptionsExpandRoles,
+         analysisQueryOptionsIncludeDenyPolicyAnalysis,
+         analysisQueryOptionsOutputGroupEdges,
          analysisQueryOptionsOutputResourceEdges,
          analysisQueryResourceSelectorFullResourceName, executionTimeout,
          savedAnalysisQuery, scope;
@@ -356,6 +358,7 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
     @"analysisQueryOptionsExpandGroups" : @"analysisQuery.options.expandGroups",
     @"analysisQueryOptionsExpandResources" : @"analysisQuery.options.expandResources",
     @"analysisQueryOptionsExpandRoles" : @"analysisQuery.options.expandRoles",
+    @"analysisQueryOptionsIncludeDenyPolicyAnalysis" : @"analysisQuery.options.includeDenyPolicyAnalysis",
     @"analysisQueryOptionsOutputGroupEdges" : @"analysisQuery.options.outputGroupEdges",
     @"analysisQueryOptionsOutputResourceEdges" : @"analysisQuery.options.outputResourceEdges",
     @"analysisQueryResourceSelectorFullResourceName" : @"analysisQuery.resourceSelector.fullResourceName"

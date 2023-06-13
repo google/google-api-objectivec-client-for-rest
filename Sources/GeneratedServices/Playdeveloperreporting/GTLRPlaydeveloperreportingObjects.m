@@ -24,11 +24,13 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness.aggregationPeriod
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_AggregationPeriodUnspecified = @"AGGREGATION_PERIOD_UNSPECIFIED";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_Daily = @"DAILY";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_FullRange = @"FULL_RANGE";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness_AggregationPeriod_Hourly = @"HOURLY";
 
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow.aggregationPeriod
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_AggregationPeriodUnspecified = @"AGGREGATION_PERIOD_UNSPECIFIED";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Daily = @"DAILY";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_FullRange = @"FULL_RANGE";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Hourly = @"HOURLY";
 
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest.userCohort
@@ -70,6 +72,7 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec.aggregationPeriod
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_AggregationPeriodUnspecified = @"AGGREGATION_PERIOD_UNSPECIFIED";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Daily = @"DAILY";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_FullRange = @"FULL_RANGE";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Hourly = @"HOURLY";
 
 // ----------------------------------------------------------------------------
@@ -102,6 +105,26 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1App
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1App
+@dynamic displayName, name, packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion
+@dynamic versionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1CrashRateMetricSet
 //
 
@@ -117,6 +140,26 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DecimalConfidenceInterval
 @dynamic lowerBound, upperBound;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceId
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceId
+@dynamic buildBrand, buildDevice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceModelSummary
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceModelSummary
+@dynamic deviceId, deviceUri, marketingName;
 @end
 
 
@@ -146,7 +189,9 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue
-@dynamic cause, location, name, type;
+@dynamic cause, distinctUsers, distinctUsersPercent, errorReportCount,
+         firstAppVersion, firstOsVersion, issueUri, lastAppVersion,
+         lastErrorReportTime, lastOsVersion, location, name, type;
 @end
 
 
@@ -156,7 +201,7 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport
-@dynamic issue, name, reportText, type;
+@dynamic deviceModel, eventTime, issue, name, osVersion, reportText, type;
 @end
 
 
@@ -246,6 +291,16 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricValue
 @dynamic decimalValue, decimalValueConfidenceInterval, metric;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion
+@dynamic apiLevel;
 @end
 
 
@@ -544,6 +599,64 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Release
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Release
+@dynamic displayName, versionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versionCodes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ReleaseFilterOptions
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ReleaseFilterOptions
+@dynamic tracks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Track class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchAccessibleAppsResponse
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchAccessibleAppsResponse
+@dynamic apps, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apps" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1App class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"apps";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchErrorIssuesResponse
 //
 
@@ -623,6 +736,24 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec
 @dynamic aggregationPeriod, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Track
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Track
+@dynamic displayName, servingReleases, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingReleases" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1Release class]
+  };
+  return map;
+}
+
 @end
 
 

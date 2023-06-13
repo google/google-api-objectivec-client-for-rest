@@ -22,11 +22,13 @@ NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_HighScaleSsd = @"
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Standard = @"STANDARD";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_TierUnspecified = @"TIER_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Zonal = @"ZONAL";
 
 // GTLRCloudFilestore_Backup.state
 NSString * const kGTLRCloudFilestore_Backup_State_Creating     = @"CREATING";
 NSString * const kGTLRCloudFilestore_Backup_State_Deleting     = @"DELETING";
 NSString * const kGTLRCloudFilestore_Backup_State_Finalizing   = @"FINALIZING";
+NSString * const kGTLRCloudFilestore_Backup_State_Invalid      = @"INVALID";
 NSString * const kGTLRCloudFilestore_Backup_State_Ready        = @"READY";
 NSString * const kGTLRCloudFilestore_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
@@ -47,6 +49,7 @@ NSString * const kGTLRCloudFilestore_Instance_State_Ready      = @"READY";
 NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_Instance_State_Restoring  = @"RESTORING";
 NSString * const kGTLRCloudFilestore_Instance_State_Resuming   = @"RESUMING";
+NSString * const kGTLRCloudFilestore_Instance_State_Reverting  = @"REVERTING";
 NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_Instance_State_Suspended  = @"SUSPENDED";
 NSString * const kGTLRCloudFilestore_Instance_State_Suspending = @"SUSPENDING";
@@ -63,6 +66,7 @@ NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd = @"HIGH_SCALE_S
 NSString * const kGTLRCloudFilestore_Instance_Tier_Premium     = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Standard    = @"STANDARD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_Instance_Tier_Zonal       = @"ZONAL";
 
 // GTLRCloudFilestore_MaintenancePolicy.state
 NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_Deleting = @"DELETING";
@@ -767,6 +771,16 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 @implementation GTLRCloudFilestore_RestoreInstanceRequest
 @dynamic fileShare, sourceBackup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_RevertInstanceRequest
+//
+
+@implementation GTLRCloudFilestore_RevertInstanceRequest
+@dynamic targetSnapshotId;
 @end
 
 

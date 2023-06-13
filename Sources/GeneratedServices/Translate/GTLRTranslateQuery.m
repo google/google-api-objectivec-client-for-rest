@@ -774,6 +774,33 @@
 
 @end
 
+@implementation GTLRTranslateQuery_ProjectsLocationsRomanizeText
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_RomanizeTextRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:romanizeText";
+  GTLRTranslateQuery_ProjectsLocationsRomanizeText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_RomanizeTextResponse class];
+  query.loggingName = @"translate.projects.locations.romanizeText";
+  return query;
+}
+
+@end
+
 @implementation GTLRTranslateQuery_ProjectsLocationsTranslateDocument
 
 @dynamic parent;
@@ -823,6 +850,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRTranslate_TextResponse class];
   query.loggingName = @"translate.projects.locations.translateText";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsRomanizeText
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_RomanizeTextRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:romanizeText";
+  GTLRTranslateQuery_ProjectsRomanizeText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_RomanizeTextResponse class];
+  query.loggingName = @"translate.projects.romanizeText";
   return query;
 }
 

@@ -54,12 +54,14 @@
 @class GTLRTranslate_Operation_Metadata;
 @class GTLRTranslate_Operation_Response;
 @class GTLRTranslate_OutputConfig;
+@class GTLRTranslate_Romanization;
 @class GTLRTranslate_Status;
 @class GTLRTranslate_Status_Details_Item;
 @class GTLRTranslate_SupportedLanguage;
 @class GTLRTranslate_TextGlossaryConfig;
 @class GTLRTranslate_TextRequest_Labels;
 @class GTLRTranslate_Translation;
+@class GTLRTranslate_TransliterationConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1318,7 +1320,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRTranslate_Location : GTLRObject
 
@@ -1581,6 +1583,60 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A single romanization response.
+ */
+@interface GTLRTranslate_Romanization : GTLRObject
+
+/**
+ *  The ISO-639 language code of source text in the initial request, detected
+ *  automatically, if no source language was passed within the initial request.
+ *  If the source language was passed, auto-detection of the language does not
+ *  occur and this field is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *detectedLanguageCode;
+
+/**
+ *  Romanized text. If an error occurs during romanization, this field might be
+ *  excluded from the response.
+ */
+@property(nonatomic, copy, nullable) NSString *romanizedText;
+
+@end
+
+
+/**
+ *  The request message for synchronous romanization.
+ */
+@interface GTLRTranslate_RomanizeTextRequest : GTLRObject
+
+/** Required. The content of the input in string format. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contents;
+
+/**
+ *  Optional. The ISO-639 language code of the input text if known, for example,
+ *  "hi" or "zh". If the source language isn't specified, the API attempts to
+ *  identify the source language automatically and returns the source language
+ *  for each content in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
+
+@end
+
+
+/**
+ *  The response message for synchronous romanization.
+ */
+@interface GTLRTranslate_RomanizeTextResponse : GTLRObject
+
+/**
+ *  Text romanization responses. This field has the same length as `contents`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Romanization *> *romanizations;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1763,6 +1819,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
 
+/** Optional. Transliteration to be applied. */
+@property(nonatomic, strong, nullable) GTLRTranslate_TransliterationConfig *transliterationConfig;
+
 @end
 
 
@@ -1836,6 +1895,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  translation, this field might be excluded from the response.
  */
 @property(nonatomic, copy, nullable) NSString *translatedText;
+
+@end
+
+
+/**
+ *  Configures transliteration feature on top of translation.
+ */
+@interface GTLRTranslate_TransliterationConfig : GTLRObject
+
+/**
+ *  If true, source text in romanized form can be translated to the target
+ *  language.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTransliteration;
 
 @end
 

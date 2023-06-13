@@ -81,12 +81,13 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter
 @dynamic calendarPeriod, creditTypes, creditTypesTreatment, customPeriod,
-         labels, projects, services, subaccounts;
+         labels, projects, resourceAncestors, services, subaccounts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"creditTypes" : [NSString class],
     @"projects" : [NSString class],
+    @"resourceAncestors" : [NSString class],
     @"services" : [NSString class],
     @"subaccounts" : [NSString class]
   };

@@ -121,6 +121,7 @@
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_RuntimeMetadata;
+@class GTLRDataflow_RuntimeUpdatableParams;
 @class GTLRDataflow_SdkHarnessContainerImage;
 @class GTLRDataflow_SDKInfo;
 @class GTLRDataflow_SdkVersion;
@@ -1187,6 +1188,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Gcs
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile;
 /**
+ *  The parameter specifies a KMS Key name.
+ *
+ *  Value: "KMS_KEY_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName;
+/**
+ *  The parameter specifies a Machine Type.
+ *
+ *  Value: "MACHINE_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_MachineType;
+/**
  *  The parameter specifies a Pub/Sub Subscription.
  *
  *  Value: "PUBSUB_SUBSCRIPTION"
@@ -1199,11 +1212,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Pub
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic;
 /**
+ *  The parameter specifies a Service Account email.
+ *
+ *  Value: "SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_ServiceAccount;
+/**
  *  The parameter specifies generic text input.
  *
  *  Value: "TEXT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
+/**
+ *  The parameter specifies a Worker Region.
+ *
+ *  Value: "WORKER_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_WorkerRegion;
+/**
+ *  The parameter specifies a Worker Zone.
+ *
+ *  Value: "WORKER_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_WorkerZone;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
@@ -3809,6 +3840,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *requestedState;
 
 /**
+ *  This field may ONLY be modified at runtime using the projects.jobs.update
+ *  method to adjust job behavior. This field has no effect when specified at
+ *  job creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_RuntimeUpdatableParams *runtimeUpdatableParams;
+
+/**
  *  Reserved for future use. This field is set only in responses from the
  *  server; it is ignored if it is set in any requests.
  *
@@ -4916,13 +4954,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile The
  *        parameter specifies a JavaScript UDF in Cloud Storage. (Value:
  *        "JAVASCRIPT_UDF_FILE")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName The parameter
+ *        specifies a KMS Key name. (Value: "KMS_KEY_NAME")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_MachineType The
+ *        parameter specifies a Machine Type. (Value: "MACHINE_TYPE")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription The
  *        parameter specifies a Pub/Sub Subscription. (Value:
  *        "PUBSUB_SUBSCRIPTION")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic The
  *        parameter specifies a Pub/Sub Topic. (Value: "PUBSUB_TOPIC")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_ServiceAccount The
+ *        parameter specifies a Service Account email. (Value:
+ *        "SERVICE_ACCOUNT")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Text The parameter
  *        specifies generic text input. (Value: "TEXT")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_WorkerRegion The
+ *        parameter specifies a Worker Region. (Value: "WORKER_REGION")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_WorkerZone The parameter
+ *        specifies a Worker Zone. (Value: "WORKER_ZONE")
  */
 @property(nonatomic, copy, nullable) NSString *paramType;
 
@@ -5188,6 +5237,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dropLateData;
+
+/**
+ *  If true, then this location represents dynamic topics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicDestinations;
 
 /**
  *  If set, contains a pubsub label from which to extract record ids. If left
@@ -5557,6 +5613,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** SDK Info for the template. */
 @property(nonatomic, strong, nullable) GTLRDataflow_SDKInfo *sdkInfo;
+
+@end
+
+
+/**
+ *  Additional job parameters that can only be updated during runtime using the
+ *  projects.jobs.update method. These fields have no effect when specified
+ *  during job creation.
+ */
+@interface GTLRDataflow_RuntimeUpdatableParams : GTLRObject
+
+/**
+ *  The maximum number of workers to cap autoscaling at. This field is currently
+ *  only supported for Streaming Engine jobs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNumWorkers;
+
+/**
+ *  The minimum number of workers to scale down to. This field is currently only
+ *  supported for Streaming Engine jobs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNumWorkers;
 
 @end
 

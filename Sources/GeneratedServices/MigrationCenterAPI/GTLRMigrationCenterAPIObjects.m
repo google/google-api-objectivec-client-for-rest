@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Migration Center API (migrationcenter/v1alpha1)
+// Description:
+//   A unified platform that helps you accelerate your end-to-end cloud journey
+//   from your current on-premises or cloud environments to Google Cloud.
 // Documentation:
 //   https://cloud.google.com/migration-center
 
@@ -96,6 +99,12 @@ NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDi
 NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
 NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
 NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_Source.state
+NSString * const kGTLRMigrationCenterAPI_Source_State_Active   = @"ACTIVE";
+NSString * const kGTLRMigrationCenterAPI_Source_State_Deleting = @"DELETING";
+NSString * const kGTLRMigrationCenterAPI_Source_State_Invalid  = @"INVALID";
+NSString * const kGTLRMigrationCenterAPI_Source_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRMigrationCenterAPI_Source.type
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeCustom = @"SOURCE_TYPE_CUSTOM";
@@ -744,6 +753,24 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_ErrorFrame
+//
+
+@implementation GTLRMigrationCenterAPI_ErrorFrame
+@dynamic ingestionTime, name, originalFrame, violations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violations" : [GTLRMigrationCenterAPI_FrameViolationEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_ExecutionReport
 //
 
@@ -804,6 +831,16 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_FrameViolationEntry
+//
+
+@implementation GTLRMigrationCenterAPI_FrameViolationEntry
+@dynamic field, violation;
 @end
 
 
@@ -1116,6 +1153,29 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 
 + (NSString *)collectionItemsKey {
   return @"assets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ListErrorFramesResponse
+//
+
+@implementation GTLRMigrationCenterAPI_ListErrorFramesResponse
+@dynamic errorFrames, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorFrames" : [GTLRMigrationCenterAPI_ErrorFrame class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"errorFrames";
 }
 
 @end
@@ -2058,8 +2118,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 //
 
 @implementation GTLRMigrationCenterAPI_Source
-@dynamic createTime, descriptionProperty, displayName, isManaged, name,
-         pendingFrameCount, priority, type, updateTime;
+@dynamic createTime, descriptionProperty, displayName, errorFrameCount,
+         isManaged, name, pendingFrameCount, priority, state, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2131,7 +2191,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 //
 
 @implementation GTLRMigrationCenterAPI_UploadFileInfo
-@dynamic headers, signedUri, uri, uriExpirationTime;
+@dynamic headers, signedUri, uriExpirationTime;
 @end
 
 

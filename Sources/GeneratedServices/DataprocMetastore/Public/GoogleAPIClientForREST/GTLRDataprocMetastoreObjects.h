@@ -25,6 +25,7 @@
 @class GTLRDataprocMetastore_Consumer;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_EncryptionConfig;
+@class GTLRDataprocMetastore_ErrorDetails_Details;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_Federation;
 @class GTLRDataprocMetastore_Federation_BackendMetastores;
@@ -96,6 +97,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
 
+/**
+ *  The backend metastore is BigQuery.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery;
 /**
  *  The backend metastore is Dataproc Metastore.
  *
@@ -250,6 +257,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_State
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
+
+/**
+ *  The protocol is not set.
+ *
+ *  Value: "ENDPOINT_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified;
+/**
+ *  Use the modernized gRPC protocol for the metastore service endpoint.
+ *
+ *  Value: "GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc;
+/**
+ *  Use the legacy Apache Thrift protocol for the metastore service endpoint.
+ *
+ *  Value: "THRIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
@@ -660,6 +689,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspecified;
 
 /**
+ *  Request message for DataprocMetastore.AlterMetadataResourceLocation.
+ */
+@interface GTLRDataprocMetastore_AlterMetadataResourceLocationRequest : GTLRObject
+
+/** Required. The new location URI for the metadata resource. */
+@property(nonatomic, copy, nullable) NSString *locationUri;
+
+/**
+ *  Required. The relative metadata resource name in the following
+ *  format.databases/{database_id} or databases/{database_id}/tables/{table_id}
+ *  or databases/{database_id}/tables/{table_id}/partitions/{partition_id}
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Response message for DataprocMetastore.AlterMetadataResourceLocation.
+ */
+@interface GTLRDataprocMetastore_AlterMetadataResourceLocationResponse : GTLRObject
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -779,6 +833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  The type of the backend metastore.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery The
+ *        backend metastore is BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore
  *        The backend metastore is Dataproc Metastore. (Value:
  *        "DATAPROC_METASTORE")
@@ -1011,6 +1067,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Error details in public error message for DataprocMetastore.QueryMetadata.
+ */
+@interface GTLRDataprocMetastore_ErrorDetails : GTLRObject
+
+/**
+ *  Additional structured details about this error.Keys define the failure
+ *  items. Value describes the exception or details of the item.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ErrorDetails_Details *details;
+
+@end
+
+
+/**
+ *  Additional structured details about this error.Keys define the failure
+ *  items. Value describes the exception or details of the item.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_ErrorDetails_Details : GTLRObject
+@end
+
+
+/**
  *  Request message for DataprocMetastore.ExportMetadata.
  */
 @interface GTLRDataprocMetastore_ExportMetadataRequest : GTLRObject
@@ -1231,6 +1314,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  version's AuxiliaryVersionConfig.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides *configOverrides;
+
+/**
+ *  The protocol to use for the metastore service endpoint. If unspecified,
+ *  defaults to THRIFT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified
+ *        The protocol is not set. (Value: "ENDPOINT_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc
+ *        Use the modernized gRPC protocol for the metastore service endpoint.
+ *        (Value: "GRPC")
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift
+ *        Use the legacy Apache Thrift protocol for the metastore service
+ *        endpoint. (Value: "THRIFT")
+ */
+@property(nonatomic, copy, nullable) NSString *endpointProtocol;
 
 /**
  *  Information used to configure the Hive metastore service as a service
@@ -1499,7 +1598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDataprocMetastore_Location : GTLRObject
 
@@ -1729,6 +1828,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Request message for DataprocMetastore.MoveTableToDatabase.
+ */
+@interface GTLRDataprocMetastore_MoveTableToDatabaseRequest : GTLRObject
+
+/** Required. The name of the database where the table resides. */
+@property(nonatomic, copy, nullable) NSString *dbName;
+
+/** Required. The name of the database where the table should be moved. */
+@property(nonatomic, copy, nullable) NSString *destinationDbName;
+
+/** Required. The name of the table to be moved. */
+@property(nonatomic, copy, nullable) NSString *tableName;
+
+@end
+
+
+/**
+ *  Response message for DataprocMetastore.MoveTableToDatabase.
+ */
+@interface GTLRDataprocMetastore_MoveTableToDatabaseResponse : GTLRObject
+@end
+
+
+/**
  *  Network configuration for the Dataproc Metastore service.
  */
 @interface GTLRDataprocMetastore_NetworkConfig : GTLRObject
@@ -1945,6 +2068,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Request message for DataprocMetastore.QueryMetadata.
+ */
+@interface GTLRDataprocMetastore_QueryMetadataRequest : GTLRObject
+
+/**
+ *  Required. A read-only SQL query to execute against the metadata database.
+ *  The query cannot change or mutate the data.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  Response message for DataprocMetastore.QueryMetadata.
+ */
+@interface GTLRDataprocMetastore_QueryMetadataResponse : GTLRObject
+
+/**
+ *  The manifest URI is link to a JSON instance in Cloud Storage. This instance
+ *  manifests immediately along with QueryMetadataResponse. The content of the
+ *  URI is not retriable until the long-running operation query against the
+ *  metadata finishes.
+ */
+@property(nonatomic, copy, nullable) NSString *resultManifestUri;
 
 @end
 

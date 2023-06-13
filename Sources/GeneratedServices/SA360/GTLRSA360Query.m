@@ -82,33 +82,6 @@
 
 @end
 
-@implementation GTLRSA360Query_CustomersSearchAds360SearchStream
-
-@dynamic customerId;
-
-+ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest *)object
-                     customerId:(NSString *)customerId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"v0/customers/{+customerId}/searchAds360:searchStream";
-  GTLRSA360Query_CustomersSearchAds360SearchStream *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.customerId = customerId;
-  query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamResponse class];
-  query.loggingName = @"searchads360.customers.searchAds360.searchStream";
-  return query;
-}
-
-@end
-
 @implementation GTLRSA360Query_SearchAds360FieldsGet
 
 @dynamic resourceName;

@@ -2244,6 +2244,41 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Allows uploading one customer information entry. Adding a customer with
+ *  loyalty data enables the customer to see personalized loyalty annotations on
+ *  search. Uploading a previously existing customer will overwrite the old
+ *  entry.
+ *
+ *  Method: content.customers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CustomersCreate : GTLRShoppingContentQuery
+
+/** Required. The ID of the account that owns the customer information. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Customer.
+ *
+ *  Allows uploading one customer information entry. Adding a customer with
+ *  loyalty data enables the customer to see personalized loyalty annotations on
+ *  search. Uploading a previously existing customer will overwrite the old
+ *  entry.
+ *
+ *  @param object The @c GTLRShoppingContent_Customer to include in the query.
+ *  @param merchantId Required. The ID of the account that owns the customer
+ *    information.
+ *
+ *  @return GTLRShoppingContentQuery_CustomersCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_Customer *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
  *  Deletes, fetches, gets, inserts and updates multiple datafeeds in a single
  *  request.
  *
@@ -5554,6 +5589,64 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  List all promotions from your Merchant Center account.
+ *
+ *  Method: content.promotions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_PromotionsList : GTLRShoppingContentQuery
+
+/**
+ *  [CLDR country
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml) (for
+ *  example, "US"), used as a filter on promotions target country.
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  The two-letter ISO 639-1 language code associated with the promotions, used
+ *  as a filter.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. The ID of the account that contains the collection. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of promotions to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 labels will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListPromotion` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListPromotion` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListPromotionResponse.
+ *
+ *  List all promotions from your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection.
+ *
+ *  @return GTLRShoppingContentQuery_PromotionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
  *  Retrieves a Merchant Center account's pubsub notification settings.
  *
  *  Method: content.pubsubnotificationsettings.get
@@ -5671,9 +5764,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Optional. List of allowed tags. Tags are a set of predefined strings that
- *  describe the category that individual recommendation types. User can specify
- *  zero or more tags in this field to indicate what group of recommendations
- *  they want to receive. Current list of supported tags: - TREND
+ *  describe the category that individual recommendation types belong to. User
+ *  can specify zero or more tags in this field to indicate what categories of
+ *  recommendations they want to receive. Current list of supported tags: -
+ *  TREND
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedTag;
 

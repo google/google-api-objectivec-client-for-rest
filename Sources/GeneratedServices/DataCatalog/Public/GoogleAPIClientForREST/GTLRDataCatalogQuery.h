@@ -89,8 +89,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_EntriesLookup : GTLRDataCatalogQuery
 
 /**
- *  Fully qualified name (FQN) of the resource. FQNs take two forms: * For
- *  non-regionalized resources:
+ *  [Fully Qualified Name
+ *  (FQN)](https://cloud.google.com//data-catalog/docs/fully-qualified-names) of
+ *  the resource. FQNs take two forms: * For non-regionalized resources:
  *  `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}` * For
  *  regionalized resources:
  *  `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
@@ -108,6 +109,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  * `//pubsub.googleapis.com/projects/{PROJECT_ID}/topics/{TOPIC_ID}`
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
+
+/**
+ *  Location where the lookup should be performed. Required to lookup entry that
+ *  is not a part of `DPMS` or `DATAPLEX` `integrated_system` using its
+ *  `fully_qualified_name`. Ignored in other cases.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Project where the lookup should be performed. Required to lookup entry that
+ *  is not a part of `DPMS` or `DATAPLEX` `integrated_system` using its
+ *  `fully_qualified_name`. Ignored in other cases.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  The SQL name of the entry. SQL names are case-sensitive. Examples: *

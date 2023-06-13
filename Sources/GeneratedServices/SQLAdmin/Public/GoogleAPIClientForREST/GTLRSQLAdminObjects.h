@@ -349,6 +349,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8032;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8034;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 35.
+ *
+ *  Value: "MYSQL_8_0_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8035;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8036;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -378,6 +402,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "POSTGRES_14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14;
+/**
+ *  The database version is PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -549,6 +579,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8032;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8034;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 35.
+ *
+ *  Value: "MYSQL_8_0_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8035;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8036;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -578,6 +632,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "POSTGRES_14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14;
+/**
+ *  The database version is PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -784,6 +844,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Sql;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ExportContext_BakExportOptions.bakType
+
+/**
+ *  default type to meet enum requirement, will be set to FULL if not set
+ *
+ *  Value: "BAK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_BakTypeUnspecified;
+/**
+ *  Differential backup.
+ *
+ *  Value: "DIFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Diff;
+/**
+ *  Full backup.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Full;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.appliesTo
 
 /**
@@ -865,6 +947,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8031;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8032;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8034;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 35.
+ *
+ *  Value: "MYSQL_8_0_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8035;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8036;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -894,6 +1000,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13;
  *  Value: "POSTGRES_14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14;
+/**
+ *  The database version is PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1031,6 +1143,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Sql;
  *  Value: "SQL_FILE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ImportContext_BakImportOptions.bakType
+
+/**
+ *  default type to meet enum requirement, will be set to FULL if not set
+ *
+ *  Value: "BAK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_BakTypeUnspecified;
+/**
+ *  Differential backup.
+ *
+ *  Value: "DIFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Diff;
+/**
+ *  Full backup.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_IpMapping.type
@@ -1559,6 +1693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Value: "INCOMPATIBLE_DATABASE_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
 /**
+ *  The Cloud Storage bucket is missing necessary permissions.
+ *
+ *  Value: "INSUFFICIENT_GCS_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions;
+/**
  *  The value of parameter max_replication_slots is not sufficient.
  *
  *  Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS"
@@ -1576,7 +1716,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "INSUFFICIENT_MAX_WORKER_PROCESSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWorkerProcesses;
-/** Value: "INSUFFICIENT_PRIVILEGE" */
+/**
+ *  The replication user is missing privileges that are required.
+ *
+ *  Value: "INSUFFICIENT_PRIVILEGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege;
 /**
  *  The primary instance database parameter setup doesn't allow EM sync.
@@ -1584,6 +1728,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "INVALID_DB_PARAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidDbParam;
+/**
+ *  The Cloud Storage bucket has an error in the file or contains invalid file
+ *  information.
+ *
+ *  Value: "INVALID_FILE_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidFileInfo;
 /**
  *  The primary instance logging setup doesn't allow EM sync.
  *
@@ -1610,11 +1761,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel;
 /**
  *  Source has tables with limited support eg: PostgreSQL tables without primary
- *  keys
+ *  keys.
  *
  *  Value: "LIMITED_SUPPORT_TABLES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables;
+/**
+ *  The replication user is missing privileges that are optional.
+ *
+ *  Value: "MISSING_OPTIONAL_PRIVILEGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalPrivileges;
 /**
  *  No pglogical extension installed on databases, applicable for postgres.
  *
@@ -1635,6 +1792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup;
 /** Value: "REPLICA_ALREADY_SETUP" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup;
+/**
+ *  Additional BACKUP_ADMIN privilege is granted to the replication user which
+ *  may lock source MySQL 8 instance for DDLs during initial sync.
+ *
+ *  Value: "RISKY_BACKUP_ADMIN_PRIVILEGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege;
 /** Value: "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified;
 /**
@@ -1644,7 +1808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning;
 /**
- *  SQL Server \@\@SERVERNAME does not match actual host name
+ *  SQL Server \@\@SERVERNAME does not match actual host name.
  *
  *  Value: "SQLSERVER_SERVERNAME_MISMATCH"
  */
@@ -1656,13 +1820,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat;
 /**
+ *  The source instance has unsupported database settings for migration.
+ *
+ *  Value: "UNSUPPORTED_DATABASE_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDatabaseSettings;
+/**
  *  The customer has a definer that will break EM setup.
  *
  *  Value: "UNSUPPORTED_DEFINER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner;
 /**
- *  Extensions installed are either not supported or having unsupported versions
+ *  Extensions installed are either not supported or having unsupported
+ *  versions.
  *
  *  Value: "UNSUPPORTED_EXTENSIONS"
  */
@@ -1716,6 +1887,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRe
  *  Value: "ONLINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Online;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.syncParallelLevel
+
+/**
+ *  Unknown sync parallel level. Will be defaulted to OPTIMAL.
+ *
+ *  Value: "EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_ExternalSyncParallelLevelUnspecified;
+/**
+ *  Maximum parallel level.
+ *
+ *  Value: "MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Max;
+/**
+ *  Minimal parallel level.
+ *
+ *  Value: "MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Min;
+/**
+ *  Optimal parallel level.
+ *
+ *  Value: "OPTIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Optimal;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.syncMode
@@ -1912,7 +2111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  (Postgres only) Whether point in time recovery is enabled.
+ *  Whether point in time recovery is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2302,6 +2501,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8032 The
  *        database major version is MySQL 8.0 and the minor version is 32.
  *        (Value: "MYSQL_8_0_32")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8033 The
+ *        database major version is MySQL 8.0 and the minor version is 33.
+ *        (Value: "MYSQL_8_0_33")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8034 The
+ *        database major version is MySQL 8.0 and the minor version is 34.
+ *        (Value: "MYSQL_8_0_34")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8035 The
+ *        database major version is MySQL 8.0 and the minor version is 35.
+ *        (Value: "MYSQL_8_0_35")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8036 The
+ *        database major version is MySQL 8.0 and the minor version is 36.
+ *        (Value: "MYSQL_8_0_36")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -2312,6 +2523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 13. (Value: "POSTGRES_13")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14 The
  *        database version is PostgreSQL 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15 The
+ *        database version is PostgreSQL 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -2521,6 +2734,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8032 The
  *        database major version is MySQL 8.0 and the minor version is 32.
  *        (Value: "MYSQL_8_0_32")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8033 The
+ *        database major version is MySQL 8.0 and the minor version is 33.
+ *        (Value: "MYSQL_8_0_33")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8034 The
+ *        database major version is MySQL 8.0 and the minor version is 34.
+ *        (Value: "MYSQL_8_0_34")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8035 The
+ *        database major version is MySQL 8.0 and the minor version is 35.
+ *        (Value: "MYSQL_8_0_35")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8036 The
+ *        database major version is MySQL 8.0 and the minor version is 36.
+ *        (Value: "MYSQL_8_0_36")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -2531,6 +2756,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 13. (Value: "POSTGRES_13")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14 The
  *        database version is PostgreSQL 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15 The
+ *        database version is PostgreSQL 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -2937,6 +3164,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRSQLAdmin_Empty : GTLRObject
+@end
+
+
+/**
  *  Database instance export context.
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
@@ -3004,6 +3241,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Options for exporting BAK files (SQL Server-only)
  */
 @interface GTLRSQLAdmin_ExportContext_BakExportOptions : GTLRObject
+
+/**
+ *  Type of this bak file will be export, FULL or DIFF, SQL Server only
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_BakTypeUnspecified
+ *        default type to meet enum requirement, will be set to FULL if not set
+ *        (Value: "BAK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Diff
+ *        Differential backup. (Value: "DIFF")
+ *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Full Full
+ *        backup. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *bakType;
+
+/**
+ *  Whether or not the export will be exeucted with COPY_ONLY, SQL Server only
+ *  deprecated as the behavior should default to copy_only = true use
+ *  differential_base instead
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copyOnly NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Whether or not the backup can be use as differential base only non copy only
+ *  backup can be served as differential base
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *differentialBase;
 
 /**
  *  Option for specifying how many stripes to use for the export. If blank, and
@@ -3326,7 +3594,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_ImportContext_BakImportOptions : GTLRObject
 
+/**
+ *  Type of the bak content, FULL or DIFF
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_BakTypeUnspecified
+ *        default type to meet enum requirement, will be set to FULL if not set
+ *        (Value: "BAK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Diff
+ *        Differential backup. (Value: "DIFF")
+ *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full Full
+ *        backup. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *bakType;
+
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions *encryptionOptions;
+
+/**
+ *  Whether or not the backup importing will restore database with NORECOVERY
+ *  option Applies only to Cloud SQL for SQL Server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noRecovery;
+
+/**
+ *  Whether or not the backup importing request will just bring database online
+ *  without downloading Bak content only one of "no_recovery" and
+ *  "recovery_only" can be true otherwise error will return. Applies only to
+ *  Cloud SQL for SQL Server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recoveryOnly;
 
 /**
  *  Whether or not the backup set being restored is striped. Applies only to
@@ -4682,6 +4982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "EXISTING_DATA_IN_REPLICA")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion
  *        Value "INCOMPATIBLE_DATABASE_VERSION"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions
+ *        The Cloud Storage bucket is missing necessary permissions. (Value:
+ *        "INSUFFICIENT_GCS_PERMISSIONS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots
  *        The value of parameter max_replication_slots is not sufficient.
  *        (Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS")
@@ -4692,10 +4995,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        The value of parameter max_worker_processes is not sufficient. (Value:
  *        "INSUFFICIENT_MAX_WORKER_PROCESSES")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege
- *        Value "INSUFFICIENT_PRIVILEGE"
+ *        The replication user is missing privileges that are required. (Value:
+ *        "INSUFFICIENT_PRIVILEGE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidDbParam The
  *        primary instance database parameter setup doesn't allow EM sync.
  *        (Value: "INVALID_DB_PARAM")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidFileInfo The
+ *        Cloud Storage bucket has an error in the file or contains invalid file
+ *        information. (Value: "INVALID_FILE_INFO")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidLoggingSetup
  *        The primary instance logging setup doesn't allow EM sync. (Value:
  *        "INVALID_LOGGING_SETUP")
@@ -4710,7 +5017,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "INVALID_WAL_LEVEL")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables
  *        Source has tables with limited support eg: PostgreSQL tables without
- *        primary keys (Value: "LIMITED_SUPPORT_TABLES")
+ *        primary keys. (Value: "LIMITED_SUPPORT_TABLES")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalPrivileges
+ *        The replication user is missing privileges that are optional. (Value:
+ *        "MISSING_OPTIONAL_PRIVILEGES")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled
  *        No pglogical extension installed on databases, applicable for
  *        postgres. (Value: "NO_PGLOGICAL_INSTALLED")
@@ -4722,23 +5032,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "PRIMARY_ALREADY_SETUP")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup
  *        Value "REPLICA_ALREADY_SETUP"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege
+ *        Additional BACKUP_ADMIN privilege is granted to the replication user
+ *        which may lock source MySQL 8 instance for DDLs during initial sync.
+ *        (Value: "RISKY_BACKUP_ADMIN_PRIVILEGE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified
  *        Value "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning
  *        SQL Server Agent is not running. (Value:
  *        "SQLSERVER_AGENT_NOT_RUNNING")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch
- *        SQL Server \@\@SERVERNAME does not match actual host name (Value:
+ *        SQL Server \@\@SERVERNAME does not match actual host name. (Value:
  *        "SQLSERVER_SERVERNAME_MISMATCH")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat
  *        The primary instance has unsupported binary log format. (Value:
  *        "UNSUPPORTED_BINLOG_FORMAT")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDatabaseSettings
+ *        The source instance has unsupported database settings for migration.
+ *        (Value: "UNSUPPORTED_DATABASE_SETTINGS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner
  *        The customer has a definer that will break EM setup. (Value:
  *        "UNSUPPORTED_DEFINER")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions
  *        Extensions installed are either not supported or having unsupported
- *        versions (Value: "UNSUPPORTED_EXTENSIONS")
+ *        versions. (Value: "UNSUPPORTED_EXTENSIONS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode
  *        The gtid_mode is not supported, applicable for MySQL. (Value:
  *        "UNSUPPORTED_GTID_MODE")
@@ -4764,6 +5081,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#getDiskShrinkConfig`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Additional message to customers. */
+@property(nonatomic, copy, nullable) NSString *message;
 
 /**
  *  The minimum size to which a disk can be shrunk in GigaBytes.
@@ -4823,6 +5143,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        external sync (Value: "ONLINE")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
+
+/**
+ *  Optional. Parallel level for initial data sync. Currently only applicable
+ *  for MySQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_ExternalSyncParallelLevelUnspecified
+ *        Unknown sync parallel level. Will be defaulted to OPTIMAL. (Value:
+ *        "EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Max
+ *        Maximum parallel level. (Value: "MAX")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Min
+ *        Minimal parallel level. (Value: "MIN")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Optimal
+ *        Optimal parallel level. (Value: "OPTIMAL")
+ */
+@property(nonatomic, copy, nullable) NSString *syncParallelLevel;
 
 @end
 

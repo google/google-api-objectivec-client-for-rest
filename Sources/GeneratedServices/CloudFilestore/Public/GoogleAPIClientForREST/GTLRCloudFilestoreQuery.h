@@ -512,6 +512,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Revert an existing instance's file system to a specified snapshot.
+ *
+ *  Method: file.projects.locations.instances.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert : GTLRCloudFilestoreQuery
+
+/**
+ *  Required.
+ *  projects/{project_id}/locations/{location_id}/instances/{instance_id}. The
+ *  resource name of the instance, in the format
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Revert an existing instance's file system to a specified snapshot.
+ *
+ *  @param object The @c GTLRCloudFilestore_RevertInstanceRequest to include in
+ *    the query.
+ *  @param name Required.
+ *    projects/{project_id}/locations/{location_id}/instances/{instance_id}. The
+ *    resource name of the instance, in the format
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_RevertInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a snapshot.
  *
  *  Method: file.projects.locations.instances.snapshots.create

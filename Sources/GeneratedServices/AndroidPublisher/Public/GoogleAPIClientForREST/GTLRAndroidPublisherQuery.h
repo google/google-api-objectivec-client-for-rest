@@ -608,7 +608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
  *        debugging symbols file type. (Value: "nativeCode")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    838860800. Accepted MIME type: application/octet-stream
+ *    1258291200. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */
@@ -1959,7 +1959,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Required. The id to use for the external transaction. Must be unique across
  *  all other transactions for the app. This value should be 1-63 characters and
- *  valid characters are /a-z0-9_-/.
+ *  valid characters are /a-z0-9_-/. Do not use this field to store any
+ *  Personally Identifiable Information (PII) such as emails. Attempting to
+ *  store PII in this field may result in requests being blocked.
  */
 @property(nonatomic, copy, nullable) NSString *externalTransactionId;
 
@@ -2233,7 +2235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Deletes an in-app product (i.e. a managed product or a subscriptions).
+ *  Deletes an in-app product (i.e. a managed product or a subscription).
  *
  *  Method: androidpublisher.inappproducts.delete
  *
@@ -2252,7 +2254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes an in-app product (i.e. a managed product or a subscriptions).
+ *  Deletes an in-app product (i.e. a managed product or a subscription).
  *
  *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
@@ -2296,7 +2298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Creates an in-app product (i.e. a managed product or a subscriptions).
+ *  Creates an in-app product (i.e. a managed product or a subscription).
  *
  *  Method: androidpublisher.inappproducts.insert
  *
@@ -2318,7 +2320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Creates an in-app product (i.e. a managed product or a subscriptions).
+ *  Creates an in-app product (i.e. a managed product or a subscription).
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
@@ -2352,7 +2354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  Deprecated and ignored. Set the `token` parameter to rertieve the next page.
+ *  Deprecated and ignored. Set the `token` parameter to retrieve the next page.
  */
 @property(nonatomic, assign) NSUInteger startIndex;
 
@@ -2377,7 +2379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Patches an in-app product (i.e. a managed product or a subscriptions).
+ *  Patches an in-app product (i.e. a managed product or a subscription).
  *
  *  Method: androidpublisher.inappproducts.patch
  *
@@ -2402,7 +2404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Patches an in-app product (i.e. a managed product or a subscriptions).
+ *  Patches an in-app product (i.e. a managed product or a subscription).
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
@@ -2418,7 +2420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates an in-app product (i.e. a managed product or a subscriptions).
+ *  Updates an in-app product (i.e. a managed product or a subscription).
  *
  *  Method: androidpublisher.inappproducts.update
  *
@@ -2449,7 +2451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Updates an in-app product (i.e. a managed product or a subscriptions).
+ *  Updates an in-app product (i.e. a managed product or a subscription).
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
@@ -2897,10 +2899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/**
- *  Required. A string representing version of the available regions being used
- *  for the specified resource. The current version is 2022/02.
- */
+/** Required. The latest version is 2022/02. */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**
@@ -3171,10 +3170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/**
- *  Required. A string representing version of the available regions being used
- *  for the specified resource. The current version is 2022/02.
- */
+/** Required. The latest version is 2022/02. */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**
@@ -3235,10 +3231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/**
- *  Required. A string representing version of the available regions being used
- *  for the specified resource. The current version is 2022/02.
- */
+/** Required. The latest version is 2022/02. */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**
@@ -3407,10 +3400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/**
- *  Required. A string representing version of the available regions being used
- *  for the specified resource. The current version is 2022/02.
- */
+/** Required. The latest version is 2022/02. */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**

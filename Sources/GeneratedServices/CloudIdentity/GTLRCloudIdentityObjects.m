@@ -395,8 +395,9 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes
-@dynamic enabledUnknownSources, ownerProfileAccount, ownershipPrivilege,
-         supportsWorkProfile;
+@dynamic ctsProfileMatch, enabledUnknownSources, hasPotentiallyHarmfulApps,
+         ownerProfileAccount, ownershipPrivilege, supportsWorkProfile,
+         verifiedBoot, verifyAppsEnabled;
 @end
 
 

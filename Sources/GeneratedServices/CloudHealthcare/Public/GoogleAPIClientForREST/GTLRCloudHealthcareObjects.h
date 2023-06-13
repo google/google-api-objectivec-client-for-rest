@@ -48,6 +48,7 @@
 @class GTLRCloudHealthcare_Feature;
 @class GTLRCloudHealthcare_FhirConfig;
 @class GTLRCloudHealthcare_FhirFilter;
+@class GTLRCloudHealthcare_FhirNotificationConfig;
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_FhirStore_Labels;
 @class GTLRCloudHealthcare_FhirStoreMetric;
@@ -683,7 +684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V3;
  *  the server will not generate schemas for fields of type `Resource`, which
  *  can hold any resource type. The affected fields are
  *  `Parameters.parameter.resource`, `Bundle.entry.resource`, and
- *  `Bundle.entry.response.outcome`.
+ *  `Bundle.entry.response.outcome`. Analytics schema does not gracefully handle
+ *  extensions with one or more occurrences, anaytics schema also does not
+ *  handle contained resource.
  *
  *  Value: "ANALYTICS"
  */
@@ -692,7 +695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Analytics V2, similar to schema defined by the FHIR community, with added
  *  support for extensions with one or more occurrences and contained resources
  *  in stringified JSON. Analytics V2 uses more space in the destination table
- *  than Analytics V1.
+ *  than Analytics V1. It is generally recommended to use Analytics V2 over
+ *  Analytics.
  *
  *  Value: "ANALYTICS_V2"
  */
@@ -877,8 +881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Entity *> *entities;
 
 /**
- *  entity_mentions contains all the annotated medical entities that were
- *  mentioned in the provided document.
+ *  The `entity_mentions` field contains all the annotated medical entities that
+ *  were mentioned in the provided document.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_EntityMention *> *entityMentions;
 
@@ -1636,6 +1640,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_TextConfig *text;
 
+/**
+ *  Ensures in-flight data remains in the region of origin during
+ *  de-identification. Using this option results in a significant reduction of
+ *  throughput, and is not compatible with `LOCATION` or `ORGANIZATION_NAME`
+ *  infoTypes. `LOCATION` must be excluded within `TextConfig`, and must also be
+ *  excluded within `ImageConfig` if image redaction is required.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useRegionalDataProcessing;
+
 @end
 
 
@@ -2363,6 +2378,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Contains the configuration for FHIR notifications.
+ */
+@interface GTLRCloudHealthcare_FhirNotificationConfig : GTLRObject
+
+/**
+ *  The [Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
+ *  notifications of changes are published on. Supplied by the client. The
+ *  notification is a `PubsubMessage` with the following fields: *
+ *  `PubsubMessage.Data` contains the resource name. * `PubsubMessage.MessageId`
+ *  is the ID of this notification. It is guaranteed to be unique within the
+ *  topic. * `PubsubMessage.PublishTime` is the time when the message was
+ *  published. Note that notifications are only sent if the topic is non-empty.
+ *  [Topic names](https://cloud.google.com/pubsub/docs/overview#names) must be
+ *  scoped to a project. The Cloud Healthcare API service account,
+ *  service-\@gcp-sa-healthcare.iam.gserviceaccount.com, must have publisher
+ *  permissions on the given Pub/Sub topic. Not having adequate permissions
+ *  causes the calls that send notifications to fail
+ *  (https://cloud.google.com/healthcare-api/docs/permissions-healthcare-api-gcp-products#dicom_fhir_and_hl7v2_store_cloud_pubsub_permissions).
+ *  If a notification can't be published to Pub/Sub, errors are logged to Cloud
+ *  Logging. For more information, see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare-api/docs/how-tos/logging).
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+/**
+ *  Whether to send full FHIR resource to this Pub/Sub topic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sendFullResource;
+
+/**
+ *  Whether to send full FHIR resource to this Pub/Sub topic for deleting FHIR
+ *  resource. Note that setting this to true does not guarantee that all
+ *  previous resources will be sent in the format of full FHIR resource. When a
+ *  resource change is too large or during heavy traffic, only the resource name
+ *  will be sent. Clients should always check the "payloadType" label from a
+ *  Pub/Sub message to determine whether it needs to fetch the full previous
+ *  resource as a separate operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sendPreviousResourceOnDelete;
+
+@end
+
+
+/**
  *  Represents a FHIR store.
  */
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
@@ -2462,12 +2525,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If non-empty, publish all resource modifications of this FHIR store to this
- *  destination. The Pub/Sub message attributes contain a map with a string
- *  describing the action that has triggered the notification. For example,
- *  "action":"CreateResource".
+ *  Deprecated. Use `notification_configs` instead. If non-empty, publish all
+ *  resource modifications of this FHIR store to this destination. The Pub/Sub
+ *  message attributes contain a map with a string describing the action that
+ *  has triggered the notification. For example, "action":"CreateResource".
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
+
+/**
+ *  Specifies where and whether to send notifications upon changes to a FHIR
+ *  store.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FhirNotificationConfig *> *notificationConfigs;
 
 /**
  *  A list of streaming configs that configure the destinations of streaming
@@ -3867,7 +3936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudHealthcare_Location : GTLRObject
 
@@ -4560,12 +4629,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        this limitation, the server will not generate schemas for fields of
  *        type `Resource`, which can hold any resource type. The affected fields
  *        are `Parameters.parameter.resource`, `Bundle.entry.resource`, and
- *        `Bundle.entry.response.outcome`. (Value: "ANALYTICS")
+ *        `Bundle.entry.response.outcome`. Analytics schema does not gracefully
+ *        handle extensions with one or more occurrences, anaytics schema also
+ *        does not handle contained resource. (Value: "ANALYTICS")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2 Analytics
  *        V2, similar to schema defined by the FHIR community, with added
  *        support for extensions with one or more occurrences and contained
  *        resources in stringified JSON. Analytics V2 uses more space in the
- *        destination table than Analytics V1. (Value: "ANALYTICS_V2")
+ *        destination table than Analytics V1. It is generally recommended to
+ *        use Analytics V2 over Analytics. (Value: "ANALYTICS_V2")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
  *        No schema type specified. This type is unsupported. (Value:
  *        "SCHEMA_TYPE_UNSPECIFIED")
@@ -5014,6 +5086,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  GTLRCloudHealthcare_TextConfig
  */
 @interface GTLRCloudHealthcare_TextConfig : GTLRObject
+
+/**
+ *  Transformations to apply to the detected data, overridden by
+ *  `exclude_info_types`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *additionalTransformations;
+
+/**
+ *  InfoTypes to skip transforming, overriding `additional_transformations`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeInfoTypes;
 
 /**
  *  The transformations to apply to the detected data. Deprecated. Use

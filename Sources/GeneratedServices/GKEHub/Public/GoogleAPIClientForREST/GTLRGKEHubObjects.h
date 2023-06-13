@@ -24,6 +24,7 @@
 @class GTLRGKEHub_CommonFleetDefaultMemberConfigSpec;
 @class GTLRGKEHub_ConfigManagementConfigSync;
 @class GTLRGKEHub_ConfigManagementConfigSyncDeploymentState;
+@class GTLRGKEHub_ConfigManagementConfigSyncError;
 @class GTLRGKEHub_ConfigManagementConfigSyncState;
 @class GTLRGKEHub_ConfigManagementConfigSyncVersion;
 @class GTLRGKEHub_ConfigManagementErrorResource;
@@ -35,6 +36,7 @@
 @class GTLRGKEHub_ConfigManagementHierarchyControllerState;
 @class GTLRGKEHub_ConfigManagementHierarchyControllerVersion;
 @class GTLRGKEHub_ConfigManagementInstallError;
+@class GTLRGKEHub_ConfigManagementManaged;
 @class GTLRGKEHub_ConfigManagementMembershipSpec;
 @class GTLRGKEHub_ConfigManagementMembershipState;
 @class GTLRGKEHub_ConfigManagementOciConfig;
@@ -83,6 +85,7 @@
 @class GTLRGKEHub_MembershipFeatureSpec;
 @class GTLRGKEHub_MembershipFeatureState;
 @class GTLRGKEHub_MembershipState;
+@class GTLRGKEHub_MonitoringConfig;
 @class GTLRGKEHub_MultiCloudCluster;
 @class GTLRGKEHub_MultiClusterIngressFeatureSpec;
 @class GTLRGKEHub_OnPremCluster;
@@ -1058,8 +1061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ApplianceCluster : GTLRObject
 
 /**
- *  Immutable. Self-link of the GCP resource for the Appliance Cluster. For
- *  example:
+ *  Immutable. Self-link of the Google Cloud resource for the Appliance Cluster.
+ *  For example:
  *  //transferappliance.googleapis.com/projects/my-project/locations/us-west1-a/appliances/my-appliance
  */
 @property(nonatomic, copy, nullable) NSString *resourceLink;
@@ -1308,9 +1311,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /**
  *  Enables the installation of ConfigSync. If set to true, ConfigSync resources
  *  will be created and the other ConfigSync fields will be applied if exist. If
- *  set to false, all other ConfigSync fields will be ignored, ConfigSync
- *  resources will be deleted. If omitted, ConfigSync resources will be managed
- *  depends on the presence of git field.
+ *  set to false and Managed Config Sync is disabled, all other ConfigSync
+ *  fields will be ignored, ConfigSync resources will be deleted. Setting this
+ *  field to false while enabling Managed Config Sync is invalid. If omitted,
+ *  ConfigSync resources will be managed if: * the git or oci field is present;
+ *  or * Managed Config Sync is enabled (i.e., managed.enabled is true).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1318,6 +1323,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Git repo configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGitConfig *git;
+
+/** Configuration for Managed Config Sync. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementManaged *managed;
+
+/**
+ *  The Email of the GCP Service Account (GSA) used for exporting Config Sync
+ *  metrics to Cloud Monitoring and Cloud Monarch when Workload Identity is
+ *  enabled. The GSA should have the Monitoring Metric Writer
+ *  (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount
+ *  `default` in the namespace `config-management-monitoring` should be binded
+ *  to the GSA. This field is required when Managed Config Sync is enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *metricsGcpServiceAccountEmail;
 
 /** OCI repo configuration for the cluster */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementOciConfig *oci;
@@ -1468,6 +1486,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Errors pertaining to the installation of Config Sync
+ */
+@interface GTLRGKEHub_ConfigManagementConfigSyncError : GTLRObject
+
+/** A string representing the user facing error message */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+@end
+
+
+/**
  *  State information for ConfigSync
  */
 @interface GTLRGKEHub_ConfigManagementConfigSyncState : GTLRObject
@@ -1477,6 +1506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  various Pods deployed
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncDeploymentState *deploymentState;
+
+/** Errors pertaining to the installation of Config Sync. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementConfigSyncError *> *errors;
 
 /** The state of ConfigSync's process to sync configs to a cluster */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementSyncState *syncState;
@@ -1771,10 +1803,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Configuration for Managed Config Sync.
+ */
+@interface GTLRGKEHub_ConfigManagementManaged : GTLRObject
+
+/**
+ *  Set to true to enable Managed Config Sync. Defaults to false which disables
+ *  Managed Config Sync. Setting this field to true when configSync.enabled is
+ *  false is invalid.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Set to true to stop syncing configs for a single cluster. Default to false.
+ *  If set to true, Managed Config Sync will not upgrade Config Sync.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stopSyncing;
+
+@end
+
+
+/**
  *  **Anthos Config Management**: Configuration for a single cluster. Intended
  *  to parallel the ConfigManagement CR.
  */
 @interface GTLRGKEHub_ConfigManagementMembershipSpec : GTLRObject
+
+/**
+ *  The user-specified cluster name used by Config Sync cluster-name-selector
+ *  annotation or ClusterSelector, for applying configs to only a subset of
+ *  clusters. Omit this field if the cluster's fleet membership name is used by
+ *  Config Sync cluster-name-selector annotation or ClusterSelector. Set this
+ *  field if a name different from the cluster's fleet membership name is used
+ *  by Config Sync cluster-name-selector annotation or ClusterSelector.
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
 
 /** Config Sync configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSync *configSync;
@@ -1797,10 +1864,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ConfigManagementMembershipState : GTLRObject
 
 /**
- *  The user-defined name for the cluster used by ClusterSelectors to group
- *  clusters together. This should match Membership's membership_name, unless
- *  the user installed ACM on the cluster manually prior to enabling the ACM hub
- *  feature. Unique within a Anthos Config Management installation.
+ *  This field is set to the `cluster_name` field of the Membership Spec if it
+ *  is not empty. Otherwise, it is set to the cluster's fleet membership name.
  */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
@@ -2123,7 +2188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_EdgeCluster : GTLRObject
 
 /**
- *  Immutable. Self-link of the GCP resource for the Edge Cluster. For example:
+ *  Immutable. Self-link of the Google Cloud resource for the Edge Cluster. For
+ *  example:
  *  //edgecontainer.googleapis.com/projects/my-project/locations/us-west1-a/clusters/my-cluster
  */
 @property(nonatomic, copy, nullable) NSString *resourceLink;
@@ -2206,7 +2272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_CommonFleetDefaultMemberConfigSpec *fleetDefaultMemberConfig;
 
-/** GCP labels for this Feature. */
+/** Labels for this Feature. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_Feature_Labels *labels;
 
 /**
@@ -2283,7 +2349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  GCP labels for this Feature.
+ *  Labels for this Feature.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2456,7 +2522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  **FleetObservability**: An empty state left as an example Hub-wide Feature
+ *  **FleetObservability**: Hub-wide Feature for FleetObservability feature.
  *  state.
  */
 @interface GTLRGKEHub_FleetObservabilityFeatureState : GTLRObject
@@ -2472,8 +2538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  **FleetObservability**: An empty state left as an example
- *  membership-specific Feature state.
+ *  **FleetObservability**: Membership-specific Feature state for
+ *  fleetobservability.
  */
 @interface GTLRGKEHub_FleetObservabilityMembershipState : GTLRObject
 @end
@@ -2508,7 +2574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, strong, nullable) NSNumber *clusterMissing;
 
 /**
- *  Immutable. Self-link of the GCP resource for the GKE cluster. For example:
+ *  Immutable. Self-link of the Google Cloud resource for the GKE cluster. For
+ *  example:
  *  //container.googleapis.com/projects/my-project/locations/us-west1-a/clusters/my-cluster
  *  Zonal clusters are also supported.
  */
@@ -3015,7 +3082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRGKEHub_Location : GTLRObject
 
@@ -3113,7 +3180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *externalId;
 
-/** Optional. GCP labels for this membership. */
+/** Optional. Labels for this membership. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_Membership_Labels *labels;
 
 /**
@@ -3123,6 +3190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  have never connected successfully, this field will be unset.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastConnectionTime;
+
+/** Optional. The monitoring config information for this membership. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_MonitoringConfig *monitoringConfig;
 
 /**
  *  Output only. The full, unique name of this Membership resource in the format
@@ -3152,7 +3222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  Optional. GCP labels for this membership.
+ *  Optional. Labels for this membership.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3190,8 +3260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A Workspace resource name in the format `projects/ * /locations/ * /scopes/
- *  *`.
+ *  A Scope resource name in the format `projects/ * /locations/ * /scopes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -3287,7 +3356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /**
  *  MembershipFeatureSpec contains configuration information for a single
- *  Membership.
+ *  Membership. NOTE: Please use snake case in your feature name.
  */
 @interface GTLRGKEHub_MembershipFeatureSpec : GTLRObject
 
@@ -3368,6 +3437,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  This field informs Fleet-based applications/services/UIs with the necessary
+ *  information for where each underlying Cluster reports its metrics.
+ */
+@interface GTLRGKEHub_MonitoringConfig : GTLRObject
+
+/**
+ *  Immutable. Cluster name used to report metrics. For Anthos on
+ *  VMWare/Baremetal, it would be in format `memberClusters/cluster_name`; And
+ *  for Anthos on MultiCloud, it would be in format `{azureClusters,
+ *  awsClusters}/cluster_name`.
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Immutable. Cluster hash, this is a unique string generated by google code,
+ *  which does not contain any PII, which we can use to reference the cluster.
+ *  This is expected to be created by the monitoring stack and persisted into
+ *  the Cluster object as well as to GKE-Hub.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterHash;
+
+/**
+ *  Kubernetes system metrics, if available, are written to this prefix. This
+ *  defaults to kubernetes.io for GKE, and kubernetes.io/anthos for Anthos
+ *  eventually. Noted: Anthos MultiCloud will have kubernetes.io prefix today
+ *  but will migration to be under kubernetes.io/anthos
+ */
+@property(nonatomic, copy, nullable) NSString *kubernetesMetricsPrefix;
+
+/** Immutable. Location used to report Metrics */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Immutable. Project used to report Metrics */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
  *  MultiCloudCluster contains information specific to GKE Multi-Cloud clusters.
  */
 @interface GTLRGKEHub_MultiCloudCluster : GTLRObject
@@ -3382,8 +3490,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, strong, nullable) NSNumber *clusterMissing;
 
 /**
- *  Immutable. Self-link of the GCP resource for the GKE Multi-Cloud cluster.
- *  For example:
+ *  Immutable. Self-link of the Google Cloud resource for the GKE Multi-Cloud
+ *  cluster. For example:
  *  //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/awsClusters/my-cluster
  *  //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/azureClusters/my-cluster
  *  //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/attachedClusters/my-cluster
@@ -3447,8 +3555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *clusterType;
 
 /**
- *  Immutable. Self-link of the GCP resource for the GKE On-Prem cluster. For
- *  example:
+ *  Immutable. Self-link of the Google Cloud resource for the GKE On-Prem
+ *  cluster. For example:
  *  //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/vmwareClusters/my-cluster
  *  //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/bareMetalClusters/my-cluster
  */
@@ -3721,6 +3829,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Scope represents a Scope in a Fleet.
  */
 @interface GTLRGKEHub_Scope : GTLRObject
+
+/**
+ *  If true, all Memberships in the Fleet bind to this Scope.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allMemberships;
 
 /** Output only. When the scope was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

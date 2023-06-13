@@ -521,7 +521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The priority of this case. If this is set, do not set severity.
+ *  The priority of this case.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSupport_Case_Priority_P0 Extreme impact on a production
@@ -540,7 +540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, copy, nullable) NSString *priority;
 
 /**
- *  The severity of this case. Deprecated. Use priority instead.
+ *  REMOVED. The severity of this case. Use priority instead.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSupport_Case_Severity_S0 Extreme impact on a production
@@ -608,7 +608,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @interface GTLRCloudSupport_CaseClassification : GTLRObject
 
-/** The display name of the classification. */
+/**
+ *  A display name for the classification. The display name is not static and
+ *  can change. To uniquely and consistently identify classifications, use the
+ *  `CaseClassification.id` field.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -651,8 +655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. An automatically generated plain text version of body with all
- *  rich text syntax stripped.
+ *  Output only. DEPRECATED. An automatically generated plain text version of
+ *  body with all rich text syntax stripped.
  */
 @property(nonatomic, copy, nullable) NSString *plainTextBody;
 
@@ -979,8 +983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_ListCasesResponse : GTLRCollectionObject
 
 /**
- *  The list of cases associated with the cloud resource, after any filters have
- *  been applied.
+ *  The list of cases associated with the Google Cloud Resource, after any
+ *  filters have been applied.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -989,8 +993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 
 /**
  *  A token to retrieve the next page of results. This should be set in the
- *  `page_token` field of subsequent `ListCasesRequest` message that is issued.
- *  If unspecified, there are no more results to retrieve.
+ *  `page_token` field of the subsequent `ListCasesRequest` message that is
+ *  issued. If unspecified, there are no more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1285,8 +1289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_SearchCasesResponse : GTLRCollectionObject
 
 /**
- *  The list of Case associated with the cloud resource, after any filters have
- *  been applied.
+ *  The list of cases associated with the Google Cloud Resource, after any
+ *  filters have been applied.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

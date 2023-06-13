@@ -327,6 +327,33 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterLocation
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_AlterMetadataResourceLocationRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:alterLocation";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterLocation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.alterLocation";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsCreate
 
 @dynamic backupId, parent, requestId;
@@ -687,6 +714,33 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMoveTableToDatabase
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_MoveTableToDatabaseRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:moveTableToDatabase";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMoveTableToDatabase *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.moveTableToDatabase";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesPatch
 
 @dynamic name, requestId, updateMask;
@@ -709,6 +763,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
   query.loggingName = @"metastore.projects.locations.services.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesQueryMetadata
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_QueryMetadataRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:queryMetadata";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesQueryMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.queryMetadata";
   return query;
 }
 

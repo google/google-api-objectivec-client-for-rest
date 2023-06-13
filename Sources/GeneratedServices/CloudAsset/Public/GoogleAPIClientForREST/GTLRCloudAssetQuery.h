@@ -812,6 +812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, assign) BOOL analysisQueryOptionsExpandRoles;
 
 /**
+ *  Optional. If true, the response includes deny policy analysis results, and
+ *  you can see which access tuples are denied. Default is false.
+ */
+@property(nonatomic, assign) BOOL analysisQueryOptionsIncludeDenyPolicyAnalysis;
+
+/**
  *  Optional. If true, the result will output the relevant membership
  *  relationships between groups and other groups, and between groups and
  *  principals. Default is false.
@@ -1491,10 +1497,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 
 /**
  *  Optional. The page size for search result pagination. Page size is capped at
- *  500 even if a larger value is given. If set to zero, server will pick an
- *  appropriate default. Returned results may be fewer than requested. When this
- *  happens, there could be more results as long as `next_page_token` is
- *  returned.
+ *  500 even if a larger value is given. If set to zero or a negative value,
+ *  server will pick an appropriate default. Returned results may be fewer than
+ *  requested. When this happens, there could be more results as long as
+ *  `next_page_token` is returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1627,10 +1633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 
 /**
  *  Optional. The page size for search result pagination. Page size is capped at
- *  500 even if a larger value is given. If set to zero, server will pick an
- *  appropriate default. Returned results may be fewer than requested. When this
- *  happens, there could be more results as long as `next_page_token` is
- *  returned.
+ *  500 even if a larger value is given. If set to zero or a negative value,
+ *  server will pick an appropriate default. Returned results may be fewer than
+ *  requested. When this happens, there could be more results as long as
+ *  `next_page_token` is returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

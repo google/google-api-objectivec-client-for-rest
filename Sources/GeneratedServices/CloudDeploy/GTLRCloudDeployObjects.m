@@ -18,8 +18,10 @@ NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_DataWrite = @"DATA_WRIT
 NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
+NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_DeployJobRun.failureCause
@@ -56,8 +58,10 @@ NSString * const kGTLRCloudDeploy_JobRun_State_Terminated      = @"TERMINATED";
 NSString * const kGTLRCloudDeploy_JobRun_State_Terminating     = @"TERMINATING";
 
 // GTLRCloudDeploy_JobRunNotificationEvent.type
+NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
 NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_Phase.state
@@ -76,8 +80,10 @@ NSString * const kGTLRCloudDeploy_Release_RenderState_RenderStateUnspecified = @
 NSString * const kGTLRCloudDeploy_Release_RenderState_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudDeploy_ReleaseNotificationEvent.type
+NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
 NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_Rollout.approvalState
@@ -111,8 +117,10 @@ NSString * const kGTLRCloudDeploy_Rollout_State_StateUnspecified = @"STATE_UNSPE
 NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded      = @"SUCCEEDED";
 
 // GTLRCloudDeploy_RolloutNotificationEvent.type
+NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_SkaffoldSupportedCondition.skaffoldSupportState
@@ -122,8 +130,10 @@ NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportStat
 NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnsupported = @"SKAFFOLD_SUPPORT_STATE_UNSUPPORTED";
 
 // GTLRCloudDeploy_TargetNotificationEvent.type
+NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_TargetRender.failureCause
@@ -552,6 +562,24 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_DeployArtifact
+//
+
+@implementation GTLRCloudDeploy_DeployArtifact
+@dynamic artifactUri, manifestPaths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"manifestPaths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_DeployJob
 //
 
@@ -565,7 +593,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_DeployJobRun
-@dynamic build, failureCause, failureMessage, metadata;
+@dynamic artifact, build, failureCause, failureMessage, metadata;
 @end
 
 
@@ -1019,7 +1047,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_PhaseArtifact
-@dynamic manifestPath, skaffoldConfigPath;
+@dynamic jobManifestsPath, manifestPath, skaffoldConfigPath;
 @end
 
 
@@ -1361,7 +1389,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_ServiceNetworking
-@dynamic deployment, service;
+@dynamic deployment, disablePodOverprovisioning, service;
 @end
 
 

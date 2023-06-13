@@ -474,8 +474,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key
  *  is migrated, it can be used from either product. SiteVerify requests are
  *  billed as CreateAssessment calls. You must be authenticated as one of the
- *  current owners of the reCAPTCHA Site Key, and your user must have the
- *  reCAPTCHA Enterprise Admin IAM role in the destination project.
+ *  current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA
+ *  Enterprise Admin IAM role in the destination project.
  *
  *  Method: recaptchaenterprise.projects.keys.migrate
  *
@@ -496,8 +496,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key
  *  is migrated, it can be used from either product. SiteVerify requests are
  *  billed as CreateAssessment calls. You must be authenticated as one of the
- *  current owners of the reCAPTCHA Site Key, and your user must have the
- *  reCAPTCHA Enterprise Admin IAM role in the destination project.
+ *  current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA
+ *  Enterprise Admin IAM role in the destination project.
  *
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest

@@ -353,7 +353,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 @implementation GTLRBareMetalSolution_InstanceConfig
 @dynamic accountNetworksEnabled, clientNetwork, hyperthreading, identifier,
          instanceType, logicalInterfaces, name, networkConfig, networkTemplate,
-         osImage, privateNetwork, userNote;
+         osImage, privateNetwork, sshKeyNames, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -361,7 +361,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface class]
+    @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface class],
+    @"sshKeyNames" : [NSString class]
   };
   return map;
 }
@@ -1017,6 +1018,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_ResetInstanceResponse
+//
+
+@implementation GTLRBareMetalSolution_ResetInstanceResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_ResizeVolumeRequest
 //
 
@@ -1085,6 +1095,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_StartInstanceResponse
+//
+
+@implementation GTLRBareMetalSolution_StartInstanceResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_Status
 //
 
@@ -1121,6 +1140,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_StopInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_StopInstanceResponse
+//
+
+@implementation GTLRBareMetalSolution_StopInstanceResponse
 @end
 
 

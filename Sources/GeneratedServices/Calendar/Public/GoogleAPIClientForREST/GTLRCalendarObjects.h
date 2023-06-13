@@ -1690,6 +1690,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** If present, specifies that the user is working from an office. */
 @property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties_OfficeLocation *officeLocation;
 
+/**
+ *  Indicates what kind of location this is. Any details will be specified in a
+ *  sub-field of the specified name (but which may be missing if empty). Any
+ *  other fields will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 

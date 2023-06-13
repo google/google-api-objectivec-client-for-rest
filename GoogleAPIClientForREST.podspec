@@ -814,6 +814,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/GKEHub/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/GKEHub/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'GKEOnPrem' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/GKEOnPrem/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/GKEOnPrem/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Gmail' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Gmail/**/*.{h,m}'

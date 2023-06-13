@@ -28,7 +28,6 @@
 @class GTLRAnalyticsHub_Listing;
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
-@class GTLRAnalyticsHub_RestrictedExportConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -619,12 +618,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 @property(nonatomic, copy, nullable) NSString *requestAccess;
 
 /**
- *  Optional. If set, restricted export configuration will be propagated and
- *  enforced on the linked dataset.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsHub_RestrictedExportConfig *restrictedExportConfig;
-
-/**
  *  Output only. Current state of the listing.
  *
  *  Likely values:
@@ -828,30 +821,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  Optional. Email or URL of the listing publisher. Max Length: 1000 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *primaryContact;
-
-@end
-
-
-/**
- *  Restricted export config, used to configure restricted export on linked
- *  dataset.
- */
-@interface GTLRAnalyticsHub_RestrictedExportConfig : GTLRObject
-
-/**
- *  If true, enable restricted export.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  If true, restrict export of query result derived from restricted linked
- *  dataset table.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *restrictQueryResult;
 
 @end
 

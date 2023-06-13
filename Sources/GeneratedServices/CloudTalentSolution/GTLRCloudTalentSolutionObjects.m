@@ -296,6 +296,7 @@ NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_Sim
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled = @"DISABLED";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified = @"DIVERSIFICATION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversifyByLooserSimilarity = @"DIVERSIFY_BY_LOOSER_SIMILARITY";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_MaxThreePerCompany = @"MAX_THREE_PER_COMPANY";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_OnePerCompany = @"ONE_PER_COMPANY";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple = @"SIMPLE";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_TwoPerCompany = @"TWO_PER_COMPANY";

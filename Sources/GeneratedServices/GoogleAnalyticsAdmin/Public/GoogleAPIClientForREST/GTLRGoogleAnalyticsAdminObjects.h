@@ -1863,7 +1863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @interface GTLRGoogleAnalyticsAdmin_V1betaDataStreamWebStreamData : GTLRObject
 
 /**
- *  Immutable. Domain name of the web app being measured, or empty. Example:
+ *  Domain name of the web app being measured, or empty. Example:
  *  "http://www.google.com", "https://www.google.com"
  */
 @property(nonatomic, copy, nullable) NSString *defaultUri;
@@ -1874,10 +1874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  */
 @property(nonatomic, copy, nullable) NSString *firebaseAppId;
 
-/**
- *  Output only. Analytics "Measurement ID", without the "G-" prefix. Example:
- *  "G-1A2BCD345E" would just be "1A2BCD345E"
- */
+/** Output only. Analytics Measurement ID. Example: "G-1A2BCD345E" */
 @property(nonatomic, copy, nullable) NSString *measurementId;
 
 @end

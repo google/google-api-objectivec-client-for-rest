@@ -32,6 +32,1056 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds items to an address group.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.addItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsAddItems : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to add items to. Must be in the format
+ *  `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Adds items to an address group.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AddAddressGroupItemsRequest to
+ *    include in the query.
+ *  @param addressGroup Required. A name of the AddressGroup to add items to.
+ *    Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsAddItems
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AddAddressGroupItemsRequest *)object
+                   addressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Clones items from one address group to another.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.cloneItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsCloneItems : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to clone items to. Must be in the
+ *  format `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Clones items from one address group to another.
+ *
+ *  @param object The @c GTLRNetworkSecurity_CloneAddressGroupItemsRequest to
+ *    include in the query.
+ *  @param addressGroup Required. A name of the AddressGroup to clone items to.
+ *    Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsCloneItems
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_CloneAddressGroupItemsRequest *)object
+                   addressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Creates a new address group in a given project and location.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Short name of the AddressGroup resource to be created. This value
+ *  should be 1-63 characters long, containing only letters, numbers, hyphens,
+ *  and underscores, and should not start with a number. E.g. "authz_policy".
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroupId;
+
+/**
+ *  Required. The parent resource of the AddressGroup. Must be in the format
+ *  `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new address group in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AddressGroup to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the AddressGroup. Must be in
+ *    the format `projects/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AddressGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an address group.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to delete. Must be in the format
+ *  `projects/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes an address group.
+ *
+ *  @param name Required. A name of the AddressGroup to delete. Must be in the
+ *    format `projects/ * /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single address group.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to get. Must be in the format
+ *  `projects/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_AddressGroup.
+ *
+ *  Gets details of a single address group.
+ *
+ *  @param name Required. A name of the AddressGroup to get. Must be in the
+ *    format `projects/ * /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists address groups in a given project and location.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsList : GTLRNetworkSecurityQuery
+
+/** Maximum number of AddressGroups to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAddressGroupsResponse` Indicates that
+ *  this is a continuation of a prior `ListAddressGroups` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the AddressGroups should be
+ *  listed, specified in the format `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListAddressGroupsResponse.
+ *
+ *  Lists address groups in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    AddressGroups should be listed, specified in the format `projects/ *
+ *    /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists references of an address group.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.listReferences
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsListReferences : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to clone items to. Must be in the
+ *  format `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  The maximum number of references to return. If unspecified, server will pick
+ *  an appropriate default. Server may return fewer items than requested. A
+ *  caller should only rely on response's next_page_token to determine if there
+ *  are more AddressGroupUsers left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListAddressGroupReferencesResponse.
+ *
+ *  Lists references of an address group.
+ *
+ *  @param addressGroup Required. A name of the AddressGroup to clone items to.
+ *    Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsListReferences
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAddressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Updates parameters of an address group.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the AddressGroup resource. It matches pattern `projects/ *
+ *  /locations/{location}/addressGroups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  AddressGroup resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates parameters of an address group.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AddressGroup to include in the
+ *    query.
+ *  @param name Required. Name of the AddressGroup resource. It matches pattern
+ *    `projects/ * /locations/{location}/addressGroups/`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AddressGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes items from an address group.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.removeItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsRemoveItems : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to remove items from. Must be in the
+ *  format `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Removes items from an address group.
+ *
+ *  @param object The @c GTLRNetworkSecurity_RemoveAddressGroupItemsRequest to
+ *    include in the query.
+ *  @param addressGroup Required. A name of the AddressGroup to remove items
+ *    from. Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsRemoveItems
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_RemoveAddressGroupItemsRequest *)object
+                   addressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: networksecurity.organizations.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsCancel : GTLRNetworkSecurityQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRNetworkSecurity_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: networksecurity.organizations.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsDelete : GTLRNetworkSecurityQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: networksecurity.organizations.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsGet : GTLRNetworkSecurityQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: networksecurity.organizations.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsList : GTLRNetworkSecurityQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Adds items to an address group.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.addItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsAddItems : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to add items to. Must be in the format
+ *  `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Adds items to an address group.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AddAddressGroupItemsRequest to
+ *    include in the query.
+ *  @param addressGroup Required. A name of the AddressGroup to add items to.
+ *    Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsAddItems
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AddAddressGroupItemsRequest *)object
+                   addressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Clones items from one address group to another.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.cloneItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsCloneItems : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to clone items to. Must be in the
+ *  format `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Clones items from one address group to another.
+ *
+ *  @param object The @c GTLRNetworkSecurity_CloneAddressGroupItemsRequest to
+ *    include in the query.
+ *  @param addressGroup Required. A name of the AddressGroup to clone items to.
+ *    Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsCloneItems
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_CloneAddressGroupItemsRequest *)object
+                   addressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Creates a new address group in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Short name of the AddressGroup resource to be created. This value
+ *  should be 1-63 characters long, containing only letters, numbers, hyphens,
+ *  and underscores, and should not start with a number. E.g. "authz_policy".
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroupId;
+
+/**
+ *  Required. The parent resource of the AddressGroup. Must be in the format
+ *  `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new address group in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AddressGroup to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the AddressGroup. Must be in
+ *    the format `projects/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AddressGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single address group.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to delete. Must be in the format
+ *  `projects/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single address group.
+ *
+ *  @param name Required. A name of the AddressGroup to delete. Must be in the
+ *    format `projects/ * /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single address group.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to get. Must be in the format
+ *  `projects/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_AddressGroup.
+ *
+ *  Gets details of a single address group.
+ *
+ *  @param name Required. A name of the AddressGroup to get. Must be in the
+ *    format `projects/ * /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsGetIamPolicy : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists address groups in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsList : GTLRNetworkSecurityQuery
+
+/** Maximum number of AddressGroups to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAddressGroupsResponse` Indicates that
+ *  this is a continuation of a prior `ListAddressGroups` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the AddressGroups should be
+ *  listed, specified in the format `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListAddressGroupsResponse.
+ *
+ *  Lists address groups in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    AddressGroups should be listed, specified in the format `projects/ *
+ *    /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists references of an address group.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.listReferences
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsListReferences : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to clone items to. Must be in the
+ *  format `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  The maximum number of references to return. If unspecified, server will pick
+ *  an appropriate default. Server may return fewer items than requested. A
+ *  caller should only rely on response's next_page_token to determine if there
+ *  are more AddressGroupUsers left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListAddressGroupReferencesResponse.
+ *
+ *  Lists references of an address group.
+ *
+ *  @param addressGroup Required. A name of the AddressGroup to clone items to.
+ *    Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsListReferences
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAddressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Updates the parameters of a single address group.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the AddressGroup resource. It matches pattern `projects/ *
+ *  /locations/{location}/addressGroups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  AddressGroup resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single address group.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AddressGroup to include in the
+ *    query.
+ *  @param name Required. Name of the AddressGroup resource. It matches pattern
+ *    `projects/ * /locations/{location}/addressGroups/`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AddressGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes items from an address group.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.removeItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsRemoveItems : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the AddressGroup to remove items from. Must be in the
+ *  format `projects|organization/ * /locations/{location}/addressGroups/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *addressGroup;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Removes items from an address group.
+ *
+ *  @param object The @c GTLRNetworkSecurity_RemoveAddressGroupItemsRequest to
+ *    include in the query.
+ *  @param addressGroup Required. A name of the AddressGroup to remove items
+ *    from. Must be in the format `projects|organization/ *
+ *    /locations/{location}/addressGroups/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsRemoveItems
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_RemoveAddressGroupItemsRequest *)object
+                   addressGroup:(NSString *)addressGroup;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsSetIamPolicy : GTLRNetworkSecurityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkSecurity_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networksecurity.projects.locations.addressGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsTestIamPermissions : GTLRNetworkSecurityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAddressGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new AuthorizationPolicy in a given project and location.
  *
  *  Method: networksecurity.projects.locations.authorizationPolicies.create
@@ -684,6 +1734,404 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new GatewaySecurityPolicy in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Short name of the GatewaySecurityPolicy resource to be created.
+ *  This value should be 1-63 characters long, containing only letters, numbers,
+ *  hyphens, and underscores, and should not start with a number. E.g.
+ *  "gateway_security_policy1".
+ */
+@property(nonatomic, copy, nullable) NSString *gatewaySecurityPolicyId;
+
+/**
+ *  Required. The parent resource of the GatewaySecurityPolicy. Must be in the
+ *  format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new GatewaySecurityPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_GatewaySecurityPolicy to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the GatewaySecurityPolicy.
+ *    Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GatewaySecurityPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single GatewaySecurityPolicy.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the GatewaySecurityPolicy to delete. Must be in the
+ *  format `projects/{project}/locations/{location}/gatewaySecurityPolicies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single GatewaySecurityPolicy.
+ *
+ *  @param name Required. A name of the GatewaySecurityPolicy to delete. Must be
+ *    in the format
+ *    `projects/{project}/locations/{location}/gatewaySecurityPolicies/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GatewaySecurityPolicy.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the GatewaySecurityPolicy to get. Must be in the format
+ *  `projects/{project}/locations/{location}/gatewaySecurityPolicies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GatewaySecurityPolicy.
+ *
+ *  Gets details of a single GatewaySecurityPolicy.
+ *
+ *  @param name Required. A name of the GatewaySecurityPolicy to get. Must be in
+ *    the format
+ *    `projects/{project}/locations/{location}/gatewaySecurityPolicies/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GatewaySecurityPolicies in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesList : GTLRNetworkSecurityQuery
+
+/** Maximum number of GatewaySecurityPolicies to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last 'ListGatewaySecurityPoliciesResponse'
+ *  Indicates that this is a continuation of a prior
+ *  'ListGatewaySecurityPolicies' call, and that the system should return the
+ *  next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the GatewaySecurityPolicies
+ *  should be listed, specified in the format
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListGatewaySecurityPoliciesResponse.
+ *
+ *  Lists GatewaySecurityPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    GatewaySecurityPolicies should be listed, specified in the format
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single GatewaySecurityPolicy.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource. Name is of the form
+ *  projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}
+ *  gateway_security_policy should match the
+ *  pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  GatewaySecurityPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single GatewaySecurityPolicy.
+ *
+ *  @param object The @c GTLRNetworkSecurity_GatewaySecurityPolicy to include in
+ *    the query.
+ *  @param name Required. Name of the resource. Name is of the form
+ *    projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}
+ *    gateway_security_policy should match the
+ *    pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GatewaySecurityPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new GatewaySecurityPolicy in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.rules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  The ID to use for the rule, which will become the final component of the
+ *  rule's resource name. This value should be 4-63 characters, and valid
+ *  characters are /a-z-/.
+ */
+@property(nonatomic, copy, nullable) NSString *gatewaySecurityPolicyRuleId;
+
+/**
+ *  Required. The parent where this rule will be created. Format :
+ *  projects/{project}/location/{location}/gatewaySecurityPolicies/ *
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new GatewaySecurityPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_GatewaySecurityPolicyRule to
+ *    include in the query.
+ *  @param parent Required. The parent where this rule will be created. Format :
+ *    projects/{project}/location/{location}/gatewaySecurityPolicies/ *
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GatewaySecurityPolicyRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single GatewaySecurityPolicyRule.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.rules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the GatewaySecurityPolicyRule to delete. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/gatewaySecurityPolicies/{gatewaySecurityPolicy}/rules/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single GatewaySecurityPolicyRule.
+ *
+ *  @param name Required. A name of the GatewaySecurityPolicyRule to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/gatewaySecurityPolicies/{gatewaySecurityPolicy}/rules/
+ *    *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GatewaySecurityPolicyRule.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.rules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the GatewaySecurityPolicyRule to retrieve. Format:
+ *  projects/{project}/location/{location}/gatewaySecurityPolicies/ * /rules/ *
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GatewaySecurityPolicyRule.
+ *
+ *  Gets details of a single GatewaySecurityPolicyRule.
+ *
+ *  @param name Required. The name of the GatewaySecurityPolicyRule to retrieve.
+ *    Format: projects/{project}/location/{location}/gatewaySecurityPolicies/ *
+ *    /rules/ *
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GatewaySecurityPolicyRules in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.rules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesList : GTLRNetworkSecurityQuery
+
+/** Maximum number of GatewaySecurityPolicyRules to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last 'ListGatewaySecurityPolicyRulesResponse'
+ *  Indicates that this is a continuation of a prior
+ *  'ListGatewaySecurityPolicyRules' call, and that the system should return the
+ *  next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project, location and GatewaySecurityPolicy from which the
+ *  GatewaySecurityPolicyRules should be listed, specified in the format
+ *  `projects/{project}/locations/{location}/gatewaySecurityPolicies/{gatewaySecurityPolicy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListGatewaySecurityPolicyRulesResponse.
+ *
+ *  Lists GatewaySecurityPolicyRules in a given project and location.
+ *
+ *  @param parent Required. The project, location and GatewaySecurityPolicy from
+ *    which the GatewaySecurityPolicyRules should be listed, specified in the
+ *    format
+ *    `projects/{project}/locations/{location}/gatewaySecurityPolicies/{gatewaySecurityPolicy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single GatewaySecurityPolicyRule.
+ *
+ *  Method: networksecurity.projects.locations.gatewaySecurityPolicies.rules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Immutable. Name of the resource. ame is the full resource name so
+ *  projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
+ *  rule should match the pattern: (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  GatewaySecurityPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single GatewaySecurityPolicyRule.
+ *
+ *  @param object The @c GTLRNetworkSecurity_GatewaySecurityPolicyRule to
+ *    include in the query.
+ *  @param name Required. Immutable. Name of the resource. ame is the full
+ *    resource name so
+ *    projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
+ *    rule should match the pattern: (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsGatewaySecurityPoliciesRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GatewaySecurityPolicyRule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: networksecurity.projects.locations.get
@@ -1228,6 +2676,399 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new TlsInspectionPolicy in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.tlsInspectionPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The parent resource of the TlsInspectionPolicy. Must be in the
+ *  format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the TlsInspectionPolicy resource to be created. This
+ *  value should be 1-63 characters long, containing only letters, numbers,
+ *  hyphens, and underscores, and should not start with a number. E.g.
+ *  "tls_inspection_policy1".
+ */
+@property(nonatomic, copy, nullable) NSString *tlsInspectionPolicyId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new TlsInspectionPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_TlsInspectionPolicy to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the TlsInspectionPolicy. Must
+ *    be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_TlsInspectionPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single TlsInspectionPolicy.
+ *
+ *  Method: networksecurity.projects.locations.tlsInspectionPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  If set to true, any rules for this TlsInspectionPolicy will also be deleted.
+ *  (Otherwise, the request will only work if the TlsInspectionPolicy has no
+ *  rules.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. A name of the TlsInspectionPolicy to delete. Must be in the format
+ *  `projects/{project}/locations/{location}/tlsInspectionPolicies/{tls_inspection_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single TlsInspectionPolicy.
+ *
+ *  @param name Required. A name of the TlsInspectionPolicy to delete. Must be
+ *    in the format
+ *    `projects/{project}/locations/{location}/tlsInspectionPolicies/{tls_inspection_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single TlsInspectionPolicy.
+ *
+ *  Method: networksecurity.projects.locations.tlsInspectionPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the TlsInspectionPolicy to get. Must be in the format
+ *  `projects/{project}/locations/{location}/tlsInspectionPolicies/{tls_inspection_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_TlsInspectionPolicy.
+ *
+ *  Gets details of a single TlsInspectionPolicy.
+ *
+ *  @param name Required. A name of the TlsInspectionPolicy to get. Must be in
+ *    the format
+ *    `projects/{project}/locations/{location}/tlsInspectionPolicies/{tls_inspection_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TlsInspectionPolicies in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.tlsInspectionPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesList : GTLRNetworkSecurityQuery
+
+/** Maximum number of TlsInspectionPolicies to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last 'ListTlsInspectionPoliciesResponse' Indicates
+ *  that this is a continuation of a prior 'ListTlsInspectionPolicies' call, and
+ *  that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the TlsInspectionPolicies
+ *  should be listed, specified in the format
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListTlsInspectionPoliciesResponse.
+ *
+ *  Lists TlsInspectionPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    TlsInspectionPolicies should be listed, specified in the format
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single TlsInspectionPolicy.
+ *
+ *  Method: networksecurity.projects.locations.tlsInspectionPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource. Name is of the form
+ *  projects/{project}/locations/{location}/tlsInspectionPolicies/{tls_inspection_policy}
+ *  tls_inspection_policy should match the
+ *  pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  TlsInspectionPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single TlsInspectionPolicy.
+ *
+ *  @param object The @c GTLRNetworkSecurity_TlsInspectionPolicy to include in
+ *    the query.
+ *  @param name Required. Name of the resource. Name is of the form
+ *    projects/{project}/locations/{location}/tlsInspectionPolicies/{tls_inspection_policy}
+ *    tls_inspection_policy should match the
+ *    pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsTlsInspectionPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_TlsInspectionPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new UrlList in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.urlLists.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The parent resource of the UrlList. Must be in the format
+ *  `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the UrlList resource to be created. This value
+ *  should be 1-63 characters long, containing only letters, numbers, hyphens,
+ *  and underscores, and should not start with a number. E.g. "url_list".
+ */
+@property(nonatomic, copy, nullable) NSString *urlListId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new UrlList in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_UrlList to include in the query.
+ *  @param parent Required. The parent resource of the UrlList. Must be in the
+ *    format `projects/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_UrlList *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single UrlList.
+ *
+ *  Method: networksecurity.projects.locations.urlLists.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the UrlList to delete. Must be in the format `projects/
+ *  * /locations/{location}/urlLists/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single UrlList.
+ *
+ *  @param name Required. A name of the UrlList to delete. Must be in the format
+ *    `projects/ * /locations/{location}/urlLists/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single UrlList.
+ *
+ *  Method: networksecurity.projects.locations.urlLists.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the UrlList to get. Must be in the format `projects/ *
+ *  /locations/{location}/urlLists/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_UrlList.
+ *
+ *  Gets details of a single UrlList.
+ *
+ *  @param name Required. A name of the UrlList to get. Must be in the format
+ *    `projects/ * /locations/{location}/urlLists/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists UrlLists in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.urlLists.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsList : GTLRNetworkSecurityQuery
+
+/** Maximum number of UrlLists to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListUrlListsResponse` Indicates that this is
+ *  a continuation of a prior `ListUrlLists` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the UrlLists should be listed,
+ *  specified in the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListUrlListsResponse.
+ *
+ *  Lists UrlLists in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the UrlLists
+ *    should be listed, specified in the format
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single UrlList.
+ *
+ *  Method: networksecurity.projects.locations.urlLists.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource provided by the user. Name is of the form
+ *  projects/{project}/locations/{location}/urlLists/{url_list} url_list should
+ *  match the pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  UrlList resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single UrlList.
+ *
+ *  @param object The @c GTLRNetworkSecurity_UrlList to include in the query.
+ *  @param name Required. Name of the resource provided by the user. Name is of
+ *    the form projects/{project}/locations/{location}/urlLists/{url_list}
+ *    url_list should match the pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsUrlListsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_UrlList *)object
+                           name:(NSString *)name;
 
 @end
 

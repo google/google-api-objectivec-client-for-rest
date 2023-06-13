@@ -60,6 +60,7 @@
 @class GTLRTesting_Metadata;
 @class GTLRTesting_NetworkConfiguration;
 @class GTLRTesting_NetworkConfigurationCatalog;
+@class GTLRTesting_NoActivityIntent;
 @class GTLRTesting_ObbFile;
 @class GTLRTesting_Orientation;
 @class GTLRTesting_PerAndroidVersionInfo;
@@ -69,8 +70,10 @@
 @class GTLRTesting_ResultStorage;
 @class GTLRTesting_RoboDirective;
 @class GTLRTesting_RoboStartingIntent;
+@class GTLRTesting_Service;
 @class GTLRTesting_Shard;
 @class GTLRTesting_ShardingOption;
+@class GTLRTesting_SmartSharding;
 @class GTLRTesting_StartActivityIntent;
 @class GTLRTesting_SystraceSetup;
 @class GTLRTesting_TestDetails;
@@ -713,8 +716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSignature;
 /**
- *  The test APK does not contain the test runner class specified by user or in
- *  the manifest file. This can be caused by either of the following reasons: -
+ *  The test APK does not contain the test runner class specified by the user or
+ *  in the manifest file. This can be caused by one of the following reasons: -
  *  the user provided a runner class name that's incorrect, or - the test runner
  *  isn't built into the test APK (might be in the app APK instead).
  *
@@ -809,7 +812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
 // GTLRTesting_TestMatrix.outcomeSummary
 
 /**
- *  A run failed, for instance: - One or more test case failed. - A test timed
+ *  A run failed, for instance: - One or more test cases failed. - A test timed
  *  out. - The application under test crashed.
  *
  *  Value: "FAILURE"
@@ -1462,6 +1465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Full Java-style package name for this application, e.g. "com.example.foo".
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Services contained in the tag. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_Service *> *services;
 
 /**
  *  Specifies the API Level on which the application is designed to run.
@@ -2232,6 +2238,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Skips the starting activity
+ */
+@interface GTLRTesting_NoActivityIntent : GTLRObject
+@end
+
+
+/**
  *  An opaque binary blob file to install on the device before the test starts.
  */
 @interface GTLRTesting_ObbFile : GTLRObject
@@ -2488,6 +2501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** An intent that starts the main launcher activity. */
 @property(nonatomic, strong, nullable) GTLRTesting_LauncherActivityIntent *launcherActivity;
 
+/** Skips the starting activity */
+@property(nonatomic, strong, nullable) GTLRTesting_NoActivityIntent *noActivity;
+
 /** An intent that starts an activity with specific details. */
 @property(nonatomic, strong, nullable) GTLRTesting_StartActivityIntent *startActivity;
 
@@ -2498,9 +2514,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  The section of an tag.
+ *  https://developer.android.com/guide/topics/manifest/service-element
+ */
+@interface GTLRTesting_Service : GTLRObject
+
+/** Intent filters in the service */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IntentFilter *> *intentFilter;
+
+/** The android:name value */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Output only. Details about the shard.
  */
 @interface GTLRTesting_Shard : GTLRObject
+
+/**
+ *  Output only. The estimated shard duration based on previous test case timing
+ *  records, if available.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *estimatedShardDuration;
 
 /**
  *  Output only. The total number of shards.
@@ -2533,8 +2570,49 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) GTLRTesting_ManualSharding *manualSharding;
 
+/** Shards test based on previous test case timing records. */
+@property(nonatomic, strong, nullable) GTLRTesting_SmartSharding *smartSharding;
+
 /** Uniformly shards test cases given a total number of shards. */
 @property(nonatomic, strong, nullable) GTLRTesting_UniformSharding *uniformSharding;
+
+@end
+
+
+/**
+ *  Shards test based on previous test case timing records.
+ */
+@interface GTLRTesting_SmartSharding : GTLRObject
+
+/**
+ *  The amount of time tests within a shard should take. Default: 300 seconds (5
+ *  minutes). The minimum allowed: 120 seconds (2 minutes). The shard count is
+ *  dynamically set based on time, up to the maximum shard limit (described
+ *  below). To guarantee at least one test case for each shard, the number of
+ *  shards will not exceed the number of test cases. Shard duration will be
+ *  exceeded if: - The maximum shard limit is reached and there is more
+ *  calculated test time remaining to allocate into shards. - Any individual
+ *  test is estimated to be longer than the targeted shard duration. Shard
+ *  duration is not guaranteed because smart sharding uses test case history and
+ *  default durations which may not be accurate. The rules for finding the test
+ *  case timing records are: - If the service has processed a test case in the
+ *  last 30 days, the record of the latest successful test case will be used. -
+ *  For new test cases, the average duration of other known test cases will be
+ *  used. - If there are no previous test case timing records available, the
+ *  default test case duration is 15 seconds. Because the actual shard duration
+ *  can exceed the targeted shard duration, we recommend that you set the
+ *  targeted value at least 5 minutes less than the maximum allowed test timeout
+ *  (45 minutes for physical devices and 60 minutes for virtual), or that you
+ *  use the custom test timeout value that you set. This approach avoids
+ *  cancelling the shard before all tests can finish. Note that there is a limit
+ *  for maximum number of shards. When you select one or more physical devices,
+ *  the number of shards must be <= 50. When you select one or more ARM virtual
+ *  devices, it must be <= 100. When you select only x86 virtual devices, it
+ *  must be <= 500. To guarantee at least one test case for per shard, the
+ *  number of shards will not exceed the number of test cases. Each shard
+ *  created counts toward daily test quota.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *targetedShardDuration;
 
 @end
 
@@ -2817,8 +2895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSignature The input
  *        app apk does not have a signature. (Value: "NO_SIGNATURE")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestRunnerClass The
- *        test APK does not contain the test runner class specified by user or
- *        in the manifest file. This can be caused by either of the following
+ *        test APK does not contain the test runner class specified by the user
+ *        or in the manifest file. This can be caused by one of the following
  *        reasons: - the user provided a runner class name that's incorrect, or
  *        - the test runner isn't built into the test APK (might be in the app
  *        APK instead). (Value: "NO_TEST_RUNNER_CLASS")
@@ -2871,7 +2949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_Failure A run failed, for
- *        instance: - One or more test case failed. - A test timed out. - The
+ *        instance: - One or more test cases failed. - A test timed out. - The
  *        application under test crashed. (Value: "FAILURE")
  *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_Inconclusive Something
  *        unexpected happened. The run should still be considered unsuccessful
@@ -3005,12 +3083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *networkProfile;
 
 /**
- *  Deprecated: Systrace uses Python 2 which has been sunset 2020-01-01. Support
- *  of Systrace may stop at any time, at which point no Systrace file will be
- *  provided in the results. Systrace configuration for the run. If set a
- *  systrace will be taken, starting on test start and lasting for the
- *  configured duration. The systrace file thus obtained is put in the results
- *  bucket together with the other artifacts from the run.
+ *  Systrace configuration for the run. Deprecated: Systrace used Python 2 which
+ *  was sunsetted on 2020-01-01. Systrace is no longer supported in the Cloud
+ *  Testing API, and no Systrace file will be provided in the results.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_SystraceSetup *systrace;
 

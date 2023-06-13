@@ -205,7 +205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project across all regions.
+ *  List the jobs of a project across all regions. **Note:** This method doesn't
+ *  support filtering the list of jobs by name.
  *
  *  Method: dataflow.projects.jobs.aggregated
  *
@@ -243,7 +244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Optional. The job name. Optional. */
+/** Optional. The job name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -290,7 +291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project across all regions.
+ *  List the jobs of a project across all regions. **Note:** This method doesn't
+ *  support filtering the list of jobs by name.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -586,8 +588,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
- *  `projects.jobs.list` is not recommended, as you can only get the list of
- *  jobs that are running in `us-central1`.
+ *  `projects.jobs.list` is not recommended, because you can only get the list
+ *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
+ *  and `projects.jobs.list` support filtering the list of jobs by name.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`.
  *
  *  Method: dataflow.projects.jobs.list
  *
@@ -625,7 +629,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Optional. The job name. Optional. */
+/** Optional. The job name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -676,8 +680,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
- *  `projects.jobs.list` is not recommended, as you can only get the list of
- *  jobs that are running in `us-central1`.
+ *  `projects.jobs.list` is not recommended, because you can only get the list
+ *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
+ *  and `projects.jobs.list` support filtering the list of jobs by name.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -1402,8 +1408,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
- *  `projects.jobs.list` is not recommended, as you can only get the list of
- *  jobs that are running in `us-central1`.
+ *  `projects.jobs.list` is not recommended, because you can only get the list
+ *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
+ *  and `projects.jobs.list` support filtering the list of jobs by name.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`.
  *
  *  Method: dataflow.projects.locations.jobs.list
  *
@@ -1441,7 +1449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Optional. The job name. Optional. */
+/** Optional. The job name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1492,8 +1500,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
- *  `projects.jobs.list` is not recommended, as you can only get the list of
- *  jobs that are running in `us-central1`.
+ *  `projects.jobs.list` is not recommended, because you can only get the list
+ *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
+ *  and `projects.jobs.list` support filtering the list of jobs by name.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`.
  *
  *  @param projectId The project which owns the jobs.
  *  @param location The [regional endpoint]

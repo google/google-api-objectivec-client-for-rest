@@ -307,7 +307,7 @@
 
 @implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -712,6 +712,29 @@
 
 @end
 
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRGKEHubQuery_ProjectsLocationsScopesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRGKEHub_Policy class];
+  query.loggingName = @"gkehub.projects.locations.scopes.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEHubQuery_ProjectsLocationsScopesList
 
 @dynamic pageSize, pageToken, parent;
@@ -726,6 +749,60 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRGKEHub_ListScopesResponse class];
   query.loggingName = @"gkehub.projects.locations.scopes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRGKEHubQuery_ProjectsLocationsScopesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRGKEHub_Policy class];
+  query.loggingName = @"gkehub.projects.locations.scopes.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRGKEHubQuery_ProjectsLocationsScopesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRGKEHub_TestIamPermissionsResponse class];
+  query.loggingName = @"gkehub.projects.locations.scopes.testIamPermissions";
   return query;
 }
 

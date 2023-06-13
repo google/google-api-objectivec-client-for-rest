@@ -2727,7 +2727,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /** The number of bids that were permitted to compete in the auction. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *bidsInAuction;
 
-/** The number of bids for which the buyer was billed. */
+/**
+ *  The number of bids for which the buyer was billed. Also called valid
+ *  impressions as invalid impressions are not billed.
+ */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *billedImpressions;
 
 /** The number of bids that won the auction. */
@@ -4593,7 +4596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *guaranteedImpressions;
 
 /**
- *  Count of guaranteed looks. Required for deal, optional for product.
+ *  Count of guaranteed looks. Required for deal, optional for product. For CPD
+ *  deals, buyer changes to guaranteed_looks will be ignored.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4608,7 +4612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *impressionCap;
 
 /**
- *  Daily minimum looks for CPD deal types.
+ *  Daily minimum looks for CPD deal types. For CPD deals, buyer should
+ *  negotiate on this field instead of guaranteed_looks.
  *
  *  Uses NSNumber of longLongValue.
  */

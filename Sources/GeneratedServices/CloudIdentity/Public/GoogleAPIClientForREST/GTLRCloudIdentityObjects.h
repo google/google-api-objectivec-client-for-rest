@@ -1090,11 +1090,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes : GTLRObject
 
 /**
+ *  Whether the device passes Android CTS compliance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ctsProfileMatch;
+
+/**
  *  Whether applications from unknown sources can be installed on device.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabledUnknownSources;
+
+/**
+ *  Whether any potentially harmful apps were detected on the device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasPotentiallyHarmfulApps;
 
 /**
  *  Whether this account is on an owner/primary profile. For phones, only true
@@ -1131,6 +1145,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *supportsWorkProfile;
+
+/**
+ *  Whether Android verified boot status is GREEN.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedBoot;
+
+/**
+ *  Whether Google Play Protect Verify Apps is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifyAppsEnabled;
 
 @end
 

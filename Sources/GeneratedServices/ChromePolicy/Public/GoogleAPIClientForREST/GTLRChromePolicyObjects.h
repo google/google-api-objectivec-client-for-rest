@@ -896,6 +896,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. Field conditions required for this value to be valid. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDependencies *> *fieldDependencies;
+
 /**
  *  Output only. The string represenstation of the value that can be set for the
  *  field.

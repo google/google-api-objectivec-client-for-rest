@@ -60,6 +60,11 @@ NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_TimeDriven 
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Trigger = @"TRIGGER";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Webapp = @"WEBAPP";
 
+// GTLRScript_GoogleAppsScriptTypeProcess.runtimeVersion
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_DeprecatedEs5 = @"DEPRECATED_ES5";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_RuntimeVersionUnspecified = @"RUNTIME_VERSION_UNSPECIFIED";
+NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_V8 = @"V8";
+
 // GTLRScript_GoogleAppsScriptTypeProcess.userAccessLevel
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_None = @"NONE";
 NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Owner = @"OWNER";
@@ -318,7 +323,7 @@ NSString * const kGTLRScript_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRScript_GoogleAppsScriptTypeProcess
 @dynamic duration, functionName, processStatus, processType, projectName,
-         startTime, userAccessLevel;
+         runtimeVersion, startTime, userAccessLevel;
 @end
 
 

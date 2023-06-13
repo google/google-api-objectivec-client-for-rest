@@ -21,6 +21,7 @@
 @class GTLRPlayIntegrity_AccountDetails;
 @class GTLRPlayIntegrity_AppIntegrity;
 @class GTLRPlayIntegrity_DeviceIntegrity;
+@class GTLRPlayIntegrity_GuidanceDetails;
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
 @class GTLRPlayIntegrity_TokenPayloadExternal;
@@ -172,11 +173,64 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity;
 /**
+ *  App is running on a device that passes only weak integrity checks (is a
+ *  physical device). See go/pcm-physical-device-detection for more details.
+ *  Note that this label won't be served for PIA heavyweight and express for
+ *  now, only for the crystal mode.
+ *
+ *  Value: "MEETS_WEAK_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity;
+/**
  *  Play does not have sufficient information to evaluate device integrity
  *
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_GuidanceDetails.userRemediation
+
+/**
+ *  The app is unrecognized. The user should get an unmodified version of the
+ *  app.
+ *
+ *  Value: "GET_UNMODIFIED_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_GetUnmodifiedApp;
+/**
+ *  The user has no license. They should install or purchase the app on the
+ *  Google Play Store to add it to their library.
+ *
+ *  Value: "INSTALL_APP_FROM_PLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_InstallAppFromPlay;
+/**
+ *  The device bootloader has been unlocked, the user should lock the
+ *  bootloader.
+ *
+ *  Value: "LOCK_BOOTLOADER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_LockBootloader;
+/**
+ *  The user has installed a custom ROM, and should restore the device to a
+ *  clean factory ROM.
+ *
+ *  Value: "RESTORE_FACTORY_ROM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_RestoreFactoryRom;
+/**
+ *  The user has not signed into their Google account.
+ *
+ *  Value: "SIGN_INTO_GOOGLE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_SignIntoGoogleAccount;
+/**
+ *  Catch-all for unrecognized enum values. See go/protodosdonts.
+ *
+ *  Value: "UNKNOWN_USER_REMEDIATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_UnknownUserRemediation;
 
 /**
  *  Contains a signal helping apps differentiating between likely genuine users
@@ -332,6 +386,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 
 
 /**
+ *  Contains guidance details about the Integrity API response, providing
+ *  additional context to the integrity verdicts.
+ */
+@interface GTLRPlayIntegrity_GuidanceDetails : GTLRObject
+
+/**
+ *  This shows when there is an issue with at least one of the integrity
+ *  verdicts, and provides user remediation guidance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userRemediation;
+
+@end
+
+
+/**
  *  Contains the integrity request information.
  */
 @interface GTLRPlayIntegrity_RequestDetails : GTLRObject
@@ -391,6 +460,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 
 /** Required. Details about the device integrity. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceIntegrity *deviceIntegrity;
+
+/** Additional guidance related to the integrity API response. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_GuidanceDetails *guidanceDetails;
 
 /** Required. Details about the integrity request. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_RequestDetails *requestDetails;

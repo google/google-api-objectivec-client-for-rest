@@ -20,6 +20,8 @@
 @class GTLRFirestore_AggregationResult_AggregateFields;
 @class GTLRFirestore_ArrayValue;
 @class GTLRFirestore_BatchWriteRequest_Labels;
+@class GTLRFirestore_BitSequence;
+@class GTLRFirestore_BloomFilter;
 @class GTLRFirestore_CollectionSelector;
 @class GTLRFirestore_CompositeFilter;
 @class GTLRFirestore_Count;
@@ -37,6 +39,9 @@
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
+@class GTLRFirestore_GoogleFirestoreAdminV1Backup;
+@class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
+@class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1Index;
@@ -44,8 +49,10 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
+@class GTLRFirestore_GoogleFirestoreAdminV1Stats;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
+@class GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence;
 @class GTLRFirestore_GoogleLongrunningOperation;
 @class GTLRFirestore_GoogleLongrunningOperation_Metadata;
 @class GTLRFirestore_GoogleLongrunningOperation_Response;
@@ -210,6 +217,35 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Backup.state
+
+/**
+ *  The pending backup is still being created. Operations on the backup will be
+ *  rejected in this state.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Creating;
+/**
+ *  The backup is not available at this moment.
+ *
+ *  Value: "NOT_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_NotAvailable;
+/**
+ *  The backup is complete and ready to use.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Ready;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
 
 /**
@@ -265,6 +301,54 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
  *  Value: "PESSIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.deleteProtectionState
+
+/**
+ *  Delete protection is disabled
+ *
+ *  Value: "DELETE_PROTECTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionDisabled;
+/**
+ *  Delete protection is enabled
+ *
+ *  Value: "DELETE_PROTECTION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionEnabled;
+/**
+ *  The default value. Delete protection type is not specified
+ *
+ *  Value: "DELETE_PROTECTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.pointInTimeRecoveryEnablement
+
+/**
+ *  Reads are supported on any version of the data from within the past 1 hour.
+ *
+ *  Value: "POINT_IN_TIME_RECOVERY_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryDisabled;
+/**
+ *  Reads are supported on selected versions of the data from within the past 7
+ *  days: * Reads against any timestamp within the past hour * Reads against
+ *  1-minute snapshots beyond 1 hour and within 7 days
+ *  `version_retention_period` and `earliest_version_time` can be used to
+ *  determine the supported versions.
+ *
+ *  Value: "POINT_IN_TIME_RECOVERY_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnabled;
+/**
+ *  Not used.
+ *
+ *  Value: "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnablementUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
@@ -454,8 +538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDo
 // GTLRFirestore_GoogleFirestoreAdminV1Index.apiScope
 
 /**
- *  The index can be used by both Firestore Native and Firestore in Datastore
- *  Mode query API. This is the default.
+ *  The index can only be used by the Firestore Native query API. This is the
+ *  default.
  *
  *  Value: "ANY_API"
  */
@@ -704,6 +788,58 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfi
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_Order.direction
@@ -1032,6 +1168,67 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *transaction;
+
+@end
+
+
+/**
+ *  A sequence of bits, encoded in a byte array. Each byte in the `bitmap` byte
+ *  array stores 8 bits of the sequence. The only exception is the last byte,
+ *  which may store 8 _or fewer_ bits. The `padding` defines the number of bits
+ *  of the last byte to be ignored as "padding". The values of these "padding"
+ *  bits are unspecified and must be ignored. To retrieve the first bit, bit 0,
+ *  calculate: `(bitmap[0] & 0x01) != 0`. To retrieve the second bit, bit 1,
+ *  calculate: `(bitmap[0] & 0x02) != 0`. To retrieve the third bit, bit 2,
+ *  calculate: `(bitmap[0] & 0x04) != 0`. To retrieve the fourth bit, bit 3,
+ *  calculate: `(bitmap[0] & 0x08) != 0`. To retrieve bit n, calculate:
+ *  `(bitmap[n / 8] & (0x01 << (n % 8))) != 0`. The "size" of a `BitSequence`
+ *  (the number of bits it contains) is calculated by this formula:
+ *  `(bitmap.length * 8) - padding`.
+ */
+@interface GTLRFirestore_BitSequence : GTLRObject
+
+/**
+ *  The bytes that encode the bit sequence. May have a length of zero.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *bitmap;
+
+/**
+ *  The number of bits of the last byte in `bitmap` to ignore as "padding". If
+ *  the length of `bitmap` is zero, then this value must be `0`. Otherwise, this
+ *  value must be between 0 and 7, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *padding;
+
+@end
+
+
+/**
+ *  A bloom filter (https://en.wikipedia.org/wiki/Bloom_filter). The bloom
+ *  filter hashes the entries with MD5 and treats the resulting 128-bit hash as
+ *  2 distinct 64-bit hash values, interpreted as unsigned integers using 2's
+ *  complement encoding. These two hash values, named `h1` and `h2`, are then
+ *  used to compute the `hash_count` hash values using the formula, starting at
+ *  `i=0`: h(i) = h1 + (i * h2) These resulting values are then taken modulo the
+ *  number of bits in the bloom filter to get the bits of the bloom filter to
+ *  test for the given entry.
+ */
+@interface GTLRFirestore_BloomFilter : GTLRObject
+
+/** The bloom filter data. */
+@property(nonatomic, strong, nullable) GTLRFirestore_BitSequence *bits;
+
+/**
+ *  The number of hashes used by the algorithm.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hashCount;
 
 @end
 
@@ -1407,6 +1604,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSNumber *targetId;
 
+/**
+ *  A bloom filter that contains the UTF-8 byte encodings of the resource names
+ *  of the documents that match target_id, in the form
+ *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`
+ *  that have NOT changed since the query results indicated by the resume token
+ *  or timestamp given in `Target.resume_type`. This bloom filter may be omitted
+ *  at the server's discretion, such as if it is deemed that the client will not
+ *  make use of it or if it is too computationally expensive to calculate or
+ *  transmit. Clients must gracefully handle this field being absent by falling
+ *  back to the logic used before this field existed; that is, re-add the target
+ *  without a resume token to figure out which documents in the client's cache
+ *  are out of sync.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_BloomFilter *unchangedNames;
+
 @end
 
 
@@ -1592,6 +1804,116 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  A Backup of a Cloud Firestore Database. The backup contains all documents
+ *  and index configurations for the given database at specific point in time.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1Backup : GTLRObject
+
+/**
+ *  Output only. Name of the Firestore database that the backup is from. Format
+ *  is `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Output only. The system-generated UUID4 for the Firestore database that the
+ *  backup is from.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseUid;
+
+/** Output only. The timestamp at which this backup expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. The unique resource name of the Backup. Format is
+ *  `projects/{project}/locations/{location}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The backup contains an externally consistent copy of the
+ *  database at this time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
+/**
+ *  Output only. The current state of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Creating The
+ *        pending backup is still being created. Operations on the backup will
+ *        be rejected in this state. (Value: "CREATING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_NotAvailable The
+ *        backup is not available at this moment. (Value: "NOT_AVAILABLE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Ready The backup
+ *        is complete and ready to use. (Value: "READY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Statistics about the backup. This data only becomes available
+ *  after the backup is fully materialized to secondary storage. This field will
+ *  be empty till then.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Stats *stats;
+
+@end
+
+
+/**
+ *  A backup schedule for a Cloud Firestore Database. This resource is owned by
+ *  the database it is backing up, and is deleted along with the database. The
+ *  actual backups are not though.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule : GTLRObject
+
+/**
+ *  Output only. The timestamp at which this backup schedule was created and
+ *  effective since. No backups will be created for this schedule before this
+ *  time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** For a schedule that runs daily at a specified time. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence *dailyRecurrence;
+
+/**
+ *  Output only. The unique backup schedule identifier across all locations and
+ *  databases for the given project. This will be auto-assigned. Format is
+ *  `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  At what relative time in the future, compared to the creation time of the
+ *  backup should the backup be deleted, i.e. keep backups for 7 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retention;
+
+/**
+ *  Output only. The timestamp at which this backup schedule was most recently
+ *  updated. When a backup schedule is first created, this is the same as
+ *  create_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** For a schedule that runs weekly on a specific day and time. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence *weeklyRecurrence;
+
+@end
+
+
+/**
+ *  Represent a recurring schedule that runs at a specific time every day. The
+ *  time zone is UTC.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence : GTLRObject
+@end
+
+
+/**
  *  A Cloud Firestore Database. Currently only one database is allowed per cloud
  *  project; this database must have a `database_id` of '(default)'.
  */
@@ -1636,8 +1958,36 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
-/** Output only. The timestamp at which this database was created. */
+/**
+ *  Output only. The timestamp at which this database was created. Databases
+ *  created before 2016 do not populate create_time.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  State of delete protection for the database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionDisabled
+ *        Delete protection is disabled (Value: "DELETE_PROTECTION_DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionEnabled
+ *        Delete protection is enabled (Value: "DELETE_PROTECTION_ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionStateUnspecified
+ *        The default value. Delete protection type is not specified (Value:
+ *        "DELETE_PROTECTION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deleteProtectionState;
+
+/**
+ *  Output only. The earliest timestamp at which older versions of the data can
+ *  be read from the database. See [version_retention_period] above; this field
+ *  is populated with `now - version_retention_period`. This value is
+ *  continuously updated, and becomes stale the moment it is queried. If you are
+ *  using this value to recover data, make sure to account for the time from the
+ *  moment when the value is queried to the moment when you initiate the
+ *  recovery.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
 
 /**
  *  This checksum is computed by the server based on the value of other fields,
@@ -1668,6 +2018,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Whether to enable the PITR feature on this database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryDisabled
+ *        Reads are supported on any version of the data from within the past 1
+ *        hour. (Value: "POINT_IN_TIME_RECOVERY_DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnabled
+ *        Reads are supported on selected versions of the data from within the
+ *        past 7 days: * Reads against any timestamp within the past hour *
+ *        Reads against 1-minute snapshots beyond 1 hour and within 7 days
+ *        `version_retention_period` and `earliest_version_time` can be used to
+ *        determine the supported versions. (Value:
+ *        "POINT_IN_TIME_RECOVERY_ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnablementUnspecified
+ *        Not used. (Value: "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *pointInTimeRecoveryEnablement;
+
+/**
  *  The type of the database. See
  *  https://cloud.google.com/datastore/docs/firestore-or-datastore for
  *  information about how to choose.
@@ -1692,6 +2061,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  contained by the database.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. The period during which past versions of data are retained in
+ *  the database. Any read or query can specify a `read_time` within this
+ *  window, and will read the state of the database at that time. If the PITR
+ *  feature is enabled, the retention period is 7 days. Otherwise, the retention
+ *  period is 1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *versionRetentionPeriod;
 
 @end
 
@@ -1785,6 +2163,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  time.
  */
 @property(nonatomic, copy, nullable) NSString *outputUriPrefix;
+
+/**
+ *  The timestamp that corresponds to the version of the database to be
+ *  exported. The timestamp must be rounded to the minute, in the past, and not
+ *  older than 1 hour. If specified, then the exported documents will represent
+ *  a consistent view of the database at the provided time. Otherwise, there are
+ *  no guarantees about the consistency of the exported documents.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
 
@@ -2018,8 +2405,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_AnyApi The
- *        index can be used by both Firestore Native and Firestore in Datastore
- *        Mode query API. This is the default. (Value: "ANY_API")
+ *        index can only be used by the Firestore Native query API. This is the
+ *        default. (Value: "ANY_API")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi
  *        The index can only be used by the Firestore in Datastore Mode query
  *        API. (Value: "DATASTORE_MODE_API")
@@ -2265,6 +2652,40 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The response for FirestoreAdmin.ListBackupSchedules.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ListBackupSchedulesResponse : GTLRObject
+
+/** List of all backup schedules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule *> *backupSchedules;
+
+@end
+
+
+/**
+ *  The response for FirestoreAdmin.ListBackups.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse : GTLRObject
+
+/**
+ *  List of all backups for the project. Ordered by `location ASC, create_time
+ *  DESC, name ASC`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1Backup *> *backups;
+
+/**
+ *  List of locations that existing backups were not able to be fetched from.
+ *  Instead of failing the entire requests when a single location is
+ *  unreachable, this response returns a partial result set and list of
+ *  locations unable to be reached here. The request can be retried against a
+ *  single location to get a concrete error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The list of databases for a project.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse : GTLRObject
@@ -2360,6 +2781,62 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The request message for FirestoreAdmin.RestoreDatabase.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest : GTLRObject
+
+/**
+ *  Required. Backup to restore from. Must be from the same project as the
+ *  parent. Format is:
+ *  `projects/{project_id}/locations/{location}/backups/{backup}`
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Required. The ID to use for the database, which will become the final
+ *  component of the database's resource name. This database id must not be
+ *  associated with an existing database. This value should be 4-63 characters.
+ *  Valid characters are /a-z-/ with first character a letter and the last a
+ *  letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  valid.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+@end
+
+
+/**
+ *  Backup specific statistics.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1Stats : GTLRObject
+
+/**
+ *  Output only. The total number of documents contained in the backup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentCount;
+
+/**
+ *  Output only. The total number of index entries contained in the backup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *indexCount;
+
+/**
+ *  Output only. Summation of the size of all documents and index entries in the
+ *  backup, measured in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+@end
+
+
+/**
  *  The TTL (time-to-live) configuration for documents that have this `Field`
  *  set. Storing a timestamp value into a TTL-enabled field will be treated as
  *  the document's absolute expiration time. Timestamp values in the past
@@ -2395,7 +2872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Information about an TTL configuration change.
+ *  Information about a TTL configuration change.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta : GTLRObject
 
@@ -2420,6 +2897,38 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Metadata related to the update database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
+@end
+
+
+/**
+ *  Represents a recurring schedule that runs on a specified day of the week.
+ *  The time zone is UTC.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence : GTLRObject
+
+/**
+ *  The day of week to run. DAY_OF_WEEK_UNSPECIFIED is not allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Friday
+ *        Friday (Value: "FRIDAY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Monday
+ *        Monday (Value: "MONDAY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Sunday
+ *        Sunday (Value: "SUNDAY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
 @end
 
 
@@ -2712,7 +3221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRFirestore_Location : GTLRObject
 
@@ -3320,6 +3829,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** A target specified by a set of document names. */
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentsTarget *documents;
+
+/**
+ *  The number of documents that last matched the query at the resume token or
+ *  read time. This value is only relevant when a `resume_type` is provided.
+ *  This value being present and greater than zero signals that the client wants
+ *  `ExistenceFilter.unchanged_names` to be included in the response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expectedCount;
 
 /**
  *  If the target should be removed once it is current and consistent.

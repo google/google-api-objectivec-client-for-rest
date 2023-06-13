@@ -1911,6 +1911,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Searches direct groups of a member.
  *
  *  Method: cloudidentity.groups.memberships.searchDirectGroups
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsSearchDirectGroups : GTLRCloudIdentityQuery
 

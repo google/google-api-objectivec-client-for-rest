@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Drive API (drive/v3)
+//   Google Drive API (drive/v3)
 // Description:
-//   Manages files in Drive including uploading, downloading, searching,
-//   detecting changes, and updating sharing permissions.
+//   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
 //   https://developers.google.com/drive/
 
@@ -83,10 +82,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveScripts;
 //
 
 /**
- *  Service for executing Drive API queries.
+ *  Service for executing Google Drive API queries.
  *
- *  Manages files in Drive including uploading, downloading, searching,
- *  detecting changes, and updating sharing permissions.
+ *  The Google Drive API allows clients to access resources from Google Drive.
  */
 @interface GTLRDriveService : GTLRService
 

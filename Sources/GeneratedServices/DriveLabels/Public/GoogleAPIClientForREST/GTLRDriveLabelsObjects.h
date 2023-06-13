@@ -145,6 +145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Field
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_Admin;
 /**
+ *  A label owned by an internal Google application rather than a customer.
+ *  These labels are read-only.
+ *
+ *  Value: "GOOGLE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_GoogleApp;
+/**
  *  Unknown label type.
  *
  *  Value: "LABEL_TYPE_UNSPECIFIED"
@@ -1805,6 +1812,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_Admin
  *        Admin-owned label. Only creatable and editable by admins. Supports
  *        some additional admin-only features. (Value: "ADMIN")
+ *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_GoogleApp
+ *        A label owned by an internal Google application rather than a
+ *        customer. These labels are read-only. (Value: "GOOGLE_APP")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_LabelTypeUnspecified
  *        Unknown label type. (Value: "LABEL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_Shared
@@ -2674,19 +2684,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 
 /**
  *  Represents a color in the RGBA color space. This representation is designed
- *  for simplicity of conversion to/from color representations in various
+ *  for simplicity of conversion to and from color representations in various
  *  languages over compactness. For example, the fields of this representation
  *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
  *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't have
  *  information about the absolute color space that should be used to interpret
- *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default,
  *  applications should assume the sRGB color space. When color equality needs
  *  to be decided, implementations, unless documented otherwise, treat two
  *  colors as equal if all their red, green, blue, and alpha values each differ
- *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
- *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  by at most `1e-5`. Example (Java): import com.google.type.Color; // ...
+ *  public static java.awt.Color fromProto(Color protocolor) { float alpha =
  *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
  *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
  *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color

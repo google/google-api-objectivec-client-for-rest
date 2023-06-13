@@ -24,6 +24,7 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2FieldDateOptions_DateFo
 
 // GTLRDriveLabels_GoogleAppsDriveLabelsV2Label.labelType
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_Admin = @"ADMIN";
+NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_GoogleApp = @"GOOGLE_APP";
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_LabelTypeUnspecified = @"LABEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Label_LabelType_Shared = @"SHARED";
 

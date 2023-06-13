@@ -1069,8 +1069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  If set, then only the Routines matching this filter are returned. The
- *  current supported form is either "routine_type:" or "routineType:", where is
- *  a RoutineType enum. Example: "routineType:SCALAR_FUNCTION".
+ *  supported format is `routineType:{RoutineType}`, where `{RoutineType}` is a
+ *  RoutineType enum. For example: `routineType:SCALAR_FUNCTION`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

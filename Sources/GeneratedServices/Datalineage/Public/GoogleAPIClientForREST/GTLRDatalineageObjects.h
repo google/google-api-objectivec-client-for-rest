@@ -43,6 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata.operationType
 
 /**
+ *  The resource creation operation.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_Create;
+/**
  *  The resource deletion operation.
  *
  *  Value: "DELETE"
@@ -235,13 +241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineag
 @interface GTLRDatalineage_GoogleCloudDatacatalogLineageV1EntityReference : GTLRObject
 
 /**
- *  Required. Fully Qualified Name of the entity. Useful for referencing
- *  entities that aren't represented as Google Cloud resources, for example,
- *  tables in Dataproc Metastore API. Examples: *
- *  `bigquery:dataset.project_id.dataset_id` *
- *  `bigquery:table.project_id.dataset_id.table_id` *
- *  `pubsub:project_id.topic_id` *
- *  `dataproc_metastore:projectId.locationId.instanceId.databaseId.tableId`
+ *  Required. [Fully Qualified Name
+ *  (FQN)](https://cloud.google.com/data-catalog/docs/fully-qualified-names) of
+ *  the entity.
  */
 @property(nonatomic, copy, nullable) NSString *fullyQualifiedName;
 
@@ -425,6 +427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineag
  *  Output only. The type of the operation being performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_Create
+ *        The resource creation operation. (Value: "CREATE")
  *    @arg @c kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_Delete
  *        The resource deletion operation. (Value: "DELETE")
  *    @arg @c kGTLRDatalineage_GoogleCloudDatacatalogLineageV1OperationMetadata_OperationType_TypeUnspecified
@@ -470,18 +474,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatalineage_GoogleCloudDatacatalogLineag
 @interface GTLRDatalineage_GoogleCloudDatacatalogLineageV1Origin : GTLRObject
 
 /**
- *  If the source_type isn't CUSTOM, the value of this field should be a Google
- *  Cloud resource name of the system, which reports lineage. The project and
- *  location parts of the resource name must match the project and location of
- *  the lineage resource being created. Examples: - `{source_type: COMPOSER,
- *  name: "projects/foo/locations/us/environments/bar"}` - `{source_type:
- *  BIGQUERY, name: "projects/foo/locations/eu"}` - `{source_type: CUSTOM, name:
+ *  If the source_type isn't CUSTOM, the value of this field should be a GCP
+ *  resource name of the system, which reports lineage. The project and location
+ *  parts of the resource name must match the project and location of the
+ *  lineage resource being created. Examples: - `{source_type: COMPOSER, name:
+ *  "projects/foo/locations/us/environments/bar"}` - `{source_type: BIGQUERY,
+ *  name: "projects/foo/locations/eu"}` - `{source_type: CUSTOM, name:
  *  "myCustomIntegration"}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Type of the source.
+ *  Type of the source. Use of a source_type other than `CUSTOM` for process
+ *  creation or updating is highly discouraged, and may be restricted in the
+ *  future without notice.
  *
  *  Likely values:
  *    @arg @c kGTLRDatalineage_GoogleCloudDatacatalogLineageV1Origin_SourceType_Bigquery

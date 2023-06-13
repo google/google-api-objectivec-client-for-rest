@@ -517,7 +517,7 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 //
 
 @implementation GTLRSASPortal_ProvisionDeploymentRequest
-@dynamic newDeploymentDisplayName, newOrganizationDisplayName;
+@dynamic newDeploymentDisplayName, newOrganizationDisplayName, organizationId;
 @end
 
 

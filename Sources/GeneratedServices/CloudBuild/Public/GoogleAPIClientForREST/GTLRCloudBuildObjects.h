@@ -56,6 +56,7 @@
 @class GTLRCloudBuild_InlineSecret_EnvMap;
 @class GTLRCloudBuild_MavenArtifact;
 @class GTLRCloudBuild_NetworkConfig;
+@class GTLRCloudBuild_NpmPackage;
 @class GTLRCloudBuild_Operation_Metadata;
 @class GTLRCloudBuild_Operation_Response;
 @class GTLRCloudBuild_PoolOption;
@@ -82,6 +83,7 @@
 @class GTLRCloudBuild_StorageSourceManifest;
 @class GTLRCloudBuild_TimeSpan;
 @class GTLRCloudBuild_UploadedMavenArtifact;
+@class GTLRCloudBuild_UploadedNpmPackage;
 @class GTLRCloudBuild_UploadedPythonPackage;
 @class GTLRCloudBuild_Volume;
 @class GTLRCloudBuild_Warning;
@@ -291,14 +293,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Stackdri
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault;
 /**
- *  Build logs should not be streamed to Google Cloud Storage; they will be
- *  written when the build is completed.
+ *  Build logs should not be streamed to Cloud Storage; they will be written
+ *  when the build is completed.
  *
  *  Value: "STREAM_OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff;
 /**
- *  Build logs should be streamed to Google Cloud Storage.
+ *  Build logs should be streamed to Cloud Storage.
  *
  *  Value: "STREAM_ON"
  */
@@ -375,6 +377,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenance
  *  Value: "SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256;
+/**
+ *  Use a sha512 hash.
+ *
+ *  Value: "SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha512;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.substitutionOption
@@ -647,6 +655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_None;
  *  Value: "SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
+/**
+ *  Use a sha512 hash.
+ *
+ *  Value: "SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha512;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_NetworkConfig.egressOption
@@ -954,9 +968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_FileHashes *> *fileHash;
 
 /**
- *  The path of an artifact in a Google Cloud Storage bucket, with the
- *  generation number. For example,
- *  `gs://mybucket/path/to/output.jar#generation`.
+ *  The path of an artifact in a Cloud Storage bucket, with the generation
+ *  number. For example, `gs://mybucket/path/to/output.jar#generation`.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -986,6 +999,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  artifacts fail to be pushed, the build is marked FAILURE.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_MavenArtifact *> *mavenArtifacts;
+
+/**
+ *  A list of npm packages to be uploaded to Artifact Registry upon successful
+ *  completion of all build steps. Npm packages in the specified paths will be
+ *  uploaded to the specified Artifact Registry repository using the builder
+ *  service account's credentials. If any packages fail to be pushed, the build
+ *  is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_NpmPackage *> *npmPackages;
 
 /**
  *  A list of objects to be uploaded to Cloud Storage upon successful completion
@@ -1366,7 +1388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *images;
 
 /**
- *  Google Cloud Storage bucket where logs should be written (see [Bucket Name
+ *  Cloud Storage bucket where logs should be written (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  *  Logs file names will be of the format `${logs_bucket}/log-${build_id}.txt`.
  */
@@ -1634,17 +1656,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *logging;
 
 /**
- *  Option to define build log streaming behavior to Google Cloud Storage.
+ *  Option to define build log streaming behavior to Cloud Storage.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault
  *        Service may automatically determine build log streaming behavior.
  *        (Value: "STREAM_DEFAULT")
  *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff Build
- *        logs should not be streamed to Google Cloud Storage; they will be
- *        written when the build is completed. (Value: "STREAM_OFF")
+ *        logs should not be streamed to Cloud Storage; they will be written
+ *        when the build is completed. (Value: "STREAM_OFF")
  *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn Build
- *        logs should be streamed to Google Cloud Storage. (Value: "STREAM_ON")
+ *        logs should be streamed to Cloud Storage. (Value: "STREAM_ON")
  */
 @property(nonatomic, copy, nullable) NSString *logStreamingOption;
 
@@ -2436,6 +2458,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
+ *  The fully qualified resource name of the Repos API repository. Either URI or
+ *  repository can be specified. If unspecified, the repo from which the trigger
+ *  invocation originated is assumed to be the repo from which to read the
+ *  specified path.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
  *  See RepoType above.
  *
  *  Likely values:
@@ -2819,6 +2849,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *ref;
 
 /**
+ *  The connected repository resource name, in the format `projects/ *
+ *  /locations/ * /connections/ * /repositories/ *`. Either `uri` or
+ *  `repository` can be specified and is required.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
  *  See RepoType below.
  *
  *  Likely values:
@@ -2839,8 +2876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *repoType;
 
 /**
- *  The URI of the repo. Either uri or repository can be specified and is
- *  required.
+ *  The URI of the repo (e.g. https://github.com/user/repo.git). Either `uri` or
+ *  `repository` can be specified and is required.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2892,6 +2929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *    @arg @c kGTLRCloudBuild_Hash_Type_None No hash requested. (Value: "NONE")
  *    @arg @c kGTLRCloudBuild_Hash_Type_Sha256 Use a sha256 hash. (Value:
  *        "SHA256")
+ *    @arg @c kGTLRCloudBuild_Hash_Type_Sha512 Use a sha512 hash. (Value:
+ *        "SHA512")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3283,6 +3322,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *peeredNetworkIpRange;
+
+@end
+
+
+/**
+ *  Npm package to upload to Artifact Registry upon successful completion of all
+ *  build steps.
+ */
+@interface GTLRCloudBuild_NpmPackage : GTLRObject
+
+/** Path to the package.json. e.g. workspace/path/to/package */
+@property(nonatomic, copy, nullable) NSString *packagePath;
+
+/**
+ *  Artifact Registry repository, in the form
+ *  "https://$REGION-npm.pkg.dev/$PROJECT/$REPOSITORY" Npm package in the
+ *  workspace specified by path will be zipped and uploaded to Artifact Registry
+ *  with this location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
 
 @end
 
@@ -3767,6 +3826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 /** Maven artifacts uploaded to Artifact Registry at the end of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_UploadedMavenArtifact *> *mavenArtifacts;
 
+/** Npm packages uploaded to Artifact Registry at the end of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_UploadedNpmPackage *> *npmPackages;
+
 /**
  *  Number of non-container artifacts uploaded to Cloud Storage. Only populated
  *  when artifacts are uploaded to Cloud Storage.
@@ -3932,11 +3994,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *repoSource;
 
-/** If provided, get the source from this location in Google Cloud Storage. */
+/** If provided, get the source from this location in Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSource *storageSource;
 
 /**
- *  If provided, get the source from this manifest in Google Cloud Storage. This
+ *  If provided, get the source from this manifest in Cloud Storage. This
  *  feature is in Preview; see description
  *  [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
  */
@@ -4047,28 +4109,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
- *  Location of the source in an archive file in Google Cloud Storage.
+ *  Location of the source in an archive file in Cloud Storage.
  */
 @interface GTLRCloudBuild_StorageSource : GTLRObject
 
 /**
- *  Google Cloud Storage bucket containing the source (see [Bucket Name
+ *  Cloud Storage bucket containing the source (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  Google Cloud Storage generation for the object. If the generation is
- *  omitted, the latest generation will be used.
+ *  Cloud Storage generation for the object. If the generation is omitted, the
+ *  latest generation will be used.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Google Cloud Storage object containing the source. This object must be a
- *  zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to
- *  build.
+ *  Cloud Storage object containing the source. This object must be a zipped
+ *  (`.zip`) or gzipped archive file (`.tar.gz`) containing source to build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -4076,29 +4137,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
- *  Location of the source manifest in Google Cloud Storage. This feature is in
+ *  Location of the source manifest in Cloud Storage. This feature is in
  *  Preview; see description
  *  [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
  */
 @interface GTLRCloudBuild_StorageSourceManifest : GTLRObject
 
 /**
- *  Google Cloud Storage bucket containing the source manifest (see [Bucket Name
+ *  Cloud Storage bucket containing the source manifest (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  Google Cloud Storage generation for the object. If the generation is
- *  omitted, the latest generation will be used.
+ *  Cloud Storage generation for the object. If the generation is omitted, the
+ *  latest generation will be used.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Google Cloud Storage object containing the source manifest. This object must
- *  be a JSON file.
+ *  Cloud Storage object containing the source manifest. This object must be a
+ *  JSON file.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -4213,6 +4274,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pushTiming;
 
 /** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An npm package uploaded to Artifact Registry using the NpmPackage directive.
+ */
+@interface GTLRCloudBuild_UploadedNpmPackage : GTLRObject
+
+/** Hash types and values of the npm package. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pushTiming;
+
+/** URI of the uploaded npm package. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end

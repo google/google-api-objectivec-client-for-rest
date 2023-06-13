@@ -20,6 +20,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata_PhraseMatchers;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData_Metadata;
@@ -32,6 +33,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_TextSections;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
@@ -86,6 +90,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata_PhraseMatchers;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotationBoundary;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelector;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
@@ -104,6 +109,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_TextSections;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscript;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
@@ -174,6 +182,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig.summarizationModel
+
+/**
+ *  The Insights baseline model.
+ *
+ *  Value: "BASELINE_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel;
+/**
+ *  Unspecified summarization model.
+ *
+ *  Value: "SUMMARIZATION_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback.correctnessLevel
@@ -484,6 +508,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
+
+/**
+ *  The Insights baseline model.
+ *
+ *  Value: "BASELINE_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel;
+/**
+ *  Unspecified summarization model.
+ *
+ *  Value: "SUMMARIZATION_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback.correctnessLevel
@@ -1084,6 +1124,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *runSilenceAnnotator;
 
+/**
+ *  Whether to run the summarization annotator.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runSummarizationAnnotator;
+
+/** Configuration for the summarization annotator. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig *summarizationConfig;
+
+@end
+
+
+/**
+ *  Configuration for summarization.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig : GTLRObject
+
+/**
+ *  Resource name of the Dialogflow conversation profile. Format:
+ *  projects/{project}/locations/{location}/conversationProfiles/{conversation_profile}
+ */
+@property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  Default summarization model to be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
+ *        The Insights baseline model. (Value: "BASELINE_MODEL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
+ *        Unspecified summarization model. (Value:
+ *        "SUMMARIZATION_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *summarizationModel;
+
 @end
 
 
@@ -1365,6 +1441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Output only. The conversation's latest analysis, if one exists. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Analysis *latestAnalysis;
 
+/** Output only. Latest summary of the conversation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData *latestSummary;
+
 /**
  *  Immutable. The conversation medium, if unspecified will default to
  *  PHONE_CALL.
@@ -1548,6 +1627,76 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** A user-specified ID representing the participant. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
+@end
+
+
+/**
+ *  Conversation summarization suggestion data.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData : GTLRObject
+
+/**
+ *  The name of the answer record. Format:
+ *  projects/{project}/locations/{location}/answerRecords/{answer_record}
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The confidence score of the summarization.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The name of the model that generates this summary. Format:
+ *  projects/{project}/locations/{location}/conversationModels/{conversation_model}
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  A map that contains metadata about the summarization and the document from
+ *  which it originates.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_Metadata *metadata;
+
+/** The summarization content that is concatenated into one string. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  The summarization content that is divided into sections. The key is the
+ *  section's name and the value is the section's content. There is no specific
+ *  format for the key or value.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_TextSections *textSections;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the summarization and the document from
+ *  which it originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The summarization content that is divided into sections. The key is the
+ *  section's name and the value is the section's content. There is no specific
+ *  format for the key or value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_TextSections : GTLRObject
 @end
 
 
@@ -2592,6 +2741,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Agent Assist Article Suggestion data. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData *articleSuggestion;
 
+/** Conversation summarization suggestion data. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData *conversationSummarizationSuggestion;
+
 /** The time at which this annotation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3038,6 +3190,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *runSilenceAnnotator;
+
+/**
+ *  Whether to run the summarization annotator.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runSummarizationAnnotator;
+
+/** Configuration for the summarization annotator. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig *summarizationConfig;
+
+@end
+
+
+/**
+ *  Configuration for summarization.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig : GTLRObject
+
+/**
+ *  Resource name of the Dialogflow conversation profile. Format:
+ *  projects/{project}/locations/{location}/conversationProfiles/{conversation_profile}
+ */
+@property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  Default summarization model to be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
+ *        The Insights baseline model. (Value: "BASELINE_MODEL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
+ *        Unspecified summarization model. (Value:
+ *        "SUMMARIZATION_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *summarizationModel;
 
 @end
 
@@ -3487,6 +3675,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Output only. The conversation's latest analysis, if one exists. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *latestAnalysis;
 
+/** Output only. Latest summary of the conversation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData *latestSummary;
+
 /**
  *  Immutable. The conversation medium, if unspecified will default to
  *  PHONE_CALL.
@@ -3670,6 +3861,76 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** A user-specified ID representing the participant. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
+@end
+
+
+/**
+ *  Conversation summarization suggestion data.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData : GTLRObject
+
+/**
+ *  The name of the answer record. Format:
+ *  projects/{project}/locations/{location}/answerRecords/{answer_record}
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The confidence score of the summarization.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The name of the model that generates this summary. Format:
+ *  projects/{project}/locations/{location}/conversationModels/{conversation_model}
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  A map that contains metadata about the summarization and the document from
+ *  which it originates.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_Metadata *metadata;
+
+/** The summarization content that is concatenated into one string. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  The summarization content that is divided into sections. The key is the
+ *  section's name and the value is the section's content. There is no specific
+ *  format for the key or value.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_TextSections *textSections;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the summarization and the document from
+ *  which it originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The summarization content that is divided into sections. The key is the
+ *  section's name and the value is the section's content. There is no specific
+ *  format for the key or value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_TextSections : GTLRObject
 @end
 
 
@@ -4986,7 +5247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup : GTLRObject
 
-/** A list of phase match rules that are included in this group. */
+/** A list of phrase match rules that are included in this group. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRule *> *phraseMatchRules;
 
 /**
@@ -5043,6 +5304,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Agent Assist Article Suggestion data. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData *articleSuggestion;
+
+/** Conversation summarization suggestion data. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData *conversationSummarizationSuggestion;
 
 /** The time at which this annotation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

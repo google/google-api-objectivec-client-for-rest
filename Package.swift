@@ -630,6 +630,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_GKEHub"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_GKEOnPrem",
+            targets: ["GoogleAPIClientForREST_GKEOnPrem"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Gmail",
             targets: ["GoogleAPIClientForREST_Gmail"]
         ),
@@ -2014,6 +2018,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_GKEHub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/GKEHub",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_GKEOnPrem",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/GKEOnPrem",
             publicHeadersPath: "Public"
         ),
         .target(

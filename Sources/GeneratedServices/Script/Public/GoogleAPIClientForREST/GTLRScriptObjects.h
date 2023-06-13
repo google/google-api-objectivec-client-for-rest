@@ -289,6 +289,28 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_Proce
 FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Webapp;
 
 // ----------------------------------------------------------------------------
+// GTLRScript_GoogleAppsScriptTypeProcess.runtimeVersion
+
+/**
+ *  Legacy rhino version of the Apps script runtime
+ *
+ *  Value: "DEPRECATED_ES5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_DeprecatedEs5;
+/**
+ *  Runtime version unset / unknown.
+ *
+ *  Value: "RUNTIME_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_RuntimeVersionUnspecified;
+/**
+ *  Current default V8 version of the apps script runtime.
+ *
+ *  Value: "V8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_V8;
+
+// ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeProcess.userAccessLevel
 
 /**
@@ -880,6 +902,21 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /** Name of the script being executed. */
 @property(nonatomic, copy, nullable) NSString *projectName;
+
+/**
+ *  Which version of maestro to use to execute the script.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_DeprecatedEs5
+ *        Legacy rhino version of the Apps script runtime (Value:
+ *        "DEPRECATED_ES5")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_RuntimeVersionUnspecified
+ *        Runtime version unset / unknown. (Value:
+ *        "RUNTIME_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_RuntimeVersion_V8 Current
+ *        default V8 version of the apps script runtime. (Value: "V8")
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 /** Time the execution started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;

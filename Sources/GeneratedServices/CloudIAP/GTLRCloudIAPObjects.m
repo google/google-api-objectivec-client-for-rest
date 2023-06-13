@@ -455,3 +455,12 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 }
 
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_ValidateIapAttributeExpressionResponse
+//
+
+@implementation GTLRCloudIAP_ValidateIapAttributeExpressionResponse
+@end

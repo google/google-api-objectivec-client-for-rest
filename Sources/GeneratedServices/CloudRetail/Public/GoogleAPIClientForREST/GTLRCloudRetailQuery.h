@@ -179,8 +179,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  It is recommended to use the ProductService.AddLocalInventories method
- *  instead of ProductService.AddFulfillmentPlaces.
+ *  We recommend that you use the ProductService.AddLocalInventories method
+ *  instead of the ProductService.AddFulfillmentPlaces method.
  *  ProductService.AddLocalInventories achieves the same results but provides
  *  more fine-grained control over ingesting local inventory data. Incrementally
  *  adds place IDs to Product.fulfillment_info.place_ids. This process is
@@ -212,8 +212,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  It is recommended to use the ProductService.AddLocalInventories method
- *  instead of ProductService.AddFulfillmentPlaces.
+ *  We recommend that you use the ProductService.AddLocalInventories method
+ *  instead of the ProductService.AddFulfillmentPlaces method.
  *  ProductService.AddLocalInventories achieves the same results but provides
  *  more fine-grained control over ingesting local inventory data. Incrementally
  *  adds place IDs to Product.fulfillment_info.place_ids. This process is
@@ -609,8 +609,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  It is recommended to use the ProductService.RemoveLocalInventories method
- *  instead of ProductService.RemoveFulfillmentPlaces.
+ *  Permanently deletes all selected Products under a branch. This process is
+ *  asynchronous. If the request is valid, the removal will be enqueued and
+ *  processed offline. Depending on the number of Products, this operation could
+ *  take hours to complete. Before the operation completes, some Products may
+ *  still be returned by ProductService.GetProduct or
+ *  ProductService.ListProducts. Depending on the number of Products, this
+ *  operation could take hours to complete. To get a sample of Products that
+ *  would be deleted, set PurgeProductsRequest.force to false.
+ *
+ *  Method: retail.projects.locations.catalogs.branches.products.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsPurge : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the branch under which the products are
+ *  created. The format is
+ *  `projects/${projectId}/locations/global/catalogs/${catalogId}/branches/${branchId}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all selected Products under a branch. This process is
+ *  asynchronous. If the request is valid, the removal will be enqueued and
+ *  processed offline. Depending on the number of Products, this operation could
+ *  take hours to complete. Before the operation completes, some Products may
+ *  still be returned by ProductService.GetProduct or
+ *  ProductService.ListProducts. Depending on the number of Products, this
+ *  operation could take hours to complete. To get a sample of Products that
+ *  would be deleted, set PurgeProductsRequest.force to false.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsRequest
+ *    to include in the query.
+ *  @param parent Required. The resource name of the branch under which the
+ *    products are created. The format is
+ *    `projects/${projectId}/locations/global/catalogs/${catalogId}/branches/${branchId}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsPurge
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  We recommend that you use the ProductService.RemoveLocalInventories method
+ *  instead of the ProductService.RemoveFulfillmentPlaces method.
  *  ProductService.RemoveLocalInventories achieves the same results but provides
  *  more fine-grained control over ingesting local inventory data. Incrementally
  *  removes place IDs from a Product.fulfillment_info.place_ids. This process is
@@ -642,8 +691,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  It is recommended to use the ProductService.RemoveLocalInventories method
- *  instead of ProductService.RemoveFulfillmentPlaces.
+ *  We recommend that you use the ProductService.RemoveLocalInventories method
+ *  instead of the ProductService.RemoveFulfillmentPlaces method.
  *  ProductService.RemoveLocalInventories achieves the same results but provides
  *  more fine-grained control over ingesting local inventory data. Incrementally
  *  removes place IDs from a Product.fulfillment_info.place_ids. This process is
@@ -847,10 +896,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deviceType;
 
 /**
- *  The entity for customers that may run multiple different entities, domains,
- *  sites or regions, for example, "Google US", "Google Ads", "Waymo",
- *  "google.com", "youtube.com", etc. If this is set, it should be exactly
- *  matched with UserEvent.entity to get per-entity autocomplete results.
+ *  The entity for customers who run multiple entities, domains, sites, or
+ *  regions, for example, `Google US`, `Google Ads`, `Waymo`, `google.com`,
+ *  `youtube.com`, etc. If this is set, it must be an exact match with
+ *  UserEvent.entity to get per-entity autocomplete results.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
@@ -1775,7 +1824,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  or the name of the legacy placement resource, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/placements/default_search`. This
  *  field is used to identify the serving config name and the set of models that
- *  will be used to make the search.
+ *  are used to make the search.
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
@@ -1794,7 +1843,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    or the name of the legacy placement resource, such as `projects/ *
  *    /locations/global/catalogs/default_catalog/placements/default_search`.
  *    This field is used to identify the serving config name and the set of
- *    models that will be used to make the search.
+ *    models that are used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsSearch
  */
@@ -2154,7 +2203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  or the name of the legacy placement resource, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/placements/default_search`. This
  *  field is used to identify the serving config name and the set of models that
- *  will be used to make the search.
+ *  are used to make the search.
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
@@ -2173,7 +2222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    or the name of the legacy placement resource, such as `projects/ *
  *    /locations/global/catalogs/default_catalog/placements/default_search`.
  *    This field is used to identify the serving config name and the set of
- *    models that will be used to make the search.
+ *    models that are used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch
  */

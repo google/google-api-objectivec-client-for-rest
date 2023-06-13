@@ -197,6 +197,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Moderates a document for harmful and sensitive categories.
+ *
+ *  Method: language.documents.moderateText
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
+ *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
+ */
+@interface GTLRCloudNaturalLanguageQuery_DocumentsModerateText : GTLRCloudNaturalLanguageQuery
+
+/**
+ *  Fetches a @c GTLRCloudNaturalLanguage_ModerateTextResponse.
+ *
+ *  Moderates a document for harmful and sensitive categories.
+ *
+ *  @param object The @c GTLRCloudNaturalLanguage_ModerateTextRequest to include
+ *    in the query.
+ *
+ *  @return GTLRCloudNaturalLanguageQuery_DocumentsModerateText
+ */
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_ModerateTextRequest *)object;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

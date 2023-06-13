@@ -520,10 +520,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Optional. The filter expression. For example: `imagery_type=SPHERICAL`. The
  *  filters supported are: `imagery_type`, `processing_state`, `min_latitude`,
- *  `max_latitude`, `min_longitude`, `max_longitude`, and `filename_query`. See
+ *  `max_latitude`, `min_longitude`, `max_longitude`, `filename_query`,
+ *  `min_capture_time_seconds`, and `max_capture_time_seconds`. See
  *  https://google.aip.dev/160 for more information. Filename queries should
- *  sent as a Phrase in order to support multple words and special characters by
- *  adding escaped quotes. Ex: filename_query="example of a phrase.mp4"
+ *  sent as a Phrase in order to support multiple words and special characters
+ *  by adding escaped quotes. Ex: filename_query="example of a phrase.mp4"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -601,7 +602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Optional. The filter expression. For example:
  *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The filters supported are: `placeId`,
- *  `min_latitude`, `max_latitude`, `min_longitude`, and `max_longitude`. See
+ *  `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`. See
  *  https://google.aip.dev/160 for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;

@@ -11,16 +11,86 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRNetworkSecurity_AddressGroup.type
+NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv4   = @"IPV4";
+NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv6   = @"IPV6";
+NSString * const kGTLRNetworkSecurity_AddressGroup_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRNetworkSecurity_AuthorizationPolicy.action
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Allow = @"ALLOW";
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Deny = @"DENY";
+
+// GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile
+NSString * const kGTLRNetworkSecurity_GatewaySecurityPolicyRule_BasicProfile_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_GatewaySecurityPolicyRule_BasicProfile_BasicProfileUnspecified = @"BASIC_PROFILE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_GatewaySecurityPolicyRule_BasicProfile_Deny = @"DENY";
 
 // GTLRNetworkSecurity_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_MTLSPolicy.clientValidationMode
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInvalidOrMissingClientCert = @"ALLOW_INVALID_OR_MISSING_CLIENT_CERT";
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientValidationModeUnspecified = @"CLIENT_VALIDATION_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AddAddressGroupItemsRequest
+//
+
+@implementation GTLRNetworkSecurity_AddAddressGroupItemsRequest
+@dynamic items, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AddressGroup
+//
+
+@implementation GTLRNetworkSecurity_AddressGroup
+@dynamic capacity, createTime, descriptionProperty, items, labels, name,
+         selfLink, type, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AddressGroup_Labels
+//
+
+@implementation GTLRNetworkSecurity_AddressGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -117,6 +187,16 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_CloneAddressGroupItemsRequest
+//
+
+@implementation GTLRNetworkSecurity_CloneAddressGroupItemsRequest
+@dynamic requestId, sourceAddressGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_Destination
 //
 
@@ -151,6 +231,38 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 @implementation GTLRNetworkSecurity_Expr
 @dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_GatewaySecurityPolicy
+//
+
+@implementation GTLRNetworkSecurity_GatewaySecurityPolicy
+@dynamic createTime, descriptionProperty, name, tlsInspectionPolicy, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_GatewaySecurityPolicyRule
+//
+
+@implementation GTLRNetworkSecurity_GatewaySecurityPolicyRule
+@dynamic applicationMatcher, basicProfile, createTime, descriptionProperty,
+         enabled, name, priority, sessionMatcher, tlsInspectionEnabled,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -314,6 +426,60 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_ListAddressGroupReferencesResponse
+//
+
+@implementation GTLRNetworkSecurity_ListAddressGroupReferencesResponse
+@dynamic addressGroupReferences, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressGroupReferences" : [GTLRNetworkSecurity_ListAddressGroupReferencesResponseAddressGroupReference class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"addressGroupReferences";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListAddressGroupReferencesResponseAddressGroupReference
+//
+
+@implementation GTLRNetworkSecurity_ListAddressGroupReferencesResponseAddressGroupReference
+@dynamic firewallPolicy, rulePriority;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListAddressGroupsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListAddressGroupsResponse
+@dynamic addressGroups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressGroups" : [GTLRNetworkSecurity_AddressGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"addressGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_ListAuthorizationPoliciesResponse
 //
 
@@ -351,6 +517,52 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 + (NSString *)collectionItemsKey {
   return @"clientTlsPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListGatewaySecurityPoliciesResponse
+//
+
+@implementation GTLRNetworkSecurity_ListGatewaySecurityPoliciesResponse
+@dynamic gatewaySecurityPolicies, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gatewaySecurityPolicies" : [GTLRNetworkSecurity_GatewaySecurityPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gatewaySecurityPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListGatewaySecurityPolicyRulesResponse
+//
+
+@implementation GTLRNetworkSecurity_ListGatewaySecurityPolicyRulesResponse
+@dynamic gatewaySecurityPolicyRules, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gatewaySecurityPolicyRules" : [GTLRNetworkSecurity_GatewaySecurityPolicyRule class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gatewaySecurityPolicyRules";
 }
 
 @end
@@ -424,6 +636,52 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_ListTlsInspectionPoliciesResponse
+//
+
+@implementation GTLRNetworkSecurity_ListTlsInspectionPoliciesResponse
+@dynamic nextPageToken, tlsInspectionPolicies, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tlsInspectionPolicies" : [GTLRNetworkSecurity_TlsInspectionPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tlsInspectionPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListUrlListsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListUrlListsResponse
+@dynamic nextPageToken, unreachable, urlLists;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"urlLists" : [GTLRNetworkSecurity_UrlList class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"urlLists";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_Location
 //
 
@@ -466,7 +724,7 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRNetworkSecurity_MTLSPolicy
-@dynamic clientValidationCa;
+@dynamic clientValidationCa, clientValidationMode, clientValidationTrustConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -524,6 +782,24 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 @implementation GTLRNetworkSecurity_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_RemoveAddressGroupItemsRequest
+//
+
+@implementation GTLRNetworkSecurity_RemoveAddressGroupItemsRequest
+@dynamic items, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -622,6 +898,43 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_TlsInspectionPolicy
+//
+
+@implementation GTLRNetworkSecurity_TlsInspectionPolicy
+@dynamic caPool, createTime, descriptionProperty, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_UrlList
+//
+
+@implementation GTLRNetworkSecurity_UrlList
+@dynamic createTime, descriptionProperty, name, updateTime, values;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
 }
 
 @end

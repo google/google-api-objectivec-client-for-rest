@@ -787,6 +787,52 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_Romanization
+//
+
+@implementation GTLRTranslate_Romanization
+@dynamic detectedLanguageCode, romanizedText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_RomanizeTextRequest
+//
+
+@implementation GTLRTranslate_RomanizeTextRequest
+@dynamic contents, sourceLanguageCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_RomanizeTextResponse
+//
+
+@implementation GTLRTranslate_RomanizeTextResponse
+@dynamic romanizations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"romanizations" : [GTLRTranslate_Romanization class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_Status
 //
 
@@ -862,7 +908,7 @@
 
 @implementation GTLRTranslate_TextRequest
 @dynamic contents, glossaryConfig, labels, mimeType, model, sourceLanguageCode,
-         targetLanguageCode;
+         targetLanguageCode, transliterationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -914,6 +960,16 @@
 
 @implementation GTLRTranslate_Translation
 @dynamic detectedLanguageCode, glossaryConfig, model, translatedText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_TransliterationConfig
+//
+
+@implementation GTLRTranslate_TransliterationConfig
+@dynamic enableTransliteration;
 @end
 
 

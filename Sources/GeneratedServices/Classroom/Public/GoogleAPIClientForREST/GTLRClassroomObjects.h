@@ -875,8 +875,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 /**
  *  The Calendar ID for a calendar that all course members can see, to which
- *  Classroom adds events for course work and announcements in the course.
- *  Read-only.
+ *  Classroom adds events for course work and announcements in the course. The
+ *  Calendar for a course is created asynchronously when the course is set to
+ *  `CourseState.ACTIVE` for the first time (at creation time or when it is
+ *  updated to `ACTIVE` through the UI or the API). The Calendar ID will not be
+ *  populated until the creation process is completed. Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *calendarId;
 

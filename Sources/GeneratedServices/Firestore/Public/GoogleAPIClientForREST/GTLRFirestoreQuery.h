@@ -35,6 +35,182 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a backup schedule on a database. At most two backup schedules can be
+ *  configured on a database, one daily backup schedule with retention up to 7
+ *  days and one weekly backup schedule with retention up to 14 weeks.
+ *
+ *  Method: firestore.projects.databases.backupSchedules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesCreate : GTLRFirestoreQuery
+
+/**
+ *  Required. The parent database. Format
+ *  `projects/{project}/databases/{database}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule.
+ *
+ *  Creates a backup schedule on a database. At most two backup schedules can be
+ *  configured on a database, one daily backup schedule with retention up to 7
+ *  days and one weekly backup schedule with retention up to 14 weeks.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule to
+ *    include in the query.
+ *  @param parent Required. The parent database. Format
+ *    `projects/{project}/databases/{database}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a backup schedule.
+ *
+ *  Method: firestore.projects.databases.backupSchedules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete : GTLRFirestoreQuery
+
+/**
+ *  Required. The name of backup schedule. Format
+ *  `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_Empty.
+ *
+ *  Deletes a backup schedule.
+ *
+ *  @param name Required. The name of backup schedule. Format
+ *    `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a backup schedule.
+ *
+ *  Method: firestore.projects.databases.backupSchedules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesGet : GTLRFirestoreQuery
+
+/**
+ *  Required. The name of the backup schedule. Format
+ *  `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule.
+ *
+ *  Gets information about a backup schedule.
+ *
+ *  @param name Required. The name of the backup schedule. Format
+ *    `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List backup schedules.
+ *
+ *  Method: firestore.projects.databases.backupSchedules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesList : GTLRFirestoreQuery
+
+/**
+ *  Required. The parent database. Format is
+ *  `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirestore_GoogleFirestoreAdminV1ListBackupSchedulesResponse.
+ *
+ *  List backup schedules.
+ *
+ *  @param parent Required. The parent database. Format is
+ *    `projects/{project}/databases/{database}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a backup schedule.
+ *
+ *  Method: firestore.projects.databases.backupSchedules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesPatch : GTLRFirestoreQuery
+
+/**
+ *  Output only. The unique backup schedule identifier across all locations and
+ *  databases for the given project. This will be auto-assigned. Format is
+ *  `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule.
+ *
+ *  Updates a backup schedule.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule to
+ *    include in the query.
+ *  @param name Output only. The unique backup schedule identifier across all
+ *    locations and databases for the given project. This will be auto-assigned.
+ *    Format is
+ *    `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the metadata and configuration for a Field.
  *
  *  Method: firestore.projects.databases.collectionGroups.fields.get
@@ -1627,6 +1803,158 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Database *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new database by restore from an existing backup. The new database
+ *  must be in the same cloud region or multi-region location as the existing
+ *  backup. This behaves similar to FirestoreAdmin.CreateDatabase except instead
+ *  of creating a new empty database, a new database is created with the
+ *  database type, index configuration, and documents from an existing backup.
+ *  The long-running operation can be used to track the progress of the restore,
+ *  with the Operation's metadata field type being the RestoreDatabaseMetadata.
+ *  The response type is the Database if the restore was successful. The new
+ *  database is not readable or writeable until the LRO has completed.
+ *  Cancelling the returned operation will stop the restore and delete the
+ *  in-progress database, if the restore is still active.
+ *
+ *  Method: firestore.projects.databases.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesRestore : GTLRFirestoreQuery
+
+/**
+ *  Required. The project to restore the database in. Format is
+ *  `projects/{project_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
+ *
+ *  Create a new database by restore from an existing backup. The new database
+ *  must be in the same cloud region or multi-region location as the existing
+ *  backup. This behaves similar to FirestoreAdmin.CreateDatabase except instead
+ *  of creating a new empty database, a new database is created with the
+ *  database type, index configuration, and documents from an existing backup.
+ *  The long-running operation can be used to track the progress of the restore,
+ *  with the Operation's metadata field type being the RestoreDatabaseMetadata.
+ *  The response type is the Database if the restore was successful. The new
+ *  database is not readable or writeable until the LRO has completed.
+ *  Cancelling the returned operation will stop the restore and delete the
+ *  in-progress database, if the restore is still active.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest to include in
+ *    the query.
+ *  @param parent Required. The project to restore the database in. Format is
+ *    `projects/{project_id}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesRestore
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a backup.
+ *
+ *  Method: firestore.projects.locations.backups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsLocationsBackupsDelete : GTLRFirestoreQuery
+
+/**
+ *  Required. Name of the backup to delete. format is
+ *  `projects/{project}/locations/{location}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_Empty.
+ *
+ *  Deletes a backup.
+ *
+ *  @param name Required. Name of the backup to delete. format is
+ *    `projects/{project}/locations/{location}/backups/{backup}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsLocationsBackupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a backup.
+ *
+ *  Method: firestore.projects.locations.backups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsLocationsBackupsGet : GTLRFirestoreQuery
+
+/**
+ *  Required. Name of the backup to fetch. Format is
+ *  `projects/{project}/locations/{location}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1Backup.
+ *
+ *  Gets information about a backup.
+ *
+ *  @param name Required. Name of the backup to fetch. Format is
+ *    `projects/{project}/locations/{location}/backups/{backup}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsLocationsBackupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the backups.
+ *
+ *  Method: firestore.projects.locations.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsLocationsBackupsList : GTLRFirestoreQuery
+
+/**
+ *  Required. The location to list backups from. Format is
+ *  `projects/{project}/locations/{location}`. Use `{location} = '-'` to list
+ *  backups from all locations for the given project. This allows listing
+ *  backups from a single location or from all locations.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse.
+ *
+ *  Lists all the backups.
+ *
+ *  @param parent Required. The location to list backups from. Format is
+ *    `projects/{project}/locations/{location}`. Use `{location} = '-'` to list
+ *    backups from all locations for the given project. This allows listing
+ *    backups from a single location or from all locations.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsLocationsBackupsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

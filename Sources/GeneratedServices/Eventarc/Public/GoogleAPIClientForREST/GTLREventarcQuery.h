@@ -316,7 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the review, but do not
  *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -350,7 +350,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the review, but do not
  *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -522,7 +522,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Required. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the review, but do not
  *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -972,7 +972,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
- *  Required. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the review, but do not
  *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1018,7 +1018,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the review, but do not
  *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1203,7 +1203,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Required. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the review, but do not
  *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;

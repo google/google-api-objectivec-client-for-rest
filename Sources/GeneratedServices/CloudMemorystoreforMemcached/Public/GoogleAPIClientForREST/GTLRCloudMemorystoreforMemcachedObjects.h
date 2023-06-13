@@ -129,7 +129,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloud
  *  Value: "MEMCACHE_1_5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15;
-/** Value: "MEMCACHE_VERSION_UNSPECIFIED" */
+/**
+ *  Memcache version is not specified by customer
+ *
+ *  Value: "MEMCACHE_VERSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_MemcacheVersionUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1218,7 +1222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15
  *        Memcached 1.5 version. (Value: "MEMCACHE_1_5")
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_MemcacheVersionUnspecified
- *        Value "MEMCACHE_VERSION_UNSPECIFIED"
+ *        Memcache version is not specified by customer (Value:
+ *        "MEMCACHE_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *memcacheVersion;
 
@@ -1399,7 +1404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudMemorystoreforMemcached_Location : GTLRObject
 

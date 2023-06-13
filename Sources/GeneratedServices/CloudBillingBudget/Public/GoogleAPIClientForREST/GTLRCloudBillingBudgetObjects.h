@@ -303,6 +303,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
 
 /**
+ *  Optional. A set of folder and organization names of the form
+ *  `folders/{folderId}` or `organizations/{organizationId}`, specifying that
+ *  usage from only this set of folders and organizations should be included in
+ *  the budget. If omitted, the report includes all usage for all organizations,
+ *  regardless of which organization the usage occurred on.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceAncestors;
+
+/**
  *  Optional. A set of services of the form `services/{service_id}`, specifying
  *  that usage from only this set of services should be included in the budget.
  *  If omitted, the report includes usage for all the services. The service

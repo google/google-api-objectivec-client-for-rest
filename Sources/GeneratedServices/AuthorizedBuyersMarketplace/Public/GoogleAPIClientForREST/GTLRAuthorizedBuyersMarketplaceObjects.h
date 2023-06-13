@@ -2419,7 +2419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_Price *fixedPrice;
 
 /**
- *  Count of guaranteed looks.
+ *  Count of guaranteed looks. For CPD deals, buyer changes to guaranteed_looks
+ *  will be ignored.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2434,7 +2435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, strong, nullable) NSNumber *impressionCap;
 
 /**
- *  Daily minimum looks for CPD deal types.
+ *  Daily minimum looks for CPD deal types. For CPD deals, buyer should
+ *  negotiate on this field instead of guaranteed_looks.
  *
  *  Uses NSNumber of longLongValue.
  */

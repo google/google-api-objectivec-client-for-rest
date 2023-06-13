@@ -164,6 +164,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_CloudDlpDataProfile.parentType
+
+/**
+ *  Organization-level configurations.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Organization;
+/**
+ *  Unspecified parent type.
+ *
+ *  Value: "PARENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_ParentTypeUnspecified;
+/**
+ *  Project-level configurations.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Project;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Connection.protocol
 
 /**
@@ -514,9 +536,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Unmut
  *  external actor, exploitable, and results in the direct ability to execute
  *  arbitrary code, exfiltrate data, and otherwise gain additional access and
  *  privileges to cloud resources and workloads. Examples include publicly
- *  accessible unprotected user data, public SSH access with weak or no
- *  passwords, etc. Threat: Indicates a threat that is able to access, modify,
- *  or delete data or execute unauthorized code within existing resources.
+ *  accessible unprotected user data and public SSH access with weak or no
+ *  passwords. Threat: Indicates a threat that is able to access, modify, or
+ *  delete data or execute unauthorized code within existing resources.
  *
  *  Value: "CRITICAL"
  */
@@ -1626,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_AuthT
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Group;
 /**
- *  Users managed by Kubernetes API with credentials stored as Secrets.
+ *  Users managed by Kubernetes API with credentials stored as secrets.
  *
  *  Value: "SERVICEACCOUNT"
  */
@@ -1654,8 +1676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /**
  *  Associated email, such as "foo\@google.com". The email address of the
- *  authenticated user (or service account on behalf of third party principal)
- *  making the request. For third party identity callers, the
+ *  authenticated user or a service account acting on behalf of a third party
+ *  principal making the request. For third party identity callers, the
  *  `principal_subject` field is populated instead of this field. For privacy
  *  reasons, the principal email address is sometimes redacted. For more
  *  information, see [Caller identities in audit
@@ -1664,30 +1686,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 /**
- *  A string representing the principal_subject associated with the identity. As
- *  compared to `principal_email`, supports principals that aren't associated
- *  with email addresses, such as third party principals. For most identities,
- *  the format will be `principal://iam.googleapis.com/{identity pool
- *  name}/subjects/{subject}` except for some GKE identities (GKE_WORKLOAD,
- *  FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format
- *  `serviceAccount:{identity pool name}[{subject}]`
+ *  A string that represents the principal_subject that is associated with the
+ *  identity. Unlike `principal_email`, `principal_subject` supports principals
+ *  that aren't associated with email addresses, such as third party principals.
+ *  For most identities, the format is `principal://iam.googleapis.com/{identity
+ *  pool name}/subject/{subject}`. Some GKE identities, such as GKE_WORKLOAD,
+ *  FREEFORM, and GKE_HUB_WORKLOAD, still use the legacy format
+ *  `serviceAccount:{identity pool name}[{subject}]`.
  */
 @property(nonatomic, copy, nullable) NSString *principalSubject;
 
 /**
- *  Identity delegation history of an authenticated service account that makes
- *  the request. It contains information on the real authorities that try to
- *  access GCP resources by delegating on a service account. When multiple
- *  authorities are present, they are guaranteed to be sorted based on the
- *  original ordering of the identity delegation events.
+ *  The identity delegation history of an authenticated service account that
+ *  made the request. The `serviceAccountDelegationInfo[]` object contains
+ *  information about the real authorities that try to access Google Cloud
+ *  resources by delegating on a service account. When multiple authorities are
+ *  present, they are guaranteed to be sorted based on the original ordering of
+ *  the identity delegation events.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ServiceAccountDelegationInfo *> *serviceAccountDelegationInfo;
 
 /**
- *  The name of the service account key used to create or exchange credentials
- *  for authenticating the service account making the request. This is a
- *  scheme-less URI full resource name. For example:
- *  "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}"
+ *  The name of the service account key that was used to create or exchange
+ *  credentials when authenticating the service account that made the request.
+ *  This is a scheme-less URI full resource name. For example:
+ *  "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}".
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountKeyName;
 
@@ -1697,19 +1720,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
+/** The caller's user agent string associated with the finding. */
+@property(nonatomic, copy, nullable) NSString *userAgent;
+
 /**
- *  What kind of user agent is associated, for example operating system shells,
- *  embedded or stand-alone applications, etc.
+ *  Type of user agent associated with the finding. For example, an operating
+ *  system shell or an embedded or standalone application.
  */
 @property(nonatomic, copy, nullable) NSString *userAgentFamily;
 
 /**
- *  A string that represents the username of a user, user account, or other
- *  entity involved in the access event. What the entity is and what its role in
- *  the access event is depends on the finding that this field appears in. The
- *  entity is likely not an IAM principal, but could be a user that is logged
- *  into an operating system, if the finding is VM-related, or a user that is
- *  logged into some type of application that is involved in the access event.
+ *  A string that represents a username. The username provided depends on the
+ *  type of the finding and is likely not an IAM principal. For example, this
+ *  can be a system username if the finding is related to a virtual machine, or
+ *  it can be an application login username.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
 
@@ -1717,15 +1741,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Conveys information about a Kubernetes access review (e.g. kubectl auth
- *  can-i ...) that was involved in a finding.
+ *  Conveys information about a Kubernetes access review (such as one returned
+ *  by a [`kubectl auth
+ *  can-i`](https://kubernetes.io/docs/reference/access-authn-authz/authorization/#checking-api-access)
+ *  command) that was involved in a finding.
  */
 @interface GTLRSecurityCommandCenter_AccessReview : GTLRObject
 
-/** Group is the API Group of the Resource. "*" means all. */
+/** The API group of the resource. "*" means all. */
 @property(nonatomic, copy, nullable) NSString *group;
 
-/** Name is the name of the resource being requested. Empty means all. */
+/** The name of the resource being requested. Empty means all. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1734,19 +1760,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *ns;
 
-/** Resource is the optional resource type requested. "*" means all. */
+/** The optional resource type requested. "*" means all. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
-/** Subresource is the optional subresource type. */
+/** The optional subresource type. */
 @property(nonatomic, copy, nullable) NSString *subresource;
 
 /**
- *  Verb is a Kubernetes resource API verb, like: get, list, watch, create,
- *  update, delete, proxy. "*" means all.
+ *  A Kubernetes resource API verb, like get, list, watch, create, update,
+ *  delete, proxy. "*" means all.
  */
 @property(nonatomic, copy, nullable) NSString *verb;
 
-/** Version is the API Version of the Resource. "*" means all. */
+/** The API version of the resource. "*" means all. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -2031,6 +2057,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *dataProfile;
 
+/**
+ *  The resource hierarchy level at which the data profile was generated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Organization
+ *        Organization-level configurations. (Value: "ORGANIZATION")
+ *    @arg @c kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_ParentTypeUnspecified
+ *        Unspecified parent type. (Value: "PARENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Project
+ *        Project-level configurations. (Value: "PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *parentType;
+
 @end
 
 
@@ -2049,8 +2088,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) NSNumber *fullScan;
 
 /**
- *  The [type of
- *  information](https://cloud.google.com/dlp/docs/infotypes-reference) found,
+ *  The type of information (or
+ *  *[infoType](https://cloud.google.com/dlp/docs/infotypes-reference)*) found,
  *  for example, `EMAIL_ADDRESS` or `STREET_ADDRESS`.
  */
 @property(nonatomic, copy, nullable) NSString *infoType;
@@ -2078,16 +2117,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @interface GTLRSecurityCommandCenter_Compliance : GTLRObject
 
-/** Policies within the standard/benchmark e.g. A.12.4.1 */
+/** Policies within the standard or benchmark, for example, A.12.4.1 */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
 
 /**
- *  Refers to industry wide standards or benchmarks e.g. "cis", "pci", "owasp",
- *  etc.
+ *  Industry-wide compliance standards or benchmarks, such as CIS, PCI, and
+ *  OWASP.
  */
 @property(nonatomic, copy, nullable) NSString *standard;
 
-/** Version of the standard/benchmark e.g. 1.1 */
+/** Version of the standard or benchmark, for example, 1.1 */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -2156,7 +2195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  The details pertaining to specific contacts
+ *  Details about specific contacts
  */
 @interface GTLRSecurityCommandCenter_ContactDetails : GTLRObject
 
@@ -2172,21 +2211,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @interface GTLRSecurityCommandCenter_Container : GTLRObject
 
 /**
- *  Optional container image id, when provided by the container runtime.
- *  Uniquely identifies the container image launched using a container image
- *  digest.
+ *  Optional container image ID, if provided by the container runtime. Uniquely
+ *  identifies the container image launched using a container image digest.
  */
 @property(nonatomic, copy, nullable) NSString *imageId;
 
 /** Container labels, as provided by the container runtime. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Label *> *labels;
 
-/** Container name. */
+/** Name of the container. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Container image URI provided when configuring a pod/container. May identify
- *  a container image version using mutable tags.
+ *  Container image URI provided when configuring a pod or container. This
+ *  string can identify a container image version using mutable tags.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2401,35 +2439,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /**
  *  Represents database access information, such as queries. A database may be a
- *  sub-resource of an instance (as in the case of CloudSQL instances or Cloud
+ *  sub-resource of an instance (as in the case of Cloud SQL instances or Cloud
  *  Spanner instances), or the database instance itself. Some database resources
- *  may not have the full resource name populated because these resource types
- *  are not yet supported by Cloud Asset Inventory (e.g. CloudSQL databases). In
- *  these cases only the display name will be provided.
+ *  might not have the [full resource
+ *  name](https://google.aip.dev/122#full-resource-names) populated because
+ *  these resource types, such as Cloud SQL databases, are not yet supported by
+ *  Cloud Asset Inventory. In these cases only the display name is provided.
+ *  Some database resources may not have the [full resource
+ *  name](https://google.aip.dev/122#full-resource-names) populated because
+ *  these resource types are not yet supported by Cloud Asset Inventory (e.g.
+ *  Cloud SQL databases). In these cases only the display name will be provided.
  */
 @interface GTLRSecurityCommandCenter_Database : GTLRObject
 
-/** The human readable name of the database the user connected to. */
+/** The human-readable name of the database that the user connected to. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The target usernames/roles/groups of a SQL privilege grant (not an IAM
- *  policy change).
+ *  The target usernames, roles, or groups of an SQL privilege grant, which is
+ *  not an IAM policy change.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
 
 /**
- *  The full resource name of the database the user connected to, if it is
- *  supported by CAI. (https://google.aip.dev/122#full-resource-names)
+ *  The [full resource name](https://google.aip.dev/122#full-resource-names) of
+ *  the database that the user connected to, if it is supported by Cloud Asset
+ *  Inventory.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The SQL statement associated with the relevant access. */
+/** The SQL statement that is associated with the database access. */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  The username used to connect to the DB. This may not necessarily be an IAM
- *  principal, and has no required format.
+ *  The username used to connect to the database. The username might not be an
+ *  IAM principal and does not have a set format.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
 
@@ -2467,8 +2511,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  EnvironmentVariable is a name-value pair to store environment variables for
- *  Process.
+ *  A name-value pair representing an environment variable used in an operating
+ *  system process.
  */
 @interface GTLRSecurityCommandCenter_EnvironmentVariable : GTLRObject
 
@@ -2482,28 +2526,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Resource that has been exfiltrated or exfiltrated_to.
+ *  Resource where data was exfiltrated from or exfiltrated to.
  */
 @interface GTLRSecurityCommandCenter_ExfilResource : GTLRObject
 
 /**
- *  Subcomponents of the asset that is exfiltrated - these could be URIs used
- *  during exfiltration, table names, databases, filenames, etc. For example,
- *  multiple tables may be exfiltrated from the same CloudSQL instance, or
- *  multiple files from the same Cloud Storage bucket.
+ *  Subcomponents of the asset that was exfiltrated, like URIs used during
+ *  exfiltration, table names, databases, and filenames. For example, multiple
+ *  tables might have been exfiltrated from the same Cloud SQL instance, or
+ *  multiple files might have been exfiltrated from the same Cloud Storage
+ *  bucket.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *components;
 
-/** Resource's URI (https://google.aip.dev/122#full-resource-names) */
+/**
+ *  The resource's [full resource
+ *  name](https://cloud.google.com/apis/design/resource_names#full_resource_name).
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  Exfiltration represents a data exfiltration attempt of one or more sources
- *  to one or more targets. Sources represent the source of data that is
- *  exfiltrated, and Targets represents the destination the data was copied to.
+ *  Exfiltration represents a data exfiltration attempt from one or more sources
+ *  to one or more targets. The `sources` attribute lists the sources of the
+ *  exfiltrated data. The `targets` attribute lists the destinations the data
+ *  was copied to.
  */
 @interface GTLRSecurityCommandCenter_Exfiltration : GTLRObject
 
@@ -2578,10 +2627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @interface GTLRSecurityCommandCenter_File : GTLRObject
 
-/**
- *  Prefix of the file contents as a JSON encoded string. (Currently only
- *  populated for Malicious Script Executed findings.)
- */
+/** Prefix of the file contents as a JSON-encoded string. */
 @property(nonatomic, copy, nullable) NSString *contents;
 
 /**
@@ -2629,8 +2675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @interface GTLRSecurityCommandCenter_Finding : GTLRObject
 
 /**
- *  Access details associated to the Finding, such as more information on the
- *  caller, which method was accessed, from where, etc.
+ *  Access details associated with the finding, such as more information on the
+ *  caller, which method was accessed, and from where.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Access *access;
 
@@ -2650,10 +2696,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
-/** Cloud DLP data profile associated with the finding. */
+/** Cloud DLP data profile that is associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpDataProfile *cloudDlpDataProfile;
 
-/** Cloud DLP inspection associated with the finding. */
+/**
+ *  Cloud Data Loss Prevention (Cloud DLP) inspection results that are
+ *  associated with the finding.
+ */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpInspection *cloudDlpInspection;
 
 /**
@@ -2678,7 +2727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding_Contacts *contacts;
 
 /**
- *  Containers associated with the finding. containers provides information for
+ *  Containers associated with the finding. This field provides information for
  *  both Kubernetes and non-Kubernetes containers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Container *> *containers;
@@ -2690,7 +2739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Database *database;
 
 /**
- *  Contains more detail about the finding.
+ *  Contains more details about the finding.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2707,7 +2756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
-/** Represents exfiltration associated with the Finding. */
+/** Represents exfiltrations associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Exfiltration *exfiltration;
 
 /**
@@ -2748,18 +2797,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *findingClass;
 
-/** Represents IAM bindings associated with the Finding. */
+/** Represents IAM bindings associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_IamBinding *> *iamBindings;
 
 /**
- *  Represents what's commonly known as an Indicator of compromise (IoC) in
+ *  Represents what's commonly known as an *indicator of compromise* (IoC) in
  *  computer forensics. This is an artifact observed on a network or in an
  *  operating system that, with high confidence, indicates a computer intrusion.
- *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
+ *  For more information, see [Indicator of
+ *  compromise](https://en.wikipedia.org/wiki/Indicator_of_compromise).
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
 
-/** Kernel Rootkit signature. */
+/** Signature of the kernel rootkit. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_KernelRootkit *kernelRootkit;
 
 /** Kubernetes resources associated with the finding. */
@@ -2795,10 +2845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *mute;
 
 /**
- *  First known as mute_annotation. Records additional information about the
- *  mute operation e.g. mute config that muted the finding, user who muted the
- *  finding, etc. Unlike other attributes of a finding, a finding provider
- *  shouldn't set the value of mute.
+ *  Records additional information about the mute operation, for example, the
+ *  [mute configuration](/security-command-center/docs/how-to-mute-findings)
+ *  that muted the finding and the user who muted the finding.
  */
 @property(nonatomic, copy, nullable) NSString *muteInitiator;
 
@@ -2806,14 +2855,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) GTLRDateTime *muteUpdateTime;
 
 /**
- *  The relative resource name of this finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Next steps associate to the finding. */
+/** Steps to address the finding. */
 @property(nonatomic, copy, nullable) NSString *nextSteps;
 
 /**
@@ -2860,8 +2911,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *        external actor, exploitable, and results in the direct ability to
  *        execute arbitrary code, exfiltrate data, and otherwise gain additional
  *        access and privileges to cloud resources and workloads. Examples
- *        include publicly accessible unprotected user data, public SSH access
- *        with weak or no passwords, etc. Threat: Indicates a threat that is
+ *        include publicly accessible unprotected user data and public SSH
+ *        access with weak or no passwords. Threat: Indicates a threat that is
  *        able to access, modify, or delete data or execute unauthorized code
  *        within existing resources. (Value: "CRITICAL")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_High Vulnerability: A
@@ -3154,10 +3205,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding : GTLRObject
 
-/** Name for binding. */
+/** Name for the binding. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Namespace for binding. */
+/** Namespace for the binding. */
 @property(nonatomic, copy, nullable) NSString *ns;
 
 /** The Role or ClusterRole referenced by the binding. */
@@ -4206,8 +4257,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  A single identity requesting access for a Cloud Platform resource, e.g.
- *  "foo\@google.com".
+ *  A single identity requesting access for a Cloud Platform resource, for
+ *  example, "foo\@google.com".
  */
 @property(nonatomic, copy, nullable) NSString *member;
 
@@ -4268,50 +4319,50 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @interface GTLRSecurityCommandCenter_KernelRootkit : GTLRObject
 
-/** Rootkit name when available. */
+/** Rootkit name, when available. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  True when unexpected modifications of kernel code memory are present.
+ *  True if unexpected modifications of kernel code memory are present.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unexpectedCodeModification;
 
 /**
- *  True when `ftrace` points are present with callbacks pointing to regions
- *  that are not in the expected kernel or module code range.
+ *  True if `ftrace` points are present with callbacks pointing to regions that
+ *  are not in the expected kernel or module code range.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unexpectedFtraceHandler;
 
 /**
- *  True when interrupt handlers that are are not in the expected kernel or
- *  module code regions are present.
+ *  True if interrupt handlers that are are not in the expected kernel or module
+ *  code regions are present.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unexpectedInterruptHandler;
 
 /**
- *  True when kernel code pages that are not in the expected kernel or module
- *  code regions are present.
+ *  True if kernel code pages that are not in the expected kernel or module code
+ *  regions are present.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unexpectedKernelCodePages;
 
 /**
- *  True when `kprobe` points are present with callbacks pointing to regions
- *  that are not in the expected kernel or module code range.
+ *  True if `kprobe` points are present with callbacks pointing to regions that
+ *  are not in the expected kernel or module code range.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unexpectedKprobeHandler;
 
 /**
- *  True when unexpected processes in the scheduler run queue are present. Such
+ *  True if unexpected processes in the scheduler run queue are present. Such
  *  processes are in the run queue, but not in the process task list.
  *
  *  Uses NSNumber of boolValue.
@@ -4319,7 +4370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) NSNumber *unexpectedProcessesInRunqueue;
 
 /**
- *  True when unexpected modifications of kernel read-only data memory are
+ *  True if unexpected modifications of kernel read-only data memory are
  *  present.
  *
  *  Uses NSNumber of boolValue.
@@ -4327,7 +4378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) NSNumber *unexpectedReadOnlyDataModification;
 
 /**
- *  True when system call handlers that are are not in the expected kernel or
+ *  True if system call handlers that are are not in the expected kernel or
  *  module code regions are present.
  *
  *  Uses NSNumber of boolValue.
@@ -4343,35 +4394,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @interface GTLRSecurityCommandCenter_Kubernetes : GTLRObject
 
 /**
- *  Provides information on any Kubernetes access reviews (i.e. privilege
- *  checks) relevant to the finding.
+ *  Provides information on any Kubernetes access reviews (privilege checks)
+ *  relevant to the finding.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AccessReview *> *accessReviews;
 
 /**
  *  Provides Kubernetes role binding information for findings that involve
- *  RoleBindings or ClusterRoleBindings.
+ *  [RoleBindings or
+ *  ClusterRoleBindings](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding *> *bindings;
 
 /**
- *  GKE Node Pools associated with the finding. This field will contain NodePool
- *  information for each Node, when it is available.
+ *  GKE [node
+ *  pools](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools)
+ *  associated with the finding. This field contains node pool information for
+ *  each node, when it is available.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_NodePool *> *nodePools;
 
-/** Provides Kubernetes Node information. */
+/**
+ *  Provides Kubernetes
+ *  [node](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes)
+ *  information.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Node *> *nodes;
 
 /**
- *  Kubernetes Pods associated with the finding. This field will contain Pod
- *  records for each container that is owned by a Pod.
+ *  Kubernetes
+ *  [Pods](https://cloud.google.com/kubernetes-engine/docs/concepts/pod)
+ *  associated with the finding. This field contains Pod records for each
+ *  container that is owned by a Pod.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Pod *> *pods;
 
 /**
- *  Provides Kubernetes role information for findings that involve Roles or
- *  ClusterRoles.
+ *  Provides Kubernetes role information for findings that involve [Roles or
+ *  ClusterRoles](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Role *> *roles;
 
@@ -4379,15 +4439,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Label represents a generic name=value label. Label has separate name and
- *  value fields to support filtering with contains().
+ *  Represents a generic name-value label. A label has separate name and value
+ *  fields to support filtering with the `contains()` function. For more
+ *  information, see [Filtering on array-type
+ *  fields](https://cloud.google.com/security-command-center/docs/how-to-api-list-findings#array-contains-filtering).
  */
 @interface GTLRSecurityCommandCenter_Label : GTLRObject
 
-/** Label name. */
+/** Name of the label. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Label value. */
+/** Value that corresponds to the label's name. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -4485,7 +4547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Response message for listing descendant security health analytics custom
+ *  Response message for listing descendant Security Health Analytics custom
  *  modules.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4513,7 +4575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Response message for listing effective security health analytics custom
+ *  Response message for listing effective Security Health Analytics custom
  *  modules.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4691,7 +4753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Response message for listing security health analytics custom modules.
+ *  Response message for listing Security Health Analytics custom modules.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "securityHealthAnalyticsCustomModules" property. If returned as
@@ -4829,22 +4891,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Kubernetes Nodes associated with the finding.
+ *  Kubernetes nodes associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_Node : GTLRObject
 
-/** Full Resource name of the Compute Engine VM running the cluster node. */
+/**
+ *  [Full resource name](https://google.aip.dev/122#full-resource-names) of the
+ *  Compute Engine VM running the cluster node.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  Provides GKE Node Pool information.
+ *  Provides GKE node pool information.
  */
 @interface GTLRSecurityCommandCenter_NodePool : GTLRObject
 
-/** Kubernetes Node pool name. */
+/** Kubernetes node pool name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Nodes associated with the finding. */
@@ -4986,7 +5051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /**
  *  A flag that indicates if Asset Discovery should be enabled. If the flag is
- *  set to `true`, then discovery of assets will occur. If it is set to `false,
+ *  set to `true`, then discovery of assets will occur. If it is set to `false`,
  *  all historical assets will remain, but discovery of future assets will not
  *  occur.
  *
@@ -5005,7 +5070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Kubernetes Pod.
+ *  A Kubernetes Pod.
  */
 @interface GTLRSecurityCommandCenter_Pod : GTLRObject
 
@@ -5148,20 +5213,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_File *> *libraries;
 
 /**
- *  The process name visible in utilities like `top` and `ps`; it can be
- *  accessed via `/proc/[pid]/comm` and changed with `prctl(PR_SET_NAME)`.
+ *  The process name, as displayed in utilities like `top` and `ps`. This name
+ *  can be accessed through `/proc/[pid]/comm` and changed with
+ *  `prctl(PR_SET_NAME)`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The parent process id.
+ *  The parent process ID.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *parentPid;
 
 /**
- *  The process id.
+ *  The process ID.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5169,7 +5235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /**
  *  When the process represents the invocation of a script, `binary` provides
- *  information about the interpreter while `script` provides information about
+ *  information about the interpreter, while `script` provides information about
  *  the script file provided to the interpreter.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_File *script;
@@ -5604,12 +5670,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Represents a Kubernetes Subject.
+ *  Represents a Kubernetes subject.
  */
 @interface GTLRSecurityCommandCenter_Subject : GTLRObject
 
 /**
- *  Authentication type for subject.
+ *  Authentication type for the subject.
  *
  *  Likely values:
  *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_AuthTypeUnspecified
@@ -5617,17 +5683,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_Group Collection of users.
  *        (Value: "GROUP")
  *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_Serviceaccount Users
- *        managed by Kubernetes API with credentials stored as Secrets. (Value:
+ *        managed by Kubernetes API with credentials stored as secrets. (Value:
  *        "SERVICEACCOUNT")
  *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_User User with valid
  *        certificate. (Value: "USER")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Name for subject. */
+/** Name for the subject. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Namespace for subject. */
+/** Namespace for the subject. */
 @property(nonatomic, copy, nullable) NSString *ns;
 
 @end

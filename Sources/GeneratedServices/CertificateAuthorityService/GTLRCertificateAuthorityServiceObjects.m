@@ -85,6 +85,11 @@ NSString * const kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_SignH
 NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_KeyFormatUnspecified = @"KEY_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_Pem = @"PEM";
 
+// GTLRCertificateAuthorityService_PublishingOptions.encodingFormat
+NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Der = @"DER";
+NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_EncodingFormatUnspecified = @"ENCODING_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Pem = @"PEM";
+
 // GTLRCertificateAuthorityService_ReconciliationOperationMetadata.exclusiveAction
 NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
@@ -991,7 +996,7 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_PublishingOptions
-@dynamic publishCaCert, publishCrl;
+@dynamic encodingFormat, publishCaCert, publishCrl;
 @end
 
 

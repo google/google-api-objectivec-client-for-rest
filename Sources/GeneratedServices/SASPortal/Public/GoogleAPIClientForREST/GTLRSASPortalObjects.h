@@ -1189,6 +1189,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  */
 @property(nonatomic, copy, nullable) NSString *newOrganizationDisplayName NS_RETURNS_NOT_RETAINED;
 
+/**
+ *  Optional. If this field is set then a new deployment will be created under
+ *  the organization specified by this id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationId;
+
 @end
 
 

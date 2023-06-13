@@ -96,6 +96,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Describes filtering options for releases.
+ *
+ *  Method: playdeveloperreporting.apps.fetchReleaseFilterOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_AppsFetchReleaseFilterOptions : GTLRPlaydeveloperreportingQuery
+
+/**
+ *  Required. Name of the resource, i.e. app the filtering options are for.
+ *  Format: apps/{app}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ReleaseFilterOptions.
+ *
+ *  Describes filtering options for releases.
+ *
+ *  @param name Required. Name of the resource, i.e. app the filtering options
+ *    are for. Format: apps/{app}
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_AppsFetchReleaseFilterOptions
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Searches for Apps accessible by the user.
+ *
+ *  Method: playdeveloperreporting.apps.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_AppsSearch : GTLRPlaydeveloperreportingQuery
+
+/**
+ *  The maximum number of apps to return. The service may return fewer than this
+ *  value. If unspecified, at most 50 apps will be returned. The maximum value
+ *  is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `SearchAccessibleApps` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `SearchAccessibleApps` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchAccessibleAppsResponse.
+ *
+ *  Searches for Apps accessible by the user.
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_AppsSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Describes the properties of the metric set.
  *
  *  Method: playdeveloperreporting.vitals.anrrate.get
@@ -296,10 +368,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  issues that occurred in the requested app version codes only. Example:
  *  `versionCode = 123 OR versionCode = 456`. * `deviceModel`: Matches error
  *  issues that occurred in the requested devices. Example: `deviceModel =
- *  "walleye" OR deviceModel = "marlin"`. * `deviceType`: Matches error issues
- *  that occurred in the requested device types. Example: `deviceType =
- *  "PHONE"`. * `errorIssueType`: Matches error issues of the requested types
- *  only. Valid candidates: `CRASH`, `ANR`. Example: `errorIssueType = CRASH OR
+ *  "google/walleye" OR deviceModel = "google/marlin"`. * `deviceBrand`: Matches
+ *  error issues that occurred in the requested device brands. Example:
+ *  `deviceBrand = "Google". * `deviceType`: Matches error issues that occurred
+ *  in the requested device types. Example: `deviceType = "PHONE"`. *
+ *  `errorIssueType`: Matches error issues of the requested types only. Valid
+ *  candidates: `CRASH`, `ANR`. Example: `errorIssueType = CRASH OR
  *  errorIssueType = ANR`. * `appProcessState`: Matches error issues on the
  *  process state of an app, indicating whether an app runs in the foreground
  *  (user-visible) or background. Valid candidates: `FOREGROUND`, `BACKGROUND`.
@@ -426,6 +500,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger intervalStartTimeYear;
 
 /**
+ *  Specifies a field that will be used to order the results. ** Supported
+ *  dimensions:** * `errorReportCount`: Orders issues by number of error
+ *  reports. * `distinctUsers`: Orders issues by number of unique affected
+ *  users. ** Supported operations:** * `asc` for ascending order. * `desc` for
+ *  descending order. Format: A field and an operation, e.g., `errorReportCount
+ *  desc` *Note:* currently only one field is supported at a time.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  The maximum number of error issues to return. The service may return fewer
  *  than this value. If unspecified, at most 50 error issues will be returned.
  *  The maximum value is 1000; values above 1000 will be coerced to 1000.
@@ -482,32 +566,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  Example: `apiLevel = 28 OR apiLevel = 29`. * `versionCode`: Matches error
  *  reports that occurred in the requested app version codes only. Example:
  *  `versionCode = 123 OR versionCode = 456`. * `deviceModel`: Matches error
- *  reports that occurred in the requested devices. Example: `deviceModel =
- *  "walleye" OR deviceModel = "marlin"`. * `deviceType`: Matches error reports
- *  that occurred in the requested device types. Example: `deviceType =
- *  "PHONE"`. * `errorIssueType`: Matches error reports of the requested types
- *  only. Valid candidates: `JAVA_CRASH`, `NATIVE_CRASH`, `ANR`. Example:
- *  `errorIssueType = JAVA_CRASH OR errorIssueType = NATIVE_CRASH`. *
- *  `errorIssueId`: Matches error reports belonging to the requested error issue
- *  ids only. Example: `errorIssueId = 1234 OR errorIssueId = 4567`. *
- *  `appProcessState`: Matches error reports on the process state of an app,
- *  indicating whether an app runs in the foreground (user-visible) or
- *  background. Valid candidates: `FOREGROUND`, `BACKGROUND`. Example:
- *  `appProcessState = FOREGROUND`. * `isUserPerceived`: Matches error reports
- *  that are user-perceived. It is not accompanied by any operators. Example:
- *  `isUserPerceived`. ** Supported operators:** * Comparison operators: The
- *  only supported comparison operator is equality. The filtered field must
- *  appear on the left hand side of the comparison. * Logical Operators: Logical
- *  operators `AND` and `OR` can be used to build complex filters following a
- *  conjunctive normal form (CNF), i.e., conjunctions of disjunctions. The `OR`
- *  operator takes precedence over `AND` so the use of parenthesis is not
- *  necessary when building CNF. The `OR` operator is only supported to build
- *  disjunctions that apply to the same field, e.g., `versionCode = 123 OR
- *  versionCode = ANR`. The filter expression `versionCode = 123 OR
- *  errorIssueType = ANR` is not valid. ** Examples ** Some valid filtering
- *  expressions: * `versionCode = 123 AND errorIssueType = ANR` * `versionCode =
- *  123 AND errorIssueType = OR errorIssueType = CRASH` * `versionCode = 123 AND
- *  (errorIssueType = OR errorIssueType = CRASH)`
+ *  issues that occurred in the requested devices. Example: `deviceModel =
+ *  "google/walleye" OR deviceModel = "google/marlin"`. * `deviceBrand`: Matches
+ *  error issues that occurred in the requested device brands. Example:
+ *  `deviceBrand = "Google". * `deviceType`: Matches error reports that occurred
+ *  in the requested device types. Example: `deviceType = "PHONE"`. *
+ *  `errorIssueType`: Matches error reports of the requested types only. Valid
+ *  candidates: `JAVA_CRASH`, `NATIVE_CRASH`, `ANR`. Example: `errorIssueType =
+ *  JAVA_CRASH OR errorIssueType = NATIVE_CRASH`. * `errorIssueId`: Matches
+ *  error reports belonging to the requested error issue ids only. Example:
+ *  `errorIssueId = 1234 OR errorIssueId = 4567`. * `appProcessState`: Matches
+ *  error reports on the process state of an app, indicating whether an app runs
+ *  in the foreground (user-visible) or background. Valid candidates:
+ *  `FOREGROUND`, `BACKGROUND`. Example: `appProcessState = FOREGROUND`. *
+ *  `isUserPerceived`: Matches error reports that are user-perceived. It is not
+ *  accompanied by any operators. Example: `isUserPerceived`. ** Supported
+ *  operators:** * Comparison operators: The only supported comparison operator
+ *  is equality. The filtered field must appear on the left hand side of the
+ *  comparison. * Logical Operators: Logical operators `AND` and `OR` can be
+ *  used to build complex filters following a conjunctive normal form (CNF),
+ *  i.e., conjunctions of disjunctions. The `OR` operator takes precedence over
+ *  `AND` so the use of parenthesis is not necessary when building CNF. The `OR`
+ *  operator is only supported to build disjunctions that apply to the same
+ *  field, e.g., `versionCode = 123 OR versionCode = ANR`. The filter expression
+ *  `versionCode = 123 OR errorIssueType = ANR` is not valid. ** Examples **
+ *  Some valid filtering expressions: * `versionCode = 123 AND errorIssueType =
+ *  ANR` * `versionCode = 123 AND errorIssueType = OR errorIssueType = CRASH` *
+ *  `versionCode = 123 AND (errorIssueType = OR errorIssueType = CRASH)`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

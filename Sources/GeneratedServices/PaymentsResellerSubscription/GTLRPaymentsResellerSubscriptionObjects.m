@@ -432,7 +432,7 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem
-@dynamic amount, descriptionProperty, lineItemFreeTrialEndTime,
+@dynamic amount, descriptionProperty, lineItemFreeTrialEndTime, lineItemIndex,
          lineItemPromotionSpecs, oneTimeRecurrenceDetails, product,
          productPayload, recurrenceType, state;
 
@@ -505,7 +505,7 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload
-@dynamic partnerEligibilityIds;
+@dynamic accessEndTime, partnerEligibilityIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

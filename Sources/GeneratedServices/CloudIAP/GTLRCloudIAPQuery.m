@@ -429,3 +429,22 @@
 }
 
 @end
+
+@implementation GTLRCloudIAPQuery_V1ValidateAttributeExpression
+
+@dynamic expression, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:validateAttributeExpression";
+  GTLRCloudIAPQuery_V1ValidateAttributeExpression *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_ValidateIapAttributeExpressionResponse class];
+  query.loggingName = @"iap.validateAttributeExpression";
+  return query;
+}
+
+@end

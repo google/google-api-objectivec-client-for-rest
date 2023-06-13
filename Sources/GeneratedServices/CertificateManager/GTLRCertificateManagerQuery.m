@@ -663,3 +663,118 @@
 }
 
 @end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsCreate
+
+@dynamic parent, trustConfigId;
+
++ (instancetype)queryWithObject:(GTLRCertificateManager_TrustConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trustConfigs";
+  GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateManager_Operation class];
+  query.loggingName = @"certificatemanager.projects.locations.trustConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateManager_Operation class];
+  query.loggingName = @"certificatemanager.projects.locations.trustConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateManager_TrustConfig class];
+  query.loggingName = @"certificatemanager.projects.locations.trustConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trustConfigs";
+  GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateManager_ListTrustConfigsResponse class];
+  query.loggingName = @"certificatemanager.projects.locations.trustConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCertificateManager_TrustConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateManager_Operation class];
+  query.loggingName = @"certificatemanager.projects.locations.trustConfigs.patch";
+  return query;
+}
+
+@end
