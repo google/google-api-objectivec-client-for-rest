@@ -23,8 +23,10 @@
 @class GTLRCloudComposer_Environment;
 @class GTLRCloudComposer_Environment_Labels;
 @class GTLRCloudComposer_EnvironmentConfig;
+@class GTLRCloudComposer_ExitInfo;
 @class GTLRCloudComposer_ImageVersion;
 @class GTLRCloudComposer_IPAllocationPolicy;
+@class GTLRCloudComposer_Line;
 @class GTLRCloudComposer_MaintenanceWindow;
 @class GTLRCloudComposer_MasterAuthorizedNetworksConfig;
 @class GTLRCloudComposer_NetworkingConfig;
@@ -151,6 +153,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_Environm
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_EnvironmentConfig.resilienceMode
+
+/**
+ *  Enabled High Resilience mode, including Cloud SQL HA.
+ *
+ *  Value: "HIGH_RESILIENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_HighResilience;
+/**
+ *  Default mode doesn't change environment parameters.
+ *
+ *  Value: "RESILIENCE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_ResilienceModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_NetworkingConfig.connectionType
 
 /**
@@ -190,6 +208,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_Operatio
  *  Value: "CREATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create;
+/**
+ *  Triggers failover of environment's Cloud SQL instance (only for highly
+ *  resilient environments).
+ *
+ *  Value: "DATABASE_FAILOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_DatabaseFailover;
 /**
  *  A resource deletion operation.
  *
@@ -365,6 +390,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
+@end
+
+
+/**
+ *  Request to trigger database failover (only for highly resilient
+ *  environments).
+ */
+@interface GTLRCloudComposer_DatabaseFailoverRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for DatabaseFailoverRequest.
+ */
+@interface GTLRCloudComposer_DatabaseFailoverResponse : GTLRObject
 @end
 
 
@@ -621,6 +661,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_RecoveryConfig *recoveryConfig;
 
+/**
+ *  Optional. Resilience mode of the Cloud Composer Environment. This field is
+ *  supported for Cloud Composer environments in versions
+ *  composer-2.2.0-airflow-*.*.* and newer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_HighResilience
+ *        Enabled High Resilience mode, including Cloud SQL HA. (Value:
+ *        "HIGH_RESILIENCE")
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_ResilienceModeUnspecified
+ *        Default mode doesn't change environment parameters. (Value:
+ *        "RESILIENCE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resilienceMode;
+
 /** The configuration settings for software inside the environment. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig *softwareConfig;
 
@@ -645,6 +700,91 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  newer.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_WorkloadsConfig *workloadsConfig;
+
+@end
+
+
+/**
+ *  Execute Airflow Command request.
+ */
+@interface GTLRCloudComposer_ExecuteAirflowCommandRequest : GTLRObject
+
+/** Airflow command. */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/**
+ *  Parameters for the Airflow command/subcommand as an array of arguments. It
+ *  may contain positional arguments like `["my-dag-id"]`, key-value parameters
+ *  like `["--foo=bar"]` or `["--foo","bar"]`, or other flags like `["-f"]`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parameters;
+
+/** Airflow subcommand. */
+@property(nonatomic, copy, nullable) NSString *subcommand;
+
+@end
+
+
+/**
+ *  Response to ExecuteAirflowCommandRequest.
+ */
+@interface GTLRCloudComposer_ExecuteAirflowCommandResponse : GTLRObject
+
+/** Error message. Empty if there was no error. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** The unique ID of the command execution for polling. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** The name of the pod where the command is executed. */
+@property(nonatomic, copy, nullable) NSString *pod;
+
+/** The namespace of the pod where the command is executed. */
+@property(nonatomic, copy, nullable) NSString *podNamespace;
+
+@end
+
+
+/**
+ *  Information about how a command ended.
+ */
+@interface GTLRCloudComposer_ExitInfo : GTLRObject
+
+/** Error message. Empty if there was no error. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/**
+ *  The exit code from the command execution.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exitCode;
+
+@end
+
+
+/**
+ *  Response for FetchDatabasePropertiesRequest.
+ */
+@interface GTLRCloudComposer_FetchDatabasePropertiesResponse : GTLRObject
+
+/**
+ *  The availability status of the failover replica. A false status indicates
+ *  that the failover replica is out of sync. The primary instance can only fail
+ *  over to the failover replica when the status is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFailoverReplicaAvailable;
+
+/** The Compute Engine zone that the instance is currently serving from. */
+@property(nonatomic, copy, nullable) NSString *primaryGceZone;
+
+/**
+ *  The Compute Engine zone that the failover instance is currently serving from
+ *  for a regional Cloud SQL instance.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryGceZone;
 
 @end
 
@@ -751,6 +891,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useIpAliases;
+
+@end
+
+
+/**
+ *  Contains information about a single line from logs.
+ */
+@interface GTLRCloudComposer_Line : GTLRObject
+
+/** Text content of the log line. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Number of the line.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineNumber;
 
 @end
 
@@ -1183,6 +1341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        resource check operation. (Value: "CHECK")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Create A
  *        resource creation operation. (Value: "CREATE")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_DatabaseFailover
+ *        Triggers failover of environment's Cloud SQL instance (only for highly
+ *        resilient environments). (Value: "DATABASE_FAILOVER")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Delete A
  *        resource deletion operation. (Value: "DELETE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot
@@ -1223,6 +1384,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        "SUCCESSFUL"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Poll Airflow Command request.
+ */
+@interface GTLRCloudComposer_PollAirflowCommandRequest : GTLRObject
+
+/** The unique ID of the command execution. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  Line number from which new logs should be fetched.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nextLineNumber;
+
+/** The name of the pod where the command is executed. */
+@property(nonatomic, copy, nullable) NSString *pod;
+
+/** The namespace of the pod where the command is executed. */
+@property(nonatomic, copy, nullable) NSString *podNamespace;
+
+@end
+
+
+/**
+ *  Response to PollAirflowCommandRequest.
+ */
+@interface GTLRCloudComposer_PollAirflowCommandResponse : GTLRObject
+
+/** The result exit status of the command. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_ExitInfo *exitInfo;
+
+/**
+ *  Output from the command execution. It may not contain the full output and
+ *  the caller may need to poll for more lines.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_Line *> *output;
+
+/**
+ *  Whether the command execution has finished and there is no more output.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputEnd;
 
 @end
 
@@ -1646,6 +1855,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudComposer_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Stop Airflow Command request.
+ */
+@interface GTLRCloudComposer_StopAirflowCommandRequest : GTLRObject
+
+/** The unique ID of the command execution. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  If true, the execution is terminated forcefully (SIGKILL). If false, the
+ *  execution is stopped gracefully, giving it time for cleanup.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/** The name of the pod where the command is executed. */
+@property(nonatomic, copy, nullable) NSString *pod;
+
+/** The namespace of the pod where the command is executed. */
+@property(nonatomic, copy, nullable) NSString *podNamespace;
+
+@end
+
+
+/**
+ *  Response to StopAirflowCommandRequest.
+ */
+@interface GTLRCloudComposer_StopAirflowCommandResponse : GTLRObject
+
+/**
+ *  Whether the execution is still running.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDone;
+
+/** Output message from stopping execution request. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *output;
+
 @end
 
 

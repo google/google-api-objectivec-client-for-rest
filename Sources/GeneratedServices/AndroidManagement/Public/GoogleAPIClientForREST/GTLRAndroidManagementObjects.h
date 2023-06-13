@@ -48,6 +48,7 @@
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
+@class GTLRAndroidManagement_DeviceConnectivityManagement;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_DnsEvent;
@@ -1120,6 +1121,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Disabled;
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceConnectivityManagement.usbDataAccess
+
+/**
+ *  All types of USB data transfers are allowed. usbFileTransferDisabled is
+ *  ignored.
+ *
+ *  Value: "ALLOW_USB_DATA_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_AllowUsbDataTransfer;
+/**
+ *  When set, all types of USB data transfers are prohibited. Supported for
+ *  devices running Android 12 or above with USB HAL 1.3 or above. If the
+ *  setting is not supported, DISALLOW_USB_FILE_TRANSFER will be set. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 12. A nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if
+ *  the device does not have USB HAL 1.3 or above. usbFileTransferDisabled is
+ *  ignored.
+ *
+ *  Value: "DISALLOW_USB_DATA_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbDataTransfer;
+/**
+ *  Transferring files over USB is disallowed. Other types of USB data
+ *  connections, such as mouse and keyboard connection, are allowed.
+ *  usbFileTransferDisabled is ignored.
+ *
+ *  Value: "DISALLOW_USB_FILE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbFileTransfer;
+/**
+ *  Unspecified. Defaults to ALLOW_USB_DATA_TRANSFER, unless
+ *  usbFileTransferDisabled is set to true. If usbFileTransferDisabled is set to
+ *  true, this is equivalent to DISALLOW_USB_FILE_TRANSFER.
+ *
+ *  Value: "USB_DATA_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceSettings.encryptionStatus
 
 /**
@@ -1625,6 +1665,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated;
 /**
+ *  The device is incompatible with the policy requirements.
+ *
+ *  Value: "DEVICE_INCOMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_DeviceIncompatible;
+/**
  *  The setting has an invalid value.
  *
  *  Value: "INVALID_VALUE"
@@ -1749,6 +1795,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  *  Value: "APP_NOT_UPDATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated;
+/**
+ *  The device is incompatible with the policy requirements.
+ *
+ *  Value: "DEVICE_INCOMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_DeviceIncompatible;
 /**
  *  The setting has an invalid value.
  *
@@ -3491,7 +3543,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Policy for an individual app.
+ *  Policy for an individual app. Note: Application availability on a given
+ *  device cannot be changed using this policy if installAppsDisabled is
+ *  enabled.
  */
 @interface GTLRAndroidManagement_ApplicationPolicy : GTLRObject
 
@@ -4842,6 +4896,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        fetch them all at once.
  */
 @interface GTLRAndroidManagement_Device_SystemProperties : GTLRObject
+@end
+
+
+/**
+ *  Covers controls for device connectivity such as Wi-Fi, USB data access,
+ *  keyboard/mouse connections, and more.
+ */
+@interface GTLRAndroidManagement_DeviceConnectivityManagement : GTLRObject
+
+/**
+ *  Controls what files and/or data can be transferred via USB. Supported only
+ *  on company-owned devices.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_AllowUsbDataTransfer
+ *        All types of USB data transfers are allowed. usbFileTransferDisabled
+ *        is ignored. (Value: "ALLOW_USB_DATA_TRANSFER")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbDataTransfer
+ *        When set, all types of USB data transfers are prohibited. Supported
+ *        for devices running Android 12 or above with USB HAL 1.3 or above. If
+ *        the setting is not supported, DISALLOW_USB_FILE_TRANSFER will be set.
+ *        A nonComplianceDetail with API_LEVEL is reported if the Android
+ *        version is less than 12. A nonComplianceDetail with
+ *        DEVICE_INCOMPATIBLE is reported if the device does not have USB HAL
+ *        1.3 or above. usbFileTransferDisabled is ignored. (Value:
+ *        "DISALLOW_USB_DATA_TRANSFER")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbFileTransfer
+ *        Transferring files over USB is disallowed. Other types of USB data
+ *        connections, such as mouse and keyboard connection, are allowed.
+ *        usbFileTransferDisabled is ignored. (Value:
+ *        "DISALLOW_USB_FILE_TRANSFER")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified
+ *        Unspecified. Defaults to ALLOW_USB_DATA_TRANSFER, unless
+ *        usbFileTransferDisabled is set to true. If usbFileTransferDisabled is
+ *        set to true, this is equivalent to DISALLOW_USB_FILE_TRANSFER. (Value:
+ *        "USB_DATA_ACCESS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *usbDataAccess;
+
 @end
 
 
@@ -6272,6 +6365,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated
  *        The app is installed, but it hasn't been updated to the minimum
  *        version code specified by policy. (Value: "APP_NOT_UPDATED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_DeviceIncompatible
+ *        The device is incompatible with the policy requirements. (Value:
+ *        "DEVICE_INCOMPATIBLE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode
@@ -6371,6 +6467,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated
  *        The app is installed, but it hasn't been updated to the minimum
  *        version code specified by policy. (Value: "APP_NOT_UPDATED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_DeviceIncompatible
+ *        The device is incompatible with the policy requirements. (Value:
+ *        "DEVICE_INCOMPATIBLE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode
@@ -7040,7 +7139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks;
 
 /**
- *  Deprecated. Use autoUpdateMode instead.When autoUpdateMode is set to
+ *  Recommended alternative: autoUpdateMode which is set per app, provides
+ *  greater flexibility around update frequency.When autoUpdateMode is set to
  *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no
  *  effect.The app auto update policy, which controls when automatic app updates
  *  can be applied.
@@ -7233,6 +7333,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        Prompt the user to grant a permission. (Value: "PROMPT")
  */
 @property(nonatomic, copy, nullable) NSString *defaultPermissionPolicy;
+
+/**
+ *  Covers controls for device connectivity such as Wi-Fi, USB data access,
+ *  keyboard/mouse connections, and more.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceConnectivityManagement *deviceConnectivityManagement;
 
 /** The device owner information to be shown on the lock screen. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *deviceOwnerLockScreenInfo;
@@ -7747,10 +7853,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *vpnConfigDisabled;
 
 /**
- *  Whether configuring Wi-Fi access points is disabled. Note: If a network
- *  connection can't be made at boot time and configuring Wi-Fi is disabled then
- *  network escape hatch will be shown in order to refresh the device policy
- *  (see networkEscapeHatchEnabled).
+ *  Whether configuring Wi-Fi networks is disabled. Supported on fully managed
+ *  devices and work profiles on company-owned devices. For fully managed
+ *  devices, setting this to true removes all configured networks and retains
+ *  only the networks configured using openNetworkConfiguration. For work
+ *  profiles on company-owned devices, existing configured networks are not
+ *  affected and the user is not allowed to add, remove, or modify Wi-Fi
+ *  networks. Note: If a network connection can't be made at boot time and
+ *  configuring Wi-Fi is disabled then network escape hatch will be shown in
+ *  order to refresh the device policy (see networkEscapeHatchEnabled).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7781,7 +7892,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  A rule that defines the actions to take if a device or work profile is not
- *  compliant with the policy specified in settingName.
+ *  compliant with the policy specified in settingName. In the case of multiple
+ *  matching or multiple triggered enforcement rules, a merge will occur with
+ *  the most severe action being taken. However, all triggered rules are still
+ *  kept track of: this includes initial trigger time and all associated
+ *  non-compliance details. In the situation where the most severe enforcement
+ *  rule is satisfied, the next most appropriate action is applied.
  */
 @interface GTLRAndroidManagement_PolicyEnforcementRule : GTLRObject
 

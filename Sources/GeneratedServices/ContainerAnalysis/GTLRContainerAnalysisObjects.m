@@ -51,6 +51,7 @@ NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_SeverityUnspecifie
 // GTLRContainerAnalysis_CVSS.attackComplexity
 NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
 NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityMedium = @"ATTACK_COMPLEXITY_MEDIUM";
 NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
 
 // GTLRContainerAnalysis_CVSS.attackVector
@@ -67,21 +68,27 @@ NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationSingle
 NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationUnspecified = @"AUTHENTICATION_UNSPECIFIED";
 
 // GTLRContainerAnalysis_CVSS.availabilityImpact
+NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
 NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
 NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
 // GTLRContainerAnalysis_CVSS.confidentialityImpact
+NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
 NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
 NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
 // GTLRContainerAnalysis_CVSS.integrityImpact
+NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
 NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
 NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
 // GTLRContainerAnalysis_CVSS.privilegesRequired
@@ -162,6 +169,7 @@ NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_DsseAttestati
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Image = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Package = @"PACKAGE";
+NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_SbomReference = @"SBOM_REFERENCE";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Upgrade = @"UPGRADE";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -258,6 +266,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_R
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_None = @"NONE";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Sha512 = @"SHA512";
 
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.substitutionOption
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_AllowLoose = @"ALLOW_LOOSE";
@@ -285,6 +294,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_P
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 = @"MD5";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_None = @"NONE";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256 = @"SHA256";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha512 = @"SHA512";
 
 // GTLRContainerAnalysis_Justification.justificationType
 NSString * const kGTLRContainerAnalysis_Justification_JustificationType_ComponentNotPresent = @"COMPONENT_NOT_PRESENT";
@@ -304,6 +314,7 @@ NSString * const kGTLRContainerAnalysis_Note_Kind_DsseAttestation = @"DSSE_ATTES
 NSString * const kGTLRContainerAnalysis_Note_Kind_Image        = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Package      = @"PACKAGE";
+NSString * const kGTLRContainerAnalysis_Note_Kind_SbomReference = @"SBOM_REFERENCE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade      = @"UPGRADE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLRContainerAnalysis_Note_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -318,6 +329,7 @@ NSString * const kGTLRContainerAnalysis_Occurrence_Kind_DsseAttestation = @"DSSE
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Image  = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Package = @"PACKAGE";
+NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SbomReference = @"SBOM_REFERENCE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade = @"UPGRADE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -1080,15 +1092,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainerAnalysis_GeneratePackagesSummaryRequest
-//
-
-@implementation GTLRContainerAnalysis_GeneratePackagesSummaryRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContainerAnalysis_GerritSourceContext
 //
 
@@ -1153,12 +1156,13 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts
-@dynamic images, mavenArtifacts, objects, pythonPackages;
+@dynamic images, mavenArtifacts, npmPackages, objects, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"images" : [NSString class],
     @"mavenArtifacts" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact class],
+    @"npmPackages" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsNpmPackage class],
     @"pythonPackages" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsPythonPackage class]
   };
   return map;
@@ -1192,6 +1196,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact
 @dynamic artifactId, groupId, path, repository, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsNpmPackage
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsNpmPackage
+@dynamic packagePath, repository;
 @end
 
 
@@ -1394,6 +1408,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource
+@dynamic dir, revision, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash
 //
 
@@ -1458,7 +1482,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Results
 @dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
-         images, mavenArtifacts, numArtifacts, pythonPackages;
+         images, mavenArtifacts, npmPackages, numArtifacts, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1466,6 +1490,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
     @"buildStepOutputs" : [NSString class],
     @"images" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage class],
     @"mavenArtifacts" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact class],
+    @"npmPackages" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage class],
     @"pythonPackages" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedPythonPackage class]
   };
   return map;
@@ -1537,7 +1562,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Source
-@dynamic repoSource, storageSource, storageSourceManifest;
+@dynamic gitSource, repoSource, storageSource, storageSourceManifest;
 @end
 
 
@@ -1602,6 +1627,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact
+@dynamic fileHashes, pushTiming, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage
 @dynamic fileHashes, pushTiming, uri;
 @end
 
@@ -1919,16 +1954,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainerAnalysis_LicensesSummary
-//
-
-@implementation GTLRContainerAnalysis_LicensesSummary
-@dynamic count, license;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContainerAnalysis_ListNoteOccurrencesResponse
 //
 
@@ -2056,8 +2081,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_Note
 @dynamic attestation, build, compliance, createTime, deployment, discovery,
          dsseAttestation, expirationTime, image, kind, longDescription, name,
-         package, relatedNoteNames, relatedUrl, shortDescription, updateTime,
-         upgrade, vulnerability, vulnerabilityAssessment;
+         package, relatedNoteNames, relatedUrl, sbomReference, shortDescription,
+         updateTime, upgrade, vulnerability, vulnerabilityAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2084,7 +2109,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_Occurrence
 @dynamic attestation, build, compliance, createTime, deployment, discovery,
          dsseAttestation, envelope, image, kind, name, noteName, package,
-         remediation, resourceUri, updateTime, upgrade, vulnerability;
+         remediation, resourceUri, sbomReference, updateTime, upgrade,
+         vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2150,24 +2176,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"location" : [GTLRContainerAnalysis_Location class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_PackagesSummaryResponse
-//
-
-@implementation GTLRContainerAnalysis_PackagesSummaryResponse
-@dynamic licensesSummary, resourceUrl;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"licensesSummary" : [GTLRContainerAnalysis_LicensesSummary class]
   };
   return map;
 }
@@ -2306,6 +2314,80 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_RepoId
 @dynamic projectRepoId, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SbomReferenceIntotoPayload
+//
+
+@implementation GTLRContainerAnalysis_SbomReferenceIntotoPayload
+@dynamic xType, predicate, predicateType, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xType" : @"_type" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subject" : [GTLRContainerAnalysis_Subject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SbomReferenceIntotoPredicate
+//
+
+@implementation GTLRContainerAnalysis_SbomReferenceIntotoPredicate
+@dynamic digest, location, mimeType, referrerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SbomReferenceIntotoPredicate_Digest
+//
+
+@implementation GTLRContainerAnalysis_SbomReferenceIntotoPredicate_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SBOMReferenceNote
+//
+
+@implementation GTLRContainerAnalysis_SBOMReferenceNote
+@dynamic format, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SBOMReferenceOccurrence
+//
+
+@implementation GTLRContainerAnalysis_SBOMReferenceOccurrence
+@dynamic payload, payloadType, signatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signatures" : [GTLRContainerAnalysis_EnvelopeSignature class]
+  };
+  return map;
+}
+
 @end
 
 

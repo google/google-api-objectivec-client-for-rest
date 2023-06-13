@@ -33,6 +33,42 @@
 
 @end
 
+@implementation GTLRPlaydeveloperreportingQuery_AppsFetchReleaseFilterOptions
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:fetchReleaseFilterOptions";
+  GTLRPlaydeveloperreportingQuery_AppsFetchReleaseFilterOptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ReleaseFilterOptions class];
+  query.loggingName = @"playdeveloperreporting.apps.fetchReleaseFilterOptions";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_AppsSearch
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1beta1/apps:search";
+  GTLRPlaydeveloperreportingQuery_AppsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchAccessibleAppsResponse class];
+  query.loggingName = @"playdeveloperreporting.apps.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRPlaydeveloperreportingQuery_VitalsAnrrateGet
 
 @dynamic name;
@@ -181,8 +217,8 @@
          intervalStartTimeMinutes, intervalStartTimeMonth,
          intervalStartTimeNanos, intervalStartTimeSeconds,
          intervalStartTimeTimeZoneId, intervalStartTimeTimeZoneVersion,
-         intervalStartTimeUtcOffset, intervalStartTimeYear, pageSize, pageToken,
-         parent;
+         intervalStartTimeUtcOffset, intervalStartTimeYear, orderBy, pageSize,
+         pageToken, parent;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{

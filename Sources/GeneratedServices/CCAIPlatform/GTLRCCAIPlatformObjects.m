@@ -29,6 +29,15 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardMedium = 
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardSmall = @"STANDARD_SMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = @"STANDARD_XLARGE";
 
+// GTLRCCAIPlatform_Quota.contactCenterInstanceSize
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardLarge = @"STANDARD_LARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardMedium = @"STANDARD_MEDIUM";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardSmall = @"STANDARD_SMALL";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge = @"STANDARD_XLARGE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCCAIPlatform_AdminUser
@@ -80,7 +89,15 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = 
 //
 
 @implementation GTLRCCAIPlatform_ContactCenterQuota
-@dynamic contactCenterCountLimit, contactCenterCountSum;
+@dynamic contactCenterCountLimit, contactCenterCountSum, quotas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quotas" : [GTLRCCAIPlatform_Quota class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -254,6 +271,17 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = 
 @implementation GTLRCCAIPlatform_OperationMetadata
 @dynamic apiVersion, contactCenter, createTime, endTime, requestedCancellation,
          statusMessage, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_Quota
+//
+
+@implementation GTLRCCAIPlatform_Quota
+@dynamic contactCenterCountLimit, contactCenterCountSum,
+         contactCenterInstanceSize;
 @end
 
 

@@ -248,7 +248,7 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 @implementation GTLRAnalyticsHub_Listing
 @dynamic bigqueryDataset, categories, dataProvider, descriptionProperty,
          displayName, documentation, icon, name, primaryContact, publisher,
-         requestAccess, restrictedExportConfig, state;
+         requestAccess, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -349,16 +349,6 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 @implementation GTLRAnalyticsHub_Publisher
 @dynamic name, primaryContact;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsHub_RestrictedExportConfig
-//
-
-@implementation GTLRAnalyticsHub_RestrictedExportConfig
-@dynamic enabled, restrictQueryResult;
 @end
 
 

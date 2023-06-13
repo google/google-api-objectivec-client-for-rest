@@ -183,9 +183,14 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket = @"GC
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile = @"GCS_WRITE_FILE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder = @"GCS_WRITE_FOLDER";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile = @"JAVASCRIPT_UDF_FILE";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName = @"KMS_KEY_NAME";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_MachineType = @"MACHINE_TYPE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription = @"PUBSUB_SUBSCRIPTION";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic = @"PUBSUB_TOPIC";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_ServiceAccount = @"SERVICE_ACCOUNT";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text = @"TEXT";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_WorkerRegion = @"WORKER_REGION";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_WorkerZone = @"WORKER_ZONE";
 
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
@@ -1042,8 +1047,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @dynamic clientRequestId, createdFromSnapshotId, createTime, currentState,
          currentStateTime, environment, executionInfo, identifier, jobMetadata,
          labels, location, name, pipelineDescription, projectId,
-         replacedByJobId, replaceJobId, requestedState, satisfiesPzs,
-         stageStates, startTime, steps, stepsLocation, tempFiles,
+         replacedByJobId, replaceJobId, requestedState, runtimeUpdatableParams,
+         satisfiesPzs, stageStates, startTime, steps, stepsLocation, tempFiles,
          transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1833,8 +1838,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_PubsubLocation
-@dynamic dropLateData, idLabel, subscription, timestampLabel, topic,
-         trackingSubscription, withAttributes;
+@dynamic dropLateData, dynamicDestinations, idLabel, subscription,
+         timestampLabel, topic, trackingSubscription, withAttributes;
 @end
 
 
@@ -2029,6 +2034,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_RuntimeUpdatableParams
+//
+
+@implementation GTLRDataflow_RuntimeUpdatableParams
+@dynamic maxNumWorkers, minNumWorkers;
 @end
 
 

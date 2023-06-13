@@ -1166,7 +1166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @interface GTLRAdMob_App : GTLRObject
 
 /**
- *  Output only. The approval state for the app.
+ *  Output only. The approval state for the app. The field is read-only.
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_App_AppApprovalState_ActionRequired The app requires

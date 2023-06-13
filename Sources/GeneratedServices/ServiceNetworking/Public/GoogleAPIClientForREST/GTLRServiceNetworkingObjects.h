@@ -797,11 +797,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organizatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Cloud;
 /**
+ *  Generative AI - https://developers.generativeai.google
+ *
+ *  Value: "GENERATIVE_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_GenerativeAi;
+/**
+ *  Geo Org.
+ *
+ *  Value: "GEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Geo;
+/**
  *  Photos Org.
  *
  *  Value: "PHOTOS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos;
+/**
+ *  Shopping Org.
+ *
+ *  Value: "SHOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Shopping;
 /**
  *  Street View Org.
  *
@@ -2181,7 +2199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  documentation: summary: > The Google Calendar API gives access to most
  *  calendar features. pages: - name: Overview content: (== include
  *  google/foo/overview.md ==) - name: Tutorial content: (== include
- *  google/foo/tutorial.md ==) subpages; - name: Java content: (== include
+ *  google/foo/tutorial.md ==) subpages: - name: Java content: (== include
  *  google/foo/tutorial_java.md ==) rules: - selector:
  *  google.calendar.Calendar.Get description: > ... - selector:
  *  google.calendar.Calendar.Put description: > ... Documentation is provided in
@@ -2230,6 +2248,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_DocumentationRule *> *rules;
 
 /**
+ *  Specifies section and content to override boilerplate content provided by
+ *  go/api-docgen. Currently overrides following sections: 1.
+ *  rest.service.client_libraries
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Page *> *sectionOverrides;
+
+/**
  *  Specifies the service root url if the default one (the service name from the
  *  yaml file) is not suitable. This can be seen in any fully specified service
  *  urls as well as sections that show a base that other urls are relative to.
@@ -2265,6 +2290,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  String of comma or space separated case-sensitive words for which
+ *  method/field name replacement will be disabled by go/api-docgen.
+ */
+@property(nonatomic, copy, nullable) NSString *disableReplacementWords;
 
 /**
  *  The selector is a comma-separated list of patterns for any element such as a
@@ -4152,8 +4183,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        Not useful. (Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED")
  *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Cloud Google Cloud
  *        Platform Org. (Value: "CLOUD")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_GenerativeAi
+ *        Generative AI - https://developers.generativeai.google (Value:
+ *        "GENERATIVE_AI")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Geo Geo Org.
+ *        (Value: "GEO")
  *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Photos Photos Org.
  *        (Value: "PHOTOS")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Shopping Shopping
+ *        Org. (Value: "SHOPPING")
  *    @arg @c kGTLRServiceNetworking_Publishing_Organization_StreetView Street
  *        View Org. (Value: "STREET_VIEW")
  */

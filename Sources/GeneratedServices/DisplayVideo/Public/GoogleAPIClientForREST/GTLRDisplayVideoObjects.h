@@ -1171,7 +1171,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAudioContentType;
 /**
- *  Target ads to ads.txt authorized sellers.
+ *  Target ads to ads.txt authorized sellers. If no targeting option of this
+ *  type is assigned, the resource uses the "Authorized Direct Sellers and
+ *  Resellers" option by default.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
  */
@@ -1629,22 +1631,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOp
 
 /**
  *  All authorized sellers, including publishers that have not posted an ads.txt
- *  file. Display & Video 360 automatically disallows unauthorized sellers.
+ *  file. Display & Video 360 automatically disallows unauthorized sellers. This
+ *  value is equivalent to "Authorized and Non-Participating Publishers" in the
+ *  UI.
  *
  *  Value: "AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedAndNonParticipatingPublishers;
 /**
  *  Only authorized sellers that directly own the inventory being monetized, as
- *  indicated by a DIRECT declaration in the ads.txt file.
+ *  indicated by a DIRECT declaration in the ads.txt file. This value is
+ *  equivalent to "Authorized Direct Sellers" in the UI.
  *
  *  Value: "AUTHORIZED_SELLER_STATUS_AUTHORIZED_DIRECT_SELLERS_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedDirectSellersOnly;
 /**
  *  Default value when authorized seller status is not specified in this
- *  version. This enum is a placeholder for default value and does not represent
- *  a real authorized seller status option.
+ *  version. This enum is a placeholder for the default value, or "Authorized
+ *  Direct Sellers and Resellers" in the UI.
  *
  *  Value: "AUTHORIZED_SELLER_STATUS_UNSPECIFIED"
  */
@@ -1655,22 +1660,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusAssig
 
 /**
  *  All authorized sellers, including publishers that have not posted an ads.txt
- *  file. Display & Video 360 automatically disallows unauthorized sellers.
+ *  file. Display & Video 360 automatically disallows unauthorized sellers. This
+ *  value is equivalent to "Authorized and Non-Participating Publishers" in the
+ *  UI.
  *
  *  Value: "AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedAndNonParticipatingPublishers;
 /**
  *  Only authorized sellers that directly own the inventory being monetized, as
- *  indicated by a DIRECT declaration in the ads.txt file.
+ *  indicated by a DIRECT declaration in the ads.txt file. This value is
+ *  equivalent to "Authorized Direct Sellers" in the UI.
  *
  *  Value: "AUTHORIZED_SELLER_STATUS_AUTHORIZED_DIRECT_SELLERS_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedDirectSellersOnly;
 /**
  *  Default value when authorized seller status is not specified in this
- *  version. This enum is a placeholder for default value and does not represent
- *  a real authorized seller status option.
+ *  version. This enum is a placeholder for the default value, or "Authorized
+ *  Direct Sellers and Resellers" in the UI.
  *
  *  Value: "AUTHORIZED_SELLER_STATUS_UNSPECIFIED"
  */
@@ -2424,7 +2432,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType;
 /**
- *  Target ads to ads.txt authorized sellers.
+ *  Target ads to ads.txt authorized sellers. If no targeting option of this
+ *  type is assigned, the resource uses the "Authorized Direct Sellers and
+ *  Resellers" option by default.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
  */
@@ -2768,6 +2778,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *  Value: "SDF_VERSION_5_5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55;
+/**
+ *  SDF version 6
+ *
+ *  Value: "SDF_VERSION_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -3506,7 +3522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType;
 /**
- *  Target ads to ads.txt authorized sellers.
+ *  Target ads to ads.txt authorized sellers. If no targeting option of this
+ *  type is assigned, the resource uses the "Authorized Direct Sellers and
+ *  Resellers" option by default.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
  */
@@ -6533,7 +6551,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_
 // GTLRDisplayVideo_FirstAndThirdPartyAudience.audienceType
 
 /**
- *  Audience was created based on campaign activity.
+ *  Audience was created based on campaign activity. **Warning:** This audience
+ *  type will be deprecated on **May 20, 2023**. After this date, these
+ *  audiences will not be able to be added to resource targeting. Read our
+ *  [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
+ *  for more information.
  *
  *  Value: "ACTIVITY_BASED"
  */
@@ -6566,7 +6589,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchUserId;
 /**
  *  Audience was created based on excluding the number of impressions they were
- *  served.
+ *  served. **Warning:** This audience type will be deprecated on **May 20,
+ *  2023**. After this date, these audiences will not be able to be added to
+ *  resource targeting. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
+ *  for more information.
  *
  *  Value: "FREQUENCY_CAP"
  */
@@ -7448,7 +7475,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInMarket;
 /**
- *  Installed-Apps type Google audience.
+ *  Installed-Apps type Google audience. **Warning:** This audience type will be
+ *  deprecated on **May 20, 2023**. After this date, these audiences will not be
+ *  able to be added to resource targeting. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.google_audience_types)
+ *  for more information.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS"
  */
@@ -7460,7 +7491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeLifeEvent;
 /**
- *  New-Mobile-Devices type Google audience.
+ *  New-Mobile-Devices type Google audience. **Warning:** This audience type
+ *  will be deprecated on **May 20, 2023**. After this date, these audiences
+ *  will not be able to be added to resource targeting. Read our [feature
+ *  deprecation
+ *  announcement](/display-video/api/deprecations#features.google_audience_types)
+ *  for more information.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES"
  */
@@ -10358,169 +10394,174 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Partner_EntityStatus_Entity
 // GTLRDisplayVideo_PartnerCost.costType
 
 /**
- *  The cost is charged for using AdLingo.
+ *  The cost is charged for using AdLingo. Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_ADLINGO_FEE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee;
 /**
- *  The cost is charged for using Adloox.
+ *  The cost is charged for using Adloox. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox;
 /**
- *  The cost is charged for using Adloox Pre-Bid.
+ *  The cost is charged for using Adloox Pre-Bid. Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX_PREBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlooxPrebid;
 /**
- *  The cost is charged for using AdSafe.
+ *  The cost is charged for using AdSafe. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_ADSAFE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdsafe;
 /**
- *  The cost is charged for using AdExpose.
+ *  The cost is charged for using AdExpose. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_ADXPOSE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdxpose;
 /**
- *  The cost is charged for using an Agency Trading Desk.
+ *  The cost is charged for using an Agency Trading Desk. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_AGENCY_TRADING_DESK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAgencyTradingDesk;
 /**
- *  The cost is charged for using Aggregate Knowledge.
+ *  The cost is charged for using Aggregate Knowledge. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_AGGREGATE_KNOWLEDGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAggregateKnowledge;
 /**
- *  The cost is charged for using comScore vCE.
+ *  The cost is charged for using comScore vCE. Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_COMSCORE_VCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeComscoreVce;
 /**
- *  The cost is charged as custom fee 1.
+ *  The cost is charged as custom fee 1. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_CUSTOM_FEE_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee1;
 /**
- *  The cost is charged as custom fee 2.
+ *  The cost is charged as custom fee 2. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_CUSTOM_FEE_2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee2;
 /**
- *  The cost is charged as custom fee 3.
+ *  The cost is charged as custom fee 3. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_CUSTOM_FEE_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee3;
 /**
- *  The cost is charged as custom fee 4.
+ *  The cost is charged as custom fee 4. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_CUSTOM_FEE_4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee4;
 /**
- *  The cost is charged as custom fee 5.
+ *  The cost is charged as custom fee 5. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_CUSTOM_FEE_5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee5;
 /**
- *  The cost is charged for using a Data Management Platform.
+ *  The cost is charged for using a Data Management Platform. Billed by the
+ *  partner.
  *
  *  Value: "PARTNER_COST_TYPE_DATA_MANAGEMENT_PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDataManagementPlatform;
 /**
- *  The default cost type.
+ *  The default cost type. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDefault;
 /**
- *  The cost is charged for using DoubleVerify.
+ *  The cost is charged for using DoubleVerify. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_DOUBLE_VERIFY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDoubleVerify;
 /**
- *  The cost is charged for using DoubleVerify Pre-Bid.
+ *  The cost is charged for using DoubleVerify Pre-Bid. Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_DOUBLE_VERIFY_PREBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDoubleVerifyPrebid;
 /**
- *  The cost is charged for using DV360.
+ *  The cost is charged for using DV360. Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_DV360_FEE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDv360Fee;
 /**
- *  The cost is charged for using Evidon.
+ *  The cost is charged for using Evidon. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_EVIDON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeEvidon;
 /**
- *  The cost is charged for using Integral Ad Science Pre-Bid.
+ *  The cost is charged for using Integral Ad Science Pre-Bid. Billed through
+ *  DV360.
  *
  *  Value: "PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_PREBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeIntegralAdSciencePrebid;
 /**
- *  The cost is charged for using Integral Ad Science Video.
+ *  The cost is charged for using Integral Ad Science Video. Billed by the
+ *  partner.
  *
  *  Value: "PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_VIDEO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeIntegralAdScienceVideo;
 /**
- *  The cost is charged for using media cost data.
+ *  The cost is charged for using media cost data. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_MEDIA_COST_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeMediaCostData;
 /**
- *  The cost is charged for using MOAT Video.
+ *  The cost is charged for using MOAT Video. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_MOAT_VIDEO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeMoatVideo;
 /**
- *  The cost is charged for using Nielsen Digital Ad Ratings.
+ *  The cost is charged for using Nielsen Digital Ad Ratings. Billed through
+ *  DV360.
  *
  *  Value: "PARTNER_COST_TYPE_NIELSEN_DAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeNielsenDar;
 /**
- *  The cost is charged for using ShopLocal.
+ *  The cost is charged for using ShopLocal. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_SHOP_LOCAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeShopLocal;
 /**
- *  The cost is charged for using Teracent.
+ *  The cost is charged for using Teracent. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_TERACENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeTeracent;
 /**
- *  The cost is charged for using a third-party ad server.
+ *  The cost is charged for using a third-party ad server. Billed by the
+ *  partner.
  *
  *  Value: "PARTNER_COST_TYPE_THIRD_PARTY_AD_SERVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeThirdPartyAdServer;
 /**
- *  The cost is charged for using TrustMetrics.
+ *  The cost is charged for using TrustMetrics. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_TRUST_METRICS"
  */
@@ -10532,7 +10573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_Partne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeUnspecified;
 /**
- *  The cost is charged for using Vizu.
+ *  The cost is charged for using Vizu. Billed by the partner.
  *
  *  Value: "PARTNER_COST_TYPE_VIZU"
  */
@@ -11137,6 +11178,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55;
 /**
+ *  SDF version 6
+ *
+ *  Value: "SDF_VERSION_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -11206,6 +11253,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_5_5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55;
+/**
+ *  SDF version 6
+ *
+ *  Value: "SDF_VERSION_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -11575,43 +11628,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_Ti
 // GTLRDisplayVideo_TargetingExpansionConfig.targetingExpansionLevel
 
 /**
- *  Moderate targeting expansion, medium reach.
+ *  If used, will automatically be set to `LEAST_EXPANSION`.
  *
  *  Value: "BALANCED_EXPANSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion;
 /**
- *  Conservative targeting expansion, lowest reach.
+ *  Optimized targeting is on.
  *
  *  Value: "LEAST_EXPANSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_LeastExpansion;
 /**
- *  Moderately aggressive targeting expansion, higher reach.
+ *  If used, will automatically be set to `LEAST_EXPANSION`.
  *
  *  Value: "MORE_EXPANSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MoreExpansion;
 /**
- *  Aggressive targeting expansion, highest reach.
+ *  If used, will automatically be set to `LEAST_EXPANSION`.
  *
  *  Value: "MOST_EXPANSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MostExpansion;
 /**
- *  Targeting expansion off.
+ *  Optimized targeting is off.
  *
  *  Value: "NO_EXPANSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_NoExpansion;
 /**
- *  Moderately conservative targeting expansion, lower reach.
+ *  If used, will automatically be set to `LEAST_EXPANSION`.
  *
  *  Value: "SOME_EXPANSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_SomeExpansion;
 /**
- *  Targeting expansion level is not specified or is unknown in this version.
+ *  The optimized targeting setting is not specified or is unknown in this
+ *  version.
  *
  *  Value: "TARGETING_EXPANSION_LEVEL_UNSPECIFIED"
  */
@@ -11652,7 +11706,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAudioContentType;
 /**
- *  Target ads to ads.txt authorized sellers.
+ *  Target ads to ads.txt authorized sellers. If no targeting option of this
+ *  type is assigned, the resource uses the "Authorized Direct Sellers and
+ *  Resellers" option by default.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
  */
@@ -14001,7 +14057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
@@ -14292,7 +14350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  and third party audience group. Used for negative targeting. The COMPLEMENT
  *  of the UNION of this group and other excluded audience groups is used as an
  *  INTERSECTION to any positive audience targeting. All items are logically
- *  ‘OR’ of each other.
+ *  ‘OR’ of each other. **Warning:** `ACTIVITY_BASED` and `FREQUENCY_CAP`
+ *  audience types will be deprecated on **May 20, 2023**. After this date,
+ *  these audiences will not be able to be added to resource targeting. Read our
+ *  [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
+ *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *excludedFirstAndThirdPartyAudienceGroup;
 
@@ -14301,7 +14364,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  negative targeting. The COMPLEMENT of the UNION of this group and other
  *  excluded audience groups is used as an INTERSECTION to any positive audience
  *  targeting. Only contains Affinity, In-market and Installed-apps type Google
- *  audiences. All items are logically ‘OR’ of each other.
+ *  audiences. All items are logically ‘OR’ of each other. **Warning:**
+ *  `GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS` and
+ *  `GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES` audience types will be deprecated
+ *  on **May 20, 2023**. After this date, these audiences will not be able to be
+ *  added to resource targeting. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.google_audience_types)
+ *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *excludedGoogleAudienceGroup;
 
@@ -14323,13 +14392,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  contains first and third party audience ids only. The relation between each
  *  first and third party audience group is INTERSECTION, and the result is
  *  UNION'ed with other audience groups. Repeated groups with same settings will
- *  be ignored.
+ *  be ignored. **Warning:** `ACTIVITY_BASED` and `FREQUENCY_CAP` audience types
+ *  will be deprecated on **May 20, 2023**. After this date, these audiences
+ *  will not be able to be added to resource targeting. Read our [feature
+ *  deprecation
+ *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
+ *  for more information.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *> *includedFirstAndThirdPartyAudienceGroups;
 
 /**
  *  The Google audience ids of the included Google audience group. Contains
- *  Google audience ids only.
+ *  Google audience ids only. **Warning:** `GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS`
+ *  and `GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES` audience types will be
+ *  deprecated on **May 20, 2023**. After this date, these audiences will not be
+ *  able to be added to resource targeting. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.google_audience_types)
+ *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *includedGoogleAudienceGroup;
 
@@ -14535,7 +14614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Represents an assigned authorized seller status. This will be populated in
  *  the details field of an AssignedTargetingOption when targeting_type is
- *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`.
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. If a resource does not have an
+ *  `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` assigned targeting option, it is
+ *  using the "Authorized Direct Sellers and Resellers" option.
  */
 @interface GTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails : GTLRObject
 
@@ -14546,16 +14627,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedAndNonParticipatingPublishers
  *        All authorized sellers, including publishers that have not posted an
  *        ads.txt file. Display & Video 360 automatically disallows unauthorized
- *        sellers. (Value:
+ *        sellers. This value is equivalent to "Authorized and Non-Participating
+ *        Publishers" in the UI. (Value:
  *        "AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS")
  *    @arg @c kGTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedDirectSellersOnly
  *        Only authorized sellers that directly own the inventory being
  *        monetized, as indicated by a DIRECT declaration in the ads.txt file.
+ *        This value is equivalent to "Authorized Direct Sellers" in the UI.
  *        (Value: "AUTHORIZED_SELLER_STATUS_AUTHORIZED_DIRECT_SELLERS_ONLY")
  *    @arg @c kGTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusUnspecified
  *        Default value when authorized seller status is not specified in this
- *        version. This enum is a placeholder for default value and does not
- *        represent a real authorized seller status option. (Value:
+ *        version. This enum is a placeholder for the default value, or
+ *        "Authorized Direct Sellers and Resellers" in the UI. (Value:
  *        "AUTHORIZED_SELLER_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *authorizedSellerStatus;
@@ -14583,16 +14666,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedAndNonParticipatingPublishers
  *        All authorized sellers, including publishers that have not posted an
  *        ads.txt file. Display & Video 360 automatically disallows unauthorized
- *        sellers. (Value:
+ *        sellers. This value is equivalent to "Authorized and Non-Participating
+ *        Publishers" in the UI. (Value:
  *        "AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS")
  *    @arg @c kGTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedDirectSellersOnly
  *        Only authorized sellers that directly own the inventory being
  *        monetized, as indicated by a DIRECT declaration in the ads.txt file.
+ *        This value is equivalent to "Authorized Direct Sellers" in the UI.
  *        (Value: "AUTHORIZED_SELLER_STATUS_AUTHORIZED_DIRECT_SELLERS_ONLY")
  *    @arg @c kGTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusUnspecified
  *        Default value when authorized seller status is not specified in this
- *        version. This enum is a placeholder for default value and does not
- *        represent a real authorized seller status option. (Value:
+ *        version. This enum is a placeholder for the default value, or
+ *        "Authorized Direct Sellers and Resellers" in the UI. (Value:
  *        "AUTHORIZED_SELLER_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *authorizedSellerStatus;
@@ -16632,7 +16717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
@@ -16838,6 +16925,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SDF version 5.4 (Value: "SDF_VERSION_5_4")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55
  *        SDF version 5.5 (Value: "SDF_VERSION_5_5")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6
+ *        SDF version 6 (Value: "SDF_VERSION_6")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -17974,7 +18063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
@@ -19715,8 +19806,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased
- *        Audience was created based on campaign activity. (Value:
- *        "ACTIVITY_BASED")
+ *        Audience was created based on campaign activity. **Warning:** This
+ *        audience type will be deprecated on **May 20, 2023**. After this date,
+ *        these audiences will not be able to be added to resource targeting.
+ *        Read our [feature deprecation
+ *        announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
+ *        for more information. (Value: "ACTIVITY_BASED")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_AudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
  *        "AUDIENCE_TYPE_UNSPECIFIED")
@@ -19731,7 +19826,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "CUSTOMER_MATCH_USER_ID")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap
  *        Audience was created based on excluding the number of impressions they
- *        were served. (Value: "FREQUENCY_CAP")
+ *        were served. **Warning:** This audience type will be deprecated on
+ *        **May 20, 2023**. After this date, these audiences will not be able to
+ *        be added to resource targeting. Read our [feature deprecation
+ *        announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
+ *        for more information. (Value: "FREQUENCY_CAP")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_Licensed
  *        Subtype of third party audience type. (Value: "LICENSED")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_TagBased
@@ -20592,13 +20691,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        In-Market type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_IN_MARKET")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInstalledApps
- *        Installed-Apps type Google audience. (Value:
- *        "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS")
+ *        Installed-Apps type Google audience. **Warning:** This audience type
+ *        will be deprecated on **May 20, 2023**. After this date, these
+ *        audiences will not be able to be added to resource targeting. Read our
+ *        [feature deprecation
+ *        announcement](/display-video/api/deprecations#features.google_audience_types)
+ *        for more information. (Value: "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeLifeEvent
  *        Life-Event type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_LIFE_EVENT")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeNewMobileDevices
- *        New-Mobile-Devices type Google audience. (Value:
+ *        New-Mobile-Devices type Google audience. **Warning:** This audience
+ *        type will be deprecated on **May 20, 2023**. After this date, these
+ *        audiences will not be able to be added to resource targeting. Read our
+ *        [feature deprecation
+ *        announcement](/display-video/api/deprecations#features.google_audience_types)
+ *        for more information. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
@@ -22001,14 +22109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** The status settings of the inventory source. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceStatus *status;
 
-/**
- *  Immutable. The unique ID of the sub-site property assigned to this inventory
- *  source.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *subSitePropertyId;
-
 /** The time range when this inventory source starts and stops serving. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TimeRange *timeRange;
 
@@ -22718,13 +22818,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *reservationType;
 
 /**
- *  The [targeting expansion](//support.google.com/displayvideo/answer/10191558)
- *  settings of the line item. This config is only applicable when eligible
- *  audience list targeting is assigned to the line item. Beginning **March 25,
- *  2023**, these settings may represent the [optimized targeting
- *  feature](//support.google.com/displayvideo/answer/12060859) in place of
- *  targeting expansion. This feature will be rolled out to all partners by
- *  mid-April 2023.
+ *  The [optimized targeting](//support.google.com/displayvideo/answer/12060859)
+ *  settings of the line item. This config is only applicable for display,
+ *  video, or audio line items that use automated bidding and positively target
+ *  eligible audience lists.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetingExpansionConfig *targetingExpansion;
 
@@ -23916,7 +24013,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  A single manual trigger in Display & Video 360.
+ *  A single manual trigger in Display & Video 360. **Warning:** Line Items
+ *  using manual triggers no longer serve in Display & Video 360. This resource
+ *  will sunset on August 1, 2023. Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.manual_triggers) for
+ *  more information.
  */
 @interface GTLRDisplayVideo_ManualTrigger : GTLRObject
 
@@ -24999,90 +25100,95 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee
- *        The cost is charged for using AdLingo. (Value:
+ *        The cost is charged for using AdLingo. Billed through DV360. (Value:
  *        "PARTNER_COST_TYPE_ADLINGO_FEE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox The
- *        cost is charged for using Adloox. (Value: "PARTNER_COST_TYPE_ADLOOX")
+ *        cost is charged for using Adloox. Billed by the partner. (Value:
+ *        "PARTNER_COST_TYPE_ADLOOX")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlooxPrebid
- *        The cost is charged for using Adloox Pre-Bid. (Value:
- *        "PARTNER_COST_TYPE_ADLOOX_PREBID")
+ *        The cost is charged for using Adloox Pre-Bid. Billed through DV360.
+ *        (Value: "PARTNER_COST_TYPE_ADLOOX_PREBID")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdsafe The
- *        cost is charged for using AdSafe. (Value: "PARTNER_COST_TYPE_ADSAFE")
+ *        cost is charged for using AdSafe. Billed by the partner. (Value:
+ *        "PARTNER_COST_TYPE_ADSAFE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdxpose The
- *        cost is charged for using AdExpose. (Value:
+ *        cost is charged for using AdExpose. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_ADXPOSE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAgencyTradingDesk
- *        The cost is charged for using an Agency Trading Desk. (Value:
- *        "PARTNER_COST_TYPE_AGENCY_TRADING_DESK")
+ *        The cost is charged for using an Agency Trading Desk. Billed by the
+ *        partner. (Value: "PARTNER_COST_TYPE_AGENCY_TRADING_DESK")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAggregateKnowledge
- *        The cost is charged for using Aggregate Knowledge. (Value:
- *        "PARTNER_COST_TYPE_AGGREGATE_KNOWLEDGE")
+ *        The cost is charged for using Aggregate Knowledge. Billed by the
+ *        partner. (Value: "PARTNER_COST_TYPE_AGGREGATE_KNOWLEDGE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeComscoreVce
- *        The cost is charged for using comScore vCE. (Value:
- *        "PARTNER_COST_TYPE_COMSCORE_VCE")
+ *        The cost is charged for using comScore vCE. Billed through DV360.
+ *        (Value: "PARTNER_COST_TYPE_COMSCORE_VCE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee1
- *        The cost is charged as custom fee 1. (Value:
+ *        The cost is charged as custom fee 1. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_CUSTOM_FEE_1")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee2
- *        The cost is charged as custom fee 2. (Value:
+ *        The cost is charged as custom fee 2. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_CUSTOM_FEE_2")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee3
- *        The cost is charged as custom fee 3. (Value:
+ *        The cost is charged as custom fee 3. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_CUSTOM_FEE_3")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee4
- *        The cost is charged as custom fee 4. (Value:
+ *        The cost is charged as custom fee 4. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_CUSTOM_FEE_4")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeCustomFee5
- *        The cost is charged as custom fee 5. (Value:
+ *        The cost is charged as custom fee 5. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_CUSTOM_FEE_5")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDataManagementPlatform
- *        The cost is charged for using a Data Management Platform. (Value:
- *        "PARTNER_COST_TYPE_DATA_MANAGEMENT_PLATFORM")
+ *        The cost is charged for using a Data Management Platform. Billed by
+ *        the partner. (Value: "PARTNER_COST_TYPE_DATA_MANAGEMENT_PLATFORM")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDefault The
- *        default cost type. (Value: "PARTNER_COST_TYPE_DEFAULT")
+ *        default cost type. Billed by the partner. (Value:
+ *        "PARTNER_COST_TYPE_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDoubleVerify
- *        The cost is charged for using DoubleVerify. (Value:
- *        "PARTNER_COST_TYPE_DOUBLE_VERIFY")
+ *        The cost is charged for using DoubleVerify. Billed by the partner.
+ *        (Value: "PARTNER_COST_TYPE_DOUBLE_VERIFY")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDoubleVerifyPrebid
- *        The cost is charged for using DoubleVerify Pre-Bid. (Value:
- *        "PARTNER_COST_TYPE_DOUBLE_VERIFY_PREBID")
+ *        The cost is charged for using DoubleVerify Pre-Bid. Billed through
+ *        DV360. (Value: "PARTNER_COST_TYPE_DOUBLE_VERIFY_PREBID")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeDv360Fee The
- *        cost is charged for using DV360. (Value:
+ *        cost is charged for using DV360. Billed through DV360. (Value:
  *        "PARTNER_COST_TYPE_DV360_FEE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeEvidon The
- *        cost is charged for using Evidon. (Value: "PARTNER_COST_TYPE_EVIDON")
+ *        cost is charged for using Evidon. Billed by the partner. (Value:
+ *        "PARTNER_COST_TYPE_EVIDON")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeIntegralAdSciencePrebid
- *        The cost is charged for using Integral Ad Science Pre-Bid. (Value:
- *        "PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_PREBID")
+ *        The cost is charged for using Integral Ad Science Pre-Bid. Billed
+ *        through DV360. (Value: "PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_PREBID")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeIntegralAdScienceVideo
- *        The cost is charged for using Integral Ad Science Video. (Value:
- *        "PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_VIDEO")
+ *        The cost is charged for using Integral Ad Science Video. Billed by the
+ *        partner. (Value: "PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_VIDEO")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeMediaCostData
- *        The cost is charged for using media cost data. (Value:
- *        "PARTNER_COST_TYPE_MEDIA_COST_DATA")
+ *        The cost is charged for using media cost data. Billed by the partner.
+ *        (Value: "PARTNER_COST_TYPE_MEDIA_COST_DATA")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeMoatVideo
- *        The cost is charged for using MOAT Video. (Value:
- *        "PARTNER_COST_TYPE_MOAT_VIDEO")
+ *        The cost is charged for using MOAT Video. Billed by the partner.
+ *        (Value: "PARTNER_COST_TYPE_MOAT_VIDEO")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeNielsenDar
- *        The cost is charged for using Nielsen Digital Ad Ratings. (Value:
- *        "PARTNER_COST_TYPE_NIELSEN_DAR")
+ *        The cost is charged for using Nielsen Digital Ad Ratings. Billed
+ *        through DV360. (Value: "PARTNER_COST_TYPE_NIELSEN_DAR")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeShopLocal
- *        The cost is charged for using ShopLocal. (Value:
- *        "PARTNER_COST_TYPE_SHOP_LOCAL")
+ *        The cost is charged for using ShopLocal. Billed by the partner.
+ *        (Value: "PARTNER_COST_TYPE_SHOP_LOCAL")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeTeracent The
- *        cost is charged for using Teracent. (Value:
+ *        cost is charged for using Teracent. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_TERACENT")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeThirdPartyAdServer
- *        The cost is charged for using a third-party ad server. (Value:
- *        "PARTNER_COST_TYPE_THIRD_PARTY_AD_SERVER")
+ *        The cost is charged for using a third-party ad server. Billed by the
+ *        partner. (Value: "PARTNER_COST_TYPE_THIRD_PARTY_AD_SERVER")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeTrustMetrics
- *        The cost is charged for using TrustMetrics. (Value:
- *        "PARTNER_COST_TYPE_TRUST_METRICS")
+ *        The cost is charged for using TrustMetrics. Billed by the partner.
+ *        (Value: "PARTNER_COST_TYPE_TRUST_METRICS")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeUnspecified
  *        Type value is not specified or is unknown in this version. (Value:
  *        "PARTNER_COST_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeVizu The
- *        cost is charged for using Vizu. (Value: "PARTNER_COST_TYPE_VIZU")
+ *        cost is charged for using Vizu. Billed by the partner. (Value:
+ *        "PARTNER_COST_TYPE_VIZU")
  */
 @property(nonatomic, copy, nullable) NSString *costType;
 
@@ -25988,6 +26094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "SDF_VERSION_5_4")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 SDF version 5.5
  *        (Value: "SDF_VERSION_5_5")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 SDF version 6
+ *        (Value: "SDF_VERSION_6")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -26050,6 +26158,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        version 5.4 (Value: "SDF_VERSION_5_4")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 SDF
  *        version 5.5 (Value: "SDF_VERSION_5_5")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 SDF
+ *        version 6 (Value: "SDF_VERSION_6")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -26516,69 +26626,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Settings that control the targeting expansion of the line item. Targeting
- *  expansion allows the line item to reach a larger audience based on the
- *  original audience list and the targeting expansion level. Beginning **March
- *  25, 2023**, these settings may represent the [optimized targeting
- *  feature](//support.google.com/displayvideo/answer/12060859) in place of
- *  targeting expansion. This feature will be rolled out to all partners by
- *  mid-April 2023.
+ *  Settings that control the [optimized
+ *  targeting](//support.google.com/displayvideo/answer/12060859) settings of
+ *  the line item.
  */
 @interface GTLRDisplayVideo_TargetingExpansionConfig : GTLRObject
 
 /**
- *  Required. Whether to exclude first-party audiences from use in targeting
- *  expansion or optimized targeting. Similar audiences of the excluded
- *  first-party lists will not be excluded. Only applicable when a first-party
- *  audience is positively targeted (directly or included in a combined
- *  audience), otherwise this selection will be ignored. Beginning **March 25,
- *  2023**, this field may be deprecated with the replacement of targeting
- *  expansion with [optimized
- *  targeting](//support.google.com/displayvideo/answer/12060859). Upon
- *  deprecation, this field will be set to `false`. If this field is set to
- *  `true` when deprecated, all positive first-party audience targeting assigned
- *  to this line item will be replaced with negative targeting of the same
- *  first-party audiences to ensure the continued exclusion of those audiences.
- *  This field will be deprecated for all partners by mid-April 2023.
+ *  Whether to exclude first-party audiences from use in targeting expansion.
+ *  This field was deprecated with the launch of [optimized
+ *  targeting](//support.google.com/displayvideo/answer/12060859). This field
+ *  will be set to `false`. If this field is set to `true` when deprecated, all
+ *  positive first-party audience targeting assigned to this line item will be
+ *  replaced with negative targeting of the same first-party audiences to ensure
+ *  the continued exclusion of those audiences.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *excludeFirstPartyAudience;
 
 /**
- *  Required. Magnitude of expansion for applicable targeting under this line
- *  item. Beginning **March 25, 2023**, the behavior of this field may change in
- *  the following ways with the replacement of targeting expansion with
- *  [optimized targeting](//support.google.com/displayvideo/answer/12060859): *
- *  This field will represent the optimized targeting checkbox, with a
- *  `NO_EXPANSION` value representing optimized targeting turned off and a
- *  `LEAST_EXPANSION` value representing optimized targeting turned on. *
+ *  Required. Whether optimized targeting is turned on. This field supports the
+ *  following values: * `NO_EXPANSION`: optimized targeting is turned off *
+ *  `LEAST_EXPANSION`: optimized targeting is turned on If this field is set to
+ *  any other value, it will automatically be set to `LEAST_EXPANSION`.
  *  `NO_EXPANSION` will be the default value for the field and will be
- *  automatically assigned if you do not set the field. * If you set the field
- *  to any value other than `NO_EXPANSION`, it will automatically be set to
- *  `LEAST_EXPANSION`. This behavior will be rolled out to all partners by
- *  mid-April 2023.
+ *  automatically assigned if you do not set the field.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion
- *        Moderate targeting expansion, medium reach. (Value:
+ *        If used, will automatically be set to `LEAST_EXPANSION`. (Value:
  *        "BALANCED_EXPANSION")
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_LeastExpansion
- *        Conservative targeting expansion, lowest reach. (Value:
- *        "LEAST_EXPANSION")
+ *        Optimized targeting is on. (Value: "LEAST_EXPANSION")
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MoreExpansion
- *        Moderately aggressive targeting expansion, higher reach. (Value:
+ *        If used, will automatically be set to `LEAST_EXPANSION`. (Value:
  *        "MORE_EXPANSION")
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MostExpansion
- *        Aggressive targeting expansion, highest reach. (Value:
+ *        If used, will automatically be set to `LEAST_EXPANSION`. (Value:
  *        "MOST_EXPANSION")
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_NoExpansion
- *        Targeting expansion off. (Value: "NO_EXPANSION")
+ *        Optimized targeting is off. (Value: "NO_EXPANSION")
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_SomeExpansion
- *        Moderately conservative targeting expansion, lower reach. (Value:
+ *        If used, will automatically be set to `LEAST_EXPANSION`. (Value:
  *        "SOME_EXPANSION")
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_TargetingExpansionLevelUnspecified
- *        Targeting expansion level is not specified or is unknown in this
+ *        The optimized targeting setting is not specified or is unknown in this
  *        version. (Value: "TARGETING_EXPANSION_LEVEL_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *targetingExpansionLevel;
@@ -26712,7 +26805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Target ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAuthorizedSellerStatus
- *        Target ads to ads.txt authorized sellers. (Value:
+ *        Target ads to ads.txt authorized sellers. If no targeting option of
+ *        this type is assigned, the resource uses the "Authorized Direct
+ *        Sellers and Resellers" option by default. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:

@@ -21,8 +21,10 @@
 @class GTLRContainer_AdvancedMachineFeatures;
 @class GTLRContainer_AuthenticatorGroupsConfig;
 @class GTLRContainer_Autopilot;
+@class GTLRContainer_AutopilotCompatibilityIssue;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
 @class GTLRContainer_AutoUpgradeOptions;
+@class GTLRContainer_BestEffortProvisioning;
 @class GTLRContainer_BigQueryDestination;
 @class GTLRContainer_BinaryAuthorization;
 @class GTLRContainer_BlueGreenInfo;
@@ -52,6 +54,7 @@
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
 @class GTLRContainer_GkeBackupAgentConfig;
+@class GTLRContainer_GPUDriverInstallationConfig;
 @class GTLRContainer_GPUSharingConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
@@ -61,6 +64,7 @@
 @class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_Jwk;
+@class GTLRContainer_K8sBetaAPIConfig;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_LinuxNodeConfig;
@@ -86,6 +90,7 @@
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
 @class GTLRContainer_NetworkTags;
+@class GTLRContainer_NodeAffinity;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
@@ -120,10 +125,12 @@
 @class GTLRContainer_ResourceLimit;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SandboxConfig;
+@class GTLRContainer_SecurityPostureConfig;
 @class GTLRContainer_ServiceExternalIPsConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_ShieldedNodes;
+@class GTLRContainer_SoleTenantConfig;
 @class GTLRContainer_StandardRolloutPolicy;
 @class GTLRContainer_Status;
 @class GTLRContainer_Status_Details_Item;
@@ -138,6 +145,7 @@
 @class GTLRContainer_WindowsNodeConfig;
 @class GTLRContainer_WorkloadIdentityConfig;
 @class GTLRContainer_WorkloadMetadataConfig;
+@class GTLRContainer_WorkloadPolicyConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -148,6 +156,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AutopilotCompatibilityIssue.incompatibilityType
+
+/**
+ *  Indicates the issue is an incompatibility if customers take no further
+ *  action to resolve.
+ *
+ *  Value: "ADDITIONAL_CONFIG_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_AdditionalConfigRequired;
+/**
+ *  Indicates that the issue is a known incompatibility between the cluster and
+ *  Autopilot mode.
+ *
+ *  Value: "INCOMPATIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_Incompatibility;
+/**
+ *  Indicates the issue is not an incompatibility, but depending on the
+ *  workloads business logic, there is a potential that they won't work on
+ *  Autopilot.
+ *
+ *  Value: "PASSED_WITH_OPTIONAL_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_PassedWithOptionalConfig;
+/**
+ *  Default value, should not be used.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_BinaryAuthorization.evaluationMode
@@ -519,6 +559,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_Chann
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_GPUDriverInstallationConfig.gpuDriverVersion
+
+/**
+ *  "Default" GPU driver in COS and Ubuntu.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Default;
+/**
+ *  Default value is to not install any GPU driver.
+ *
+ *  Value: "GPU_DRIVER_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_GpuDriverVersionUnspecified;
+/**
+ *  Disable GPU driver auto installation and needs manual installation
+ *
+ *  Value: "INSTALLATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_InstallationDisabled;
+/**
+ *  "Latest" GPU driver in COS.
+ *
+ *  Value: "LATEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Latest;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_GPUSharingConfig.gpuSharingStrategy
 
 /**
@@ -811,6 +879,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico;
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_NodeAffinity.operatorProperty
+
+/**
+ *  Affinity operator.
+ *
+ *  Value: "IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_In;
+/**
+ *  Anti-affinity operator.
+ *
+ *  Value: "NOT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_NotIn;
+/**
+ *  Invalid or unspecified affinity operator.
+ *
+ *  Value: "OPERATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_OperatorUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
 
 /**
@@ -917,79 +1007,108 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSched
 // GTLRContainer_Operation.operationType
 
 /**
- *  Automatic node pool repair.
+ *  A problem has been detected with nodes and [they are being
+ *  repaired](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair).
+ *  This operation type is initiated by GKE, typically automatically. This
+ *  operation may be concurrent with other operations and there may be multiple
+ *  repairs occurring on the same node pool.
  *
  *  Value: "AUTO_REPAIR_NODES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoRepairNodes;
 /**
- *  Automatic node upgrade.
+ *  Unused. Automatic node upgrade uses UPGRADE_NODES.
  *
  *  Value: "AUTO_UPGRADE_NODES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoUpgradeNodes;
 /**
- *  Cluster create.
+ *  The cluster is being created. The cluster should be assumed to be unusable
+ *  until the operation finishes. In the event of the operation failing, the
+ *  cluster will enter the ERROR state and eventually be deleted.
  *
  *  Value: "CREATE_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateCluster;
 /**
- *  Node pool create.
+ *  A node pool is being created. The node pool should be assumed to be unusable
+ *  until this operation finishes. In the event of an error, the node pool may
+ *  be partially created. If enabled, [node
+ *  autoprovisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
+ *  may have automatically initiated such operations.
  *
  *  Value: "CREATE_NODE_POOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateNodePool;
 /**
- *  Cluster delete.
+ *  The cluster is being deleted. The cluster should be assumed to be unusable
+ *  as soon as this operation starts. In the event of the operation failing, the
+ *  cluster will enter the ERROR state and the deletion will be automatically
+ *  retried until completed.
  *
  *  Value: "DELETE_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteCluster;
 /**
- *  Node pool delete.
+ *  The node pool is being deleted. The node pool should be assumed to be
+ *  unusable as soon as this operation starts.
  *
  *  Value: "DELETE_NODE_POOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool;
 /**
- *  Cluster repair.
+ *  A problem has been detected with the control plane and is being repaired.
+ *  This operation type is initiated by GKE. For more details, see
+ *  [documentation on
+ *  repairs](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *
  *  Value: "REPAIR_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_RepairCluster;
 /**
- *  Set labels.
+ *  The control plane is being resized. This operation type is initiated by GKE.
+ *  These operations are often performed preemptively to ensure that the control
+ *  plane has sufficient resources and is not typically an indication of issues.
+ *  For more details, see [documentation on
+ *  resizes](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *
+ *  Value: "RESIZE_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_ResizeCluster;
+/**
+ *  Unused. Updating labels uses UPDATE_CLUSTER.
  *
  *  Value: "SET_LABELS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
 /**
- *  Set the maintenance policy.
+ *  Unused. Updating maintenance policy uses UPDATE_CLUSTER.
  *
  *  Value: "SET_MAINTENANCE_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy;
 /**
- *  Set/generate master auth materials
+ *  Unused. Updating master auth uses UPDATE_CLUSTER.
  *
  *  Value: "SET_MASTER_AUTH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth;
 /**
- *  Updates network policy for a cluster.
+ *  Unused. Updating network policy uses UPDATE_CLUSTER.
  *
  *  Value: "SET_NETWORK_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy;
 /**
- *  Set node pool management.
+ *  The node pool's manamagent field is being updated. These operations only
+ *  update metadata and may be concurrent with most other operations.
  *
  *  Value: "SET_NODE_POOL_MANAGEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement;
 /**
- *  Set node pool size.
+ *  The node pool is being resized. With the exception of resizing to or from
+ *  size zero, the node pool is generally usable during this operation.
  *
  *  Value: "SET_NODE_POOL_SIZE"
  */
@@ -1001,19 +1120,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNod
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified;
 /**
- *  Cluster update.
+ *  The cluster is being updated. This is a broad category of operations and
+ *  includes operations that only change metadata as well as those that must
+ *  recreate the entire cluster. If the control plane must be recreated, this
+ *  will cause temporary downtime for zonal clusters. Some features require
+ *  recreating the nodes as well. Those will be recreated as separate operations
+ *  and the update may not be completely functional until the node pools
+ *  recreations finish. Node recreations will generally follow [maintenance
+ *  policies](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
+ *  Some GKE-initiated operations use this type. This includes certain types of
+ *  auto-upgrades and incident mitigations.
  *
  *  Value: "UPDATE_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpdateCluster;
 /**
- *  A master upgrade.
+ *  The cluster version is being updated. Note that this includes "upgrades" to
+ *  the same version, which are simply a recreation. This also includes
+ *  [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
+ *  For more details, see [documentation on cluster
+ *  upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
  *
  *  Value: "UPGRADE_MASTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeMaster;
 /**
- *  A node upgrade.
+ *  A node pool is being updated. Despite calling this an "upgrade", this
+ *  includes most forms of updates to node pools. This also includes
+ *  [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades).
+ *  This operation sets the progress field and may be canceled. The upgrade
+ *  strategy depends on [node pool
+ *  configuration](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
+ *  The nodes are generally still usable during this operation.
  *
  *  Value: "UPGRADE_NODES"
  */
@@ -1216,6 +1354,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_SecurityPostureConfig.mode
+
+/**
+ *  Applies Security Posture features on the cluster.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Basic;
+/**
+ *  Disables Security Posture features on the cluster.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Disabled;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_SecurityPostureConfig.vulnerabilityMode
+
+/**
+ *  Applies basic vulnerability scanning on the cluster.
+ *
+ *  Value: "VULNERABILITY_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic;
+/**
+ *  Disables vulnerability scanning on the cluster.
+ *
+ *  Value: "VULNERABILITY_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "VULNERABILITY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_SetMasterAuthRequest.action
@@ -1634,6 +1816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
+/** The configuration for auto installation of GPU driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_GPUDriverInstallationConfig *gpuDriverInstallationConfig;
+
 /**
  *  Size of partitions to create on the GPU. Valid values are described in the
  *  NVIDIA [mig user
@@ -1652,6 +1837,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  ranges supporting the ClusterUpdate message.
  */
 @interface GTLRContainer_AdditionalPodRangesConfig : GTLRObject
+
+/**
+ *  Name for pod secondary ipv4 range which has the actual range defined ahead.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *podRangeNames;
+
 @end
 
 
@@ -1768,6 +1959,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
+/** Workload policy configuration for Autopilot. */
+@property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *workloadPolicyConfig;
+
+@end
+
+
+/**
+ *  AutopilotCompatibilityIssue contains information about a specific
+ *  compatibility issue with Autopilot mode.
+ */
+@interface GTLRContainer_AutopilotCompatibilityIssue : GTLRObject
+
+/** The constraint type of the issue. */
+@property(nonatomic, copy, nullable) NSString *constraintType;
+
+/**
+ *  The description of the issue.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A URL to a public documnetation, which addresses resolving this issue. */
+@property(nonatomic, copy, nullable) NSString *documentationUrl;
+
+/**
+ *  The incompatibility type of this issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_AdditionalConfigRequired
+ *        Indicates the issue is an incompatibility if customers take no further
+ *        action to resolve. (Value: "ADDITIONAL_CONFIG_REQUIRED")
+ *    @arg @c kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_Incompatibility
+ *        Indicates that the issue is a known incompatibility between the
+ *        cluster and Autopilot mode. (Value: "INCOMPATIBILITY")
+ *    @arg @c kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_PassedWithOptionalConfig
+ *        Indicates the issue is not an incompatibility, but depending on the
+ *        workloads business logic, there is a potential that they won't work on
+ *        Autopilot. (Value: "PASSED_WITH_OPTIONAL_CONFIG")
+ *    @arg @c kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_Unspecified
+ *        Default value, should not be used. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *incompatibilityType;
+
+/** The last time when this issue was observed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastObservation;
+
+/** The name of the resources which are subject to this issue. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjects;
+
 @end
 
 
@@ -1858,6 +2099,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  Best effort provisioning.
+ */
+@interface GTLRContainer_BestEffortProvisioning : GTLRObject
+
+/**
+ *  When this is enabled, cluster/node pool creations will ignore non-fatal
+ *  errors like stockout to best provision as many nodes as possible right now
+ *  and eventually bring up all target number of nodes
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Minimum number of nodes to be provisioned to be considered as succeeded, and
+ *  the rest of nodes will be provisioned gradually and eventually when stockout
+ *  issue has been resolved.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minProvisionNodes;
 
 @end
 
@@ -2015,6 +2282,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  CheckAutopilotCompatibilityResponse has a list of compatibility issues.
+ */
+@interface GTLRContainer_CheckAutopilotCompatibilityResponse : GTLRObject
+
+/** The list of issues for the given operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AutopilotCompatibilityIssue *> *issues;
+
+/** The summary of the autopilot compatibility response. */
+@property(nonatomic, copy, nullable) NSString *summary;
+
+@end
+
+
+/**
  *  CidrBlock contains an optional name and one CIDR block.
  */
 @interface GTLRContainer_CidrBlock : GTLRObject
@@ -2156,6 +2437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Beta APIs Config */
+@property(nonatomic, strong, nullable) GTLRContainer_K8sBetaAPIConfig *enableK8sBetaApis;
 
 /**
  *  Kubernetes alpha features are enabled on this cluster. This includes alpha
@@ -2384,7 +2668,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
 
-/** Release channel configuration. */
+/**
+ *  Release channel configuration. If left unspecified on cluster creation and a
+ *  version is specified, the cluster is enrolled in the most mature release
+ *  channel where the version is available (first checking STABLE, then REGULAR,
+ *  and finally RAPID). Otherwise, if no release channel configuration and no
+ *  version is specified, the cluster is enrolled in the REGULAR channel with
+ *  its default version.
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *releaseChannel;
 
 /**
@@ -2398,6 +2689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  disabled when this config is unspecified.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *resourceUsageExportConfig;
+
+/** Enable/Disable Security Posture API features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *securityPostureConfig;
 
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -2563,6 +2857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired authenticator groups config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
 
+/** The desired workload policy configuration for the autopilot cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *desiredAutopilotWorkloadPolicyConfig;
+
 /** The desired configuration options for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *desiredBinaryAuthorization;
 
@@ -2599,11 +2896,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
 
 /**
+ *  Enable/Disable FQDN Network Policy for the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredEnableFqdnNetworkPolicy;
+
+/**
  *  Enable/Disable private endpoint for the cluster's master.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *desiredEnablePrivateEndpoint;
+
+/** The desired fleet configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_Fleet *desiredFleet;
 
 /** The desired config of Gateway API on this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_GatewayAPIConfig *desiredGatewayApiConfig;
@@ -2622,6 +2929,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired config of Intra-node visibility. */
 @property(nonatomic, strong, nullable) GTLRContainer_IntraNodeVisibilityConfig *desiredIntraNodeVisibilityConfig;
+
+/** Desired Beta APIs to be enabled for cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_K8sBetaAPIConfig *desiredK8sBetaApis;
 
 /** The desired L4 Internal Load Balancer Subsetting configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ILBSubsettingConfig *desiredL4ilbSubsettingConfig;
@@ -2753,6 +3063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
 
+/** Enable/Disable Security Posture API features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *desiredSecurityPostureConfig;
+
 /**
  *  ServiceExternalIPsConfig specifies the config for the use of Services with
  *  ExternalIPs field.
@@ -2783,6 +3096,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration for Workload Identity. */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadIdentityConfig *desiredWorkloadIdentityConfig;
+
+/** Kubernetes open source beta apis enabled on the cluster. Only beta apis */
+@property(nonatomic, strong, nullable) GTLRContainer_K8sBetaAPIConfig *enableK8sBetaApis;
 
 /**
  *  The current etag of the cluster. If an etag is provided and does not match
@@ -3019,7 +3335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *keyName;
 
 /**
- *  Denotes the state of etcd encryption.
+ *  The desired state of etcd encryption.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_DatabaseEncryption_State_Decrypted Secrets in etcd
@@ -3330,6 +3646,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GPUDriverInstallationConfig specifies the version of GPU driver to be auto
+ *  installed.
+ */
+@interface GTLRContainer_GPUDriverInstallationConfig : GTLRObject
+
+/**
+ *  Mode for how the GPU driver is installed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Default
+ *        "Default" GPU driver in COS and Ubuntu. (Value: "DEFAULT")
+ *    @arg @c kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_GpuDriverVersionUnspecified
+ *        Default value is to not install any GPU driver. (Value:
+ *        "GPU_DRIVER_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_InstallationDisabled
+ *        Disable GPU driver auto installation and needs manual installation
+ *        (Value: "INSTALLATION_DISABLED")
+ *    @arg @c kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Latest
+ *        "Latest" GPU driver in COS. (Value: "LATEST")
+ */
+@property(nonatomic, copy, nullable) NSString *gpuDriverVersion;
 
 @end
 
@@ -3671,6 +4013,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Used for ECDSA keys. */
 @property(nonatomic, copy, nullable) NSString *y;
+
+@end
+
+
+/**
+ *  K8sBetaAPIConfig , configuration for beta APIs
+ */
+@interface GTLRContainer_K8sBetaAPIConfig : GTLRObject
+
+/** Enabled k8s beta APIs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledApis;
 
 @end
 
@@ -4214,6 +4567,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *dnsConfig;
 
 /**
+ *  Whether FQDN Network Policy is enabled on this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFqdnNetworkPolicy;
+
+/**
  *  Whether Intra-node visibility is enabled for this cluster. This makes same
  *  node pod to pod traffic visible for VPC network.
  *
@@ -4349,6 +4709,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** List of network tags. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  Specifies the NodeAffinity key, values, and affinity operator according to
+ *  [shared sole tenant node group
+ *  affinities](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity).
+ */
+@interface GTLRContainer_NodeAffinity : GTLRObject
+
+/** Key for NodeAffinity. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Operator for NodeAffinity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeAffinity_OperatorProperty_In Affinity operator.
+ *        (Value: "IN")
+ *    @arg @c kGTLRContainer_NodeAffinity_OperatorProperty_NotIn Anti-affinity
+ *        operator. (Value: "NOT_IN")
+ *    @arg @c kGTLRContainer_NodeAffinity_OperatorProperty_OperatorUnspecified
+ *        Invalid or unspecified affinity operator. (Value:
+ *        "OPERATOR_UNSPECIFIED")
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
+/** Values for NodeAffinity. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -4546,6 +4938,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Shielded Instance options. */
 @property(nonatomic, strong, nullable) GTLRContainer_ShieldedInstanceConfig *shieldedInstanceConfig;
+
+/**
+ *  Parameters for node pools to be backed by shared sole tenant node groups.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_SoleTenantConfig *soleTenantConfig;
 
 /**
  *  Spot flag for enabling Spot VM, which is a rebrand of the existing
@@ -4832,6 +5229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  valid configuration is present.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoscaling *autoscaling;
+
+/** Enable best effort provisioning for nodes */
+@property(nonatomic, strong, nullable) GTLRContainer_BestEffortProvisioning *bestEffortProvisioning;
 
 /** Which conditions caused the current node pool state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
@@ -5171,47 +5571,108 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  The operation type.
  *
  *  Likely values:
- *    @arg @c kGTLRContainer_Operation_OperationType_AutoRepairNodes Automatic
- *        node pool repair. (Value: "AUTO_REPAIR_NODES")
- *    @arg @c kGTLRContainer_Operation_OperationType_AutoUpgradeNodes Automatic
- *        node upgrade. (Value: "AUTO_UPGRADE_NODES")
- *    @arg @c kGTLRContainer_Operation_OperationType_CreateCluster Cluster
- *        create. (Value: "CREATE_CLUSTER")
- *    @arg @c kGTLRContainer_Operation_OperationType_CreateNodePool Node pool
- *        create. (Value: "CREATE_NODE_POOL")
- *    @arg @c kGTLRContainer_Operation_OperationType_DeleteCluster Cluster
- *        delete. (Value: "DELETE_CLUSTER")
- *    @arg @c kGTLRContainer_Operation_OperationType_DeleteNodePool Node pool
- *        delete. (Value: "DELETE_NODE_POOL")
- *    @arg @c kGTLRContainer_Operation_OperationType_RepairCluster Cluster
- *        repair. (Value: "REPAIR_CLUSTER")
- *    @arg @c kGTLRContainer_Operation_OperationType_SetLabels Set labels.
- *        (Value: "SET_LABELS")
- *    @arg @c kGTLRContainer_Operation_OperationType_SetMaintenancePolicy Set
- *        the maintenance policy. (Value: "SET_MAINTENANCE_POLICY")
- *    @arg @c kGTLRContainer_Operation_OperationType_SetMasterAuth Set/generate
- *        master auth materials (Value: "SET_MASTER_AUTH")
- *    @arg @c kGTLRContainer_Operation_OperationType_SetNetworkPolicy Updates
- *        network policy for a cluster. (Value: "SET_NETWORK_POLICY")
- *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement Set
- *        node pool management. (Value: "SET_NODE_POOL_MANAGEMENT")
- *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolSize Set node
- *        pool size. (Value: "SET_NODE_POOL_SIZE")
+ *    @arg @c kGTLRContainer_Operation_OperationType_AutoRepairNodes A problem
+ *        has been detected with nodes and [they are being
+ *        repaired](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair).
+ *        This operation type is initiated by GKE, typically automatically. This
+ *        operation may be concurrent with other operations and there may be
+ *        multiple repairs occurring on the same node pool. (Value:
+ *        "AUTO_REPAIR_NODES")
+ *    @arg @c kGTLRContainer_Operation_OperationType_AutoUpgradeNodes Unused.
+ *        Automatic node upgrade uses UPGRADE_NODES. (Value:
+ *        "AUTO_UPGRADE_NODES")
+ *    @arg @c kGTLRContainer_Operation_OperationType_CreateCluster The cluster
+ *        is being created. The cluster should be assumed to be unusable until
+ *        the operation finishes. In the event of the operation failing, the
+ *        cluster will enter the ERROR state and eventually be deleted. (Value:
+ *        "CREATE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_CreateNodePool A node pool
+ *        is being created. The node pool should be assumed to be unusable until
+ *        this operation finishes. In the event of an error, the node pool may
+ *        be partially created. If enabled, [node
+ *        autoprovisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
+ *        may have automatically initiated such operations. (Value:
+ *        "CREATE_NODE_POOL")
+ *    @arg @c kGTLRContainer_Operation_OperationType_DeleteCluster The cluster
+ *        is being deleted. The cluster should be assumed to be unusable as soon
+ *        as this operation starts. In the event of the operation failing, the
+ *        cluster will enter the ERROR state and the deletion will be
+ *        automatically retried until completed. (Value: "DELETE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_DeleteNodePool The node
+ *        pool is being deleted. The node pool should be assumed to be unusable
+ *        as soon as this operation starts. (Value: "DELETE_NODE_POOL")
+ *    @arg @c kGTLRContainer_Operation_OperationType_RepairCluster A problem has
+ *        been detected with the control plane and is being repaired. This
+ *        operation type is initiated by GKE. For more details, see
+ *        [documentation on
+ *        repairs](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *        (Value: "REPAIR_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_ResizeCluster The control
+ *        plane is being resized. This operation type is initiated by GKE. These
+ *        operations are often performed preemptively to ensure that the control
+ *        plane has sufficient resources and is not typically an indication of
+ *        issues. For more details, see [documentation on
+ *        resizes](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *        (Value: "RESIZE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetLabels Unused. Updating
+ *        labels uses UPDATE_CLUSTER. (Value: "SET_LABELS")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetMaintenancePolicy
+ *        Unused. Updating maintenance policy uses UPDATE_CLUSTER. (Value:
+ *        "SET_MAINTENANCE_POLICY")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetMasterAuth Unused.
+ *        Updating master auth uses UPDATE_CLUSTER. (Value: "SET_MASTER_AUTH")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNetworkPolicy Unused.
+ *        Updating network policy uses UPDATE_CLUSTER. (Value:
+ *        "SET_NETWORK_POLICY")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolManagement The
+ *        node pool's manamagent field is being updated. These operations only
+ *        update metadata and may be concurrent with most other operations.
+ *        (Value: "SET_NODE_POOL_MANAGEMENT")
+ *    @arg @c kGTLRContainer_Operation_OperationType_SetNodePoolSize The node
+ *        pool is being resized. With the exception of resizing to or from size
+ *        zero, the node pool is generally usable during this operation. (Value:
+ *        "SET_NODE_POOL_SIZE")
  *    @arg @c kGTLRContainer_Operation_OperationType_TypeUnspecified Not set.
  *        (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainer_Operation_OperationType_UpdateCluster Cluster
- *        update. (Value: "UPDATE_CLUSTER")
- *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeMaster A master
- *        upgrade. (Value: "UPGRADE_MASTER")
- *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeNodes A node
- *        upgrade. (Value: "UPGRADE_NODES")
+ *    @arg @c kGTLRContainer_Operation_OperationType_UpdateCluster The cluster
+ *        is being updated. This is a broad category of operations and includes
+ *        operations that only change metadata as well as those that must
+ *        recreate the entire cluster. If the control plane must be recreated,
+ *        this will cause temporary downtime for zonal clusters. Some features
+ *        require recreating the nodes as well. Those will be recreated as
+ *        separate operations and the update may not be completely functional
+ *        until the node pools recreations finish. Node recreations will
+ *        generally follow [maintenance
+ *        policies](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
+ *        Some GKE-initiated operations use this type. This includes certain
+ *        types of auto-upgrades and incident mitigations. (Value:
+ *        "UPDATE_CLUSTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeMaster The cluster
+ *        version is being updated. Note that this includes "upgrades" to the
+ *        same version, which are simply a recreation. This also includes
+ *        [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
+ *        For more details, see [documentation on cluster
+ *        upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
+ *        (Value: "UPGRADE_MASTER")
+ *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeNodes A node pool is
+ *        being updated. Despite calling this an "upgrade", this includes most
+ *        forms of updates to node pools. This also includes
+ *        [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades).
+ *        This operation sets the progress field and may be canceled. The
+ *        upgrade strategy depends on [node pool
+ *        configuration](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
+ *        The nodes are generally still usable during this operation. (Value:
+ *        "UPGRADE_NODES")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
 /** Output only. [Output only] Progress information for an operation. */
 @property(nonatomic, strong, nullable) GTLRContainer_OperationProgress *progress;
 
-/** Server-defined URL for the resource. */
+/**
+ *  Server-defined URI for the operation. Example:
+ *  `https://container.googleapis.com/v1alpha1/projects/123/locations/us-central1/operations/operation-123`.
+ */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
@@ -5243,7 +5704,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
-/** Server-defined URL for the target of the operation. */
+/**
+ *  Server-defined URI for the target of the operation. The format of this is a
+ *  URI to the resource being modified (such as a cluster, node pool, or node).
+ *  For node pool repairs, there may be multiple nodes being repaired, but only
+ *  one will be the target. Examples: - ##
+ *  `https://container.googleapis.com/v1/projects/123/locations/us-central1/clusters/my-cluster`
+ *  ##
+ *  `https://container.googleapis.com/v1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np`
+ *  `https://container.googleapis.com/v1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np/node/my-node`
+ */
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
 /**
@@ -5764,6 +6234,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  available as an upgrade target in that cluster's location.
  */
 @property(nonatomic, copy, nullable) NSString *suggestedUpgradeTarget;
+
+@end
+
+
+/**
+ *  SecurityPostureConfig defines the flags needed to enable/disable features
+ *  for the Security Posture API.
+ */
+@interface GTLRContainer_SecurityPostureConfig : GTLRObject
+
+/**
+ *  Sets which mode to use for Security Posture features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Basic Applies Security
+ *        Posture features on the cluster. (Value: "BASIC")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Disabled Disables
+ *        Security Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified Default
+ *        value not specified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Sets which mode to use for vulnerability scanning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic
+ *        Applies basic vulnerability scanning on the cluster. (Value:
+ *        "VULNERABILITY_BASIC")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled
+ *        Disables vulnerability scanning on the cluster. (Value:
+ *        "VULNERABILITY_DISABLED")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified
+ *        Default value not specified. (Value: "VULNERABILITY_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerabilityMode;
 
 @end
 
@@ -6428,6 +6935,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  SoleTenantConfig contains the NodeAffinities to specify what shared sole
+ *  tenant node groups should back the node pool.
+ */
+@interface GTLRContainer_SoleTenantConfig : GTLRObject
+
+/** NodeAffinities used to match to a shared sole tenant node group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodeAffinity *> *nodeAffinities;
 
 @end
 
@@ -7274,6 +7793,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        set. (Value: "MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  WorkloadPolicyConfig is the configuration of workload policy for autopilot
+ *  clusters.
+ */
+@interface GTLRContainer_WorkloadPolicyConfig : GTLRObject
+
+/**
+ *  If true, workloads can use NET_ADMIN capability.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowNetAdmin;
 
 @end
 

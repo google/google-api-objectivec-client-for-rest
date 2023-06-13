@@ -32,6 +32,10 @@ NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_Environmen
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall = @"ENVIRONMENT_SIZE_SMALL";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified = @"ENVIRONMENT_SIZE_UNSPECIFIED";
 
+// GTLRCloudComposer_EnvironmentConfig.resilienceMode
+NSString * const kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_HighResilience = @"HIGH_RESILIENCE";
+NSString * const kGTLRCloudComposer_EnvironmentConfig_ResilienceMode_ResilienceModeUnspecified = @"RESILIENCE_MODE_UNSPECIFIED";
+
 // GTLRCloudComposer_NetworkingConfig.connectionType
 NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
@@ -40,6 +44,7 @@ NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_VpcPeering =
 // GTLRCloudComposer_OperationMetadata.operationType
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_DatabaseFailover = @"DATABASE_FAILOVER";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot = @"LOAD_SNAPSHOT";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot = @"SAVE_SNAPSHOT";
@@ -116,6 +121,24 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_DatabaseFailoverRequest
+//
+
+@implementation GTLRCloudComposer_DatabaseFailoverRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_DatabaseFailoverResponse
+//
+
+@implementation GTLRCloudComposer_DatabaseFailoverResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_Date
 //
 
@@ -176,8 +199,57 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 @dynamic airflowByoidUri, airflowUri, dagGcsPrefix, databaseConfig,
          encryptionConfig, environmentSize, gkeCluster, maintenanceWindow,
          masterAuthorizedNetworksConfig, nodeConfig, nodeCount,
-         privateEnvironmentConfig, recoveryConfig, softwareConfig,
-         webServerConfig, webServerNetworkAccessControl, workloadsConfig;
+         privateEnvironmentConfig, recoveryConfig, resilienceMode,
+         softwareConfig, webServerConfig, webServerNetworkAccessControl,
+         workloadsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ExecuteAirflowCommandRequest
+//
+
+@implementation GTLRCloudComposer_ExecuteAirflowCommandRequest
+@dynamic command, parameters, subcommand;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ExecuteAirflowCommandResponse
+//
+
+@implementation GTLRCloudComposer_ExecuteAirflowCommandResponse
+@dynamic error, executionId, pod, podNamespace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ExitInfo
+//
+
+@implementation GTLRCloudComposer_ExitInfo
+@dynamic error, exitCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_FetchDatabasePropertiesResponse
+//
+
+@implementation GTLRCloudComposer_FetchDatabasePropertiesResponse
+@dynamic isFailoverReplicaAvailable, primaryGceZone, secondaryGceZone;
 @end
 
 
@@ -208,6 +280,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 @implementation GTLRCloudComposer_IPAllocationPolicy
 @dynamic clusterIpv4CidrBlock, clusterSecondaryRangeName, servicesIpv4CidrBlock,
          servicesSecondaryRangeName, useIpAliases;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_Line
+//
+
+@implementation GTLRCloudComposer_Line
+@dynamic content, lineNumber;
 @end
 
 
@@ -405,6 +487,34 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_PollAirflowCommandRequest
+//
+
+@implementation GTLRCloudComposer_PollAirflowCommandRequest
+@dynamic executionId, nextLineNumber, pod, podNamespace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_PollAirflowCommandResponse
+//
+
+@implementation GTLRCloudComposer_PollAirflowCommandResponse
+@dynamic exitInfo, output, outputEnd;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"output" : [GTLRCloudComposer_Line class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_PrivateClusterConfig
 //
 
@@ -557,6 +667,34 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_StopAirflowCommandRequest
+//
+
+@implementation GTLRCloudComposer_StopAirflowCommandRequest
+@dynamic executionId, force, pod, podNamespace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_StopAirflowCommandResponse
+//
+
+@implementation GTLRCloudComposer_StopAirflowCommandResponse
+@dynamic isDone, output;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"output" : [NSString class]
+  };
+  return map;
 }
 
 @end

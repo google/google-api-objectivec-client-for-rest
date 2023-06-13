@@ -234,7 +234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 
 /**
  *  Output only. Error regarding the state of the Execution resource. For
- *  example, this field will have error details if the Execution data is
+ *  example, this field will have error details if the execution data is
  *  unavailable due to revoked KMS key permissions.
  */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StateError *stateError;

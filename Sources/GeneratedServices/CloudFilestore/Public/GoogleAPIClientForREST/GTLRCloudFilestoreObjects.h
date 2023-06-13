@@ -118,6 +118,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier
  *  Value: "TIER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_TierUnspecified;
+/**
+ *  ZONAL instances offer expanded capacity and performance scaling
+ *  capabilities.
+ *
+ *  Value: "ZONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Zonal;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Backup.state
@@ -141,6 +148,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_State_Deleting;
  *  Value: "FINALIZING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_State_Finalizing;
+/**
+ *  Backup is not valid and cannot be used for creating new instances or
+ *  restoring existing instances.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_State_Invalid;
 /**
  *  Backup is available for use.
  *
@@ -249,6 +263,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Restoring;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Resuming;
 /**
+ *  The instance is reverting to a snapshot.
+ *
+ *  Value: "REVERTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Reverting;
+/**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -333,6 +353,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Standard;
  *  Value: "TIER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified;
+/**
+ *  ZONAL instances offer expanded capacity and performance scaling
+ *  capabilities.
+ *
+ *  Value: "ZONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Zonal;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_MaintenancePolicy.state
@@ -659,6 +686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        "STANDARD")
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_TierUnspecified Not
  *        set. (Value: "TIER_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Zonal ZONAL
+ *        instances offer expanded capacity and performance scaling
+ *        capabilities. (Value: "ZONAL")
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstanceTier;
 
@@ -673,6 +703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *    @arg @c kGTLRCloudFilestore_Backup_State_Finalizing Backup has been taken
  *        and the operation is being finalized. At this point, changes to the
  *        file share will not be reflected in the backup. (Value: "FINALIZING")
+ *    @arg @c kGTLRCloudFilestore_Backup_State_Invalid Backup is not valid and
+ *        cannot be used for creating new instances or restoring existing
+ *        instances. (Value: "INVALID")
  *    @arg @c kGTLRCloudFilestore_Backup_State_Ready Backup is available for
  *        use. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_Backup_State_StateUnspecified State not set.
@@ -1405,6 +1438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        during this time. (Value: "RESTORING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Resuming The instance is in the
  *        process of becoming active. (Value: "RESUMING")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Reverting The instance is
+ *        reverting to a snapshot. (Value: "REVERTING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_StateUnspecified State not set.
  *        (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Suspended The instance is
@@ -1448,6 +1483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        BASIC_HDD is the preferred term for this tier. (Value: "STANDARD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_TierUnspecified Not set. (Value:
  *        "TIER_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Zonal ZONAL instances offer
+ *        expanded capacity and performance scaling capabilities. (Value:
+ *        "ZONAL")
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -1610,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudFilestore_Location : GTLRObject
 
@@ -2021,6 +2059,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
+
+@end
+
+
+/**
+ *  RevertInstanceRequest reverts the given instance's file share to the
+ *  specified snapshot.
+ */
+@interface GTLRCloudFilestore_RevertInstanceRequest : GTLRObject
+
+/**
+ *  Required. The snapshot resource ID, in the format 'my-snapshot', where the
+ *  specified ID is the {snapshot_id} of the fully qualified name like
+ *  projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}
+ */
+@property(nonatomic, copy, nullable) NSString *targetSnapshotId;
 
 @end
 

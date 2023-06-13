@@ -621,71 +621,6 @@
 
 @end
 
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesCreate
-
-@dynamic clientConnectorServiceId, parent, requestId, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_ClientConnectorService *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/clientConnectorServices";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.clientConnectorServices.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesDelete
-
-@dynamic name, requestId, validateOnly;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.clientConnectorServices.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_ClientConnectorService class];
-  query.loggingName = @"beyondcorp.projects.locations.clientConnectorServices.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -704,52 +639,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
   query.loggingName = @"beyondcorp.projects.locations.clientConnectorServices.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/clientConnectorServices";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_ListClientConnectorServicesResponse class];
-  query.loggingName = @"beyondcorp.projects.locations.clientConnectorServices.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesPatch
-
-@dynamic allowMissing, name, requestId, updateMask, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_ClientConnectorService *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.clientConnectorServices.patch";
   return query;
 }
 
@@ -809,71 +698,6 @@
 
 @end
 
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysCreate
-
-@dynamic clientGatewayId, parent, requestId, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRBeyondCorp_ClientGateway *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/clientGateways";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.clientGateways.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysDelete
-
-@dynamic name, requestId, validateOnly;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
-  query.loggingName = @"beyondcorp.projects.locations.clientGateways.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBeyondCorp_ClientGateway class];
-  query.loggingName = @"beyondcorp.projects.locations.clientGateways.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -892,25 +716,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
   query.loggingName = @"beyondcorp.projects.locations.clientGateways.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/clientGateways";
-  GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBeyondCorp_ListClientGatewaysResponse class];
-  query.loggingName = @"beyondcorp.projects.locations.clientGateways.list";
   return query;
 }
 

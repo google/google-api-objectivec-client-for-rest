@@ -493,7 +493,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId
-@dynamic gcsManagedDocId, revisionRef;
+@dynamic gcsManagedDocId, revisionRef, unmanagedDocId;
 @end
 
 
@@ -504,6 +504,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId
 @dynamic cwDocId, gcsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId
+@dynamic docId;
 @end
 
 
@@ -739,6 +749,44 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef
 @dynamic latestProcessorVersion, revisionCase, revisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponse
+@dynamic selectedDocuments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"selectedDocuments" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument
+@dynamic documentId;
 @end
 
 
@@ -1331,7 +1379,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageToken
-@dynamic detectedBreak, detectedLanguages, layout, provenance;
+@dynamic detectedBreak, detectedLanguages, layout, provenance, styleInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1350,6 +1398,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenDetectedBreak
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo
+@dynamic backgroundColor, bold, fontSize, fontType, fontWeight, handwritten,
+         italic, letterSpacing, pixelFontSize, smallcaps, strikeout, subscript,
+         superscript, textColor, underlined;
 @end
 
 
@@ -2025,7 +2085,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageToken
-@dynamic detectedBreak, detectedLanguages, layout, provenance;
+@dynamic detectedBreak, detectedLanguages, layout, provenance, styleInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2044,6 +2104,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenDetectedBreak
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo
+@dynamic backgroundColor, bold, fontSize, fontType, fontWeight, handwritten,
+         italic, letterSpacing, pixelFontSize, smallcaps, strikeout, subscript,
+         superscript, textColor, underlined;
 @end
 
 
@@ -3069,7 +3141,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken
-@dynamic detectedBreak, detectedLanguages, layout, provenance;
+@dynamic detectedBreak, detectedLanguages, layout, provenance, styleInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3088,6 +3160,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo
+@dynamic backgroundColor, bold, fontSize, fontType, fontWeight, handwritten,
+         italic, letterSpacing, pixelFontSize, smallcaps, strikeout, subscript,
+         superscript, textColor, underlined;
 @end
 
 

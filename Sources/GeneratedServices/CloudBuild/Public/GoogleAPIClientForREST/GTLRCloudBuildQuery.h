@@ -391,10 +391,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  same revision as the original build. * If the original build specified a
  *  commit sha or revision ID, the retried build will use the identical source.
  *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Google Cloud Storage without specifying the generation of the
- *  object, the new build will use the current object, which may be different
- *  from the original build source. * If the original build pulled source from
- *  Cloud Storage and specified the generation of the object, the new build will
+ *  source from Cloud Storage without specifying the generation of the object,
+ *  the new build will use the current object, which may be different from the
+ *  original build source. * If the original build pulled source from Cloud
+ *  Storage and specified the generation of the object, the new build will
  *  attempt to use the same object, which may or may not be available depending
  *  on the bucket's lifecycle management settings.
  *
@@ -428,10 +428,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  same revision as the original build. * If the original build specified a
  *  commit sha or revision ID, the retried build will use the identical source.
  *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Google Cloud Storage without specifying the generation of the
- *  object, the new build will use the current object, which may be different
- *  from the original build source. * If the original build pulled source from
- *  Cloud Storage and specified the generation of the object, the new build will
+ *  source from Cloud Storage without specifying the generation of the object,
+ *  the new build will use the current object, which may be different from the
+ *  original build source. * If the original build pulled source from Cloud
+ *  Storage and specified the generation of the object, the new build will
  *  attempt to use the same object, which may or may not be available depending
  *  on the bucket's lifecycle management settings.
  *
@@ -1160,10 +1160,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  same revision as the original build. * If the original build specified a
  *  commit sha or revision ID, the retried build will use the identical source.
  *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Google Cloud Storage without specifying the generation of the
- *  object, the new build will use the current object, which may be different
- *  from the original build source. * If the original build pulled source from
- *  Cloud Storage and specified the generation of the object, the new build will
+ *  source from Cloud Storage without specifying the generation of the object,
+ *  the new build will use the current object, which may be different from the
+ *  original build source. * If the original build pulled source from Cloud
+ *  Storage and specified the generation of the object, the new build will
  *  attempt to use the same object, which may or may not be available depending
  *  on the bucket's lifecycle management settings.
  *
@@ -1193,10 +1193,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  same revision as the original build. * If the original build specified a
  *  commit sha or revision ID, the retried build will use the identical source.
  *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Google Cloud Storage without specifying the generation of the
- *  object, the new build will use the current object, which may be different
- *  from the original build source. * If the original build pulled source from
- *  Cloud Storage and specified the generation of the object, the new build will
+ *  source from Cloud Storage without specifying the generation of the object,
+ *  the new build will use the current object, which may be different from the
+ *  original build source. * If the original build pulled source from Cloud
+ *  Storage and specified the generation of the object, the new build will
  *  attempt to use the same object, which may or may not be available depending
  *  on the bucket's lifecycle management settings.
  *
@@ -1949,6 +1949,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
+ *  Update mask for the resource. If this is set, the server will only update
+ *  the fields specified in the field mask. Otherwise, a full update of the
+ *  mutable resource fields will be performed.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRCloudBuild_BuildTrigger.
  *
  *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
@@ -2440,6 +2449,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Required. ID of the `BuildTrigger` to update. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
+
+/**
+ *  Update mask for the resource. If this is set, the server will only update
+ *  the fields specified in the field mask. Otherwise, a full update of the
+ *  mutable resource fields will be performed.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRCloudBuild_BuildTrigger.

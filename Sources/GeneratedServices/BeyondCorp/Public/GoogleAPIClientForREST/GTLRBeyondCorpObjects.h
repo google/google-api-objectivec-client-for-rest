@@ -20,12 +20,7 @@
 @class GTLRBeyondCorp_AllocatedConnection;
 @class GTLRBeyondCorp_AppGateway;
 @class GTLRBeyondCorp_AppGateway_Labels;
-@class GTLRBeyondCorp_ClientConnectorService;
-@class GTLRBeyondCorp_ClientGateway;
 @class GTLRBeyondCorp_CloudSecurityZerotrustApplinkAppConnectorProtoGateway;
-@class GTLRBeyondCorp_Config;
-@class GTLRBeyondCorp_DestinationRoute;
-@class GTLRBeyondCorp_Egress;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection_Labels;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnectionApplicationEndpoint;
@@ -58,8 +53,6 @@
 @class GTLRBeyondCorp_GoogleRpcStatus;
 @class GTLRBeyondCorp_GoogleRpcStatus_Details_Item;
 @class GTLRBeyondCorp_GoogleTypeExpr;
-@class GTLRBeyondCorp_Ingress;
-@class GTLRBeyondCorp_PeeredVpc;
 @class GTLRBeyondCorp_Tunnelv1ProtoTunnelerError;
 
 // Generated comments include content from the discovery document; avoid them
@@ -144,117 +137,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_AppGateway_Type_TcpProxy;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_AppGateway_Type_TypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBeyondCorp_ClientConnectorService.state
-
-/**
- *  ClientConnectorService is being created.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Creating;
-/**
- *  ClientConnectorService is being deleted.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Deleting;
-/**
- *  ClientConnectorService is down and may be restored in the future. This
- *  happens when CCFE sends ProjectState = OFF.
- *
- *  Value: "DOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Down;
-/**
- *  ClientConnectorService encountered an error and is in an indeterministic
- *  state.
- *
- *  Value: "ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Error;
-/**
- *  ClientConnectorService is running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Running;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_StateUnspecified;
-/**
- *  ClientConnectorService is being updated.
- *
- *  Value: "UPDATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Updating;
-
-// ----------------------------------------------------------------------------
-// GTLRBeyondCorp_ClientGateway.state
-
-/**
- *  Gateway is being created.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_Creating;
-/**
- *  Gateway is being deleted.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_Deleting;
-/**
- *  Gateway is down and may be restored in the future. This happens when CCFE
- *  sends ProjectState = OFF.
- *
- *  Value: "DOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_Down;
-/**
- *  ClientGateway encountered an error and is in indeterministic state.
- *
- *  Value: "ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_Error;
-/**
- *  Gateway is running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_Running;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_StateUnspecified;
-/**
- *  Gateway is being updated.
- *
- *  Value: "UPDATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_ClientGateway_State_Updating;
-
-// ----------------------------------------------------------------------------
-// GTLRBeyondCorp_Config.transportProtocol
-
-/**
- *  TCP protocol.
- *
- *  Value: "TCP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_Config_TransportProtocol_Tcp;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "TRANSPORT_PROTOCOL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_Config_TransportProtocol_TransportProtocolUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection.state
@@ -588,188 +470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  Message describing ClientConnectorService object.
- */
-@interface GTLRBeyondCorp_ClientConnectorService : GTLRObject
-
-/** Output only. [Output only] Create time stamp. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. User-provided name. The display name should follow certain format.
- *  * Must be 6 to 30 characters in length. * Can only contain lowercase
- *  letters, numbers, and hyphens. * Must start with a letter.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Required. The details of the egress settings. */
-@property(nonatomic, strong, nullable) GTLRBeyondCorp_Egress *egress;
-
-/** Required. The details of the ingress settings. */
-@property(nonatomic, strong, nullable) GTLRBeyondCorp_Ingress *ingress;
-
-/** Required. Name of resource. The name is ignored during creation. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. The operational state of the ClientConnectorService.
- *
- *  Likely values:
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_Creating
- *        ClientConnectorService is being created. (Value: "CREATING")
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_Deleting
- *        ClientConnectorService is being deleted. (Value: "DELETING")
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_Down
- *        ClientConnectorService is down and may be restored in the future. This
- *        happens when CCFE sends ProjectState = OFF. (Value: "DOWN")
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_Error
- *        ClientConnectorService encountered an error and is in an
- *        indeterministic state. (Value: "ERROR")
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_Running
- *        ClientConnectorService is running. (Value: "RUNNING")
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_StateUnspecified
- *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRBeyondCorp_ClientConnectorService_State_Updating
- *        ClientConnectorService is being updated. (Value: "UPDATING")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Output only. [Output only] Update time stamp. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRBeyondCorp_ClientConnectorServiceOperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  Message describing ClientGateway object.
- */
-@interface GTLRBeyondCorp_ClientGateway : GTLRObject
-
-/**
- *  Output only. The client connector service name that the client gateway is
- *  associated to. Client Connector Services, named as follows:
- *  `projects/{project_id}/locations/{location_id}/client_connector_services/{client_connector_service_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *clientConnectorService;
-
-/** Output only. [Output only] Create time stamp. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. A unique identifier for the instance generated by the system.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Required. name of resource. The name is ignored during creation. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. The operational state of the gateway.
- *
- *  Likely values:
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_Creating Gateway is being
- *        created. (Value: "CREATING")
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_Deleting Gateway is being
- *        deleted. (Value: "DELETING")
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_Down Gateway is down and may
- *        be restored in the future. This happens when CCFE sends ProjectState =
- *        OFF. (Value: "DOWN")
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_Error ClientGateway
- *        encountered an error and is in indeterministic state. (Value: "ERROR")
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_Running Gateway is running.
- *        (Value: "RUNNING")
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_StateUnspecified Default
- *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRBeyondCorp_ClientGateway_State_Updating Gateway is being
- *        updated. (Value: "UPDATING")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Output only. [Output only] Update time stamp. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRBeyondCorp_ClientGatewayOperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
  *  ConnectionConfig represents a Connection Configuration object.
  */
 @interface GTLRBeyondCorp_CloudSecurityZerotrustApplinkAppConnectorProtoConnectionConfig : GTLRObject
@@ -884,62 +584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  LogAgentDetails reflects the details of a log agent.
  */
 @interface GTLRBeyondCorp_CloudSecurityZerotrustApplinkLogagentProtoLogAgentDetails : GTLRObject
-@end
-
-
-/**
- *  The basic ingress config for ClientGateways.
- */
-@interface GTLRBeyondCorp_Config : GTLRObject
-
-/** Required. The settings used to configure basic ClientGateways. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_DestinationRoute *> *destinationRoutes;
-
-/**
- *  Required. Immutable. The transport protocol used between the client and the
- *  server.
- *
- *  Likely values:
- *    @arg @c kGTLRBeyondCorp_Config_TransportProtocol_Tcp TCP protocol. (Value:
- *        "TCP")
- *    @arg @c kGTLRBeyondCorp_Config_TransportProtocol_TransportProtocolUnspecified
- *        Default value. This value is unused. (Value:
- *        "TRANSPORT_PROTOCOL_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *transportProtocol;
-
-@end
-
-
-/**
- *  The setting used to configure ClientGateways. It is adding routes to the
- *  client's routing table after the connection is established.
- */
-@interface GTLRBeyondCorp_DestinationRoute : GTLRObject
-
-/**
- *  Required. The network address of the subnet for which the packet is routed
- *  to the ClientGateway.
- */
-@property(nonatomic, copy, nullable) NSString *address;
-
-/**
- *  Required. The network mask of the subnet for which the packet is routed to
- *  the ClientGateway.
- */
-@property(nonatomic, copy, nullable) NSString *netmask;
-
-@end
-
-
-/**
- *  The details of the egress info. One of the following options should be set.
- */
-@interface GTLRBeyondCorp_Egress : GTLRObject
-
-/** A VPC from the consumer project. */
-@property(nonatomic, strong, nullable) GTLRBeyondCorp_PeeredVpc *peeredVpc;
-
 @end
 
 
@@ -1968,6 +1612,82 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerServiceOperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the caller has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1mainPartnerServiceOperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the caller has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1992,7 +1712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRBeyondCorp_GoogleCloudLocationLocation : GTLRObject
 
@@ -2529,18 +2249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  Settings of how to connect to the ClientGateway. One of the following
- *  options should be set.
- */
-@interface GTLRBeyondCorp_Ingress : GTLRObject
-
-/** The basic ingress config for ClientGateways. */
-@property(nonatomic, strong, nullable) GTLRBeyondCorp_Config *config;
-
-@end
-
-
-/**
  *  Response message for BeyondCorp.ListAppGateways.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2566,71 +2274,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 /** A list of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
- *  Message for response to listing ClientConnectorServices.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "clientConnectorServices" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRBeyondCorp_ListClientConnectorServicesResponse : GTLRCollectionObject
-
-/**
- *  The list of ClientConnectorService.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_ClientConnectorService *> *clientConnectorServices;
-
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
- *  Message for response to listing ClientGateways.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "clientGateways" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRBeyondCorp_ListClientGatewaysResponse : GTLRCollectionObject
-
-/**
- *  The list of ClientGateway.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_ClientGateway *> *clientGateways;
-
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
- *  The peered VPC owned by the consumer project.
- */
-@interface GTLRBeyondCorp_PeeredVpc : GTLRObject
-
-/** Required. The name of the peered VPC owned by the consumer project. */
-@property(nonatomic, copy, nullable) NSString *networkVpc;
 
 @end
 

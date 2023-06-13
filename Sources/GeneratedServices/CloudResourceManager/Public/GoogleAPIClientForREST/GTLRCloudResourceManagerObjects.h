@@ -278,13 +278,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 // GTLRCloudResourceManager_TagKey.purpose
 
 /**
- *  Purpose for Compute Engine firewalls. A corresponding purpose_data should be
- *  set for the network the tag is intended for. The key should be 'network' and
- *  the value should be in either of these two formats:
- *  -https://www.googleapis.com/compute/{compute_version}/projects/{project_id}/global/networks/{network_id}
- *  -{project_id}/{network_name} Examples:
- *  -https://www.googleapis.com/compute/staging_v1/projects/fail-closed-load-testing/global/networks/6992953698831725600
- *  -fail-closed-load-testing/load-testing-network
+ *  Purpose for Compute Engine firewalls. A corresponding `purpose_data` should
+ *  be set for the network the tag is intended for. The key should be `network`
+ *  and the value should be in ## either of these two formats:
+ *  `https://www.googleapis.com/compute/{compute_version}/projects/{project_id}/global/networks/{network_id}`
+ *  - `{project_id}/{network_name}` ## Examples:
+ *  `https://www.googleapis.com/compute/staging_v1/projects/fail-closed-load-testing/global/networks/6992953698831725600`
+ *  - `fail-closed-load-testing/load-testing-network`
  *
  *  Value: "GCE_FIREWALL"
  */
@@ -557,16 +557,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, strong, nullable) NSNumber *inherited;
 
 /**
- *  The namespaced_name of the TagKey. Now only supported in the format of
- *  `{organization_id}/{tag_key_short_name}`. Other formats will be supported
- *  when we add non-org parented tags.
+ *  The namespaced name of the TagKey. Can be in the form
+ *  `{organization_id}/{tag_key_short_name}` or
+ *  `{project_id}/{tag_key_short_name}` or
+ *  `{project_number}/{tag_key_short_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *namespacedTagKey;
 
 /**
- *  Namespaced name of the TagValue. Now only supported in the format
- *  `{organization_id}/{tag_key_short_name}/{tag_value_short_name}`. Other
- *  formats will be supported when we add non-org parented tags.
+ *  The namespaced name of the TagValue. Can be in the form
+ *  `{organization_id}/{tag_key_short_name}/{tag_value_short_name}` or
+ *  `{project_id}/{tag_key_short_name}/{tag_value_short_name}` or
+ *  `{project_number}/{tag_key_short_name}/{tag_value_short_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *namespacedTagValue;
 
@@ -577,7 +579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 /**
  *  The parent name of the tag key. Must be in the format
- *  `organizations/{organization_id}`.
+ *  `organizations/{organization_id}` or `projects/{project_number}`
  */
 @property(nonatomic, copy, nullable) NSString *tagKeyParentName;
 
@@ -1875,8 +1877,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, copy, nullable) NSString *namespacedName;
 
 /**
- *  Immutable. The resource name of the new TagKey's parent. Must be of the form
- *  `organizations/{org_id}`.
+ *  Immutable. The resource name of the TagKey's parent. A TagKey can be
+ *  parented by an Organization or a Project. For a TagKey parented by an
+ *  Organization, its parent must be in the form `organizations/{org_id}`. For a
+ *  TagKey parented by a Project, its parent can be in the form
+ *  `projects/{project_id}` or `projects/{project_number}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1889,13 +1894,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *
  *  Likely values:
  *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall Purpose for
- *        Compute Engine firewalls. A corresponding purpose_data should be set
- *        for the network the tag is intended for. The key should be 'network'
- *        and the value should be in either of these two formats:
- *        -https://www.googleapis.com/compute/{compute_version}/projects/{project_id}/global/networks/{network_id}
- *        -{project_id}/{network_name} Examples:
- *        -https://www.googleapis.com/compute/staging_v1/projects/fail-closed-load-testing/global/networks/6992953698831725600
- *        -fail-closed-load-testing/load-testing-network (Value: "GCE_FIREWALL")
+ *        Compute Engine firewalls. A corresponding `purpose_data` should be set
+ *        for the network the tag is intended for. The key should be `network`
+ *        and the value should be in ## either of these two formats:
+ *        `https://www.googleapis.com/compute/{compute_version}/projects/{project_id}/global/networks/{network_id}`
+ *        - `{project_id}/{network_name}` ## Examples:
+ *        `https://www.googleapis.com/compute/staging_v1/projects/fail-closed-load-testing/global/networks/6992953698831725600`
+ *        - `fail-closed-load-testing/load-testing-network` (Value:
+ *        "GCE_FIREWALL")
  *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified
  *        Unspecified purpose. (Value: "PURPOSE_UNSPECIFIED")
  */
@@ -1965,9 +1971,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Namespaced name of the TagValue. Now only supported in the
- *  format `{organization_id}/{tag_key_short_name}/{short_name}`. Other formats
- *  will be supported when we add non-org parented tags.
+ *  Output only. The namespaced name of the TagValue. Can be in the form
+ *  `{organization_id}/{tag_key_short_name}/{tag_value_short_name}` or
+ *  `{project_id}/{tag_key_short_name}/{tag_value_short_name}` or
+ *  `{project_number}/{tag_key_short_name}/{tag_value_short_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *namespacedName;
 

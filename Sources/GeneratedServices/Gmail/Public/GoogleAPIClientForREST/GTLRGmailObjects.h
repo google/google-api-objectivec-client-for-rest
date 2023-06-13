@@ -485,9 +485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
  */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
-/**
- *  If a key pair is associated, the identifier of the key pair, CseKeyPair.
- */
+/** If a key pair is associated, the ID of the key pair, CseKeyPair. */
 @property(nonatomic, copy, nullable) NSString *primaryKeyPairId;
 
 @end

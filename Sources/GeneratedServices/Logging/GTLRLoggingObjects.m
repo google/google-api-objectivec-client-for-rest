@@ -1077,8 +1077,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_Settings
-@dynamic disableDefaultSink, kmsKeyName, kmsServiceAccountId, name,
-         storageLocation;
+@dynamic disableDefaultSink, kmsKeyName, kmsServiceAccountId,
+         loggingServiceAccountId, name, storageLocation;
 @end
 
 

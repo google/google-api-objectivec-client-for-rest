@@ -6,7 +6,7 @@
 // Description:
 //   An API for controlling access to data by Google personnel.
 // Documentation:
-//   https://cloud.google.com/cloud-provider-access-management/access-approval/docs
+//   https://cloud.google.com/assured-workloads/access-approval/docs
 
 #import <GoogleAPIClientForREST/GTLRAccessApprovalObjects.h>
 
@@ -173,7 +173,8 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 
 @implementation GTLRAccessApproval_Settings
 @dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
-         enrolledServices, invalidKeyVersion, name, notificationEmails;
+         enrolledServices, invalidKeyVersion, name, notificationEmails,
+         preferNoBroadApprovalRequests, preferredRequestExpirationDays;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

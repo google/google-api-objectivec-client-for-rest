@@ -32,28 +32,6 @@ NSString * const kGTLRBeyondCorp_AppGateway_State_Updating     = @"UPDATING";
 NSString * const kGTLRBeyondCorp_AppGateway_Type_TcpProxy      = @"TCP_PROXY";
 NSString * const kGTLRBeyondCorp_AppGateway_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRBeyondCorp_ClientConnectorService.state
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Creating = @"CREATING";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Deleting = @"DELETING";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Down = @"DOWN";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Error = @"ERROR";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Running = @"RUNNING";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Updating = @"UPDATING";
-
-// GTLRBeyondCorp_ClientGateway.state
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Creating  = @"CREATING";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Deleting  = @"DELETING";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Down      = @"DOWN";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Error     = @"ERROR";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Running   = @"RUNNING";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Updating  = @"UPDATING";
-
-// GTLRBeyondCorp_Config.transportProtocol
-NSString * const kGTLRBeyondCorp_Config_TransportProtocol_Tcp  = @"TCP";
-NSString * const kGTLRBeyondCorp_Config_TransportProtocol_TransportProtocolUnspecified = @"TRANSPORT_PROTOCOL_UNSPECIFIED";
-
 // GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection.state
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection_State_Created = @"CREATED";
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection_State_Creating = @"CREATING";
@@ -147,54 +125,6 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_ClientConnectorService
-//
-
-@implementation GTLRBeyondCorp_ClientConnectorService
-@dynamic createTime, displayName, egress, ingress, name, state, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientConnectorServiceOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_ClientConnectorServiceOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientGateway
-//
-
-@implementation GTLRBeyondCorp_ClientGateway
-@dynamic clientConnectorService, createTime, identifier, name, state,
-         updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientGatewayOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_ClientGatewayOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBeyondCorp_CloudSecurityZerotrustApplinkAppConnectorProtoConnectionConfig
 //
 
@@ -242,44 +172,6 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_CloudSecurityZerotrustApplinkLogagentProtoLogAgentDetails
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Config
-//
-
-@implementation GTLRBeyondCorp_Config
-@dynamic destinationRoutes, transportProtocol;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"destinationRoutes" : [GTLRBeyondCorp_DestinationRoute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_DestinationRoute
-//
-
-@implementation GTLRBeyondCorp_DestinationRoute
-@dynamic address, netmask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Egress
-//
-
-@implementation GTLRBeyondCorp_Egress
-@dynamic peeredVpc;
 @end
 
 
@@ -787,6 +679,28 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerServiceOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerServiceOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1mainPartnerServiceOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1mainPartnerServiceOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBeyondCorp_GoogleCloudLocationListLocationsResponse
 //
 
@@ -1086,16 +1000,6 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_Ingress
-//
-
-@implementation GTLRBeyondCorp_Ingress
-@dynamic config;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBeyondCorp_ListAppGatewaysResponse
 //
 
@@ -1114,62 +1018,6 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
   return @"appGateways";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListClientConnectorServicesResponse
-//
-
-@implementation GTLRBeyondCorp_ListClientConnectorServicesResponse
-@dynamic clientConnectorServices, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clientConnectorServices" : [GTLRBeyondCorp_ClientConnectorService class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"clientConnectorServices";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListClientGatewaysResponse
-//
-
-@implementation GTLRBeyondCorp_ListClientGatewaysResponse
-@dynamic clientGateways, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clientGateways" : [GTLRBeyondCorp_ClientGateway class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"clientGateways";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_PeeredVpc
-//
-
-@implementation GTLRBeyondCorp_PeeredVpc
-@dynamic networkVpc;
 @end
 
 

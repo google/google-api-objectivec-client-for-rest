@@ -112,7 +112,8 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 @implementation GTLRBigQueryReservation_CapacityCommitment
 @dynamic commitmentEndTime, commitmentStartTime, edition, failureStatus,
-         multiRegionAuxiliary, name, plan, renewalPlan, slotCount, state;
+         isFlatRate, multiRegionAuxiliary, name, plan, renewalPlan, slotCount,
+         state;
 @end
 
 

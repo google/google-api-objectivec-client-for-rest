@@ -55,7 +55,9 @@
 @class GTLRCloudBatch_Operation;
 @class GTLRCloudBatch_Operation_Metadata;
 @class GTLRCloudBatch_Operation_Response;
+@class GTLRCloudBatch_PlacementPolicy;
 @class GTLRCloudBatch_Runnable;
+@class GTLRCloudBatch_Runnable_Labels;
 @class GTLRCloudBatch_Script;
 @class GTLRCloudBatch_ServiceAccount;
 @class GTLRCloudBatch_Status;
@@ -477,6 +479,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Succeed
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Unexecuted;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBatch_TaskGroup.schedulingPolicy
+
+/**
+ *  Run Tasks as soon as resources are available. Tasks might be executed in
+ *  parallel depending on parallelism and task_count values.
+ *
+ *  Value: "AS_SOON_AS_POSSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskGroup_SchedulingPolicy_AsSoonAsPossible;
+/**
+ *  Run Tasks sequentially with increased task index.
+ *
+ *  Value: "IN_ORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskGroup_SchedulingPolicy_InOrder;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SCHEDULING_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskGroup_SchedulingPolicy_SchedulingPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBatch_TaskStatus.state
 
 /**
@@ -794,6 +819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** The network policy. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_NetworkPolicy *network;
 
+/** The placement policy. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_PlacementPolicy *placement;
+
 /** Service account that VMs will run as. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_ServiceAccount *serviceAccount;
 
@@ -1103,7 +1131,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /**
  *  The minimum CPU platform. See
  *  https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform.
- *  Not yet implemented.
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -1498,7 +1525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudBatch_Location : GTLRObject
 
@@ -1860,6 +1887,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  PlacementPolicy describes a group placement policy for the VMs controlled by
+ *  this AllocationPolicy.
+ */
+@interface GTLRCloudBatch_PlacementPolicy : GTLRObject
+
+/**
+ *  UNSPECIFIED vs. COLLOCATED (default UNSPECIFIED). Use COLLOCATED when you
+ *  want VMs to be located close to each other for low network latency between
+ *  the VMs. No placement policy will be generated when collocation is
+ *  UNSPECIFIED.
+ */
+@property(nonatomic, copy, nullable) NSString *collocation;
+
+/**
+ *  When specified, causes the job to fail if more than max_distance logical
+ *  switches are required between VMs. Batch uses the most compact possible
+ *  placement of VMs even when max_distance is not specified. An explicit
+ *  max_distance makes that level of compactness a strict requirement. Not yet
+ *  implemented
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDistance;
+
+@end
+
+
+/**
  *  Request to report agent's state. The Request itself implies the agent is
  *  healthy.
  */
@@ -1941,12 +1996,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreExitStatus;
 
+/** Labels for this Runnable. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_Runnable_Labels *labels;
+
 /** Script runnable. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Script *script;
 
 /** Timeout for this Runnable. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
+@end
+
+
+/**
+ *  Labels for this Runnable.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBatch_Runnable_Labels : GTLRObject
 @end
 
 
@@ -2126,8 +2196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  A TaskGroup contains one or multiple Tasks that share the same Runnable but
- *  with different runtime parameters.
+ *  A TaskGroup defines one or more Tasks that all share the same TaskSpec.
  */
 @interface GTLRCloudBatch_TaskGroup : GTLRObject
 
@@ -2164,6 +2233,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *requireHostsFile;
 
 /**
+ *  Scheduling policy for Tasks in the TaskGroup. The default value is
+ *  AS_SOON_AS_POSSIBLE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBatch_TaskGroup_SchedulingPolicy_AsSoonAsPossible Run
+ *        Tasks as soon as resources are available. Tasks might be executed in
+ *        parallel depending on parallelism and task_count values. (Value:
+ *        "AS_SOON_AS_POSSIBLE")
+ *    @arg @c kGTLRCloudBatch_TaskGroup_SchedulingPolicy_InOrder Run Tasks
+ *        sequentially with increased task index. (Value: "IN_ORDER")
+ *    @arg @c kGTLRCloudBatch_TaskGroup_SchedulingPolicy_SchedulingPolicyUnspecified
+ *        Unspecified. (Value: "SCHEDULING_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schedulingPolicy;
+
+/**
  *  Number of Tasks in the TaskGroup. Default is 1.
  *
  *  Uses NSNumber of longLongValue.
@@ -2187,7 +2272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  BATCH_TASK_COUNT environment variable, in addition to any environment
  *  variables set in task_environments, specifying the number of Tasks in the
  *  Task's parent TaskGroup, and the specific Task's index in the TaskGroup (0
- *  through BATCH_TASK_COUNT - 1). task_environments supports up to 200 entries.
+ *  through BATCH_TASK_COUNT - 1).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_Environment *> *taskEnvironments;
 

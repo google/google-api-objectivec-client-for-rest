@@ -22,6 +22,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Condition;
 @class GTLRCloudRun_GoogleCloudRunV2Container;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerPort;
+@class GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVar;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVarSource;
 @class GTLRCloudRun_GoogleCloudRunV2Execution;
@@ -363,6 +364,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource.medium
+
+/**
+ *  When not specified, falls back to the default implementation which is
+ *  currently in memory (this may change over time).
+ *
+ *  Value: "MEDIUM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_MediumUnspecified;
+/**
+ *  Explicitly set the EmptyDir to be in memory. Uses tmpfs.
+ *
+ *  Value: "MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_Memory;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Execution.launchStage
@@ -1104,33 +1122,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  A single application container. This specifies both the container to run,
  *  the command to run in the container and the arguments to supply to it. Note
- *  that additional arguments may be supplied by the system to the container at
+ *  that additional arguments can be supplied by the system to the container at
  *  runtime.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Container : GTLRObject
 
 /**
  *  Arguments to the entrypoint. The docker image's CMD is used if this is not
- *  provided. Variable references $(VAR_NAME) are expanded using the container's
- *  environment. If a variable cannot be resolved, the reference in the input
- *  string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
- *  double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
- *  regardless of whether the variable exists or not. More info:
- *  https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+ *  provided.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
  *  Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT
- *  is used if this is not provided. Variable references $(VAR_NAME) are
- *  expanded using the container's environment. If a variable cannot be
- *  resolved, the reference in the input string will be unchanged. The
- *  $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME).
- *  Escaped references will never be expanded, regardless of whether the
- *  variable exists or not. More info:
- *  https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+ *  is used if this is not provided.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
+
+/** Container names which must start before this container. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dependsOn;
 
 /** List of environment variables to set in the container. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2EnvVar *> *env;
@@ -1138,15 +1148,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Required. Name of the container image in Dockerhub, Google Artifact
  *  Registry, or Google Container Registry. If the host is not provided,
- *  Dockerhub is assumed. More info:
- *  https://kubernetes.io/docs/concepts/containers/images
+ *  Dockerhub is assumed.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
  *  Periodic probe of container liveness. Container will be restarted if the
- *  probe fails. More info:
- *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *  probe fails.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Probe *livenessProbe;
 
@@ -1162,17 +1170,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2ContainerPort *> *ports;
 
-/**
- *  Compute Resource requirements by this container. More info:
- *  https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
- */
+/** Compute Resource requirements by this container. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ResourceRequirements *resources;
 
 /**
  *  Startup probe of application within the container. All other probes are
  *  disabled if a startup probe is provided, until it succeeds. Container will
- *  not be added to service endpoints if the probe fails. More info:
- *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *  not be added to service endpoints if the probe fails.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Probe *startupProbe;
 
@@ -1211,12 +1215,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Ephemeral storage which can be backed by real disks (HD, SSD), network
+ *  storage or memory (i.e. tmpfs). For now only in memory (tmpfs) is supported.
+ *  It is ephemeral in the sense that when the sandbox is taken down, the data
+ *  is destroyed with it (it does not persist across sandbox runs).
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource : GTLRObject
+
+/**
+ *  The medium on which the data is stored. Acceptable values today is only
+ *  MEMORY or none. When none, the default will currently be backed by memory
+ *  but could change over time. +optional
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_MediumUnspecified
+ *        When not specified, falls back to the default implementation which is
+ *        currently in memory (this may change over time). (Value:
+ *        "MEDIUM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_Memory
+ *        Explicitly set the EmptyDir to be in memory. Uses tmpfs. (Value:
+ *        "MEMORY")
+ */
+@property(nonatomic, copy, nullable) NSString *medium;
+
+/**
+ *  Limit on the storage usable by this EmptyDir volume. The size limit is also
+ *  applicable for memory medium. The maximum usage on memory medium EmptyDir
+ *  would be the minimum value between the SizeLimit specified here and the sum
+ *  of memory limits of all containers in a pod. This field's values are of the
+ *  'Quantity' k8s type:
+ *  https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/quantity/.
+ *  The default is nil which means that the limit is undefined. More info:
+ *  http://kubernetes.io/docs/user-guide/volumes#emptydir +optional
+ */
+@property(nonatomic, copy, nullable) NSString *sizeLimit;
+
+@end
+
+
+/**
  *  EnvVar represents an environment variable present in a Container.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2EnvVar : GTLRObject
 
 /**
- *  Required. Name of the environment variable. Must be a C_IDENTIFIER, and mnay
+ *  Required. Name of the environment variable. Must be a C_IDENTIFIER, and must
  *  not exceed 32768 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1256,7 +1299,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Execution : GTLRObject
 
-/** KRM-style annotations for the resource. */
+/**
+ *  Output only. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Execution_Annotations *annotations;
 
 /**
@@ -1323,10 +1370,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *job;
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Output only. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels
  */
@@ -1407,8 +1454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  should run at any given time. Must be <= task_count. The actual number of
  *  tasks running in steady state will be less than this number when
  *  ((.spec.task_count - .status.successful) < .spec.parallelism), i.e. when the
- *  work left to do is less than max parallelism. More info:
- *  https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+ *  work left to do is less than max parallelism.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1460,8 +1506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Output only. Specifies the desired number of tasks the execution should run.
  *  Setting to 1 means that parallelism is limited to 1 and the success of that
- *  task signals the success of the execution. More info:
- *  https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+ *  task signals the success of the execution.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1488,7 +1533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style annotations for the resource.
+ *  Output only. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1500,10 +1547,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Output only. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels
  *
@@ -1541,19 +1588,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate : GTLRObject
 
 /**
- *  KRM-style annotations for the resource. Cloud Run API v2 does not support
- *  annotations with `run.googleapis.com`, `cloud.googleapis.com`,
- *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
- *  will be rejected. All system annotations in v1 now have a corresponding
- *  field in v2 ExecutionTemplate.
+ *  Unstructured key value map that may be set by external tools to store and
+ *  arbitrary metadata. They are not queryable and should be preserved when
+ *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
+ *  annotations in v1 now have a corresponding field in v2 ExecutionTemplate.
+ *  This field follows Kubernetes annotations' namespacing, limits, and rules.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Annotations *annotations;
 
 /**
- *  KRM-style labels for the resource. Cloud Run API v2 does not support labels
- *  with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
- *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
- *  labels in v1 now have a corresponding field in v2 ExecutionTemplate.
+ *  Unstructured key value map that can be used to organize and categorize
+ *  objects. User-provided labels are shared with Google's billing system, so
+ *  they can be used to filter, or break down billing charges by team,
+ *  component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 ExecutionTemplate.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels *labels;
 
@@ -1590,11 +1645,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style annotations for the resource. Cloud Run API v2 does not support
- *  annotations with `run.googleapis.com`, `cloud.googleapis.com`,
- *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
- *  will be rejected. All system annotations in v1 now have a corresponding
- *  field in v2 ExecutionTemplate.
+ *  Unstructured key value map that may be set by external tools to store and
+ *  arbitrary metadata. They are not queryable and should be preserved when
+ *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
+ *  annotations in v1 now have a corresponding field in v2 ExecutionTemplate.
+ *  This field follows Kubernetes annotations' namespacing, limits, and rules.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1606,10 +1663,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style labels for the resource. Cloud Run API v2 does not support labels
- *  with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
- *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
- *  labels in v1 now have a corresponding field in v2 ExecutionTemplate.
+ *  Unstructured key value map that can be used to organize and categorize
+ *  objects. User-provided labels are shared with Google's billing system, so
+ *  they can be used to filter, or break down billing charges by team,
+ *  component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 ExecutionTemplate.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1688,15 +1751,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Job : GTLRObject
 
 /**
- *  KRM-style annotations for the resource. Unstructured key value map that may
- *  be set by external tools to store and arbitrary metadata. They are not
- *  queryable and should be preserved when modifying objects. Cloud Run API v2
- *  does not support annotations with `run.googleapis.com`,
- *  `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev`
- *  namespaces, and they will be rejected. All system annotations in v1 now have
- *  a corresponding field in v2 Job. This field follows Kubernetes annotations'
- *  namespacing, limits, and rules. More info:
- *  https://kubernetes.io/docs/user-guide/annotations
+ *  Unstructured key value map that may be set by external tools to store and
+ *  arbitrary metadata. They are not queryable and should be preserved when
+ *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected on new
+ *  resources. All system annotations in v1 now have a corresponding field in v2
+ *  Job. This field follows Kubernetes annotations' namespacing, limits, and
+ *  rules.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Job_Annotations *annotations;
 
@@ -1754,12 +1816,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Unstructured key value map that can be used to organize and categorize
+ *  objects. User-provided labels are shared with Google's billing system, so
+ *  they can be used to filter, or break down billing charges by team,
+ *  component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
- *  https://cloud.google.com/run/docs/configuring/labels Cloud Run API v2 does
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
  *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
  *  will be rejected. All system labels in v1 now have a corresponding field in
@@ -1896,15 +1958,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style annotations for the resource. Unstructured key value map that may
- *  be set by external tools to store and arbitrary metadata. They are not
- *  queryable and should be preserved when modifying objects. Cloud Run API v2
- *  does not support annotations with `run.googleapis.com`,
- *  `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev`
- *  namespaces, and they will be rejected. All system annotations in v1 now have
- *  a corresponding field in v2 Job. This field follows Kubernetes annotations'
- *  namespacing, limits, and rules. More info:
- *  https://kubernetes.io/docs/user-guide/annotations
+ *  Unstructured key value map that may be set by external tools to store and
+ *  arbitrary metadata. They are not queryable and should be preserved when
+ *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected on new
+ *  resources. All system annotations in v1 now have a corresponding field in v2
+ *  Job. This field follows Kubernetes annotations' namespacing, limits, and
+ *  rules.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1916,12 +1977,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Unstructured key value map that can be used to organize and categorize
+ *  objects. User-provided labels are shared with Google's billing system, so
+ *  they can be used to filter, or break down billing charges by team,
+ *  component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
- *  https://cloud.google.com/run/docs/configuring/labels Cloud Run API v2 does
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
  *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
  *  will be rejected. All system labels in v1 now have a corresponding field in
@@ -2100,8 +2161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Number of seconds after the container has started before the probe is
  *  initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for
- *  liveness probe is 3600. Maximum value for startup probe is 240. More info:
- *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *  liveness probe is 3600. Maximum value for startup probe is 240.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2125,8 +2185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Number of seconds after which the probe times out. Defaults to 1 second.
  *  Minimum value is 1. Maximum value is 3600. Must be smaller than
- *  period_seconds. More info:
- *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *  period_seconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2148,21 +2207,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *cpuIdle;
 
 /**
- *  Only memory and CPU are supported. Note: The only supported values for CPU
- *  are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of memory.
- *  The values of the map is string form of the 'quantity' k8s type:
- *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
+ *  Only ´memory´ and 'cpu' are supported. Notes: * The only supported values
+ *  for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of
+ *  memory. For more information, go to
+ *  https://cloud.google.com/run/docs/configuring/cpu. * For supported 'memory'
+ *  values and syntax, go to
+ *  https://cloud.google.com/run/docs/configuring/memory-limits
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ResourceRequirements_Limits *limits;
+
+/**
+ *  Determines whether CPU should be boosted on startup of a new container
+ *  instance above the requested CPU threshold, this can help reduce cold-start
+ *  latency.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startupCpuBoost;
 
 @end
 
 
 /**
- *  Only memory and CPU are supported. Note: The only supported values for CPU
- *  are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of memory.
- *  The values of the map is string form of the 'quantity' k8s type:
- *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
+ *  Only ´memory´ and 'cpu' are supported. Notes: * The only supported values
+ *  for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of
+ *  memory. For more information, go to
+ *  https://cloud.google.com/run/docs/configuring/cpu. * For supported 'memory'
+ *  values and syntax, go to
+ *  https://cloud.google.com/run/docs/configuring/memory-limits
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2180,7 +2252,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Revision : GTLRObject
 
-/** KRM-style annotations for the resource. */
+/**
+ *  Output only. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Revision_Annotations *annotations;
 
 /**
@@ -2268,12 +2344,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Output only. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
- *  https://cloud.google.com/run/docs/configuring/labels
+ *  https://cloud.google.com/run/docs/configuring/labels.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Revision_Labels *labels;
 
@@ -2381,6 +2457,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
+/**
+ *  Enable session affinity.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionAffinity;
+
 /** Max allowed time for an instance to respond to a request. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -2407,7 +2490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style annotations for the resource.
+ *  Output only. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2419,12 +2504,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Output only. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
- *  https://cloud.google.com/run/docs/configuring/labels
+ *  https://cloud.google.com/run/docs/configuring/labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2464,11 +2549,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2RevisionTemplate : GTLRObject
 
 /**
- *  KRM-style annotations for the resource. Cloud Run API v2 does not support
- *  annotations with `run.googleapis.com`, `cloud.googleapis.com`,
- *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
- *  will be rejected. All system annotations in v1 now have a corresponding
- *  field in v2 RevisionTemplate.
+ *  Unstructured key value map that may be set by external tools to store and
+ *  arbitrary metadata. They are not queryable and should be preserved when
+ *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
+ *  annotations in v1 now have a corresponding field in v2 RevisionTemplate.
+ *  This field follows Kubernetes annotations' namespacing, limits, and rules.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Annotations *annotations;
 
@@ -2501,10 +2588,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *executionEnvironment;
 
 /**
- *  KRM-style labels for the resource. Cloud Run API v2 does not support labels
- *  with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
- *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
- *  labels in v1 now have a corresponding field in v2 RevisionTemplate.
+ *  Unstructured key value map that can be used to organize and categorize
+ *  objects. User-provided labels are shared with Google's billing system, so
+ *  they can be used to filter, or break down billing charges by team,
+ *  component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 RevisionTemplate.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels *labels;
 
@@ -2532,6 +2625,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
+/**
+ *  Enable session affinity.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionAffinity;
+
 /** Max allowed time for an instance to respond to a request. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -2548,11 +2648,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style annotations for the resource. Cloud Run API v2 does not support
- *  annotations with `run.googleapis.com`, `cloud.googleapis.com`,
- *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
- *  will be rejected. All system annotations in v1 now have a corresponding
- *  field in v2 RevisionTemplate.
+ *  Unstructured key value map that may be set by external tools to store and
+ *  arbitrary metadata. They are not queryable and should be preserved when
+ *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
+ *  annotations in v1 now have a corresponding field in v2 RevisionTemplate.
+ *  This field follows Kubernetes annotations' namespacing, limits, and rules.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2564,10 +2666,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style labels for the resource. Cloud Run API v2 does not support labels
- *  with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
- *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
- *  labels in v1 now have a corresponding field in v2 RevisionTemplate.
+ *  Unstructured key value map that can be used to organize and categorize
+ *  objects. User-provided labels are shared with Google's billing system, so
+ *  they can be used to filter, or break down billing charges by team,
+ *  component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 RevisionTemplate.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2687,10 +2795,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  arbitrary metadata. They are not queryable and should be preserved when
  *  modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
- *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
- *  annotations in v1 now have a corresponding field in v2 Service. This field
- *  follows Kubernetes annotations' namespacing, limits, and rules. More info:
- *  https://kubernetes.io/docs/user-guide/annotations
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected in new
+ *  resources. All system annotations in v1 now have a corresponding field in v2
+ *  Service. This field follows Kubernetes annotations' namespacing, limits, and
+ *  rules.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Service_Annotations *annotations;
 
@@ -2716,6 +2824,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Output only. Email address of the authenticated creator. */
 @property(nonatomic, copy, nullable) NSString *creator;
+
+/**
+ *  Custom audiences that can be used in the audience field of ID token for
+ *  authenticated requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences;
 
 /** Output only. The deletion time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
@@ -2770,12 +2884,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *ingress;
 
 /**
- *  Map of string keys and values that can be used to organize and categorize
+ *  Unstructured key value map that can be used to organize and categorize
  *  objects. User-provided labels are shared with Google's billing system, so
  *  they can be used to filter, or break down billing charges by team,
  *  component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
- *  https://cloud.google.com/run/docs/configuring/labels Cloud Run API v2 does
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
  *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
  *  will be rejected. All system labels in v1 now have a corresponding field in
@@ -2953,10 +3067,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  arbitrary metadata. They are not queryable and should be preserved when
  *  modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
- *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
- *  annotations in v1 now have a corresponding field in v2 Service. This field
- *  follows Kubernetes annotations' namespacing, limits, and rules. More info:
- *  https://kubernetes.io/docs/user-guide/annotations
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected in new
+ *  resources. All system annotations in v1 now have a corresponding field in v2
+ *  Service. This field follows Kubernetes annotations' namespacing, limits, and
+ *  rules.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2968,12 +3082,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Map of string keys and values that can be used to organize and categorize
+ *  Unstructured key value map that can be used to organize and categorize
  *  objects. User-provided labels are shared with Google's billing system, so
  *  they can be used to filter, or break down billing charges by team,
  *  component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
- *  https://cloud.google.com/run/docs/configuring/labels Cloud Run API v2 does
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
  *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
  *  will be rejected. All system labels in v1 now have a corresponding field in
@@ -2993,7 +3107,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Task : GTLRObject
 
-/** KRM-style annotations for the resource. */
+/**
+ *  Output only. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Task_Annotations *annotations;
 
 /**
@@ -3082,10 +3200,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *job;
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Output only. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels
  */
@@ -3187,7 +3305,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style annotations for the resource.
+ *  Output only. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3199,10 +3319,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  KRM-style labels for the resource. User-provided labels are shared with
- *  Google's billing system, so they can be used to filter, or break down
- *  billing charges by team, component, environment, state, etc. For more
- *  information, visit
+ *  Output only. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels
  *
@@ -3457,13 +3577,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance *cloudSqlInstance;
 
+/** Ephemeral storage used as a shared volume. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource *emptyDir;
+
 /** Required. Volume's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Secret represents a secret that should populate this volume. More info:
- *  https://kubernetes.io/docs/concepts/storage/volumes#secret
- */
+/** Secret represents a secret that should populate this volume. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2SecretVolumeSource *secret;
 
 @end

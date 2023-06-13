@@ -310,6 +310,33 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsPurge
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PurgeProductsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/products:purge";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsPurge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.locations.catalogs.branches.products.purge";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsRemoveFulfillmentPlaces
 
 @dynamic product;

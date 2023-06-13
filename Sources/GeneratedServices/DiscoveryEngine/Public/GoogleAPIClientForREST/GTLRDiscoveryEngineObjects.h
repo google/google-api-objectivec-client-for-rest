@@ -16,12 +16,15 @@
 
 @class GTLRDiscoveryEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorContext;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingHttpRequestContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompletionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomAttribute;
@@ -45,6 +48,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent_Attributes;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema_StructSchema;
 @class GTLRDiscoveryEngine_GoogleLongrunningOperation;
 @class GTLRDiscoveryEngine_GoogleLongrunningOperation_Metadata;
 @class GTLRDiscoveryEngine_GoogleLongrunningOperation_Response;
@@ -61,6 +66,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite.type
+
+/**
+ *  Exclude the target site.
+ *
+ *  Value: "EXCLUDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Exclude;
+/**
+ *  Include the target site.
+ *
+ *  Value: "INCLUDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Include;
+/**
+ *  This value is unused. In this case, server behavior defaults to
+ *  Type.INCLUDE.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest.reconciliationMode
@@ -171,12 +199,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /** A message describing the error. */
 @property(nonatomic, copy, nullable) NSString *message;
 
+/**
+ *  The API request payload, represented as a protocol buffer. Most API request
+ *  types are supported—for example: *
+ *  `type.googleapis.com/google.cloud.discoveryengine.v1alpha.DocumentService.CreateDocumentRequest`
+ *  *
+ *  `type.googleapis.com/google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEventRequest`
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload *requestPayload;
+
+/**
+ *  The API response payload, represented as a protocol buffer. This is used to
+ *  log some "soft errors", where the response is valid but we consider there
+ *  are some quality issues like unjoined events. The following API responses
+ *  are supported, and no PII is included: *
+ *  `google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend` *
+ *  `google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEvent` *
+ *  `google.cloud.discoveryengine.v1alpha.UserEventService.CollectUserEvent`
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload *responsePayload;
+
 /** The service context in which this error has occurred. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext *serviceContext;
 
 /** The RPC status associated with the error log. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *status;
 
+@end
+
+
+/**
+ *  The API request payload, represented as a protocol buffer. Most API request
+ *  types are supported—for example: *
+ *  `type.googleapis.com/google.cloud.discoveryengine.v1alpha.DocumentService.CreateDocumentRequest`
+ *  *
+ *  `type.googleapis.com/google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEventRequest`
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_RequestPayload : GTLRObject
+@end
+
+
+/**
+ *  The API response payload, represented as a protocol buffer. This is used to
+ *  log some "soft errors", where the response is valid but we consider there
+ *  are some quality issues like unjoined events. The following API responses
+ *  are supported, and no PII is included: *
+ *  `google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend` *
+ *  `google.cloud.discoveryengine.v1alpha.UserEventService.WriteUserEvent` *
+ *  `google.cloud.discoveryengine.v1alpha.UserEventService.CollectUserEvent`
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingErrorLog_ResponsePayload : GTLRObject
 @end
 
 
@@ -251,6 +333,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  `google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend`.
  */
 @property(nonatomic, copy, nullable) NSString *functionName;
+
+@end
+
+
+/**
+ *  Response message for SiteSearchEngineService.BatchCreateTargetSites method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse : GTLRObject
+
+/** TargetSites created. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite *> *targetSites;
 
 @end
 
@@ -387,6 +480,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the PurgeDocuments operation. This will
+ *  be returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of entries that encountered errors while processing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of entries that were deleted successfully.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for DocumentService.PurgeDocuments method. If the long
+ *  running operation is successfully done, then this message is returned by the
+ *  google.longrunning.Operations.response field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsResponse : GTLRObject
+
+/**
+ *  The total count of documents purged as a result of the operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *purgeCount;
+
+/**
+ *  A sample of document names that will be deleted. Only populated if `force`
+ *  is set to false. A max of 100 names will be returned and the names are
+ *  chosen at random.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *purgeSample;
+
+@end
+
+
+/**
  *  Defines the structure and layout of a type of document data.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema : GTLRObject
@@ -417,6 +566,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema : GTLRObject
+@end
+
+
+/**
+ *  A target site for the SiteSearchEngine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite : GTLRObject
+
+/**
+ *  Input only. If set to false, an uri_pattern will be generated to include all
+ *  pages whose address contains the provided_uri_pattern. If set to true, an
+ *  uri_pattern will be generated to try to be an exact match of the
+ *  provided_uri_pattern or just the specific page if the provided_uri_pattern
+ *  is a specific one. provided_uri_pattern will always be normalized to
+ *  generate the uri pattern to be used by the search engine.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exactMatch;
+
+/**
+ *  Output only. This is system-generated based on the provided_uri_pattern.
+ */
+@property(nonatomic, copy, nullable) NSString *generatedUriPattern;
+
+/**
+ *  Output only. The fully qualified resource name of the target site.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
+ *  The `target_site_id` is system-generated.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Input only. The user provided uri pattern from which the
+ *  `generated_uri_pattern` is generated.
+ */
+@property(nonatomic, copy, nullable) NSString *providedUriPattern;
+
+/**
+ *  The type of the target site, e.g. whether the site is to be included or
+ *  excluded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Exclude
+ *        Exclude the target site. (Value: "EXCLUDE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Include
+ *        Include the target site. (Value: "INCLUDE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_TypeUnspecified
+ *        This value is unused. In this case, server behavior defaults to
+ *        Type.INCLUDE. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The target site's last updated time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -496,8 +701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The numerical values of this custom attribute. For example, `[2.3, 15.4]`
- *  when the key is "lengths_cm". Exactly one of text or numbers should be set.
- *  Otherwise, an INVALID_ARGUMENT error is returned.
+ *  when the key is "lengths_cm". Exactly one of CustomAttribute.text or
+ *  CustomAttribute.numbers should be set. Otherwise, an `INVALID_ARGUMENT`
+ *  error is returned.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -506,8 +712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  The textual values of this custom attribute. For example, `["yellow",
  *  "green"]` when the key is "color". Empty string is not allowed. Otherwise,
- *  an INVALID_ARGUMENT error is returned. Exactly one of text or numbers should
- *  be set. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  an `INVALID_ARGUMENT` error is returned. Exactly one of CustomAttribute.text
+ *  or CustomAttribute.numbers should be set. Otherwise, an `INVALID_ARGUMENT`
+ *  error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
 
@@ -531,7 +738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The JSON string representation of the document. It should conform to the
- *  registered schema or an INVALID_ARGUMENT error is thrown.
+ *  registered Schema.schema or an `INVALID_ARGUMENT` error is thrown.
  */
 @property(nonatomic, copy, nullable) NSString *jsonData;
 
@@ -556,7 +763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The structured JSON data for the document. It should conform to the
- *  registered schema or an INVALID_ARGUMENT error is thrown.
+ *  registered Schema.schema or an `INVALID_ARGUMENT` error is thrown.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument_StructData *structData;
 
@@ -565,7 +772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The structured JSON data for the document. It should conform to the
- *  registered schema or an INVALID_ARGUMENT error is thrown.
+ *  registered Schema.schema or an `INVALID_ARGUMENT` error is thrown.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -590,7 +797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  Required. The Document resource full name, of the form:
- *  projects/{project\\_id}/locations/{location}/collections/{collection\\_id}/dataStores/{data\\_store\\_id}/branches/{branch\\_id}/documents/{document\\_id}
+ *  `projects/{project_id}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/branches/{branch_id}/documents/{document_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -609,6 +816,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  Required. The Document url - only allowed for DataStores with content_config
+ *  PUBLIC_WEBSITE.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -681,6 +894,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest : GTLRObject
 
+/**
+ *  Whether to automatically generate IDs for the documents if absent. If set to
+ *  `true`, Document.ids are automatically generated based on the hash of the
+ *  payload, where IDs may not be consistent during multiple imports. In which
+ *  case ReconciliationMode.FULL is highly recommended to avoid duplicate
+ *  contents. If unset or set to `false`, Document.ids have to be specified
+ *  using id_field, otherwises, documents without IDs will fail to be imported.
+ *  Only set this field when using GcsSource or BigQuerySource, and when
+ *  GcsSource.data_schema or BigQuerySource.data_schema is `custom`. Otherwise,
+ *  an INVALID_ARGUMENT error is thrown.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoGenerateIds;
+
 /** BigQuery input source. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource *bigquerySource;
 
@@ -689,6 +917,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /** Cloud Storage location for the input content. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaGcsSource *gcsSource;
+
+/**
+ *  The field in the Cloud Storage and BigQuery sources that indicates the
+ *  unique IDs of the documents. For GcsSource it is the key of the JSON field.
+ *  For instance, `my_id` for JSON `{"my_id": "some_uuid"}`. For BigQuerySource
+ *  it is the column name of the BigQuery table where the unique ids are stored.
+ *  The values of the JSON field or the BigQuery column will be used as the
+ *  Document.ids. The JSON field or the BigQuery column must be of string type,
+ *  and the values must be set as valid strings conform to
+ *  [RFC-1034](https://tools.ietf.org/html/rfc1034) with 1-63 characters.
+ *  Otherwise, documents without valid IDs will fail to be imported. Only set
+ *  this field when using GcsSource or BigQuerySource, and when
+ *  GcsSource.data_schema or BigQuerySource.data_schema is `custom`. And only
+ *  set this field when auto_generate_ids is unset or set as `false`. Otherwise,
+ *  an INVALID_ARGUMENT error is thrown. If it is unset, a default value `_id`
+ *  is used when importing from the allowed data sources.
+ */
+@property(nonatomic, copy, nullable) NSString *idField;
 
 /** The Inline source for the input content for documents. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequestInlineSource *inlineSource;
@@ -903,7 +1149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  Media progress should be computed using only the media_progress_duration
- *  relative to the media total length. This value must be between [0, 1.0]
+ *  relative to the media total length. This value must be between `[0, 1.0]`
  *  inclusive. If this is not a playback or the progress cannot be computed
  *  (e.g. ongoing livestream), this field should be unset.
  *
@@ -992,6 +1238,84 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the PurgeDocuments operation. This will
+ *  be returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of entries that encountered errors while processing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of entries that were deleted successfully.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Request message for DocumentService.PurgeDocuments method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest : GTLRObject
+
+/**
+ *  Required. Filter matching documents to purge. Only currently supported value
+ *  is `*` (all items).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Actually performs the purge. If `force` is set to false, return the expected
+ *  purge count without deleting any documents.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+@end
+
+
+/**
+ *  Response message for DocumentService.PurgeDocuments method. If the long
+ *  running operation is successfully done, then this message is returned by the
+ *  google.longrunning.Operations.response field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsResponse : GTLRObject
+
+/**
+ *  The total count of documents purged as a result of the operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *purgeCount;
+
+/**
+ *  A sample of document names that will be deleted. Only populated if `force`
+ *  is set to false. A max of 100 names will be returned and the names are
+ *  chosen at random.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *purgeSample;
+
+@end
+
+
+/**
  *  Request message for Recommend method.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest : GTLRObject
@@ -999,13 +1323,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Filter for restricting recommendation results with a length limit of 5,000
  *  characters. Currently, only filter expressions on the `filter_tags`
- *  attribute is supported. Examples: * (filter_tags: ANY("Red", "Blue") OR
- *  filter_tags: ANY("Hot", "Cold")) * (filter_tags: ANY("Red", "Blue")) AND NOT
- *  (filter_tags: ANY("Green")) If your filter blocks all results, the API will
- *  return generic (unfiltered) popular Documents. If you only want results
+ *  attribute is supported. Examples: * `(filter_tags: ANY("Red", "Blue") OR
+ *  filter_tags: ANY("Hot", "Cold"))` * `(filter_tags: ANY("Red", "Blue")) AND
+ *  NOT (filter_tags: ANY("Green"))` If your filter blocks all results, the API
+ *  will return generic (unfiltered) popular Documents. If you only want results
  *  strictly matching the filters, set `strictFiltering` to True in
  *  RecommendRequest.params to receive empty results instead. Note that the API
- *  will never return Documents with storageStatus of "EXPIRED" or "DELETED"
+ *  will never return Documents with `storageStatus` of `EXPIRED` or `DELETED`
  *  regardless of filter choices.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1023,17 +1347,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Additional domain specific parameters for the recommendations. Allowed
  *  values: * `returnDocument`: Boolean. If set to true, the associated Document
- *  object will be returned in RecommendResponse.results.document. *
- *  `returnScore`: Boolean. If set to true, the recommendation 'score'
+ *  object will be returned in RecommendResponse.RecommendationResult.document.
+ *  * `returnScore`: Boolean. If set to true, the recommendation 'score'
  *  corresponding to each returned Document will be set in
- *  RecommendResponse.results.metadata. The given 'score' indicates the
- *  probability of a Document conversion given the user's context and history. *
- *  `strictFiltering`: Boolean. True by default. If set to false, the service
- *  will return generic (unfiltered) popular Documents instead of empty if your
- *  filter blocks all recommendation results. * `diversityLevel`: String.
- *  Default empty. If set to be non-empty, then it needs to be one of: *
- *  'no-diversity' * 'low-diversity' * 'medium-diversity' * 'high-diversity' *
- *  'auto-diversity' This gives request-level control and adjusts recommendation
+ *  RecommendResponse.RecommendationResult.metadata. The given 'score' indicates
+ *  the probability of a Document conversion given the user's context and
+ *  history. * `strictFiltering`: Boolean. True by default. If set to false, the
+ *  service will return generic (unfiltered) popular Documents instead of empty
+ *  if your filter blocks all recommendation results. * `diversityLevel`:
+ *  String. Default empty. If set to be non-empty, then it needs to be one of: *
+ *  `no-diversity` * `low-diversity` * `medium-diversity` * `high-diversity` *
+ *  `auto-diversity` This gives request-level control and adjusts recommendation
  *  results based on Document category.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_Params *params;
@@ -1083,17 +1407,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Additional domain specific parameters for the recommendations. Allowed
  *  values: * `returnDocument`: Boolean. If set to true, the associated Document
- *  object will be returned in RecommendResponse.results.document. *
- *  `returnScore`: Boolean. If set to true, the recommendation 'score'
+ *  object will be returned in RecommendResponse.RecommendationResult.document.
+ *  * `returnScore`: Boolean. If set to true, the recommendation 'score'
  *  corresponding to each returned Document will be set in
- *  RecommendResponse.results.metadata. The given 'score' indicates the
- *  probability of a Document conversion given the user's context and history. *
- *  `strictFiltering`: Boolean. True by default. If set to false, the service
- *  will return generic (unfiltered) popular Documents instead of empty if your
- *  filter blocks all recommendation results. * `diversityLevel`: String.
- *  Default empty. If set to be non-empty, then it needs to be one of: *
- *  'no-diversity' * 'low-diversity' * 'medium-diversity' * 'high-diversity' *
- *  'auto-diversity' This gives request-level control and adjusts recommendation
+ *  RecommendResponse.RecommendationResult.metadata. The given 'score' indicates
+ *  the probability of a Document conversion given the user's context and
+ *  history. * `strictFiltering`: Boolean. True by default. If set to false, the
+ *  service will return generic (unfiltered) popular Documents instead of empty
+ *  if your filter blocks all recommendation results. * `diversityLevel`:
+ *  String. Default empty. If set to be non-empty, then it needs to be one of: *
+ *  `no-diversity` * `low-diversity` * `medium-diversity` * `high-diversity` *
+ *  `auto-diversity` This gives request-level control and adjusts recommendation
  *  results based on Document category.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1267,9 +1591,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  The user's search query. See SearchRequest.query for definition. The value
  *  must be a UTF-8 encoded string with a length limit of 5,000 characters.
  *  Otherwise, an INVALID_ARGUMENT error is returned. At least one of
- *  search_query or page_categories is required for `search` events. Other event
- *  types should not set this field. Otherwise, an INVALID_ARGUMENT error is
- *  returned.
+ *  search_query or PageInfo.page_category is required for `search` events.
+ *  Other event types should not set this field. Otherwise, an INVALID_ARGUMENT
+ *  error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *searchQuery;
 
@@ -1345,13 +1669,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  requests. This lets the Discovery Engine API use those custom attributes
  *  when training models and serving predictions, which helps improve
  *  recommendation quality. This field needs to pass all below criteria,
- *  otherwise an INVALID_ARGUMENT error is returned: * The key must be a UTF-8
+ *  otherwise an `INVALID_ARGUMENT` error is returned: * The key must be a UTF-8
  *  encoded string with a length limit of 5,000 characters. * For text
  *  attributes, at most 400 values are allowed. Empty values are not allowed.
  *  Each value must be a UTF-8 encoded string with a length limit of 256
  *  characters. * For number attributes, at most 400 values are allowed. For
- *  product recommendations, an example of extra user information is
- *  traffic_channel, which is how a user arrives at the site. Users can arrive
+ *  product recommendations, an example of extra user information is `
+ *  traffic_channel`, which is how a user arrives at the site. Users can arrive
  *  at the site by coming to the site directly, coming through Google search, or
  *  in other ways.
  */
@@ -1360,16 +1684,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Token to attribute an API response to user action(s) to trigger the event.
  *  Highly recommended for user events that are the result of
- *  PredictionService.Predict. This field enables accurate attribution of
+ *  RecommendationService.Recommend. This field enables accurate attribution of
  *  recommendation model performance. The value must be one of: *
  *  PredictResponse.attribution_token for events that are the result of
- *  PredictionService.Predict. * SearchResponse.attribution_token for events
- *  that are the result of SearchService.Search. *
+ *  RecommendationService.Recommend. * SearchResponse.attribution_token for
+ *  events that are the result of SearchService.Search. *
  *  CompleteQueryResponse.attribution_token for events that are the result of
- *  SearchService.CompleteQuery. This token enables us to accurately attribute
- *  page view or conversion completion back to the event and the particular
- *  predict response containing this clicked/purchased product. If user clicks
- *  on product K in the recommendation results, pass
+ *  CompletionService.CompleteQuery. This token enables us to accurately
+ *  attribute page view or conversion completion back to the event and the
+ *  particular predict response containing this clicked/purchased product. If
+ *  user clicks on product K in the recommendation results, pass
  *  PredictResponse.attribution_token as a URL parameter to product K's page.
  *  When recording events on product K's page, log the
  *  PredictResponse.attribution_token to this field.
@@ -1429,14 +1753,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  The filter syntax consists of an expression language for constructing a
  *  predicate from one or more fields of the documents being filtered. One
- *  example is for `search` events, the associated SearchService.SearchRequest
- *  may contain a filter expression in SearchService.SearchRequest.filter
- *  conforming to https://google.aip.dev/160#filtering. Similarly, for
- *  `view-item-list` events that are generated from a
- *  PredictionService.PredictRequest, this field may be populated directly from
- *  PredictionService.PredictRequest.filter conforming to
- *  https://google.aip.dev/160#filtering. The value must be a UTF-8 encoded
- *  string with a length limit of 1,000 characters. Otherwise, an
+ *  example is for `search` events, the associated SearchRequest may contain a
+ *  filter expression in SearchRequest.filter conforming to
+ *  https://google.aip.dev/160#filtering. Similarly, for `view-item-list` events
+ *  that are generated from a RecommendationService.RecommendRequest, this field
+ *  may be populated directly from RecommendationService.RecommendRequest.filter
+ *  conforming to https://google.aip.dev/160#filtering. The value must be a
+ *  UTF-8 encoded string with a length limit of 1,000 characters. Otherwise, an
  *  INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1516,13 +1839,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  requests. This lets the Discovery Engine API use those custom attributes
  *  when training models and serving predictions, which helps improve
  *  recommendation quality. This field needs to pass all below criteria,
- *  otherwise an INVALID_ARGUMENT error is returned: * The key must be a UTF-8
+ *  otherwise an `INVALID_ARGUMENT` error is returned: * The key must be a UTF-8
  *  encoded string with a length limit of 5,000 characters. * For text
  *  attributes, at most 400 values are allowed. Empty values are not allowed.
  *  Each value must be a UTF-8 encoded string with a length limit of 256
  *  characters. * For number attributes, at most 400 values are allowed. For
- *  product recommendations, an example of extra user information is
- *  traffic_channel, which is how a user arrives at the site. Users can arrive
+ *  product recommendations, an example of extra user information is `
+ *  traffic_channel`, which is how a user arrives at the site. Users can arrive
  *  at the site by coming to the site directly, coming through Google search, or
  *  in other ways.
  *
@@ -1544,10 +1867,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  User agent as included in the HTTP header. Required for getting
  *  SearchResponse.sponsored_results. The field must be a UTF-8 encoded string
- *  with a length limit of 1,000 characters. Otherwise, an INVALID_ARGUMENT
+ *  with a length limit of 1,000 characters. Otherwise, an `INVALID_ARGUMENT`
  *  error is returned. This should not be set when using the client side event
  *  reporting with GTM or JavaScript tag in UserEventService.CollectUserEvent or
- *  if direct_user_request is set.
+ *  if UserEvent.direct_user_request is set.
  */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 
@@ -1557,11 +1880,232 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  hashed value for this ID. Don't set the field to the same fixed ID for
  *  different users. This mixes the event history of those users together, which
  *  results in degraded model quality. The field must be a UTF-8 encoded string
- *  with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error
- *  is returned.
+ *  with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT`
+ *  error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
+@end
+
+
+/**
+ *  Metadata related to the progress of the ImportDocuments operation. This will
+ *  be returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of entries that encountered errors while processing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of entries that were processed successfully.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response of the ImportDocumentsRequest. If the long running operation is
+ *  done, then this message is returned by the
+ *  google.longrunning.Operations.response field if the operation was
+ *  successful.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsResponse : GTLRObject
+
+/** Echoes the destination for the complete errors in the request if set. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig *errorConfig;
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
+
+@end
+
+
+/**
+ *  Configuration of destination for Import related errors.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig : GTLRObject
+
+/**
+ *  Cloud Storage prefix for import errors. This must be an empty, existing
+ *  Cloud Storage directory. Import errors will be written to sharded files in
+ *  this directory, one per line, as a JSON-encoded `google.rpc.Status` message.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPrefix;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the Import operation. This will be
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of entries that encountered errors while processing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of entries that were processed successfully.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response of the ImportUserEventsRequest. If the long running operation was
+ *  successful, then this message is returned by the
+ *  google.longrunning.Operations.response field if the operation was
+ *  successful.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsResponse : GTLRObject
+
+/**
+ *  Echoes the destination for the complete errors if this field was set in the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig *errorConfig;
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
+
+/**
+ *  Count of user events imported with complete existing Documents.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *joinedEventsCount;
+
+/**
+ *  Count of user events imported, but with Document information not found in
+ *  the existing Branch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unjoinedEventsCount;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the PurgeDocuments operation. This will
+ *  be returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Count of entries that encountered errors while processing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureCount;
+
+/**
+ *  Count of entries that were deleted successfully.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for DocumentService.PurgeDocuments method. If the long
+ *  running operation is successfully done, then this message is returned by the
+ *  google.longrunning.Operations.response field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsResponse : GTLRObject
+
+/**
+ *  The total count of documents purged as a result of the operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *purgeCount;
+
+/**
+ *  A sample of document names that will be deleted. Only populated if `force`
+ *  is set to false. A max of 100 names will be returned and the names are
+ *  chosen at random.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *purgeSample;
+
+@end
+
+
+/**
+ *  Defines the structure and layout of a type of document data.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema : GTLRObject
+
+/** The JSON representation of the schema. */
+@property(nonatomic, copy, nullable) NSString *jsonSchema;
+
+/**
+ *  Immutable. The full resource name of the schema, in the format of
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The structured representation of the schema. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema_StructSchema *structSchema;
+
+@end
+
+
+/**
+ *  The structured representation of the schema.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema_StructSchema : GTLRObject
 @end
 
 

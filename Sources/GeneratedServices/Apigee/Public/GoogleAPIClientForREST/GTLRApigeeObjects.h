@@ -108,6 +108,14 @@
 @class GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping;
 @class GTLRApigee_GoogleCloudApigeeV1PodStatus;
 @class GTLRApigee_GoogleCloudApigeeV1Point;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfig;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigAbuse;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigAuthorization;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigCategory;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigCORS;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigMediation;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigMTLS;
+@class GTLRApigee_GoogleCloudApigeeV1ProfileConfigThreat;
 @class GTLRApigee_GoogleCloudApigeeV1Properties;
 @class GTLRApigee_GoogleCloudApigeeV1Property;
 @class GTLRApigee_GoogleCloudApigeeV1QueryMetadata;
@@ -1903,6 +1911,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiCategoryData : GTLRObject
 
+/** GCP name of api category resource. */
+@property(nonatomic, copy, nullable) NSString *gcpResource;
+
 /**
  *  ID of the category (a UUID).
  *
@@ -2332,26 +2343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision_EntityMetaDataAsProperties : GTLRObject
-@end
-
-
-/**
- *  GTLRApigee_GoogleCloudApigeeV1ApiResponseWrapper
- */
-@interface GTLRApigee_GoogleCloudApigeeV1ApiResponseWrapper : GTLRObject
-
-/** ID that can be used to find errors in the log files. */
-@property(nonatomic, copy, nullable) NSString *errorCode;
-
-/** Description of the operation. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/** ID that can be used to find request details in the log files. */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/** Status of the operation. */
-@property(nonatomic, copy, nullable) NSString *status;
-
 @end
 
 
@@ -3507,6 +3498,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for certain delete operations.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeleteResponse : GTLRObject
+
+/** ID that can be used to find errors in the log files. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** GCP name of deleted resource. */
+@property(nonatomic, copy, nullable) NSString *gcpResource;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** ID that can be used to find request details in the log files. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1Deployment
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Deployment : GTLRObject
@@ -4126,10 +4140,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DimensionMetric : GTLRObject
 
+/** Individual dimension names. E.g. ["dim1_name", "dim2_name"]. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *individualNames;
+
 /** List of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Metric *> *metrics;
 
-/** Name of the dimension. */
+/**
+ *  Comma joined dimension names. E.g. "dim1_name,dim2_name". Deprecated. If
+ *  name already has comma before join, we may get wrong splits. Please use
+ *  individual_names.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -5326,9 +5347,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1KeyValueMap : GTLRObject
 
 /**
- *  Optional. Flag that specifies whether entry values will be encrypted. You
- *  must set this value to `true`. Apigee X and hybrid do not support
- *  unencrytped key value maps.
+ *  Required. Flag that specifies whether entry values will be encrypted. This
+ *  field is retained for backward compatibility and the value of encrypted will
+ *  always be `true`. Apigee X and hybrid do not support unencrypted key value
+ *  maps.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6392,12 +6414,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AddonsConfig *addonsConfig;
 
 /**
- *  Required. DEPRECATED: This field will be deprecated once Apigee supports
- *  DRZ. Primary Google Cloud region for analytics data storage. For valid
- *  values, see [Create an Apigee
+ *  Required. DEPRECATED: This field will eventually be deprecated and replaced
+ *  with a differently-named field. Primary Google Cloud region for analytics
+ *  data storage. For valid values, see [Create an Apigee
  *  organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
  */
 @property(nonatomic, copy, nullable) NSString *analyticsRegion;
+
+/**
+ *  Cloud KMS key name used for encrypting API consumer data. Required for US/EU
+ *  regions when [BillingType](#BillingType) is `SUBSCRIPTION`. When
+ *  [BillingType](#BillingType) is `EVALUATION` or the region is not US/EU, a
+ *  Google-Managed encryption key will be used. Format: `projects/ * /locations/
+ *  * /keyRings/ * /cryptoKeys/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *apiConsumerDataEncryptionKeyName;
+
+/**
+ *  This field is needed only for customers with control plane in US or EU.
+ *  Apigee stores some control plane data only in single region. This field
+ *  determines which single region Apigee should use. For example: "us-west1"
+ *  when control plane is in US or "europe-west2" when control plane is in EU.
+ */
+@property(nonatomic, copy, nullable) NSString *apiConsumerDataLocation;
 
 /**
  *  Output only. Apigee Project ID associated with the organization. Use this
@@ -6451,6 +6490,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/**
+ *  Cloud KMS key name used for encrypting control plane data that is stored in
+ *  a multi region. Required when [BillingType](#BillingType) is `SUBSCRIPTION`.
+ *  When [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
+ *  encryption key will be used. Format: `projects/ * /locations/ * /keyRings/ *
+ *  /cryptoKeys/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *controlPlaneEncryptionKeyName;
 
 /**
  *  Output only. Time that the Apigee organization was created in milliseconds
@@ -6697,6 +6745,96 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** List of results extracted from a given debug point. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Result *> *results;
 
+@end
+
+
+/**
+ *  ProfileConfig defines a set of categories and policies which will be used to
+ *  compute security score.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfig : GTLRObject
+
+/** List of categories of profile config. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ProfileConfigCategory *> *categories;
+
+@end
+
+
+/**
+ *  Checks for abuse, which includes any requests sent to the API for purposes
+ *  other than what it is intended for, such as high volumes of requests, data
+ *  scraping, and abuse related to authorization.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigAbuse : GTLRObject
+@end
+
+
+/**
+ *  By default, following policies will be included: - JWS - JWT - OAuth -
+ *  BasicAuth - APIKey
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigAuthorization : GTLRObject
+@end
+
+
+/**
+ *  Advanced API Security provides security profile that scores the following
+ *  categories.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigCategory : GTLRObject
+
+/**
+ *  Checks for abuse, which includes any requests sent to the API for purposes
+ *  other than what it is intended for, such as high volumes of requests, data
+ *  scraping, and abuse related to authorization.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfigAbuse *abuse;
+
+/** Checks to see if you have an authorization policy in place. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfigAuthorization *authorization;
+
+/** Checks to see if you have CORS policy in place. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfigCORS *cors;
+
+/** Checks to see if you have a mediation policy in place. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfigMediation *mediation;
+
+/** Checks to see if you have configured mTLS for the target server. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfigMTLS *mtls;
+
+/** Checks to see if you have a threat protection policy in place. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfigThreat *threat;
+
+@end
+
+
+/**
+ *  Checks to see if you have CORS policy in place.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigCORS : GTLRObject
+@end
+
+
+/**
+ *  By default, following policies will be included: - OASValidation -
+ *  SOAPMessageValidation
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigMediation : GTLRObject
+@end
+
+
+/**
+ *  Checks to see if you have configured mTLS for the target server.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigMTLS : GTLRObject
+@end
+
+
+/**
+ *  By default, following policies will be included: - XMLThreatProtection -
+ *  JSONThreatProtection
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProfileConfigThreat : GTLRObject
 @end
 
 
@@ -8101,6 +8239,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityProfile : GTLRObject
 
+/**
+ *  Description of the security profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 /** Display name of the security profile. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -8126,6 +8271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  organizations/{org}/securityProfiles/{profile}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Customized profile configuration that computes the security score. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfig *profileConfig;
 
 /** Output only. The time when revision was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;

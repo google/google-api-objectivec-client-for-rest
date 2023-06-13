@@ -301,6 +301,16 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateManager_IntermediateCA
+//
+
+@implementation GTLRCertificateManager_IntermediateCA
+@dynamic pemCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateManager_IpConfig
 //
 
@@ -478,6 +488,29 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateManager_ListTrustConfigsResponse
+//
+
+@implementation GTLRCertificateManager_ListTrustConfigsResponse
+@dynamic nextPageToken, trustConfigs, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trustConfigs" : [GTLRCertificateManager_TrustConfig class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"trustConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateManager_Location
 //
 
@@ -631,6 +664,76 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_TrustAnchor
+//
+
+@implementation GTLRCertificateManager_TrustAnchor
+@dynamic pemCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_TrustConfig
+//
+
+@implementation GTLRCertificateManager_TrustConfig
+@dynamic createTime, descriptionProperty, ETag, labels, name, trustStores,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trustStores" : [GTLRCertificateManager_TrustStore class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_TrustConfig_Labels
+//
+
+@implementation GTLRCertificateManager_TrustConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_TrustStore
+//
+
+@implementation GTLRCertificateManager_TrustStore
+@dynamic intermediateCas, trustAnchors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"intermediateCas" : [GTLRCertificateManager_IntermediateCA class],
+    @"trustAnchors" : [GTLRCertificateManager_TrustAnchor class]
+  };
+  return map;
 }
 
 @end

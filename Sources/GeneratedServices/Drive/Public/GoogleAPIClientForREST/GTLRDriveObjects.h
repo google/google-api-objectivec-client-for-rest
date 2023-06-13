@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Drive API (drive/v3)
+//   Google Drive API (drive/v3)
 // Description:
-//   Manages files in Drive including uploading, downloading, searching,
-//   detecting changes, and updating sharing permissions.
+//   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
 //   https://developers.google.com/drive/
 
@@ -87,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canCreateDrives;
 
 /**
- *  Deprecated - use canCreateDrives instead.
+ *  Deprecated: Use `canCreateDrives` instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -111,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#about".
+ *  `"drive#about"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -130,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDrive_About_StorageQuota *storageQuota;
 
-/** Deprecated - use driveThemes instead. */
+/** Deprecated: Use `driveThemes` instead. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_About_TeamDriveThemes_Item *> *teamDriveThemes;
 
 /** The authenticated user. */
@@ -238,14 +237,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_About_TeamDriveThemes_Item : GTLRObject
 
-/** Deprecated - use driveThemes/backgroundImageLink instead. */
+/** Deprecated: Use `driveThemes/backgroundImageLink` instead. */
 @property(nonatomic, copy, nullable) NSString *backgroundImageLink;
 
-/** Deprecated - use driveThemes/colorRgb instead. */
+/** Deprecated: Use `driveThemes/colorRgb` instead. */
 @property(nonatomic, copy, nullable) NSString *colorRgb;
 
 /**
- *  Deprecated - use driveThemes/id instead.
+ *  Deprecated: Use `driveThemes/id` instead.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -259,7 +258,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_Change : GTLRObject
 
-/** The type of the change. Possible values are file and drive. */
+/** The type of the change. Possible values are `file` and `drive`. */
 @property(nonatomic, copy, nullable) NSString *changeType;
 
 /**
@@ -283,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#change".
+ *  `"drive#change"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -295,16 +294,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *removed;
 
-/** Deprecated - use drive instead. */
+/** Deprecated: Use `drive` instead. */
 @property(nonatomic, strong, nullable) GTLRDrive_TeamDrive *teamDrive;
 
-/** Deprecated - use driveId instead. */
+/** Deprecated: Use `driveId` instead. */
 @property(nonatomic, copy, nullable) NSString *teamDriveId;
 
 /** The time of this change (RFC 3339 date-time). */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
 
-/** Deprecated - use changeType instead. */
+/** Deprecated: Use `changeType` instead. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -331,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#changeList".
+ *  `"drive#changeList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -353,7 +352,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  An notification channel used to watch for resource changes.
+ *  A notification channel used to watch for resource changes.
  */
 @interface GTLRDrive_Channel : GTLRObject
 
@@ -377,7 +376,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
- *  resource, which is "api#channel".
+ *  resource, which is `api#channel`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -406,11 +405,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
-/**
- *  The type of delivery mechanism used for this channel. Valid values are
- *  "web_hook" (or "webhook"). Both values refer to a channel where Http
- *  requests are used to deliver messages.
- */
+/** The type of delivery mechanism used for this channel. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -435,19 +430,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A region of the document represented as a JSON string. For details on
- *  defining anchor properties, refer to Add comments and replies.
+ *  defining anchor properties, refer to [Manage comments and
+ *  replies](https://developers.google.com/drive/api/v3/manage-comments).
  */
 @property(nonatomic, copy, nullable) NSString *anchor;
 
 /**
- *  The author of the comment. The author's email address and permission ID will
- *  not be populated.
+ *  Output only. The author of the comment. The author's email address and
+ *  permission ID will not be populated.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**
  *  The plain text content of the comment. This field is used for setting the
- *  content, while htmlContent should be displayed.
+ *  content, while `htmlContent` should be displayed.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -455,25 +451,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *createdTime;
 
 /**
- *  Whether the comment has been deleted. A deleted comment has no content.
+ *  Output only. Whether the comment has been deleted. A deleted comment has no
+ *  content.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
-/** The content of the comment with HTML formatting. */
+/** Output only. The content of the comment with HTML formatting. */
 @property(nonatomic, copy, nullable) NSString *htmlContent;
 
 /**
- *  The ID of the comment.
+ *  Output only. The ID of the comment.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#comment".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#comment"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -490,11 +487,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDrive_Comment_QuotedFileContent *quotedFileContent;
 
-/** The full list of replies to the comment in chronological order. */
+/**
+ *  Output only. The full list of replies to the comment in chronological order.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Reply *> *replies;
 
 /**
- *  Whether the comment has been resolved by one of its replies.
+ *  Output only. Whether the comment has been resolved by one of its replies.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -543,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#commentList".
+ *  `"drive#commentList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -574,13 +573,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Reason for why the content of the file is restricted. This is only mutable
- *  on requests that also set readOnly=true.
+ *  on requests that also set `readOnly=true`.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  The user who set the content restriction. Only populated if readOnly is
- *  true.
+ *  Output only. The user who set the content restriction. Only populated if
+ *  `readOnly` is true.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *restrictingUser;
 
@@ -591,8 +590,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *restrictionTime;
 
 /**
- *  The type of the content restriction. Currently the only possible value is
- *  globalContentRestriction.
+ *  Output only. The type of the content restriction. Currently the only
+ *  possible value is `globalContentRestriction`.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -606,21 +605,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An image file and cropping parameters from which a background image for this
- *  shared drive is set. This is a write-only field; it can only be set on
- *  drive.drives.update requests that don't set themeId. When specified, all
- *  fields of the backgroundImageFile must be set.
+ *  shared drive is set. This is a write only field; it can only be set on
+ *  `drive.drives.update` requests that don't set `themeId`. When specified, all
+ *  fields of the `backgroundImageFile` must be set.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_Drive_BackgroundImageFile *backgroundImageFile;
 
-/** A short-lived link to this shared drive's background image. */
+/**
+ *  Output only. A short-lived link to this shared drive's background image.
+ */
 @property(nonatomic, copy, nullable) NSString *backgroundImageLink;
 
-/** Capabilities the current user has on this shared drive. */
+/** Output only. Capabilities the current user has on this shared drive. */
 @property(nonatomic, strong, nullable) GTLRDrive_Drive_Capabilities *capabilities;
 
 /**
- *  The color of this shared drive as an RGB hex string. It can only be set on
- *  drive.drives.update requests that don't set themeId.
+ *  The color of this shared drive as an RGB hex string. It can only be set on a
+ *  `drive.drives.update` request that does not set `themeId`.
  */
 @property(nonatomic, copy, nullable) NSString *colorRgb;
 
@@ -635,16 +636,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *hidden;
 
 /**
- *  The ID of this shared drive which is also the ID of the top level folder of
- *  this shared drive.
+ *  Output only. The ID of this shared drive which is also the ID of the top
+ *  level folder of this shared drive.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#drive".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#drive"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -652,9 +653,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The organizational unit of this shared drive. This field is only populated
- *  on drives.list responses when the useDomainAdminAccess parameter is set to
- *  true.
+ *  Output only. The organizational unit of this shared drive. This field is
+ *  only populated on `drives.list` responses when the `useDomainAdminAccess`
+ *  parameter is set to `true`.
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
@@ -665,12 +666,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_Drive_Restrictions *restrictions;
 
 /**
- *  The ID of the theme from which the background image and color are set. The
- *  set of possible driveThemes can be retrieved from a drive.about.get
- *  response. When not specified on a drive.drives.create request, a random
+ *  The ID of the theme from which the background image and color will be set.
+ *  The set of possible `driveThemes` can be retrieved from a `drive.about.get`
+ *  response. When not specified on a `drive.drives.create` request, a random
  *  theme is chosen from which the background image and color are set. This is a
- *  write-only field; it can only be set on requests that don't set colorRgb or
- *  backgroundImageFile.
+ *  write-only field; it can only be set on requests that don't set `colorRgb`
+ *  or `backgroundImageFile`.
  */
 @property(nonatomic, copy, nullable) NSString *themeId;
 
@@ -679,9 +680,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An image file and cropping parameters from which a background image for this
- *  shared drive is set. This is a write-only field; it can only be set on
- *  drive.drives.update requests that don't set themeId. When specified, all
- *  fields of the backgroundImageFile must be set.
+ *  shared drive is set. This is a write only field; it can only be set on
+ *  `drive.drives.update` requests that don't set `themeId`. When specified, all
+ *  fields of the `backgroundImageFile` must be set.
  */
 @interface GTLRDrive_Drive_BackgroundImageFile : GTLRObject
 
@@ -727,157 +728,164 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Capabilities the current user has on this shared drive.
+ *  Output only. Capabilities the current user has on this shared drive.
  */
 @interface GTLRDrive_Drive_Capabilities : GTLRObject
 
 /**
- *  Whether the current user can add children to folders in this shared drive.
+ *  Output only. Whether the current user can add children to folders in this
+ *  shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAddChildren;
 
 /**
- *  Whether the current user can change the copyRequiresWriterPermission
- *  restriction of this shared drive.
+ *  Output only. Whether the current user can change the
+ *  `copyRequiresWriterPermission` restriction of this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermissionRestriction;
 
 /**
- *  Whether the current user can change the domainUsersOnly restriction of this
- *  shared drive.
+ *  Output only. Whether the current user can change the `domainUsersOnly`
+ *  restriction of this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
 
 /**
- *  Whether the current user can change the background of this shared drive.
+ *  Output only. Whether the current user can change the background of this
+ *  shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDriveBackground;
 
 /**
- *  Whether the current user can change the driveMembersOnly restriction of this
- *  shared drive.
+ *  Output only. Whether the current user can change the `driveMembersOnly`
+ *  restriction of this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDriveMembersOnlyRestriction;
 
 /**
- *  Whether the current user can change the
- *  sharingFoldersRequiresOrganizerPermission restriction of this shared drive.
+ *  Output only. Whether the current user can change the
+ *  `sharingFoldersRequiresOrganizerPermission` restriction of this shared
+ *  drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeSharingFoldersRequiresOrganizerPermissionRestriction;
 
 /**
- *  Whether the current user can comment on files in this shared drive.
+ *  Output only. Whether the current user can comment on files in this shared
+ *  drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canComment;
 
 /**
- *  Whether the current user can copy files in this shared drive.
+ *  Output only. Whether the current user can copy files in this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canCopy;
 
 /**
- *  Whether the current user can delete children from folders in this shared
- *  drive.
+ *  Output only. Whether the current user can delete children from folders in
+ *  this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canDeleteChildren;
 
 /**
- *  Whether the current user can delete this shared drive. Attempting to delete
- *  the shared drive may still fail if there are untrashed items inside the
- *  shared drive.
+ *  Output only. Whether the current user can delete this shared drive.
+ *  Attempting to delete the shared drive may still fail if there are untrashed
+ *  items inside the shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canDeleteDrive;
 
 /**
- *  Whether the current user can download files in this shared drive.
+ *  Output only. Whether the current user can download files in this shared
+ *  drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canDownload;
 
 /**
- *  Whether the current user can edit files in this shared drive
+ *  Output only. Whether the current user can edit files in this shared drive
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canEdit;
 
 /**
- *  Whether the current user can list the children of folders in this shared
- *  drive.
+ *  Output only. Whether the current user can list the children of folders in
+ *  this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canListChildren;
 
 /**
- *  Whether the current user can add members to this shared drive or remove them
- *  or change their role.
+ *  Output only. Whether the current user can add members to this shared drive
+ *  or remove them or change their role.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canManageMembers;
 
 /**
- *  Whether the current user can read the revisions resource of files in this
- *  shared drive.
+ *  Output only. Whether the current user can read the revisions resource of
+ *  files in this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
 
 /**
- *  Whether the current user can rename files or folders in this shared drive.
+ *  Output only. Whether the current user can rename files or folders in this
+ *  shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRename;
 
 /**
- *  Whether the current user can rename this shared drive.
+ *  Output only. Whether the current user can rename this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRenameDrive;
 
 /**
- *  Whether the current user can reset the shared drive restrictions to
- *  defaults.
+ *  Output only. Whether the current user can reset the shared drive
+ *  restrictions to defaults.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canResetDriveRestrictions;
 
 /**
- *  Whether the current user can share files or folders in this shared drive.
+ *  Output only. Whether the current user can share files or folders in this
+ *  shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canShare;
 
 /**
- *  Whether the current user can trash children from folders in this shared
- *  drive.
+ *  Output only. Whether the current user can trash children from folders in
+ *  this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -903,8 +911,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Whether the options to copy, print, or download files inside this shared
  *  drive, should be disabled for readers and commenters. When this restriction
- *  is set to true, it will override the similarly named field to true for any
- *  file inside this shared drive.
+ *  is set to `true`, it will override the similarly named field to `true` for
+ *  any file inside this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -961,7 +969,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#driveList".
+ *  `"drive#driveList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -992,8 +1000,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_AppProperties *appProperties;
 
 /**
- *  Capabilities the current user has on this file. Each capability corresponds
- *  to a fine-grained action that a user may take.
+ *  Output only. Capabilities the current user has on this file. Each capability
+ *  corresponds to a fine-grained action that a user may take.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_Capabilities *capabilities;
 
@@ -1028,70 +1036,71 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  ID of the shared drive the file resides in. Only populated for items in
- *  shared drives.
+ *  Output only. ID of the shared drive the file resides in. Only populated for
+ *  items in shared drives.
  */
 @property(nonatomic, copy, nullable) NSString *driveId;
 
 /**
- *  Whether the file has been explicitly trashed, as opposed to recursively
- *  trashed from a parent folder.
+ *  Output only. Whether the file has been explicitly trashed, as opposed to
+ *  recursively trashed from a parent folder.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *explicitlyTrashed;
 
-/** Links for exporting Docs Editors files to specific formats. */
+/**
+ *  Output only. Links for exporting Docs Editors files to specific formats.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ExportLinks *exportLinks;
 
 /**
- *  The final component of fullFileExtension. This is only available for files
- *  with binary content in Google Drive.
+ *  Output only. The final component of `fullFileExtension`. This is only
+ *  available for files with binary content in Google Drive.
  */
 @property(nonatomic, copy, nullable) NSString *fileExtension;
 
 /**
- *  The color for a folder or shortcut to a folder as an RGB hex string. The
- *  supported colors are published in the folderColorPalette field of the About
- *  resource.
- *  If an unsupported color is specified, the closest color in the palette will
- *  be used instead.
+ *  The color for a folder or a shortcut to a folder as an RGB hex string. The
+ *  supported colors are published in the `folderColorPalette` field of the
+ *  About resource. If an unsupported color is specified, the closest color in
+ *  the palette is used instead.
  */
 @property(nonatomic, copy, nullable) NSString *folderColorRgb;
 
 /**
- *  The full file extension extracted from the name field. May contain multiple
- *  concatenated extensions, such as "tar.gz". This is only available for files
- *  with binary content in Google Drive.
- *  This is automatically updated when the name field changes, however it isn't
+ *  Output only. The full file extension extracted from the `name` field. May
+ *  contain multiple concatenated extensions, such as "tar.gz". This is only
+ *  available for files with binary content in Google Drive. This is
+ *  automatically updated when the `name` field changes, however it is not
  *  cleared if the new name does not contain a valid extension.
  */
 @property(nonatomic, copy, nullable) NSString *fullFileExtension;
 
 /**
- *  Whether there are permissions directly on this file. This field is only
- *  populated for items in shared drives.
+ *  Output only. Whether there are permissions directly on this file. This field
+ *  is only populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasAugmentedPermissions;
 
 /**
- *  Whether this file has a thumbnail. This does not indicate whether the
- *  requesting app has access to the thumbnail. To check access, look for the
- *  presence of the thumbnailLink field.
+ *  Output only. Whether this file has a thumbnail. This does not indicate
+ *  whether the requesting app has access to the thumbnail. To check access,
+ *  look for the presence of the thumbnailLink field.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasThumbnail;
 
 /**
- *  The ID of the file's head revision. This is currently only available for
- *  files with binary content in Google Drive.
+ *  Output only. The ID of the file's head revision. This is currently only
+ *  available for files with binary content in Google Drive.
  */
 @property(nonatomic, copy, nullable) NSString *headRevisionId;
 
-/** A static, unauthenticated link to the file's icon. */
+/** Output only. A static, unauthenticated link to the file's icon. */
 @property(nonatomic, copy, nullable) NSString *iconLink;
 
 /**
@@ -1101,26 +1110,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Additional metadata about image media, if available. */
+/** Output only. Additional metadata about image media, if available. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ImageMediaMetadata *imageMediaMetadata;
 
 /**
- *  Whether the file was created or opened by the requesting app.
+ *  Output only. Whether the file was created or opened by the requesting app.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isAppAuthorized;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#file".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#file"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** An overview of the labels on the file. */
+/** Output only. An overview of the labels on the file. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_LabelInfo *labelInfo;
 
-/** The last user to modify the file. */
+/** Output only. The last user to modify the file. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
@@ -1130,24 +1139,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_LinkShareMetadata *linkShareMetadata;
 
 /**
- *  The MD5 checksum for the content of the file. This is only applicable to
- *  files with binary content in Google Drive.
+ *  Output only. The MD5 checksum for the content of the file. This is only
+ *  applicable to files with binary content in Google Drive.
  */
 @property(nonatomic, copy, nullable) NSString *md5Checksum;
 
 /**
- *  The MIME type of the file.
- *  Google Drive will attempt to automatically detect an appropriate value from
- *  uploaded content if no value is provided. The value cannot be changed unless
- *  a new revision is uploaded.
- *  If a file is created with a Google Doc MIME type, the uploaded content will
- *  be imported if possible. The supported import formats are published in the
- *  About resource.
+ *  The MIME type of the file. Google Drive attempts to automatically detect an
+ *  appropriate value from uploaded content, if no value is provided. The value
+ *  cannot be changed unless a new revision is uploaded. If a file is created
+ *  with a Google Doc MIME type, the uploaded content is imported, if possible.
+ *  The supported import formats are published in the About resource.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  Whether the file has been modified by this user.
+ *  Output only. Whether the file has been modified by this user.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1157,9 +1164,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedByMeTime;
 
 /**
- *  The last time the file was modified by anyone (RFC 3339 date-time).
- *  Note that setting modifiedTime will also update modifiedByMeTime for the
- *  user.
+ *  he last time the file was modified by anyone (RFC 3339 date-time). Note that
+ *  setting modifiedTime will also update modifiedByMeTime for the user.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
@@ -1172,41 +1178,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The original filename of the uploaded content if available, or else the
- *  original value of the name field. This is only available for files with
+ *  original value of the `name` field. This is only available for files with
  *  binary content in Google Drive.
  */
 @property(nonatomic, copy, nullable) NSString *originalFilename;
 
 /**
- *  Whether the user owns the file. Not populated for items in shared drives.
+ *  Output only. Whether the user owns the file. Not populated for items in
+ *  shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ownedByMe;
 
 /**
- *  The owner of this file. Only certain legacy files may have more than one
- *  owner. This field isn't populated for items in shared drives.
+ *  Output only. The owner of this file. Only certain legacy files may have more
+ *  than one owner. This field isn't populated for items in shared drives.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *owners;
 
 /**
- *  The IDs of the parent folders which contain the file.
- *  If not specified as part of a create request, the file will be placed
- *  directly in the user's My Drive folder. If not specified as part of a copy
- *  request, the file will inherit any discoverable parents of the source file.
- *  Update requests must use the addParents and removeParents parameters to
- *  modify the parents list.
+ *  The IDs of the parent folders which contain the file. If not specified as
+ *  part of a create request, the file is placed directly in the user's My Drive
+ *  folder. If not specified as part of a copy request, the file inherits any
+ *  discoverable parents of the source file. Update requests must use the
+ *  `addParents` and `removeParents` parameters to modify the parents list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *parents;
 
-/** List of permission IDs for users with access to this file. */
+/** Output only. List of permission IDs for users with access to this file. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissionIds;
 
 /**
- *  The full list of permissions for the file. This is only available if the
- *  requesting user can share the file. Not populated for items in shared
- *  drives.
+ *  Output only. The full list of permissions for the file. This is only
+ *  available if the requesting user can share the file. Not populated for items
+ *  in shared drives.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission *> *permissions;
 
@@ -1217,32 +1223,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_Properties *properties;
 
 /**
- *  The number of storage quota bytes used by the file. This includes the head
- *  revision as well as previous revisions with keepForever enabled.
+ *  Output only. The number of storage quota bytes used by the file. This
+ *  includes the head revision as well as previous revisions with `keepForever`
+ *  enabled.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quotaBytesUsed;
 
-/** A key needed to access the item via a shared link. */
+/** Output only. A key needed to access the item via a shared link. */
 @property(nonatomic, copy, nullable) NSString *resourceKey;
 
 /**
- *  The SHA1 checksum associated with this file, if available. This field is
- *  only populated for files with content stored in Google Drive; it isn't
- *  populated for Docs Editors or shortcut files.
+ *  Output only. The SHA1 checksum associated with this file, if available. This
+ *  field is only populated for files with content stored in Google Drive; it is
+ *  not populated for Docs Editors or shortcut files.
  */
 @property(nonatomic, copy, nullable) NSString *sha1Checksum;
 
 /**
- *  The SHA256 checksum associated with this file, if available. This field is
- *  only populated for files with content stored in Google Drive; it isn't
- *  populated for Docs Editors or shortcut files.
+ *  Output only. The SHA256 checksum associated with this file, if available.
+ *  This field is only populated for files with content stored in Google Drive;
+ *  it is not populated for Docs Editors or shortcut files.
  */
 @property(nonatomic, copy, nullable) NSString *sha256Checksum;
 
 /**
- *  Whether the file has been shared. Not populated for items in shared drives.
+ *  Output only. Whether the file has been shared. Not populated for items in
+ *  shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1254,27 +1262,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *sharedWithMeTime;
 
-/** The user who shared the file with the requesting user, if applicable. */
+/**
+ *  Output only. The user who shared the file with the requesting user, if
+ *  applicable.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *sharingUser;
 
 /**
  *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to application/vnd.google-apps.shortcut.
+ *  mimeType field set to `application/vnd.google-apps.shortcut`.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
 /**
- *  The size of the file's content in bytes. This field is populated for files
- *  with binary content stored in Google Drive and for Docs Editors files; it is
- *  not populated for shortcuts or folders.
+ *  Output only. Size in bytes of blobs and first party editor files. Won't be
+ *  populated for files that have no size, like shortcuts and folders.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
- *  The list of spaces which contain the file. The currently supported values
- *  are 'drive', 'appDataFolder' and 'photos'.
+ *  Output only. The list of spaces which contain the file. The currently
+ *  supported values are 'drive', 'appDataFolder' and 'photos'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *spaces;
 
@@ -1285,19 +1295,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *starred;
 
-/** Deprecated - use driveId instead. */
+/** Deprecated: Output only. Use `driveId` instead. */
 @property(nonatomic, copy, nullable) NSString *teamDriveId;
 
 /**
- *  A short-lived link to the file's thumbnail, if available. Typically lasts on
- *  the order of hours. Only populated when the requesting app can access the
- *  file's content. If the file isn't shared publicly, the URL returned in
- *  Files.thumbnailLink must be fetched using a credentialed request.
+ *  Output only. A short-lived link to the file's thumbnail, if available.
+ *  Typically lasts on the order of hours. Only populated when the requesting
+ *  app can access the file's content. If the file isn't shared publicly, the
+ *  URL returned in `Files.thumbnailLink` must be fetched using a credentialed
+ *  request.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
 
 /**
- *  The thumbnail version for use in thumbnail cache invalidation.
+ *  Output only. The thumbnail version for use in thumbnail cache invalidation.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1305,11 +1316,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the file has been trashed, either explicitly or from a trashed
- *  parent folder. Only the owner may trash a file. The trashed item is excluded
- *  from all files.list responses returned for any user who does not own the
- *  file. However, all users with access to the file can see the trashed item
- *  metadata in an API response. All users with access can copy, download,
- *  export, and share the file.
+ *  parent folder. Only the owner may trash a file, and other users cannot see
+ *  files in the owner's trash.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1322,27 +1330,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *trashedTime;
 
 /**
- *  If the file has been explicitly trashed, the user who trashed it. Only
- *  populated for items in shared drives.
+ *  Output only. If the file has been explicitly trashed, the user who trashed
+ *  it. Only populated for items in shared drives.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *trashingUser;
 
 /**
- *  A monotonically increasing version number for the file. This reflects every
- *  change made to the file on the server, even those not visible to the user.
+ *  Output only. A monotonically increasing version number for the file. This
+ *  reflects every change made to the file on the server, even those not visible
+ *  to the user.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
 
 /**
- *  Additional metadata about video media. This may not be available immediately
- *  upon upload.
+ *  Output only. Additional metadata about video media. This may not be
+ *  available immediately upon upload.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_VideoMediaMetadata *videoMediaMetadata;
 
 /**
- *  Whether the file has been viewed by this user.
+ *  Output only. Whether the file has been viewed by this user.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1352,27 +1361,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *viewedByMeTime;
 
 /**
- *  Deprecated - use copyRequiresWriterPermission instead.
+ *  Deprecated: Use `copyRequiresWriterPermission` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *viewersCanCopyContent;
 
 /**
- *  A link for downloading the content of the file in a browser. This is only
- *  available for files with binary content in Google Drive.
+ *  Output only. A link for downloading the content of the file in a browser.
+ *  This is only available for files with binary content in Google Drive.
  */
 @property(nonatomic, copy, nullable) NSString *webContentLink;
 
 /**
- *  A link for opening the file in a relevant Google editor or viewer in a
- *  browser.
+ *  Output only. A link for opening the file in a relevant Google editor or
+ *  viewer in a browser.
  */
 @property(nonatomic, copy, nullable) NSString *webViewLink;
 
 /**
- *  Whether users with only writer permission can modify the file's permissions.
- *  Not populated for items in shared drives.
+ *  Whether users with only `writer` permission can modify the file's
+ *  permissions. Not populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1399,301 +1408,310 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Capabilities the current user has on this file. Each capability corresponds
- *  to a fine-grained action that a user may take.
+ *  Output only. Capabilities the current user has on this file. Each capability
+ *  corresponds to a fine-grained action that a user may take.
  */
 @interface GTLRDrive_File_Capabilities : GTLRObject
 
 /**
- *  Whether the current user is the pending owner of the file. Not populated for
- *  shared drive files.
+ *  Output only. Whether the current user is the pending owner of the file. Not
+ *  populated for shared drive files.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAcceptOwnership;
 
 /**
- *  Whether the current user can add children to this folder. This is always
- *  false when the item is not a folder.
+ *  Output only. Whether the current user can add children to this folder. This
+ *  is always false when the item is not a folder.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAddChildren;
 
 /**
- *  Whether the current user can add a folder from another drive (different
- *  shared drive or My Drive) to this folder. This is false when the item is not
- *  a folder. Only populated for items in shared drives.
+ *  Output only. Whether the current user can add a folder from another drive
+ *  (different shared drive or My Drive) to this folder. This is false when the
+ *  item is not a folder. Only populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAddFolderFromAnotherDrive;
 
 /**
- *  Whether the current user can add a parent for the item without removing an
- *  existing parent in the same request. Not populated for shared drive files.
+ *  Output only. Whether the current user can add a parent for the item without
+ *  removing an existing parent in the same request. Not populated for shared
+ *  drive files.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAddMyDriveParent;
 
 /**
- *  Whether the current user can change the copyRequiresWriterPermission
- *  restriction of this file.
+ *  Output only. Whether the current user can change the
+ *  `copyRequiresWriterPermission` restriction of this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermission;
 
 /**
- *  Whether the current user can change the securityUpdateEnabled field on link
- *  share metadata.
+ *  Output only. Whether the current user can change the securityUpdateEnabled
+ *  field on link share metadata.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeSecurityUpdateEnabled;
 
 /**
- *  Deprecated
+ *  Deprecated: Output only.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeViewersCanCopyContent;
 
 /**
- *  Whether the current user can comment on this file.
+ *  Output only. Whether the current user can comment on this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canComment;
 
 /**
- *  Whether the current user can copy this file. For an item in a shared drive,
- *  whether the current user can copy non-folder descendants of this item, or
- *  this item itself if it is not a folder.
+ *  Output only. Whether the current user can copy this file. For an item in a
+ *  shared drive, whether the current user can copy non-folder descendants of
+ *  this item, or this item itself if it is not a folder.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canCopy;
 
 /**
- *  Whether the current user can delete this file.
+ *  Output only. Whether the current user can delete this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canDelete;
 
 /**
- *  Whether the current user can delete children of this folder. This is false
- *  when the item is not a folder. Only populated for items in shared drives.
+ *  Output only. Whether the current user can delete children of this folder.
+ *  This is false when the item is not a folder. Only populated for items in
+ *  shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canDeleteChildren;
 
 /**
- *  Whether the current user can download this file.
+ *  Output only. Whether the current user can download this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canDownload;
 
 /**
- *  Whether the current user can edit this file. Other factors may limit the
- *  type of changes a user can make to a file. For example, see
- *  canChangeCopyRequiresWriterPermission or canModifyContent.
+ *  Output only. Whether the current user can edit this file. Other factors may
+ *  limit the type of changes a user can make to a file. For example, see
+ *  `canChangeCopyRequiresWriterPermission` or `canModifyContent`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canEdit;
 
 /**
- *  Whether the current user can list the children of this folder. This is
- *  always false when the item is not a folder.
+ *  Output only. Whether the current user can list the children of this folder.
+ *  This is always false when the item is not a folder.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canListChildren;
 
 /**
- *  Whether the current user can modify the content of this file.
+ *  Output only. Whether the current user can modify the content of this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canModifyContent;
 
 /**
- *  Whether the current user can modify restrictions on content of this file.
+ *  Output only. Whether the current user can modify restrictions on content of
+ *  this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canModifyContentRestriction;
 
 /**
- *  Whether the current user can modify the labels on this file.
+ *  Output only. Whether the current user can modify the labels on the file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canModifyLabels;
 
 /**
- *  Whether the current user can move children of this folder outside of the
- *  shared drive. This is false when the item is not a folder. Only populated
- *  for items in shared drives.
+ *  Output only. Whether the current user can move children of this folder
+ *  outside of the shared drive. This is false when the item is not a folder.
+ *  Only populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveChildrenOutOfDrive;
 
 /**
- *  Deprecated - use canMoveChildrenOutOfDrive instead.
+ *  Deprecated: Output only. Use `canMoveChildrenOutOfDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveChildrenOutOfTeamDrive;
 
 /**
- *  Whether the current user can move children of this folder within this drive.
- *  This is false when the item is not a folder. Note that a request to move the
- *  child may still fail depending on the current user's access to the child and
- *  to the destination folder.
+ *  Output only. Whether the current user can move children of this folder
+ *  within this drive. This is false when the item is not a folder. Note that a
+ *  request to move the child may still fail depending on the current user's
+ *  access to the child and to the destination folder.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveChildrenWithinDrive;
 
 /**
- *  Deprecated - use canMoveChildrenWithinDrive instead.
+ *  Deprecated: Output only. Use `canMoveChildrenWithinDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveChildrenWithinTeamDrive;
 
 /**
- *  Deprecated - use canMoveItemOutOfDrive instead.
+ *  Deprecated: Output only. Use `canMoveItemOutOfDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemIntoTeamDrive;
 
 /**
- *  Whether the current user can move this item outside of this drive by
- *  changing its parent. Note that a request to change the parent of the item
- *  may still fail depending on the new parent that is being added.
+ *  Output only. Whether the current user can move this item outside of this
+ *  drive by changing its parent. Note that a request to change the parent of
+ *  the item may still fail depending on the new parent that is being added.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemOutOfDrive;
 
 /**
- *  Deprecated - use canMoveItemOutOfDrive instead.
+ *  Deprecated: Output only. Use `canMoveItemOutOfDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemOutOfTeamDrive;
 
 /**
- *  Whether the current user can move this item within this drive. Note that a
- *  request to change the parent of the item may still fail depending on the new
- *  parent that is being added and the parent that is being removed.
+ *  Output only. Whether the current user can move this item within this drive.
+ *  Note that a request to change the parent of the item may still fail
+ *  depending on the new parent that is being added and the parent that is being
+ *  removed.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemWithinDrive;
 
 /**
- *  Deprecated - use canMoveItemWithinDrive instead.
+ *  Deprecated: Output only. Use `canMoveItemWithinDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemWithinTeamDrive;
 
 /**
- *  Deprecated - use canMoveItemWithinDrive or canMoveItemOutOfDrive instead.
+ *  Deprecated: Output only. Use `canMoveItemWithinDrive` or
+ *  `canMoveItemOutOfDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canMoveTeamDriveItem;
 
 /**
- *  Whether the current user can read the shared drive to which this file
- *  belongs. Only populated for items in shared drives.
+ *  Output only. Whether the current user can read the shared drive to which
+ *  this file belongs. Only populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadDrive;
 
 /**
- *  Whether the current user can read the labels on this file.
+ *  Output only. Whether the current user can read the labels on the file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadLabels;
 
 /**
- *  Whether the current user can read the revisions resource of this file. For a
- *  shared drive item, whether revisions of non-folder descendants of this item,
- *  or this item itself if it isn't a folder, can be read.
+ *  Output only. Whether the current user can read the revisions resource of
+ *  this file. For a shared drive item, whether revisions of non-folder
+ *  descendants of this item, or this item itself if it is not a folder, can be
+ *  read.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
 
 /**
- *  Deprecated - use canReadDrive instead.
+ *  Deprecated: Output only. Use `canReadDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadTeamDrive;
 
 /**
- *  Whether the current user can remove children from this folder. This is
- *  always false when the item is not a folder. For a folder in a shared drive,
- *  use canDeleteChildren or canTrashChildren instead.
+ *  Output only. Whether the current user can remove children from this folder.
+ *  This is always false when the item is not a folder. For a folder in a shared
+ *  drive, use `canDeleteChildren` or `canTrashChildren` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
 
 /**
- *  Whether the current user can remove a parent from the item without adding
- *  another parent in the same request. Not populated for shared drive files.
+ *  Output only. Whether the current user can remove a parent from the item
+ *  without adding another parent in the same request. Not populated for shared
+ *  drive files.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRemoveMyDriveParent;
 
 /**
- *  Whether the current user can rename this file.
+ *  Output only. Whether the current user can rename this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRename;
 
 /**
- *  Whether the current user can modify the sharing settings for this file.
+ *  Output only. Whether the current user can modify the sharing settings for
+ *  this file.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canShare;
 
 /**
- *  Whether the current user can move this file to trash.
+ *  Output only. Whether the current user can move this file to trash.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canTrash;
 
 /**
- *  Whether the current user can trash children of this folder. This is false
- *  when the item is not a folder. Only populated for items in shared drives.
+ *  Output only. Whether the current user can trash children of this folder.
+ *  This is false when the item is not a folder. Only populated for items in
+ *  shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canTrashChildren;
 
 /**
- *  Whether the current user can restore this file from trash.
+ *  Output only. Whether the current user can restore this file from trash.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1710,8 +1728,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Text to be indexed for the file to improve fullText queries. This is limited
- *  to 128 KB in length and may contain HTML elements. For more information, see
- *  Manage file metadata.
+ *  to 128KB in length and may contain HTML elements.
  */
 @property(nonatomic, copy, nullable) NSString *indexableText;
 
@@ -1725,7 +1742,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Links for exporting Docs Editors files to specific formats.
+ *  Output only. Links for exporting Docs Editors files to specific formats.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1737,114 +1754,114 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Additional metadata about image media, if available.
+ *  Output only. Additional metadata about image media, if available.
  */
 @interface GTLRDrive_File_ImageMediaMetadata : GTLRObject
 
 /**
- *  The aperture used to create the photo (f-number).
+ *  Output only. The aperture used to create the photo (f-number).
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *aperture;
 
-/** The make of the camera used to create the photo. */
+/** Output only. The make of the camera used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *cameraMake;
 
-/** The model of the camera used to create the photo. */
+/** Output only. The model of the camera used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *cameraModel;
 
-/** The color space of the photo. */
+/** Output only. The color space of the photo. */
 @property(nonatomic, copy, nullable) NSString *colorSpace;
 
 /**
- *  The exposure bias of the photo (APEX value).
+ *  Output only. The exposure bias of the photo (APEX value).
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exposureBias;
 
-/** The exposure mode used to create the photo. */
+/** Output only. The exposure mode used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *exposureMode;
 
 /**
- *  The length of the exposure, in seconds.
+ *  Output only. The length of the exposure, in seconds.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exposureTime;
 
 /**
- *  Whether a flash was used to create the photo.
+ *  Output only. Whether a flash was used to create the photo.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *flashUsed;
 
 /**
- *  The focal length used to create the photo, in millimeters.
+ *  Output only. The focal length used to create the photo, in millimeters.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *focalLength;
 
 /**
- *  The height of the image in pixels.
+ *  Output only. The height of the image in pixels.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
- *  The ISO speed used to create the photo.
+ *  Output only. The ISO speed used to create the photo.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isoSpeed;
 
-/** The lens used to create the photo. */
+/** Output only. The lens used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *lens;
 
-/** Geographic location information stored in the image. */
+/** Output only. Geographic location information stored in the image. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ImageMediaMetadata_Location *location;
 
 /**
- *  The smallest f-number of the lens at the focal length used to create the
- *  photo (APEX value).
+ *  Output only. The smallest f-number of the lens at the focal length used to
+ *  create the photo (APEX value).
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxApertureValue;
 
-/** The metering mode used to create the photo. */
+/** Output only. The metering mode used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *meteringMode;
 
 /**
- *  The number of clockwise 90 degree rotations applied from the image's
- *  original orientation.
+ *  Output only. The number of clockwise 90 degree rotations applied from the
+ *  image's original orientation.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rotation;
 
-/** The type of sensor used to create the photo. */
+/** Output only. The type of sensor used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *sensor;
 
 /**
- *  The distance to the subject of the photo, in meters.
+ *  Output only. The distance to the subject of the photo, in meters.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subjectDistance;
 
-/** The date and time the photo was taken (EXIF DateTime). */
+/** Output only. The date and time the photo was taken (EXIF DateTime). */
 @property(nonatomic, copy, nullable) NSString *time;
 
-/** The white balance mode used to create the photo. */
+/** Output only. The white balance mode used to create the photo. */
 @property(nonatomic, copy, nullable) NSString *whiteBalance;
 
 /**
- *  The width of the image in pixels.
+ *  Output only. The width of the image in pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1854,13 +1871,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  An overview of the labels on the file.
+ *  Output only. An overview of the labels on the file.
  */
 @interface GTLRDrive_File_LabelInfo : GTLRObject
 
 /**
- *  The set of labels on the file as requested by the label IDs in the
- *  includeLabels parameter. By default, no labels are returned.
+ *  Output only. The set of labels on the file as requested by the label IDs in
+ *  the `includeLabels` parameter. By default, no labels are returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Label *> *labels;
 
@@ -1874,14 +1891,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_File_LinkShareMetadata : GTLRObject
 
 /**
- *  Whether the file is eligible for security update.
+ *  Output only. Whether the file is eligible for security update.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *securityUpdateEligible;
 
 /**
- *  Whether the security update is enabled for this file.
+ *  Output only. Whether the security update is enabled for this file.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1905,7 +1922,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to application/vnd.google-apps.shortcut.
+ *  mimeType field set to `application/vnd.google-apps.shortcut`.
  */
 @interface GTLRDrive_File_ShortcutDetails : GTLRObject
 
@@ -1913,40 +1930,40 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *targetId;
 
 /**
- *  The MIME type of the file that this shortcut points to. The value of this
- *  field is a snapshot of the target's MIME type, captured when the shortcut is
- *  created.
+ *  Output only. The MIME type of the file that this shortcut points to. The
+ *  value of this field is a snapshot of the target's MIME type, captured when
+ *  the shortcut is created.
  */
 @property(nonatomic, copy, nullable) NSString *targetMimeType;
 
-/** The ResourceKey for the target file. */
+/** Output only. The ResourceKey for the target file. */
 @property(nonatomic, copy, nullable) NSString *targetResourceKey;
 
 @end
 
 
 /**
- *  Additional metadata about video media. This may not be available immediately
- *  upon upload.
+ *  Output only. Additional metadata about video media. This may not be
+ *  available immediately upon upload.
  */
 @interface GTLRDrive_File_VideoMediaMetadata : GTLRObject
 
 /**
- *  The duration of the video in milliseconds.
+ *  Output only. The duration of the video in milliseconds.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *durationMillis;
 
 /**
- *  The height of the video in pixels.
+ *  Output only. The height of the video in pixels.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
- *  The width of the video in pixels.
+ *  Output only. The width of the video in pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1976,26 +1993,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Geographic location information stored in the image.
+ *  Output only. Geographic location information stored in the image.
  */
 @interface GTLRDrive_File_ImageMediaMetadata_Location : GTLRObject
 
 /**
- *  The altitude stored in the image.
+ *  Output only. The altitude stored in the image.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *altitude;
 
 /**
- *  The latitude stored in the image.
+ *  Output only. The latitude stored in the image.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
- *  The longitude stored in the image.
+ *  Output only. The longitude stored in the image.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2025,10 +2042,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the search process was incomplete. If true, then some search results
- *  may be missing, since all documents were not searched. This may occur when
- *  searching multiple drives with the "allDrives" corpora, but all corpora
- *  could not be searched. When this happens, it is suggested that clients
- *  narrow their query by choosing a different corpus such as "user" or "drive".
+ *  might be missing, since all documents were not searched. This can occur when
+ *  searching multiple drives with the 'allDrives' corpora, but all corpora
+ *  couldn't be searched. When this happens, it's suggested that clients narrow
+ *  their query by choosing a different corpus such as 'user' or 'drive'.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2036,7 +2053,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#fileList".
+ *  `"drive#fileList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2061,7 +2078,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#generatedIds".
+ *  `"drive#generatedIds"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2072,11 +2089,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Representation of a label and its fields.
+ *  Representation of label and label fields.
  */
 @interface GTLRDrive_Label : GTLRObject
 
-/** A map of the label's fields keyed by the field ID. */
+/** A map of the fields on the label, keyed by the field's ID. */
 @property(nonatomic, strong, nullable) GTLRDrive_Label_Fields *fields;
 
 /**
@@ -2096,7 +2113,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A map of the label's fields keyed by the field ID.
+ *  A map of the fields on the label, keyed by the field's ID.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDrive_LabelField. Use @c -additionalJSONKeys and @c
@@ -2108,7 +2125,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Representation of a label field.
+ *  Representation of field, which is a typed key-value pair.
  */
 @interface GTLRDrive_LabelField : GTLRObject
 
@@ -2121,14 +2138,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRDateTime *> *dateString;
 
 /**
- *  The identifier of this field.
+ *  The identifier of this label field.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Only present if valueType is integer.
+ *  Only present if `valueType` is `integer`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2137,23 +2154,19 @@ NS_ASSUME_NONNULL_BEGIN
 /** This is always drive#labelField. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Only present if valueType is selection. */
+/** Only present if `valueType` is `selection` */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *selection;
 
-/** Only present if valueType is text. */
+/** Only present if `valueType` is `text`. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
 
-/** Only present if valueType is user. */
+/** Only present if `valueType` is `user`. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *user;
 
 /**
  *  The field type. While new values may be supported in the future, the
- *  following are currently allowed:
- *  - dateString
- *  - integer
- *  - selection
- *  - text
- *  - user
+ *  following are currently allowed: * `dateString` * `integer` * `selection` *
+ *  `text` * `user`
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
@@ -2165,36 +2178,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_LabelFieldModification : GTLRObject
 
-/** The ID of the Field to be modified. */
+/** The ID of the field to be modified. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
 /** This is always drive#labelFieldModification. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Replaces a dateString field with these new values. The values must be
- *  strings in the RFC 3339 full-date format: YYYY-MM-DD.
+ *  Replaces the value of a dateString Field with these new values. The string
+ *  must be in the RFC 3339 full-date format: YYYY-MM-DD.
  *
  *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDateTime *> *setDateValues;
 
 /**
- *  Replaces an integer field with these new values.
+ *  Replaces the value of an `integer` field with these new values.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *setIntegerValues;
 
-/** Replaces a selection field with these new values. */
+/** Replaces a `selection` field with these new values. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setSelectionValues;
 
-/** Replaces a text field with these new values. */
+/** Sets the value of a `text` field. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setTextValues;
 
 /**
- *  Replaces a user field with these new values. The values must be valid email
- *  addresses.
+ *  Replaces a `user` field with these new values. The values must be valid
+ *  email addresses.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setUserValues;
 
@@ -2209,7 +2222,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A list of labels.
+ *  A list of labels applied to a file.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "labels" property. If returned as the result of a query, it should
@@ -2268,11 +2281,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A request to modify the set of labels on a file. This request may contain
- *  many modifications that will either all succeed or all fail transactionally.
+ *  many modifications that will either all succeed or all fail atomically.
  */
 @interface GTLRDrive_ModifyLabelsRequest : GTLRObject
 
-/** This is always drive#modifyLabelsRequest */
+/** This is always drive#modifyLabelsRequest. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of modifications to apply to the labels on the file. */
@@ -2297,44 +2310,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A permission for a file. A permission grants a user, group, domain, or the
+ *  A permission for a file. A permission grants a user, group, domain or the
  *  world access to a file or a folder hierarchy.
  */
 @interface GTLRDrive_Permission : GTLRObject
 
 /**
  *  Whether the permission allows the file to be discovered through search. This
- *  is only applicable for permissions of type domain or anyone.
+ *  is only applicable for permissions of type `domain` or `anyone`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowFileDiscovery;
 
 /**
- *  Whether the account associated with this permission has been deleted. This
- *  field only pertains to user and group permissions.
+ *  Output only. Whether the account associated with this permission has been
+ *  deleted. This field only pertains to user and group permissions.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
- *  The "pretty" name of the value of the permission. The following is a list of
- *  examples for each type of permission:
- *  - user - User's full name, as defined for their Google Account, such as "Joe
- *  Smith."
- *  - group - Name of the Google Group, such as "The Company Administrators."
- *  - domain - String domain name, such as "your-company.com."
- *  - anyone - No displayName is present.
+ *  Output only. The "pretty" name of the value of the permission. The following
+ *  is a list of examples for each type of permission: * `user` - User's full
+ *  name, as defined for their Google account, such as "Joe Smith." * `group` -
+ *  Name of the Google Group, such as "The Company Administrators." * `domain` -
+ *  String domain name, such as "thecompany.com." * `anyone` - No `displayName`
+ *  is present.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/**
- *  The domain to which this permission refers. The following options are
- *  currently allowed:
- *  - The entire domain, such as "your-company.com."
- *  - A target audience, such as "ID.audience.googledomains.com."
- */
+/** The domain to which this permission refers. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /** The email address of the user or group to which this permission refers. */
@@ -2342,77 +2349,68 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The time at which this permission will expire (RFC 3339 date-time).
- *  Expiration times have the following restrictions:
- *  - They cannot be set on shared drive items.
- *  - They can only be set on user and group permissions.
- *  - The time must be in the future.
- *  - The time cannot be more than one year in the future.
+ *  Expiration times have the following restrictions: - They can only be set on
+ *  user and group permissions - The time must be in the future - The time
+ *  cannot be more than a year in the future
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /**
- *  The ID of this permission. This is a unique identifier for the grantee, and
- *  is published in User resources as permissionId. IDs should be treated as
- *  opaque values.
+ *  Output only. The ID of this permission. This is a unique identifier for the
+ *  grantee, and is published in User resources as `permissionId`. IDs should be
+ *  treated as opaque values.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#permission".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#permission"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Whether the account associated with this permission is a pending owner. Only
- *  populated for user type permissions for files that aren't in a shared drive.
+ *  populated for `user` type permissions for files that are not in a shared
+ *  drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pendingOwner;
 
 /**
- *  Details of whether the permissions on this shared drive item are inherited
- *  or are directly on this item. This is an output-only field that's present
- *  only for shared drive items.
+ *  Output only. Details of whether the permissions on this shared drive item
+ *  are inherited or directly on this item. This is an output-only field which
+ *  is present only for shared drive items.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_PermissionDetails_Item *> *permissionDetails;
 
-/** A link to the user's profile photo, if available. */
+/** Output only. A link to the user's profile photo, if available. */
 @property(nonatomic, copy, nullable) NSString *photoLink;
 
 /**
  *  The role granted by this permission. While new values may be supported in
- *  the future, the following are currently allowed:
- *  - owner
- *  - organizer
- *  - fileOrganizer
- *  - writer
- *  - commenter
- *  - reader
+ *  the future, the following are currently allowed: * `owner` * `organizer` *
+ *  `fileOrganizer` * `writer` * `commenter` * `reader`
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
-/** Deprecated - use permissionDetails instead. */
+/** Output only. Deprecated: Output only. Use `permissionDetails` instead. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_TeamDrivePermissionDetails_Item *> *teamDrivePermissionDetails;
 
 /**
- *  The type of the grantee. Valid values are:
- *  - user
- *  - group
- *  - domain
- *  - anyone When creating a permission, if type is user or group, you must
- *  provide an emailAddress for the user or group. When type is domain, you must
- *  provide a domain. There isn't extra information required for the anyone
- *  type.
+ *  The type of the grantee. Valid values are: * `user` * `group` * `domain` *
+ *  `anyone` When creating a permission, if `type` is `user` or `group`, you
+ *  must provide an `emailAddress` for the user or group. When `type` is
+ *  `domain`, you must provide a `domain`. There isn't extra information
+ *  required for an `anyone` type.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Indicates the view for this permission. Only populated for permissions that
- *  belong to a view. published is the only supported value.
+ *  belong to a view. 'published' is the only supported value.
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2425,35 +2423,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_Permission_PermissionDetails_Item : GTLRObject
 
 /**
- *  Whether this permission is inherited. This field is always populated. This
- *  is an output-only field.
+ *  Output only. Whether this permission is inherited. This field is always
+ *  populated. This is an output-only field.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inherited;
 
 /**
- *  The ID of the item from which this permission is inherited. This is an
- *  output-only field.
+ *  Output only. The ID of the item from which this permission is inherited.
+ *  This is an output-only field.
  */
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 
 /**
- *  The permission type for this user. While new values may be added in future,
- *  the following are currently allowed:
- *  - file
- *  - member
+ *  Output only. The permission type for this user. While new values may be
+ *  added in future, the following are currently possible: * `file` * `member`
  */
 @property(nonatomic, copy, nullable) NSString *permissionType;
 
 /**
- *  The primary role for this user. While new values may be added in the future,
- *  the following are currently allowed:
- *  - organizer
- *  - fileOrganizer
- *  - writer
- *  - commenter
- *  - reader
+ *  Output only. The primary role for this user. While new values may be added
+ *  in the future, the following are currently possible: * `organizer` *
+ *  `fileOrganizer` * `writer` * `commenter` * `reader`
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2466,19 +2458,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_Permission_TeamDrivePermissionDetails_Item : GTLRObject
 
 /**
- *  Deprecated - use permissionDetails/inherited instead.
+ *  Deprecated: Output only. Use `permissionDetails/inherited` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inherited;
 
-/** Deprecated - use permissionDetails/inheritedFrom instead. */
+/** Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead. */
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 
-/** Deprecated - use permissionDetails/role instead. */
+/** Deprecated: Output only. Use `permissionDetails/role` instead. */
 @property(nonatomic, copy, nullable) NSString *role;
 
-/** Deprecated - use permissionDetails/permissionType instead. */
+/**
+ *  Deprecated: Output only. Use `permissionDetails/permissionType` instead.
+ */
 @property(nonatomic, copy, nullable) NSString *teamDrivePermissionType;
 
 @end
@@ -2496,7 +2490,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#permissionList".
+ *  `"drive#permissionList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2526,22 +2520,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_Reply : GTLRObject
 
 /**
- *  The action the reply performed to the parent comment. Valid values are:
- *  - resolve
- *  - reopen
+ *  The action the reply performed to the parent comment. Valid values are: *
+ *  `resolve` * `reopen`
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  The author of the reply. The author's email address and permission ID will
- *  not be populated.
+ *  Output only. The author of the reply. The author's email address and
+ *  permission ID will not be populated.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**
  *  The plain text content of the reply. This field is used for setting the
- *  content, while htmlContent should be displayed. This is required on creates
- *  if no action is specified.
+ *  content, while `htmlContent` should be displayed. This is required on
+ *  creates if no `action` is specified.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -2549,25 +2542,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *createdTime;
 
 /**
- *  Whether the reply has been deleted. A deleted reply has no content.
+ *  Output only. Whether the reply has been deleted. A deleted reply has no
+ *  content.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
-/** The content of the reply with HTML formatting. */
+/** Output only. The content of the reply with HTML formatting. */
 @property(nonatomic, copy, nullable) NSString *htmlContent;
 
 /**
- *  The ID of the reply.
+ *  Output only. The ID of the reply.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#reply".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#reply"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2589,7 +2583,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#replyList".
+ *  `"drive#replyList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2618,11 +2612,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_Revision : GTLRObject
 
-/** Links for exporting Docs Editors files to specific formats. */
+/**
+ *  Output only. Links for exporting Docs Editors files to specific formats.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_Revision_ExportLinks *exportLinks;
 
 /**
- *  The ID of the revision.
+ *  Output only. The ID of the revision.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2632,37 +2628,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  Whether to keep this revision forever, even if it is no longer the head
  *  revision. If not set, the revision will be automatically purged 30 days
  *  after newer content is uploaded. This can be set on a maximum of 200
- *  revisions for a file.
- *  This field is only applicable to files with binary content in Drive.
+ *  revisions for a file. This field is only applicable to files with binary
+ *  content in Drive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *keepForever;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#revision".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#revision"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The last user to modify this revision. */
+/** Output only. The last user to modify this revision. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
- *  The MD5 checksum of the revision's content. This is only applicable to files
- *  with binary content in Drive.
+ *  Output only. The MD5 checksum of the revision's content. This is only
+ *  applicable to files with binary content in Drive.
  */
 @property(nonatomic, copy, nullable) NSString *md5Checksum;
 
-/** The MIME type of the revision. */
+/** Output only. The MIME type of the revision. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /** The last time the revision was modified (RFC 3339 date-time). */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
 /**
- *  The original filename used to create this revision. This is only applicable
- *  to files with binary content in Drive.
+ *  Output only. The original filename used to create this revision. This is
+ *  only applicable to files with binary content in Drive.
  */
 @property(nonatomic, copy, nullable) NSString *originalFilename;
 
@@ -2683,8 +2679,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *published;
 
 /**
- *  A link to the published revision. This is only populated for Google Sites
- *  files.
+ *  Output only. A link to the published revision. This is only populated for
+ *  Google Sites files.
  */
 @property(nonatomic, copy, nullable) NSString *publishedLink;
 
@@ -2697,8 +2693,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *publishedOutsideDomain;
 
 /**
- *  The size of the revision's content in bytes. This is only applicable to
- *  files with binary content in Drive.
+ *  Output only. The size of the revision's content in bytes. This is only
+ *  applicable to files with binary content in Drive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2708,7 +2704,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Links for exporting Docs Editors files to specific formats.
+ *  Output only. Links for exporting Docs Editors files to specific formats.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2731,7 +2727,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#revisionList".
+ *  `"drive#revisionList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2762,7 +2758,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#startPageToken".
+ *  `"drive#startPageToken"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2780,8 +2776,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  An image file and cropping parameters from which a background image for this
  *  Team Drive is set. This is a write only field; it can only be set on
- *  drive.teamdrives.update requests that don't set themeId. When specified, all
- *  fields of the backgroundImageFile must be set.
+ *  `drive.teamdrives.update` requests that don't set `themeId`. When specified,
+ *  all fields of the `backgroundImageFile` must be set.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_TeamDrive_BackgroundImageFile *backgroundImageFile;
 
@@ -2793,7 +2789,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The color of this Team Drive as an RGB hex string. It can only be set on a
- *  drive.teamdrives.update request that does not set themeId.
+ *  `drive.teamdrives.update` request that does not set `themeId`.
  */
 @property(nonatomic, copy, nullable) NSString *colorRgb;
 
@@ -2810,7 +2806,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#teamDrive".
+ *  `"drive#teamDrive"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2819,8 +2815,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The organizational unit of this shared drive. This field is only populated
- *  on drives.list responses when the useDomainAdminAccess parameter is set to
- *  true.
+ *  on `drives.list` responses when the `useDomainAdminAccess` parameter is set
+ *  to `true`.
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
@@ -2832,11 +2828,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The ID of the theme from which the background image and color will be set.
- *  The set of possible teamDriveThemes can be retrieved from a drive.about.get
- *  response. When not specified on a drive.teamdrives.create request, a random
- *  theme is chosen from which the background image and color are set. This is a
- *  write-only field; it can only be set on requests that don't set colorRgb or
- *  backgroundImageFile.
+ *  The set of possible `teamDriveThemes` can be retrieved from a
+ *  `drive.about.get` response. When not specified on a
+ *  `drive.teamdrives.create` request, a random theme is chosen from which the
+ *  background image and color are set. This is a write-only field; it can only
+ *  be set on requests that don't set `colorRgb` or `backgroundImageFile`.
  */
 @property(nonatomic, copy, nullable) NSString *themeId;
 
@@ -2846,8 +2842,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  An image file and cropping parameters from which a background image for this
  *  Team Drive is set. This is a write only field; it can only be set on
- *  drive.teamdrives.update requests that don't set themeId. When specified, all
- *  fields of the backgroundImageFile must be set.
+ *  `drive.teamdrives.update` requests that don't set `themeId`. When specified,
+ *  all fields of the `backgroundImageFile` must be set.
  */
 @interface GTLRDrive_TeamDrive_BackgroundImageFile : GTLRObject
 
@@ -2905,7 +2901,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canAddChildren;
 
 /**
- *  Whether the current user can change the copyRequiresWriterPermission
+ *  Whether the current user can change the `copyRequiresWriterPermission`
  *  restriction of this Team Drive.
  *
  *  Uses NSNumber of boolValue.
@@ -2913,8 +2909,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermissionRestriction;
 
 /**
- *  Whether the current user can change the domainUsersOnly restriction of this
- *  Team Drive.
+ *  Whether the current user can change the `domainUsersOnly` restriction of
+ *  this Team Drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2922,7 +2918,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the current user can change the
- *  sharingFoldersRequiresOrganizerPermission restriction of this Team Drive.
+ *  `sharingFoldersRequiresOrganizerPermission` restriction of this Team Drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2936,8 +2932,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canChangeTeamDriveBackground;
 
 /**
- *  Whether the current user can change the teamMembersOnly restriction of this
- *  Team Drive.
+ *  Whether the current user can change the `teamMembersOnly` restriction of
+ *  this Team Drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3013,7 +3009,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canReadRevisions;
 
 /**
- *  Deprecated - use canDeleteChildren or canTrashChildren instead.
+ *  Deprecated: Use `canDeleteChildren` or `canTrashChildren` instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3074,8 +3070,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Whether the options to copy, print, or download files inside this Team
  *  Drive, should be disabled for readers and commenters. When this restriction
- *  is set to true, it will override the similarly named field to true for any
- *  file inside this Team Drive.
+ *  is set to `true`, it will override the similarly named field to `true` for
+ *  any file inside this Team Drive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3123,7 +3119,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#teamDriveList".
+ *  `"drive#teamDriveList"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3152,32 +3148,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_User : GTLRObject
 
-/** A plain text displayable name for this user. */
+/** Output only. A plain text displayable name for this user. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The email address of the user. This may not be present in certain contexts
- *  if the user has not made their email address visible to the requester.
+ *  Output only. The email address of the user. This may not be present in
+ *  certain contexts if the user has not made their email address visible to the
+ *  requester.
  */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "drive#user".
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#user"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Whether this user is the requesting user.
+ *  Output only. Whether this user is the requesting user.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *me;
 
-/** The user's ID as visible in Permission resources. */
+/** Output only. The user's ID as visible in Permission resources. */
 @property(nonatomic, copy, nullable) NSString *permissionId;
 
-/** A link to the user's profile photo, if available. */
+/** Output only. A link to the user's profile photo, if available. */
 @property(nonatomic, copy, nullable) NSString *photoLink;
 
 @end

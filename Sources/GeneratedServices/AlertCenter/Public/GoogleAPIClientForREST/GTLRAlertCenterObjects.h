@@ -29,6 +29,8 @@
 @class GTLRAlertCenter_CsvRow;
 @class GTLRAlertCenter_DeviceCompromisedSecurityDetail;
 @class GTLRAlertCenter_DomainId;
+@class GTLRAlertCenter_Entity;
+@class GTLRAlertCenter_EntityList;
 @class GTLRAlertCenter_GmailMessageInfo;
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
@@ -64,6 +66,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_AbuseDetected.variationType
+
+/**
+ *  AbuseDetected alert variation type unspecified. No alert should be
+ *  unspecified.
+ *
+ *  Value: "ABUSE_DETECTED_VARIATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_AbuseDetectedVariationTypeUnspecified;
+/**
+ *  Variation displayed for Drive abusive content alerts.
+ *
+ *  Value: "DRIVE_ABUSIVE_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_DriveAbusiveContent;
+/**
+ *  Variation displayed for Limited Disable alerts, when a Google service is
+ *  disabled for a user, totally or partially, due to the user's abusive
+ *  behavior.
+ *
+ *  Value: "LIMITED_DISABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_LimitedDisable;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_AccountSuspensionDetails.abuseReason
@@ -508,6 +535,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup;
 
 /**
+ *  A generic alert for abusive user activity occurring with a customer.
+ */
+@interface GTLRAlertCenter_AbuseDetected : GTLRObject
+
+/** List of abusive users/entities to be displayed in a table in the alert. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_EntityList *additionalDetails;
+
+/** Product that the abuse is originating from. */
+@property(nonatomic, copy, nullable) NSString *product;
+
+/** Unique identifier of each sub alert that is onboarded. */
+@property(nonatomic, copy, nullable) NSString *subAlertId;
+
+/**
+ *  Variation of AbuseDetected alerts. The variation_type determines the texts
+ *  displayed the alert details. This differs from sub_alert_id because each sub
+ *  alert can have multiple variation_types, representing different stages of
+ *  the alert.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_AbuseDetected_VariationType_AbuseDetectedVariationTypeUnspecified
+ *        AbuseDetected alert variation type unspecified. No alert should be
+ *        unspecified. (Value: "ABUSE_DETECTED_VARIATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_AbuseDetected_VariationType_DriveAbusiveContent
+ *        Variation displayed for Drive abusive content alerts. (Value:
+ *        "DRIVE_ABUSIVE_CONTENT")
+ *    @arg @c kGTLRAlertCenter_AbuseDetected_VariationType_LimitedDisable
+ *        Variation displayed for Limited Disable alerts, when a Google service
+ *        is disabled for a user, totally or partially, due to the user's
+ *        abusive behavior. (Value: "LIMITED_DISABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *variationType;
+
+@end
+
+
+/**
  *  Details about why an account is receiving an account suspension warning.
  */
 @interface GTLRAlertCenter_AccountSuspensionDetails : GTLRObject
@@ -554,8 +618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  LINT.IfChange A warning that the customer's account is about to be
- *  suspended.
+ *  A warning that the customer's account is about to be suspended.
  */
 @interface GTLRAlertCenter_AccountSuspensionWarning : GTLRObject
 
@@ -872,21 +935,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
- *  The explanation message associated with ApnsCertificationExpiring and
- *  ApnsCertificationExpired alerts.
+ *  The explanation message associated with "APNS certificate is expiring soon"
+ *  and "APNS certificate has expired" alerts.
  */
 @interface GTLRAlertCenter_ApnsCertificateExpirationInfo : GTLRObject
 
 /**
- *  The Apple ID used for the certificate may be blank if admins didn't enter
- *  it.
+ *  The Apple ID used to create the certificate. It may be blank if admins
+ *  didn't enter it.
  */
 @property(nonatomic, copy, nullable) NSString *appleId;
 
-/** The expiration date of the APNS Certificate. */
+/** The expiration date of the APNS certificate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
-/** The UID for the certificate. */
+/** The UID of the certificate. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
 @end
@@ -1260,6 +1323,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAlertCenter_Empty : GTLRObject
+@end
+
+
+/**
+ *  Individual entity affected by, or related to, an alert.
+ */
+@interface GTLRAlertCenter_Entity : GTLRObject
+
+/**
+ *  Link to a Security Investigation Tool search based on this entity, if
+ *  available.
+ */
+@property(nonatomic, copy, nullable) NSString *link;
+
+/**
+ *  Human-readable name of this entity, such as an email address, file ID, or
+ *  device name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Extra values beyond name. The order of values should align with headers in
+ *  EntityList.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  EntityList stores entities in a format that can be translated to a table in
+ *  the Alert Center UI.
+ */
+@interface GTLRAlertCenter_EntityList : GTLRObject
+
+/** List of entities affected by the alert. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_Entity *> *entities;
+
+/**
+ *  Headers of the values in entities. If no value is defined in Entity, this
+ *  field should be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
+
+/** Name of the key detail used to display this entity list. */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 

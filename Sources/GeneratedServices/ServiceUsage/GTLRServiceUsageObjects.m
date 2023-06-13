@@ -155,13 +155,43 @@ NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Unimp
 NSString * const kGTLRServiceUsage_Publishing_Organization_Ads = @"ADS";
 NSString * const kGTLRServiceUsage_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
 NSString * const kGTLRServiceUsage_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceUsage_Publishing_Organization_GenerativeAi = @"GENERATIVE_AI";
+NSString * const kGTLRServiceUsage_Publishing_Organization_Geo = @"GEO";
 NSString * const kGTLRServiceUsage_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceUsage_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceUsage_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceUsage_Type.syntax
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AddEnableRulesMetadata
+//
+
+@implementation GTLRServiceUsage_AddEnableRulesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AddEnableRulesResponse
+//
+
+@implementation GTLRServiceUsage_AddEnableRulesResponse
+@dynamic addedValues, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -672,12 +702,14 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, serviceRootUrl, summary;
+@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
+         serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"pages" : [GTLRServiceUsage_Page class],
-    @"rules" : [GTLRServiceUsage_DocumentationRule class]
+    @"rules" : [GTLRServiceUsage_DocumentationRule class],
+    @"sectionOverrides" : [GTLRServiceUsage_Page class]
   };
   return map;
 }
@@ -691,7 +723,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_DocumentationRule
-@dynamic deprecationDescription, descriptionProperty, selector;
+@dynamic deprecationDescription, descriptionProperty, disableReplacementWords,
+         selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1686,6 +1719,33 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_RemoveEnableRulesMetadata
+//
+
+@implementation GTLRServiceUsage_RemoveEnableRulesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_RemoveEnableRulesResponse
+//
+
+@implementation GTLRServiceUsage_RemoveEnableRulesResponse
+@dynamic parent, removedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"removedValues" : [NSString class]
+  };
+  return map;
 }
 
 @end

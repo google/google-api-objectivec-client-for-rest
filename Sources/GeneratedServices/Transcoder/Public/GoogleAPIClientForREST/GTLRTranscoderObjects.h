@@ -26,6 +26,7 @@
 @class GTLRTranscoder_BwdifConfig;
 @class GTLRTranscoder_Color;
 @class GTLRTranscoder_Crop;
+@class GTLRTranscoder_DashConfig;
 @class GTLRTranscoder_Deblock;
 @class GTLRTranscoder_Deinterlace;
 @class GTLRTranscoder_Denoise;
@@ -91,6 +92,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeOu
 FOUNDATION_EXTERN NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRTranscoder_DashConfig.segmentReferenceScheme
+
+/**
+ *  Lists the URLs of media files for each segment.
+ *
+ *  Value: "SEGMENT_LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentList;
+/**
+ *  The segment reference scheme is not specified.
+ *
+ *  Value: "SEGMENT_REFERENCE_SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentReferenceSchemeUnspecified;
+/**
+ *  Lists each segment from a template with $Number$ variable.
+ *
+ *  Value: "SEGMENT_TEMPLATE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentTemplateNumber;
+
+// ----------------------------------------------------------------------------
 // GTLRTranscoder_Job.mode
 
 /**
@@ -152,13 +175,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_State_Succeeded;
 // GTLRTranscoder_Manifest.type
 
 /**
- *  Create `DASH` manifest. The corresponding file extension is `.mpd`.
+ *  Create an MPEG-DASH manifest. The corresponding file extension is `.mpd`.
  *
  *  Value: "DASH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_Dash;
 /**
- *  Create `HLS` manifest. The corresponding file extension is `.m3u8`.
+ *  Create an HLS manifest. The corresponding file extension is `.m3u8`.
  *
  *  Value: "HLS"
  */
@@ -517,6 +540,31 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *topPixels;
+
+@end
+
+
+/**
+ *  `DASH` manifest configuration.
+ */
+@interface GTLRTranscoder_DashConfig : GTLRObject
+
+/**
+ *  The segment reference scheme for a `DASH` manifest. The default is
+ *  `SEGMENT_LIST`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentList
+ *        Lists the URLs of media files for each segment. (Value:
+ *        "SEGMENT_LIST")
+ *    @arg @c kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentReferenceSchemeUnspecified
+ *        The segment reference scheme is not specified. (Value:
+ *        "SEGMENT_REFERENCE_SCHEME_UNSPECIFIED")
+ *    @arg @c kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentTemplateNumber
+ *        Lists each segment from a template with $Number$ variable. (Value:
+ *        "SEGMENT_TEMPLATE_NUMBER")
+ */
+@property(nonatomic, copy, nullable) NSString *segmentReferenceScheme;
 
 @end
 
@@ -1013,7 +1061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Overlaid jpeg image.
+ *  Overlaid image.
  */
 @interface GTLRTranscoder_Image : GTLRObject
 
@@ -1034,8 +1082,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *resolution;
 
 /**
- *  Required. URI of the JPEG image in Cloud Storage. For example,
- *  `gs://bucket/inputs/image.jpeg`. JPEG is the only supported image type.
+ *  Required. URI of the image in Cloud Storage. For example,
+ *  `gs://bucket/inputs/image.png`. Only PNG and JPEG images are supported.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1333,6 +1381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @interface GTLRTranscoder_Manifest : GTLRObject
 
+/** `DASH` manifest configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_DashConfig *dash;
+
 /**
  *  The name of the generated file. The default is `manifest` with the extension
  *  suffix corresponding to the `Manifest.type`.
@@ -1348,12 +1399,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSArray<NSString *> *muxStreams;
 
 /**
- *  Required. Type of the manifest, can be `HLS` or `DASH`.
+ *  Required. Type of the manifest.
  *
  *  Likely values:
- *    @arg @c kGTLRTranscoder_Manifest_Type_Dash Create `DASH` manifest. The
- *        corresponding file extension is `.mpd`. (Value: "DASH")
- *    @arg @c kGTLRTranscoder_Manifest_Type_Hls Create `HLS` manifest. The
+ *    @arg @c kGTLRTranscoder_Manifest_Type_Dash Create an MPEG-DASH manifest.
+ *        The corresponding file extension is `.mpd`. (Value: "DASH")
+ *    @arg @c kGTLRTranscoder_Manifest_Type_Hls Create an HLS manifest. The
  *        corresponding file extension is `.m3u8`. (Value: "HLS")
  *    @arg @c kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified The manifest
  *        type is not specified. (Value: "MANIFEST_TYPE_UNSPECIFIED")

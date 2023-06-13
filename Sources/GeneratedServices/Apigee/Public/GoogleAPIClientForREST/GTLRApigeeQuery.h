@@ -4697,7 +4697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  This should only be necessary if the new deployment will be capturing
  *  traffic from another environment under a shared environment group or if
  *  traffic will be rerouted to a different environment due to a base path
- *  removal. The [GenerateDeployChangeReport API](GenerateDeployChangeReport)
+ *  removal. The [generateDeployChangeReport API](generateDeployChangeReport)
  *  may be used to examine routing changes before issuing the deployment
  *  request, and its response will indicate if a sequenced rollout is
  *  recommended for the deployment.
@@ -11068,7 +11068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiResponseWrapper.
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeleteResponse.
  *
  *  Deletes a category from the portal.
  *

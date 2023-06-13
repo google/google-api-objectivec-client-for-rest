@@ -22,6 +22,7 @@ NSString * const kGTLROnDemandScanning_AliasContext_Kind_Other = @"OTHER";
 // GTLROnDemandScanning_CVSS.attackComplexity
 NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
 NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
+NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityMedium = @"ATTACK_COMPLEXITY_MEDIUM";
 NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
 
 // GTLROnDemandScanning_CVSS.attackVector
@@ -38,21 +39,27 @@ NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationSingle 
 NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationUnspecified = @"AUTHENTICATION_UNSPECIFIED";
 
 // GTLROnDemandScanning_CVSS.availabilityImpact
+NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
 NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
 NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
 // GTLROnDemandScanning_CVSS.confidentialityImpact
+NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
 NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
 NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
 // GTLROnDemandScanning_CVSS.integrityImpact
+NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
 NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
 NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
 // GTLROnDemandScanning_CVSS.privilegesRequired
@@ -109,6 +116,7 @@ NSString * const kGTLROnDemandScanning_Occurrence_Kind_DsseAttestation = @"DSSE_
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Image   = @"IMAGE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package = @"PACKAGE";
+NSString * const kGTLROnDemandScanning_Occurrence_Kind_SbomReference = @"SBOM_REFERENCE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Upgrade = @"UPGRADE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_VulnerabilityAssessment = @"VULNERABILITY_ASSESSMENT";
@@ -313,11 +321,11 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROnDemandScanning_Binary
+//   GTLROnDemandScanning_BinarySourceInfo
 //
 
-@implementation GTLROnDemandScanning_Binary
-@dynamic name, version;
+@implementation GTLROnDemandScanning_BinarySourceInfo
+@dynamic binaryVersion, sourceVersion;
 @end
 
 
@@ -1005,7 +1013,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 @implementation GTLROnDemandScanning_Occurrence
 @dynamic attestation, build, compliance, createTime, deployment, discovery,
          dsseAttestation, envelope, image, kind, name, noteName, package,
-         remediation, resourceUri, updateTime, upgrade, vulnerability;
+         remediation, resourceUri, sbomReference, updateTime, upgrade,
+         vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1060,12 +1069,13 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic architecture, binary, cpeUri, dependencyChain, fileLocation,
-         hashDigest, maintainer, os, osVersion, package, packageType,
-         patchedCve, unused, version;
+@dynamic architecture, binarySourceInfo, binaryVersion, cpeUri, dependencyChain,
+         fileLocation, hashDigest, maintainer, os, osVersion, package,
+         packageType, patchedCve, sourceVersion, unused, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"binarySourceInfo" : [GTLROnDemandScanning_BinarySourceInfo class],
     @"dependencyChain" : [GTLROnDemandScanning_LanguagePackageDependency class],
     @"fileLocation" : [GTLROnDemandScanning_FileLocation class],
     @"patchedCve" : [NSString class]
@@ -1111,6 +1121,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_PackageVersion
+//
+
+@implementation GTLROnDemandScanning_PackageVersion
+@dynamic name, version;
 @end
 
 
@@ -1198,6 +1218,70 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_RepoId
 @dynamic projectRepoId, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SbomReferenceIntotoPayload
+//
+
+@implementation GTLROnDemandScanning_SbomReferenceIntotoPayload
+@dynamic xType, predicate, predicateType, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xType" : @"_type" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subject" : [GTLROnDemandScanning_Subject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SbomReferenceIntotoPredicate
+//
+
+@implementation GTLROnDemandScanning_SbomReferenceIntotoPredicate
+@dynamic digest, location, mimeType, referrerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest
+//
+
+@implementation GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SBOMReferenceOccurrence
+//
+
+@implementation GTLROnDemandScanning_SBOMReferenceOccurrence
+@dynamic payload, payloadType, signatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signatures" : [GTLROnDemandScanning_EnvelopeSignature class]
+  };
+  return map;
+}
+
 @end
 
 

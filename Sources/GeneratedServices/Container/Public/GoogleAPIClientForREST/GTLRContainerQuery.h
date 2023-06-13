@@ -91,6 +91,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Checks the cluster compatibility with Autopilot mode, and returns a list of
+ *  compatibility issues.
+ *
+ *  Method: container.projects.locations.clusters.checkAutopilotCompatibility
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersCheckAutopilotCompatibility : GTLRContainerQuery
+
+/**
+ *  The name (project, location, cluster) of the cluster to retrieve. Specified
+ *  in the format `projects/ * /locations/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainer_CheckAutopilotCompatibilityResponse.
+ *
+ *  Checks the cluster compatibility with Autopilot mode, and returns a list of
+ *  compatibility issues.
+ *
+ *  @param name The name (project, location, cluster) of the cluster to
+ *    retrieve. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersCheckAutopilotCompatibility
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Completes master IP rotation.
  *
  *  Method: container.projects.locations.clusters.completeIpRotation

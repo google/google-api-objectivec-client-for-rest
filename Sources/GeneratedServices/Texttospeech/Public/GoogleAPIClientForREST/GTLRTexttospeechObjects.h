@@ -532,17 +532,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 /** Required. The configuration of the synthesized audio. */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_AudioConfig *audioConfig;
 
-/** Required. The Synthesizer requires either plain text or SSML as input. */
+/**
+ *  Required. The Synthesizer requires either plain text or SSML as input. While
+ *  Long Audio is in preview, SSML is temporarily unsupported.
+ */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_SynthesisInput *input;
 
 /**
- *  Specifies a Cloud Storage URI for the synthesis results. Must be specified
- *  in the format: `gs://bucket_name/object_name`, and the bucket must already
- *  exist.
+ *  Required. Specifies a Cloud Storage URI for the synthesis results. Must be
+ *  specified in the format: `gs://bucket_name/object_name`, and the bucket must
+ *  already exist.
  */
 @property(nonatomic, copy, nullable) NSString *outputGcsUri;
 
-/** The desired voice of the synthesized audio. */
+/** Required. The desired voice of the synthesized audio. */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_VoiceSelectionParams *voice;
 
 @end

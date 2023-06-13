@@ -1320,6 +1320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *privateNetwork;
 
+/** List of names of ssh keys used to provision the instance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sshKeyNames;
+
 /**
  *  User note field, it can be used by customers to add additional information
  *  for the BMS Ops team .
@@ -1627,7 +1630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRBareMetalSolution_Location : GTLRObject
 
@@ -2617,6 +2620,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Response message from resetting a server.
+ */
+@interface GTLRBareMetalSolution_ResetInstanceResponse : GTLRObject
+@end
+
+
+/**
  *  Request for emergency resize Volume.
  */
 @interface GTLRBareMetalSolution_ResizeVolumeRequest : GTLRObject
@@ -2729,6 +2739,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Response message from starting a server.
+ */
+@interface GTLRBareMetalSolution_StartInstanceResponse : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2777,6 +2794,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Message requesting to stop a server.
  */
 @interface GTLRBareMetalSolution_StopInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message from stopping a server.
+ */
+@interface GTLRBareMetalSolution_StopInstanceResponse : GTLRObject
 @end
 
 

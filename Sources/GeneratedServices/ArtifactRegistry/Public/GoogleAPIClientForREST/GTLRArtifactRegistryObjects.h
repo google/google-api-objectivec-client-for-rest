@@ -21,10 +21,13 @@
 @class GTLRArtifactRegistry_DockerRepository;
 @class GTLRArtifactRegistry_DockerRepositoryConfig;
 @class GTLRArtifactRegistry_Expr;
+@class GTLRArtifactRegistry_GoogetArtifact;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_ImportAptArtifactsErrorInfo;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
+@class GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo;
+@class GTLRArtifactRegistry_ImportGoogetArtifactsGcsSource;
 @class GTLRArtifactRegistry_ImportYumArtifactsErrorInfo;
 @class GTLRArtifactRegistry_ImportYumArtifactsGcsSource;
 @class GTLRArtifactRegistry_Location;
@@ -244,6 +247,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  *  Value: "FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
+/**
+ *  GooGet package format.
+ *
+ *  Value: "GOOGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Googet;
 /**
  *  Kubeflow Pipelines package format.
  *
@@ -626,6 +635,23 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  A detailed representation of a GooGet artifact.
+ */
+@interface GTLRArtifactRegistry_GoogetArtifact : GTLRObject
+
+/** Output only. Operating system architecture of the artifact. */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/** Output only. The Artifact Registry resource name of the artifact. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The GooGet package name of the artifact. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
  *  Files store content that is potentially associated with Packages or
  *  Versions.
  */
@@ -754,6 +780,70 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Detailed error info for packages that were not imported. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_ImportAptArtifactsErrorInfo *> *errors;
+
+@end
+
+
+/**
+ *  Error information explaining why a package was not imported.
+ */
+@interface GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo : GTLRObject
+
+/** The detailed error status. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Status *error;
+
+/** Google Cloud Storage location requested. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_ImportGoogetArtifactsGcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  Google Cloud Storage location where the artifacts currently reside.
+ */
+@interface GTLRArtifactRegistry_ImportGoogetArtifactsGcsSource : GTLRObject
+
+/** Cloud Storage paths URI (e.g., `gs://my_bucket/my_object`). */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+/**
+ *  Supports URI wildcards for matching multiple objects from a single URI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useWildcards;
+
+@end
+
+
+/**
+ *  The operation metadata for importing artifacts.
+ */
+@interface GTLRArtifactRegistry_ImportGoogetArtifactsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request to import new googet artifacts.
+ */
+@interface GTLRArtifactRegistry_ImportGoogetArtifactsRequest : GTLRObject
+
+/** Google Cloud Storage location where input content is located. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_ImportGoogetArtifactsGcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  The response message from importing artifacts.
+ */
+@interface GTLRArtifactRegistry_ImportGoogetArtifactsResponse : GTLRObject
+
+/** Detailed error info for packages that were not imported. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo *> *errors;
+
+/** The GooGet artifacts updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_GoogetArtifact *> *googetArtifacts;
 
 @end
 
@@ -1112,7 +1202,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRArtifactRegistry_Location : GTLRObject
 
@@ -1418,7 +1508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the package, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1". If the
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If the
  *  package ID part contains slashes, the slashes are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1666,6 +1756,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Googet GooGet package
+ *        format. (Value: "GOOGET")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Kfp Kubeflow Pipelines
  *        package format. (Value: "KFP")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Maven Maven package
@@ -1913,6 +2005,43 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The Apt artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_AptArtifact *> *aptArtifacts;
+
+@end
+
+
+/**
+ *  The response to upload an artifact.
+ */
+@interface GTLRArtifactRegistry_UploadGoogetArtifactMediaResponse : GTLRObject
+
+/** Operation to be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The operation metadata for uploading artifacts.
+ */
+@interface GTLRArtifactRegistry_UploadGoogetArtifactMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request to upload an artifact.
+ */
+@interface GTLRArtifactRegistry_UploadGoogetArtifactRequest : GTLRObject
+@end
+
+
+/**
+ *  The response of the completed artifact upload operation. This response is
+ *  contained in the Operation and available to users.
+ */
+@interface GTLRArtifactRegistry_UploadGoogetArtifactResponse : GTLRObject
+
+/** The GooGet artifacts updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_GoogetArtifact *> *googetArtifacts;
 
 @end
 

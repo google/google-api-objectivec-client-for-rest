@@ -77,16 +77,6 @@ NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod_OpenDay_Wednesday
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMyBusinessBusinessInformation_AssociateLocationRequest
-//
-
-@implementation GTLRMyBusinessBusinessInformation_AssociateLocationRequest
-@dynamic placeId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRMyBusinessBusinessInformation_Attribute
 //
 
@@ -260,15 +250,6 @@ NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod_OpenDay_Wednesday
 
 @implementation GTLRMyBusinessBusinessInformation_ChainUri
 @dynamic uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMyBusinessBusinessInformation_ClearLocationAssociationRequest
-//
-
-@implementation GTLRMyBusinessBusinessInformation_ClearLocationAssociationRequest
 @end
 
 

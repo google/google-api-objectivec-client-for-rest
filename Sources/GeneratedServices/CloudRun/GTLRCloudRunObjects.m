@@ -68,6 +68,10 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_ConditionReconcil
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_ConditionSucceeded = @"CONDITION_SUCCEEDED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource.medium
+NSString * const kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_Memory = @"MEMORY";
+
 // GTLRCloudRun_GoogleCloudRunV2Execution.launchStage
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Beta = @"BETA";
@@ -205,13 +209,14 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Container
-@dynamic args, command, env, image, livenessProbe, name, ports, resources,
-         startupProbe, volumeMounts, workingDir;
+@dynamic args, command, dependsOn, env, image, livenessProbe, name, ports,
+         resources, startupProbe, volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"args" : [NSString class],
     @"command" : [NSString class],
+    @"dependsOn" : [NSString class],
     @"env" : [GTLRCloudRun_GoogleCloudRunV2EnvVar class],
     @"ports" : [GTLRCloudRun_GoogleCloudRunV2ContainerPort class],
     @"volumeMounts" : [GTLRCloudRun_GoogleCloudRunV2VolumeMount class]
@@ -229,6 +234,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ContainerPort
 @dynamic containerPort, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource
+@dynamic medium, sizeLimit;
 @end
 
 
@@ -586,7 +601,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ResourceRequirements
-@dynamic cpuIdle, limits;
+@dynamic cpuIdle, limits, startupCpuBoost;
 @end
 
 
@@ -615,7 +630,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
          generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
          name, observedGeneration, reconciling, satisfiesPzs, scaling, service,
-         serviceAccount, timeout, uid, updateTime, volumes, vpcAccess;
+         serviceAccount, sessionAffinity, timeout, uid, updateTime, volumes,
+         vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -679,7 +695,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
 @dynamic annotations, containers, encryptionKey, executionEnvironment, labels,
          maxInstanceRequestConcurrency, revision, scaling, serviceAccount,
-         timeout, volumes, vpcAccess;
+         sessionAffinity, timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -770,11 +786,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Service
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
-         createTime, creator, deleteTime, descriptionProperty, ETag, expireTime,
-         generation, ingress, labels, lastModifier, latestCreatedRevision,
-         latestReadyRevision, launchStage, name, observedGeneration,
-         reconciling, satisfiesPzs, templateProperty, terminalCondition,
-         traffic, trafficStatuses, uid, updateTime, uri;
+         createTime, creator, customAudiences, deleteTime, descriptionProperty,
+         ETag, expireTime, generation, ingress, labels, lastModifier,
+         latestCreatedRevision, latestReadyRevision, launchStage, name,
+         observedGeneration, reconciling, satisfiesPzs, templateProperty,
+         terminalCondition, traffic, trafficStatuses, uid, updateTime, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -788,6 +804,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"conditions" : [GTLRCloudRun_GoogleCloudRunV2Condition class],
+    @"customAudiences" : [NSString class],
     @"traffic" : [GTLRCloudRun_GoogleCloudRunV2TrafficTarget class],
     @"trafficStatuses" : [GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus class]
   };
@@ -958,7 +975,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Volume
-@dynamic cloudSqlInstance, name, secret;
+@dynamic cloudSqlInstance, emptyDir, name, secret;
 @end
 
 

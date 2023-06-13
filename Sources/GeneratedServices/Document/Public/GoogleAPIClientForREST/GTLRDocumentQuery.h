@@ -68,8 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Fetches processor types. Note that we do not use ListProcessorTypes here
- *  because it is not paginated.
+ *  Fetches processor types. Note that we don't use ListProcessorTypes here,
+ *  because it isn't paginated.
  *
  *  Method: documentai.projects.locations.fetchProcessorTypes
  *
@@ -79,9 +79,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes : GTLRDocumentQuery
 
 /**
- *  Required. The project of processor type to list. The available processor
- *  types may depend on the allow-listing on projects. Format:
- *  `projects/{project}/locations/{location}`
+ *  Required. The location of processor types to list. Format:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -89,12 +88,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse.
  *
- *  Fetches processor types. Note that we do not use ListProcessorTypes here
- *  because it is not paginated.
+ *  Fetches processor types. Note that we don't use ListProcessorTypes here,
+ *  because it isn't paginated.
  *
- *  @param parent Required. The project of processor type to list. The available
- *    processor types may depend on the allow-listing on projects. Format:
- *    `projects/{project}/locations/{location}`
+ *  @param parent Required. The location of processor types to list. Format:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes
  */
@@ -329,8 +327,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a processor from the type processor that the user chose. The
- *  processor will be at "ENABLED" state by default after its creation.
+ *  Creates a processor from the ProcessorType provided. The processor will be
+ *  at `ENABLED` state by default after its creation.
  *
  *  Method: documentai.projects.locations.processors.create
  *
@@ -348,8 +346,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1Processor.
  *
- *  Creates a processor from the type processor that the user chose. The
- *  processor will be at "ENABLED" state by default after its creation.
+ *  Creates a processor from the ProcessorType provided. The processor will be
+ *  at `ENABLED` state by default after its creation.
  *
  *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1Processor to
  *    include in the query.
@@ -524,9 +522,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDocumentQuery_ProjectsLocationsProcessorsList : GTLRDocumentQuery
 
 /**
- *  The maximum number of processors to return. If unspecified, at most 50
- *  processors will be returned. The maximum value is 100; values above 100 will
- *  be coerced to 100.
+ *  The maximum number of processors to return. If unspecified, at most `50`
+ *  processors will be returned. The maximum value is `100`. Values above `100`
+ *  will be coerced to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -774,8 +772,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsEvaluationsList : GTLRDocumentQuery
 
 /**
- *  The standard list page size. If unspecified, at most 5 evaluations will be
- *  returned. The maximum value is 100; values above 100 will be coerced to 100.
+ *  The standard list page size. If unspecified, at most `5` evaluations are
+ *  returned. The maximum value is `100`. Values above `100` are coerced to
+ *  `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -848,8 +847,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of processor versions to return. If unspecified, at most
- *  10 processor versions will be returned. The maximum value is 20; values
- *  above 20 will be coerced to 20.
+ *  `10` processor versions will be returned. The maximum value is `20`. Values
+ *  above `20` will be coerced to `20`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -926,7 +925,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Trains a new processor version. Operation metadata is returned as
- *  cloud_documentai_core.TrainProcessorVersionMetadata.
+ *  TrainProcessorVersionMetadata.
  *
  *  Method: documentai.projects.locations.processors.processorVersions.train
  *
@@ -946,7 +945,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
  *
  *  Trains a new processor version. Operation metadata is returned as
- *  cloud_documentai_core.TrainProcessorVersionMetadata.
+ *  TrainProcessorVersionMetadata.
  *
  *  @param object The @c
  *    GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest to
@@ -1062,9 +1061,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDocumentQuery_ProjectsLocationsProcessorTypesList : GTLRDocumentQuery
 
 /**
- *  The maximum number of processor types to return. If unspecified, at most 100
- *  processor types will be returned. The maximum value is 500; values above 500
- *  will be coerced to 500.
+ *  The maximum number of processor types to return. If unspecified, at most
+ *  `100` processor types will be returned. The maximum value is `500`. Values
+ *  above `500` will be coerced to `500`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1074,9 +1073,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The location of processor type to list. The available processor
- *  types may depend on the allow-listing on projects. Format:
- *  `projects/{project}/locations/{location}`
+ *  Required. The location of processor types to list. Format:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1085,9 +1083,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the processor types that exist.
  *
- *  @param parent Required. The location of processor type to list. The
- *    available processor types may depend on the allow-listing on projects.
- *    Format: `projects/{project}/locations/{location}`
+ *  @param parent Required. The location of processor types to list. Format:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorTypesList
  *

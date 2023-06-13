@@ -283,9 +283,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must consist of lower case letters, numbers, and hyphen, with the first
- *  character a letter, the last a letter or a number, and a 63 character
- *  maximum.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *bigQueryExportId;
 
@@ -548,9 +548,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must consist of lower case letters, numbers, and hyphen, with the first
- *  character a letter, the last a letter or a number, and a 63 character
- *  maximum.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *muteConfigId;
 
@@ -1188,7 +1188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
  *  on the given update mask. Updating the enablement state is supported on both
  *  resident and inherited modules (though resident modules cannot have an
- *  enablement state of “inherited”). Updating the display name and custom
+ *  enablement state of "inherited"). Updating the display name and custom
  *  config of a module is supported on resident modules only.
  *
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.patch
@@ -1224,7 +1224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
  *  on the given update mask. Updating the enablement state is supported on both
  *  resident and inherited modules (though resident modules cannot have an
- *  enablement state of “inherited”). Updating the display name and custom
+ *  enablement state of "inherited"). Updating the display name and custom
  *  config of a module is supported on resident modules only.
  *
  *  @param object The @c
@@ -1592,10 +1592,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
 
 /**
- *  The relative resource name of this finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1618,10 +1620,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_Finding to include in the
  *    query.
- *  @param name The relative resource name of this finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  @param name The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsPatch
  */
@@ -2104,9 +2108,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must consist of lower case letters, numbers, and hyphen, with the first
- *  character a letter, the last a letter or a number, and a 63 character
- *  maximum.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *bigQueryExportId;
 
@@ -2399,9 +2403,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must consist of lower case letters, numbers, and hyphen, with the first
- *  character a letter, the last a letter or a number, and a 63 character
- *  maximum.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *muteConfigId;
 
@@ -3184,7 +3188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
  *  on the given update mask. Updating the enablement state is supported on both
  *  resident and inherited modules (though resident modules cannot have an
- *  enablement state of “inherited”). Updating the display name and custom
+ *  enablement state of "inherited"). Updating the display name and custom
  *  config of a module is supported on resident modules only.
  *
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.patch
@@ -3220,7 +3224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
  *  on the given update mask. Updating the enablement state is supported on both
  *  resident and inherited modules (though resident modules cannot have an
- *  enablement state of “inherited”). Updating the display name and custom
+ *  enablement state of "inherited"). Updating the display name and custom
  *  config of a module is supported on resident modules only.
  *
  *  @param object The @c
@@ -3663,10 +3667,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
 
 /**
- *  The relative resource name of this finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3689,10 +3695,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_Finding to include in the
  *    query.
- *  @param name The relative resource name of this finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  @param name The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsPatch
  */
@@ -4360,9 +4368,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must consist of lower case letters, numbers, and hyphen, with the first
- *  character a letter, the last a letter or a number, and a 63 character
- *  maximum.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *bigQueryExportId;
 
@@ -4625,9 +4633,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must consist of lower case letters, numbers, and hyphen, with the first
- *  character a letter, the last a letter or a number, and a 63 character
- *  maximum.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *muteConfigId;
 
@@ -5265,7 +5273,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
  *  on the given update mask. Updating the enablement state is supported on both
  *  resident and inherited modules (though resident modules cannot have an
- *  enablement state of “inherited”). Updating the display name and custom
+ *  enablement state of "inherited"). Updating the display name and custom
  *  config of a module is supported on resident modules only.
  *
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.patch
@@ -5301,7 +5309,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the SecurityHealthAnalyticsCustomModule under the given name based
  *  on the given update mask. Updating the enablement state is supported on both
  *  resident and inherited modules (though resident modules cannot have an
- *  enablement state of “inherited”). Updating the display name and custom
+ *  enablement state of "inherited"). Updating the display name and custom
  *  config of a module is supported on resident modules only.
  *
  *  @param object The @c
@@ -5669,10 +5677,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
 
 /**
- *  The relative resource name of this finding. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  The [relative resource
+ *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  of the finding. Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5695,10 +5705,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_Finding to include in the
  *    query.
- *  @param name The relative resource name of this finding. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ *  @param name The [relative resource
+ *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    of the finding. Example:
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
+ *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsPatch
  */

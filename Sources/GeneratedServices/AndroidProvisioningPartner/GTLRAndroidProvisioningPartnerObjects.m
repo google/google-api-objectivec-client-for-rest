@@ -61,6 +61,7 @@ NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_Sect
 NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
 // GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch.status
+NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusDeviceLimitExceeded = @"SINGLE_DEVICE_STATUS_DEVICE_LIMIT_EXCEEDED";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidDeviceIdentifier = @"SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType = @"SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidToken = @"SINGLE_DEVICE_STATUS_INVALID_TOKEN";
@@ -144,8 +145,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 
 @implementation GTLRAndroidProvisioningPartner_Configuration
 @dynamic companyName, configurationId, configurationName, contactEmail,
-         contactPhone, customMessage, dpcExtras, dpcResourcePath, isDefault,
-         name;
+         contactPhone, customMessage, dpcExtras, dpcResourcePath,
+         forcedResetTime, isDefault, name;
 @end
 
 

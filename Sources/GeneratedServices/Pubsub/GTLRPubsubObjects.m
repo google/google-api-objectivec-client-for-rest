@@ -21,6 +21,12 @@ NSString * const kGTLRPubsub_BigQueryConfig_State_PermissionDenied = @"PERMISSIO
 NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRPubsub_CloudStorageConfig.state
+NSString * const kGTLRPubsub_CloudStorageConfig_State_Active   = @"ACTIVE";
+NSString * const kGTLRPubsub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
+NSString * const kGTLRPubsub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRPubsub_Schema.type
 NSString * const kGTLRPubsub_Schema_Type_Avro            = @"AVRO";
 NSString * const kGTLRPubsub_Schema_Type_ProtocolBuffer  = @"PROTOCOL_BUFFER";
@@ -61,6 +67,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_AvroConfig
+//
+
+@implementation GTLRPubsub_AvroConfig
+@dynamic writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_BigQueryConfig
 //
 
@@ -84,6 +100,17 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_CloudStorageConfig
+//
+
+@implementation GTLRPubsub_CloudStorageConfig
+@dynamic avroConfig, bucket, filenamePrefix, filenameSuffix, maxBytes,
+         maxDuration, state, textConfig;
 @end
 
 
@@ -392,6 +419,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_NoWrapper
+//
+
+@implementation GTLRPubsub_NoWrapper
+@dynamic writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_OidcToken
 //
 
@@ -492,7 +529,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_PushConfig
-@dynamic attributes, oidcToken, pushEndpoint;
+@dynamic attributes, noWrapper, oidcToken, pubsubWrapper, pushEndpoint;
 @end
 
 
@@ -619,11 +656,11 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, bigqueryConfig, deadLetterPolicy, detached,
-         enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
-         filter, labels, messageRetentionDuration, name, pushConfig,
-         retainAckedMessages, retryPolicy, state, topic,
-         topicMessageRetentionDuration;
+@dynamic ackDeadlineSeconds, bigqueryConfig, cloudStorageConfig,
+         deadLetterPolicy, detached, enableExactlyOnceDelivery,
+         enableMessageOrdering, expirationPolicy, filter, labels,
+         messageRetentionDuration, name, pushConfig, retainAckedMessages,
+         retryPolicy, state, topic, topicMessageRetentionDuration;
 @end
 
 
@@ -674,6 +711,15 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_TextConfig
+//
+
+@implementation GTLRPubsub_TextConfig
 @end
 
 
@@ -767,4 +813,13 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_ValidateSchemaResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Wrapper
+//
+
+@implementation GTLRPubsub_Wrapper
 @end

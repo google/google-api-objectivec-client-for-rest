@@ -205,6 +205,12 @@ NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified = @"
 NSString * const kGTLRAndroidManagement_Device_State_Disabled  = @"DISABLED";
 NSString * const kGTLRAndroidManagement_Device_State_Provisioning = @"PROVISIONING";
 
+// GTLRAndroidManagement_DeviceConnectivityManagement.usbDataAccess
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_AllowUsbDataTransfer = @"ALLOW_USB_DATA_TRANSFER";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbDataTransfer = @"DISALLOW_USB_DATA_TRANSFER";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbFileTransfer = @"DISALLOW_USB_FILE_TRANSFER";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified = @"USB_DATA_ACCESS_UNSPECIFIED";
+
 // GTLRAndroidManagement_DeviceSettings.encryptionStatus
 NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating = @"ACTIVATING";
 NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Active = @"ACTIVE";
@@ -304,6 +310,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled = @"APP_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled = @"APP_NOT_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated = @"APP_NOT_UPDATED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_DeviceIncompatible = @"DEVICE_INCOMPATIBLE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode = @"MANAGEMENT_MODE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified = @"NON_COMPLIANCE_REASON_UNSPECIFIED";
@@ -325,6 +332,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplian
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled = @"APP_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled = @"APP_NOT_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated = @"APP_NOT_UPDATED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_DeviceIncompatible = @"DEVICE_INCOMPATIBLE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode = @"MANAGEMENT_MODE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified = @"NON_COMPLIANCE_REASON_UNSPECIFIED";
@@ -1102,6 +1110,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DeviceConnectivityManagement
+//
+
+@implementation GTLRAndroidManagement_DeviceConnectivityManagement
+@dynamic usbDataAccess;
 @end
 
 
@@ -1914,8 +1932,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
          createWindowsDisabled, credentialsConfigDisabled, crossProfilePolicies,
          dataRoamingDisabled, debuggingFeaturesAllowed, defaultPermissionPolicy,
-         deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
-         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
+         deviceConnectivityManagement, deviceOwnerLockScreenInfo,
+         encryptionPolicy, ensureVerifyAppsEnabled, factoryResetDisabled,
+         frpAdminEmails, funDisabled, installAppsDisabled,
          installUnknownSourcesAllowed, keyguardDisabled,
          keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,

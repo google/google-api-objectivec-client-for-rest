@@ -624,6 +624,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsRulesList : GTLRWorkloadManagerQuery
 
+/** The Cloud Storage bucket name for custom rules. */
+@property(nonatomic, copy, nullable) NSString *customRulesBucket;
+
 /** Filter based on primary_category, secondary_category */
 @property(nonatomic, copy, nullable) NSString *filter;
 

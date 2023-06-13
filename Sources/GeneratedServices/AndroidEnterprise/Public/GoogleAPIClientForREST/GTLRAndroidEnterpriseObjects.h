@@ -2675,6 +2675,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /** Noteworthy features (if any) of this product. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
+/** The localized full app store description, if available. */
+@property(nonatomic, copy, nullable) NSString *fullDescription;
+
 /**
  *  A link to an image that can be used as an icon for the product. This image
  *  is suitable for use at up to 512px x 512px.

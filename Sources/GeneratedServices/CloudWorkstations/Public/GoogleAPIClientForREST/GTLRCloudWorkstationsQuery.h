@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Workstations API (workstations/v1beta)
+// Description:
+//   Allows administrators to create managed developer environments in the
+//   cloud.
 // Documentation:
 //   https://cloud.google.com/workstations
 
@@ -229,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  If set, the request will be rejected if the latest version of the
- *  workstation cluster on the server does not have this etag.
+ *  workstation cluster on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -391,7 +394,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
-/** Required. ID to use for the config. */
+/** Required. ID to use for the workstation configuration. */
 @property(nonatomic, copy, nullable) NSString *workstationConfigId;
 
 /**
@@ -421,18 +424,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsDelete : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, the request will be rejected if the latest version of the config on
- *  the server does not have this etag.
+ *  If set, the request is rejected if the latest version of the workstation
+ *  configuration on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set, any Workstations in the config will also be deleted. Otherwise, the
- *  request will work only if the config has no workstations.
+ *  If set, any workstations in the workstation configuration are also deleted.
+ *  Otherwise, the request works only if the workstation configuration has no
+ *  workstations.
  */
 @property(nonatomic, assign) BOOL force;
 
-/** Required. Name of the config to delete. */
+/** Required. Name of the workstation configuration to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -446,7 +450,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the specified workstation configuration.
  *
- *  @param name Required. Name of the config to delete.
+ *  @param name Required. Name of the workstation configuration to delete.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsDelete
  */
@@ -614,8 +618,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsPatch : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, and the config is not found, a new config will be created. In this
- *  situation, update_mask is ignored.
+ *  If set and the workstation configuration is not found, a new workstation
+ *  configuration will be created. In this situation, update_mask is ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
@@ -623,7 +627,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask specifying which fields in the config should be updated.
+ *  Required. Mask specifying which fields in the workstation configuration
+ *  should be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -785,7 +790,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  If set, the request will be rejected if the latest version of the
- *  workstation on the server does not have this etag.
+ *  workstation on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -922,7 +927,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all Workstations using the specified config.
+ *  Returns all Workstations using the specified workstation configuration.
  *
  *  Method: workstations.projects.locations.workstationClusters.workstationConfigs.workstations.list
  *
@@ -943,7 +948,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudWorkstations_ListWorkstationsResponse.
  *
- *  Returns all Workstations using the specified config.
+ *  Returns all Workstations using the specified workstation configuration.
  *
  *  @param parent Required. Parent resource name.
  *
@@ -958,8 +963,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all Workstations using the specified config on which the caller has
- *  the "workstations.workstations.use" permission.
+ *  Returns all workstations using the specified workstation configuration on
+ *  which the caller has the "workstations.workstations.use" permission.
  *
  *  Method: workstations.projects.locations.workstationClusters.workstationConfigs.workstations.listUsable
  *
@@ -980,8 +985,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudWorkstations_ListUsableWorkstationsResponse.
  *
- *  Returns all Workstations using the specified config on which the caller has
- *  the "workstations.workstations.use" permission.
+ *  Returns all workstations using the specified workstation configuration on
+ *  which the caller has the "workstations.workstations.use" permission.
  *
  *  @param parent Required. Parent resource name.
  *
@@ -1006,8 +1011,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsPatch : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, and the config is not found, a new config will be created. In this
- *  situation, update_mask is ignored.
+ *  If set and the workstation configuration is not found, a new workstation
+ *  configuration is created. In this situation, update_mask is ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
@@ -1015,7 +1020,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask specifying which fields in the config should be updated.
+ *  Required. Mask specifying which fields in the workstation configuration
+ *  should be updated.
  *
  *  String format is a comma-separated list of fields.
  */

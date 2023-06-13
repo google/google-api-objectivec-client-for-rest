@@ -387,13 +387,14 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_ApkManifest
 @dynamic applicationLabel, intentFilters, maxSdkVersion, metadata,
-         minSdkVersion, packageName, targetSdkVersion, usesFeature,
+         minSdkVersion, packageName, services, targetSdkVersion, usesFeature,
          usesPermission, versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"intentFilters" : [GTLRTesting_IntentFilter class],
     @"metadata" : [GTLRTesting_Metadata class],
+    @"services" : [GTLRTesting_Service class],
     @"usesFeature" : [GTLRTesting_UsesFeature class],
     @"usesPermission" : [NSString class]
   };
@@ -866,6 +867,15 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_NoActivityIntent
+//
+
+@implementation GTLRTesting_NoActivityIntent
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_ObbFile
 //
 
@@ -963,7 +973,25 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_RoboStartingIntent
-@dynamic launcherActivity, startActivity, timeout;
+@dynamic launcherActivity, noActivity, startActivity, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_Service
+//
+
+@implementation GTLRTesting_Service
+@dynamic intentFilter, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"intentFilter" : [GTLRTesting_IntentFilter class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -973,7 +1001,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_Shard
-@dynamic numShards, shardIndex, testTargetsForShard;
+@dynamic estimatedShardDuration, numShards, shardIndex, testTargetsForShard;
 @end
 
 
@@ -983,7 +1011,17 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_ShardingOption
-@dynamic manualSharding, uniformSharding;
+@dynamic manualSharding, smartSharding, uniformSharding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_SmartSharding
+//
+
+@implementation GTLRTesting_SmartSharding
+@dynamic targetedShardDuration;
 @end
 
 

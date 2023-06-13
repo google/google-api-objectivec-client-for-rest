@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Drive API (drive/v3)
+//   Google Drive API (drive/v3)
 // Description:
-//   Manages files in Drive including uploading, downloading, searching,
-//   detecting changes, and updating sharing permissions.
+//   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
 //   https://developers.google.com/drive/
 
@@ -56,13 +55,6 @@ NSString * const kGTLRAuthScopeDriveScripts          = @"https://www.googleapis.
     @"drive#file" : [GTLRDrive_File class],
     @"drive#fileList" : [GTLRDrive_FileList class],
     @"drive#generatedIds" : [GTLRDrive_GeneratedIds class],
-    @"drive#label" : [GTLRDrive_Label class],
-    @"drive#labelField" : [GTLRDrive_LabelField class],
-    @"drive#labelFieldModification" : [GTLRDrive_LabelFieldModification class],
-    @"drive#labelList" : [GTLRDrive_LabelList class],
-    @"drive#labelModification" : [GTLRDrive_LabelModification class],
-    @"drive#modifyLabelsRequest" : [GTLRDrive_ModifyLabelsRequest class],
-    @"drive#modifyLabelsResponse" : [GTLRDrive_ModifyLabelsResponse class],
     @"drive#permission" : [GTLRDrive_Permission class],
     @"drive#permissionList" : [GTLRDrive_PermissionList class],
     @"drive#reply" : [GTLRDrive_Reply class],

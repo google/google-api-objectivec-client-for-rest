@@ -295,6 +295,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres14;
 /**
+ *  PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres15;
+/**
  *  PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -634,6 +640,206 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Pr
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityMapping.draftType
+
+/**
+ *  Column.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeColumn;
+/**
+ *  Constraint.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeConstraint;
+/**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeDatabase;
+/**
+ *  Package.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeDatabasePackage;
+/**
+ *  Function.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeFunction;
+/**
+ *  Index.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeIndex;
+/**
+ *  Materialized View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeMaterializedView;
+/**
+ *  Schema.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeSchema;
+/**
+ *  Sequence.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeSequence;
+/**
+ *  Stored Procedure.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeStoredProcedure;
+/**
+ *  Synonym.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeSynonym;
+/**
+ *  Table.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeTable;
+/**
+ *  Trigger.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeTrigger;
+/**
+ *  UDT.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UDT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeUdt;
+/**
+ *  Unspecified database entity type.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeUnspecified;
+/**
+ *  View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeView;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityMapping.sourceType
+
+/**
+ *  Column.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeColumn;
+/**
+ *  Constraint.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeConstraint;
+/**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeDatabase;
+/**
+ *  Package.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeDatabasePackage;
+/**
+ *  Function.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeFunction;
+/**
+ *  Index.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeIndex;
+/**
+ *  Materialized View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeMaterializedView;
+/**
+ *  Schema.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeSchema;
+/**
+ *  Sequence.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeSequence;
+/**
+ *  Stored Procedure.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeStoredProcedure;
+/**
+ *  Synonym.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeSynonym;
+/**
+ *  Table.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeTable;
+/**
+ *  Trigger.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeTrigger;
+/**
+ *  UDT.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UDT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeUdt;
+/**
+ *  Unspecified database entity type.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeUnspecified;
+/**
+ *  View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeView;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_ImportMappingRulesRequest.rulesFormat
 
 /**
@@ -873,6 +1079,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified;
 /**
+ *  There was an underlying RDBMS error.
+ *
+ *  Value: "ERROR_RDBMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorRdbms;
+/**
  *  The value of parameter max_replication_slots is not sufficient.
  *
  *  Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS"
@@ -927,12 +1139,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists;
 /**
+ *  The source DB size in Bytes exceeds a certain threshold. The migration might
+ *  require an increase of quota, or might not be supported.
+ *
+ *  Value: "SOURCE_SIZE_EXCEEDS_THRESHOLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceSizeExceedsThreshold;
+/**
  *  The source has tables with limited support. E.g. PostgreSQL tables without
  *  primary keys.
  *
  *  Value: "TABLES_WITH_LIMITED_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_TablesWithLimitedSupport;
+/**
+ *  The source uses an unsupported Foreign Data Wrapper configuration.
+ *
+ *  Value: "UNSUPPORTED_DATABASE_FDW_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDatabaseFdwConfig;
+/**
+ *  The source uses an unsupported locale.
+ *
+ *  Value: "UNSUPPORTED_DATABASE_LOCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDatabaseLocale;
 /**
  *  The definer is not supported.
  *
@@ -1590,6 +1821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *        PostgreSQL 13. (Value: "POSTGRES_13")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres14
  *        PostgreSQL 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres15
+ *        PostgreSQL 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96
  *        PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -2409,6 +2642,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 @property(nonatomic, copy, nullable) NSString *draftEntity;
 
 /**
+ *  Type of draft entity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeColumn
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeConstraint
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeDatabasePackage
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeFunction
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeIndex
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeSchema
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeSequence
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeStoredProcedure
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeSynonym
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeTable
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeTrigger
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeUdt
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeUnspecified
+ *        Unspecified database entity type. (Value:
+ *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeView
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *draftType;
+
+/**
  *  Entity mapping log entries. Multiple rules can be effective and contribute
  *  changes to a converted entity, such as a rule can handle the entity name,
  *  another rule can handle an entity type. In addition, rules which did not
@@ -2422,6 +2695,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *  constraint using the same naming notation schema.table.column.
  */
 @property(nonatomic, copy, nullable) NSString *sourceEntity;
+
+/**
+ *  Type of source entity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeColumn
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeConstraint
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeDatabasePackage
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeFunction
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeIndex
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeSchema
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeSequence
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeStoredProcedure
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeSynonym
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeTable
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeTrigger
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeUdt
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeUnspecified
+ *        Unspecified database entity type. (Value:
+ *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeView
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
 
 @end
 
@@ -2898,7 +3211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDatabaseMigrationService_Location : GTLRObject
 
@@ -2977,6 +3290,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *  Represents a Database Migration Service migration job object.
  */
 @interface GTLRDatabaseMigrationService_MigrationJob : GTLRObject
+
+/**
+ *  The CMEK (customer-managed encryption key) fully qualified key name used for
+ *  the migration job. This field supports all migration jobs types except for:
+ *  * Mysql to Mysql (use the cmek field in the cloudsql connection profile
+ *  instead). * PostrgeSQL to PostgreSQL (use the cmek field in the cloudsql
+ *  connection profile instead). * PostgreSQL to AlloyDB (use the kms_key_name
+ *  field in the alloydb connection profile instead). Each Cloud CMEK key has
+ *  the following format:
+ *  projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME]
+ */
+@property(nonatomic, copy, nullable) NSString *cmekKeyName;
 
 /** The conversion workspace used by the migration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ConversionWorkspaceInfo *conversionWorkspace;
@@ -3193,6 +3518,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *        "CONNECTION_PROFILE_TYPES_INCOMPATIBILITY")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified
  *        An unknown error occurred (Value: "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorRdbms
+ *        There was an underlying RDBMS error. (Value: "ERROR_RDBMS")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots
  *        The value of parameter max_replication_slots is not sufficient.
  *        (Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS")
@@ -3220,9 +3547,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists
  *        pglogical node already exists on databases, applicable for postgres.
  *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceSizeExceedsThreshold
+ *        The source DB size in Bytes exceeds a certain threshold. The migration
+ *        might require an increase of quota, or might not be supported. (Value:
+ *        "SOURCE_SIZE_EXCEEDS_THRESHOLD")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_TablesWithLimitedSupport
  *        The source has tables with limited support. E.g. PostgreSQL tables
  *        without primary keys. (Value: "TABLES_WITH_LIMITED_SUPPORT")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDatabaseFdwConfig
+ *        The source uses an unsupported Foreign Data Wrapper configuration.
+ *        (Value: "UNSUPPORTED_DATABASE_FDW_CONFIG")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDatabaseLocale
+ *        The source uses an unsupported locale. (Value:
+ *        "UNSUPPORTED_DATABASE_LOCALE")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDefiner
  *        The definer is not supported. (Value: "UNSUPPORTED_DEFINER")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedExtensions
@@ -3425,6 +3762,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateConnectivity *privateConnectivity;
+
+/**
+ *  SSL configuration for the connection to the source Oracle database. * Only
+ *  `SERVER_ONLY` configuration is supported for Oracle SSL. * SSL is supported
+ *  for Oracle versions 12 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig *ssl;
 
 /** Static Service IP connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_StaticServiceIpConnectivity *staticServiceIpConnectivity;
@@ -3787,7 +4131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
 
 /**
  *  Private Service Connect connectivity
- *  (https://cloud.google.com/vpc/docs/private-service-connect#benefits-services)
+ *  (https://cloud.google.com/vpc/docs/private-service-connect#service-attachments)
  */
 @interface GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity : GTLRObject
 
@@ -4077,6 +4421,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *  IP Management configuration.
  */
 @interface GTLRDatabaseMigrationService_SqlIpConfig : GTLRObject
+
+/**
+ *  Optional. The name of the allocated IP address range for the private IP
+ *  Cloud SQL instance. This name refers to an already allocated IP range
+ *  address. If set, the instance IP address will be created in the allocated
+ *  range. Note that this IP address range can't be modified after the instance
+ *  is created. If you change the VPC when configuring connectivity settings for
+ *  the migration job, this field is not relevant.
+ */
+@property(nonatomic, copy, nullable) NSString *allocatedIpRange;
 
 /**
  *  The list of external networks that are allowed to connect to the instance

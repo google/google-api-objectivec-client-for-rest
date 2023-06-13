@@ -36,6 +36,25 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsLocationsClustersCheckAutopilotCompatibility
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:checkAutopilotCompatibility";
+  GTLRContainerQuery_ProjectsLocationsClustersCheckAutopilotCompatibility *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_CheckAutopilotCompatibilityResponse class];
+  query.loggingName = @"container.projects.locations.clusters.checkAutopilotCompatibility";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
 
 @dynamic name;

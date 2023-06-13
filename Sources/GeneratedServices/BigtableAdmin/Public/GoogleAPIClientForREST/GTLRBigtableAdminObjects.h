@@ -1853,7 +1853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents Google Cloud location.
  */
 @interface GTLRBigtableAdmin_Location : GTLRObject
 

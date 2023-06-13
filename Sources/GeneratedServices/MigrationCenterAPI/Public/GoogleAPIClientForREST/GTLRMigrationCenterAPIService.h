@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Migration Center API (migrationcenter/v1alpha1)
+// Description:
+//   A unified platform that helps you accelerate your end-to-end cloud journey
+//   from your current on-premises or cloud environments to Google Cloud.
 // Documentation:
 //   https://cloud.google.com/migration-center
 
@@ -36,6 +39,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMigrationCenterAPICloudPlatform
 
 /**
  *  Service for executing Migration Center API queries.
+ *
+ *  A unified platform that helps you accelerate your end-to-end cloud journey
+ *  from your current on-premises or cloud environments to Google Cloud.
  */
 @interface GTLRMigrationCenterAPIService : GTLRService
 

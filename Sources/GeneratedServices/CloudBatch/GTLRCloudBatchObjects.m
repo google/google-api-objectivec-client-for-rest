@@ -93,6 +93,11 @@ NSString * const kGTLRCloudBatch_StatusEvent_TaskState_StateUnspecified = @"STAT
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Unexecuted = @"UNEXECUTED";
 
+// GTLRCloudBatch_TaskGroup.schedulingPolicy
+NSString * const kGTLRCloudBatch_TaskGroup_SchedulingPolicy_AsSoonAsPossible = @"AS_SOON_AS_POSSIBLE";
+NSString * const kGTLRCloudBatch_TaskGroup_SchedulingPolicy_InOrder = @"IN_ORDER";
+NSString * const kGTLRCloudBatch_TaskGroup_SchedulingPolicy_SchedulingPolicyUnspecified = @"SCHEDULING_POLICY_UNSPECIFIED";
+
 // GTLRCloudBatch_TaskStatus.state
 NSString * const kGTLRCloudBatch_TaskStatus_State_Assigned     = @"ASSIGNED";
 NSString * const kGTLRCloudBatch_TaskStatus_State_Failed       = @"FAILED";
@@ -214,7 +219,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_AllocationPolicy
-@dynamic instances, labels, location, network, serviceAccount;
+@dynamic instances, labels, location, network, placement, serviceAccount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -757,6 +762,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_PlacementPolicy
+//
+
+@implementation GTLRCloudBatch_PlacementPolicy
+@dynamic collocation, maxDistance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_ReportAgentStateRequest
 //
 
@@ -790,7 +805,21 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_Runnable
 @dynamic alwaysRun, background, barrier, container, environment,
-         ignoreExitStatus, script, timeout;
+         ignoreExitStatus, labels, script, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_Runnable_Labels
+//
+
+@implementation GTLRCloudBatch_Runnable_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -895,8 +924,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_TaskGroup
-@dynamic name, parallelism, permissiveSsh, requireHostsFile, taskCount,
-         taskCountPerNode, taskEnvironments, taskSpec;
+@dynamic name, parallelism, permissiveSsh, requireHostsFile, schedulingPolicy,
+         taskCount, taskCountPerNode, taskEnvironments, taskSpec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

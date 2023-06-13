@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Migration Center API (migrationcenter/v1alpha1)
+// Description:
+//   A unified platform that helps you accelerate your end-to-end cloud journey
+//   from your current on-premises or cloud environments to Google Cloud.
 // Documentation:
 //   https://cloud.google.com/migration-center
 
@@ -52,9 +55,11 @@
 @class GTLRMigrationCenterAPI_DiskPartition;
 @class GTLRMigrationCenterAPI_DiskPartitionList;
 @class GTLRMigrationCenterAPI_DiskUsageSample;
+@class GTLRMigrationCenterAPI_ErrorFrame;
 @class GTLRMigrationCenterAPI_ExecutionReport;
 @class GTLRMigrationCenterAPI_FileValidationReport;
 @class GTLRMigrationCenterAPI_FitDescriptor;
+@class GTLRMigrationCenterAPI_FrameViolationEntry;
 @class GTLRMigrationCenterAPI_FstabEntry;
 @class GTLRMigrationCenterAPI_FstabEntryList;
 @class GTLRMigrationCenterAPI_GCSPayloadInfo;
@@ -554,6 +559,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineF
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_Source.state
+
+/**
+ *  The source is active and ready to be used.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_State_Active;
+/**
+ *  In the process of being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_State_Deleting;
+/**
+ *  Source is in an invalid state. Asset frames reported to it will be ignored.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_State_Invalid;
+/**
+ *  Unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_Source.type
@@ -1120,7 +1153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  */
 @interface GTLRMigrationCenterAPI_AssetList : GTLRObject
 
-/** A list of asset IDs */
+/** Required. A list of asset IDs */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetIds;
 
 @end
@@ -1133,7 +1166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 /**
  *  Daily resource usage aggregations. Contains all of the data available for an
- *  asset, up to the last 420 days.
+ *  asset, up to the last 420 days. Aggregations are sorted from oldest to most
+ *  recent.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_DailyResourceUsageAggregation *> *dailyResourceUsageAggregations;
 
@@ -1186,9 +1220,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 @property(nonatomic, strong, nullable) NSNumber *allowMissing;
 
 /**
- *  Required. The IDs of the assets to delete. A maximum of 10 assets can be
- *  deleted in a batch. format:
- *  projects/{project}/locations/{location}/asset/{name}.
+ *  Required. The IDs of the assets to delete. A maximum of 1000 assets can be
+ *  deleted in a batch. Format:
+ *  projects/{project}/locations/{location}/assets/{name}.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -1721,6 +1755,26 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 
 /**
+ *  Message representing a frame which failed to be processed due to an error.
+ */
+@interface GTLRMigrationCenterAPI_ErrorFrame : GTLRObject
+
+/** Output only. Frame ingestion time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *ingestionTime;
+
+/** Output only. The identifier of the ErrorFrame. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The frame that was originally reported. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetFrame *originalFrame;
+
+/** Output only. All the violations that were detected for the frame. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_FrameViolationEntry *> *violations;
+
+@end
+
+
+/**
  *  A resource that reports result of the import job execution.
  */
 @interface GTLRMigrationCenterAPI_ExecutionReport : GTLRObject
@@ -1806,6 +1860,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 /** A repeated field of asset data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_AssetFrame *> *framesData;
+
+@end
+
+
+/**
+ *  A resource that contains a single violation of a reported `AssetFrame`
+ *  resource.
+ */
+@interface GTLRMigrationCenterAPI_FrameViolationEntry : GTLRObject
+
+/** The field of the original frame where the violation occurred. */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** A message describing the violation. */
+@property(nonatomic, copy, nullable) NSString *violation;
 
 @end
 
@@ -2098,7 +2167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The payload format.
+ *  Required. The payload format.
  *
  *  Likely values:
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatCmdb
@@ -2363,6 +2432,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 
 /**
+ *  A response for listing error frames.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "errorFrames" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMigrationCenterAPI_ListErrorFramesResponse : GTLRCollectionObject
+
+/**
+ *  The list of error frames.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ErrorFrame *> *errorFrames;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  A response for listing groups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2603,7 +2699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRMigrationCenterAPI_Location : GTLRObject
 
@@ -3334,7 +3430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 /** User-friendly display name. Maximum length is 63 characters. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Collection of combinations of groups and preference sets. */
+/** Required. Collection of combinations of groups and preference sets. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportConfigGroupPreferenceSetAssignment *> *groupPreferencesetAssignments;
 
 /** Output only. Name of resource. */
@@ -3351,10 +3447,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  */
 @interface GTLRMigrationCenterAPI_ReportConfigGroupPreferenceSetAssignment : GTLRObject
 
-/** Name of the group. */
+/** Required. Name of the group. */
 @property(nonatomic, copy, nullable) NSString *group;
 
-/** Name of the Preference Set. */
+/** Required. Name of the Preference Set. */
 @property(nonatomic, copy, nullable) NSString *preferenceSet;
 
 @end
@@ -3854,6 +3950,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. The number of frames that were reported by the source and
+ *  contained errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorFrameCount;
+
+/**
  *  If `true`, the source is managed by other service(s).
  *
  *  Uses NSNumber of boolValue.
@@ -3877,6 +3981,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  Output only. The state of the source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_Source_State_Active The source is active
+ *        and ready to be used. (Value: "ACTIVE")
+ *    @arg @c kGTLRMigrationCenterAPI_Source_State_Deleting In the process of
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRMigrationCenterAPI_Source_State_Invalid Source is in an
+ *        invalid state. Asset frames reported to it will be ignored. (Value:
+ *        "INVALID")
+ *    @arg @c kGTLRMigrationCenterAPI_Source_State_StateUnspecified Unspecified.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Data source type.
@@ -4012,9 +4132,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 /** Output only. Upload URI for the file. */
 @property(nonatomic, copy, nullable) NSString *signedUri;
-
-/** Output only. Upload URI for the file. */
-@property(nonatomic, copy, nullable) NSString *uri;
 
 /** Output only. Expiration time of the upload URI. */
 @property(nonatomic, strong, nullable) GTLRDateTime *uriExpirationTime;

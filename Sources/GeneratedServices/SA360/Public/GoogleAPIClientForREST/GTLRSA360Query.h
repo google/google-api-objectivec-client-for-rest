@@ -128,41 +128,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all rows that match the search stream query. List of thrown errors:
- *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
- *  [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
- *
- *  Method: searchads360.customers.searchAds360.searchStream
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSA360Doubleclicksearch
- */
-@interface GTLRSA360Query_CustomersSearchAds360SearchStream : GTLRSA360Query
-
-/** Required. The ID of the customer being queried. */
-@property(nonatomic, copy, nullable) NSString *customerId;
-
-/**
- *  Fetches a @c
- *  GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamResponse.
- *
- *  Returns all rows that match the search stream query. List of thrown errors:
- *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
- *  [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
- *
- *  @param object The @c
- *    GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest
- *    to include in the query.
- *  @param customerId Required. The ID of the customer being queried.
- *
- *  @return GTLRSA360Query_CustomersSearchAds360SearchStream
- */
-+ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360StreamRequest *)object
-                     customerId:(NSString *)customerId;
-
-@end
-
-/**
  *  Returns just the requested field. List of thrown errors:
  *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
  *  [InternalError]() [QuotaError]() [RequestError]()

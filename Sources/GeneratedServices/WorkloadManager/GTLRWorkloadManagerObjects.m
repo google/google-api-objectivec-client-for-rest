@@ -28,14 +28,6 @@ NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRWorkloadManager_SapDiscoveryResource.resourceState
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Added = @"ADDED";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Missing = @"MISSING";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Removed = @"REMOVED";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Replaced = @"REPLACED";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_ResourceStateUnspecified = @"RESOURCE_STATE_UNSPECIFIED";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Updated = @"UPDATED";
-
 // GTLRWorkloadManager_SapDiscoveryResource.resourceType
 NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Compute = @"COMPUTE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Network = @"NETWORK";
@@ -49,6 +41,17 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Pacemaker = @"PACEMAKER";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_SapValidationTypeUnspecified = @"SAP_VALIDATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_System = @"SYSTEM";
+
+// GTLRWorkloadManager_SqlserverValidationValidationDetail.type
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension = @"DB_BUFFER_POOL_EXTENSION";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits = @"DB_CXPACKET_WAITS";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation = @"DB_LOG_DISK_SEPARATION";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism = @"DB_MAX_PARALLELISM";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory = @"DB_MAX_SERVER_MEMORY";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling = @"DB_TRANSACTION_LOG_HANDLING";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount = @"DB_VIRTUAL_LOG_FILE_COUNT";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os = @"OS";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified = @"SQLSERVER_VALIDATION_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -74,8 +77,9 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 //
 
 @implementation GTLRWorkloadManager_Evaluation
-@dynamic createTime, descriptionProperty, labels, name, resourceFilter,
-         resourceStatus, ruleNames, ruleVersions, schedule, updateTime;
+@dynamic createTime, customRulesBucket, descriptionProperty, labels, name,
+         resourceFilter, resourceStatus, ruleNames, ruleVersions, schedule,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -166,7 +170,7 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 //
 
 @implementation GTLRWorkloadManager_Insight
-@dynamic sapDiscovery, sapValidation, sentTime;
+@dynamic sapDiscovery, sapValidation, sentTime, sqlserverValidation;
 @end
 
 
@@ -544,8 +548,7 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryResource
-@dynamic relatedResources, resourceKind, resourceState, resourceType,
-         resourceUri, updateTime;
+@dynamic relatedResources, resourceKind, resourceType, resourceUri, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -611,6 +614,48 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SqlserverValidation
+//
+
+@implementation GTLRWorkloadManager_SqlserverValidation
+@dynamic agentVersion, validationDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"validationDetails" : [GTLRWorkloadManager_SqlserverValidationValidationDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SqlserverValidationValidationDetail
+//
+
+@implementation GTLRWorkloadManager_SqlserverValidationValidationDetail
+@dynamic fields, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields
+//
+
+@implementation GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Status
 //
 
@@ -671,7 +716,7 @@ NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidatio
 //
 
 @implementation GTLRWorkloadManager_WriteInsightRequest
-@dynamic insight, requestId;
+@dynamic insight, instanceId, requestId;
 @end
 
 

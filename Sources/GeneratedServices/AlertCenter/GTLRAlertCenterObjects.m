@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAlertCenter_AbuseDetected.variationType
+NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_AbuseDetectedVariationTypeUnspecified = @"ABUSE_DETECTED_VARIATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_DriveAbusiveContent = @"DRIVE_ABUSIVE_CONTENT";
+NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_LimitedDisable = @"LIMITED_DISABLE";
+
 // GTLRAlertCenter_AccountSuspensionDetails.abuseReason
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_AccountSuspensionAbuseReasonUnspecified = @"ACCOUNT_SUSPENSION_ABUSE_REASON_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Fraud = @"FRAUD";
@@ -105,6 +110,16 @@ NSString * const kGTLRAlertCenter_VoicemailRecipientError_InvalidReason_Recipien
 NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_AutoAttendant = @"AUTO_ATTENDANT";
 NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_EntityTypeUnspecified = @"ENTITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @"RING_GROUP";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AbuseDetected
+//
+
+@implementation GTLRAlertCenter_AbuseDetected
+@dynamic additionalDetails, product, subAlertId, variationType;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -531,6 +546,43 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 //
 
 @implementation GTLRAlertCenter_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Entity
+//
+
+@implementation GTLRAlertCenter_Entity
+@dynamic link, name, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_EntityList
+//
+
+@implementation GTLRAlertCenter_EntityList
+@dynamic entities, headers, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entities" : [GTLRAlertCenter_Entity class],
+    @"headers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -81,6 +81,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ParameterMapping;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo;
@@ -208,6 +209,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3VoiceSelectionParams;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Webhook;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ParameterMapping;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_RequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo;
@@ -227,6 +229,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
@@ -281,6 +284,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentParameter;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers;
@@ -298,6 +302,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse;
@@ -610,6 +615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_DiffTypeUnspecified;
 /**
+ *  The flow.
+ *
+ *  Value: "FLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Flow;
+/**
  *  The intent.
  *
  *  Value: "INTENT"
@@ -655,6 +666,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "FAILURE_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals_FailureReasons_FailureReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService.httpMethod
+
+/**
+ *  HTTP DELETE Method.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Delete;
+/**
+ *  HTTP GET Method.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Get;
+/**
+ *  HTTP HEAD Method.
+ *
+ *  Value: "HEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Head;
+/**
+ *  HTTP method not specified.
+ *
+ *  Value: "HTTP_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_HttpMethodUnspecified;
+/**
+ *  HTTP OPTIONS Method.
+ *
+ *  Value: "OPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Options;
+/**
+ *  HTTP PATCH Method.
+ *
+ *  Value: "PATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Patch;
+/**
+ *  HTTP POST Method.
+ *
+ *  Value: "POST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Post;
+/**
+ *  HTTP PUT Method.
+ *
+ *  Value: "PUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Put;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService.webhookType
+
+/**
+ *  Represents a flexible webhook.
+ *
+ *  Value: "FLEXIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_Flexible;
+/**
+ *  Represents a standard webhook.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_Standard;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "WEBHOOK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_WebhookTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse.mergeBehavior
@@ -1441,6 +1526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Test
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_DiffTypeUnspecified;
 /**
+ *  The flow.
+ *
+ *  Value: "FLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Flow;
+/**
  *  The intent.
  *
  *  Value: "INTENT"
@@ -1661,6 +1752,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Voic
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService.httpMethod
+
+/**
+ *  HTTP DELETE Method.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Delete;
+/**
+ *  HTTP GET Method.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Get;
+/**
+ *  HTTP HEAD Method.
+ *
+ *  Value: "HEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Head;
+/**
+ *  HTTP method not specified.
+ *
+ *  Value: "HTTP_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_HttpMethodUnspecified;
+/**
+ *  HTTP OPTIONS Method.
+ *
+ *  Value: "OPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Options;
+/**
+ *  HTTP PATCH Method.
+ *
+ *  Value: "PATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Patch;
+/**
+ *  HTTP POST Method.
+ *
+ *  Value: "POST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Post;
+/**
+ *  HTTP PUT Method.
+ *
+ *  Value: "PUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Put;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService.webhookType
+
+/**
+ *  Represents a flexible webhook.
+ *
+ *  Value: "FLEXIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_Flexible;
+/**
+ *  Represents a standard webhook.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_Standard;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "WEBHOOK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_WebhookTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse.mergeBehavior
 
 /**
@@ -1749,6 +1914,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  *  Value: "CONVERSATION_SUMMARIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization;
+/**
+ *  Run Dialogflow assist model for chat, which will return automated agent
+ *  response as suggestion.
+ *
+ *  Value: "DIALOGFLOW_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_DialogflowAssist;
 /**
  *  Run FAQ model.
  *
@@ -2415,6 +2587,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
  *  Value: "CONVERSATION_SUMMARIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization;
+/**
+ *  Run Dialogflow assist model for chat, which will return automated agent
+ *  response as suggestion.
+ *
+ *  Value: "DIALOGFLOW_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_DialogflowAssist;
 /**
  *  Run FAQ model.
  *
@@ -3980,8 +4159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *agentContent;
 
 /**
- *  The URI to a file containing the exported agent. This field is populated
- *  only if `agent_uri` is specified in ExportAgentRequest.
+ *  The URI to a file containing the exported agent. This field is populated if
+ *  `agent_uri` is specified in ExportAgentRequest.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -4642,7 +4821,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Represents an example that the agent is trained on to identify the intent.
- *  Next ID: 15
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentTrainingPhrase : GTLRObject
 
@@ -4873,7 +5051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents the query input. It can contain one of: 1. A conversational query
  *  in the form of text. 2. An intent query that specifies which intent to
  *  trigger. 3. Natural language speech audio to be processed. 4. An event to be
- *  triggered.
+ *  triggered. 5. DTMF digits to invoke an intent and fill in parameter value.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1QueryInput : GTLRObject
 
@@ -5443,7 +5621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference : GTLRObject
 
 /**
- *  A description of the diff, showing the actual output vs expected output.
+ *  A human readable description of the diff, showing the actual output vs
+ *  expected output.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -5455,6 +5634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_DiffTypeUnspecified
  *        Should never be used. (Value: "DIFF_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Flow
+ *        The flow. (Value: "FLOW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Intent
  *        The intent. (Value: "INTENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference_Type_Page
@@ -5584,6 +5765,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *reachedEndPage;
 
 /**
+ *  Sentiment magnitude of the user utterance if
+ *  [sentiment](https://cloud.google.com/dialogflow/cx/docs/concept/sentiment)
+ *  was enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentimentMagnitude;
+
+/**
+ *  Sentiment score of the user utterance if
+ *  [sentiment](https://cloud.google.com/dialogflow/cx/docs/concept/sentiment)
+ *  was enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentimentScore;
+
+/**
  *  Whether user was specifically asking for a live agent.
  *
  *  Uses NSNumber of boolValue.
@@ -5673,8 +5872,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedCaCerts;
 
+/**
+ *  Optional. HTTP method for the flexible webhook calls. Standard webhook
+ *  always uses POST.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Delete
+ *        HTTP DELETE Method. (Value: "DELETE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Get
+ *        HTTP GET Method. (Value: "GET")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Head
+ *        HTTP HEAD Method. (Value: "HEAD")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_HttpMethodUnspecified
+ *        HTTP method not specified. (Value: "HTTP_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Options
+ *        HTTP OPTIONS Method. (Value: "OPTIONS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Patch
+ *        HTTP PATCH Method. (Value: "PATCH")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Post
+ *        HTTP POST Method. (Value: "POST")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Put
+ *        HTTP PUT Method. (Value: "PUT")
+ */
+@property(nonatomic, copy, nullable) NSString *httpMethod;
+
+/**
+ *  Optional. Maps the values extracted from specific fields of the flexible
+ *  webhook response into session parameters. - Key: session parameter name -
+ *  Value: field path in the webhook response
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ParameterMapping *parameterMapping;
+
 /** The password for HTTP Basic authentication. */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Defines a custom JSON object as request body to send to flexible
+ *  webhook.
+ */
+@property(nonatomic, copy, nullable) NSString *requestBody;
 
 /** The HTTP request headers to send together with webhook requests. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders *requestHeaders;
@@ -5688,6 +5924,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** The user name for HTTP Basic authentication. */
 @property(nonatomic, copy, nullable) NSString *username;
 
+/**
+ *  Optional. Type of the webhook.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_Flexible
+ *        Represents a flexible webhook. (Value: "FLEXIBLE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_Standard
+ *        Represents a standard webhook. (Value: "STANDARD")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_WebhookTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "WEBHOOK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *webhookType;
+
+@end
+
+
+/**
+ *  Optional. Maps the values extracted from specific fields of the flexible
+ *  webhook response into session parameters. - Key: session parameter name -
+ *  Value: field path in the webhook response
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ParameterMapping : GTLRObject
 @end
 
 
@@ -7123,8 +7387,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *agentContent;
 
 /**
- *  The URI to a file containing the exported agent. This field is populated
- *  only if `agent_uri` is specified in ExportAgentRequest.
+ *  The URI to a file containing the exported agent. This field is populated if
+ *  `agent_uri` is specified in ExportAgentRequest.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -7628,7 +7892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Required. The Google Cloud Storage URI for the exported objects. A URI is of
- *  the form: gs://bucket/object-name-or-prefix Whether a full object name, or
+ *  the form: `gs://bucket/object-name-or-prefix` Whether a full object name, or
  *  just a prefix, its usage depends on the Dialogflow operation.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -7935,7 +8199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  An intent represents a user's intent to interact with a conversational
  *  agent. You can provide information for the Dialogflow API to use to match
  *  user input to an intent by adding training phrases (i.e., examples of user
- *  input) to your intent. Next ID: 15
+ *  input) to your intent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Intent : GTLRObject
 
@@ -8051,8 +8315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3IntentCoverageIntent : GTLRObject
 
 /**
- *  Whether or not the intent is covered by at least one of the agent's test
- *  cases.
+ *  Whether the intent is covered by at least one of the agent's test cases.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8955,7 +9218,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
 
-/** Optional. Configuration of how speech should be synthesized. */
+/**
+ *  Optional. Configuration of how speech should be synthesized. If not
+ *  specified, Agent.text_to_speech_settings is applied.
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig *synthesizeSpeechConfig;
 
 @end
@@ -9139,7 +9405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents the query input. It can contain one of: 1. A conversational query
  *  in the form of text. 2. An intent query that specifies which intent to
  *  trigger. 3. Natural language speech audio to be processed. 4. An event to be
- *  triggered.
+ *  triggered. 5. DTMF digits to invoke an intent and fill in parameter value.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput : GTLRObject
 
@@ -10537,7 +10803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference : GTLRObject
 
 /**
- *  A description of the diff, showing the actual output vs expected output.
+ *  A human readable description of the diff, showing the actual output vs
+ *  expected output.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -10549,6 +10816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_DiffTypeUnspecified
  *        Should never be used. (Value: "DIFF_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Flow
+ *        The flow. (Value: "FLOW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Intent
  *        The intent. (Value: "INTENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TestRunDifference_Type_Page
@@ -10578,13 +10847,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Settings related to speech generating.
+ *  Settings related to speech synthesizing.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings : GTLRObject
 
 /**
  *  Configuration of how speech should be synthesized, mapping from language
- *  (https://dialogflow.com/docs/reference/language) to SynthesizeSpeechConfig.
+ *  (https://cloud.google.com/dialogflow/cx/docs/reference/language) to
+ *  SynthesizeSpeechConfig. These settings affect: - The [phone
+ *  gateway](https://cloud.google.com/dialogflow/cx/docs/concept/integration/phone-gateway)
+ *  synthesize configuration set via Agent.text_to_speech_settings. - How speech
+ *  is synthesized when invoking session APIs. Agent.text_to_speech_settings
+ *  only applies if OutputAudioConfig.synthesize_speech_config is not specified.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TextToSpeechSettings_SynthesizeSpeechConfigs *synthesizeSpeechConfigs;
 
@@ -10593,7 +10867,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Configuration of how speech should be synthesized, mapping from language
- *  (https://dialogflow.com/docs/reference/language) to SynthesizeSpeechConfig.
+ *  (https://cloud.google.com/dialogflow/cx/docs/reference/language) to
+ *  SynthesizeSpeechConfig. These settings affect: - The [phone
+ *  gateway](https://cloud.google.com/dialogflow/cx/docs/concept/integration/phone-gateway)
+ *  synthesize configuration set via Agent.text_to_speech_settings. - How speech
+ *  is synthesized when invoking session APIs. Agent.text_to_speech_settings
+ *  only applies if OutputAudioConfig.synthesize_speech_config is not specified.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig. Use @c
@@ -10638,8 +10917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransition : GTLRObject
 
 /**
- *  Whether or not the transition is covered by at least one of the agent's test
- *  cases.
+ *  Whether the transition is covered by at least one of the agent's test cases.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10820,8 +11098,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition : GTLRObject
 
 /**
- *  Whether or not the transition route is covered by at least one of the
- *  agent's test cases.
+ *  Whether the transition route is covered by at least one of the agent's test
+ *  cases.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10876,6 +11154,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reachedEndPage;
+
+/**
+ *  Sentiment magnitude of the user utterance if
+ *  [sentiment](https://cloud.google.com/dialogflow/cx/docs/concept/sentiment)
+ *  was enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentimentMagnitude;
+
+/**
+ *  Sentiment score of the user utterance if
+ *  [sentiment](https://cloud.google.com/dialogflow/cx/docs/concept/sentiment)
+ *  was enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentimentScore;
 
 /**
  *  Whether user was specifically asking for a live agent.
@@ -11198,8 +11494,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedCaCerts;
 
+/**
+ *  Optional. HTTP method for the flexible webhook calls. Standard webhook
+ *  always uses POST.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Delete
+ *        HTTP DELETE Method. (Value: "DELETE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Get
+ *        HTTP GET Method. (Value: "GET")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Head
+ *        HTTP HEAD Method. (Value: "HEAD")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_HttpMethodUnspecified
+ *        HTTP method not specified. (Value: "HTTP_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Options
+ *        HTTP OPTIONS Method. (Value: "OPTIONS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Patch
+ *        HTTP PATCH Method. (Value: "PATCH")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Post
+ *        HTTP POST Method. (Value: "POST")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Put
+ *        HTTP PUT Method. (Value: "PUT")
+ */
+@property(nonatomic, copy, nullable) NSString *httpMethod;
+
+/**
+ *  Optional. Maps the values extracted from specific fields of the flexible
+ *  webhook response into session parameters. - Key: session parameter name -
+ *  Value: field path in the webhook response
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ParameterMapping *parameterMapping;
+
 /** The password for HTTP Basic authentication. */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Defines a custom JSON object as request body to send to flexible
+ *  webhook.
+ */
+@property(nonatomic, copy, nullable) NSString *requestBody;
 
 /** The HTTP request headers to send together with webhook requests. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_RequestHeaders *requestHeaders;
@@ -11213,6 +11546,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** The user name for HTTP Basic authentication. */
 @property(nonatomic, copy, nullable) NSString *username;
 
+/**
+ *  Optional. Type of the webhook.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_Flexible
+ *        Represents a flexible webhook. (Value: "FLEXIBLE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_Standard
+ *        Represents a standard webhook. (Value: "STANDARD")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_WebhookTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "WEBHOOK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *webhookType;
+
+@end
+
+
+/**
+ *  Optional. Maps the values extracted from specific fields of the flexible
+ *  webhook response into session parameters. - Key: session parameter name -
+ *  Value: field path in the webhook response
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ParameterMapping : GTLRObject
 @end
 
 
@@ -11791,6 +12152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization
  *        Run conversation summarization model for chat. (Value:
  *        "CONVERSATION_SUMMARIZATION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_DialogflowAssist
+ *        Run Dialogflow assist model for chat, which will return automated
+ *        agent response as suggestion. (Value: "DIALOGFLOW_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
@@ -11935,6 +12299,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        "UNRECOVERABLE_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents a Dialogflow assist answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer : GTLRObject
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/** An intent suggestion generated from conversation. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentSuggestion *intentSuggestion;
+
+/** Result from v2 agent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult *queryResult;
 
 @end
 
@@ -13481,6 +13865,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents an intent suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentSuggestion : GTLRObject
+
+/**
+ *  Human readable description for better understanding an intent like its
+ *  scope, content, result etc. Maximum character limit: 140 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The display name of the intent. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The unique identifier of this intent. Format:
+ *  `projects//locations//agent/intents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *intentV2;
+
+@end
+
+
+/**
  *  Represents an example that the agent is trained on.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase : GTLRObject
@@ -14137,6 +14546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization
  *        Run conversation summarization model for chat. (Value:
  *        "CONVERSATION_SUMMARIZATION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_DialogflowAssist
+ *        Run Dialogflow assist model for chat, which will return automated
+ *        agent response as suggestion. (Value: "DIALOGFLOW_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
@@ -14202,6 +14614,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The response message for Participants.SuggestDialogflowAssists.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the
+ *  SuggestDialogflowAssistsRequest.context_size field in the request if there
+ *  aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/**
+ *  Output only. Multiple reply options provided by Dialogflow assist service.
+ *  The order is based on the rank of the model prediction.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer *> *dialogflowAssistAnswers;
+
+/**
+ *  The name of the latest conversation message used to suggest answer. Format:
+ *  `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
  *  The request message for Participants.SuggestFaqAnswers.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse : GTLRObject
@@ -14239,6 +14681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse *suggestArticlesResponse;
+
+/** SuggestDialogflowAssistsResponse if request is for DIALOGFLOW_ASSIST. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse *suggestDialogflowAssistsResponse;
 
 /** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
@@ -17098,6 +17543,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *reachedEndPage;
 
 /**
+ *  Sentiment magnitude of the user utterance if
+ *  [sentiment](https://cloud.google.com/dialogflow/cx/docs/concept/sentiment)
+ *  was enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentimentMagnitude;
+
+/**
+ *  Sentiment score of the user utterance if
+ *  [sentiment](https://cloud.google.com/dialogflow/cx/docs/concept/sentiment)
+ *  was enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentimentScore;
+
+/**
  *  Whether agent has triggered the event corresponding to user abandoning the
  *  conversation.
  *
@@ -17154,7 +17617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDialogflow_GoogleCloudLocationLocation : GTLRObject
 

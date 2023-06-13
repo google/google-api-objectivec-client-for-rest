@@ -66,6 +66,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Triggers database failover (only for highly resilient environments).
+ *
+ *  Method: composer.projects.locations.environments.databaseFailover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDatabaseFailover : GTLRCloudComposerQuery
+
+/**
+ *  Target environment:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Triggers database failover (only for highly resilient environments).
+ *
+ *  @param object The @c GTLRCloudComposer_DatabaseFailoverRequest to include in
+ *    the query.
+ *  @param environment Target environment:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDatabaseFailover
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_DatabaseFailoverRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
  *  Delete an environment.
  *
  *  Method: composer.projects.locations.environments.delete
@@ -92,6 +125,70 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Executes Airflow CLI command.
+ *
+ *  Method: composer.projects.locations.environments.executeAirflowCommand
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsExecuteAirflowCommand : GTLRCloudComposerQuery
+
+/**
+ *  The resource name of the environment in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_ExecuteAirflowCommandResponse.
+ *
+ *  Executes Airflow CLI command.
+ *
+ *  @param object The @c GTLRCloudComposer_ExecuteAirflowCommandRequest to
+ *    include in the query.
+ *  @param environment The resource name of the environment in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsExecuteAirflowCommand
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_ExecuteAirflowCommandRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
+ *  Fetches database properties.
+ *
+ *  Method: composer.projects.locations.environments.fetchDatabaseProperties
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsFetchDatabaseProperties : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the environment, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_FetchDatabasePropertiesResponse.
+ *
+ *  Fetches database properties.
+ *
+ *  @param environment Required. The resource name of the environment, in the
+ *    form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsFetchDatabaseProperties
+ */
++ (instancetype)queryWithEnvironment:(NSString *)environment;
 
 @end
 
@@ -319,6 +416,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Polls Airflow CLI command execution and fetches logs.
+ *
+ *  Method: composer.projects.locations.environments.pollAirflowCommand
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPollAirflowCommand : GTLRCloudComposerQuery
+
+/**
+ *  The resource name of the environment in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_PollAirflowCommandResponse.
+ *
+ *  Polls Airflow CLI command execution and fetches logs.
+ *
+ *  @param object The @c GTLRCloudComposer_PollAirflowCommandRequest to include
+ *    in the query.
+ *  @param environment The resource name of the environment in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPollAirflowCommand
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_PollAirflowCommandRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
  *  Creates a snapshots of a Cloud Composer environment. As a result of this
  *  operation, snapshot of environment's state is stored in a location specified
  *  in the SaveSnapshotRequest.
@@ -351,6 +481,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsSaveSnapshot
  */
 + (instancetype)queryWithObject:(GTLRCloudComposer_SaveSnapshotRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
+ *  Stops Airflow CLI command execution.
+ *
+ *  Method: composer.projects.locations.environments.stopAirflowCommand
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsStopAirflowCommand : GTLRCloudComposerQuery
+
+/**
+ *  The resource name of the environment in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_StopAirflowCommandResponse.
+ *
+ *  Stops Airflow CLI command execution.
+ *
+ *  @param object The @c GTLRCloudComposer_StopAirflowCommandRequest to include
+ *    in the query.
+ *  @param environment The resource name of the environment in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsStopAirflowCommand
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_StopAirflowCommandRequest *)object
                     environment:(NSString *)environment;
 
 @end

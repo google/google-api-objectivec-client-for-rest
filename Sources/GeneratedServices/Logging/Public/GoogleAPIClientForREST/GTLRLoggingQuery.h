@@ -1583,6 +1583,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsSinksCreate : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
  *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]" For examples:"projects/my-project"
@@ -1775,6 +1784,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsSinksPatch : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The full resource name of the sink to update, including the parent
  *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
@@ -1846,6 +1864,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksUpdate : GTLRLoggingQuery
+
+/**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -3806,6 +3833,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersSinksCreate : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
  *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]" For examples:"projects/my-project"
@@ -3998,6 +4034,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersSinksPatch : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The full resource name of the sink to update, including the parent
  *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
@@ -4069,6 +4114,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersSinksUpdate : GTLRLoggingQuery
+
+/**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -6913,6 +6967,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsSinksCreate : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
  *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]" For examples:"projects/my-project"
@@ -7105,6 +7168,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsSinksPatch : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The full resource name of the sink to update, including the parent
  *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
@@ -7176,6 +7248,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsSinksUpdate : GTLRLoggingQuery
+
+/**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -9120,6 +9201,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsSinksCreate : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
  *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]" For examples:"projects/my-project"
@@ -9312,6 +9402,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsSinksPatch : GTLRLoggingQuery
 
 /**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
+
+/**
  *  Required. The full resource name of the sink to update, including the parent
  *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
@@ -9383,6 +9482,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsSinksUpdate : GTLRLoggingQuery
+
+/**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -9457,6 +9565,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_SinksCreate : GTLRLoggingQuery
+
+/**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
 /**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
@@ -9649,6 +9766,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_SinksUpdate : GTLRLoggingQuery
+
+/**
+ *  Optional. A service account provided by the caller that will be used to
+ *  write the log entries. Must be of format serviceAccount:some\@email. This
+ *  can only be specified if writing to a destination outside the sink's
+ *  project. If not specified, a p4 service account will automatically be
+ *  generated.
+ */
+@property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
 /**
  *  Required. The full resource name of the sink to update, including the parent

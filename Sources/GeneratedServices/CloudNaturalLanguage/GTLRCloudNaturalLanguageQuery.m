@@ -149,3 +149,25 @@
 }
 
 @end
+
+@implementation GTLRCloudNaturalLanguageQuery_DocumentsModerateText
+
++ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_ModerateTextRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/documents:moderateText";
+  GTLRCloudNaturalLanguageQuery_DocumentsModerateText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudNaturalLanguage_ModerateTextResponse class];
+  query.loggingName = @"language.documents.moderateText";
+  return query;
+}
+
+@end

@@ -129,7 +129,10 @@ NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_Laun
 NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Ads = @"ADS";
 NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
 NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_GenerativeAi = @"GENERATIVE_AI";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Geo = @"GEO";
 NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceConsumerManagement_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceConsumerManagement_TenantResource.status
@@ -532,12 +535,14 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, serviceRootUrl, summary;
+@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
+         serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"pages" : [GTLRServiceConsumerManagement_Page class],
-    @"rules" : [GTLRServiceConsumerManagement_DocumentationRule class]
+    @"rules" : [GTLRServiceConsumerManagement_DocumentationRule class],
+    @"sectionOverrides" : [GTLRServiceConsumerManagement_Page class]
   };
   return map;
 }
@@ -551,7 +556,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_DocumentationRule
-@dynamic deprecationDescription, descriptionProperty, selector;
+@dynamic deprecationDescription, descriptionProperty, disableReplacementWords,
+         selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

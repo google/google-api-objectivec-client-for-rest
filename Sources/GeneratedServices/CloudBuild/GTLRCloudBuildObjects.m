@@ -69,6 +69,7 @@ NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified = @
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None = @"NONE";
 NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
+NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha512 = @"SHA512";
 
 // GTLRCloudBuild_BuildOptions.substitutionOption
 NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose = @"ALLOW_LOOSE";
@@ -124,6 +125,7 @@ NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudBuild_Hash_Type_Md5    = @"MD5";
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
 NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
+NSString * const kGTLRCloudBuild_Hash_Type_Sha512 = @"SHA512";
 
 // GTLRCloudBuild_NetworkConfig.egressOption
 NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_EgressOptionUnspecified = @"EGRESS_OPTION_UNSPECIFIED";
@@ -239,12 +241,13 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_Artifacts
-@dynamic images, mavenArtifacts, objects, pythonPackages;
+@dynamic images, mavenArtifacts, npmPackages, objects, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"images" : [NSString class],
     @"mavenArtifacts" : [GTLRCloudBuild_MavenArtifact class],
+    @"npmPackages" : [GTLRCloudBuild_NpmPackage class],
     @"pythonPackages" : [GTLRCloudBuild_PythonPackage class]
   };
   return map;
@@ -776,8 +779,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_GitFileSource
-@dynamic bitbucketServerConfig, githubEnterpriseConfig, path, repoType,
-         revision, uri;
+@dynamic bitbucketServerConfig, githubEnterpriseConfig, path, repository,
+         repoType, revision, uri;
 @end
 
 
@@ -912,7 +915,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_GitRepoSource
-@dynamic bitbucketServerConfig, githubEnterpriseConfig, ref, repoType, uri;
+@dynamic bitbucketServerConfig, githubEnterpriseConfig, ref, repository,
+         repoType, uri;
 @end
 
 
@@ -1186,6 +1190,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_NpmPackage
+//
+
+@implementation GTLRCloudBuild_NpmPackage
+@dynamic packagePath, repository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Operation
 //
 
@@ -1382,7 +1396,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_Results
 @dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
-         images, mavenArtifacts, numArtifacts, pythonPackages;
+         images, mavenArtifacts, npmPackages, numArtifacts, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1390,6 +1404,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
     @"buildStepOutputs" : [NSString class],
     @"images" : [GTLRCloudBuild_BuiltImage class],
     @"mavenArtifacts" : [GTLRCloudBuild_UploadedMavenArtifact class],
+    @"npmPackages" : [GTLRCloudBuild_UploadedNpmPackage class],
     @"pythonPackages" : [GTLRCloudBuild_UploadedPythonPackage class]
   };
   return map;
@@ -1633,6 +1648,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_UploadedMavenArtifact
+@dynamic fileHashes, pushTiming, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UploadedNpmPackage
+//
+
+@implementation GTLRCloudBuild_UploadedNpmPackage
 @dynamic fileHashes, pushTiming, uri;
 @end
 

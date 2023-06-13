@@ -26,6 +26,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// capability
+
+/**
+ *  Default means static ttf fonts.
+ *
+ *  Value: "CAPABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsCapabilityCapabilityUnspecified;
+/**
+ *  Prefer variable font files instead of static fonts instantiated at standard
+ *  weights.
+ *
+ *  Value: "VF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsCapabilityVf;
+/**
+ *  Use WOFF2(Compressed)instead of ttf.
+ *
+ *  Value: "WOFF2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsCapabilityWoff2;
+
+// ----------------------------------------------------------------------------
 // sort
 
 /**
@@ -88,6 +111,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 @interface GTLRWebfontsQuery_WebfontsList : GTLRWebfontsQuery
 
 /**
+ *  Controls the font urls in `Webfont.files`, by default, static ttf fonts are
+ *  sent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWebfontsCapabilityCapabilityUnspecified Default means static
+ *        ttf fonts. (Value: "CAPABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRWebfontsCapabilityWoff2 Use WOFF2(Compressed)instead of ttf.
+ *        (Value: "WOFF2")
+ *    @arg @c kGTLRWebfontsCapabilityVf Prefer variable font files instead of
+ *        static fonts instantiated at standard weights. (Value: "VF")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capability;
+
+/**
+ *  Filters by Webfont.family, using literal match. If not set, returns all
+ *  families
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *family;
+
+/**
  *  Enables sorting of the list.
  *
  *  Likely values:
@@ -101,6 +144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *    @arg @c kGTLRWebfontsSortTrending Sort by trending (Value: "TRENDING")
  */
 @property(nonatomic, copy, nullable) NSString *sort;
+
+/**
+ *  Filters by Webfont.subset, if subset is found in Webfont.subsets. If not
+ *  set, returns all families.
+ */
+@property(nonatomic, copy, nullable) NSString *subset;
 
 /**
  *  Fetches a @c GTLRWebfonts_WebfontList.

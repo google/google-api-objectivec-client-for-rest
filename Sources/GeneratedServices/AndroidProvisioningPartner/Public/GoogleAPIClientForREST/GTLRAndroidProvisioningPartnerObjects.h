@@ -257,6 +257,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclai
 // GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch.status
 
 /**
+ *  Status used to indicate a failure due to a device limit being exceeded
+ *
+ *  Value: "SINGLE_DEVICE_STATUS_DEVICE_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusDeviceLimitExceeded;
+/**
  *  Invalid device identifier.
  *
  *  Value: "SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER"
@@ -580,6 +586,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  call `customers.dpcs.list`.
  */
 @property(nonatomic, copy, nullable) NSString *dpcResourcePath;
+
+/**
+ *  Optional. The timeout before forcing factory reset the device if the device
+ *  doesn't go through provisioning in the setup wizard, usually due to lack of
+ *  network connectivity during setup wizard. Ranges from 0-6 hours, with 2
+ *  hours being the default if unset.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *forcedResetTime;
 
 /**
  *  Required. Whether this is the default configuration that zero-touch
@@ -1531,6 +1545,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  The result status of the device after processing.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusDeviceLimitExceeded
+ *        Status used to indicate a failure due to a device limit being exceeded
+ *        (Value: "SINGLE_DEVICE_STATUS_DEVICE_LIMIT_EXCEEDED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidDeviceIdentifier
  *        Invalid device identifier. (Value:
  *        "SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER")

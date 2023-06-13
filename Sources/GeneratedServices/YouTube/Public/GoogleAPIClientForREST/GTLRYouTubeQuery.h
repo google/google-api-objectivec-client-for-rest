@@ -1662,8 +1662,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Specifies the requested moderation status. Note, comments can be in
  *  statuses, which are not available through this call. For example, this call
  *  does not allow to mark a comment as 'likely spam'. Valid values:
- *  MODERATION_STATUS_PUBLISHED, MODERATION_STATUS_HELD_FOR_REVIEW,
- *  MODERATION_STATUS_REJECTED.
+ *  'heldForReview', 'published' or 'rejected'.
  *
  *  Likely values:
  *    @arg @c kGTLRYouTubeModerationStatusPublished The comment is available for
@@ -1687,8 +1686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @param moderationStatus Specifies the requested moderation status. Note,
  *    comments can be in statuses, which are not available through this call.
  *    For example, this call does not allow to mark a comment as 'likely spam'.
- *    Valid values: MODERATION_STATUS_PUBLISHED,
- *    MODERATION_STATUS_HELD_FOR_REVIEW, MODERATION_STATUS_REJECTED.
+ *    Valid values: 'heldForReview', 'published' or 'rejected'.
  *
  *  Likely values for @c moderationStatus:
  *    @arg @c kGTLRYouTubeModerationStatusPublished The comment is available for

@@ -932,6 +932,29 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_OperationsCancel
+
+@dynamic operation, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                       operation:(NSString *)operation {
+  NSArray *pathParams = @[
+    @"operation", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/operations/{operation}/cancel";
+  GTLRSQLAdminQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.operation = operation;
+  query.expectedObjectClass = [GTLRSQLAdmin_Empty class];
+  query.loggingName = @"sql.operations.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_OperationsGet
 
 @dynamic operation, project;

@@ -1698,6 +1698,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Di
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversifyByLooserSimilarity;
 /**
+ *  Similar to ONE_PER_COMPANY, but it allows at most three jobs in the same
+ *  company to be shown at once, the other jobs under same company are dropped.
+ *
+ *  Value: "MAX_THREE_PER_COMPANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_MaxThreePerCompany;
+/**
  *  Only one job from the same company will be shown at once, other jobs under
  *  same company are pushed to the end of the last page of search result.
  *
@@ -4260,6 +4267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *        pushed to the end of the last page of the search results. This option
  *        is recommended if SIMPLE diversification does not diversify enough.
  *        (Value: "DIVERSIFY_BY_LOOSER_SIMILARITY")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_MaxThreePerCompany
+ *        Similar to ONE_PER_COMPANY, but it allows at most three jobs in the
+ *        same company to be shown at once, the other jobs under same company
+ *        are dropped. (Value: "MAX_THREE_PER_COMPANY")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_OnePerCompany
  *        Only one job from the same company will be shown at once, other jobs
  *        under same company are pushed to the end of the last page of search

@@ -55,33 +55,6 @@
 
 @end
 
-@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRBareMetalSolution_Instance *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2/{+parent}/instances";
-  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
-  query.loggingName = @"baremetalsolution.projects.locations.instances.create";
-  return query;
-}
-
-@end
-
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDetachLun
 
 @dynamic instance;

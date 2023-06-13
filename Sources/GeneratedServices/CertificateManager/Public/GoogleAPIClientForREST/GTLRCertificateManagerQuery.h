@@ -1199,6 +1199,206 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Creates a new TrustConfig in a given project and location.
+ *
+ *  Method: certificatemanager.projects.locations.trustConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsCreate : GTLRCertificateManagerQuery
+
+/**
+ *  Required. The parent resource of the TrustConfig. Must be in the format
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. A user-provided name of the TrustConfig. */
+@property(nonatomic, copy, nullable) NSString *trustConfigId;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_Operation.
+ *
+ *  Creates a new TrustConfig in a given project and location.
+ *
+ *  @param object The @c GTLRCertificateManager_TrustConfig to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the TrustConfig. Must be in
+ *    the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCertificateManager_TrustConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single TrustConfig.
+ *
+ *  Method: certificatemanager.projects.locations.trustConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsDelete : GTLRCertificateManagerQuery
+
+/**
+ *  The current etag of the TrustConfig. If an etag is provided and does not
+ *  match the current etag of the resource, deletion will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the TrustConfig to delete. Must be in the format
+ *  `projects/ * /locations/ * /trustConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_Operation.
+ *
+ *  Deletes a single TrustConfig.
+ *
+ *  @param name Required. A name of the TrustConfig to delete. Must be in the
+ *    format `projects/ * /locations/ * /trustConfigs/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single TrustConfig.
+ *
+ *  Method: certificatemanager.projects.locations.trustConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsGet : GTLRCertificateManagerQuery
+
+/**
+ *  Required. A name of the TrustConfig to describe. Must be in the format
+ *  `projects/ * /locations/ * /trustConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_TrustConfig.
+ *
+ *  Gets details of a single TrustConfig.
+ *
+ *  @param name Required. A name of the TrustConfig to describe. Must be in the
+ *    format `projects/ * /locations/ * /trustConfigs/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TrustConfigs in a given project and location.
+ *
+ *  Method: certificatemanager.projects.locations.trustConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsList : GTLRCertificateManagerQuery
+
+/** Filter expression to restrict the TrustConfigs returned. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A list of TrustConfig field names used to specify the order of the returned
+ *  results. The default sorting order is ascending. To specify descending order
+ *  for a field, add a suffix " desc".
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum number of TrustConfigs to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListTrustConfigsResponse`. Indicates that
+ *  this is a continuation of a prior `ListTrustConfigs` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the TrustConfigs should be
+ *  listed, specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_ListTrustConfigsResponse.
+ *
+ *  Lists TrustConfigs in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the TrustConfigs
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a TrustConfig.
+ *
+ *  Method: certificatemanager.projects.locations.trustConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsPatch : GTLRCertificateManagerQuery
+
+/**
+ *  A user-defined name of the trust config. TrustConfig names must be unique
+ *  globally and match pattern `projects/ * /locations/ * /trustConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_Operation.
+ *
+ *  Updates a TrustConfig.
+ *
+ *  @param object The @c GTLRCertificateManager_TrustConfig to include in the
+ *    query.
+ *  @param name A user-defined name of the trust config. TrustConfig names must
+ *    be unique globally and match pattern `projects/ * /locations/ *
+ *    /trustConfigs/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCertificateManager_TrustConfig *)object
+                           name:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

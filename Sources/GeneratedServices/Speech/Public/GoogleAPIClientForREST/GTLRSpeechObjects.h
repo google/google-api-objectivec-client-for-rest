@@ -462,6 +462,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_ClassItem *> *items;
 
+/**
+ *  Output only. The [KMS key
+ *  name](https://cloud.google.com/kms/docs/resource-hierarchy#keys) with which
+ *  the content of the ClassItem is encrypted. The expected format is
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Output only. The [KMS key version
+ *  name](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions)
+ *  with which content of the ClassItem is encrypted. The expected format is
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
+
 /** The resource name of the custom class. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -793,6 +809,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boost;
+
+/**
+ *  Output only. The [KMS key
+ *  name](https://cloud.google.com/kms/docs/resource-hierarchy#keys) with which
+ *  the content of the PhraseSet is encrypted. The expected format is
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Output only. The [KMS key version
+ *  name](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions)
+ *  with which content of the PhraseSet is encrypted. The expected format is
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
 /** The resource name of the phrase set. */
 @property(nonatomic, copy, nullable) NSString *name;

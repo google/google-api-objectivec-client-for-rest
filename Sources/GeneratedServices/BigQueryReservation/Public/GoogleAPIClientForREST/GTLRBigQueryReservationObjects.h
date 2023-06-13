@@ -499,6 +499,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Status *failureStatus;
 
 /**
+ *  Output only. If true, the commitment is a flat-rate commitment, otherwise,
+ *  it's an edition commitment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFlatRate;
+
+/**
  *  Applicable only for commitments located within one of the BigQuery
  *  multi-regions (US or EU). If set to true, this commitment is placed in the
  *  organization's secondary region which is designated for disaster recovery
@@ -784,10 +792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  */
 @interface GTLRBigQueryReservation_Reservation : GTLRObject
 
-/**
- *  The configuration parameters for the auto scaling feature. Note this is an
- *  alpha feature.
- */
+/** The configuration parameters for the auto scaling feature. */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Autoscale *autoscale;
 
 /**
@@ -855,11 +860,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  Minimum slots available to this reservation. A slot is a unit of
  *  computational power in BigQuery, and serves as the unit of parallelism.
  *  Queries using this reservation might use more slots during runtime if
- *  ignore_idle_slots is set to false. If total slot_capacity of the reservation
- *  and its siblings exceeds the total slot_count of all capacity commitments,
- *  the request will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`. NOTE: for
- *  reservations in US or EU multi-regions, slot capacity constraints are
- *  checked separately for default and auxiliary regions. See
+ *  ignore_idle_slots is set to false. If edition is EDITION_UNSPECIFIED and
+ *  total slot_capacity of the reservation and its siblings exceeds the total
+ *  slot_count of all capacity commitments, the request will fail with
+ *  `google.rpc.Code.RESOURCE_EXHAUSTED`. If edition is any value but
+ *  EDITION_UNSPECIFIED, then the above requirement is not needed. The total
+ *  slot_capacity of the reservation and its siblings may exceed the total
+ *  slot_count of capacity commitments. In that case, the exceeding slots will
+ *  be charged with the autoscale SKU. You can increase the number of baseline
+ *  slots in a reservation every few minutes. If you want to decrease your
+ *  baseline slots, you are limited to once an hour if you have recently changed
+ *  your baseline slot capacity and your baseline slots exceed your committed
+ *  slots. Otherwise, you can decrease your baseline slots every few minutes.
+ *  NOTE: for reservations in US or EU multi-regions, slot capacity constraints
+ *  are checked separately for default and auxiliary regions. See
  *  multi_region_auxiliary flag for more details.
  *
  *  Uses NSNumber of longLongValue.

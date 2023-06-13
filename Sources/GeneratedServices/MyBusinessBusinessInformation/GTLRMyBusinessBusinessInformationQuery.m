@@ -193,33 +193,6 @@ NSString * const kGTLRMyBusinessBusinessInformationViewFull    = @"FULL";
 
 @end
 
-@implementation GTLRMyBusinessBusinessInformationQuery_LocationsAssociate
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRMyBusinessBusinessInformation_AssociateLocationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:associate";
-  GTLRMyBusinessBusinessInformationQuery_LocationsAssociate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRMyBusinessBusinessInformation_Empty class];
-  query.loggingName = @"mybusinessbusinessinformation.locations.associate";
-  return query;
-}
-
-@end
-
 @implementation GTLRMyBusinessBusinessInformationQuery_LocationsAttributesGetGoogleUpdated
 
 @dynamic name;
@@ -234,33 +207,6 @@ NSString * const kGTLRMyBusinessBusinessInformationViewFull    = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRMyBusinessBusinessInformation_Attributes class];
   query.loggingName = @"mybusinessbusinessinformation.locations.attributes.getGoogleUpdated";
-  return query;
-}
-
-@end
-
-@implementation GTLRMyBusinessBusinessInformationQuery_LocationsClearLocationAssociation
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRMyBusinessBusinessInformation_ClearLocationAssociationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:clearLocationAssociation";
-  GTLRMyBusinessBusinessInformationQuery_LocationsClearLocationAssociation *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRMyBusinessBusinessInformation_Empty class];
-  query.loggingName = @"mybusinessbusinessinformation.locations.clearLocationAssociation";
   return query;
 }
 

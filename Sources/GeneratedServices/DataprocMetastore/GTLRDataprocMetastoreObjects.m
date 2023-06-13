@@ -21,6 +21,7 @@ NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataWrite = @"DAT
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified = @"METASTORE_TYPE_UNSPECIFIED";
 
@@ -53,6 +54,11 @@ NSString * const kGTLRDataprocMetastore_Federation_State_Deleting = @"DELETING";
 NSString * const kGTLRDataprocMetastore_Federation_State_Error = @"ERROR";
 NSString * const kGTLRDataprocMetastore_Federation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_Federation_State_Updating = @"UPDATING";
+
+// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified = @"ENDPOINT_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc = @"GRPC";
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift = @"THRIFT";
 
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -137,6 +143,25 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Json = @"JSON";
 NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Legacy = @"LEGACY";
 NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspecified = @"LOG_FORMAT_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AlterMetadataResourceLocationRequest
+//
+
+@implementation GTLRDataprocMetastore_AlterMetadataResourceLocationRequest
+@dynamic locationUri, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AlterMetadataResourceLocationResponse
+//
+
+@implementation GTLRDataprocMetastore_AlterMetadataResourceLocationResponse
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -299,6 +324,30 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_ErrorDetails
+//
+
+@implementation GTLRDataprocMetastore_ErrorDetails
+@dynamic details;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ErrorDetails_Details
+//
+
+@implementation GTLRDataprocMetastore_ErrorDetails_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_ExportMetadataRequest
 //
 
@@ -367,7 +416,8 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_HiveMetastoreConfig
-@dynamic auxiliaryVersions, configOverrides, kerberosConfig, version;
+@dynamic auxiliaryVersions, configOverrides, endpointProtocol, kerberosConfig,
+         version;
 @end
 
 
@@ -668,6 +718,25 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_MoveTableToDatabaseRequest
+//
+
+@implementation GTLRDataprocMetastore_MoveTableToDatabaseRequest
+@dynamic dbName, destinationDbName, tableName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MoveTableToDatabaseResponse
+//
+
+@implementation GTLRDataprocMetastore_MoveTableToDatabaseResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_NetworkConfig
 //
 
@@ -753,6 +822,26 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_QueryMetadataRequest
+//
+
+@implementation GTLRDataprocMetastore_QueryMetadataRequest
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_QueryMetadataResponse
+//
+
+@implementation GTLRDataprocMetastore_QueryMetadataResponse
+@dynamic resultManifestUri;
 @end
 
 

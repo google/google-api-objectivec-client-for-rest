@@ -75,6 +75,12 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountRep
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_October = @"OCTOBER";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_September = @"SEPTEMBER";
 
+// GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport.state
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Offline = @"OFFLINE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Online = @"ONLINE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Unknown = @"UNKNOWN";
+
 // GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData.problem
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedDnsResolutions = @"FAILED_DNS_RESOLUTIONS";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedHttpsRequests = @"FAILED_HTTPS_REQUESTS";
@@ -466,50 +472,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse
-@dynamic nextPageToken, printerReports, totalSize;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"printerReports" : [GTLRChromeManagement_GoogleChromeManagementV1PrinterReport class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"printerReports";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse
-@dynamic nextPageToken, totalSize, userPrintReports;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userPrintReports" : [GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"userPrintReports";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRChromeManagement_GoogleChromeManagementV1CpuInfo
 //
 
@@ -689,6 +651,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport
+@dynamic reportTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData
 //
 
@@ -718,6 +690,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport
+@dynamic appId, appVersion, reportTime;
 @end
 
 
@@ -889,16 +871,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRChromeManagement_GoogleChromeManagementV1PrinterReport
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementV1PrinterReport
-@dynamic deviceCount, jobCount, printer, printerId, printerModel, userCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRChromeManagement_GoogleChromeManagementV1StorageInfo
 //
 
@@ -960,10 +932,11 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice
 @dynamic audioStatusReport, batteryInfo, batteryStatusReport,
          bootPerformanceReport, cpuInfo, cpuStatusReport, customer, deviceId,
-         graphicsInfo, graphicsStatusReport, memoryInfo, memoryStatusReport,
-         name, networkDiagnosticsReport, networkInfo, networkStatusReport,
-         orgUnitId, osUpdateStatus, peripheralsReport, serialNumber,
-         storageInfo, storageStatusReport, thunderboltInfo;
+         graphicsInfo, graphicsStatusReport, heartbeatStatusReport,
+         kioskAppStatusReport, memoryInfo, memoryStatusReport, name,
+         networkDiagnosticsReport, networkInfo, networkStatusReport, orgUnitId,
+         osUpdateStatus, peripheralsReport, serialNumber, storageInfo,
+         storageStatusReport, thunderboltInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -974,6 +947,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
     @"cpuInfo" : [GTLRChromeManagement_GoogleChromeManagementV1CpuInfo class],
     @"cpuStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport class],
     @"graphicsStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport class],
+    @"heartbeatStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport class],
+    @"kioskAppStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport class],
     @"memoryStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport class],
     @"networkDiagnosticsReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport class],
     @"networkStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport class],
@@ -1148,16 +1123,6 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
-//
-
-@implementation GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
-@dynamic deviceCount, jobCount, printerCount, userEmail, userId;
 @end
 
 

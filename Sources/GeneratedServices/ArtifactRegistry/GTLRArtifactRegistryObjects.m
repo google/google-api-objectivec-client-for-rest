@@ -55,6 +55,7 @@ NSString * const kGTLRArtifactRegistry_PythonRepository_PublicRepository_Pypi = 
 NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Googet = @"GOOGET";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Kfp   = @"KFP";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
@@ -188,6 +189,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_GoogetArtifact
+//
+
+@implementation GTLRArtifactRegistry_GoogetArtifact
+@dynamic architecture, name, packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File
 //
 
@@ -273,6 +284,72 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   NSDictionary<NSString *, Class> *map = @{
     @"aptArtifacts" : [GTLRArtifactRegistry_AptArtifact class],
     @"errors" : [GTLRArtifactRegistry_ImportAptArtifactsErrorInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo
+//
+
+@implementation GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo
+@dynamic error, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportGoogetArtifactsGcsSource
+//
+
+@implementation GTLRArtifactRegistry_ImportGoogetArtifactsGcsSource
+@dynamic uris, useWildcards;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportGoogetArtifactsMetadata
+//
+
+@implementation GTLRArtifactRegistry_ImportGoogetArtifactsMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportGoogetArtifactsRequest
+//
+
+@implementation GTLRArtifactRegistry_ImportGoogetArtifactsRequest
+@dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportGoogetArtifactsResponse
+//
+
+@implementation GTLRArtifactRegistry_ImportGoogetArtifactsResponse
+@dynamic errors, googetArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo class],
+    @"googetArtifacts" : [GTLRArtifactRegistry_GoogetArtifact class]
   };
   return map;
 }
@@ -955,6 +1032,52 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"aptArtifacts" : [GTLRArtifactRegistry_AptArtifact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGoogetArtifactMediaResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadGoogetArtifactMediaResponse
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGoogetArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_UploadGoogetArtifactMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGoogetArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_UploadGoogetArtifactRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGoogetArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadGoogetArtifactResponse
+@dynamic googetArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"googetArtifacts" : [GTLRArtifactRegistry_GoogetArtifact class]
   };
   return map;
 }

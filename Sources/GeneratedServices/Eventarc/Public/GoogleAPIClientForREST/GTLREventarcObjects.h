@@ -31,6 +31,7 @@
 @class GTLREventarc_GoogleLongrunningOperation_Response;
 @class GTLREventarc_GoogleRpcStatus;
 @class GTLREventarc_GoogleRpcStatus_Details_Item;
+@class GTLREventarc_HttpEndpoint;
 @class GTLREventarc_Location;
 @class GTLREventarc_Location_Labels;
 @class GTLREventarc_Location_Metadata;
@@ -586,6 +587,9 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLREventarc_GKE *gke;
 
+/** An HTTP endpoint destination described by an URI. */
+@property(nonatomic, strong, nullable) GTLREventarc_HttpEndpoint *httpEndpoint;
+
 /**
  *  The resource name of the Workflow whose Executions are triggered by the
  *  events. The Workflow resource should be deployed in the same project as the
@@ -614,8 +618,10 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 /**
  *  Required. The name of a CloudEvents attribute. Currently, only a subset of
- *  attributes are supported for filtering. All triggers MUST provide a filter
- *  for the 'type' attribute.
+ *  attributes are supported for filtering. You can [retrieve a specific
+ *  provider's supported event
+ *  types](/eventarc/docs/list-providers#describe-provider). All triggers MUST
+ *  provide a filter for the 'type' attribute.
  */
 @property(nonatomic, copy, nullable) NSString *attribute;
 
@@ -977,6 +983,35 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
+ *  Represents a HTTP endpoint destination.
+ */
+@interface GTLREventarc_HttpEndpoint : GTLRObject
+
+/**
+ *  Optional. Forwards DNS requests to the VPC specified by network config to
+ *  resolve the HTTP endpoint. Default to false. If set to true, Eventarc will
+ *  create a peering zone to the consumer VPC and forward DNS requests. See:
+ *  https://cloud.google.com/dns/docs/zones/zones-overview#peering_zones Enable
+ *  this if the URI uses an internal DNS name or a private Cloud DNS zone.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forwardDnsRequests;
+
+/**
+ *  Required. The URI of the HTTP enpdoint. The value must be a RFC2396 URI
+ *  string. Examples: `http://10.10.10.8:80/route`,
+ *  `http://svc.us-central1.p.local:8080/`. Only HTTP and HTTPS protocols are
+ *  supported. The host can be either a static IP addressable from the VPC
+ *  specified by the network config, or an internal DNS hostname of the service
+ *  resolvable via Cloud DNS.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  The response message for the `ListChannelConnections` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1122,7 +1157,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLREventarc_Location : GTLRObject
 
@@ -1598,16 +1633,12 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 /**
  *  Optional. The IAM service account email associated with the trigger. The
- *  service account represents the identity of the trigger. The principal who
- *  calls this API must have the `iam.serviceAccounts.actAs` permission in the
- *  service account. See
- *  https://cloud.google.com/iam/docs/understanding-service-accounts?hl=en#sa_common
- *  for more information. For Cloud Run destinations, this service account is
- *  used to generate identity tokens when invoking the service. See
- *  https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account
- *  for information on how to invoke authenticated Cloud Run services. To create
- *  Audit Log triggers, the service account should also have the
- *  `roles/eventarc.eventReceiver` IAM role.
+ *  service account represents the identity of the trigger. The
+ *  `iam.serviceAccounts.actAs` permission must be granted on the service
+ *  account to allow a principal to impersonate the service account. For more
+ *  information, see the [Roles and
+ *  permissions](/eventarc/docs/all-roles-permissions) page specific to the
+ *  trigger destination.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 

@@ -278,6 +278,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsVerifyConnectivity
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:verifyConnectivity";
+  GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsVerifyConnectivity *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_VerifyConnectivityResponse class];
+  query.loggingName = @"cloudkms.projects.locations.ekmConnections.verifyConnectivity";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes
 
 @dynamic location;

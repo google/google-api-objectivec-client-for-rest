@@ -14,12 +14,76 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVerifiedaccess_DeviceSignals.diskEncryption
+NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionDisabled = @"DISK_ENCRYPTION_DISABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionEncrypted = @"DISK_ENCRYPTION_ENCRYPTED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionUnknown = @"DISK_ENCRYPTION_UNKNOWN";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_DiskEncryption_DiskEncryptionUnspecified = @"DISK_ENCRYPTION_UNSPECIFIED";
+
+// GTLRVerifiedaccess_DeviceSignals.operatingSystem
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromeOs = @"CHROME_OS";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_ChromiumOs = @"CHROMIUM_OS";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Linux = @"LINUX";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_MacOsX = @"MAC_OS_X";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_OperatingSystemUnspecified = @"OPERATING_SYSTEM_UNSPECIFIED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OperatingSystem_Windows = @"WINDOWS";
+
+// GTLRVerifiedaccess_DeviceSignals.osFirewall
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OsFirewall_OsFirewallDisabled = @"OS_FIREWALL_DISABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OsFirewall_OsFirewallEnabled = @"OS_FIREWALL_ENABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OsFirewall_OsFirewallUnknown = @"OS_FIREWALL_UNKNOWN";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_OsFirewall_OsFirewallUnspecified = @"OS_FIREWALL_UNSPECIFIED";
+
+// GTLRVerifiedaccess_DeviceSignals.passwordProtectionWarningTrigger
+NSString * const kGTLRVerifiedaccess_DeviceSignals_PasswordProtectionWarningTrigger_PasswordProtectionOff = @"PASSWORD_PROTECTION_OFF";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_PasswordProtectionWarningTrigger_PasswordProtectionWarningTriggerUnspecified = @"PASSWORD_PROTECTION_WARNING_TRIGGER_UNSPECIFIED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_PasswordProtectionWarningTrigger_PasswordReuse = @"PASSWORD_REUSE";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_PasswordProtectionWarningTrigger_PhishingReuse = @"PHISHING_REUSE";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_PasswordProtectionWarningTrigger_PolicyUnset = @"POLICY_UNSET";
+
+// GTLRVerifiedaccess_DeviceSignals.realtimeUrlCheckMode
+NSString * const kGTLRVerifiedaccess_DeviceSignals_RealtimeUrlCheckMode_RealtimeUrlCheckModeDisabled = @"REALTIME_URL_CHECK_MODE_DISABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_RealtimeUrlCheckMode_RealtimeUrlCheckModeEnabledMainFrame = @"REALTIME_URL_CHECK_MODE_ENABLED_MAIN_FRAME";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_RealtimeUrlCheckMode_RealtimeUrlCheckModeUnspecified = @"REALTIME_URL_CHECK_MODE_UNSPECIFIED";
+
+// GTLRVerifiedaccess_DeviceSignals.safeBrowsingProtectionLevel
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SafeBrowsingProtectionLevel_Enhanced = @"ENHANCED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SafeBrowsingProtectionLevel_Inactive = @"INACTIVE";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SafeBrowsingProtectionLevel_SafeBrowsingProtectionLevelUnspecified = @"SAFE_BROWSING_PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SafeBrowsingProtectionLevel_Standard = @"STANDARD";
+
+// GTLRVerifiedaccess_DeviceSignals.screenLockSecured
+NSString * const kGTLRVerifiedaccess_DeviceSignals_ScreenLockSecured_ScreenLockSecuredDisabled = @"SCREEN_LOCK_SECURED_DISABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_ScreenLockSecured_ScreenLockSecuredEnabled = @"SCREEN_LOCK_SECURED_ENABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_ScreenLockSecured_ScreenLockSecuredUnknown = @"SCREEN_LOCK_SECURED_UNKNOWN";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_ScreenLockSecured_ScreenLockSecuredUnspecified = @"SCREEN_LOCK_SECURED_UNSPECIFIED";
+
+// GTLRVerifiedaccess_DeviceSignals.secureBootMode
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SecureBootMode_SecureBootModeDisabled = @"SECURE_BOOT_MODE_DISABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SecureBootMode_SecureBootModeEnabled = @"SECURE_BOOT_MODE_ENABLED";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SecureBootMode_SecureBootModeUnknown = @"SECURE_BOOT_MODE_UNKNOWN";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_SecureBootMode_SecureBootModeUnspecified = @"SECURE_BOOT_MODE_UNSPECIFIED";
+
+// GTLRVerifiedaccess_DeviceSignals.trigger
+NSString * const kGTLRVerifiedaccess_DeviceSignals_Trigger_TriggerBrowserNavigation = @"TRIGGER_BROWSER_NAVIGATION";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_Trigger_TriggerLoginScreen = @"TRIGGER_LOGIN_SCREEN";
+NSString * const kGTLRVerifiedaccess_DeviceSignals_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
+
 // GTLRVerifiedaccess_VerifyChallengeResponseResult.keyTrustLevel
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserHwKey = @"CHROME_BROWSER_HW_KEY";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserNoKey = @"CHROME_BROWSER_NO_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode = @"CHROME_OS_DEVELOPER_MODE";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsVerifiedMode = @"CHROME_OS_VERIFIED_MODE";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_KeyTrustLevelUnspecified = @"KEY_TRUST_LEVEL_UNSPECIFIED";
+
+// GTLRVerifiedaccess_VerifyChallengeResponseResult.profileKeyTrustLevel
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeBrowserHwKey = @"CHROME_BROWSER_HW_KEY";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeBrowserNoKey = @"CHROME_BROWSER_NO_KEY";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsDeveloperMode = @"CHROME_OS_DEVELOPER_MODE";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsVerifiedMode = @"CHROME_OS_VERIFIED_MODE";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_KeyTrustLevelUnspecified = @"KEY_TRUST_LEVEL_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -27,7 +91,49 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel
 //
 
 @implementation GTLRVerifiedaccess_Challenge
-@dynamic alternativeChallenge, challenge;
+@dynamic challenge;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVerifiedaccess_CrowdStrikeAgent
+//
+
+@implementation GTLRVerifiedaccess_CrowdStrikeAgent
+@dynamic agentId, customerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVerifiedaccess_DeviceSignals
+//
+
+@implementation GTLRVerifiedaccess_DeviceSignals
+@dynamic allowScreenLock, browserVersion, builtInDnsClientEnabled,
+         chromeRemoteDesktopAppBlocked, crowdStrikeAgent, deviceAffiliationIds,
+         deviceEnrollmentDomain, deviceManufacturer, deviceModel,
+         diskEncryption, displayName, hostname, imei, macAddresses, meid,
+         operatingSystem, osFirewall, osVersion,
+         passwordProtectionWarningTrigger, profileAffiliationIds,
+         realtimeUrlCheckMode, safeBrowsingProtectionLevel, screenLockSecured,
+         secureBootMode, serialNumber, siteIsolationEnabled, systemDnsServers,
+         thirdPartyBlockingEnabled, trigger, windowsMachineDomain,
+         windowsUserDomain;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceAffiliationIds" : [NSString class],
+    @"imei" : [NSString class],
+    @"macAddresses" : [NSString class],
+    @"meid" : [NSString class],
+    @"profileAffiliationIds" : [NSString class],
+    @"systemDnsServers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -56,6 +162,7 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel
 //
 
 @implementation GTLRVerifiedaccess_VerifyChallengeResponseResult
-@dynamic customerId, devicePermanentId, deviceSignal, keyTrustLevel,
-         signedPublicKeyAndChallenge, virtualDeviceId;
+@dynamic customerId, devicePermanentId, deviceSignal, deviceSignals,
+         keyTrustLevel, profileCustomerId, profileKeyTrustLevel,
+         signedPublicKeyAndChallenge, virtualDeviceId, virtualProfileId;
 @end

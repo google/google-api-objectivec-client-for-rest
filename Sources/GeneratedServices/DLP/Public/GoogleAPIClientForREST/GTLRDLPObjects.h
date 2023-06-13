@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Loss Prevention (DLP) API (dlp/v2)
+//   Cloud Data Loss Prevention (DLP) (dlp/v2)
 // Description:
 //   Provides methods for detection, risk analysis, and de-identification of
 //   privacy-sensitive fragments in text, images, and Google Cloud Platform
@@ -1676,23 +1676,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification
 // GTLRDLP_GooglePrivacyDlpV2SensitivityScore.score
 
 /**
- *  High risk – SPII may be present. Exfiltration of data may lead to user data
- *  loss. Re-identification of users may be possible. Consider limiting usage
- *  and or removing SPII.
+ *  High risk. Sensitive personally identifiable information (SPII) can be
+ *  present. Exfiltration of data can lead to user data loss. Re-identification
+ *  of users might be possible. Consider limiting usage and or removing SPII.
  *
  *  Value: "SENSITIVITY_HIGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityHigh;
 /**
- *  No sensitive information detected. Limited access.
+ *  No sensitive information detected. The resource isn't publicly accessible.
  *
  *  Value: "SENSITIVITY_LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityLow;
 /**
- *  Medium risk - PII, potentially sensitive data, or fields with free-text data
- *  that are at higher risk of having intermittent sensitive data. Consider
- *  limiting access.
+ *  Medium risk. Contains personally identifiable information (PII), potentially
+ *  sensitive data, or fields with free-text data that are at a higher risk of
+ *  having intermittent sensitive data. Consider limiting access.
  *
  *  Value: "SENSITIVITY_MODERATE"
  */
@@ -3335,6 +3335,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
 
 /**
+ *  Sensitivity for this CustomInfoType. If this CustomInfoType extends an
+ *  existing InfoType, the sensitivity here will take precedent over that of the
+ *  original InfoType. If unset for a CustomInfoType, it will default to HIGH.
+ *  This only applies to data profiling.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/**
  *  Load an existing `StoredInfoType` resource for use in `InspectDataSource`.
  *  Not currently supported in `InspectContent`.
  */
@@ -3781,11 +3789,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The results of a Deidentify action from an Inspect job.
+ *  The results of a Deidentify action from an inspect job.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceDetails : GTLRObject
 
-/** Stats about de-identification. */
+/** Stats about the de-identification operation. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyDataSourceStats *deidentifyStats;
 
 /** De-identification config used for the request. */
@@ -4880,6 +4888,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  names should conform to the pattern `[A-Za-z0-9$_-]{1,64}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional custom sensitivity for this InfoType. This only applies to data
+ *  profiling.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
 
 /** Optional version name for this InfoType. */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -6254,6 +6268,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence;
 
+/**
+ *  Whether this infoType was excluded from sensitivity and risk analysis due to
+ *  factors such as low prevalence (subject to change).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludedFromAnalysis;
+
 /** The other infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -6439,7 +6461,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ProfileStatus : GTLRObject
 
-/** Profiling status code and optional message */
+/**
+ *  Profiling status code and optional message. status.code will be 0 (default
+ *  value) for OK.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *status;
 
 /** Time when the profile generation status was updated */
@@ -7038,20 +7063,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions : GTLRObject
 
 /**
- *  Snapshot of the state of the DeidentifyTemplate from the Deidentify action
+ *  Snapshot of the state of the `DeidentifyTemplate` from the Deidentify action
  *  at the time this job was run.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *snapshotDeidentifyTemplate;
 
 /**
- *  Snapshot of the state of the image redact DeidentifyTemplate from the
- *  Deidentify action at the time this job was run.
+ *  Snapshot of the state of the image transformation `DeidentifyTemplate` from
+ *  the `Deidentify` action at the time this job was run.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *snapshotImageRedactTemplate;
 
 /**
- *  Snapshot of the state of the structured DeidentifyTemplate from the
- *  Deidentify action at the time this job was run.
+ *  Snapshot of the state of the structured `DeidentifyTemplate` from the
+ *  `Deidentify` action at the time this job was run.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *snapshotStructuredDeidentifyTemplate;
 
@@ -7194,27 +7219,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Score is a summary of all elements in the data profile. A higher number
- *  means more sensitive.
+ *  Score is calculated from of all elements in the data profile. A higher level
+ *  means the data is more sensitive.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SensitivityScore : GTLRObject
 
 /**
- *  The score applied to the resource.
+ *  The sensitivity score applied to the resource.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityHigh
- *        High risk – SPII may be present. Exfiltration of data may lead to user
- *        data loss. Re-identification of users may be possible. Consider
- *        limiting usage and or removing SPII. (Value: "SENSITIVITY_HIGH")
+ *        High risk. Sensitive personally identifiable information (SPII) can be
+ *        present. Exfiltration of data can lead to user data loss.
+ *        Re-identification of users might be possible. Consider limiting usage
+ *        and or removing SPII. (Value: "SENSITIVITY_HIGH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityLow
- *        No sensitive information detected. Limited access. (Value:
- *        "SENSITIVITY_LOW")
+ *        No sensitive information detected. The resource isn't publicly
+ *        accessible. (Value: "SENSITIVITY_LOW")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityModerate
- *        Medium risk - PII, potentially sensitive data, or fields with
- *        free-text data that are at higher risk of having intermittent
- *        sensitive data. Consider limiting access. (Value:
- *        "SENSITIVITY_MODERATE")
+ *        Medium risk. Contains personally identifiable information (PII),
+ *        potentially sensitive data, or fields with free-text data that are at
+ *        a higher risk of having intermittent sensitive data. Consider limiting
+ *        access. (Value: "SENSITIVITY_MODERATE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityScoreUnspecified
  *        Unused. (Value: "SENSITIVITY_SCORE_UNSPECIFIED")
  */
@@ -7506,7 +7532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *datasetLocation;
 
-/** The GCP project ID that owns the BigQuery dataset. */
+/** The Google Cloud project ID that owns the BigQuery dataset. */
 @property(nonatomic, copy, nullable) NSString *datasetProjectId;
 
 /**

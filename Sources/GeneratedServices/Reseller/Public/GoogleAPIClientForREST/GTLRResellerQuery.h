@@ -28,6 +28,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// action
+
+/**
+ *  Auto determines whether to create new subscription, upgrade or downagrade
+ *  existing subscription or transfer the existing subscription
+ *
+ *  Value: "actionUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRResellerActionActionUnspecified;
+/**
+ *  Create new subscription
+ *
+ *  Value: "buy"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRResellerActionBuy;
+/**
+ *  Switch existing subscription to another sku (upgrade/downgrade)
+ *
+ *  Value: "switch"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRResellerActionSwitch;
+
+// ----------------------------------------------------------------------------
 // deletionType
 
 /**
@@ -750,6 +773,23 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @interface GTLRResellerQuery_SubscriptionsInsert : GTLRResellerQuery
 
 /**
+ *  The intented insert action. The usage of this field is governed by certain
+ *  policies which are being developed & tested currently. Hence, these might
+ *  not work as intended. Once this is fully tested & available to consume, we
+ *  will share more information about its usage, limitations and policy
+ *  documentation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRResellerActionActionUnspecified Auto determines whether to
+ *        create new subscription, upgrade or downagrade existing subscription
+ *        or transfer the existing subscription (Value: "actionUnspecified")
+ *    @arg @c kGTLRResellerActionBuy Create new subscription (Value: "buy")
+ *    @arg @c kGTLRResellerActionSwitch Switch existing subscription to another
+ *        sku (upgrade/downgrade) (Value: "switch")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
  *  The `customerAuthToken` query string is required when creating a resold
  *  account that transfers a direct customer's subscription or transfers another
  *  reseller customer's subscription to your reseller management. This is a
@@ -766,6 +806,16 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  The sku_id of the existing subscription to be upgraded or downgraded. This
+ *  is required when action is SWITCH. The usage of this field is governed by
+ *  certain policies which are being developed & tested currently. Hence, these
+ *  might not work as intended. Once this is fully tested & available to
+ *  consume, we will share more information about its usage, limitations and
+ *  policy documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSkuId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.

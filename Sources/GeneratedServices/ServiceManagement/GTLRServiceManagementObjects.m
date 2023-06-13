@@ -155,7 +155,10 @@ NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceManagement_Publishing_Organization_Ads = @"ADS";
 NSString * const kGTLRServiceManagement_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
 NSString * const kGTLRServiceManagement_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceManagement_Publishing_Organization_GenerativeAi = @"GENERATIVE_AI";
+NSString * const kGTLRServiceManagement_Publishing_Organization_Geo = @"GEO";
 NSString * const kGTLRServiceManagement_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceManagement_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceManagement_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceManagement_Rollout.status
@@ -683,7 +686,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_DocumentationRule
-@dynamic deprecationDescription, descriptionProperty, selector;
+@dynamic deprecationDescription, descriptionProperty, disableReplacementWords,
+         selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

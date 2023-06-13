@@ -18,7 +18,7 @@
 @class GTLROnDemandScanning_AnalysisCompleted;
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
-@class GTLROnDemandScanning_Binary;
+@class GTLROnDemandScanning_BinarySourceInfo;
 @class GTLROnDemandScanning_BuilderConfig;
 @class GTLROnDemandScanning_BuildOccurrence;
 @class GTLROnDemandScanning_BuildProvenance;
@@ -73,6 +73,7 @@
 @class GTLROnDemandScanning_PackageData;
 @class GTLROnDemandScanning_PackageIssue;
 @class GTLROnDemandScanning_PackageOccurrence;
+@class GTLROnDemandScanning_PackageVersion;
 @class GTLROnDemandScanning_ProjectRepoId;
 @class GTLROnDemandScanning_Recipe;
 @class GTLROnDemandScanning_Recipe_Arguments_Item;
@@ -80,6 +81,10 @@
 @class GTLROnDemandScanning_RelatedUrl;
 @class GTLROnDemandScanning_Remediation;
 @class GTLROnDemandScanning_RepoId;
+@class GTLROnDemandScanning_SbomReferenceIntotoPayload;
+@class GTLROnDemandScanning_SbomReferenceIntotoPredicate;
+@class GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest;
+@class GTLROnDemandScanning_SBOMReferenceOccurrence;
 @class GTLROnDemandScanning_Signature;
 @class GTLROnDemandScanning_SlsaBuilder;
 @class GTLROnDemandScanning_SlsaCompleteness;
@@ -151,6 +156,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AliasContext_Kind_Other
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh;
 /** Value: "ATTACK_COMPLEXITY_LOW" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow;
+/** Value: "ATTACK_COMPLEXITY_MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityMedium;
 /** Value: "ATTACK_COMPLEXITY_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified;
 
@@ -183,36 +190,48 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_Aut
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.availabilityImpact
 
+/** Value: "IMPACT_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactComplete;
 /** Value: "IMPACT_HIGH" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh;
 /** Value: "IMPACT_LOW" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow;
 /** Value: "IMPACT_NONE" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone;
+/** Value: "IMPACT_PARTIAL" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactPartial;
 /** Value: "IMPACT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.confidentialityImpact
 
+/** Value: "IMPACT_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactComplete;
 /** Value: "IMPACT_HIGH" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh;
 /** Value: "IMPACT_LOW" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow;
 /** Value: "IMPACT_NONE" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone;
+/** Value: "IMPACT_PARTIAL" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactPartial;
 /** Value: "IMPACT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.integrityImpact
 
+/** Value: "IMPACT_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete;
 /** Value: "IMPACT_HIGH" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh;
 /** Value: "IMPACT_LOW" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow;
 /** Value: "IMPACT_NONE" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone;
+/** Value: "IMPACT_PARTIAL" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactPartial;
 /** Value: "IMPACT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified;
 
@@ -449,6 +468,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_NoteKin
  *  Value: "PACKAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package;
+/**
+ *  This represents an SBOM Reference.
+ *
+ *  Value: "SBOM_REFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_SbomReference;
 /**
  *  This represents an available package upgrade.
  *
@@ -956,12 +981,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
- *  GTLROnDemandScanning_Binary
+ *  GTLROnDemandScanning_BinarySourceInfo
  */
-@interface GTLROnDemandScanning_Binary : GTLRObject
+@interface GTLROnDemandScanning_BinarySourceInfo : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *name;
-@property(nonatomic, copy, nullable) NSString *version;
+/**
+ *  The binary package. This is significant when the source is different than
+ *  the binary itself. Historically if they've differed, we've stored the name
+ *  of the source and its version in the package/version fields, but we should
+ *  also store the binary package info, as that's what's actually installed. See
+ *  b/175908657#comment15.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_PackageVersion *binaryVersion;
+
+/**
+ *  The source package. Similar to the above, this is significant when the
+ *  source is different than the binary itself. Since the top-level
+ *  package/version fields are based on an if/else, we need a separate field for
+ *  both binary and source if we want to know definitively where the data is
+ *  coming from.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_PackageVersion *sourceVersion;
 
 @end
 
@@ -1222,6 +1262,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        Value "ATTACK_COMPLEXITY_HIGH"
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow
  *        Value "ATTACK_COMPLEXITY_LOW"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityMedium
+ *        Value "ATTACK_COMPLEXITY_MEDIUM"
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified
  *        Value "ATTACK_COMPLEXITY_UNSPECIFIED"
  */
@@ -1264,12 +1306,16 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  availabilityImpact
  *
  *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactComplete Value
+ *        "IMPACT_COMPLETE"
  *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh Value
  *        "IMPACT_HIGH"
  *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow Value
  *        "IMPACT_LOW"
  *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone Value
  *        "IMPACT_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactPartial Value
+ *        "IMPACT_PARTIAL"
  *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified
  *        Value "IMPACT_UNSPECIFIED"
  */
@@ -1286,12 +1332,16 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  confidentialityImpact
  *
  *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactComplete
+ *        Value "IMPACT_COMPLETE"
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh Value
  *        "IMPACT_HIGH"
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow Value
  *        "IMPACT_LOW"
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone Value
  *        "IMPACT_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactPartial
+ *        Value "IMPACT_PARTIAL"
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified
  *        Value "IMPACT_UNSPECIFIED"
  */
@@ -1315,12 +1365,16 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  integrityImpact
  *
  *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete Value
+ *        "IMPACT_COMPLETE"
  *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh Value
  *        "IMPACT_HIGH"
  *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow Value
  *        "IMPACT_LOW"
  *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone Value
  *        "IMPACT_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactPartial Value
+ *        "IMPACT_PARTIAL"
  *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified Value
  *        "IMPACT_UNSPECIFIED"
  */
@@ -2252,6 +2306,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Package This represents a
  *        package installed via a package manager. (Value: "PACKAGE")
+ *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_SbomReference This
+ *        represents an SBOM Reference. (Value: "SBOM_REFERENCE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Vulnerability The note and
@@ -2287,6 +2343,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  `https://gcr.io/project/image\@sha256:123abc` for a Docker image.
  */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
+
+/** Describes a specific SBOM reference occurrences. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SBOMReferenceOccurrence *sbomReference;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2388,14 +2447,11 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The architecture of the package. */
 @property(nonatomic, copy, nullable) NSString *architecture;
 
-/**
- *  The binary package. This is significant when the source is different than
- *  the binary itself. Historically if they've differed, we've stored the name
- *  of the source and its version in the package/version fields, but we should
- *  also store the binary package info, as that's what's actually installed. See
- *  b/175908657#comment15.
- */
-@property(nonatomic, strong, nullable) GTLROnDemandScanning_Binary *binary;
+/** A bundle containing the binary and source information. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_BinarySourceInfo *> *binarySourceInfo;
+
+/** DEPRECATED */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_PackageVersion *binaryVersion;
 
 /**
  *  The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in which
@@ -2461,6 +2517,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  go/drydock-dd-custom-binary-scanning
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *patchedCve;
+
+/** DEPRECATED */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_PackageVersion *sourceVersion;
 
 @property(nonatomic, copy, nullable) NSString *unused;
 
@@ -2593,6 +2652,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Output only. The version of the package. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Version *version;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_PackageVersion
+ */
+@interface GTLROnDemandScanning_PackageVersion : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2746,6 +2816,90 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** A server-assigned, globally unique identifier. */
 @property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  The actual payload that contains the SBOM Reference data. The payload
+ *  follows the intoto statement specification. See
+ *  https://github.com/in-toto/attestation/blob/main/spec/v1.0/statement.md for
+ *  more details.
+ */
+@interface GTLROnDemandScanning_SbomReferenceIntotoPayload : GTLRObject
+
+/** Identifier for the schema of the Statement. */
+@property(nonatomic, copy, nullable) NSString *xType;
+
+/**
+ *  Additional parameters of the Predicate. Includes the actual data about the
+ *  SBOM.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SbomReferenceIntotoPredicate *predicate;
+
+/** URI identifying the type of the Predicate. */
+@property(nonatomic, copy, nullable) NSString *predicateType;
+
+/**
+ *  Set of software artifacts that the attestation applies to. Each element
+ *  represents a single software artifact.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Subject *> *subject;
+
+@end
+
+
+/**
+ *  A predicate which describes the SBOM being referenced.
+ */
+@interface GTLROnDemandScanning_SbomReferenceIntotoPredicate : GTLRObject
+
+/** A map of algorithm to digest of the contents of the SBOM. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest *digest;
+
+/** The location of the SBOM. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The mime type of the SBOM. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** The person or system referring this predicate to the consumer. */
+@property(nonatomic, copy, nullable) NSString *referrerId;
+
+@end
+
+
+/**
+ *  A map of algorithm to digest of the contents of the SBOM.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest : GTLRObject
+@end
+
+
+/**
+ *  The occurrence representing an SBOM reference as applied to a specific
+ *  resource. The occurrence follows the DSSE specification. See
+ *  https://github.com/secure-systems-lab/dsse/blob/master/envelope.md for more
+ *  details.
+ */
+@interface GTLROnDemandScanning_SBOMReferenceOccurrence : GTLRObject
+
+/** The actual payload that contains the SBOM reference data. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SbomReferenceIntotoPayload *payload;
+
+/**
+ *  The kind of payload that SbomReferenceIntotoPayload takes. Since it's in the
+ *  intoto format, this value is expected to be 'application/vnd.in-toto+json'.
+ */
+@property(nonatomic, copy, nullable) NSString *payloadType;
+
+/** The signatures over the payload. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_EnvelopeSignature *> *signatures;
 
 @end
 

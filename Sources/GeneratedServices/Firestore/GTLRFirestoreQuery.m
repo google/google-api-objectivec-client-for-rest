@@ -17,6 +17,117 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupSchedules";
+  GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule class];
+  query.loggingName = @"firestore.projects.databases.backupSchedules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.databases.backupSchedules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule class];
+  query.loggingName = @"firestore.projects.databases.backupSchedules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupSchedules";
+  GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListBackupSchedulesResponse class];
+  query.loggingName = @"firestore.projects.databases.backupSchedules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule class];
+  query.loggingName = @"firestore.projects.databases.backupSchedules.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsGet
 
 @dynamic name;
@@ -926,6 +1037,90 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
   query.loggingName = @"firestore.projects.databases.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesRestore
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databases:restore";
+  GTLRFirestoreQuery_ProjectsDatabasesRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsLocationsBackupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsLocationsBackupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.locations.backups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsLocationsBackupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsLocationsBackupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1Backup class];
+  query.loggingName = @"firestore.projects.locations.backups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsLocationsBackupsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRFirestoreQuery_ProjectsLocationsBackupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse class];
+  query.loggingName = @"firestore.projects.locations.backups.list";
   return query;
 }
 

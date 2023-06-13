@@ -17,6 +17,8 @@
 @class GTLRNetworkconnectivity_AuditConfig;
 @class GTLRNetworkconnectivity_AuditLogConfig;
 @class GTLRNetworkconnectivity_Binding;
+@class GTLRNetworkconnectivity_ConsumerPscConfig;
+@class GTLRNetworkconnectivity_ConsumerPscConnection;
 @class GTLRNetworkconnectivity_Expr;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation_Metadata;
@@ -34,8 +36,19 @@
 @class GTLRNetworkconnectivity_Location_Labels;
 @class GTLRNetworkconnectivity_Location_Metadata;
 @class GTLRNetworkconnectivity_Policy;
+@class GTLRNetworkconnectivity_ProducerPscConfig;
+@class GTLRNetworkconnectivity_PscConfig;
+@class GTLRNetworkconnectivity_PscConnection;
 @class GTLRNetworkconnectivity_RouterApplianceInstance;
 @class GTLRNetworkconnectivity_RoutingVPC;
+@class GTLRNetworkconnectivity_ServiceClass;
+@class GTLRNetworkconnectivity_ServiceClass_Labels;
+@class GTLRNetworkconnectivity_ServiceConnectionMap;
+@class GTLRNetworkconnectivity_ServiceConnectionMap_Labels;
+@class GTLRNetworkconnectivity_ServiceConnectionPolicy;
+@class GTLRNetworkconnectivity_ServiceConnectionPolicy_Labels;
+@class GTLRNetworkconnectivity_ServiceConnectionToken;
+@class GTLRNetworkconnectivity_ServiceConnectionToken_Labels;
 @class GTLRNetworkconnectivity_Spoke;
 @class GTLRNetworkconnectivity_Spoke_Labels;
 
@@ -76,6 +89,93 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogTy
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ConsumerPscConfig.state
+
+/**
+ *  No Service Connection Policy found for this network and Service Class
+ *
+ *  Value: "CONNECTION_POLICY_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing;
+/**
+ *  Default state, when Connection Map is created initially.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_StateUnspecified;
+/**
+ *  Set when policy and map configuration is valid, and their matching can lead
+ *  to allowing creation of PSC Connections subject to other constraints like
+ *  connections limit.
+ *
+ *  Value: "VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_Valid;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ConsumerPscConnection.errorType
+
+/**
+ *  An invalid error type as the default case.
+ *
+ *  Value: "CONNECTION_ERROR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ConnectionErrorTypeUnspecified;
+/**
+ *  The error is due to the setup on consumer side.
+ *
+ *  Value: "ERROR_CONSUMER_SIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorConsumerSide;
+/**
+ *  The error is due to Service Automation system internal.
+ *
+ *  Value: "ERROR_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorInternal;
+/**
+ *  The error is due to the setup on producer side.
+ *
+ *  Value: "ERROR_PRODUCER_SIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorProducerSide;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ConsumerPscConnection.state
+
+/**
+ *  The connection is fully established and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Active;
+/**
+ *  The connection is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Creating;
+/**
+ *  The connection is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Deleting;
+/**
+ *  The connection is not functional since some resources on the connection fail
+ *  to be created.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_Failed;
+/**
+ *  An invalid state as the default case.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Hub.state
@@ -218,6 +318,101 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_Loc
  *  Value: "SITE_TO_SITE_SPOKES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToSiteSpokes;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PscConnection.errorType
+
+/**
+ *  An invalid error type as the default case.
+ *
+ *  Value: "CONNECTION_ERROR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ConnectionErrorTypeUnspecified;
+/**
+ *  The error is due to the setup on consumer side.
+ *
+ *  Value: "ERROR_CONSUMER_SIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorConsumerSide;
+/**
+ *  The error is due to Service Automation system internal.
+ *
+ *  Value: "ERROR_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorInternal;
+/**
+ *  The error is due to the setup on producer side.
+ *
+ *  Value: "ERROR_PRODUCER_SIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorProducerSide;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PscConnection.state
+
+/**
+ *  The connection is fully established and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_Active;
+/**
+ *  The connection is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_Creating;
+/**
+ *  The connection is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_Deleting;
+/**
+ *  The connection is not functional since some resources on the connection fail
+ *  to be created.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_Failed;
+/**
+ *  An invalid state as the default case.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ServiceConnectionMap.infrastructure
+
+/**
+ *  An invalid infrastructure as the default case.
+ *
+ *  Value: "INFRASTRUCTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionMap_Infrastructure_InfrastructureUnspecified;
+/**
+ *  Private Service Connect is used for connections.
+ *
+ *  Value: "PSC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionMap_Infrastructure_Psc;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_ServiceConnectionPolicy.infrastructure
+
+/**
+ *  An invalid infrastructure as the default case.
+ *
+ *  Value: "INFRASTRUCTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionPolicy_Infrastructure_InfrastructureUnspecified;
+/**
+ *  Private Service Connect is used for connections.
+ *
+ *  Value: "PSC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionPolicy_Infrastructure_Psc;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Spoke.state
@@ -378,6 +573,142 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Allow the producer to specify which consumers can connect to it.
+ */
+@interface GTLRNetworkconnectivity_ConsumerPscConfig : GTLRObject
+
+/**
+ *  This is used in PSC consumer ForwardingRule to control whether the PSC
+ *  endpoint can be accessed from another region.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableGlobalAccess;
+
+/**
+ *  The resource path of the consumer network where PSC connections are allowed
+ *  to be created in. Note, this network does not need be in the
+ *  ConsumerPscConfig.project in the case of SharedVPC. Example:
+ *  projects/{projectNumOrId}/global/networks/{networkId}.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The consumer project where PSC connections are allowed to be created in.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Output only. Overall state of PSC Connections management for this consumer
+ *  psc config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing
+ *        No Service Connection Policy found for this network and Service Class
+ *        (Value: "CONNECTION_POLICY_MISSING")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_StateUnspecified
+ *        Default state, when Connection Map is created initially. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_Valid Set when
+ *        policy and map configuration is valid, and their matching can lead to
+ *        allowing creation of PSC Connections subject to other constraints like
+ *        connections limit. (Value: "VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  PSC connection details on consumer side.
+ */
+@interface GTLRNetworkconnectivity_ConsumerPscConnection : GTLRObject
+
+/** The most recent error during operating this connection. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error;
+
+/**
+ *  The error type indicates whether the error is consumer facing, producer
+ *  facing or system internal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ConnectionErrorTypeUnspecified
+ *        An invalid error type as the default case. (Value:
+ *        "CONNECTION_ERROR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorConsumerSide
+ *        The error is due to the setup on consumer side. (Value:
+ *        "ERROR_CONSUMER_SIDE")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorInternal
+ *        The error is due to Service Automation system internal. (Value:
+ *        "ERROR_INTERNAL")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_ErrorType_ErrorProducerSide
+ *        The error is due to the setup on producer side. (Value:
+ *        "ERROR_PRODUCER_SIDE")
+ */
+@property(nonatomic, copy, nullable) NSString *errorType;
+
+/**
+ *  The URI of the consumer forwarding rule created. Example:
+ *  projects/{projectNumOrId}/regions/us-east1/networks/{resourceId}.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/** The last Compute Engine operation to setup PSC connection. */
+@property(nonatomic, copy, nullable) NSString *gceOperation;
+
+/**
+ *  The IP literal allocated on the consumer network for the PSC forwarding rule
+ *  that is created to connect to the producer service attachment in this
+ *  service connection map.
+ */
+@property(nonatomic, copy, nullable) NSString *ip;
+
+/**
+ *  The consumer network whose PSC forwarding rule is connected to the service
+ *  attachments in this service connection map. Note that the network could be
+ *  on a different project (shared VPC).
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The consumer project whose PSC forwarding rule is connected to the service
+ *  attachments in this service connection map.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The PSC connection id of the PSC forwarding rule connected to the service
+ *  attachments in this service connection map.
+ */
+@property(nonatomic, copy, nullable) NSString *pscConnectionId;
+
+/**
+ *  The URI of a service attachment which is the target of the PSC connection.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
+
+/**
+ *  The state of the PSC connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Active The
+ *        connection is fully established and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Creating The
+ *        connection is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Deleting The
+ *        connection is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Failed The
+ *        connection is not functional since some resources on the connection
+ *        fail to be created. (Value: "FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_StateUnspecified
+ *        An invalid state as the default case. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -994,6 +1325,126 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
+ *  Response for ListServiceClasses.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceClasses" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListServiceClassesResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  ServiceClasses to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ServiceClass *> *serviceClasses;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListServiceConnectionMaps.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceConnectionMaps" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListServiceConnectionMapsResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  ServiceConnectionMaps to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ServiceConnectionMap *> *serviceConnectionMaps;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListServiceConnectionPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceConnectionPolicies" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListServiceConnectionPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  ServiceConnectionPolicies to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ServiceConnectionPolicy *> *serviceConnectionPolicies;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListServiceConnectionTokens.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceConnectionTokens" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListServiceConnectionTokensResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  ServiceConnectionTokens to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ServiceConnectionToken *> *serviceConnectionTokens;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response for HubService.ListSpokes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1025,7 +1476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRNetworkconnectivity_Location : GTLRObject
 
@@ -1225,6 +1676,108 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
+ *  The PSC configurations on producer side.
+ */
+@interface GTLRNetworkconnectivity_ProducerPscConfig : GTLRObject
+
+/**
+ *  The resource path of a service attachment. Example:
+ *  projects/{projectNumOrId}/regions/{region}/serviceAttachments/{resourceId}.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
+
+@end
+
+
+/**
+ *  Configuration used for Private Service Connect connections. Used when
+ *  Infrastructure is PSC.
+ */
+@interface GTLRNetworkconnectivity_PscConfig : GTLRObject
+
+/**
+ *  Max number of PSC connections for this policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  The resource paths of subnetworks to use for IP address management. Example:
+ *  projects/{projectNumOrId}/regions/{region}/subnetworks/{resourceId}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subnetworks;
+
+@end
+
+
+/**
+ *  Information about a specific Private Service Connect connection.
+ */
+@interface GTLRNetworkconnectivity_PscConnection : GTLRObject
+
+/** The resource reference of the consumer address. */
+@property(nonatomic, copy, nullable) NSString *consumerAddress;
+
+/**
+ *  The resource reference of the PSC Forwarding Rule within the consumer VPC.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerForwardingRule;
+
+/** The project where the PSC connection is created. */
+@property(nonatomic, copy, nullable) NSString *consumerTargetProject;
+
+/** The most recent error during operating this connection. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error;
+
+/**
+ *  The error type indicates whether the error is consumer facing, producer
+ *  facing or system internal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_ErrorType_ConnectionErrorTypeUnspecified
+ *        An invalid error type as the default case. (Value:
+ *        "CONNECTION_ERROR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorConsumerSide
+ *        The error is due to the setup on consumer side. (Value:
+ *        "ERROR_CONSUMER_SIDE")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorInternal The
+ *        error is due to Service Automation system internal. (Value:
+ *        "ERROR_INTERNAL")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorProducerSide
+ *        The error is due to the setup on producer side. (Value:
+ *        "ERROR_PRODUCER_SIDE")
+ */
+@property(nonatomic, copy, nullable) NSString *errorType;
+
+/** The last Compute Engine operation to setup PSC connection. */
+@property(nonatomic, copy, nullable) NSString *gceOperation;
+
+/** The PSC connection id of the PSC forwarding rule. */
+@property(nonatomic, copy, nullable) NSString *pscConnectionId;
+
+/**
+ *  State of the PSC Connection
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Active The connection
+ *        is fully established and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Creating The
+ *        connection is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Deleting The
+ *        connection is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Failed The connection
+ *        is not functional since some resources on the connection fail to be
+ *        created. (Value: "FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified An
+ *        invalid state as the default case. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  A router appliance instance is a Compute Engine virtual machine (VM)
  *  instance that acts as a BGP speaker. A router appliance instance is
  *  specified by the URI of the VM and the internal IP address of one of the
@@ -1261,6 +1814,278 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 /** The URI of the VPC network. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
+@end
+
+
+/**
+ *  The ServiceClass resource. Next id: 8
+ */
+@interface GTLRNetworkconnectivity_ServiceClass : GTLRObject
+
+/** Output only. Time when the ServiceClass was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ServiceClass_Labels *labels;
+
+/**
+ *  Immutable. The name of a ServiceClass resource. Format:
+ *  projects/{project}/locations/{location}/serviceClasses/{service_class} See:
+ *  https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The generated service class name. Use this name to refer to the
+ *  Service class in Service Connection Maps and Service Connection Policies.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceClass;
+
+/**
+ *  Output only. URIs of all Service Connection Maps using this service class.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceConnectionMaps;
+
+/** Output only. Time when the ServiceClass was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ServiceClass_Labels : GTLRObject
+@end
+
+
+/**
+ *  The ServiceConnectionMap resource. Next id: 14
+ */
+@interface GTLRNetworkconnectivity_ServiceConnectionMap : GTLRObject
+
+/** The PSC configurations on consumer side. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ConsumerPscConfig *> *consumerPscConfigs;
+
+/** Output only. PSC connection details on consumer side. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ConsumerPscConnection *> *consumerPscConnections;
+
+/** Output only. Time when the ServiceConnectionMap was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The infrastructure used for connections between
+ *  consumers/producers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ServiceConnectionMap_Infrastructure_InfrastructureUnspecified
+ *        An invalid infrastructure as the default case. (Value:
+ *        "INFRASTRUCTURE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_ServiceConnectionMap_Infrastructure_Psc
+ *        Private Service Connect is used for connections. (Value: "PSC")
+ */
+@property(nonatomic, copy, nullable) NSString *infrastructure;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ServiceConnectionMap_Labels *labels;
+
+/**
+ *  Immutable. The name of a ServiceConnectionMap. Format:
+ *  projects/{project}/locations/{location}/serviceConnectionMaps/{service_connection_map}
+ *  See: https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The PSC configurations on producer side. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ProducerPscConfig *> *producerPscConfigs;
+
+/**
+ *  The service class identifier this ServiceConnectionMap is for. The user of
+ *  ServiceConnectionMap create API needs to have
+ *  networkconnecitivty.serviceclasses.use iam permission for the service class.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceClass;
+
+/** Output only. The service class uri this ServiceConnectionMap is for. */
+@property(nonatomic, copy, nullable) NSString *serviceClassUri;
+
+/**
+ *  The token provided by the consumer. This token authenticates that the
+ *  consumer can create a connecton within the specified project and network.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/** Output only. Time when the ServiceConnectionMap was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ServiceConnectionMap_Labels : GTLRObject
+@end
+
+
+/**
+ *  The ServiceConnectionPolicy resource. Next id: 11
+ */
+@interface GTLRNetworkconnectivity_ServiceConnectionPolicy : GTLRObject
+
+/** Output only. Time when the ServiceConnectionMap was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The type of underlying resources used to create the connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_ServiceConnectionPolicy_Infrastructure_InfrastructureUnspecified
+ *        An invalid infrastructure as the default case. (Value:
+ *        "INFRASTRUCTURE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_ServiceConnectionPolicy_Infrastructure_Psc
+ *        Private Service Connect is used for connections. (Value: "PSC")
+ */
+@property(nonatomic, copy, nullable) NSString *infrastructure;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ServiceConnectionPolicy_Labels *labels;
+
+/**
+ *  Immutable. The name of a ServiceConnectionPolicy. Format:
+ *  projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy}
+ *  See: https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The resource path of the consumer network. Example: -
+ *  projects/{projectNumOrId}/global/networks/{resourceId}.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Configuration used for Private Service Connect connections. Used when
+ *  Infrastructure is PSC.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_PscConfig *pscConfig;
+
+/**
+ *  Output only. [Output only] Information about each Private Service Connect
+ *  connection.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_PscConnection *> *pscConnections;
+
+/**
+ *  The service class identifier for which this ServiceConnectionPolicy is for.
+ *  The service class identifier is a unique, symbolic representation of a
+ *  ServiceClass. It is provided by the Service Producer. Google services have a
+ *  prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For
+ *  example, test-service-a3dfcx.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceClass;
+
+/** Output only. Time when the ServiceConnectionMap was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ServiceConnectionPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  The ServiceConnectionToken resource. Next id: 9
+ */
+@interface GTLRNetworkconnectivity_ServiceConnectionToken : GTLRObject
+
+/** Output only. Time when the ServiceConnectionToken was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The time to which this token is valid. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ServiceConnectionToken_Labels *labels;
+
+/**
+ *  Immutable. The name of a ServiceConnectionToken. Format:
+ *  projects/{project}/locations/{location}/ServiceConnectionTokens/{service_connection_token}
+ *  See: https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The resource path of the network associated with this token. Example:
+ *  projects/{projectNumOrId}/global/networks/{resourceId}.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Output only. The token generated by Automation. */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/** Output only. Time when the ServiceConnectionToken was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ServiceConnectionToken_Labels : GTLRObject
 @end
 
 

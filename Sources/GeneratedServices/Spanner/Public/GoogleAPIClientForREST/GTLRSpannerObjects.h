@@ -2635,7 +2635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *replicas;
 
 /**
- *  Output only. The current instance config state.
+ *  Output only. The current instance config state. Applicable only for
+ *  USER_MANAGED configs.
  *
  *  Likely values:
  *    @arg @c kGTLRSpanner_InstanceConfig_State_Creating The instance config is

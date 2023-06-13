@@ -257,6 +257,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1OperationMetadata_Operati
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1OperationMetadata_OperationType_TransferEntitlementsToGoogle = @"TRANSFER_ENTITLEMENTS_TO_GOOGLE";
 
 // GTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition.parameterType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Boolean = @"BOOLEAN";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Double = @"DOUBLE";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Int64 = @"INT64";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_ParameterTypeUnspecified = @"PARAMETER_TYPE_UNSPECIFIED";
@@ -409,9 +410,9 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement
-@dynamic assignedUnits, associationInfo, channelPartnerId, commitmentSettings,
-         createTime, maxUnits, name, numUnits, offer, parameters,
-         provisionedService, provisioningState, purchaseOrderId,
+@dynamic assignedUnits, associationInfo, billingAccount, channelPartnerId,
+         commitmentSettings, createTime, maxUnits, name, numUnits, offer,
+         parameters, provisionedService, provisioningState, purchaseOrderId,
          suspensionReasons, trialSettings, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -622,6 +623,36 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1BillableSku
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1BillableSku
+@dynamic service, serviceDisplayName, sku, skuDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1BillingAccount
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1BillingAccount
+@dynamic createTime, currencyCode, displayName, name, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1BillingAccountPurchaseInfo
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1BillingAccountPurchaseInfo
+@dynamic billingAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1CancelEntitlementRequest
 //
 
@@ -636,7 +667,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1ChangeOfferRequest
-@dynamic offer, parameters, purchaseOrderId, requestId;
+@dynamic billingAccount, offer, parameters, purchaseOrderId, requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -884,9 +915,9 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Entitlement
-@dynamic associationInfo, commitmentSettings, createTime, name, offer,
-         parameters, provisionedService, provisioningState, purchaseOrderId,
-         suspensionReasons, trialSettings, updateTime;
+@dynamic associationInfo, billingAccount, commitmentSettings, createTime, name,
+         offer, parameters, provisionedService, provisioningState,
+         purchaseOrderId, suspensionReasons, trialSettings, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -939,7 +970,15 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsRequest
-@dynamic pageSize, pageToken;
+@dynamic pageSize, pageToken, partitionKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partitionKeys" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1220,6 +1259,50 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupBillableSkusResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupBillableSkusResponse
+@dynamic billableSkus, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"billableSkus" : [GTLRCloudchannel_GoogleCloudChannelV1BillableSku class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"billableSkus";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupsResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupsResponse
+@dynamic nextPageToken, skuGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skuGroups" : [GTLRCloudchannel_GoogleCloudChannelV1SkuGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"skuGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1ListSkusResponse
 //
 
@@ -1264,7 +1347,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersRequest
-@dynamic cloudIdentityId, customerName, languageCode, pageSize, pageToken, sku;
+@dynamic billingAccount, cloudIdentityId, customerName, languageCode, pageSize,
+         pageToken, sku;
 @end
 
 
@@ -1544,6 +1628,24 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1QueryEligibleBillingAccountsResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1QueryEligibleBillingAccountsResponse
+@dynamic skuPurchaseGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skuPurchaseGroups" : [GTLRCloudchannel_GoogleCloudChannelV1SkuPurchaseGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest
 //
 
@@ -1699,7 +1801,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Row
-@dynamic values;
+@dynamic partitionKey, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1743,11 +1845,40 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1SkuGroup
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1SkuGroup
+@dynamic displayName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition
 @dynamic skuGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1SkuPurchaseGroup
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1SkuPurchaseGroup
+@dynamic billingAccountPurchaseInfos, skus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"billingAccountPurchaseInfos" : [GTLRCloudchannel_GoogleCloudChannelV1BillingAccountPurchaseInfo class],
+    @"skus" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

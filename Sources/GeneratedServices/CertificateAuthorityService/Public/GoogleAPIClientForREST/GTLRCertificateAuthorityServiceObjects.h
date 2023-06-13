@@ -457,6 +457,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Fo
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_Pem;
 
 // ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_PublishingOptions.encodingFormat
+
+/**
+ *  The CertificateAuthority's CA certificate and CRLs will be published in DER
+ *  format.
+ *
+ *  Value: "DER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Der;
+/**
+ *  Not specified. By default, PEM format will be used.
+ *
+ *  Value: "ENCODING_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_EncodingFormatUnspecified;
+/**
+ *  The CertificateAuthority's CA certificate and CRLs will be published in PEM
+ *  format.
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Pem;
+
+// ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_ReconciliationOperationMetadata.exclusiveAction
 
 /**
@@ -2239,7 +2263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCertificateAuthorityService_Location : GTLRObject
 
@@ -2650,6 +2674,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  CertificateAuthority in the CaPool.
  */
 @interface GTLRCertificateAuthorityService_PublishingOptions : GTLRObject
+
+/**
+ *  Optional. Specifies the encoding format of each CertificateAuthority's CA
+ *  certificate and CRLs. If this is omitted, CA certificates and CRLs will be
+ *  published in PEM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Der
+ *        The CertificateAuthority's CA certificate and CRLs will be published
+ *        in DER format. (Value: "DER")
+ *    @arg @c kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_EncodingFormatUnspecified
+ *        Not specified. By default, PEM format will be used. (Value:
+ *        "ENCODING_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Pem
+ *        The CertificateAuthority's CA certificate and CRLs will be published
+ *        in PEM format. (Value: "PEM")
+ */
+@property(nonatomic, copy, nullable) NSString *encodingFormat;
 
 /**
  *  Optional. When true, publishes each CertificateAuthority's CA certificate

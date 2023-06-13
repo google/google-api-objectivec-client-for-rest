@@ -1643,15 +1643,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FilesetSpec *filesetSpec;
 
 /**
- *  Fully qualified name (FQN) of the resource. Set automatically for entries
- *  representing resources from synced systems. Settable only during creation
- *  and read-only afterwards. Can be used for search and lookup of the entries.
- *  FQNs take two forms: * For non-regionalized resources:
- *  `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}` * For
- *  regionalized resources:
- *  `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
- *  Example for a DPMS table:
- *  `dataproc_metastore:{PROJECT_ID}.{LOCATION_ID}.{INSTANCE_ID}.{DATABASE_ID}.{TABLE_ID}`
+ *  [Fully Qualified Name
+ *  (FQN)](https://cloud.google.com//data-catalog/docs/fully-qualified-names) of
+ *  the resource. Set automatically for entries representing resources from
+ *  synced systems. Settable only during creation, and read-only later. Can be
+ *  used for search and lookup of the entries.
  */
 @property(nonatomic, copy, nullable) NSString *fullyQualifiedName;
 
@@ -2090,6 +2086,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Path to a Cloud Storage bucket that contains a dump ready for ingestion.
  */
 @property(nonatomic, copy, nullable) NSString *gcsBucketPath;
+
+/**
+ *  Optional. (Optional) Dataplex task job id, if specified will be used as part
+ *  of ImportEntries LRO ID
+ */
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 @end
 
@@ -2856,6 +2858,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult *> *results;
 
 /**
+ *  The approximate total number of entries matched by the query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
  *  Unreachable locations. Search results don't include data from those
  *  locations. To get additional information on an error, repeat the search
  *  request and restrict it to specific locations by setting the
@@ -3492,7 +3501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService : GTLRObject
 
-/** P4SA Identity of the service. */
+/** The service agent for the service. */
 @property(nonatomic, copy, nullable) NSString *identity;
 
 /**

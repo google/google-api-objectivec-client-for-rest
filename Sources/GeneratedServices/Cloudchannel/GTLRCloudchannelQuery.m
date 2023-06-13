@@ -919,14 +919,17 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @implementation GTLRCloudchannelQuery_AccountsCustomersListPurchasableOffers
 
-@dynamic changeOfferPurchaseEntitlement, changeOfferPurchaseNewSku,
+@dynamic changeOfferPurchaseBillingAccount, changeOfferPurchaseEntitlement,
+         changeOfferPurchaseNewSku, createEntitlementPurchaseBillingAccount,
          createEntitlementPurchaseSku, customer, languageCode, pageSize,
          pageToken;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"changeOfferPurchaseBillingAccount" : @"changeOfferPurchase.billingAccount",
     @"changeOfferPurchaseEntitlement" : @"changeOfferPurchase.entitlement",
     @"changeOfferPurchaseNewSku" : @"changeOfferPurchase.newSku",
+    @"createEntitlementPurchaseBillingAccount" : @"createEntitlementPurchase.billingAccount",
     @"createEntitlementPurchaseSku" : @"createEntitlementPurchase.sku"
   };
   return map;
@@ -1026,6 +1029,32 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
   query.customer = customer;
   query.expectedObjectClass = [GTLRCloudchannel_GoogleLongrunningOperation class];
   query.loggingName = @"cloudchannel.accounts.customers.provisionCloudIdentity";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersQueryEligibleBillingAccounts
+
+@dynamic customer, skus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skus" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}:queryEligibleBillingAccounts";
+  GTLRCloudchannelQuery_AccountsCustomersQueryEligibleBillingAccounts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1QueryEligibleBillingAccountsResponse class];
+  query.loggingName = @"cloudchannel.accounts.customers.queryEligibleBillingAccounts";
   return query;
 }
 
@@ -1272,6 +1301,44 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudchannel_GoogleLongrunningOperation class];
   query.loggingName = @"cloudchannel.accounts.reports.run";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsSkuGroupsBillableSkusList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/billableSkus";
+  GTLRCloudchannelQuery_AccountsSkuGroupsBillableSkusList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupBillableSkusResponse class];
+  query.loggingName = @"cloudchannel.accounts.skuGroups.billableSkus.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsSkuGroupsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/skuGroups";
+  GTLRCloudchannelQuery_AccountsSkuGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupsResponse class];
+  query.loggingName = @"cloudchannel.accounts.skuGroups.list";
   return query;
 }
 

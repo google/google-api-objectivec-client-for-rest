@@ -650,10 +650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified;
 /**
- *  Default monitoring agent metrics. If this source is enabled, Dataproc
- *  enables the monitoring agent in Compute Engine, and collects default
- *  monitoring agent metrics, which are published with an agent.googleapis.com
- *  prefix.
+ *  Monitoring agent metrics. If this source is enabled, Dataproc enables the
+ *  monitoring agent in Compute Engine, and collects monitoring agent metrics,
+ *  which are published with an agent.googleapis.com prefix.
  *
  *  Value: "MONITORING_AGENT_DEFAULTS"
  */
@@ -2532,8 +2531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. The Customer Managed Encryption Key (CMEK)
  *  (https://cloud.google.com/kubernetes-engine/docs/how-to/using-cmek) used to
  *  encrypt the boot disk attached to each node in the node pool. Specify the
- *  key using the following format: projects/KEY_PROJECT_ID/locations/LOCATION
- *  /keyRings/RING_NAME/cryptoKeys/KEY_NAME.
+ *  key using the following format:
+ *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
 
@@ -3840,8 +3839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  The per-package log levels for the driver. This may include "root" package
- *  name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO',
- *  'org.apache = DEBUG'
+ *  name to configure rootLogger. Examples: - 'com.google = FATAL' - 'root =
+ *  INFO' - 'org.apache = DEBUG'
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_LoggingConfig_DriverLogLevels *driverLogLevels;
 
@@ -3850,8 +3849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  The per-package log levels for the driver. This may include "root" package
- *  name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO',
- *  'org.apache = DEBUG'
+ *  name to configure rootLogger. Examples: - 'com.google = FATAL' - 'root =
+ *  INFO' - 'org.apache = DEBUG'
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3940,14 +3939,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A Dataproc OSS metric.
+ *  A Dataproc custom metric.
  */
 @interface GTLRDataproc_Metric : GTLRObject
 
 /**
- *  Optional. Specify one or more available OSS metrics
- *  (https://cloud.google.com/dataproc/docs/guides/monitoring#available_oss_metrics)
- *  to collect for the metric course (for the SPARK metric source, any Spark
+ *  Optional. Specify one or more Custom metrics
+ *  (https://cloud.google.com/dataproc/docs/guides/dataproc-metrics#custom_metrics)
+ *  to collect for the metric course (for the SPARK metric source (any Spark
  *  metric (https://spark.apache.org/docs/latest/monitoring.html#metrics) can be
  *  specified).Provide metrics in the following format: METRIC_SOURCE:
  *  INSTANCE:GROUP:METRIC Use camelcase as appropriate.Examples:
@@ -3955,19 +3954,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  spark:driver:DAGScheduler:job.allJobs
  *  sparkHistoryServer:JVM:Memory:NonHeapMemoryUsage.committed
  *  hiveserver2:JVM:Memory:NonHeapMemoryUsage.used Notes: Only the specified
- *  overridden metrics will be collected for the metric source. For example, if
- *  one or more spark:executive metrics are listed as metric overrides, other
- *  SPARK metrics will not be collected. The collection of the default metrics
- *  for other OSS metric sources is unaffected. For example, if both SPARK andd
- *  YARN metric sources are enabled, and overrides are provided for Spark
- *  metrics only, all default YARN metrics will be collected.
+ *  overridden metrics are collected for the metric source. For example, if one
+ *  or more spark:executive metrics are listed as metric overrides, other SPARK
+ *  metrics are not collected. The collection of the metrics for other enabled
+ *  custom metric sources is unaffected. For example, if both SPARK andd YARN
+ *  metric sources are enabled, and overrides are provided for Spark metrics
+ *  only, all YARN metrics are collected.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricOverrides;
 
 /**
- *  Required. Default metrics are collected unless metricOverrides are specified
- *  for the metric source (see Available OSS metrics
- *  (https://cloud.google.com/dataproc/docs/guides/monitoring#available_oss_metrics)
+ *  Required. A standard set of metrics is collected unless metricOverrides are
+ *  specified for the metric source (see Custom metrics
+ *  (https://cloud.google.com/dataproc/docs/guides/dataproc-metrics#custom_metrics)
  *  for more information).
  *
  *  Likely values:
@@ -3979,11 +3978,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        source. (Value: "HIVESERVER2")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified Required
  *        unspecified metric source. (Value: "METRIC_SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults Default
- *        monitoring agent metrics. If this source is enabled, Dataproc enables
- *        the monitoring agent in Compute Engine, and collects default
- *        monitoring agent metrics, which are published with an
- *        agent.googleapis.com prefix. (Value: "MONITORING_AGENT_DEFAULTS")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults
+ *        Monitoring agent metrics. If this source is enabled, Dataproc enables
+ *        the monitoring agent in Compute Engine, and collects monitoring agent
+ *        metrics, which are published with an agent.googleapis.com prefix.
+ *        (Value: "MONITORING_AGENT_DEFAULTS")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Spark Spark metric source.
  *        (Value: "SPARK")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_SparkHistoryServer Spark History
@@ -4858,7 +4857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ResizeNodeGroupRequest : GTLRObject
 
 /**
- *  Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning
+ *  Optional. Timeout for graceful YARN decommissioning. Graceful
+ *  decommissioning
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters#graceful_decommissioning)
  *  allows the removal of nodes from the Compute Engine node group without
  *  interrupting jobs in progress. This timeout specifies how long to wait for
@@ -5480,7 +5480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Required. Timeout for Spark graceful decommissioning of spark workers.
  *  Specifies the duration to wait for spark worker to complete spark
- *  decomissioning tasks before forcefully removing workers. Only applicable to
+ *  decommissioning tasks before forcefully removing workers. Only applicable to
  *  downscaling operations.Bounds: 0s, 1d.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;

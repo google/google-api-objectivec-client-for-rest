@@ -601,6 +601,81 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Imports GooGet artifacts. The returned Operation will complete once the
+ *  resources are imported. Package, Version, and File resources are created
+ *  based on the imported artifacts. Imported artifacts that conflict with
+ *  existing resources are ignored.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.googetArtifacts.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsImport : GTLRArtifactRegistryQuery
+
+/** The name of the parent resource where the artifacts will be imported. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Imports GooGet artifacts. The returned Operation will complete once the
+ *  resources are imported. Package, Version, and File resources are created
+ *  based on the imported artifacts. Imported artifacts that conflict with
+ *  existing resources are ignored.
+ *
+ *  @param object The @c GTLRArtifactRegistry_ImportGoogetArtifactsRequest to
+ *    include in the query.
+ *  @param parent The name of the parent resource where the artifacts will be
+ *    imported.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsImport
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_ImportGoogetArtifactsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Directly uploads a GooGet artifact. The returned Operation will complete
+ *  once the resources are uploaded. Package, Version, and File resources are
+ *  created based on the imported artifact. Imported artifacts that conflict
+ *  with existing resources are ignored.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.googetArtifacts.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload : GTLRArtifactRegistryQuery
+
+/** The name of the parent resource where the artifacts will be uploaded. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadGoogetArtifactMediaResponse.
+ *
+ *  Directly uploads a GooGet artifact. The returned Operation will complete
+ *  once the resources are uploaded. Package, Version, and File resources are
+ *  created based on the imported artifact. Imported artifacts that conflict
+ *  with existing resources are ignored.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadGoogetArtifactRequest to
+ *    include in the query.
+ *  @param parent The name of the parent resource where the artifacts will be
+ *    uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGoogetArtifactRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
  *  Directly uploads a KFP artifact. The returned Operation will complete once
  *  the resource is uploaded. Package, Version, and File resources will be
  *  created based on the uploaded artifact. Uploaded artifacts that conflict
@@ -1033,7 +1108,10 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The name of the parent resource whose tags will be listed. */
+/**
+ *  The name of the parent package whose tags will be listed. Example:
+ *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1041,7 +1119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *
  *  Lists tags.
  *
- *  @param parent The name of the parent resource whose tags will be listed.
+ *  @param parent The name of the parent package whose tags will be listed.
+ *    Example:
+ *    "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsList
  *

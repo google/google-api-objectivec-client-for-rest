@@ -53,6 +53,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule;
@@ -68,7 +69,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec;
@@ -95,12 +98,15 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedDataIncrementalField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Schema;
@@ -914,6 +920,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_S
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1Job.trigger
+
+/**
+ *  The job was triggered by the explicit call of Task API.
+ *
+ *  Value: "RUN_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_RunRequest;
+/**
+ *  The job was triggered by Dataplex based on trigger spec from task
+ *  definition.
+ *
+ *  Value: "TASK_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TaskConfig;
+/**
+ *  The trigger is unspecified.
+ *
+ *  Value: "TRIGGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TriggerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1JobEvent.executionTrigger
+
+/**
+ *  The job execution trigger is unspecified.
+ *
+ *  Value: "EXECUTION_TRIGGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_ExecutionTriggerUnspecified;
+/**
+ *  The job was triggered by the explicit call of Task API.
+ *
+ *  Value: "RUN_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_RunRequest;
+/**
+ *  The job was triggered by Dataplex based on trigger spec from task
+ *  definition.
+ *
+ *  Value: "TASK_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_TaskConfig;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1JobEvent.service
@@ -2920,6 +2972,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  DataProfileScan related setting.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec : GTLRObject
+
+/**
+ *  Optional. The fields to exclude from data profile.If specified, the fields
+ *  will be excluded from data profile, regardless of include_fields value.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields *excludeFields;
+
+/**
+ *  Optional. The fields to include in data profile.If not specified, all fields
+ *  at the time of profile scan job execution are included, except for ones
+ *  listed in exclude_fields.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields *includeFields;
+
+/**
+ *  Optional. A filter applied to all rows in a single DataScan job. The filter
+ *  needs to be a valid SQL expression for a WHERE clause in BigQuery standard
+ *  SQL syntax. Example: col1 >= 0 AND col2 < 10
+ */
+@property(nonatomic, copy, nullable) NSString *rowFilter;
+
+/**
+ *  Optional. The percentage of the records to be selected from the dataset for
+ *  DataScan. Value can range between 0.0 and 100.0 with up to 3 significant
+ *  decimal digits. Sampling is not applied if sampling_percent is not
+ *  specified, 0 or 100.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingPercent;
+
+@end
+
+
+/**
+ *  The specification for fields to include or exclude in data profile scan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields : GTLRObject
+
+/**
+ *  Optional. Expected input is a list of fully qualified names of fields as in
+ *  the schema.Only top-level field names for nested fields are supported. For
+ *  instance, if 'x' is of nested field type, listing 'x' is supported but
+ *  'x.y.z' is not supported. Here 'y' and 'y.z' are nested fields of 'x'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fieldNames;
+
 @end
 
 
@@ -3201,7 +3300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *minValue;
 
 /**
- *  statistic
+ *  The aggregate metric to evaluate.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Max
@@ -3262,10 +3361,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec : GTLRObject
 
 /**
+ *  Optional. A filter applied to all rows in a single DataScan job. The filter
+ *  needs to be a valid SQL expression for a WHERE clause in BigQuery standard
+ *  SQL syntax. Example: col1 >= 0 AND col2 < 10
+ */
+@property(nonatomic, copy, nullable) NSString *rowFilter;
+
+/**
  *  The list of rules to evaluate against a data source. At least one rule is
  *  required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rules;
+
+/**
+ *  Optional. The percentage of the records to be selected from the dataset for
+ *  DataScan. Value can range between 0.0 and 100.0 with up to 3 significant
+ *  decimal digits. Sampling is not applied if sampling_percent is not
+ *  specified, 0 or 100.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingPercent;
 
 @end
 
@@ -3393,8 +3509,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Data profile result for data profile type data scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult *dataProfile;
 
+/** Applied configs for data profile type data scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs *dataProfileConfigs;
+
 /** Data quality result for data quality type data scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult *dataQuality;
+
+/** Applied configs for data quality type data scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs *dataQualityConfigs;
 
 /** The data source of the data scan */
 @property(nonatomic, copy, nullable) NSString *dataSource;
@@ -3474,6 +3596,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Applied configs for data profile type data scan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs : GTLRObject
+
+/**
+ *  Boolean indicating whether a row filter was applied in the DataScan job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowFilterApplied;
+
+/**
+ *  The percentage of the records selected from the dataset for DataScan. Value
+ *  ranges between 0.0 and 100.0. Value 0.0 or 100.0 imply that sampling was not
+ *  applied.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingPercent;
+
+@end
+
+
+/**
  *  Data profile result for data scan job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult : GTLRObject
@@ -3484,6 +3630,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+@end
+
+
+/**
+ *  Applied configs for data quality type data scan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs : GTLRObject
+
+/**
+ *  Boolean indicating whether a row filter was applied in the DataScan job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowFilterApplied;
+
+/**
+ *  The percentage of the records selected from the dataset for DataScan. Value
+ *  ranges between 0.0 and 100.0. Value 0.0 or 100.0 imply that sampling was not
+ *  applied.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingPercent;
 
 @end
 
@@ -4072,7 +4242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Environment represents a user-visible compute infrastructure for analytics
- *  within a lake.
+ *  within a lake. LINT.IfChange
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Environment : GTLRObject
 
@@ -4313,6 +4483,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Output only. The time when the job ended. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Output only. Spec related to how a task is executed. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec *executionSpec;
+
+/** Output only. User-defined labels for the task. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels *labels;
+
 /** Output only. Additional information about the current state. */
 @property(nonatomic, copy, nullable) NSString *message;
 
@@ -4372,9 +4548,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Output only. Job execution trigger.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_RunRequest The
+ *        job was triggered by the explicit call of Task API. (Value:
+ *        "RUN_REQUEST")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TaskConfig The
+ *        job was triggered by Dataplex based on trigger spec from task
+ *        definition. (Value: "TASK_CONFIG")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Trigger_TriggerUnspecified
+ *        The trigger is unspecified. (Value: "TRIGGER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
 /** Output only. System generated globally unique ID for the job. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
+@end
+
+
+/**
+ *  Output only. User-defined labels for the task.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels : GTLRObject
 @end
 
 
@@ -4386,6 +4589,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /** The time when the job ended running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Job execution trigger.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_ExecutionTriggerUnspecified
+ *        The job execution trigger is unspecified. (Value:
+ *        "EXECUTION_TRIGGER_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_RunRequest
+ *        The job was triggered by the explicit call of Task API. (Value:
+ *        "RUN_REQUEST")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1JobEvent_ExecutionTrigger_TaskConfig
+ *        The job was triggered by Dataplex based on trigger spec from task
+ *        definition. (Value: "TASK_CONFIG")
+ */
+@property(nonatomic, copy, nullable) NSString *executionTrigger;
 
 /** The unique id identifying the job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -5166,6 +5385,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest : GTLRObject
+
+/**
+ *  Optional. Execution spec arguments. If the map is left empty, the task will
+ *  run with existing execution spec args from task definition. If the map
+ *  contains an entry with a new key, the same will be added to existing set of
+ *  args. If the map contains an entry with an existing arg key in task
+ *  definition, the task will run with new arg value for that entry. Clearing an
+ *  existing arg will require arg value to be explicitly set to a hyphen "-".
+ *  The arg value cannot be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args *args;
+
+/**
+ *  Optional. User-defined labels for the task. If the map is left empty, the
+ *  task will run with existing labels from task definition. If the map contains
+ *  an entry with a new key, the same will be added to existing set of labels.
+ *  If the map contains an entry with an existing label key in task definition,
+ *  the task will run with new label value for that entry. Clearing an existing
+ *  label will require label value to be explicitly set to a hyphen "-". The
+ *  label value cannot be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  Optional. Execution spec arguments. If the map is left empty, the task will
+ *  run with existing execution spec args from task definition. If the map
+ *  contains an entry with a new key, the same will be added to existing set of
+ *  args. If the map contains an entry with an existing arg key in task
+ *  definition, the task will run with new arg value for that entry. Clearing an
+ *  existing arg will require arg value to be explicitly set to a hyphen "-".
+ *  The arg value cannot be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args : GTLRObject
+@end
+
+
+/**
+ *  Optional. User-defined labels for the task. If the map is left empty, the
+ *  task will run with existing labels from task definition. If the map contains
+ *  an entry with a new key, the same will be added to existing set of labels.
+ *  If the map contains an entry with an existing label key in task definition,
+ *  the task will run with new label value for that entry. Clearing an existing
+ *  label will require label value to be explicitly set to a hyphen "-". The
+ *  label value cannot be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels : GTLRObject
 @end
 
 
@@ -6427,7 +6705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudDataplex_GoogleCloudLocationLocation : GTLRObject
 

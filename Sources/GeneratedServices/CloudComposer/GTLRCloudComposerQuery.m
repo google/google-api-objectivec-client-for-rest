@@ -43,6 +43,33 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDatabaseFailover
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_DatabaseFailoverRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:databaseFailover";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDatabaseFailover *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_Operation class];
+  query.loggingName = @"composer.projects.locations.environments.databaseFailover";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDelete
 
 @dynamic name;
@@ -57,6 +84,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudComposer_Operation class];
   query.loggingName = @"composer.projects.locations.environments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsExecuteAirflowCommand
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_ExecuteAirflowCommandRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:executeAirflowCommand";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsExecuteAirflowCommand *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_ExecuteAirflowCommandResponse class];
+  query.loggingName = @"composer.projects.locations.environments.executeAirflowCommand";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsFetchDatabaseProperties
+
+@dynamic environment;
+
++ (instancetype)queryWithEnvironment:(NSString *)environment {
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:fetchDatabaseProperties";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsFetchDatabaseProperties *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_FetchDatabasePropertiesResponse class];
+  query.loggingName = @"composer.projects.locations.environments.fetchDatabaseProperties";
   return query;
 }
 
@@ -154,6 +227,33 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPollAirflowCommand
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_PollAirflowCommandRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:pollAirflowCommand";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPollAirflowCommand *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_PollAirflowCommandResponse class];
+  query.loggingName = @"composer.projects.locations.environments.pollAirflowCommand";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsSaveSnapshot
 
 @dynamic environment;
@@ -176,6 +276,33 @@
   query.environment = environment;
   query.expectedObjectClass = [GTLRCloudComposer_Operation class];
   query.loggingName = @"composer.projects.locations.environments.saveSnapshot";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsStopAirflowCommand
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_StopAirflowCommandRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:stopAirflowCommand";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsStopAirflowCommand *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_StopAirflowCommandResponse class];
+  query.loggingName = @"composer.projects.locations.environments.stopAirflowCommand";
   return query;
 }
 

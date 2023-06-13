@@ -11,6 +11,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig.summarizationModel
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel = @"BASELINE_MODEL";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified = @"SUMMARIZATION_MODEL_UNSPECIFIED";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback.correctnessLevel
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback_CorrectnessLevel_CorrectnessLevelUnspecified = @"CORRECTNESS_LEVEL_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback_CorrectnessLevel_FullyCorrect = @"FULLY_CORRECT";
@@ -71,6 +75,10 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_Chat = @"CHAT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall = @"PHONE_CALL";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel = @"BASELINE_MODEL";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified = @"SUMMARIZATION_MODEL_UNSPECIFIED";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback.correctnessLevel
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnswerFeedback_CorrectnessLevel_CorrectnessLevelUnspecified = @"CORRECTNESS_LEVEL_UNSPECIFIED";
@@ -250,7 +258,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector
 @dynamic issueModels, phraseMatchers, runEntityAnnotator, runIntentAnnotator,
          runInterruptionAnnotator, runIssueModelAnnotator,
-         runPhraseMatcherAnnotator, runSentimentAnnotator, runSilenceAnnotator;
+         runPhraseMatcherAnnotator, runSentimentAnnotator, runSilenceAnnotator,
+         runSummarizationAnnotator, summarizationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -260,6 +269,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig
+@dynamic conversationProfile, summarizationModel;
 @end
 
 
@@ -347,9 +366,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
-         duration, expireTime, labels, languageCode, latestAnalysis, medium,
-         name, obfuscatedUserId, runtimeAnnotations, startTime, transcript, ttl,
-         turnCount, updateTime;
+         duration, expireTime, labels, languageCode, latestAnalysis,
+         latestSummary, medium, name, obfuscatedUserId, runtimeAnnotations,
+         startTime, transcript, ttl, turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -427,6 +446,45 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant
 @dynamic dialogflowParticipant, dialogflowParticipantName,
          obfuscatedExternalUserId, role, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData
+@dynamic answerRecord, confidence, conversationModel, metadata, text,
+         textSections;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_TextSections
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_TextSections
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -951,9 +1009,10 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation
-@dynamic annotationId, answerFeedback, articleSuggestion, createTime,
-         dialogflowInteraction, endBoundary, faqAnswer, smartComposeSuggestion,
-         smartReply, startBoundary;
+@dynamic annotationId, answerFeedback, articleSuggestion,
+         conversationSummarizationSuggestion, createTime, dialogflowInteraction,
+         endBoundary, faqAnswer, smartComposeSuggestion, smartReply,
+         startBoundary;
 @end
 
 
@@ -1174,7 +1233,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelector
 @dynamic issueModels, phraseMatchers, runEntityAnnotator, runIntentAnnotator,
          runInterruptionAnnotator, runIssueModelAnnotator,
-         runPhraseMatcherAnnotator, runSentimentAnnotator, runSilenceAnnotator;
+         runPhraseMatcherAnnotator, runSentimentAnnotator, runSilenceAnnotator,
+         runSummarizationAnnotator, summarizationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1184,6 +1244,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig
+@dynamic conversationProfile, summarizationModel;
 @end
 
 
@@ -1377,9 +1447,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
-         duration, expireTime, labels, languageCode, latestAnalysis, medium,
-         name, obfuscatedUserId, runtimeAnnotations, startTime, transcript, ttl,
-         turnCount, updateTime;
+         duration, expireTime, labels, languageCode, latestAnalysis,
+         latestSummary, medium, name, obfuscatedUserId, runtimeAnnotations,
+         startTime, transcript, ttl, turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1457,6 +1527,45 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant
 @dynamic dialogflowParticipant, dialogflowParticipantName,
          obfuscatedExternalUserId, role, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData
+@dynamic answerRecord, confidence, conversationModel, metadata, text,
+         textSections;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_TextSections
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_TextSections
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2191,9 +2300,10 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation
-@dynamic annotationId, answerFeedback, articleSuggestion, createTime,
-         dialogflowInteraction, endBoundary, faqAnswer, smartComposeSuggestion,
-         smartReply, startBoundary;
+@dynamic annotationId, answerFeedback, articleSuggestion,
+         conversationSummarizationSuggestion, createTime, dialogflowInteraction,
+         endBoundary, faqAnswer, smartComposeSuggestion, smartReply,
+         startBoundary;
 @end
 
 

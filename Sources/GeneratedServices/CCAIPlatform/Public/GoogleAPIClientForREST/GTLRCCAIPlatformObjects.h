@@ -22,6 +22,7 @@
 @class GTLRCCAIPlatform_Operation;
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
+@class GTLRCCAIPlatform_Quota;
 @class GTLRCCAIPlatform_SAMLParams;
 @class GTLRCCAIPlatform_Status;
 @class GTLRCCAIPlatform_Status_Details_Item;
@@ -128,6 +129,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  *  Value: "STANDARD_XLARGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge;
+
+// ----------------------------------------------------------------------------
+// GTLRCCAIPlatform_Quota.contactCenterInstanceSize
+
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "INSTANCE_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified;
+/**
+ *  Instance Size STANDARD_2XLARGE.
+ *
+ *  Value: "STANDARD_2XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge;
+/**
+ *  Instance Size STANDARD_3XLARGE.
+ *
+ *  Value: "STANDARD_3XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge;
+/**
+ *  Instance Size STANDARD_LARGE.
+ *
+ *  Value: "STANDARD_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardLarge;
+/**
+ *  Instance Size STANDARD_MEDIUM.
+ *
+ *  Value: "STANDARD_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardMedium;
+/**
+ *  Instance Size STANDARD_SMALL.
+ *
+ *  Value: "STANDARD_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardSmall;
+/**
+ *  Instance Size STANDARD_XLARGE.
+ *
+ *  Value: "STANDARD_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge;
 
 /**
  *  Message storing info about the first admin user. Next ID: 3
@@ -247,18 +294,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
 @interface GTLRCCAIPlatform_ContactCenterQuota : GTLRObject
 
 /**
- *  Reflects the count limit of contact centers on a billing account.
+ *  Deprecated: Use the Quota fields instead. Reflects the count limit of
+ *  contact centers on a billing account.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *contactCenterCountLimit;
 
 /**
- *  Reflects the count sum of contact centers on a billing account.
+ *  Deprecated: Use the Quota fields instead. Reflects the count sum of contact
+ *  centers on a billing account.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *contactCenterCountSum;
+
+/** Quota details per contact center instance type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Quota *> *quotas;
 
 @end
 
@@ -379,7 +431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCCAIPlatform_Location : GTLRObject
 
@@ -556,6 +608,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Quota details.
+ */
+@interface GTLRCCAIPlatform_Quota : GTLRObject
+
+/**
+ *  Reflects the count limit of contact centers on a billing account.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contactCenterCountLimit;
+
+/**
+ *  Reflects the count sum of contact centers on a billing account.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contactCenterCountSum;
+
+/**
+ *  Contact center instance type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge
+ *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge
+ *        Instance Size STANDARD_3XLARGE. (Value: "STANDARD_3XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardLarge
+ *        Instance Size STANDARD_LARGE. (Value: "STANDARD_LARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardMedium
+ *        Instance Size STANDARD_MEDIUM. (Value: "STANDARD_MEDIUM")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardSmall
+ *        Instance Size STANDARD_SMALL. (Value: "STANDARD_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge
+ *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
+ */
+@property(nonatomic, copy, nullable) NSString *contactCenterInstanceSize;
 
 @end
 

@@ -56,6 +56,95 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_MediaUpload
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_UploadAttachmentRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attachments:upload";
+  GTLRHangoutsChatQuery_MediaUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRHangoutsChat_UploadAttachmentResponse class];
+  query.loggingName = @"chat.media.upload";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesCreate
+
+@dynamic requestId;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Space *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/spaces";
+  GTLRHangoutsChatQuery_SpacesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRHangoutsChat_Space class];
+  query.loggingName = @"chat.spaces.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Empty class];
+  query.loggingName = @"chat.spaces.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesFindDirectMessage
+
+@dynamic name;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/spaces:findDirectMessage";
+  GTLRHangoutsChatQuery_SpacesFindDirectMessage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRHangoutsChat_Space class];
+  query.loggingName = @"chat.spaces.findDirectMessage";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesGet
 
 @dynamic name;
@@ -77,7 +166,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesList
 
-@dynamic pageSize, pageToken;
+@dynamic filter, pageSize, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/spaces";
@@ -87,6 +176,52 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRHangoutsChat_ListSpacesResponse class];
   query.loggingName = @"chat.spaces.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMembersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/members";
+  GTLRHangoutsChatQuery_SpacesMembersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_Membership class];
+  query.loggingName = @"chat.spaces.members.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMembersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMembersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Membership class];
+  query.loggingName = @"chat.spaces.members.delete";
   return query;
 }
 
@@ -113,7 +248,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, showInvited;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -178,7 +313,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -214,6 +349,25 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMessagesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/messages";
+  GTLRHangoutsChatQuery_SpacesMessagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListMessagesResponse class];
+  query.loggingName = @"chat.spaces.messages.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesPatch
 
 @dynamic allowMissing, name, updateMask;
@@ -241,6 +395,71 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMessagesReactionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Reaction *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/reactions";
+  GTLRHangoutsChatQuery_SpacesMessagesReactionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_Reaction class];
+  query.loggingName = @"chat.spaces.messages.reactions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMessagesReactionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMessagesReactionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Empty class];
+  query.loggingName = @"chat.spaces.messages.reactions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMessagesReactionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/reactions";
+  GTLRHangoutsChatQuery_SpacesMessagesReactionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListReactionsResponse class];
+  query.loggingName = @"chat.spaces.messages.reactions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesUpdate
 
 @dynamic allowMissing, name, updateMask;
@@ -263,6 +482,55 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.name = name;
   query.expectedObjectClass = [GTLRHangoutsChat_Message class];
   query.loggingName = @"chat.spaces.messages.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Space *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Space class];
+  query.loggingName = @"chat.spaces.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesSetup
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SetUpSpaceRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/spaces:setup";
+  GTLRHangoutsChatQuery_SpacesSetup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRHangoutsChat_Space class];
+  query.loggingName = @"chat.spaces.setup";
   return query;
 }
 

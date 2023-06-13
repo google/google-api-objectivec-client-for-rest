@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Loss Prevention (DLP) API (dlp/v2)
+//   Cloud Data Loss Prevention (DLP) (dlp/v2)
 // Description:
 //   Provides methods for detection, risk analysis, and de-identification of
 //   privacy-sensitive fragments in text, images, and Google Cloud Platform
@@ -865,7 +865,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CustomInfoType
 @dynamic detectionRules, dictionary, exclusionType, infoType, likelihood, regex,
-         storedType, surrogateType;
+         sensitivityScore, storedType, surrogateType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1575,7 +1575,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoType
-@dynamic name, version;
+@dynamic name, sensitivityScore, version;
 @end
 
 
@@ -2343,7 +2343,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary
-@dynamic estimatedPrevalence, infoType;
+@dynamic estimatedPrevalence, excludedFromAnalysis, infoType;
 @end
 
 

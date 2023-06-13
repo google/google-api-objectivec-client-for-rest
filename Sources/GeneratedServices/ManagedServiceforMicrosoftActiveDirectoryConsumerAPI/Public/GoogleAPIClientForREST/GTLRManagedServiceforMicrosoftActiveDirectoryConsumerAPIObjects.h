@@ -48,6 +48,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Metadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Response;
@@ -802,6 +803,13 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  DisableMigrationRequest is the request message for DisableMigration method.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DisableMigrationRequest : GTLRObject
+@end
+
+
+/**
  *  Represents a managed Microsoft Active Directory domain. If the domain is
  *  being changed, it will be placed into the UPDATING state, which indicates
  *  that the resource is being reconciled. At this point, Get will reflect an
@@ -918,12 +926,61 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  DomainJoinMachineRequest is the request message for DomainJoinMachine method
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DomainJoinMachineRequest : GTLRObject
+
+/**
+ *  Optional. force if True, forces domain join even if the computer account
+ *  already exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/** Optional. OU name where the VM needs to be domain joined */
+@property(nonatomic, copy, nullable) NSString *ouName;
+
+/**
+ *  Required. Full instance id token of compute engine VM to verify instance
+ *  identity. More about this:
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature
+ */
+@property(nonatomic, copy, nullable) NSString *vmIdToken;
+
+@end
+
+
+/**
+ *  DomainJoinMachineResponse is the response message for DomainJoinMachine
+ *  method
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DomainJoinMachineResponse : GTLRObject
+
+/** Offline domain join blob as the response */
+@property(nonatomic, copy, nullable) NSString *domainJoinBlob;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Empty : GTLRObject
+@end
+
+
+/**
+ *  EnableMigrationRequest is the request message for EnableMigration method.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_EnableMigrationRequest : GTLRObject
+
+/** Required. List of the on-prem domains to be migrated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails *> *migratingDomains;
+
 @end
 
 
@@ -1847,7 +1904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Location : GTLRObject
 
@@ -1986,6 +2043,25 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /** Weekly cycle. */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_WeeklyCycle *weeklyCycle;
+
+@end
+
+
+/**
+ *  OnPremDomainDetails is the message which contains details of on-prem domain
+ *  which is trusted and needs to be migrated.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails : GTLRObject
+
+/**
+ *  Optional. Option to disable SID filtering.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSidFiltering;
+
+/** Required. FQDN of the on-prem domain being migrated. */
+@property(nonatomic, copy, nullable) NSString *domainName;
 
 @end
 

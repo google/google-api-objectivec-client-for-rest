@@ -119,6 +119,7 @@
 @class GTLRDfareporting_MobileCarrier;
 @class GTLRDfareporting_ObaIcon;
 @class GTLRDfareporting_ObjectFilter;
+@class GTLRDfareporting_OfflineUserAddressInfo;
 @class GTLRDfareporting_OffsetPosition;
 @class GTLRDfareporting_OmnitureSettings;
 @class GTLRDfareporting_OperatingSystem;
@@ -186,6 +187,7 @@
 @class GTLRDfareporting_TranscodeSetting;
 @class GTLRDfareporting_UniversalAdId;
 @class GTLRDfareporting_UserDefinedVariableConfiguration;
+@class GTLRDfareporting_UserIdentifier;
 @class GTLRDfareporting_UserProfile;
 @class GTLRDfareporting_UserRole;
 @class GTLRDfareporting_UserRolePermission;
@@ -5720,6 +5722,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *treatmentForUnderage;
 
 /**
+ *  The user identifiers to enhance the conversion. The maximum number of user
+ *  identifiers for each conversion is 5.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserIdentifier *> *userIdentifiers;
+
+/**
  *  The value of the conversion.
  *
  *  Uses NSNumber of doubleValue.
@@ -11048,6 +11056,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Identify a user by name and address.
+ */
+@interface GTLRDfareporting_OfflineUserAddressInfo : GTLRObject
+
+/** City of the address. */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/** 2-letter country code in ISO-3166-1 alpha-2 of the user's address. */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  First name of the user, which is hashed as SHA-256 after normalized
+ *  (Lowercase all characters; Remove any extra spaces before, after, and in
+ *  between).
+ */
+@property(nonatomic, copy, nullable) NSString *hashedFirstName;
+
+/**
+ *  Last name of the user, which is hashed as SHA-256 after normalized (lower
+ *  case only and no punctuation).
+ */
+@property(nonatomic, copy, nullable) NSString *hashedLastName;
+
+/**
+ *  The street address of the user hashed using SHA-256 hash function after
+ *  normalization (lower case only).
+ */
+@property(nonatomic, copy, nullable) NSString *hashedStreetAddress;
+
+/** Postal code of the user's address. */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/** State code of the address. */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Offset Position.
  */
 @interface GTLRDfareporting_OffsetPosition : GTLRObject
@@ -15530,6 +15577,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        Value "U99"
  */
 @property(nonatomic, copy, nullable) NSString *variableType;
+
+@end
+
+
+/**
+ *  User identifying information. Exactly one type of identifier must be
+ *  specified.
+ */
+@interface GTLRDfareporting_UserIdentifier : GTLRObject
+
+/** Address information. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_OfflineUserAddressInfo *addressInfo;
+
+/** Hashed email address using SHA-256 hash function after normalization. */
+@property(nonatomic, copy, nullable) NSString *hashedEmail;
+
+/**
+ *  Hashed phone number using SHA-256 hash function after normalization (E164
+ *  standard).
+ */
+@property(nonatomic, copy, nullable) NSString *hashedPhoneNumber;
 
 @end
 

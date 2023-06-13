@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Drive API (drive/v3)
+//   Google Drive API (drive/v3)
 // Description:
-//   Manages files in Drive including uploading, downloading, searching,
-//   detecting changes, and updating sharing permissions.
+//   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
 //   https://developers.google.com/drive/
 
@@ -475,7 +474,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesEmptyTrash
 
-@dynamic enforceSingleParent;
+@dynamic driveId, enforceSingleParent;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"files/trash";
@@ -513,6 +512,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
     [self queryWithFileId:fileId
                  mimeType:mimeType];
   query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
   query.loggingName = @"Download drive.files.export";
   return query;
 }
@@ -686,17 +686,6 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
   query.fileId = fileId;
   query.expectedObjectClass = [GTLRDrive_Channel class];
   query.loggingName = @"drive.files.watch";
-  return query;
-}
-
-+ (instancetype)queryForMediaWithObject:(GTLRDrive_Channel *)object
-                                 fileId:(NSString *)fileId {
-  GTLRDriveQuery_FilesWatch *query =
-    [self queryWithObject:object
-                   fileId:fileId];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download drive.files.watch";
   return query;
 }
 

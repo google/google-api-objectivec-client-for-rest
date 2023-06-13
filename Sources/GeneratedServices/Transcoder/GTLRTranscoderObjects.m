@@ -19,6 +19,11 @@ NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeIn = @"FADE_IN";
 NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeOut = @"FADE_OUT";
 NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeTypeUnspecified = @"FADE_TYPE_UNSPECIFIED";
 
+// GTLRTranscoder_DashConfig.segmentReferenceScheme
+NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentList = @"SEGMENT_LIST";
+NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentReferenceSchemeUnspecified = @"SEGMENT_REFERENCE_SCHEME_UNSPECIFIED";
+NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentTemplateNumber = @"SEGMENT_TEMPLATE_NUMBER";
+
 // GTLRTranscoder_Job.mode
 NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeBatch  = @"PROCESSING_MODE_BATCH";
 NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeInteractive = @"PROCESSING_MODE_INTERACTIVE";
@@ -153,6 +158,16 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_Crop
 @dynamic bottomPixels, leftPixels, rightPixels, topPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_DashConfig
+//
+
+@implementation GTLRTranscoder_DashConfig
+@dynamic segmentReferenceScheme;
 @end
 
 
@@ -396,7 +411,7 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Manifest
-@dynamic fileName, muxStreams, type;
+@dynamic dash, fileName, muxStreams, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

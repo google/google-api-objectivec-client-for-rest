@@ -623,7 +623,7 @@
 //
 
 @implementation GTLRCalendar_EventWorkingLocationProperties
-@dynamic customLocation, homeOffice, officeLocation;
+@dynamic customLocation, homeOffice, officeLocation, type;
 @end
 
 

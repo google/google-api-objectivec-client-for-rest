@@ -682,7 +682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudScheduler_Location : GTLRObject
 
@@ -944,7 +944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  then increases linearly, and finally retries at intervals of
  *  max_backoff_duration up to retry_count times. For example, if
  *  min_backoff_duration is 10s, max_backoff_duration is 300s, and
- *  `max_doublings` is 3, then the a job will first be retried in 10s. The retry
+ *  `max_doublings` is 3, then the job will first be retried in 10s. The retry
  *  interval will double three times, and then increase linearly by 2^3 * 10s.
  *  Finally, the job will retry at intervals of max_backoff_duration until the
  *  job has been attempted retry_count times. Thus, the requests will retry at

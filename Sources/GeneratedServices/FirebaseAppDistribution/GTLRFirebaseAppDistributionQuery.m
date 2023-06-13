@@ -156,7 +156,7 @@
 
 @implementation GTLRFirebaseAppDistributionQuery_ProjectsAppsReleasesFeedbackReportsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

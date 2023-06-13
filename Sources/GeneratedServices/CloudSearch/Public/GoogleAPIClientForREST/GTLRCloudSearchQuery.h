@@ -1073,6 +1073,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
+ *  Provides functionality to remove logged activity for a user. Currently to be
+ *  used only for dynamite 1p clients **Note:** This API requires a standard end
+ *  user account to execute. A service account can't perform Remove Activity
+ *  requests directly; to use a service account to perform queries, set up
+ *  [Google Workspace domain-wide delegation of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *
+ *  Method: cloudsearch.query.removeActivity
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchQuery
+ */
+@interface GTLRCloudSearchQuery_QueryRemoveActivity : GTLRCloudSearchQuery
+
+/**
+ *  Fetches a @c GTLRCloudSearch_RemoveActivityResponse.
+ *
+ *  Provides functionality to remove logged activity for a user. Currently to be
+ *  used only for dynamite 1p clients **Note:** This API requires a standard end
+ *  user account to execute. A service account can't perform Remove Activity
+ *  requests directly; to use a service account to perform queries, set up
+ *  [Google Workspace domain-wide delegation of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *
+ *  @param object The @c GTLRCloudSearch_RemoveActivityRequest to include in the
+ *    query.
+ *
+ *  @return GTLRCloudSearchQuery_QueryRemoveActivity
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_RemoveActivityRequest *)object;
+
+@end
+
+/**
  *  The Cloud Search Query API provides the search method, which returns the
  *  most relevant results from a user query. The results can come from Google
  *  Workspace apps, such as Gmail or Google Drive, or they can come from data

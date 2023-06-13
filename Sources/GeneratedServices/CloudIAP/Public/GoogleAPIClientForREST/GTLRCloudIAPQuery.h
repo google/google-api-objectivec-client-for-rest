@@ -728,6 +728,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Validates a given CEL expression conforms to IAP restrictions.
+ *
+ *  Method: iap.validateAttributeExpression
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_V1ValidateAttributeExpression : GTLRCloudIAPQuery
+
+/**
+ *  Required. User input string expression. Should be of the form
+ *  'attributes.saml_attributes.filter(attribute, attribute.name in
+ *  ['{attribute_name}', '{attribute_name}'])'
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/** Required. The resource name of the IAP protected resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_ValidateIapAttributeExpressionResponse.
+ *
+ *  Validates a given CEL expression conforms to IAP restrictions.
+ *
+ *  @param name Required. The resource name of the IAP protected resource.
+ *
+ *  @return GTLRCloudIAPQuery_V1ValidateAttributeExpression
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

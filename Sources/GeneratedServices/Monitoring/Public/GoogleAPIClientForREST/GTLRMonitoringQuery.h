@@ -2645,7 +2645,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** A positive number that is the maximum number of results to return. */
+/**
+ *  A positive number that is the maximum number of results to return. The
+ *  default and maximum value is 10,000. If a page_size <= 0 or > 10,000 is
+ *  submitted, will instead return a maximum of 10,000 results.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -3076,7 +3080,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists the notification channels that have been created for the project.
+ *  Lists the notification channels that have been created for the project. To
+ *  list the types of notification channels that are supported, use the
+ *  ListNotificationChannelDescriptors method.
  *
  *  Method: monitoring.projects.notificationChannels.list
  *
@@ -3129,7 +3135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListNotificationChannelsResponse.
  *
- *  Lists the notification channels that have been created for the project.
+ *  Lists the notification channels that have been created for the project. To
+ *  list the types of notification channels that are supported, use the
+ *  ListNotificationChannelDescriptors method.
  *
  *  @param name Required. The project
  *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to

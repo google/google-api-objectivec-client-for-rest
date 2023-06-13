@@ -41,7 +41,16 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Mee
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsDeviceIntegrity = @"MEETS_DEVICE_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsStrongIntegrity = @"MEETS_STRONG_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity = @"MEETS_WEAK_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
+
+// GTLRPlayIntegrity_GuidanceDetails.userRemediation
+NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_GetUnmodifiedApp = @"GET_UNMODIFIED_APP";
+NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_InstallAppFromPlay = @"INSTALL_APP_FROM_PLAY";
+NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_LockBootloader = @"LOCK_BOOTLOADER";
+NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_RestoreFactoryRom = @"RESTORE_FACTORY_ROM";
+NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_SignIntoGoogleAccount = @"SIGN_INTO_GOOGLE_ACCOUNT";
+NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_UnknownUserRemediation = @"UNKNOWN_USER_REMEDIATION";
 
 // ----------------------------------------------------------------------------
 //
@@ -122,6 +131,24 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unk
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_GuidanceDetails
+//
+
+@implementation GTLRPlayIntegrity_GuidanceDetails
+@dynamic userRemediation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userRemediation" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_RequestDetails
 //
 
@@ -146,6 +173,6 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unk
 //
 
 @implementation GTLRPlayIntegrity_TokenPayloadExternal
-@dynamic accountDetails, appIntegrity, deviceIntegrity, requestDetails,
-         testingDetails;
+@dynamic accountDetails, appIntegrity, deviceIntegrity, guidanceDetails,
+         requestDetails, testingDetails;
 @end

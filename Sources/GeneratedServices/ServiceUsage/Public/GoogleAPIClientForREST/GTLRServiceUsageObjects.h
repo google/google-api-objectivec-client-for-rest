@@ -911,11 +911,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Cli
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Cloud;
 /**
+ *  Generative AI - https://developers.generativeai.google
+ *
+ *  Value: "GENERATIVE_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_GenerativeAi;
+/**
+ *  Geo Org.
+ *
+ *  Value: "GEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Geo;
+/**
  *  Photos Org.
  *
  *  Value: "PHOTOS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Photos;
+/**
+ *  Shopping Org.
+ *
+ *  Value: "SHOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Shopping;
 /**
  *  Street View Org.
  *
@@ -944,6 +962,32 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2;
  *  Value: "SYNTAX_PROTO3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
+
+/**
+ *  Metadata for the `AddEnableRules` method.
+ */
+@interface GTLRServiceUsage_AddEnableRulesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message of "AddEnableRules" method.
+ */
+@interface GTLRServiceUsage_AddEnableRulesResponse : GTLRObject
+
+/** The values added to the parent consumer policy. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addedValues;
+
+/**
+ *  The parent consumer policy. It can be
+ *  `projects/12345/consumerPolicies/default`, or
+ *  `folders/12345/consumerPolicies/default`, or
+ *  `organizations/12345/consumerPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
 
 /**
  *  Quota policy created by quota administrator.
@@ -1649,9 +1693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. The resource name of the policy. For example,
- *  `projects/12345/consumerPolicy`, `folders/12345/consumerPolicy`,
- *  `organizations/12345/consumerPolicy`.
+ *  Output only. The resource name of the policy. For example, We only allow
+ *  consumer policy name as "default" for now:
+ *  `projects/12345/consumerPolicies/default`,
+ *  `folders/12345/consumerPolicies/default`,
+ *  `organizations/12345/consumerPolicies/default`. Legacy format:
+ *  `projects/12345/consumerPoly`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1893,7 +1940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  documentation: summary: > The Google Calendar API gives access to most
  *  calendar features. pages: - name: Overview content: (== include
  *  google/foo/overview.md ==) - name: Tutorial content: (== include
- *  google/foo/tutorial.md ==) subpages; - name: Java content: (== include
+ *  google/foo/tutorial.md ==) subpages: - name: Java content: (== include
  *  google/foo/tutorial_java.md ==) rules: - selector:
  *  google.calendar.Calendar.Get description: > ... - selector:
  *  google.calendar.Calendar.Put description: > ... Documentation is provided in
@@ -1942,6 +1989,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_DocumentationRule *> *rules;
 
 /**
+ *  Specifies section and content to override boilerplate content provided by
+ *  go/api-docgen. Currently overrides following sections: 1.
+ *  rest.service.client_libraries
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Page *> *sectionOverrides;
+
+/**
  *  Specifies the service root url if the default one (the service name from the
  *  yaml file) is not suitable. This can be seen in any fully specified service
  *  urls as well as sections that show a base that other urls are relative to.
@@ -1977,6 +2031,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  String of comma or space separated case-sensitive words for which
+ *  method/field name replacement will be disabled by go/api-docgen.
+ */
+@property(nonatomic, copy, nullable) NSString *disableReplacementWords;
 
 /**
  *  The selector is a comma-separated list of patterns for any element such as a
@@ -4209,8 +4269,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        Not useful. (Value: "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED")
  *    @arg @c kGTLRServiceUsage_Publishing_Organization_Cloud Google Cloud
  *        Platform Org. (Value: "CLOUD")
+ *    @arg @c kGTLRServiceUsage_Publishing_Organization_GenerativeAi Generative
+ *        AI - https://developers.generativeai.google (Value: "GENERATIVE_AI")
+ *    @arg @c kGTLRServiceUsage_Publishing_Organization_Geo Geo Org. (Value:
+ *        "GEO")
  *    @arg @c kGTLRServiceUsage_Publishing_Organization_Photos Photos Org.
  *        (Value: "PHOTOS")
+ *    @arg @c kGTLRServiceUsage_Publishing_Organization_Shopping Shopping Org.
+ *        (Value: "SHOPPING")
  *    @arg @c kGTLRServiceUsage_Publishing_Organization_StreetView Street View
  *        Org. (Value: "STREET_VIEW")
  */
@@ -4473,6 +4539,32 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        fetch them all at once.
  */
 @interface GTLRServiceUsage_QuotaOverride_Dimensions : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the `RemoveEnableRules` method.
+ */
+@interface GTLRServiceUsage_RemoveEnableRulesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message of "RemoveEnableRules" method.
+ */
+@interface GTLRServiceUsage_RemoveEnableRulesResponse : GTLRObject
+
+/**
+ *  The parent consumer policy. It can be
+ *  `projects/12345/consumerPolicies/default`, or
+ *  `folders/12345/consumerPolicies/default`, or
+ *  `organizations/12345/consumerPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The values removed from the parent consumer policy. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removedValues;
+
 @end
 
 

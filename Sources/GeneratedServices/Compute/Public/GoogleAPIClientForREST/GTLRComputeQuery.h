@@ -722,6 +722,59 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Moves the specified address resource.
+ *
+ *  Method: compute.addresses.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_AddressesMove : GTLRComputeQuery
+
+/** Name of the address resource to move. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** Source project ID which the Address is moved from. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Moves the specified address resource.
+ *
+ *  @param object The @c GTLRCompute_RegionAddressesMoveRequest to include in
+ *    the query.
+ *  @param project Source project ID which the Address is moved from.
+ *  @param region Name of the region for this request.
+ *  @param address Name of the address resource to move.
+ *
+ *  @return GTLRComputeQuery_AddressesMove
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionAddressesMoveRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                        address:(NSString *)address;
+
+@end
+
+/**
  *  Sets the labels on an Address. To learn more about labels, read the Labeling
  *  Resources documentation.
  *
@@ -2686,6 +2739,58 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Bulk create a set of disks.
+ *
+ *  Method: compute.disks.bulkInsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksBulkInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Bulk create a set of disks.
+ *
+ *  @param object The @c GTLRCompute_BulkInsertDiskResource to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_DisksBulkInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BulkInsertDiskResource *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
  *  Creates a snapshot of a specified persistent disk. For regular snapshot
  *  creation, consider using snapshots.insert instead, as that method supports
  *  more features, such as creating snapshots in a project different from the
@@ -3292,6 +3397,175 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts asynchronous replication. Must be invoked on the primary disk.
+ *
+ *  Method: compute.disks.startAsyncReplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksStartAsyncReplication : GTLRComputeQuery
+
+/** The name of the persistent disk. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Starts asynchronous replication. Must be invoked on the primary disk.
+ *
+ *  @param object The @c GTLRCompute_DisksStartAsyncReplicationRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param disk The name of the persistent disk.
+ *
+ *  @return GTLRComputeQuery_DisksStartAsyncReplication
+ */
++ (instancetype)queryWithObject:(GTLRCompute_DisksStartAsyncReplicationRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                           disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Stops asynchronous replication. Can be invoked either on the primary or on
+ *  the secondary disk.
+ *
+ *  Method: compute.disks.stopAsyncReplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksStopAsyncReplication : GTLRComputeQuery
+
+/** The name of the persistent disk. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Stops asynchronous replication. Can be invoked either on the primary or on
+ *  the secondary disk.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param disk The name of the persistent disk.
+ *
+ *  @return GTLRComputeQuery_DisksStopAsyncReplication
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                            disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Stops asynchronous replication for a consistency group of disks. Can be
+ *  invoked either in the primary or secondary scope.
+ *
+ *  Method: compute.disks.stopGroupAsyncReplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksStopGroupAsyncReplication : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request. This must be the zone of the primary
+ *  or secondary disks in the consistency group.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Stops asynchronous replication for a consistency group of disks. Can be
+ *  invoked either in the primary or secondary scope.
+ *
+ *  @param object The @c GTLRCompute_DisksStopGroupAsyncReplicationResource to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request. This must be the
+ *    zone of the primary or secondary disks in the consistency group.
+ *
+ *  @return GTLRComputeQuery_DisksStopGroupAsyncReplication
+ */
++ (instancetype)queryWithObject:(GTLRCompute_DisksStopGroupAsyncReplicationResource *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
 
 @end
 
@@ -5802,6 +6076,54 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Moves the specified address resource from one project to another project.
+ *
+ *  Method: compute.globalAddresses.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalAddressesMove : GTLRComputeQuery
+
+/** Name of the address resource to move. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** Source project ID which the Address is moved from. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Moves the specified address resource from one project to another project.
+ *
+ *  @param object The @c GTLRCompute_GlobalAddressesMoveRequest to include in
+ *    the query.
+ *  @param project Source project ID which the Address is moved from.
+ *  @param address Name of the address resource to move.
+ *
+ *  @return GTLRComputeQuery_GlobalAddressesMove
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalAddressesMoveRequest *)object
+                        project:(NSString *)project
+                        address:(NSString *)address;
 
 @end
 
@@ -13596,6 +13918,19 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -15328,6 +15663,146 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param project Project ID for this request.
  *
  *  @return GTLRComputeQuery_InterconnectLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Returns the details for the specified interconnect remote location. Gets a
+ *  list of available interconnect remote locations by making a list() request.
+ *
+ *  Method: compute.interconnectRemoteLocations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectRemoteLocationsGet : GTLRComputeQuery
+
+/** Name of the interconnect remote location to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectRemoteLocation;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectRemoteLocation.
+ *
+ *  Returns the details for the specified interconnect remote location. Gets a
+ *  list of available interconnect remote locations by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectRemoteLocation Name of the interconnect remote location
+ *    to return.
+ *
+ *  @return GTLRComputeQuery_InterconnectRemoteLocationsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+      interconnectRemoteLocation:(NSString *)interconnectRemoteLocation;
+
+@end
+
+/**
+ *  Retrieves the list of interconnect remote locations available to the
+ *  specified project.
+ *
+ *  Method: compute.interconnectRemoteLocations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectRemoteLocationsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. If you want to use AIP-160, your expression must specify
+ *  the field name, an operator, and the value that you want to use for
+ *  filtering. The value must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
+ *  are filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:`
+ *  operator can be used with string fields to match substrings. For non-string
+ *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
+ *  to test whether a key has been defined. For example, to find all objects
+ *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
+ *  fields. For example, you could specify `scheduling.automaticRestart = false`
+ *  to include instances only if they are not scheduled for automatic restarts.
+ *  You can use filtering on nested fields to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
+ *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
+ *  against a single un-parenthesized expression with or without quotes or
+ *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectRemoteLocationList.
+ *
+ *  Retrieves the list of interconnect remote locations available to the
+ *  specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectRemoteLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -24378,6 +24853,54 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Bulk create a set of disks.
+ *
+ *  Method: compute.regionDisks.bulkInsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksBulkInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Bulk create a set of disks.
+ *
+ *  @param object The @c GTLRCompute_BulkInsertDiskResource to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionDisksBulkInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BulkInsertDiskResource *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
  *  Creates a snapshot of a specified persistent disk. For regular snapshot
  *  creation, consider using snapshots.insert instead, as that method supports
  *  more features, such as creating snapshots in a project different from the
@@ -24931,6 +25454,165 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts asynchronous replication. Must be invoked on the primary disk.
+ *
+ *  Method: compute.regionDisks.startAsyncReplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksStartAsyncReplication : GTLRComputeQuery
+
+/** The name of the persistent disk. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Starts asynchronous replication. Must be invoked on the primary disk.
+ *
+ *  @param object The @c GTLRCompute_RegionDisksStartAsyncReplicationRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param disk The name of the persistent disk.
+ *
+ *  @return GTLRComputeQuery_RegionDisksStartAsyncReplication
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionDisksStartAsyncReplicationRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                           disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Stops asynchronous replication. Can be invoked either on the primary or on
+ *  the secondary disk.
+ *
+ *  Method: compute.regionDisks.stopAsyncReplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksStopAsyncReplication : GTLRComputeQuery
+
+/** The name of the persistent disk. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Stops asynchronous replication. Can be invoked either on the primary or on
+ *  the secondary disk.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param disk The name of the persistent disk.
+ *
+ *  @return GTLRComputeQuery_RegionDisksStopAsyncReplication
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                            disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Stops asynchronous replication for a consistency group of disks. Can be
+ *  invoked either in the primary or secondary scope.
+ *
+ *  Method: compute.regionDisks.stopGroupAsyncReplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksStopGroupAsyncReplication : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region for this request. This must be the region of the
+ *  primary or secondary disks in the consistency group.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Stops asynchronous replication for a consistency group of disks. Can be
+ *  invoked either in the primary or secondary scope.
+ *
+ *  @param object The @c GTLRCompute_DisksStopGroupAsyncReplicationResource to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request. This must be the
+ *    region of the primary or secondary disks in the consistency group.
+ *
+ *  @return GTLRComputeQuery_RegionDisksStopGroupAsyncReplication
+ */
++ (instancetype)queryWithObject:(GTLRCompute_DisksStopGroupAsyncReplicationResource *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
 
 @end
 
@@ -27600,6 +28282,254 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_BulkInsertInstanceResource *)object
                         project:(NSString *)project
                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Deletes the specified instance template. Deleting an instance template is
+ *  permanent and cannot be undone.
+ *
+ *  Method: compute.regionInstanceTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesDelete : GTLRComputeQuery
+
+/** The name of the instance template to delete. */
+@property(nonatomic, copy, nullable) NSString *instanceTemplate;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified instance template. Deleting an instance template is
+ *  permanent and cannot be undone.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param instanceTemplate The name of the instance template to delete.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                instanceTemplate:(NSString *)instanceTemplate;
+
+@end
+
+/**
+ *  Returns the specified instance template.
+ *
+ *  Method: compute.regionInstanceTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesGet : GTLRComputeQuery
+
+/** The name of the instance template. */
+@property(nonatomic, copy, nullable) NSString *instanceTemplate;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceTemplate.
+ *
+ *  Returns the specified instance template.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param instanceTemplate The name of the instance template.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                instanceTemplate:(NSString *)instanceTemplate;
+
+@end
+
+/**
+ *  Creates an instance template in the specified project and region using the
+ *  global instance template whose URL is included in the request.
+ *
+ *  Method: compute.regionInstanceTemplates.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates an instance template in the specified project and region using the
+ *  global instance template whose URL is included in the request.
+ *
+ *  @param object The @c GTLRCompute_InstanceTemplate to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceTemplate *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of instance templates that are contained within the
+ *  specified project and region.
+ *
+ *  Method: compute.regionInstanceTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceTemplatesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. If you want to use AIP-160, your expression must specify
+ *  the field name, an operator, and the value that you want to use for
+ *  filtering. The value must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
+ *  are filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:`
+ *  operator can be used with string fields to match substrings. For non-string
+ *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
+ *  to test whether a key has been defined. For example, to find all objects
+ *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
+ *  fields. For example, you could specify `scheduling.automaticRestart = false`
+ *  to include instances only if they are not scheduled for automatic restarts.
+ *  You can use filtering on nested fields to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
+ *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
+ *  against a single un-parenthesized expression with or without quotes or
+ *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the regions for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceTemplateList.
+ *
+ *  Retrieves a list of instance templates that are contained within the
+ *  specified project and region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the regions for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
 
 @end
 

@@ -103,6 +103,7 @@
 @class GTLRBigquery_JobStatistics_ReservationUsage_Item;
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
+@class GTLRBigquery_JsonOptions;
 @class GTLRBigquery_MaterializedViewDefinition;
 @class GTLRBigquery_MlStatistics;
 @class GTLRBigquery_Model;
@@ -129,6 +130,7 @@
 @class GTLRBigquery_RegressionMetrics;
 @class GTLRBigquery_RemoteFunctionOptions;
 @class GTLRBigquery_RemoteFunctionOptions_UserDefinedContext;
+@class GTLRBigquery_RemoteModelInfo;
 @class GTLRBigquery_Routine;
 @class GTLRBigquery_RoutineReference;
 @class GTLRBigquery_Row;
@@ -153,6 +155,11 @@
 @class GTLRBigquery_StringHparamSearchSpace;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
+@class GTLRBigquery_TableConstraints;
+@class GTLRBigquery_TableConstraints_ForeignKeys_Item;
+@class GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item;
+@class GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable;
+@class GTLRBigquery_TableConstraints_PrimaryKey;
 @class GTLRBigquery_TableDataInsertAllRequest_Rows_Item;
 @class GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item;
 @class GTLRBigquery_TableFieldSchema;
@@ -518,6 +525,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Arima;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus;
 /**
+ *  ARIMA with external regressors.
+ *
+ *  Value: "ARIMA_PLUS_XREG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ArimaPlusXreg;
+/**
  *  Autoencoder model.
  *
  *  Value: "AUTOENCODER"
@@ -598,19 +611,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_MatrixFactoriza
 /** Value: "MODEL_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified;
 /**
+ *  An imported ONNX model.
+ *
+ *  Value: "ONNX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Onnx;
+/**
  *  Prinpical Component Analysis model.
  *
  *  Value: "PCA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Pca;
 /**
- *  Random Forest classifier model.
+ *  Random forest classifier model.
  *
  *  Value: "RANDOM_FOREST_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_RandomForestClassifier;
 /**
- *  Random Forest regressor model.
+ *  Random forest regressor model.
  *
  *  Value: "RANDOM_FOREST_REGRESSOR"
  */
@@ -621,6 +640,49 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_RandomForestReg
  *  Value: "TENSORFLOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
+/**
+ *  An imported TensorFlow Lite model.
+ *
+ *  Value: "TENSORFLOW_LITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite;
+/**
+ *  An imported XGBoost model.
+ *
+ *  Value: "XGBOOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Xgboost;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_RemoteModelInfo.remoteServiceType
+
+/**
+ *  V1 Cloud AI Natural Language API. See more details at [REST Resource:
+ *  documents](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents).
+ *
+ *  Value: "CLOUD_AI_NATURAL_LANGUAGE_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1;
+/**
+ *  V3 Cloud AI Translation API. See more details at [Cloud Translation API]
+ *  (https://cloud.google.com/translate/docs/reference/rest).
+ *
+ *  Value: "CLOUD_AI_TRANSLATE_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiTranslateV3;
+/**
+ *  V1 Cloud AI Vision API See more details at [Cloud Vision API]
+ *  (https://cloud.google.com/vision/docs/reference/rest).
+ *
+ *  Value: "CLOUD_AI_VISION_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiVisionV1;
+/**
+ *  Unspecified remote service type.
+ *
+ *  Value: "REMOTE_SERVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Routine.determinismLevel
@@ -685,6 +747,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Sql;
 // GTLRBigquery_Routine.routineType
 
 /**
+ *  Non-built-in persistent aggregate function.
+ *
+ *  Value: "AGGREGATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_AggregateFunction;
+/**
  *  Stored procedure.
  *
  *  Value: "PROCEDURE"
@@ -693,13 +761,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_Procedure;
 /** Value: "ROUTINE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified;
 /**
- *  Non-builtin permanent scalar function.
+ *  Non-built-in persistent scalar function.
  *
  *  Value: "SCALAR_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction;
 /**
- *  Non-builtin permanent TVF.
+ *  Non-built-in persistent TVF.
  *
  *  Value: "TABLE_VALUED_FUNCTION"
  */
@@ -3510,7 +3578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_EncryptionConfiguration : GTLRObject
 
 /**
- *  [Optional] Describes the Cloud KMS encryption key that will be used to
+ *  Optional. Describes the Cloud KMS encryption key that will be used to
  *  protect destination BigQuery table. The BigQuery Service Account associated
  *  with your project requires access to this encryption key.
  */
@@ -3972,6 +4040,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnknownValues;
 
 /**
+ *  Additional properties to set if `sourceFormat` is set to
+ *  `NEWLINE_DELIMITED_JSON`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_JsonOptions *jsonOptions;
+
+/**
  *  [Optional] The maximum number of bad records that BigQuery can ignore when
  *  reading data. If the number of bad records exceeds this value, an invalid
  *  error is returned in the job result. This is only valid for CSV, JSON, and
@@ -4255,6 +4329,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  GTLRBigquery_HivePartitioningOptions
  */
 @interface GTLRBigquery_HivePartitioningOptions : GTLRObject
+
+/**
+ *  [Output-only] For permanent external tables, this field is populated with
+ *  the hive partition keys in the order they were inferred. The types of the
+ *  partition keys can be deduced by checking the table schema (which will
+ *  include the partition keys). Not every API will populate this field in the
+ *  output. For example, Tables.Get will populate it, but Tables.List will not
+ *  contain this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
 
 /**
  *  [Optional] When set, what mode of hive partitioning to use when reading
@@ -6007,6 +6091,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_JsonOptions
+ */
+@interface GTLRBigquery_JsonOptions : GTLRObject
+
+/**
+ *  [Optional] The character encoding of the data. The supported values are
+ *  UTF-8, UTF-16BE, UTF-16LE, UTF-32BE, and UTF-32LE. The default value is
+ *  UTF-8.
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+@end
+
+
+/**
  *  GTLRBigquery_ListModelsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6286,6 +6385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_Model_ModelType_Arima ARIMA model. (Value: "ARIMA")
  *    @arg @c kGTLRBigquery_Model_ModelType_ArimaPlus New name for the ARIMA
  *        model. (Value: "ARIMA_PLUS")
+ *    @arg @c kGTLRBigquery_Model_ModelType_ArimaPlusXreg ARIMA with external
+ *        regressors. (Value: "ARIMA_PLUS_XREG")
  *    @arg @c kGTLRBigquery_Model_ModelType_Autoencoder Autoencoder model.
  *        (Value: "AUTOENCODER")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier AutoML Tables
@@ -6316,14 +6417,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        factorization model. (Value: "MATRIX_FACTORIZATION")
  *    @arg @c kGTLRBigquery_Model_ModelType_ModelTypeUnspecified Value
  *        "MODEL_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Model_ModelType_Onnx An imported ONNX model. (Value:
+ *        "ONNX")
  *    @arg @c kGTLRBigquery_Model_ModelType_Pca Prinpical Component Analysis
  *        model. (Value: "PCA")
- *    @arg @c kGTLRBigquery_Model_ModelType_RandomForestClassifier Random Forest
+ *    @arg @c kGTLRBigquery_Model_ModelType_RandomForestClassifier Random forest
  *        classifier model. (Value: "RANDOM_FOREST_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_RandomForestRegressor Random Forest
+ *    @arg @c kGTLRBigquery_Model_ModelType_RandomForestRegressor Random forest
  *        regressor model. (Value: "RANDOM_FOREST_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_Tensorflow An imported TensorFlow
  *        model. (Value: "TENSORFLOW")
+ *    @arg @c kGTLRBigquery_Model_ModelType_TensorflowLite An imported
+ *        TensorFlow Lite model. (Value: "TENSORFLOW_LITE")
+ *    @arg @c kGTLRBigquery_Model_ModelType_Xgboost An imported XGBoost model.
+ *        (Value: "XGBOOST")
  */
 @property(nonatomic, copy, nullable) NSString *modelType;
 
@@ -6337,6 +6444,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *optimalTrialIds;
+
+/** Output only. Remote model info */
+@property(nonatomic, strong, nullable) GTLRBigquery_RemoteModelInfo *remoteModelInfo;
 
 /** Information for all training runs in increasing order of start_time. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TrainingRun *> *trainingRuns;
@@ -6403,16 +6513,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @interface GTLRBigquery_ModelReference : GTLRObject
 
-/** [Required] The ID of the dataset containing this model. */
+/** Required. The ID of the dataset containing this model. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  [Required] The ID of the model. The ID must contain only letters (a-z, A-Z),
+ *  Required. The ID of the model. The ID must contain only letters (a-z, A-Z),
  *  numbers (0-9), or underscores (_). The maximum length is 1,024 characters.
  */
 @property(nonatomic, copy, nullable) NSString *modelId;
 
-/** [Required] The ID of the project containing this model. */
+/** Required. The ID of the project containing this model. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
@@ -7305,6 +7415,54 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Remote Model Info
+ */
+@interface GTLRBigquery_RemoteModelInfo : GTLRObject
+
+/**
+ *  Output only. Fully qualified name of the user-provided connection object of
+ *  the remote model. Format:
+ *  ```"projects/{project_id}/locations/{location_id}/connections/{connection_id}"```
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/** Output only. The endpoint for remote model. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Output only. Max number of rows in each batch sent to the remote service. If
+ *  unset, the number of rows in each batch is set dynamically.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBatchingRows;
+
+/**
+ *  Output only. The remote service type for remote model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1
+ *        V1 Cloud AI Natural Language API. See more details at [REST Resource:
+ *        documents](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents).
+ *        (Value: "CLOUD_AI_NATURAL_LANGUAGE_V1")
+ *    @arg @c kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiTranslateV3
+ *        V3 Cloud AI Translation API. See more details at [Cloud Translation
+ *        API] (https://cloud.google.com/translate/docs/reference/rest). (Value:
+ *        "CLOUD_AI_TRANSLATE_V3")
+ *    @arg @c kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiVisionV1 V1
+ *        Cloud AI Vision API See more details at [Cloud Vision API]
+ *        (https://cloud.google.com/vision/docs/reference/rest). (Value:
+ *        "CLOUD_AI_VISION_V1")
+ *    @arg @c kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified
+ *        Unspecified remote service type. (Value:
+ *        "REMOTE_SERVICE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *remoteServiceType;
+
+@end
+
+
+/**
  *  A user-defined function or a stored procedure.
  */
 @interface GTLRBigquery_Routine : GTLRObject
@@ -7429,14 +7587,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Required. The type of routine.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigquery_Routine_RoutineType_AggregateFunction Non-built-in
+ *        persistent aggregate function. (Value: "AGGREGATE_FUNCTION")
  *    @arg @c kGTLRBigquery_Routine_RoutineType_Procedure Stored procedure.
  *        (Value: "PROCEDURE")
  *    @arg @c kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified Value
  *        "ROUTINE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRBigquery_Routine_RoutineType_ScalarFunction Non-builtin
- *        permanent scalar function. (Value: "SCALAR_FUNCTION")
- *    @arg @c kGTLRBigquery_Routine_RoutineType_TableValuedFunction Non-builtin
- *        permanent TVF. (Value: "TABLE_VALUED_FUNCTION")
+ *    @arg @c kGTLRBigquery_Routine_RoutineType_ScalarFunction Non-built-in
+ *        persistent scalar function. (Value: "SCALAR_FUNCTION")
+ *    @arg @c kGTLRBigquery_Routine_RoutineType_TableValuedFunction Non-built-in
+ *        persistent TVF. (Value: "TABLE_VALUED_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
 
@@ -7462,14 +7622,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @interface GTLRBigquery_RoutineReference : GTLRObject
 
-/** [Required] The ID of the dataset containing this routine. */
+/** Required. The ID of the dataset containing this routine. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** [Required] The ID of the project containing this routine. */
+/** Required. The ID of the project containing this routine. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  [Required] The ID of the routine. The ID must contain only letters (a-z,
+ *  Required. The ID of the routine. The ID must contain only letters (a-z,
  *  A-Z), numbers (0-9), or underscores (_). The maximum length is 256
  *  characters.
  */
@@ -7535,20 +7695,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @interface GTLRBigquery_RowAccessPolicyReference : GTLRObject
 
-/** [Required] The ID of the dataset containing this row access policy. */
+/** Required. The ID of the dataset containing this row access policy. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  [Required] The ID of the row access policy. The ID must contain only letters
+ *  Required. The ID of the row access policy. The ID must contain only letters
  *  (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *policyId;
 
-/** [Required] The ID of the project containing this row access policy. */
+/** Required. The ID of the project containing this row access policy. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** [Required] The ID of the table containing this row access policy. */
+/** Required. The ID of the table containing this row access policy. */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
@@ -8122,6 +8282,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *numActivePhysicalBytes;
 
 /**
+ *  [Output-only] The size of this table in bytes, excluding any data in the
+ *  streaming buffer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numBytes;
+
+/**
+ *  [Output-only] The number of bytes in the table that are considered
+ *  "long-term storage".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numLongTermBytes;
+
+/**
  *  [Output-only] Number of logical bytes that are more than 90 days old.
  *
  *  Uses NSNumber of longLongValue.
@@ -8145,6 +8321,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numPartitions;
+
+/**
+ *  [Output-only] [TrustedTester] The physical size of this table in bytes,
+ *  excluding any data in the streaming buffer. This includes compression and
+ *  storage used for time travel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPhysicalBytes;
+
+/**
+ *  [Output-only] The number of rows of data in this table, excluding any data
+ *  in the streaming buffer.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRows;
 
 /**
  *  [Output-only] Number of physical bytes used by time travel storage (deleted
@@ -8171,39 +8364,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numTotalPhysicalBytes;
-
-/**
- *  [Output-only] The size of this table in bytes, excluding any data in the
- *  streaming buffer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numBytes;
-
-/**
- *  [Output-only] The number of bytes in the table that are considered
- *  "long-term storage".
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numLongTermBytes;
-
-/**
- *  [Output-only] [TrustedTester] The physical size of this table in bytes,
- *  excluding any data in the streaming buffer. This includes compression and
- *  storage used for time travel.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numPhysicalBytes;
-
-/**
- *  [Output-only] The number of rows of data in this table, excluding any data
- *  in the streaming buffer.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numRows;
 
 /**
  *  [TrustedTester] Range partitioning specification for this table. Only one of
@@ -8234,6 +8394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  streamed to or if there is no data in the streaming buffer.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Streamingbuffer *streamingBuffer;
+
+/** [Optional] The table constraints on the table. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableConstraints *tableConstraints;
 
 /** [Required] Reference describing the ID of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
@@ -8288,6 +8451,65 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id v;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TableConstraints
+ */
+@interface GTLRBigquery_TableConstraints : GTLRObject
+
+/** [Optional] The foreign keys of the tables. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableConstraints_ForeignKeys_Item *> *foreignKeys;
+
+/** [Optional] The primary key of the table. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableConstraints_PrimaryKey *primaryKey;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TableConstraints_ForeignKeys_Item
+ */
+@interface GTLRBigquery_TableConstraints_ForeignKeys_Item : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item *> *columnReferences;
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, strong, nullable) GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable *referencedTable;
+
+@end
+
+
+/**
+ *  [Optional] The primary key of the table.
+ */
+@interface GTLRBigquery_TableConstraints_PrimaryKey : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item
+ */
+@interface GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *referencedColumn;
+@property(nonatomic, copy, nullable) NSString *referencingColumn;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable
+ */
+@interface GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *datasetId;
+@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
 
@@ -8817,6 +9039,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *adjustStepChanges;
 
 /**
+ *  Whether to use approximate feature contribution method in XGBoost model
+ *  explanation for global explain.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *approxGlobalFeatureContrib;
+
+/**
  *  Whether to enable auto ARIMA or not.
  *
  *  Uses NSNumber of boolValue.
@@ -8824,11 +9054,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *autoArima;
 
 /**
- *  The max value of non-seasonal p and q.
+ *  The max value of the sum of non-seasonal p and q.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoArimaMaxOrder;
+
+/**
+ *  The min value of the sum of non-seasonal p and q.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoArimaMinOrder;
 
 /**
  *  Batch size for dnn models.
@@ -9214,6 +9451,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputLabelColumns;
 
 /**
+ *  Name of the instance weight column for training data. This column isn't be
+ *  used as a feature.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceWeightColumn;
+
+/**
  *  Number of integral steps for the integrated gradients explain method.
  *
  *  Uses NSNumber of longLongValue.
@@ -9440,6 +9683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *subsample;
 
+/**
+ *  Based on the selected TF version, the corresponding docker image is used to
+ *  train external models.
+ */
+@property(nonatomic, copy, nullable) NSString *tfVersion;
+
 /** Column to be designated as time series data for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesDataColumn;
 
@@ -9501,6 +9750,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *warmStart;
+
+/** User-selected XGBoost versions for training of XGBoost models. */
+@property(nonatomic, copy, nullable) NSString *xgboostVersion;
 
 @end
 

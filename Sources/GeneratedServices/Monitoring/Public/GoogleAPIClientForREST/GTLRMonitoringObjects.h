@@ -2181,7 +2181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  OR according to the combiner field. If the combined conditions evaluate to
  *  true, then an incident is created. A policy can have from one to six
  *  conditions. If condition_time_series_query_language is present, it must be
- *  the only condition.
+ *  the only condition. If condition_monitoring_query_language is present, it
+ *  must be the only condition.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Condition *> *conditions;
 
@@ -2195,7 +2196,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  A short name or phrase used to identify the policy in dashboards,
  *  notifications, and incidents. To avoid confusion, don't use the same display
  *  name for multiple policies in the same project. The name is limited to 512
- *  Unicode characters.
+ *  Unicode characters.The convention for the display_name of a
+ *  PrometheusQueryLanguageCondition is "/", where the and should be taken from
+ *  the corresponding Prometheus configuration file. This convention is not
+ *  enforced. In any case the display_name is not a unique key of the
+ *  AlertPolicy.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2249,13 +2254,18 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  AlertPolicy objects.The field can contain up to 64 entries. Each key and
  *  value is limited to 63 Unicode characters or 128 bytes, whichever is
  *  smaller. Labels and values can contain only lowercase letters, numerals,
- *  underscores, and dashes. Keys must begin with a letter.
+ *  underscores, and dashes. Keys must begin with a letter.Note that Prometheus
+ *  and are valid Prometheus label names
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
+ *  This means that they cannot be stored as is in user labels, because
+ *  Prometheus labels may contain upper-case letters.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_AlertPolicy_UserLabels *userLabels;
 
 /**
- *  Read-only description of how the alert policy is invalid. OK if the alert
- *  policy is valid. If not OK, the alert policy will not generate incidents.
+ *  Read-only description of how the alert policy is invalid. This field is only
+ *  set when the alert policy is invalid. An invalid alert policy will not
+ *  generate incidents.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Status *validity;
 
@@ -2267,7 +2277,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  AlertPolicy objects.The field can contain up to 64 entries. Each key and
  *  value is limited to 63 Unicode characters or 128 bytes, whichever is
  *  smaller. Labels and values can contain only lowercase letters, numerals,
- *  underscores, and dashes. Keys must begin with a letter.
+ *  underscores, and dashes. Keys must begin with a letter.Note that Prometheus
+ *  and are valid Prometheus label names
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
+ *  This means that they cannot be stored as is in user labels, because
+ *  Prometheus labels may contain upper-case letters.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

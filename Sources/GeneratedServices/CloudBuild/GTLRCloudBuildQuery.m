@@ -1155,7 +1155,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch
 
-@dynamic projectId, resourceName, triggerId;
+@dynamic projectId, resourceName, triggerId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
                    resourceName:(NSString *)resourceName {
@@ -1443,7 +1443,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsTriggersPatch
 
-@dynamic projectId, triggerId;
+@dynamic projectId, triggerId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
                       projectId:(NSString *)projectId

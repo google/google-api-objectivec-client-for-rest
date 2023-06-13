@@ -1373,6 +1373,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Romanize input text written in non-Latin scripts to Latin text.
+ *
+ *  Method: translate.projects.locations.romanizeText
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsRomanizeText : GTLRTranslateQuery
+
+/**
+ *  Required. Project or location to make a call. Must refer to a caller's
+ *  project. Format: `projects/{project-number-or-id}/locations/{location-id}`
+ *  or `projects/{project-number-or-id}`. For global calls, use
+ *  `projects/{project-number-or-id}/locations/global` or
+ *  `projects/{project-number-or-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_RomanizeTextResponse.
+ *
+ *  Romanize input text written in non-Latin scripts to Latin text.
+ *
+ *  @param object The @c GTLRTranslate_RomanizeTextRequest to include in the
+ *    query.
+ *  @param parent Required. Project or location to make a call. Must refer to a
+ *    caller's project. Format:
+ *    `projects/{project-number-or-id}/locations/{location-id}` or
+ *    `projects/{project-number-or-id}`. For global calls, use
+ *    `projects/{project-number-or-id}/locations/global` or
+ *    `projects/{project-number-or-id}`.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsRomanizeText
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_RomanizeTextRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Translates documents in synchronous mode.
  *
  *  Method: translate.projects.locations.translateDocument
@@ -1456,6 +1497,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRTranslateQuery_ProjectsLocationsTranslateText
  */
 + (instancetype)queryWithObject:(GTLRTranslate_TextRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Romanize input text written in non-Latin scripts to Latin text.
+ *
+ *  Method: translate.projects.romanizeText
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsRomanizeText : GTLRTranslateQuery
+
+/**
+ *  Required. Project or location to make a call. Must refer to a caller's
+ *  project. Format: `projects/{project-number-or-id}/locations/{location-id}`
+ *  or `projects/{project-number-or-id}`. For global calls, use
+ *  `projects/{project-number-or-id}/locations/global` or
+ *  `projects/{project-number-or-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_RomanizeTextResponse.
+ *
+ *  Romanize input text written in non-Latin scripts to Latin text.
+ *
+ *  @param object The @c GTLRTranslate_RomanizeTextRequest to include in the
+ *    query.
+ *  @param parent Required. Project or location to make a call. Must refer to a
+ *    caller's project. Format:
+ *    `projects/{project-number-or-id}/locations/{location-id}` or
+ *    `projects/{project-number-or-id}`. For global calls, use
+ *    `projects/{project-number-or-id}/locations/global` or
+ *    `projects/{project-number-or-id}`.
+ *
+ *  @return GTLRTranslateQuery_ProjectsRomanizeText
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_RomanizeTextRequest *)object
                          parent:(NSString *)parent;
 
 @end

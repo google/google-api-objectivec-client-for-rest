@@ -487,10 +487,17 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldKnownValueDescription
-@dynamic descriptionProperty, value;
+@dynamic descriptionProperty, fieldDependencies, value;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldDependencies" : [GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDependencies class]
+  };
+  return map;
 }
 
 @end

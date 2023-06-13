@@ -1795,25 +1795,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *serverErrorsPerProjectPerHour;
 
 /**
- *  Standard Analytics Properties can use up to 25,000 tokens per day; Analytics
- *  360 Properties can use 250,000 tokens per day. Most requests consume fewer
- *  than 10 tokens.
+ *  Standard Analytics Properties can use up to 200,000 tokens per day;
+ *  Analytics 360 Properties can use 2,000,000 tokens per day. Most requests
+ *  consume fewer than 10 tokens.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *tokensPerDay;
 
 /**
- *  Standard Analytics Properties can use up to 5,000 tokens per hour; Analytics
- *  360 Properties can use 50,000 tokens per hour. An API request consumes a
- *  single number of tokens, and that number is deducted from all of the hourly,
- *  daily, and per project hourly quotas.
+ *  Standard Analytics Properties can use up to 40,000 tokens per hour;
+ *  Analytics 360 Properties can use 400,000 tokens per hour. An API request
+ *  consumes a single number of tokens, and that number is deducted from all of
+ *  the hourly, daily, and per project hourly quotas.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *tokensPerHour;
 
 /**
- *  Analytics Properties can use up to 25% of their tokens per project per hour.
- *  This amounts to standard Analytics Properties can use up to 1,250 tokens per
- *  project per hour, and Analytics 360 Properties can use 12,500 tokens per
- *  project per hour. An API request consumes a single number of tokens, and
+ *  Analytics Properties can use up to 35% of their tokens per project per hour.
+ *  This amounts to standard Analytics Properties can use up to 14,000 tokens
+ *  per project per hour, and Analytics 360 Properties can use 140,000 tokens
+ *  per project per hour. An API request consumes a single number of tokens, and
  *  that number is deducted from all of the hourly, daily, and per project
  *  hourly quotas.
  */

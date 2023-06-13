@@ -442,39 +442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @end
 
 /**
- *  Associates a location to a place ID. Any previous association is
- *  overwritten. This operation is only valid if the location is unverified. The
- *  association must be valid, that is, it appears in the list of
- *  `SearchGoogleLocations`.
- *
- *  Method: mybusinessbusinessinformation.locations.associate
- */
-@interface GTLRMyBusinessBusinessInformationQuery_LocationsAssociate : GTLRMyBusinessBusinessInformationQuery
-
-/** Required. The resource name of the location to associate. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRMyBusinessBusinessInformation_Empty.
- *
- *  Associates a location to a place ID. Any previous association is
- *  overwritten. This operation is only valid if the location is unverified. The
- *  association must be valid, that is, it appears in the list of
- *  `SearchGoogleLocations`.
- *
- *  @param object The @c
- *    GTLRMyBusinessBusinessInformation_AssociateLocationRequest to include in
- *    the query.
- *  @param name Required. The resource name of the location to associate.
- *
- *  @return GTLRMyBusinessBusinessInformationQuery_LocationsAssociate
- */
-+ (instancetype)queryWithObject:(GTLRMyBusinessBusinessInformation_AssociateLocationRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Gets the Google-updated version of the specified location.
  *
  *  Method: mybusinessbusinessinformation.locations.attributes.getGoogleUpdated
@@ -498,35 +465,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
  *  @return GTLRMyBusinessBusinessInformationQuery_LocationsAttributesGetGoogleUpdated
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Clears an association between a location and its place ID. This operation is
- *  only valid if the location is unverified.
- *
- *  Method: mybusinessbusinessinformation.locations.clearLocationAssociation
- */
-@interface GTLRMyBusinessBusinessInformationQuery_LocationsClearLocationAssociation : GTLRMyBusinessBusinessInformationQuery
-
-/** Required. The resource name of the location to disassociate. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRMyBusinessBusinessInformation_Empty.
- *
- *  Clears an association between a location and its place ID. This operation is
- *  only valid if the location is unverified.
- *
- *  @param object The @c
- *    GTLRMyBusinessBusinessInformation_ClearLocationAssociationRequest to
- *    include in the query.
- *  @param name Required. The resource name of the location to disassociate.
- *
- *  @return GTLRMyBusinessBusinessInformationQuery_LocationsClearLocationAssociation
- */
-+ (instancetype)queryWithObject:(GTLRMyBusinessBusinessInformation_ClearLocationAssociationRequest *)object
-                           name:(NSString *)name;
 
 @end
 

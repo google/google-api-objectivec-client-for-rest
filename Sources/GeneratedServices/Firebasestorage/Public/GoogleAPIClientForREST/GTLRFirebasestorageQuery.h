@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
  *  Google Cloud Storage bucket,
- *  `projects/{project_number}/buckets/{bucket_id}`.
+ *  `projects/{project_id_or_number}/buckets/{bucket_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param bucket Required. Resource name of the bucket, mirrors the ID of the
  *    underlying Google Cloud Storage bucket,
- *    `projects/{project_number}/buckets/{bucket_id}`.
+ *    `projects/{project_id_or_number}/buckets/{bucket_id}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsAddFirebase
  */
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
  *  Google Cloud Storage bucket,
- *  `projects/{project_number}/buckets/{bucket_id}`.
+ *  `projects/{project_id_or_number}/buckets/{bucket_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Resource name of the bucket, mirrors the ID of the
  *    underlying Google Cloud Storage bucket,
- *    `projects/{project_number}/buckets/{bucket_id}`.
+ *    `projects/{project_id_or_number}/buckets/{bucket_id}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsGet
  */
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the parent Firebase project,
- *  `projects/{project_number}`.
+ *  `projects/{project_id_or_number}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the linked storage buckets for a project.
  *
  *  @param parent Required. Resource name of the parent Firebase project,
- *    `projects/{project_number}`.
+ *    `projects/{project_id_or_number}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsList
  *
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
  *  Google Cloud Storage bucket,
- *  `projects/{project_number}/buckets/{bucket_id}`.
+ *  `projects/{project_id_or_number}/buckets/{bucket_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
@@ -178,7 +178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param bucket Required. Resource name of the bucket, mirrors the ID of the
  *    underlying Google Cloud Storage bucket,
- *    `projects/{project_number}/buckets/{bucket_id}`.
+ *    `projects/{project_id_or_number}/buckets/{bucket_id}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsRemoveFirebase
  */

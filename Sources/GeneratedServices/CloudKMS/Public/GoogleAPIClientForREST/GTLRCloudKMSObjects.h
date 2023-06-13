@@ -3530,7 +3530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudKMS_Location : GTLRObject
 
@@ -4193,6 +4193,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 /** Required. The id of the child CryptoKeyVersion to use as primary. */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyVersionId;
 
+@end
+
+
+/**
+ *  Response message for EkmService.VerifyConnectivity.
+ */
+@interface GTLRCloudKMS_VerifyConnectivityResponse : GTLRObject
 @end
 
 

@@ -2608,12 +2608,13 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          encryptedUserIdCandidates, floodlightActivityId,
          floodlightConfigurationId, gclid, impressionId, kind, limitAdTracking,
          matchId, mobileDeviceId, nonPersonalizedAd, ordinal, quantity,
-         timestampMicros, treatmentForUnderage, value;
+         timestampMicros, treatmentForUnderage, userIdentifiers, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"customVariables" : [GTLRDfareporting_CustomFloodlightVariable class],
-    @"encryptedUserIdCandidates" : [NSString class]
+    @"encryptedUserIdCandidates" : [NSString class],
+    @"userIdentifiers" : [GTLRDfareporting_UserIdentifier class]
   };
   return map;
 }
@@ -4642,6 +4643,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_OfflineUserAddressInfo
+//
+
+@implementation GTLRDfareporting_OfflineUserAddressInfo
+@dynamic city, countryCode, hashedFirstName, hashedLastName,
+         hashedStreetAddress, postalCode, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_OffsetPosition
 //
 
@@ -6467,6 +6479,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_UserDefinedVariableConfiguration
 @dynamic dataType, reportName, variableType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_UserIdentifier
+//
+
+@implementation GTLRDfareporting_UserIdentifier
+@dynamic addressInfo, hashedEmail, hashedPhoneNumber;
 @end
 
 

@@ -403,7 +403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDateTime *lastStartTime;
 
 /**
- *  Backfill job state.
+ *  Output only. Backfill job state.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastream_BackfillJob_State_Active Backfill job is running.
@@ -763,7 +763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /**
  *  The maximum duration for which new events are added before a file is closed
- *  and a new file is created.
+ *  and a new file is created. Values within the range of 15-60 seconds are
+ *  allowed.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *fileRotationInterval;
 
@@ -1026,7 +1027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDatastream_Location : GTLRObject
 
@@ -2221,7 +2222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_ValidationMessage *> *message;
 
 /**
- *  Validation execution status.
+ *  Output only. Validation execution status.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastream_Validation_State_Failed Validation failed. (Value:

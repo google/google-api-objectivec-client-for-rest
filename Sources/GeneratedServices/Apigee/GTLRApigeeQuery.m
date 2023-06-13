@@ -5868,7 +5868,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiResponseWrapper class];
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeleteResponse class];
   query.loggingName = @"apigee.organizations.sites.apicategories.delete";
   return query;
 }

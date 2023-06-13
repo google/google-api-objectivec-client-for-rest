@@ -1024,8 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  delivery scanning and classification similar to receiving via SMTP. This
  *  method doesn't perform SPF checks, so it might not work for some spam
  *  messages, such as those attempting to perform domain spoofing. This method
- *  does not send a message. Note: This function doesn't trigger forwarding
- *  rules or filters set up by the user.
+ *  does not send a message.
  *
  *  Method: gmail.users.messages.import
  *
@@ -1089,8 +1088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  delivery scanning and classification similar to receiving via SMTP. This
  *  method doesn't perform SPF checks, so it might not work for some spam
  *  messages, such as those attempting to perform domain spoofing. This method
- *  does not send a message. Note: This function doesn't trigger forwarding
- *  rules or filters set up by the user.
+ *  does not send a message.
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
  *  @param userId The user's email address. The special value `me` can be used

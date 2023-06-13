@@ -229,6 +229,15 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DisableMigrationRequest
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DisableMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain
 //
 
@@ -265,10 +274,48 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DomainJoinMachineRequest
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DomainJoinMachineRequest
+@dynamic force, ouName, vmIdToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DomainJoinMachineResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DomainJoinMachineResponse
+@dynamic domainJoinBlob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Empty
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_EnableMigrationRequest
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_EnableMigrationRequest
+@dynamic migratingDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"migratingDomains" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -785,6 +832,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow
 @dynamic dailyCycle, weeklyCycle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails
+@dynamic disableSidFiltering, domainName;
 @end
 
 

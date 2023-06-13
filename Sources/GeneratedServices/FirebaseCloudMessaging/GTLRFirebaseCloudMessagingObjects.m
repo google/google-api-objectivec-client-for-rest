@@ -26,6 +26,12 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPri
 NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMin = @"PRIORITY_MIN";
 NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
 
+// GTLRFirebaseCloudMessaging_AndroidNotification.proxy
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Proxy_Allow = @"ALLOW";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Proxy_Deny = @"DENY";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Proxy_IfPriorityLowered = @"IF_PRIORITY_LOWERED";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Proxy_ProxyUnspecified = @"PROXY_UNSPECIFIED";
+
 // GTLRFirebaseCloudMessaging_AndroidNotification.visibility
 NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Private = @"PRIVATE";
 NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Public = @"PUBLIC";
@@ -76,8 +82,9 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 @dynamic body, bodyLocArgs, bodyLocKey, bypassProxyNotification, channelId,
          clickAction, color, defaultLightSettings, defaultSound,
          defaultVibrateTimings, eventTime, icon, image, lightSettings,
-         localOnly, notificationCount, notificationPriority, sound, sticky, tag,
-         ticker, title, titleLocArgs, titleLocKey, vibrateTimings, visibility;
+         localOnly, notificationCount, notificationPriority, proxy, sound,
+         sticky, tag, ticker, title, titleLocArgs, titleLocKey, vibrateTimings,
+         visibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

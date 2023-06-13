@@ -22,6 +22,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult;
@@ -29,6 +30,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1Barcode;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
@@ -59,6 +61,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageToken;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenDetectedBreak;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageVisualElement;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenanceParent;
@@ -104,6 +107,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageToken;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenDetectedBreak;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageVisualElement;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenanceParent;
@@ -156,6 +160,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableRow;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageVisualElement;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent;
@@ -993,7 +998,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Com
 // GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
 
 /**
- *  Some error happened during triggering human review, see the [state_message]
+ *  Some error happened during triggering human review, see the state_message
  *  for details.
  *
  *  Value: "ERROR"
@@ -1007,8 +1012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Hum
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress;
 /**
  *  Human review is skipped for the document. This can happen because human
- *  review is not enabled on the processor or the processing request has been
- *  set to skip this document.
+ *  review isn't enabled on the processor or the processing request has been set
+ *  to skip this document.
  *
  *  Value: "SKIPPED"
  */
@@ -1363,7 +1368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Evaluati
 // GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
 
 /**
- *  Some error happened during triggering human review, see the [state_message]
+ *  Some error happened during triggering human review, see the state_message
  *  for details.
  *
  *  Value: "ERROR"
@@ -1377,8 +1382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress;
 /**
  *  Human review is skipped for the document. This can happen because human
- *  review is not enabled on the processor or the processing request has been
- *  set to skip this document.
+ *  review isn't enabled on the processor or the processing request has been set
+ *  to skip this document.
  *
  *  Value: "SKIPPED"
  */
@@ -1829,80 +1834,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for CreateLabelerPool.
+ *  The long-running operation metadata for the CreateLabelerPool method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for DeleteLabelerPool.
+ *  The long-running operation metadata for DeleteLabelerPool.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for delete processor method.
+ *  The long-running operation metadata for the DeleteProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for delete processor version method.
+ *  The long-running operation metadata for the DeleteProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for deploy processor version method.
+ *  The long-running operation metadata for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeployProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the deploy processor version method.
+ *  Response message for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeployProcessorVersionResponse : GTLRObject
 @end
 
 
 /**
- *  The long running operation metadata for disable processor method.
+ *  The long-running operation metadata for the DisableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the disable processor method. Intentionally empty proto
+ *  Response message for the DisableProcessor method. Intentionally empty proto
  *  for adding fields in future.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorResponse : GTLRObject
@@ -1914,17 +1919,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId : GTLRObject
 
+/** A document id within user managed Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId *gcsManagedDocId;
 
 /** Points to a specific revision of the document if set. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef *revisionRef;
 
+/** A document id within unmanaged dataset. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId *unmanagedDocId;
+
 @end
 
 
 /**
- *  Identifies a document uniquely within the scope of a dataset in the Cloud
- *  Storage option.
+ *  Identifies a document uniquely within the scope of a dataset in user managed
+ *  Cloud Storage option.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
@@ -1938,18 +1947,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for enable processor method.
+ *  Identifies a document uniquely within the scope of a dataset in unmanaged
+ *  option.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId : GTLRObject
+
+/** Required. The id of the document. */
+@property(nonatomic, copy, nullable) NSString *docId;
+
+@end
+
+
+/**
+ *  The long-running operation metadata for the EnableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the enable processor method. Intentionally empty proto
+ *  Response message for the EnableProcessor method. Intentionally empty proto
  *  for adding fields in future.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorResponse : GTLRObject
@@ -1961,14 +1982,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Metadata of the EvaluateProcessorVersion method.
+ *  Response of the EvaluateProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionResponse : GTLRObject
 
@@ -2145,11 +2166,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for the ImportProcessorVersion method.
+ *  The long-running operation metadata for the ImportProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata for the long running operation. */
+/** The basic metadata for the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
@@ -2292,10 +2313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for set default processor version
- *  method.
+ *  Metadata of the sample documents operation.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsMetadata : GTLRObject
 
 /** The basic metadata of the long running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
@@ -2304,7 +2324,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for set default processor version method.
+ *  Response of the sample documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponse : GTLRObject
+
+/** The result of the sampling process. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument *> *selectedDocuments;
+
+@end
+
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument : GTLRObject
+
+/** An internal identifier for document. */
+@property(nonatomic, copy, nullable) NSString *documentId;
+
+@end
+
+
+/**
+ *  The long-running operation metadata for the SetDefaultProcessorVersion
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long-running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for the SetDefaultProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse : GTLRObject
 @end
@@ -2315,7 +2369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /** The test dataset validation information. */
@@ -2364,7 +2418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The response for the TrainProcessorVersion method.
+ *  The response for TrainProcessorVersion.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionResponse : GTLRObject
 
@@ -2375,19 +2429,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for the undeploy processor version
- *  method.
+ *  The long-running operation metadata for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UndeployProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the undeploy processor version method.
+ *  Response message for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UndeployProcessorVersionResponse : GTLRObject
 @end
@@ -2405,23 +2458,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for updating the human review
+ *  The long-running operation metadata for updating the human review
  *  configuration.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateHumanReviewConfigMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for UpdateLabelerPool.
+ *  The long-running operation metadata for UpdateLabelerPool.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
@@ -2478,7 +2531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for batch process method.
+ *  The long-running operation metadata for BatchProcessDocuments.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata : GTLRObject
 
@@ -2531,16 +2584,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus *humanReviewStatus;
 
 /**
- *  The source of the document, same as the [input_gcs_source] field in the
- *  request when the batch process started. The batch process is started by take
- *  snapshot of that document, since a user can move or change that document
- *  during the process.
+ *  The source of the document, same as the input_gcs_source field in the
+ *  request when the batch process started.
  */
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
 
 /**
- *  The output_gcs_destination (in the request as `output_gcs_destination`) of
- *  the processed document if it was successful, otherwise empty.
+ *  The Cloud Storage output destination (in the request as
+ *  DocumentOutputConfig.GcsOutputConfig.gcs_uri) of the processed document if
+ *  it was successful, otherwise empty.
  */
 @property(nonatomic, copy, nullable) NSString *outputGcsDestination;
 
@@ -2551,19 +2603,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Request message for batch process document method.
+ *  Request message for BatchProcessDocuments.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest : GTLRObject
 
-/** The overall output config for batch process. */
+/** The output configuration for the BatchProcessDocuments method. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfig *documentOutputConfig;
 
-/** The input documents for batch process. */
+/** The input documents for the BatchProcessDocuments method. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *inputDocuments;
 
 /**
  *  Whether Human Review feature should be skipped for this request. Default to
- *  false.
+ *  `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2573,7 +2625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for batch process document method.
+ *  Response message for BatchProcessDocuments.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessResponse : GTLRObject
 @end
@@ -2670,9 +2722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *error;
 
 /**
- *  An IANA published MIME type (also referred to as media type). For more
- *  information, see
- *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ *  An IANA published [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml).
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -2703,9 +2754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Optional. Currently supports Google Cloud Storage URI of the form
- *  `gs://bucket_name/object_name`. Object versioning is not supported. See
- *  [Google Cloud Storage Request
- *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
+ *  `gs://bucket_name/object_name`. Object versioning is not supported. For more
+ *  information, refer to [Google Cloud Storage Request
+ *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -3065,9 +3116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
- *  information, see
- *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  The [BCP-47 language
+ *  code](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier), such
+ *  as `en-US` or `sr-Latn`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3166,7 +3217,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
-/** Encoding mime type for the image. */
+/**
+ *  Encoding [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml) for
+ *  the image.
+ */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
@@ -3180,7 +3235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Image Quality Scores for the page image
+ *  Image Quality Scores for the page image.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores : GTLRObject
 
@@ -3188,7 +3243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
 
 /**
- *  The overall quality score. Range `[0, 1]` where 1 is perfect quality.
+ *  The overall quality score. Range `[0, 1]` where `1` is perfect quality.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3203,7 +3258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect : GTLRObject
 
 /**
- *  Confidence of detected defect. Range `[0, 1]` where 1 indicates strong
+ *  Confidence of detected defect. Range `[0, 1]` where `1` indicates strong
  *  confidence of that the defect exists.
  *
  *  Uses NSNumber of floatValue.
@@ -3433,6 +3488,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The history of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
 
+/** Text style attributes. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo *styleInfo;
+
 @end
 
 
@@ -3456,6 +3514,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        A wider whitespace. (Value: "WIDE_SPACE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Font and other text style attributes.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo : GTLRObject
+
+/** Color of the background. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *backgroundColor;
+
+/**
+ *  Whether the text is bold (equivalent to font_weight is at least `700`).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bold;
+
+/**
+ *  Font size in points (`1` point is `¹⁄₇₂` inches).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontSize;
+
+/** Name or style of the font. */
+@property(nonatomic, copy, nullable) NSString *fontType;
+
+/**
+ *  TrueType weight on a scale `100` (thin) to `1000` (ultra-heavy). Normal is
+ *  `400`, bold is `700`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontWeight;
+
+/**
+ *  Whether the text is handwritten.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *handwritten;
+
+/**
+ *  Whether the text is italic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *italic;
+
+/**
+ *  Letter spacing in points.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *letterSpacing;
+
+/**
+ *  Font size in pixels, equal to _unrounded font_size_ * _resolution_ ÷ `72.0`.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pixelFontSize;
+
+/**
+ *  Whether the text is in small caps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *smallcaps;
+
+/**
+ *  Whether the text is strikethrough.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strikeout;
+
+/**
+ *  Whether the text is a subscript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subscript;
+
+/**
+ *  Whether the text is a superscript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *superscript;
+
+/** Color of the text. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *textColor;
+
+/**
+ *  Whether the text is underlined.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *underlined;
 
 @end
 
@@ -3693,8 +3853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyleFontSize *fontSize;
 
 /**
- *  Font weight. Possible values are normal, bold, bolder, and lighter.
- *  https://www.w3schools.com/cssref/pr_font_weight.asp
+ *  [Font weight](https://www.w3schools.com/cssref/pr_font_weight.asp). Possible
+ *  values are `normal`, `bold`, `bolder`, and `lighter`.
  */
 @property(nonatomic, copy, nullable) NSString *fontWeight;
 
@@ -3702,14 +3862,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextAnchor *textAnchor;
 
 /**
- *  Text decoration. Follows CSS standard.
- *  https://www.w3schools.com/cssref/pr_text_text-decoration.asp
+ *  [Text
+ *  decoration](https://www.w3schools.com/cssref/pr_text_text-decoration.asp).
+ *  Follows CSS standard.
  */
 @property(nonatomic, copy, nullable) NSString *textDecoration;
 
 /**
- *  Text style. Possible values are normal, italic, and oblique.
- *  https://www.w3schools.com/cssref/pr_font_font-style.asp
+ *  [Text style](https://www.w3schools.com/cssref/pr_font_font-style.asp).
+ *  Possible values are `normal`, `italic`, and `oblique`.
  */
 @property(nonatomic, copy, nullable) NSString *textStyle;
 
@@ -3728,7 +3889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
+/** Unit for the font size. Follows CSS naming (`in`, `px`, `pt`, etc.). */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 @end
@@ -4064,9 +4225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentLabel *> *labels;
 
 /**
- *  An IANA published MIME type (also referred to as media type). For more
- *  information, see
- *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ *  An IANA published [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml).
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -4097,9 +4257,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Optional. Currently supports Google Cloud Storage URI of the form
- *  `gs://bucket_name/object_name`. Object versioning is not supported. See
- *  [Google Cloud Storage Request
- *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
+ *  `gs://bucket_name/object_name`. Object versioning is not supported. For more
+ *  information, refer to [Google Cloud Storage Request
+ *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -4490,9 +4650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
- *  information, see
- *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  The [BCP-47 language
+ *  code](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier), such
+ *  as `en-US` or `sr-Latn`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -4591,7 +4751,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
-/** Encoding mime type for the image. */
+/**
+ *  Encoding [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml) for
+ *  the image.
+ */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
@@ -4605,7 +4769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Image Quality Scores for the page image
+ *  Image Quality Scores for the page image.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores : GTLRObject
 
@@ -4613,7 +4777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
 
 /**
- *  The overall quality score. Range `[0, 1]` where 1 is perfect quality.
+ *  The overall quality score. Range `[0, 1]` where `1` is perfect quality.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4628,7 +4792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect : GTLRObject
 
 /**
- *  Confidence of detected defect. Range `[0, 1]` where 1 indicates strong
+ *  Confidence of detected defect. Range `[0, 1]` where `1` indicates strong
  *  confidence of that the defect exists.
  *
  *  Uses NSNumber of floatValue.
@@ -4858,6 +5022,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The history of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
 
+/** Text style attributes. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo *styleInfo;
+
 @end
 
 
@@ -4881,6 +5048,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        A wider whitespace. (Value: "WIDE_SPACE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Font and other text style attributes.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo : GTLRObject
+
+/** Color of the background. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *backgroundColor;
+
+/**
+ *  Whether the text is bold (equivalent to font_weight is at least `700`).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bold;
+
+/**
+ *  Font size in points (`1` point is `¹⁄₇₂` inches).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontSize;
+
+/** Name or style of the font. */
+@property(nonatomic, copy, nullable) NSString *fontType;
+
+/**
+ *  TrueType weight on a scale `100` (thin) to `1000` (ultra-heavy). Normal is
+ *  `400`, bold is `700`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontWeight;
+
+/**
+ *  Whether the text is handwritten.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *handwritten;
+
+/**
+ *  Whether the text is italic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *italic;
+
+/**
+ *  Letter spacing in points.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *letterSpacing;
+
+/**
+ *  Font size in pixels, equal to _unrounded font_size_ * _resolution_ ÷ `72.0`.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pixelFontSize;
+
+/**
+ *  Whether the text is in small caps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *smallcaps;
+
+/**
+ *  Whether the text is strikethrough.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strikeout;
+
+/**
+ *  Whether the text is a subscript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subscript;
+
+/**
+ *  Whether the text is a superscript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *superscript;
+
+/** Color of the text. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *textColor;
+
+/**
+ *  Whether the text is underlined.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *underlined;
 
 @end
 
@@ -5118,8 +5387,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyleFontSize *fontSize;
 
 /**
- *  Font weight. Possible values are normal, bold, bolder, and lighter.
- *  https://www.w3schools.com/cssref/pr_font_weight.asp
+ *  [Font weight](https://www.w3schools.com/cssref/pr_font_weight.asp). Possible
+ *  values are `normal`, `bold`, `bolder`, and `lighter`.
  */
 @property(nonatomic, copy, nullable) NSString *fontWeight;
 
@@ -5127,14 +5396,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextAnchor *textAnchor;
 
 /**
- *  Text decoration. Follows CSS standard.
- *  https://www.w3schools.com/cssref/pr_text_text-decoration.asp
+ *  [Text
+ *  decoration](https://www.w3schools.com/cssref/pr_text_text-decoration.asp).
+ *  Follows CSS standard.
  */
 @property(nonatomic, copy, nullable) NSString *textDecoration;
 
 /**
- *  Text style. Possible values are normal, italic, and oblique.
- *  https://www.w3schools.com/cssref/pr_font_font-style.asp
+ *  [Text style](https://www.w3schools.com/cssref/pr_font_font-style.asp).
+ *  Possible values are `normal`, `italic`, and `oblique`.
  */
 @property(nonatomic, copy, nullable) NSString *textStyle;
 
@@ -5153,7 +5423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
+/** Unit for the font size. Follows CSS naming (`in`, `px`, `pt`, etc.). */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 @end
@@ -5407,7 +5677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for batch process method.
+ *  The long-running operation metadata for BatchProcessDocuments.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata : GTLRObject
 
@@ -5458,8 +5728,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The name of the operation triggered by the processed document. If the human
- *  review process is not triggered, this field will be empty. It has the same
- *  response type and metadata as the long running operation returned by
+ *  review process isn't triggered, this field will be empty. It has the same
+ *  response type and metadata as the long-running operation returned by the
  *  ReviewDocument method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
@@ -5468,16 +5738,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus *humanReviewStatus;
 
 /**
- *  The source of the document, same as the [input_gcs_source] field in the
- *  request when the batch process started. The batch process is started by take
- *  snapshot of that document, since a user can move or change that document
- *  during the process.
+ *  The source of the document, same as the input_gcs_source field in the
+ *  request when the batch process started.
  */
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
 
 /**
- *  The output_gcs_destination (in the request as `output_gcs_destination`) of
- *  the processed document if it was successful, otherwise empty.
+ *  The Cloud Storage output destination (in the request as
+ *  DocumentOutputConfig.GcsOutputConfig.gcs_uri) of the processed document if
+ *  it was successful, otherwise empty.
  */
 @property(nonatomic, copy, nullable) NSString *outputGcsDestination;
 
@@ -5488,7 +5757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for batch process document method.
+ *  Response message for BatchProcessDocuments.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessResponse : GTLRObject
 @end
@@ -5534,58 +5803,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for delete processor method.
+ *  The long-running operation metadata for the DeleteProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for delete processor version method.
+ *  The long-running operation metadata for the DeleteProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for deploy processor version method.
+ *  The long-running operation metadata for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeployProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the deploy processor version method.
+ *  Response message for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeployProcessorVersionResponse : GTLRObject
 @end
 
 
 /**
- *  The long running operation metadata for disable processor method.
+ *  The long-running operation metadata for the DisableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the disable processor method. Intentionally empty proto
+ *  Response message for the DisableProcessor method. Intentionally empty proto
  *  for adding fields in future.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorResponse : GTLRObject
@@ -5593,18 +5862,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for enable processor method.
+ *  The long-running operation metadata for the EnableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the enable processor method. Intentionally empty proto
+ *  Response message for the EnableProcessor method. Intentionally empty proto
  *  for adding fields in future.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorResponse : GTLRObject
@@ -5616,14 +5885,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Metadata of the EvaluateProcessorVersion method.
+ *  Response of the EvaluateProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionResponse : GTLRObject
 
@@ -5640,9 +5909,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The name of the operation triggered by the processed document. This field is
- *  populated only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the
- *  same response type and metadata as the long running operation returned by
- *  [ReviewDocument] method.
+ *  populated only when the state is `HUMAN_REVIEW_IN_PROGRESS`. It has the same
+ *  response type and metadata as the long-running operation returned by
+ *  ReviewDocument.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
 
@@ -5652,13 +5921,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error
  *        Some error happened during triggering human review, see the
- *        [state_message] for details. (Value: "ERROR")
+ *        state_message for details. (Value: "ERROR")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress
  *        Human review validation is triggered and the document is under review.
  *        (Value: "IN_PROGRESS")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Skipped
  *        Human review is skipped for the document. This can happen because
- *        human review is not enabled on the processor or the processing request
+ *        human review isn't enabled on the processor or the processing request
  *        has been set to skip this document. (Value: "SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified
  *        Human review state is unspecified. Most likely due to an internal
@@ -5676,11 +5945,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for the ImportProcessorVersion method.
+ *  The long-running operation metadata for the ImportProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3ImportProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata for the long running operation. */
+/** The basic metadata for the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
@@ -5698,11 +5967,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for review document method.
+ *  The long-running operation metadata for the ReviewDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 /** The creation time of the operation. */
@@ -5743,7 +6012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for review document method.
+ *  Response message for the ReviewDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse : GTLRObject
 
@@ -5774,19 +6043,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for set default processor version
+ *  The long-running operation metadata for the SetDefaultProcessorVersion
  *  method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for set default processor version method.
+ *  Response message for the SetDefaultProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionResponse : GTLRObject
 @end
@@ -5797,7 +6066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 /** The test dataset validation information. */
@@ -5846,7 +6115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The response for the TrainProcessorVersion method.
+ *  The response for TrainProcessorVersion.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionResponse : GTLRObject
 
@@ -5857,19 +6126,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for the undeploy processor version
- *  method.
+ *  The long-running operation metadata for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Response message for the undeploy processor version method.
+ *  Response message for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionResponse : GTLRObject
 @end
@@ -5929,72 +6197,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for delete processor method.
+ *  The long-running operation metadata for the DeleteProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DeleteProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for delete processor version method.
+ *  The long-running operation metadata for the DeleteProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DeleteProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The long running operation metadata for deploy processor version method.
+ *  The long-running operation metadata for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Request message for the deploy processor version method.
+ *  Request message for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest : GTLRObject
 @end
 
 
 /**
- *  Response message for the deploy processor version method.
+ *  Response message for the DeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionResponse : GTLRObject
 @end
 
 
 /**
- *  The long running operation metadata for disable processor method.
+ *  The long-running operation metadata for the DisableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Request message for the disable processor method.
+ *  Request message for the DisableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest : GTLRObject
 @end
 
 
 /**
- *  Response message for the disable processor method. Intentionally empty proto
+ *  Response message for the DisableProcessor method. Intentionally empty proto
  *  for adding fields in future.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorResponse : GTLRObject
@@ -6032,9 +6300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *error;
 
 /**
- *  An IANA published MIME type (also referred to as media type). For more
- *  information, see
- *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ *  An IANA published [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml).
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -6065,9 +6332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Optional. Currently supports Google Cloud Storage URI of the form
- *  `gs://bucket_name/object_name`. Object versioning is not supported. See
- *  [Google Cloud Storage Request
- *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
+ *  `gs://bucket_name/object_name`. Object versioning is not supported. For more
+ *  information, refer to [Google Cloud Storage Request
+ *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -6484,9 +6751,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
- *  information, see
- *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  The [BCP-47 language
+ *  code](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier), such
+ *  as `en-US` or `sr-Latn`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -6585,7 +6852,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
-/** Encoding mime type for the image. */
+/**
+ *  Encoding [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml) for
+ *  the image.
+ */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
@@ -6599,7 +6870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Image Quality Scores for the page image
+ *  Image Quality Scores for the page image.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores : GTLRObject
 
@@ -6607,7 +6878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
 
 /**
- *  The overall quality score. Range `[0, 1]` where 1 is perfect quality.
+ *  The overall quality score. Range `[0, 1]` where `1` is perfect quality.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6622,7 +6893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect : GTLRObject
 
 /**
- *  Confidence of detected defect. Range `[0, 1]` where 1 indicates strong
+ *  Confidence of detected defect. Range `[0, 1]` where `1` indicates strong
  *  confidence of that the defect exists.
  *
  *  Uses NSNumber of floatValue.
@@ -6852,6 +7123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The history of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
 
+/** Text style attributes. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo *styleInfo;
+
 @end
 
 
@@ -6875,6 +7149,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        A wider whitespace. (Value: "WIDE_SPACE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Font and other text style attributes.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo : GTLRObject
+
+/** Color of the background. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *backgroundColor;
+
+/**
+ *  Whether the text is bold (equivalent to font_weight is at least `700`).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bold;
+
+/**
+ *  Font size in points (`1` point is `¹⁄₇₂` inches).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontSize;
+
+/** Name or style of the font. */
+@property(nonatomic, copy, nullable) NSString *fontType;
+
+/**
+ *  TrueType weight on a scale `100` (thin) to `1000` (ultra-heavy). Normal is
+ *  `400`, bold is `700`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontWeight;
+
+/**
+ *  Whether the text is handwritten.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *handwritten;
+
+/**
+ *  Whether the text is italic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *italic;
+
+/**
+ *  Letter spacing in points.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *letterSpacing;
+
+/**
+ *  Font size in pixels, equal to _unrounded font_size_ * _resolution_ ÷ `72.0`.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pixelFontSize;
+
+/**
+ *  Whether the text is in small caps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *smallcaps;
+
+/**
+ *  Whether the text is strikethrough.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strikeout;
+
+/**
+ *  Whether the text is a subscript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subscript;
+
+/**
+ *  Whether the text is a superscript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *superscript;
+
+/** Color of the text. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *textColor;
+
+/**
+ *  Whether the text is underlined.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *underlined;
 
 @end
 
@@ -7109,8 +7485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Name of the type. It must be unique within the schema file and cannot be a
- *  'Common Type'. Besides that we use the following naming conventions: - *use
- *  `snake_casing`* - name matching is case-sensitive - Maximum 64 characters. -
+ *  "Common Type". The following naming conventions are used: - Use
+ *  `snake_casing` - Name matching is case-sensitive - Maximum 64 characters. -
  *  Must start with a letter. - Allowed characters: ASCII letters `[a-z0-9_-]`.
  *  (For backward compatibility internal infrastructure and tooling can handle
  *  any ascii character) - The `/` is sometimes used to denote a property of a
@@ -7193,9 +7569,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *documentAllowMultipleLabels;
 
 /**
- *  If true, a `document` entity type can be applied to subdocument (
- *  splitting). Otherwise, it can only be applied to the entire document
- *  (classification).
+ *  If true, a `document` entity type can be applied to subdocument (splitting).
+ *  Otherwise, it can only be applied to the entire document (classification).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7273,8 +7648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentStyleFontSize *fontSize;
 
 /**
- *  Font weight. Possible values are normal, bold, bolder, and lighter.
- *  https://www.w3schools.com/cssref/pr_font_weight.asp
+ *  [Font weight](https://www.w3schools.com/cssref/pr_font_weight.asp). Possible
+ *  values are `normal`, `bold`, `bolder`, and `lighter`.
  */
 @property(nonatomic, copy, nullable) NSString *fontWeight;
 
@@ -7282,14 +7657,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
 
 /**
- *  Text decoration. Follows CSS standard.
- *  https://www.w3schools.com/cssref/pr_text_text-decoration.asp
+ *  [Text
+ *  decoration](https://www.w3schools.com/cssref/pr_text_text-decoration.asp).
+ *  Follows CSS standard.
  */
 @property(nonatomic, copy, nullable) NSString *textDecoration;
 
 /**
- *  Text style. Possible values are normal, italic, and oblique.
- *  https://www.w3schools.com/cssref/pr_font_font-style.asp
+ *  [Text style](https://www.w3schools.com/cssref/pr_font_font-style.asp).
+ *  Possible values are `normal`, `italic`, and `oblique`.
  */
 @property(nonatomic, copy, nullable) NSString *textStyle;
 
@@ -7308,7 +7684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
+/** Unit for the font size. Follows CSS naming (`in`, `px`, `pt`, etc.). */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 @end
@@ -7378,25 +7754,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for enable processor method.
+ *  The long-running operation metadata for the EnableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Request message for the enable processor method.
+ *  Request message for the EnableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest : GTLRObject
 @end
 
 
 /**
- *  Response message for the enable processor method. Intentionally empty proto
+ *  Response message for the EnableProcessor method. Intentionally empty proto
  *  for adding fields in future.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorResponse : GTLRObject
@@ -7408,7 +7784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
@@ -7429,7 +7805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Metadata of the EvaluateProcessorVersion method.
+ *  Response of the EvaluateProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1EvaluateProcessorVersionResponse : GTLRObject
 
@@ -7714,7 +8090,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for fetch processor types.
+ *  Response message for the FetchProcessorTypes method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse : GTLRObject
 
@@ -7767,9 +8143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The name of the operation triggered by the processed document. This field is
- *  populated only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the
- *  same response type and metadata as the long running operation returned by
- *  [ReviewDocument] method.
+ *  populated only when the state is `HUMAN_REVIEW_IN_PROGRESS`. It has the same
+ *  response type and metadata as the long-running operation returned by
+ *  ReviewDocument.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
 
@@ -7779,13 +8155,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error
  *        Some error happened during triggering human review, see the
- *        [state_message] for details. (Value: "ERROR")
+ *        state_message for details. (Value: "ERROR")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress
  *        Human review validation is triggered and the document is under review.
  *        (Value: "IN_PROGRESS")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Skipped
  *        Human review is skipped for the document. This can happen because
- *        human review is not enabled on the processor or the processing request
+ *        human review isn't enabled on the processor or the processing request
  *        has been set to skip this document. (Value: "SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified
  *        Human review state is unspecified. Most likely due to an internal
@@ -7803,7 +8179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The response from ListEvaluations.
+ *  The response from `ListEvaluations`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "evaluations" property. If returned as the result of a query, it
@@ -7830,7 +8206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for list processors.
+ *  Response message for the ListProcessors method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "processors" property. If returned as the result of a query, it
@@ -7854,7 +8230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for list processor types.
+ *  Response message for the ListProcessorTypes method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "processorTypes" property. If returned as the result of a query,
@@ -7878,7 +8254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for list processors.
+ *  Response message for the ListProcessorVersions method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "processorVersions" property. If returned as the result of a
@@ -7940,8 +8316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The KMS key used for encryption/decryption in CMEK scenarios. See
- *  https://cloud.google.com/security-key-management.
+ *  The [KMS key](https://cloud.google.com/security-key-management) used for
+ *  encryption/decryption in CMEK scenarios.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -7993,8 +8369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc. To get
- *  a list of processors types, see FetchProcessorTypes.
+ *  The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a
+ *  list of processor types, see FetchProcessorTypes.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -8077,7 +8453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** A set of Cloud Storage URIs of sample documents for this processor. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sampleDocumentUris;
 
-/** The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc. */
+/** The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -8088,7 +8464,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo : GTLRObject
 
-/** The location id, currently must be one of [us, eu]. */
+/**
+ *  The location id, refer to [regional and multi-regional
+ *  support](/document-ai/docs/regions) for supported locations.
+ */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 @end
@@ -8096,10 +8475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  A processor version is an implementation of a processor. Each processor can
- *  have multiple versions, pre-trained by Google internally or up-trained by
- *  the customer. At a time, a processor can only have one default version
- *  version. So the processor's behavior (when processing documents) is defined
- *  by a default version
+ *  have multiple versions, pre-trained by Google internally or uptrained by the
+ *  customer. At a time, a processor can only have one default version version.
+ *  So the processor's behavior (when processing documents) is defined by a
+ *  default version
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion : GTLRObject
 
@@ -8116,7 +8495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
 /**
- *  Denotes that this ProcessorVersion is managed by google.
+ *  Denotes that this `ProcessorVersion` is managed by Google.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8184,14 +8563,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Request message for the process document method.
+ *  Request message for the ProcessDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest : GTLRObject
 
 /**
- *  Specifies which fields to include in ProcessResponse's document. Only
- *  supports top level document and pages field so it must be in the form of
- *  `{document_field_name}` or `pages.{page_field_name}`.
+ *  Specifies which fields to include in the ProcessResponse.document output.
+ *  Only supports top-level document and pages field, so it must be in the form
+ *  of `{document_field_name}` or `pages.{page_field_name}`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -8215,7 +8594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for the process document method.
+ *  Response message for the ProcessDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessResponse : GTLRObject
 
@@ -8253,11 +8632,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for review document method.
+ *  The long-running operation metadata for the ReviewDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentOperationMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 /** The Crowd Compute question ID. */
@@ -8267,7 +8646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Request message for review document method.
+ *  Request message for the ReviewDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest : GTLRObject
 
@@ -8301,7 +8680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for review document method.
+ *  Response message for the ReviewDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse : GTLRObject
 
@@ -8332,19 +8711,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for set default processor version
+ *  The long-running operation metadata for the SetDefaultProcessorVersion
  *  method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Request message for the set default processor version method.
+ *  Request message for the SetDefaultProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest : GTLRObject
 
@@ -8359,7 +8738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Response message for set default processor version method.
+ *  Response message for the SetDefaultProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionResponse : GTLRObject
 @end
@@ -8370,7 +8749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 /** The test dataset validation information. */
@@ -8419,7 +8798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Request message for the create processor version method.
+ *  Request message for the TrainProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest : GTLRObject
 
@@ -8433,7 +8812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. The schema the processor version will be trained with. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
-/** Optional. The input data used to train the `ProcessorVersion`. */
+/** Optional. The input data used to train the ProcessorVersion. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData *inputData;
 
 /** Required. The processor version to be created. */
@@ -8443,7 +8822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The input data used to train a new `ProcessorVersion`.
+ *  The input data used to train a new ProcessorVersion.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData : GTLRObject
 
@@ -8457,7 +8836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The response for the TrainProcessorVersion method.
+ *  The response for TrainProcessorVersion.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionResponse : GTLRObject
 
@@ -8468,26 +8847,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The long running operation metadata for the undeploy processor version
- *  method.
+ *  The long-running operation metadata for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Request message for the undeploy processor version method.
+ *  Request message for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest : GTLRObject
 @end
 
 
 /**
- *  Response message for the undeploy processor version method.
+ *  Response message for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionResponse : GTLRObject
 @end
@@ -8541,7 +8919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDocument_GoogleCloudLocationLocation : GTLRObject
 
@@ -8762,19 +9140,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Represents a color in the RGBA color space. This representation is designed
- *  for simplicity of conversion to/from color representations in various
+ *  for simplicity of conversion to and from color representations in various
  *  languages over compactness. For example, the fields of this representation
  *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
  *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  a CSS `rgba()` string in JavaScript. This reference page does not have
  *  information about the absolute color space that should be used to interpret
- *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default,
  *  applications should assume the sRGB color space. When color equality needs
  *  to be decided, implementations, unless documented otherwise, treat two
  *  colors as equal if all their red, green, blue, and alpha values each differ
- *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
- *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  by at most `1e-5`. Example (Java): import com.google.type.Color; // ...
+ *  public static java.awt.Color fromProto(Color protocolor) { float alpha =
  *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
  *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
  *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color

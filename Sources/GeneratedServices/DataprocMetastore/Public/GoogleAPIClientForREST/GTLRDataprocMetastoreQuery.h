@@ -645,6 +645,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Alter metadata resource location. The metadata resource can be a database,
+ *  table, or partition. This functionality only updates the parent directory
+ *  for the respective metadata resource and does not transfer any existing data
+ *  to the new location.
+ *
+ *  Method: metastore.projects.locations.services.alterLocation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterLocation : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to mutate
+ *  metadata, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Alter metadata resource location. The metadata resource can be a database,
+ *  table, or partition. This functionality only updates the parent directory
+ *  for the respective metadata resource and does not transfer any existing data
+ *  to the new location.
+ *
+ *  @param object The @c
+ *    GTLRDataprocMetastore_AlterMetadataResourceLocationRequest to include in
+ *    the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to mutate metadata, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterLocation
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_AlterMetadataResourceLocationRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
  *  Creates a new backup in a given project and location.
  *
  *  Method: metastore.projects.locations.services.backups.create
@@ -1417,6 +1459,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Move a table to another database.
+ *
+ *  Method: metastore.projects.locations.services.moveTableToDatabase
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMoveTableToDatabase : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to mutate
+ *  metadata, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Move a table to another database.
+ *
+ *  @param object The @c GTLRDataprocMetastore_MoveTableToDatabaseRequest to
+ *    include in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to mutate metadata, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMoveTableToDatabase
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_MoveTableToDatabaseRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
  *  Updates the parameters of a single service.
  *
  *  Method: metastore.projects.locations.services.patch
@@ -1470,6 +1547,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataprocMetastore_Service *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Query DPMS metadata.
+ *
+ *  Method: metastore.projects.locations.services.queryMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesQueryMetadata : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to query
+ *  metadata, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Query DPMS metadata.
+ *
+ *  @param object The @c GTLRDataprocMetastore_QueryMetadataRequest to include
+ *    in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to query metadata, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesQueryMetadata
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_QueryMetadataRequest *)object
+                        service:(NSString *)service;
 
 @end
 

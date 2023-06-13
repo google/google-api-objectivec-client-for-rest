@@ -969,6 +969,15 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_VerifyConnectivityResponse
+//
+
+@implementation GTLRCloudKMS_VerifyConnectivityResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_WrappingPublicKey
 //
 

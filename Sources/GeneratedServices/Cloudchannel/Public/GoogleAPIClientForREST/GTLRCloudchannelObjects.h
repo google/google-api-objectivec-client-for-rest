@@ -37,6 +37,9 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Value;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Value_ProtoValue;
 @class GTLRCloudchannel_GoogleCloudChannelV1AssociationInfo;
+@class GTLRCloudchannel_GoogleCloudChannelV1BillableSku;
+@class GTLRCloudchannel_GoogleCloudChannelV1BillingAccount;
+@class GTLRCloudchannel_GoogleCloudChannelV1BillingAccountPurchaseInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink;
 @class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount;
@@ -84,7 +87,9 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity;
 @class GTLRCloudchannel_GoogleCloudChannelV1Row;
 @class GTLRCloudchannel_GoogleCloudChannelV1Sku;
+@class GTLRCloudchannel_GoogleCloudChannelV1SkuGroup;
 @class GTLRCloudchannel_GoogleCloudChannelV1SkuGroupCondition;
+@class GTLRCloudchannel_GoogleCloudChannelV1SkuPurchaseGroup;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableOffer;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableSku;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferEligibility;
@@ -1349,6 +1354,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Operati
 // GTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition.parameterType
 
 /**
+ *  Boolean type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Boolean;
+/**
  *  Double type.
  *
  *  Value: "DOUBLE"
@@ -1473,11 +1484,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Plan_Pa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Gb;
 /**
- *  For IaaS SKUs like Google Cloud Platform, monetization is based on usage
- *  accrued on your billing account irrespective of the type of monetizable
- *  resource. This enum represents an aggregated resource/container for all
- *  usage SKUs on a billing account. Currently, only applicable to Google Cloud
- *  Platform.
+ *  For IaaS SKUs like Google Cloud, monetization is based on usage accrued on
+ *  your billing account irrespective of the type of monetizable resource. This
+ *  enum represents an aggregated resource/container for all usage SKUs on a
+ *  billing account. Currently, only applicable to Google Cloud.
  *
  *  Value: "IAAS_USAGE"
  */
@@ -1513,7 +1523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceBy
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Seat;
 /**
- *  For Google Cloud Platform subscriptions like Anthos or SAP.
+ *  For Google Cloud subscriptions like Anthos or SAP.
  *
  *  Value: "SUBSCRIPTION"
  */
@@ -1850,16 +1860,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange : GTLRObject
 
 /**
- *  The latest invoice date (exclusive). If your product uses monthly invoices,
- *  and this value is not the beginning of a month, this will adjust the date to
- *  the first day of the following month.
+ *  The latest invoice date (inclusive). If this value is not the last day of a
+ *  month, this will move it forward to the last day of the given month.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceEndDate;
 
 /**
- *  The earliest invoice date (inclusive). If your product uses monthly
- *  invoices, and this value is not the beginning of a month, this will adjust
- *  the date to the first day of the given month.
+ *  The earliest invoice date (inclusive). If this value is not the first day of
+ *  a month, this will move it back to the first day of the given month.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceStartDate;
 
@@ -1898,6 +1906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /** Association information to other entitlements. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1AssociationInfo *associationInfo;
+
+/**
+ *  Optional. The billing account resource name that is used to pay for this
+ *  entitlement.
+ */
+@property(nonatomic, copy, nullable) NSString *billingAccount;
 
 /**
  *  Cloud Identity ID of a channel partner who will be the direct reseller for
@@ -1956,9 +1970,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  max_units: The maximum assignable units for a flexible offer OR - num_units:
  *  The total commitment for commitment-based offers The response may
  *  additionally include the following output-only Parameters: - assigned_units:
- *  The number of licenses assigned to users. For GCP billing subaccounts, the
- *  following Parameter may be accepted as input: - display_name: The display
- *  name of the billing subaccount.
+ *  The number of licenses assigned to users. For Google Cloud billing
+ *  subaccounts, the following Parameter may be accepted as input: -
+ *  display_name: The display name of the billing subaccount.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter *> *parameters;
 
@@ -2197,8 +2211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
- *  is the underlying Subscription ID. For Google Cloud Platform, this is the
- *  Billing Account ID of the billing subaccount."
+ *  is the underlying Subscription ID. For Google Cloud, this is the Billing
+ *  Account ID of the billing subaccount."
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -2288,7 +2302,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  The ID and description of a report that was used to generate report data.
- *  For example, "GCP Daily Spend", "Google Workspace License Activity", etc.
+ *  For example, "Google Cloud Daily Spend", "Google Workspace License
+ *  Activity", etc.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1Report : GTLRObject
 
@@ -2533,6 +2548,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Represents the Billable SKU information.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1BillableSku : GTLRObject
+
+/**
+ *  Resource name of Service which contains Repricing SKU. Format:
+ *  services/{service}. Example: "services/B7D9-FDCB-15D8".
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/** Unique human readable name for the Service. */
+@property(nonatomic, copy, nullable) NSString *serviceDisplayName;
+
+/**
+ *  Resource name of Billable SKU. Format: billableSkus/{sku}. Example:
+ *  billableSkus/6E1B-6634-470F".
+ */
+@property(nonatomic, copy, nullable) NSString *sku;
+
+/** Unique human readable name for the SKU. */
+@property(nonatomic, copy, nullable) NSString *skuDisplayName;
+
+@end
+
+
+/**
+ *  Represents a billing account.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1BillingAccount : GTLRObject
+
+/** Output only. The time when this billing account was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The 3-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** Display name of the billing account. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Resource name of the billing account. Format:
+ *  accounts/{account_id}/billingAccounts/{billing_account_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The CLDR region code. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Represents a billing account that can be used to make a purchase.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1BillingAccountPurchaseInfo : GTLRObject
+
+/** The billing account resource. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1BillingAccount *billingAccount;
+
+@end
+
+
+/**
  *  Request message for CloudChannelService.CancelEntitlement.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1CancelEntitlementRequest : GTLRObject
@@ -2556,6 +2634,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Request message for CloudChannelService.ChangeOffer.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1ChangeOfferRequest : GTLRObject
+
+/**
+ *  Optional. The billing account resource name that is used to pay for this
+ *  entitlement when setting up billing on a trial subscription. This field is
+ *  only relevant for multi-currency accounts. It should be left empty for
+ *  single currency accounts.
+ */
+@property(nonatomic, copy, nullable) NSString *billingAccount;
 
 /** Required. New Offer. Format: accounts/{account_id}/offers/{offer_id}. */
 @property(nonatomic, copy, nullable) NSString *offer;
@@ -3150,16 +3236,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @interface GTLRCloudchannel_GoogleCloudChannelV1DateRange : GTLRObject
 
 /**
- *  The latest invoice date (exclusive). If your product uses monthly invoices,
- *  and this value is not the beginning of a month, this will adjust the date to
- *  the first day of the following month.
+ *  The latest invoice date (inclusive). If this value is not the last day of a
+ *  month, this will move it forward to the last day of the given month.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceEndDate;
 
 /**
- *  The earliest invoice date (inclusive). If your product uses monthly
- *  invoices, and this value is not the beginning of a month, this will adjust
- *  the date to the first day of the given month.
+ *  The earliest invoice date (inclusive). If this value is not the first day of
+ *  a month, this will move it back to the first day of the given month.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceStartDate;
 
@@ -3238,6 +3322,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1AssociationInfo *associationInfo;
 
 /**
+ *  Optional. The billing account resource name that is used to pay for this
+ *  entitlement.
+ */
+@property(nonatomic, copy, nullable) NSString *billingAccount;
+
+/**
  *  Commitment settings for a commitment-based Offer. Required for commitment
  *  based offers.
  */
@@ -3265,9 +3355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  max_units: The maximum assignable units for a flexible offer OR - num_units:
  *  The total commitment for commitment-based offers The response may
  *  additionally include the following output-only Parameters: - assigned_units:
- *  The number of licenses assigned to users. For GCP billing subaccounts, the
- *  following Parameter may be accepted as input: - display_name: The display
- *  name of the billing subaccount.
+ *  The number of licenses assigned to users. For Google Cloud billing
+ *  subaccounts, the following Parameter may be accepted as input: -
+ *  display_name: The display name of the billing subaccount.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
@@ -3557,6 +3647,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  CloudChannelReportsService.FetchReportResults call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. List of keys specifying which report partitions to return. If
+ *  empty, returns all partitions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *partitionKeys;
 
 @end
 
@@ -3924,6 +4020,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Response message for ListSkuGroupBillableSkus.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "billableSkus" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupBillableSkusResponse : GTLRCollectionObject
+
+/**
+ *  The list of billable SKUs in the requested SKU group.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1BillableSku *> *billableSkus;
+
+/**
+ *  A token to retrieve the next page of results. Pass to
+ *  ListSkuGroupBillableSkus.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListSkuGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "skuGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ListSkuGroupsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Pass to
+ *  ListSkuGroups.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SKU groups requested.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1SkuGroup *> *skuGroups;
+
+@end
+
+
+/**
  *  Response message for ListSkus.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3971,6 +4121,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Request message for CloudChannelService.ListTransferableOffers
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersRequest : GTLRObject
+
+/**
+ *  Optional. The Billing Account to look up Offers for. Format:
+ *  accounts/{account_id}/billing_accounts/{billing_account_id}. This field is
+ *  only relevant for multi-currency accounts. It should be left empty for
+ *  single currency accounts.
+ */
+@property(nonatomic, copy, nullable) NSString *billingAccount;
 
 /** Customer's Cloud Identity ID */
 @property(nonatomic, copy, nullable) NSString *cloudIdentityId;
@@ -4315,6 +4473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  will use specified data type here.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Boolean
+ *        Boolean type. (Value: "BOOLEAN")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Double
  *        Double type. (Value: "DOUBLE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition_ParameterType_Int64
@@ -4380,7 +4540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Reseller Billing account to charge after an offer transaction. Only present
- *  for Google Cloud Platform offers.
+ *  for Google Cloud offers.
  */
 @property(nonatomic, copy, nullable) NSString *billingAccount;
 
@@ -4479,11 +4639,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Gb
  *        GB (used for storage SKUs). (Value: "GB")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_IaasUsage
- *        For IaaS SKUs like Google Cloud Platform, monetization is based on
- *        usage accrued on your billing account irrespective of the type of
+ *        For IaaS SKUs like Google Cloud, monetization is based on usage
+ *        accrued on your billing account irrespective of the type of
  *        monetizable resource. This enum represents an aggregated
  *        resource/container for all usage SKUs on a billing account. Currently,
- *        only applicable to Google Cloud Platform. (Value: "IAAS_USAGE")
+ *        only applicable to Google Cloud. (Value: "IAAS_USAGE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_LicensedUser
  *        Active licensed users(for Voice SKUs). (Value: "LICENSED_USER")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Mau
@@ -4495,7 +4655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Seat
  *        Seat. (Value: "SEAT")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Subscription
- *        For Google Cloud Platform subscriptions like Anthos or SAP. (Value:
+ *        For Google Cloud subscriptions like Anthos or SAP. (Value:
  *        "SUBSCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
@@ -4625,8 +4785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
- *  is the underlying Subscription ID. For Google Cloud Platform, this is the
- *  Billing Account ID of the billing subaccount."
+ *  is the underlying Subscription ID. For Google Cloud, this is the Billing
+ *  Account ID of the billing subaccount."
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -4658,6 +4818,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /** SKU */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Sku *sku;
+
+@end
+
+
+/**
+ *  Response message for QueryEligibleBillingAccounts.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1QueryEligibleBillingAccountsResponse : GTLRObject
+
+/**
+ *  List of SKU purchase groups where each group represents a set of SKUs that
+ *  must be purchased using the same billing account. Each SKU from
+ *  [QueryEligibleBillingAccountsRequest.skus] will appear in exactly one SKU
+ *  group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1SkuPurchaseGroup *> *skuPurchaseGroups;
 
 @end
 
@@ -4737,7 +4913,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  The ID and description of a report that was used to generate report data.
- *  For example, "GCP Daily Spend", "Google Workspace License Activity", etc.
+ *  For example, "Google Cloud Daily Spend", "Google Workspace License
+ *  Activity", etc.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1Report : GTLRObject
 
@@ -4991,6 +5168,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1Row : GTLRObject
 
+/**
+ *  The key for the partition this row belongs to. This field is empty if the
+ *  report is not partitioned.
+ */
+@property(nonatomic, copy, nullable) NSString *partitionKey;
+
 /** The list of values in the row. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1ReportValue *> *values;
 
@@ -5067,6 +5250,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Represents the SKU group information.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1SkuGroup : GTLRObject
+
+/** Unique human readable identifier for the SKU group. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name of SKU group. Format:
+ *  accounts/{account}/skuGroups/{sku_group}. Example:
+ *  "accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A condition that applies the override if a line item SKU is found in the SKU
  *  group.
  */
@@ -5078,6 +5279,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Example: "accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041".
  */
 @property(nonatomic, copy, nullable) NSString *skuGroup;
+
+@end
+
+
+/**
+ *  Represents a set of SKUs that must be purchased using the same billing
+ *  account.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1SkuPurchaseGroup : GTLRObject
+
+/** List of billing accounts that are eligible to purhcase these SKUs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1BillingAccountPurchaseInfo *> *billingAccountPurchaseInfos;
+
+/**
+ *  Resource names of the SKUs included in this group. Format:
+ *  products/{product_id}/skus/{sku_id}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *skus;
 
 @end
 

@@ -688,7 +688,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_M
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesRequest
-@dynamic gcsBucketPath;
+@dynamic gcsBucketPath, jobId;
 @end
 
 
@@ -1155,7 +1155,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_M
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResponse
-@dynamic nextPageToken, results, unreachable;
+@dynamic nextPageToken, results, totalSize, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

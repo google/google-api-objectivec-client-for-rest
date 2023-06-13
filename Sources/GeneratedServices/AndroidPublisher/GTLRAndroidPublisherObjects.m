@@ -57,6 +57,7 @@ NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_Tran
 // GTLRAndroidPublisher_Grant.appLevelPermissions
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent = @"CAN_MANAGE_APP_CONTENT";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps = @"CAN_MANAGE_DRAFT_APPS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders = @"CAN_MANAGE_ORDERS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions = @"CAN_MANAGE_PERMISSIONS";
@@ -65,7 +66,9 @@ NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePublic
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageTrackApks = @"CAN_MANAGE_TRACK_APKS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageTrackUsers = @"CAN_MANAGE_TRACK_USERS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanReplyToReviews = @"CAN_REPLY_TO_REVIEWS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewAppQuality = @"CAN_VIEW_APP_QUALITY";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewFinancialData = @"CAN_VIEW_FINANCIAL_DATA";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewNonFinancialData = @"CAN_VIEW_NON_FINANCIAL_DATA";
 
 // GTLRAndroidPublisher_InAppProduct.purchaseType
 NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_ManagedUser = @"managedUser";
@@ -159,6 +162,7 @@ NSString * const kGTLRAndroidPublisher_User_AccessState_Invited = @"INVITED";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChangeManagedPlaySettingGlobal = @"CAN_CHANGE_MANAGED_PLAY_SETTING_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal = @"CAN_MANAGE_APP_CONTENT_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal = @"CAN_MANAGE_DRAFT_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal = @"CAN_MANAGE_ORDERS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal = @"CAN_MANAGE_PERMISSIONS_GLOBAL";
@@ -169,7 +173,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManag
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanPublishGamesGlobal = @"CAN_PUBLISH_GAMES_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanReplyToReviewsGlobal = @"CAN_REPLY_TO_REVIEWS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps = @"CAN_SEE_ALL_APPS";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewAppQualityGlobal = @"CAN_VIEW_APP_QUALITY_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal = @"CAN_VIEW_FINANCIAL_DATA_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewNonFinancialDataGlobal = @"CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified = @"DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
@@ -491,6 +497,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeferredItemReplacement
+//
+
+@implementation GTLRAndroidPublisher_DeferredItemReplacement
+@dynamic productId;
 @end
 
 
@@ -1740,7 +1756,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
-@dynamic autoRenewingPlan, expiryTime, offerDetails, prepaidPlan, productId;
+@dynamic autoRenewingPlan, deferredItemReplacement, expiryTime, offerDetails,
+         prepaidPlan, productId;
 @end
 
 

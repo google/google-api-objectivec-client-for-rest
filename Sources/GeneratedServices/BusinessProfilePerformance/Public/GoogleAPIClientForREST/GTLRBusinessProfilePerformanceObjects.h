@@ -40,7 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBusinessProfilePerformance_DailyMetricTimeSeries.dailyMetric
 
 /**
- *  The number of bookings received from the business profile.
+ *  The number of bookings made from the business profile via Reserve with
+ *  Google.
  *
  *  Value: "BUSINESS_BOOKINGS"
  */
@@ -184,8 +185,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformance_DailySubEntit
  *
  *  Likely values:
  *    @arg @c kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessBookings
- *        The number of bookings received from the business profile. (Value:
- *        "BUSINESS_BOOKINGS")
+ *        The number of bookings made from the business profile via Reserve with
+ *        Google. (Value: "BUSINESS_BOOKINGS")
  *    @arg @c kGTLRBusinessProfilePerformance_DailyMetricTimeSeries_DailyMetric_BusinessConversations
  *        The number of message conversations received on the business profile.
  *        (Value: "BUSINESS_CONVERSATIONS")
@@ -245,7 +246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformance_DailySubEntit
 @interface GTLRBusinessProfilePerformance_DailySubEntityType : GTLRObject
 
 /**
- *  Represents the day of the week. Eg: MONDAY.
+ *  Represents the day of the week. Eg: MONDAY. Currently supported DailyMetrics
+ *  = NONE.
  *
  *  Likely values:
  *    @arg @c kGTLRBusinessProfilePerformance_DailySubEntityType_DayOfWeek_DayOfWeekUnspecified
@@ -267,7 +269,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformance_DailySubEntit
  */
 @property(nonatomic, copy, nullable) NSString *dayOfWeek;
 
-/** Represents the time of the day in 24 hour format. Eg: 13:34:20 */
+/**
+ *  Represents the time of the day in 24 hour format. Eg: 13:34:20 Currently
+ *  supported DailyMetrics = NONE.
+ */
 @property(nonatomic, strong, nullable) GTLRBusinessProfilePerformance_TimeOfDay *timeOfDay;
 
 @end
@@ -326,7 +331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformance_DailySubEntit
 @property(nonatomic, strong, nullable) GTLRBusinessProfilePerformance_Date *date;
 
 /**
- *  The value of the datapoint.
+ *  The value of the datapoint. This will not be present when the value is zero.
  *
  *  Uses NSNumber of longLongValue.
  */

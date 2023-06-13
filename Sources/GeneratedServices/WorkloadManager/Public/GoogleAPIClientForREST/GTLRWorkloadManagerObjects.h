@@ -38,6 +38,9 @@
 @class GTLRWorkloadManager_SapValidationValidationDetail;
 @class GTLRWorkloadManager_SapValidationValidationDetail_Details;
 @class GTLRWorkloadManager_ScannedResource;
+@class GTLRWorkloadManager_SqlserverValidation;
+@class GTLRWorkloadManager_SqlserverValidationValidationDetail;
+@class GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields;
 @class GTLRWorkloadManager_Status;
 @class GTLRWorkloadManager_Status_Details_Item;
 @class GTLRWorkloadManager_ViolationDetails;
@@ -133,47 +136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_Del
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRWorkloadManager_SapDiscoveryResource.resourceState
-
-/**
- *  Resource was added this cycle
- *
- *  Value: "ADDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Added;
-/**
- *  Resource already discovered, but is missing or unresponsive this cycle
- *
- *  Value: "MISSING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Missing;
-/**
- *  Resource already discovered, but has been explicitly removed this cycle
- *
- *  Value: "REMOVED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Removed;
-/**
- *  Resource already discovered, but has been replaced by a new resource this
- *  cycle
- *
- *  Value: "REPLACED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Replaced;
-/**
- *  Undefined resource state
- *
- *  Value: "RESOURCE_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_ResourceStateUnspecified;
-/**
- *  Resource already discovered, just updated this cycle
- *
- *  Value: "UPDATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Updated;
-
-// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapDiscoveryResource.resourceType
 
 /**
@@ -241,6 +203,64 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_System;
 
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SqlserverValidationValidationDetail.type
+
+/**
+ *  The BUFFER_POOL_EXTENSION table
+ *
+ *  Value: "DB_BUFFER_POOL_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension;
+/**
+ *  The CXPACKET_WAITS table
+ *
+ *  Value: "DB_CXPACKET_WAITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits;
+/**
+ *  The LOG_DISK_SEPARATION table
+ *
+ *  Value: "DB_LOG_DISK_SEPARATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation;
+/**
+ *  The MAX_PARALLELISM table
+ *
+ *  Value: "DB_MAX_PARALLELISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism;
+/**
+ *  The MAX_SERVER_MEMORY table
+ *
+ *  Value: "DB_MAX_SERVER_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory;
+/**
+ *  The TRANSACTION_LOG_HANDLING table
+ *
+ *  Value: "DB_TRANSACTION_LOG_HANDLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling;
+/**
+ *  The VIRTUAL_LOG_FILE_COUNT table
+ *
+ *  Value: "DB_VIRTUAL_LOG_FILE_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount;
+/**
+ *  The Sqlserver system named OS
+ *
+ *  Value: "OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "SQLSERVER_VALIDATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified;
+
 /**
  *  The request message for Operations.CancelOperation.
  */
@@ -265,6 +285,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 /** Output only. [Output only] Create time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The Cloud Storage bucket name for custom rules. */
+@property(nonatomic, copy, nullable) NSString *customRulesBucket;
 
 /**
  *  Description of the Evaluation
@@ -438,6 +461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 /** Output only. [Output only] Create time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *sentTime;
+
+/** The insights data for the sqlserver workload validation. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverValidation *sqlserverValidation;
 
 @end
 
@@ -623,7 +649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRWorkloadManager_Location : GTLRObject
 
@@ -855,7 +881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  */
 @interface GTLRWorkloadManager_ResourceStatus : GTLRObject
 
-/** the new version of rule id if exists */
+/** Historical: Used before 2023-05-22 the new version of rule id if exists */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rulesNewerVersions;
 
 /**
@@ -1038,29 +1064,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 @property(nonatomic, copy, nullable) NSString *resourceKind;
 
 /**
- *  Indicates whether this is a new, updated, or missing resource.
- *
- *  Likely values:
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Added
- *        Resource was added this cycle (Value: "ADDED")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Missing
- *        Resource already discovered, but is missing or unresponsive this cycle
- *        (Value: "MISSING")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Removed
- *        Resource already discovered, but has been explicitly removed this
- *        cycle (Value: "REMOVED")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Replaced
- *        Resource already discovered, but has been replaced by a new resource
- *        this cycle (Value: "REPLACED")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_ResourceStateUnspecified
- *        Undefined resource state (Value: "RESOURCE_STATE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceState_Updated
- *        Resource already discovered, just updated this cycle (Value:
- *        "UPDATED")
- */
-@property(nonatomic, copy, nullable) NSString *resourceState;
-
-/**
  *  The type of this resource.
  *
  *  Likely values:
@@ -1152,6 +1155,70 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 
 /**
+ *  A presentation of SQLServer workload insight. The schema of SqlServer
+ *  workloads validation related data.
+ */
+@interface GTLRWorkloadManager_SqlserverValidation : GTLRObject
+
+/** The agent version collected this data point */
+@property(nonatomic, copy, nullable) NSString *agentVersion;
+
+/** A list of SqlServer validation metrics data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SqlserverValidationValidationDetail *> *validationDetails;
+
+@end
+
+
+/**
+ *  Message describing the Sqlserver validation metrics.
+ */
+@interface GTLRWorkloadManager_SqlserverValidationValidationDetail : GTLRObject
+
+/** pairs of metrics data: column name & column value. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields *fields;
+
+/**
+ *  The Sqlserver system that the validation data is from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension
+ *        The BUFFER_POOL_EXTENSION table (Value: "DB_BUFFER_POOL_EXTENSION")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits
+ *        The CXPACKET_WAITS table (Value: "DB_CXPACKET_WAITS")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation
+ *        The LOG_DISK_SEPARATION table (Value: "DB_LOG_DISK_SEPARATION")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism
+ *        The MAX_PARALLELISM table (Value: "DB_MAX_PARALLELISM")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory
+ *        The MAX_SERVER_MEMORY table (Value: "DB_MAX_SERVER_MEMORY")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling
+ *        The TRANSACTION_LOG_HANDLING table (Value:
+ *        "DB_TRANSACTION_LOG_HANDLING")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount
+ *        The VIRTUAL_LOG_FILE_COUNT table (Value: "DB_VIRTUAL_LOG_FILE_COUNT")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os
+ *        The Sqlserver system named OS (Value: "OS")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified
+ *        Unspecified type. (Value: "SQLSERVER_VALIDATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  pairs of metrics data: column name & column value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1232,6 +1299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 
 /** Required. The metrics data details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Insight *insight;
+
+/** Optional. The instance id where the insight is generated from */
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique

@@ -130,7 +130,10 @@ NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Ads = @"ADS";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_ClientLibraryOrganizationUnspecified = @"CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Cloud = @"CLOUD";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_GenerativeAi = @"GENERATIVE_AI";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_Geo = @"GEO";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos = @"PHOTOS";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_StreetView = @"STREET_VIEW";
 
 // GTLRServiceNetworking_Type.syntax
@@ -740,12 +743,14 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, serviceRootUrl, summary;
+@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
+         serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"pages" : [GTLRServiceNetworking_Page class],
-    @"rules" : [GTLRServiceNetworking_DocumentationRule class]
+    @"rules" : [GTLRServiceNetworking_DocumentationRule class],
+    @"sectionOverrides" : [GTLRServiceNetworking_Page class]
   };
   return map;
 }
@@ -759,7 +764,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_DocumentationRule
-@dynamic deprecationDescription, descriptionProperty, selector;
+@dynamic deprecationDescription, descriptionProperty, disableReplacementWords,
+         selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

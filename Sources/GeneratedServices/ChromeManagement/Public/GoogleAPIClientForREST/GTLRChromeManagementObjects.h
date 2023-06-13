@@ -40,8 +40,10 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData;
 @class GTLRChromeManagement_GoogleChromeManagementV1InstalledApp;
+@class GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice;
@@ -50,7 +52,6 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus;
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
-@class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
@@ -68,7 +69,6 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
-@class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -378,6 +378,34 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "SEPTEMBER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_September;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport.state
+
+/**
+ *  Device is offline
+ *
+ *  Value: "OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Offline;
+/**
+ *  Device is online
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Online;
+/**
+ *  State not specified
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_StateUnspecified;
+/**
+ *  Device is not eligible for heartbeat monitoring
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData.problem
@@ -972,7 +1000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: 10 minutes * Default Data Reporting Frequency:
  *  3 hours - Policy Controlled: Yes * Cache: If the device is offline, the
  *  collected data is stored locally, and will be reported when the device is
- *  next online: No * Reported for affiliated users only: N/A
+ *  next online: No * Reported for affiliated users only: N/A * Granular
+ *  permission needed: TELEMETRY_API_AUDIO_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport : GTLRObject
 
@@ -1024,7 +1053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_BATTERY_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo : GTLRObject
 
@@ -1129,7 +1159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_BATTERY_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport : GTLRObject
 
@@ -1187,7 +1218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: On every boot up event * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: Yes * Reported for affiliated users only: N/A
+ *  device is next online: Yes * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_OS_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport : GTLRObject
 
@@ -1684,71 +1716,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Response containing a summary printing report for each printer from the
- *  specified organizational unit for the requested time interval.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "printerReports" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse : GTLRCollectionObject
-
-/** Pagination token for requesting the next page. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  List of PrinterReports matching request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PrinterReport *> *printerReports;
-
-/**
- *  Total number of printers matching request.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalSize;
-
-@end
-
-
-/**
- *  Response containing a summary printing report for each user that has
- *  initiated a print job with a printer from the specified organizational unit
- *  during the requested time interval.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "userPrintReports" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse : GTLRCollectionObject
-
-/** Pagination token for requesting the next page. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Total number of users matching request.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalSize;
-
-/**
- *  List of UserPrintReports matching request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport *> *userPrintReports;
-
-@end
-
-
-/**
  *  CPU specifications for the device * This field provides device information,
  *  which is static and will not change over time. * Data for this field is
  *  controlled via policy:
@@ -1756,7 +1723,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_CPU_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1CpuInfo : GTLRObject
 
@@ -1817,7 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Every 10 minutes * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_CPU_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport : GTLRObject
 
@@ -2196,7 +2165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_GRAPHICS_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo : GTLRObject
 
@@ -2229,7 +2199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: 3 hours. * Default Data Reporting Frequency: 3
  *  hours - Policy Controlled: Yes * Cache: If the device is offline, the
  *  collected data is stored locally, and will be reported when the device is
- *  next online: No * Reported for affiliated users only: N/A
+ *  next online: No * Reported for affiliated users only: N/A * Granular
+ *  permission needed: TELEMETRY_API_GRAPHICS_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport : GTLRObject
 
@@ -2238,6 +2209,43 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Time at which the graphics data was reported. */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
+ *  Heartbeat status report of a device. * Available for Kiosks * This field
+ *  provides online/offline/unknown status of a device and will only be included
+ *  if the status has changed (e.g. Online -> Offline) * Data for this field is
+ *  controlled via policy:
+ *  [HeartbeatEnabled](https://chromeenterprise.google/policies/#HeartbeatEnabled)
+ *  [More
+ *  Info](https://support.google.com/chrome/a/answer/6179663#:~:text=On%20the%20Chrome,device%20status%20alerts)
+ *  * Heartbeat Frequency: 2 mins * Note: If a device goes offline, it can take
+ *  up to 12 minutes for the online status of the device to be updated * Cache:
+ *  If the device is offline, the collected data is stored locally, and will be
+ *  reported when the device is next online: N/A * Reported for affiliated users
+ *  only: N/A * Granular permission needed: TELEMETRY_API_DEVICE_ACTIVITY_REPORT
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport : GTLRObject
+
+/** Timestamp of when status changed was detected */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/**
+ *  State the device changed to
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Offline
+ *        Device is offline (Value: "OFFLINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Online
+ *        Device is online (Value: "ONLINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_StateUnspecified
+ *        State not specified (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Unknown
+ *        Device is not eligible for heartbeat monitoring (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2386,6 +2394,32 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Kiosk app status report of a device. * Available for Kiosks * This field
+ *  provides the app id and version number running on a kiosk device and the
+ *  timestamp of when the report was last updated * Data for this field is
+ *  controlled via policy:
+ *  [ReportDeviceSessionStatus](https://chromeenterprise.google/policies/#ReportDeviceSessionStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_APPS_REPORT
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport : GTLRObject
+
+/** App id of kiosk app for example "mdmkkicfmmkgmpkmkdikhlbggogpicma" */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/** App version number of kiosk app for example "1.10.118" */
+@property(nonatomic, copy, nullable) NSString *appVersion;
+
+/** Timestamp of when report was collected */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
  *  GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryDevicesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2469,7 +2503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  `availableRamBytes` - 3 hours - `totalMemoryEncryption` - at device startup
  *  - Policy Controlled: Yes * Cache: If the device is offline, the collected
  *  data is stored locally, and will be reported when the device is next online:
- *  only for `totalMemoryEncryption` * Reported for affiliated users only: N/A
+ *  only for `totalMemoryEncryption` * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_MEMORY_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo : GTLRObject
 
@@ -2502,7 +2537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  every 10 minutes * Default Data Reporting Frequency: Every 3 hours - Policy
  *  Controlled: Yes * Cache: If the device is offline, the collected data is
  *  stored locally, and will be reported when the device is next online: No *
- *  Reported for affiliated users only: N/A
+ *  Reported for affiliated users only: N/A * Granular permission needed:
+ *  TELEMETRY_API_MEMORY_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport : GTLRObject
 
@@ -2590,7 +2626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Network testing results to determine the health of the device's network
- *  connection, for example whether the HTTPS latency is high or normal.
+ *  connection, for example whether the HTTPS latency is high or normal. *
+ *  Granular permission needed: TELEMETRY_API_NETWORK_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport : GTLRObject
 
@@ -2611,7 +2648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: At device startup * Default Data Reporting
  *  Frequency: At device startup - Policy Controlled: Yes * Cache: If the device
  *  is offline, the collected data is stored locally, and will be reported when
- *  the device is next online: Yes * Reported for affiliated users only: N/A
+ *  the device is next online: Yes * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_NETWORK_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo : GTLRObject
 
@@ -2629,7 +2667,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: 60 minutes * Default Data Reporting Frequency:
  *  3 hours - Policy Controlled: Yes * Cache: If the device is offline, the
  *  collected data is stored locally, and will be reported when the device is
- *  next online: Yes * Reported for affiliated users only: Yes
+ *  next online: Yes * Reported for affiliated users only: Yes * Granular
+ *  permission needed: TELEMETRY_API_NETWORK_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport : GTLRObject
 
@@ -2752,7 +2791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_OS_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus : GTLRObject
 
@@ -2801,7 +2841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Peripherals report.
+ *  Peripherals report. * Granular permission needed:
+ *  TELEMETRY_API_PERIPHERALS_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport : GTLRObject
 
@@ -2815,48 +2856,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Report for CountPrintJobsByPrinter, contains statistics on printer usage.
- *  Contains the total number of print jobs initiated with this printer, the
- *  number of users and the number of devices that have initiated at least one
- *  print job with this printer.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementV1PrinterReport : GTLRObject
-
-/**
- *  Number of chrome devices that have been used to send print jobs to the
- *  specified printer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *deviceCount;
-
-/**
- *  Number of print jobs sent to the printer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *jobCount;
-
-/** Printer name. */
-@property(nonatomic, copy, nullable) NSString *printer;
-
-/** Printer API ID. */
-@property(nonatomic, copy, nullable) NSString *printerId;
-
-/** Printer model. */
-@property(nonatomic, copy, nullable) NSString *printerModel;
-
-/**
- *  Number of users that have sent print jobs to the printer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *userCount;
-
-@end
-
-
-/**
  *  Status data for storage. * This field is telemetry information and this will
  *  change over time as the device is utilized. * Data for this field is
  *  controlled via policy:
@@ -2864,7 +2863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_STORAGE_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1StorageInfo : GTLRObject
 
@@ -2921,7 +2921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: Only at Upload * Default Data Reporting
  *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
  *  offline, the collected data is stored locally, and will be reported when the
- *  device is next online: No * Reported for affiliated users only: N/A
+ *  device is next online: No * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_STORAGE_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport : GTLRObject
 
@@ -2936,14 +2937,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  `TelemetryAudioSevereUnderrunEvent` is triggered when a audio devices run
- *  out of buffer data for more than 5 seconds.
+ *  out of buffer data for more than 5 seconds. * Granular permission needed:
+ *  TELEMETRY_API_AUDIO_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent : GTLRObject
 @end
 
 
 /**
- *  Telemetry data collected from a managed device.
+ *  Telemetry data collected from a managed device. * Granular permission
+ *  needed: TELEMETRY_API_DEVICE
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
 
@@ -2990,6 +2993,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Graphics reports collected periodically. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport *> *graphicsStatusReport;
+
+/**
+ *  Output only. Heartbeat status report containing timestamps periodically
+ *  sorted in decreasing order of report_time
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport *> *heartbeatStatusReport;
+
+/** Output only. Kiosk app status report for the kiosk device */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport *> *kioskAppStatusReport;
 
 /** Output only. Information regarding memory specs for the device. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo *memoryInfo;
@@ -3045,7 +3057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Information about a device associated with telemetry data.
+ *  Information about a device associated with telemetry data. * Granular
+ *  Permission needed: TELEMETRY_API_DEVICE
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo : GTLRObject
 
@@ -3122,7 +3135,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /**
  *  Https latency routine is run periodically and
  *  `TelemetryHttpsLatencyChangeEvent` is triggered if a latency problem was
- *  detected or if the device has recovered from a latency problem..
+ *  detected or if the device has recovered from a latency problem. * Granular
+ *  permission needed: TELEMETRY_API_NETWORK_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent : GTLRObject
 
@@ -3148,7 +3162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  `TelemetryUsbPeripheralsEvent` is triggered USB devices are either added or
- *  removed.
+ *  removed. * Granular permission needed: TELEMETRY_API_PERIPHERALS_REPORT
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent : GTLRObject
 
@@ -3159,7 +3173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Telemetry data collected from a managed user.
+ *  Telemetry data collected from a managed user. * Granular permission needed:
+ *  TELEMETRY_API_USER
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser : GTLRObject
 
@@ -3185,7 +3200,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Telemetry data collected for a managed user and device.
+ *  Telemetry data collected for a managed user and device. * Granular
+ *  permission needed: TELEMETRY_API_DEVICE
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice : GTLRObject
 
@@ -3211,7 +3227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Information about a user associated with telemetry data.
+ *  Information about a user associated with telemetry data. * Granular
+ *  permission needed: TELEMETRY_API_USER
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo : GTLRObject
 
@@ -3232,7 +3249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  * Data Collection Frequency: At device startup * Default Data Reporting
  *  Frequency: At device startup - Policy Controlled: No * Cache: If the device
  *  is offline, the collected data is stored locally, and will be reported when
- *  the device is next online: Yes * Reported for affiliated users only: N/A
+ *  the device is next online: Yes * Reported for affiliated users only: N/A *
+ *  Granular permission needed: TELEMETRY_API_BUS_DEVICE_INFO
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo : GTLRObject
 
@@ -3428,44 +3446,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vid;
-
-@end
-
-
-/**
- *  Report for CountPrintJobsByUser, contains printing statistics for a user.
- *  Contains the number of printers, the number of devices used to initiate
- *  print jobs, and the number of print jobs initiated.
- */
-@interface GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport : GTLRObject
-
-/**
- *  Number of chrome devices that have been used to initiate print jobs by the
- *  user.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *deviceCount;
-
-/**
- *  Number of print jobs initiated by the user.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *jobCount;
-
-/**
- *  Number of printers used by the user.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *printerCount;
-
-/** The primary e-mail address of the user. */
-@property(nonatomic, copy, nullable) NSString *userEmail;
-
-/** The unique Directory API ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

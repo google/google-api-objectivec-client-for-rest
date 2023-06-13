@@ -25,6 +25,11 @@ NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead = @"
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_CloudDlpDataProfile.parentType
+NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Organization = @"ORGANIZATION";
+NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_ParentTypeUnspecified = @"PARENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Project = @"PROJECT";
+
 // GTLRSecurityCommandCenter_Connection.protocol
 NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Esp = @"ESP";
 NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Gre = @"GRE";
@@ -311,7 +316,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 @implementation GTLRSecurityCommandCenter_Access
 @dynamic callerIp, callerIpGeo, methodName, principalEmail, principalSubject,
          serviceAccountDelegationInfo, serviceAccountKeyName, serviceName,
-         userAgentFamily, userName;
+         userAgent, userAgentFamily, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -447,7 +452,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_CloudDlpDataProfile
-@dynamic dataProfile;
+@dynamic dataProfile, parentType;
 @end
 
 

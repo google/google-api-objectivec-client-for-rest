@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Public Certificate Authority API (publicca/v1beta1)
+//   Public Certificate Authority API (publicca/v1)
 // Description:
 //   The Public Certificate Authority API may be used to create and manage ACME
 //   external account binding keys associated with Google Trust Services'
@@ -31,7 +31,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/externalAccountKeys";
+  NSString *pathURITemplate = @"v1/{+parent}/externalAccountKeys";
   GTLRPublicCertificateAuthorityQuery_ProjectsLocationsExternalAccountKeysCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
