@@ -4541,14 +4541,20 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   // These aren't real schema, so look up their references (and resolve them).
   GTLRDiscovery_JsonSchema *result = [self sg_propertyForKey:kResolvedSchemaKey];
   if (result == nil) {
-    GTLRDiscovery_JsonSchema *schema =
-      [self.sg_generator.api.schemas.additionalProperties objectForKey:self.xRef];
-    if (schema != nil) {
-      result = schema.sg_resolvedSchema;
+    if (self.xRef) {
+      GTLRDiscovery_JsonSchema *schema =
+        [self.sg_generator.api.schemas.additionalProperties objectForKey:self.xRef];
+      if (schema != nil) {
+        result = schema.sg_resolvedSchema;
+      } else {
+        [NSException raise:kFatalGeneration
+                    format:@"Resolving request schema '%@', referenced an undefined schema '%@'",
+         [self sg_propertyForKey:kNameKey], self.xRef];
+      }
     } else {
       [NSException raise:kFatalGeneration
-                  format:@"Resolving request schema '%@', referenced an undefined schema '%@'",
-       [self sg_propertyForKey:kNameKey], self.xRef];
+                  format:@"Resolving request schema '%@', there was no value for '$ref':\n%@",
+       [self sg_propertyForKey:kNameKey], self.JSON];
     }
 
     [self sg_setProperty:result forKey:kResolvedSchemaKey];
@@ -4564,14 +4570,20 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   // These aren't real schema, so look up their references (and resolve them).
   GTLRDiscovery_JsonSchema *result = [self sg_propertyForKey:kResolvedSchemaKey];
   if (result == nil) {
-    GTLRDiscovery_JsonSchema *schema =
-      [self.sg_generator.api.schemas.additionalProperties objectForKey:self.xRef];
-    if (schema != nil) {
-      result = schema.sg_resolvedSchema;
+    if (self.xRef) {
+      GTLRDiscovery_JsonSchema *schema =
+        [self.sg_generator.api.schemas.additionalProperties objectForKey:self.xRef];
+      if (schema != nil) {
+        result = schema.sg_resolvedSchema;
+      } else {
+        [NSException raise:kFatalGeneration
+                    format:@"Resolving response schema '%@', referenced an undefined schema '%@'",
+         [self sg_propertyForKey:kNameKey], self.xRef];
+      }
     } else {
       [NSException raise:kFatalGeneration
-                  format:@"Resolving response schema '%@', referenced an undefined schema '%@'",
-       [self sg_propertyForKey:kNameKey], self.xRef];
+                  format:@"Resolving response schema '%@', there was no value for '$ref':\n%@",
+       [self sg_propertyForKey:kNameKey], self.JSON];
     }
 
     [self sg_setProperty:result forKey:kResolvedSchemaKey];
