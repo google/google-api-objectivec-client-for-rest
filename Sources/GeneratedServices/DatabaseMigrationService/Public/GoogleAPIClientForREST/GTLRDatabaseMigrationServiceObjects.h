@@ -336,6 +336,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_SqlDataDiskTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_CloudSqlSettings.edition
+
+/**
+ *  The instance did not specify the edition.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_EditionUnspecified;
+/**
+ *  The instance is an enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_Enterprise;
+/**
+ *  The instance is an enterprise plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_EnterprisePlus;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
 
 /**
@@ -1850,6 +1872,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SynonymEntity_S
  *        Unspecified. (Value: "SQL_DATA_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *dataDiskType;
+
+/**
+ *  Optional. The edition of the given Cloud SQL instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_EditionUnspecified
+ *        The instance did not specify the edition. (Value:
+ *        "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_Enterprise
+ *        The instance is an enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_EnterprisePlus
+ *        The instance is an enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /**
  *  The settings for IP Management. This allows to enable or disable the

@@ -32,6 +32,28 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Checks whether a SAS deployment for the authentication context exists.
+ *
+ *  Method: sasportal.customers.checkHasProvisionedDeployment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
+ */
+@interface GTLRSASPortalQuery_CustomersCheckHasProvisionedDeployment : GTLRSASPortalQuery
+
+/**
+ *  Fetches a @c GTLRSASPortal_CheckHasProvisionedDeploymentResponse.
+ *
+ *  Checks whether a SAS deployment for the authentication context exists.
+ *
+ *  @return GTLRSASPortalQuery_CustomersCheckHasProvisionedDeployment
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Creates a new deployment.
  *
  *  Method: sasportal.customers.deployments.create
@@ -691,6 +713,35 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Migrates a SAS organization to the cloud. This will create GCP projects for
+ *  each deployment and associate them. The SAS Organization is linked to the
+ *  gcp project that called the command. go/sas-legacy-customer-migration
+ *
+ *  Method: sasportal.customers.migrateOrganization
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
+ */
+@interface GTLRSASPortalQuery_CustomersMigrateOrganization : GTLRSASPortalQuery
+
+/**
+ *  Fetches a @c GTLRSASPortal_Operation.
+ *
+ *  Migrates a SAS organization to the cloud. This will create GCP projects for
+ *  each deployment and associate them. The SAS Organization is linked to the
+ *  gcp project that called the command. go/sas-legacy-customer-migration
+ *
+ *  @param object The @c GTLRSASPortal_MigrateOrganizationRequest to include in
+ *    the query.
+ *
+ *  @return GTLRSASPortalQuery_CustomersMigrateOrganization
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_MigrateOrganizationRequest *)object;
 
 @end
 

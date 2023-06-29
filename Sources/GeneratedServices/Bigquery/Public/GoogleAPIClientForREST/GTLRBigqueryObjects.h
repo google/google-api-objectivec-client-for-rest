@@ -4018,6 +4018,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
+/**
+ *  [Optional] Specifies how source URIs are interpreted for constructing the
+ *  file set to load. By default source URIs are expanded against the underlying
+ *  storage. Other options include specifying manifest files. Only applicable to
+ *  object storage systems.
+ */
+@property(nonatomic, copy, nullable) NSString *fileSetSpecType;
+
 /** [Optional] Additional options if sourceFormat is set to GOOGLE_SHEETS. */
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
@@ -5020,6 +5028,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  (',').
  */
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
+
+/**
+ *  [Optional] Specifies how source URIs are interpreted for constructing the
+ *  file set to load. By default source URIs are expanded against the underlying
+ *  storage. Other options include specifying manifest files. Only applicable to
+ *  object storage systems.
+ */
+@property(nonatomic, copy, nullable) NSString *fileSetSpecType;
 
 /** [Optional] Options to configure hive partitioning support. */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
@@ -9658,15 +9674,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        Value "OPTIMIZATION_STRATEGY_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *optimizationStrategy;
-
-/**
- *  Whether to preserve the input structs in output feature names. Suppose there
- *  is a struct A with field b. When false (default), the output feature name is
- *  A_b. When true, the output feature name is A.b.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *preserveInputStructs;
 
 /**
  *  Number of paths for the sampled Shapley explain method.

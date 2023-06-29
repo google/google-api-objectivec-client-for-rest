@@ -124,6 +124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @interface GTLRCivicInfoQuery_ElectionsElectionQuery : GTLRCivicInfoQuery
 
 /**
+ *  Whether to include data that has not been allowlisted yet
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL productionDataOnly;
+
+/**
  *  Fetches a @c GTLRCivicInfo_ElectionsQueryResponse.
  *
  *  List of available elections to query.
@@ -162,6 +169,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL officialOnly;
+
+/**
+ *  Whether to include data that has not been vetted yet. Should only be made
+ *  available to internal IPs or trusted partners. This is a non-discoverable
+ *  parameter in the One Platform API config.
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL productionDataOnly;
 
 /**
  *  If set to true, the query will return the success code and include any

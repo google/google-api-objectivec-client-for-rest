@@ -1505,7 +1505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1524,7 +1525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of a bucket.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param entity The entity holding the permission. Can be user-userId,
  *    user-emailAddress, group-groupId, group-emailAddress, allUsers, or
  *    allAuthenticatedUsers.
@@ -1565,7 +1567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1582,7 +1585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of a bucket.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param entity The entity holding the permission. Can be user-userId,
  *    user-emailAddress, group-groupId, group-emailAddress, allUsers, or
  *    allAuthenticatedUsers.
@@ -1617,7 +1621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1636,7 +1641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    query.
  *  @param bucket Name of a bucket.
  *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *    encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectAccessControlsInsert
  */
@@ -1668,7 +1674,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1685,7 +1692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of a bucket.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectAccessControlsList
  */
@@ -1722,7 +1730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1741,7 +1750,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    query.
  *  @param bucket Name of a bucket.
  *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *    encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param entity The entity holding the permission. Can be user-userId,
  *    user-emailAddress, group-groupId, group-emailAddress, allUsers, or
  *    allAuthenticatedUsers.
@@ -1783,7 +1793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1802,7 +1813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    query.
  *  @param bucket Name of a bucket.
  *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *    encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param entity The entity holding the permission. Can be user-userId,
  *    user-emailAddress, group-groupId, group-emailAddress, allUsers, or
  *    allAuthenticatedUsers.
@@ -1837,7 +1849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the new object. For information about how to URL encode object names
- *  to be path safe, see Encoding URI Path Parts.
+ *  to be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *destinationObject;
 
@@ -1901,7 +1914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param destinationBucket Name of the bucket containing the source objects.
  *    The destination object is stored in this bucket.
  *  @param destinationObject Name of the new object. For information about how
- *    to URL encode object names to be path safe, see Encoding URI Path Parts.
+ *    to URL encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsCompose
  */
@@ -1927,7 +1941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Name of the bucket in which to store the new object. Overrides the provided
  *  object metadata's bucket value, if any.For information about how to URL
- *  encode object names to be path safe, see Encoding URI Path Parts.
+ *  encode object names to be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *destinationBucket;
 
@@ -2041,7 +2056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the source object. For information about how to URL encode object
- *  names to be path safe, see Encoding URI Path Parts.
+ *  names to be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *sourceObject;
 
@@ -2060,11 +2076,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param sourceBucket Name of the bucket in which to find the source object.
  *  @param sourceObject Name of the source object. For information about how to
- *    URL encode object names to be path safe, see Encoding URI Path Parts.
+ *    URL encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param destinationBucket Name of the bucket in which to store the new
  *    object. Overrides the provided object metadata's bucket value, if any.For
  *    information about how to URL encode object names to be path safe, see
- *    Encoding URI Path Parts.
+ *    [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param destinationObject Name of the new object. Required when the object
  *    metadata is not otherwise provided. Overrides the object metadata's name
  *    value, if any.
@@ -2130,7 +2148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2149,7 +2168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsDelete
  */
@@ -2210,7 +2230,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2237,7 +2258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsGet
  */
@@ -2251,7 +2273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsGet
  */
@@ -2285,7 +2308,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2302,7 +2326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsGetIamPolicy
  */
@@ -2376,7 +2401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Name of the object. Required when the object metadata is not otherwise
  *  provided. Overrides the object metadata's name value, if any. For
  *  information about how to URL encode object names to be path safe, see
- *  Encoding URI Path Parts.
+ *  [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2595,7 +2621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2643,7 +2670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *    encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsPatch
  */
@@ -2684,7 +2712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Name of the new object. Required when the object metadata is not otherwise
  *  provided. Overrides the object metadata's name value, if any. For
  *  information about how to URL encode object names to be path safe, see
- *  Encoding URI Path Parts.
+ *  [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *destinationObject;
 
@@ -2804,7 +2833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the source object. For information about how to URL encode object
- *  names to be path safe, see Encoding URI Path Parts.
+ *  names to be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *sourceObject;
 
@@ -2823,13 +2853,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param sourceBucket Name of the bucket in which to find the source object.
  *  @param sourceObject Name of the source object. For information about how to
- *    URL encode object names to be path safe, see Encoding URI Path Parts.
+ *    URL encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param destinationBucket Name of the bucket in which to store the new
  *    object. Overrides the provided object metadata's bucket value, if any.
  *  @param destinationObject Name of the new object. Required when the object
  *    metadata is not otherwise provided. Overrides the object metadata's name
  *    value, if any. For information about how to URL encode object names to be
- *    path safe, see Encoding URI Path Parts.
+ *    path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsRewrite
  */
@@ -2864,7 +2896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2882,7 +2915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_Policy to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *    encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsSetIamPolicy
  */
@@ -2918,7 +2952,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2939,7 +2974,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *  @param permissions Permissions to test.
  *
  *  @return GTLRStorageQuery_ObjectsTestIamPermissions
@@ -2999,7 +3035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](http://cloud/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -3050,7 +3087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *    encode object names to be path safe, see [Encoding URI Path
+ *    Parts](http://cloud/storage/docs/request-endpoints#encoding).
  *
  *  @return GTLRStorageQuery_ObjectsUpdate
  */

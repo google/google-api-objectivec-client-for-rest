@@ -734,6 +734,60 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOpe
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata.operationState
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Initializing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_OperationStateUnspecified;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Processing;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Successful;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1TtlConfig.state
 
 /**
@@ -1591,7 +1645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  The total count of documents that match target_id. If different from the
  *  count of documents in the client that match, the client must manually
- *  determine which documents no longer match the target.
+ *  determine which documents no longer match the target. The client can use the
+ *  `unchanged_names` bloom filter to assist with this determination.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2781,6 +2836,54 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Metadata for the long-running operation from the RestoreDatabase request.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata : GTLRObject
+
+/** The name of the backup restoring from. */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/** The name of the database being restored to. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** The time the restore finished, unset for ongoing restores. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The operation state of the restore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+/** The time the restore was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  The request message for FirestoreAdmin.RestoreDatabase.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest : GTLRObject
@@ -3501,6 +3604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Options for a transaction that can be used to read and write documents.
+ *  Firestore does not allow 3rd party auth requests to create read-write.
+ *  transactions.
  */
 @interface GTLRFirestore_ReadWrite : GTLRObject
 

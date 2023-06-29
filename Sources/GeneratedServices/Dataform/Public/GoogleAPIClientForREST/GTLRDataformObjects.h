@@ -815,7 +815,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *defaultBranch;
 
 /**
- *  Output only. Indicates the status of the Git access token.
+ *  Output only. Deprecated: The field does not contain any token status
+ *  information. Instead use
+ *  https://cloud.google.com/dataform/reference/rest/v1beta1/projects.locations.repositories/computeAccessTokenStatus
  *
  *  Likely values:
  *    @arg @c kGTLRDataform_GitRemoteSettings_TokenStatus_Invalid The token
@@ -2100,8 +2102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @interface GTLRDataform_WorkflowInvocation : GTLRObject
 
 /**
- *  Immutable. The name of the compilation result to compile. Must be in the
- *  format `projects/ * /locations/ * /repositories/ * /compilationResults/ *`.
+ *  Immutable. The name of the compilation result to use for this invocation.
+ *  Must be in the format `projects/ * /locations/ * /repositories/ *
+ *  /compilationResults/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *compilationResult;
 

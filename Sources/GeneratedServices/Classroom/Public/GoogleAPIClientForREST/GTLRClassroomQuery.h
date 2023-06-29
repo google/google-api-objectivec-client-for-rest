@@ -126,7 +126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkMaterialStatesCoursew
  */
 FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkMaterialStatesDeleted;
 /**
- *  Status for an course work material that is not yet published. Course work
+ *  Status for a course work material that is not yet published. Course work
  *  material in this state is visible only to course teachers and domain
  *  administrators.
  *
@@ -1209,7 +1209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @arg @c kGTLRClassroomCourseWorkMaterialStatesPublished Status for course
  *        work material that has been published. This is the default state.
  *        (Value: "PUBLISHED")
- *    @arg @c kGTLRClassroomCourseWorkMaterialStatesDraft Status for an course
+ *    @arg @c kGTLRClassroomCourseWorkMaterialStatesDraft Status for a course
  *        work material that is not yet published. Course work material in this
  *        state is visible only to course teachers and domain administrators.
  *        (Value: "DRAFT")

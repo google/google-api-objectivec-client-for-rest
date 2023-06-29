@@ -149,6 +149,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersGetAuthenticationConfig
+ *
+ *  Method: contactcenteraiplatform.projects.locations.contactCenters.getAuthentication-config
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCCAIPlatformCloudPlatform
+ */
+@interface GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersGetAuthenticationConfig : GTLRCCAIPlatformQuery
+
+/**
+ *  Required. The name of the AuthenticationConfig resource. Format:
+ *  projects/{project}/locations/{location}/contactCenters/{contact_center}/authentication-config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCCAIPlatform_AuthenticationConfig.
+ *
+ *  @param name Required. The name of the AuthenticationConfig resource. Format:
+ *    projects/{project}/locations/{location}/contactCenters/{contact_center}/authentication-config
+ *
+ *  @return GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersGetAuthenticationConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists ContactCenters in a given project and location.
  *
  *  Method: contactcenteraiplatform.projects.locations.contactCenters.list
@@ -243,6 +271,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersPatch
  */
 + (instancetype)queryWithObject:(GTLRCCAIPlatform_ContactCenter *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersUpdateAuthenticationConfig
+ *
+ *  Method: contactcenteraiplatform.projects.locations.contactCenters.updateAuthentication-config
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCCAIPlatformCloudPlatform
+ */
+@interface GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersUpdateAuthenticationConfig : GTLRCCAIPlatformQuery
+
+/**
+ *  Name of authentication config. Format:
+ *  projects/{project}/locations/{location}/contactCenters/{contact_center}/authentication-config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Indicates which fields in the provided authentication config to
+ *  update. Must be specified and non-empty.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCCAIPlatform_AuthenticationConfig.
+ *
+ *  @param object The @c GTLRCCAIPlatform_AuthenticationConfig to include in the
+ *    query.
+ *  @param name Name of authentication config. Format:
+ *    projects/{project}/locations/{location}/contactCenters/{contact_center}/authentication-config
+ *
+ *  @return GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersUpdateAuthenticationConfig
+ */
++ (instancetype)queryWithObject:(GTLRCCAIPlatform_AuthenticationConfig *)object
                            name:(NSString *)name;
 
 @end

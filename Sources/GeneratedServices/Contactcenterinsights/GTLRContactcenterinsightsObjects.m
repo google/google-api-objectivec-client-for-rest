@@ -63,6 +63,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall = @"PHONE_CALL";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel.modelType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_TypeV1 = @"TYPE_V1";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_TypeV2 = @"TYPE_V2";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel.state
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_State_Deleting = @"DELETING";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_State_Deployed = @"DEPLOYED";
@@ -127,6 +132,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ex
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_Chat = @"CHAT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall = @"PHONE_CALL";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel.modelType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_TypeV1 = @"TYPE_V1";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_TypeV2 = @"TYPE_V2";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel.state
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_State_Deleting = @"DELETING";
@@ -916,8 +926,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel
-@dynamic createTime, displayName, inputDataConfig, issueCount, name, state,
-         trainingStats, updateTime;
+@dynamic createTime, displayName, inputDataConfig, issueCount, languageCode,
+         modelType, name, state, trainingStats, updateTime;
 @end
 
 
@@ -2025,8 +2035,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel
-@dynamic createTime, displayName, inputDataConfig, issueCount, name, state,
-         trainingStats, updateTime;
+@dynamic createTime, displayName, inputDataConfig, issueCount, languageCode,
+         modelType, name, state, trainingStats, updateTime;
 @end
 
 

@@ -1179,6 +1179,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Describes the Service being deployed. Currently deploys services to Cloud
  *  Run (fully managed).
  */
@@ -1319,8 +1326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1468,8 +1476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1617,8 +1626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2163,14 +2173,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  slash allowed)
  */
 @property(nonatomic, copy, nullable) NSString *dir;
-
-/**
- *  Only trigger a build if the revision regex does NOT match the revision
- *  regex.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *invertRegex;
 
 /**
  *  ID of the project that owns the Cloud Source Repository. If omitted, the

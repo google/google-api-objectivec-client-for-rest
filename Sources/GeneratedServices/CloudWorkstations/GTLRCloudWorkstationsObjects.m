@@ -180,8 +180,9 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_GceInstance
 @dynamic accelerators, bootDiskSizeGb, confidentialInstanceConfig,
-         disablePublicIpAddresses, machineType, pooledInstances, poolSize,
-         serviceAccount, shieldedInstanceConfig, tags;
+         disablePublicIpAddresses, enableNestedVirtualization, machineType,
+         pooledInstances, poolSize, serviceAccount, shieldedInstanceConfig,
+         tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

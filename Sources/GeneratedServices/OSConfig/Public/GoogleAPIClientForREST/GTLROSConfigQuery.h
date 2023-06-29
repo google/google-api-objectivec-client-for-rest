@@ -179,7 +179,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @end
 
 /**
- *  Get the OS policy asssignment report for the specified Compute Engine VM
+ *  Get the OS policy assignment report for the specified Compute Engine VM
  *  instance.
  *
  *  Method: osconfig.projects.locations.instances.osPolicyAssignments.reports.get
@@ -202,7 +202,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 /**
  *  Fetches a @c GTLROSConfig_OSPolicyAssignmentReport.
  *
- *  Get the OS policy asssignment report for the specified Compute Engine VM
+ *  Get the OS policy assignment report for the specified Compute Engine VM
  *  instance.
  *
  *  @param name Required. API resource name for OS policy assignment report.
@@ -220,8 +220,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @end
 
 /**
- *  List OS policy asssignment reports for all Compute Engine VM instances in
- *  the specified zone.
+ *  List OS policy assignment reports for all Compute Engine VM instances in the
+ *  specified zone.
  *
  *  Method: osconfig.projects.locations.instances.osPolicyAssignments.reports.list
  *
@@ -269,8 +269,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 /**
  *  Fetches a @c GTLROSConfig_ListOSPolicyAssignmentReportsResponse.
  *
- *  List OS policy asssignment reports for all Compute Engine VM instances in
- *  the specified zone.
+ *  List OS policy assignment reports for all Compute Engine VM instances in the
+ *  specified zone.
  *
  *  @param parent Required. The parent resource name. Format:
  *    `projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/{assignment}/reports`

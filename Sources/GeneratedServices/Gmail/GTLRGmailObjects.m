@@ -90,6 +90,10 @@ NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Starttls      = @"starttls";
 NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Exclude = @"exclude";
 NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 
+// GTLRGmail_WatchRequest.labelFilterBehavior
+NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Exclude = @"exclude";
+NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRGmail_AutoForwarding
@@ -860,7 +864,7 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include = @"include";
 //
 
 @implementation GTLRGmail_WatchRequest
-@dynamic labelFilterAction, labelIds, topicName;
+@dynamic labelFilterAction, labelFilterBehavior, labelIds, topicName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

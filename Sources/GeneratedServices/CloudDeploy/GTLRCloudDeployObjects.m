@@ -619,6 +619,44 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_DeployParameters
+//
+
+@implementation GTLRCloudDeploy_DeployParameters
+@dynamic matchTargetLabels, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployParameters_MatchTargetLabels
+//
+
+@implementation GTLRCloudDeploy_DeployParameters_MatchTargetLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployParameters_Values
+//
+
+@implementation GTLRCloudDeploy_DeployParameters_Values
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Empty
 //
 
@@ -1129,10 +1167,10 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_Release
 @dynamic abandoned, annotations, buildArtifacts, condition, createTime,
-         deliveryPipelineSnapshot, descriptionProperty, ETag, labels, name,
-         renderEndTime, renderStartTime, renderState, skaffoldConfigPath,
-         skaffoldConfigUri, skaffoldVersion, targetArtifacts, targetRenders,
-         targetSnapshots, uid;
+         deliveryPipelineSnapshot, deployParameters, descriptionProperty, ETag,
+         labels, name, renderEndTime, renderStartTime, renderState,
+         skaffoldConfigPath, skaffoldConfigUri, skaffoldVersion,
+         targetArtifacts, targetRenders, targetSnapshots, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1159,6 +1197,20 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Release_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_Release_DeployParameters
+//
+
+@implementation GTLRCloudDeploy_Release_DeployParameters
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1430,10 +1482,11 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Stage
-@dynamic profiles, strategy, targetId;
+@dynamic deployParameters, profiles, strategy, targetId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"deployParameters" : [GTLRCloudDeploy_DeployParameters class],
     @"profiles" : [NSString class]
   };
   return map;
@@ -1500,9 +1553,9 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Target
-@dynamic annotations, anthosCluster, createTime, descriptionProperty, ETag,
-         executionConfigs, gke, labels, multiTarget, name, requireApproval, run,
-         targetId, uid, updateTime;
+@dynamic annotations, anthosCluster, createTime, deployParameters,
+         descriptionProperty, ETag, executionConfigs, gke, labels, multiTarget,
+         name, requireApproval, run, targetId, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1528,6 +1581,20 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Target_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_Target_DeployParameters
+//
+
+@implementation GTLRCloudDeploy_Target_DeployParameters
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

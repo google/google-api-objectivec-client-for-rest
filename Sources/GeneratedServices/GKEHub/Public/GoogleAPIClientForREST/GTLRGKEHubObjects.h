@@ -36,7 +36,6 @@
 @class GTLRGKEHub_ConfigManagementHierarchyControllerState;
 @class GTLRGKEHub_ConfigManagementHierarchyControllerVersion;
 @class GTLRGKEHub_ConfigManagementInstallError;
-@class GTLRGKEHub_ConfigManagementManaged;
 @class GTLRGKEHub_ConfigManagementMembershipSpec;
 @class GTLRGKEHub_ConfigManagementMembershipState;
 @class GTLRGKEHub_ConfigManagementOciConfig;
@@ -59,6 +58,8 @@
 @class GTLRGKEHub_Feature_ScopeStates;
 @class GTLRGKEHub_FeatureResourceState;
 @class GTLRGKEHub_FeatureState;
+@class GTLRGKEHub_Fleet;
+@class GTLRGKEHub_FleetLifecycleState;
 @class GTLRGKEHub_FleetObservabilityFeatureSpec;
 @class GTLRGKEHub_FleetObservabilityFeatureState;
 @class GTLRGKEHub_FleetObservabilityMembershipSpec;
@@ -92,6 +93,7 @@
 @class GTLRGKEHub_Operation;
 @class GTLRGKEHub_Operation_Metadata;
 @class GTLRGKEHub_Operation_Response;
+@class GTLRGKEHub_Origin;
 @class GTLRGKEHub_Policy;
 @class GTLRGKEHub_ResourceManifest;
 @class GTLRGKEHub_ResourceOptions;
@@ -482,6 +484,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControll
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementMembershipSpec.management
+
+/**
+ *  Google will manage the Feature for the cluster.
+ *
+ *  Value: "MANAGEMENT_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic;
+/**
+ *  User will manually manage the Feature for the cluster.
+ *
+ *  Value: "MANAGEMENT_MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual;
+/**
+ *  Unspecified
+ *
+ *  Value: "MANAGEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementOperatorState.deploymentState
 
 /**
@@ -682,6 +706,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureState_Code_Ok;
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureState_Code_Warning;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_FleetLifecycleState.code
+
+/**
+ *  The code is not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_CodeUnspecified;
+/**
+ *  The fleet is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Creating;
+/**
+ *  The fleet is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Deleting;
+/**
+ *  The fleet active.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Ready;
+/**
+ *  The fleet is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_IdentityServiceMembershipState.state
 
 /**
@@ -810,6 +868,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Standal
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_Origin.type
+
+/**
+ *  Per-Membership spec was inherited from the fleet-level default.
+ *
+ *  Value: "FLEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_Fleet;
+/**
+ *  Type is unknown or not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified;
+/**
+ *  Per-Membership spec was inherited from a user specification.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_User;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ScopeLifecycleState.code
@@ -1311,11 +1391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /**
  *  Enables the installation of ConfigSync. If set to true, ConfigSync resources
  *  will be created and the other ConfigSync fields will be applied if exist. If
- *  set to false and Managed Config Sync is disabled, all other ConfigSync
- *  fields will be ignored, ConfigSync resources will be deleted. Setting this
- *  field to false while enabling Managed Config Sync is invalid. If omitted,
- *  ConfigSync resources will be managed if: * the git or oci field is present;
- *  or * Managed Config Sync is enabled (i.e., managed.enabled is true).
+ *  set to false, all other ConfigSync fields will be ignored, ConfigSync
+ *  resources will be deleted. If omitted, ConfigSync resources will be managed
+ *  depends on the presence of the git or oci field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1324,16 +1402,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Git repo configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGitConfig *git;
 
-/** Configuration for Managed Config Sync. */
-@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementManaged *managed;
-
 /**
- *  The Email of the GCP Service Account (GSA) used for exporting Config Sync
- *  metrics to Cloud Monitoring and Cloud Monarch when Workload Identity is
- *  enabled. The GSA should have the Monitoring Metric Writer
+ *  The Email of the Google Cloud Service Account (GSA) used for exporting
+ *  Config Sync metrics to Cloud Monitoring and Cloud Monarch when Workload
+ *  Identity is enabled. The GSA should have the Monitoring Metric Writer
  *  (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount
  *  `default` in the namespace `config-management-monitoring` should be binded
- *  to the GSA. This field is required when Managed Config Sync is enabled.
+ *  to the GSA. This field is required when automatic Feature management is
+ *  enabled.
  */
 @property(nonatomic, copy, nullable) NSString *metricsGcpServiceAccountEmail;
 
@@ -1354,6 +1430,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  "unstructured" mode.
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
+
+/**
+ *  Set to true to stop syncing configs for a single cluster when automatic
+ *  Feature management is enabled. Default to false. The field will be ignored
+ *  when automatic Feature management is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stopSyncing;
 
 @end
 
@@ -1633,7 +1718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ConfigManagementGitConfig : GTLRObject
 
 /**
- *  The GCP Service Account Email used for auth when secret_type is
+ *  The Google Cloud Service Account Email used for auth when secret_type is
  *  gcpServiceAccount.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
@@ -1803,31 +1888,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  Configuration for Managed Config Sync.
- */
-@interface GTLRGKEHub_ConfigManagementManaged : GTLRObject
-
-/**
- *  Set to true to enable Managed Config Sync. Defaults to false which disables
- *  Managed Config Sync. Setting this field to true when configSync.enabled is
- *  false is invalid.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Set to true to stop syncing configs for a single cluster. Default to false.
- *  If set to true, Managed Config Sync will not upgrade Config Sync.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *stopSyncing;
-
-@end
-
-
-/**
  *  **Anthos Config Management**: Configuration for a single cluster. Intended
  *  to parallel the ConfigManagement CR.
  */
@@ -1848,6 +1908,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Hierarchy Controller configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController;
+
+/**
+ *  Enables automatic Feature management.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic
+ *        Google will manage the Feature for the cluster. (Value:
+ *        "MANAGEMENT_AUTOMATIC")
+ *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual
+ *        User will manually manage the Feature for the cluster. (Value:
+ *        "MANAGEMENT_MANUAL")
+ *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified
+ *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *management;
 
 /** Policy Controller configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController;
@@ -1897,7 +1972,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ConfigManagementOciConfig : GTLRObject
 
 /**
- *  The GCP Service Account Email used for auth when secret_type is
+ *  The Google Cloud Service Account Email used for auth when secret_type is
  *  gcpServiceAccount.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
@@ -2018,6 +2093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) NSNumber *templateLibraryInstalled;
 
+/** Output only. Last time this membership spec was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -2025,6 +2103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  State for the migration of PolicyController from ACM -> PoCo Hub.
  */
 @interface GTLRGKEHub_ConfigManagementPolicyControllerMigration : GTLRObject
+
+/** Last time this membership spec was copied to PoCo feature. */
+@property(nonatomic, strong, nullable) GTLRDateTime *copyTime NS_RETURNS_NOT_RETAINED;
 
 /**
  *  Stage of the migration.
@@ -2514,6 +2595,73 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Fleet contains the Fleet-wide metadata and configuration.
+ */
+@interface GTLRGKEHub_Fleet : GTLRObject
+
+/** Output only. When the Fleet was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the Fleet was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Optional. A user-assigned display name of the Fleet. When present, it must
+ *  be between 4 to 30 characters. Allowed characters are: lowercase and
+ *  uppercase letters, numbers, hyphen, single-quote, double-quote, space, and
+ *  exclamation point. Example: `Production Fleet`
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The full, unique resource name of this fleet in the format of
+ *  `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud
+ *  project can have at most one fleet resource, named "default".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. State of the namespace resource. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetLifecycleState *state;
+
+/**
+ *  Output only. Google-generated UUID for this resource. This is unique across
+ *  all Fleet resources. If a Fleet resource is deleted and another resource
+ *  with the same name is created, it gets a different uid.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. When the Fleet was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  FleetLifecycleState describes the state of a Fleet resource.
+ */
+@interface GTLRGKEHub_FleetLifecycleState : GTLRObject
+
+/**
+ *  Output only. The current state of the Fleet resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_FleetLifecycleState_Code_CodeUnspecified The code is
+ *        not set. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_FleetLifecycleState_Code_Creating The fleet is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRGKEHub_FleetLifecycleState_Code_Deleting The fleet is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRGKEHub_FleetLifecycleState_Code_Ready The fleet active.
+ *        (Value: "READY")
+ *    @arg @c kGTLRGKEHub_FleetLifecycleState_Code_Updating The fleet is being
+ *        updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
  *  **Fleet Observability**: The Hub-wide input for the FleetObservability
  *  feature.
  */
@@ -2947,6 +3095,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Response message for the `GkeHub.ListFleetsResponse` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "fleets" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGKEHub_ListFleetsResponse : GTLRCollectionObject
+
+/**
+ *  The list of matching fleets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_Fleet *> *fleets;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages. The token is only
+ *  valid for 1h.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3363,13 +3539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Config Management-specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *configmanagement;
 
-/**
- *  True if value of `feature_spec` was inherited from a fleet-level default.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fleetInherited;
-
 /** Fleet observability membership spec */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityMembershipSpec *fleetobservability;
 
@@ -3378,6 +3547,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Anthos Service Mesh-specific spec */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshMembershipSpec *mesh;
+
+/**
+ *  Whether this per-Membership spec was inherited from a fleet-level default.
+ *  This field can be updated by users by either overriding a Membership config
+ *  (updated to USER implicitly) or setting to FLEET explicitly.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Origin *origin;
 
 @end
 
@@ -3679,6 +3855,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Origin defines where this MembershipFeatureSpec originated from.
+ */
+@interface GTLRGKEHub_Origin : GTLRObject
+
+/**
+ *  Type specifies which type of origin is set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_Origin_Type_Fleet Per-Membership spec was inherited
+ *        from the fleet-level default. (Value: "FLEET")
+ *    @arg @c kGTLRGKEHub_Origin_Type_TypeUnspecified Type is unknown or not
+ *        set. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_Origin_Type_User Per-Membership spec was inherited
+ *        from a user specification. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

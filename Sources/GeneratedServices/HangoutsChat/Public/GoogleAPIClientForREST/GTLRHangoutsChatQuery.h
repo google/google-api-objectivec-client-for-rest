@@ -124,6 +124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.media.upload
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesCreate
  */
@@ -173,6 +174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  *    @c kGTLRAuthScopeHangoutsChatSpacesCreate
  */
@@ -219,6 +221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatDelete
+ *    @c kGTLRAuthScopeHangoutsChatImport
  */
 @interface GTLRHangoutsChatQuery_SpacesDelete : GTLRHangoutsChatQuery
 
@@ -799,6 +802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatBot
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesCreate
  */
@@ -816,7 +820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  the custom name as the `clientAssignedMessageId` field, which you can
  *  reference while processing later operations, like updating or deleting the
  *  message. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ *  message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *messageId;
 
@@ -908,6 +912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatBot
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesDelete : GTLRHangoutsChatQuery
@@ -984,7 +989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Chat REST API. That Chat app (but not others) can pass the custom name to
  *  get, update, or delete the message. To learn more, see [create and name a
  *  message]
- *  (https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ *  (https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1010,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *    Chat REST API. That Chat app (but not others) can pass the custom name to
  *    get, update, or delete the message. To learn more, see [create and name a
  *    message]
- *    (https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ *    (https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesGet
  */
@@ -1030,6 +1035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
  */
@@ -1139,6 +1145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatBot
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesPatch : GTLRHangoutsChatQuery
@@ -1146,7 +1153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Optional. If `true` and the message isn't found, a new message is created
  *  and `updateMask` is ignored. The specified message ID must be
- *  [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)
+ *  [client-assigned](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message)
  *  or the request fails.
  */
 @property(nonatomic, assign) BOOL allowMissing;
@@ -1208,6 +1215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.reactions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactions
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactionsCreate
@@ -1251,6 +1259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.reactions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReactions
  */
@@ -1388,6 +1397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatBot
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery
@@ -1395,7 +1405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Optional. If `true` and the message isn't found, a new message is created
  *  and `updateMask` is ignored. The specified message ID must be
- *  [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)
+ *  [client-assigned](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message)
  *  or the request fails.
  */
 @property(nonatomic, assign) BOOL allowMissing;
@@ -1456,6 +1466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  */
 @interface GTLRHangoutsChatQuery_SpacesPatch : GTLRHangoutsChatQuery

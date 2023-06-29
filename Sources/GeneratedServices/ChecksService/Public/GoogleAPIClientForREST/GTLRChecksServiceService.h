@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v2alpha1)
+//   Checks API (checks/v1alpha)
 // Description:
-//   Uploads, processes, queries, and searches Genomics data in the cloud.
+//   The Checks API contains powerful and easy-to-use privacy and compliance
+//   APIs that interact with the Checks product and its underlying technology.
 // Documentation:
-//   https://cloud.google.com/genomics
+//   https://developers.google.com/checks
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -22,38 +23,32 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
- *  Authorization scope: View and manage Genomics data
+ *  Authorization scope: Test scope for access to the Zoo service
  *
- *  Value "https://www.googleapis.com/auth/genomics"
+ *  Value "https://www.googleapis.com/auth/xapi.zoo"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomics;
-/**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud data
- *  and see the email address for your Google Account.
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomicsCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChecksServiceXapiZoo;
 
 // ----------------------------------------------------------------------------
-//   GTLRGenomicsService
+//   GTLRChecksServiceService
 //
 
 /**
- *  Service for executing Genomics API queries.
+ *  Service for executing Checks API queries.
  *
- *  Uploads, processes, queries, and searches Genomics data in the cloud.
+ *  The Checks API contains powerful and easy-to-use privacy and compliance APIs
+ *  that interact with the Checks product and its underlying technology.
  */
-@interface GTLRGenomicsService : GTLRService
+@interface GTLRChecksServiceService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRGenomicsQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRChecksServiceQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

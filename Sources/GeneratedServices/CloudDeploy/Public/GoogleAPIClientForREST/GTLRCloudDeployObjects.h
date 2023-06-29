@@ -39,6 +39,9 @@
 @class GTLRCloudDeploy_DeployJobRun;
 @class GTLRCloudDeploy_DeployJobRunMetadata;
 @class GTLRCloudDeploy_DeploymentJobs;
+@class GTLRCloudDeploy_DeployParameters;
+@class GTLRCloudDeploy_DeployParameters_MatchTargetLabels;
+@class GTLRCloudDeploy_DeployParameters_Values;
 @class GTLRCloudDeploy_ExecutionConfig;
 @class GTLRCloudDeploy_Expr;
 @class GTLRCloudDeploy_GatewayServiceMesh;
@@ -63,6 +66,7 @@
 @class GTLRCloudDeploy_PrivatePool;
 @class GTLRCloudDeploy_Release;
 @class GTLRCloudDeploy_Release_Annotations;
+@class GTLRCloudDeploy_Release_DeployParameters;
 @class GTLRCloudDeploy_Release_Labels;
 @class GTLRCloudDeploy_Release_TargetArtifacts;
 @class GTLRCloudDeploy_Release_TargetRenders;
@@ -84,6 +88,7 @@
 @class GTLRCloudDeploy_Strategy;
 @class GTLRCloudDeploy_Target;
 @class GTLRCloudDeploy_Target_Annotations;
+@class GTLRCloudDeploy_Target_DeployParameters;
 @class GTLRCloudDeploy_Target_Labels;
 @class GTLRCloudDeploy_TargetArtifact;
 @class GTLRCloudDeploy_TargetArtifact_PhaseArtifacts;
@@ -1611,6 +1616,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  DeployParameters contains deploy parameters information.
+ */
+@interface GTLRCloudDeploy_DeployParameters : GTLRObject
+
+/**
+ *  Optional. Deploy parameters are applied to targets with match labels. If
+ *  unspecified, deploy parameters are applied to all targets (including child
+ *  targets of a multi-target).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployParameters_MatchTargetLabels *matchTargetLabels;
+
+/** Required. Values are deploy parameters in key-value pairs. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployParameters_Values *values;
+
+@end
+
+
+/**
+ *  Optional. Deploy parameters are applied to targets with match labels. If
+ *  unspecified, deploy parameters are applied to all targets (including child
+ *  targets of a multi-target).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_DeployParameters_MatchTargetLabels : GTLRObject
+@end
+
+
+/**
+ *  Required. Values are deploy parameters in key-value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_DeployParameters_Values : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -2688,6 +2737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline *deliveryPipelineSnapshot;
 
+/** Optional. The deploy parameters to use for all targets in this release. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_DeployParameters *deployParameters;
+
 /**
  *  Description of the `Release`. Max length is 255 characters.
  *
@@ -2789,6 +2841,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        fetch them all at once.
  */
 @interface GTLRCloudDeploy_Release_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. The deploy parameters to use for all targets in this release.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_Release_DeployParameters : GTLRObject
 @end
 
 
@@ -3370,6 +3434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_Stage : GTLRObject
 
+/** Optional. The deploy parameters to use for the target in this stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_DeployParameters *> *deployParameters;
+
 /**
  *  Skaffold profiles to use when rendering the manifest for this stage's
  *  `Target`.
@@ -3492,6 +3559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Output only. Time at which the `Target` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. The deploy parameters to use for this target. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Target_DeployParameters *deployParameters;
+
 /**
  *  Optional. Description of the `Target`. Max length is 255 characters.
  *
@@ -3574,6 +3644,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        fetch them all at once.
  */
 @interface GTLRCloudDeploy_Target_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. The deploy parameters to use for this target.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_Target_DeployParameters : GTLRObject
 @end
 
 

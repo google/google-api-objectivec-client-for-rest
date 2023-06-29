@@ -336,15 +336,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The starting page token for future changes. This will be present only if the
- *  end of the current changes list has been reached.
+ *  end of the current changes list has been reached. The page token doesn't
+ *  expire.
  */
 @property(nonatomic, copy, nullable) NSString *newStartPageToken NS_RETURNS_NOT_RETAINED;
 
 /**
  *  The page token for the next page of changes. This will be absent if the end
- *  of the changes list has been reached. If the token is rejected for any
- *  reason, it should be discarded, and pagination should be restarted from the
- *  first page of results.
+ *  of the changes list has been reached. The page token doesn't expire.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -550,7 +549,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of comments. This will be absent if the end
  *  of the comments list has been reached. If the token is rejected for any
  *  reason, it should be discarded, and pagination should be restarted from the
- *  first page of results.
+ *  first page of results. The page token is typically valid for several hours.
+ *  However, if new items are added or removed, your expected results might
+ *  differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -977,7 +978,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of shared drives. This will be absent if
  *  the end of the list has been reached. If the token is rejected for any
  *  reason, it should be discarded, and pagination should be restarted from the
- *  first page of results.
+ *  first page of results. The page token is typically valid for several hours.
+ *  However, if new items are added or removed, your expected results might
+ *  differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2061,7 +2064,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of files. This will be absent if the end of
  *  the files list has been reached. If the token is rejected for any reason, it
  *  should be discarded, and pagination should be restarted from the first page
- *  of results.
+ *  of results. The page token is typically valid for several hours. However, if
+ *  new items are added or removed, your expected results might differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2246,7 +2250,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of labels. This field will be absent if the
  *  end of the list has been reached. If the token is rejected for any reason,
  *  it should be discarded, and pagination should be restarted from the first
- *  page of results.
+ *  page of results. The page token is typically valid for several hours.
+ *  However, if new items are added or removed, your expected results might
+ *  differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2498,7 +2504,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of permissions. This field will be absent
  *  if the end of the permissions list has been reached. If the token is
  *  rejected for any reason, it should be discarded, and pagination should be
- *  restarted from the first page of results.
+ *  restarted from the first page of results. The page token is typically valid
+ *  for several hours. However, if new items are added or removed, your expected
+ *  results might differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2591,7 +2599,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of replies. This will be absent if the end
  *  of the replies list has been reached. If the token is rejected for any
  *  reason, it should be discarded, and pagination should be restarted from the
- *  first page of results.
+ *  first page of results. The page token is typically valid for several hours.
+ *  However, if new items are added or removed, your expected results might
+ *  differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2735,7 +2745,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of revisions. This will be absent if the
  *  end of the revisions list has been reached. If the token is rejected for any
  *  reason, it should be discarded, and pagination should be restarted from the
- *  first page of results.
+ *  first page of results. The page token is typically valid for several hours.
+ *  However, if new items are added or removed, your expected results might
+ *  differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2762,7 +2774,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The starting page token for listing changes. */
+/**
+ *  The starting page token for listing future changes. The page token doesn't
+ *  expire.
+ */
 @property(nonatomic, copy, nullable) NSString *startPageToken;
 
 @end
@@ -3127,7 +3142,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The page token for the next page of Team Drives. This will be absent if the
  *  end of the Team Drives list has been reached. If the token is rejected for
  *  any reason, it should be discarded, and pagination should be restarted from
- *  the first page of results.
+ *  the first page of results. The page token is typically valid for several
+ *  hours. However, if new items are added or removed, your expected results
+ *  might differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

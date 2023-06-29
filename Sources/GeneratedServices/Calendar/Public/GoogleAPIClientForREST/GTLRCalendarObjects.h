@@ -1193,7 +1193,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
-/** Developer Preview: Working Location event data. Read-only. */
+/** Working Location event data. Developer Preview. */
 @property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties *workingLocationProperties;
 
 @end
@@ -1691,9 +1691,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties_OfficeLocation *officeLocation;
 
 /**
- *  Indicates what kind of location this is. Any details will be specified in a
+ *  Indicates what kind of location this is. Any details are specified in a
  *  sub-field of the specified name (but which may be missing if empty). Any
- *  other fields will be ignored.
+ *  other fields are ignored.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

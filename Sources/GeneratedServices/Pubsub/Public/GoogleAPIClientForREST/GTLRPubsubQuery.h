@@ -823,13 +823,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsList : GTLRPubsubQuery
 
-/** Maximum number of snapshots to return. */
+/** Optional. Maximum number of snapshots to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListSnapshotsResponse`; indicates that this
- *  is a continuation of a prior `ListSnapshots` call, and that the system
- *  should return the next page of data.
+ *  Optional. The value returned by the last `ListSnapshotsResponse`; indicates
+ *  that this is a continuation of a prior `ListSnapshots` call, and that the
+ *  system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -876,7 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsPatch : GTLRPubsubQuery
 
-/** The name of the snapshot. */
+/** Optional. The name of the snapshot. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -890,7 +890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_UpdateSnapshotRequest to include in the
  *    query.
- *  @param name The name of the snapshot.
+ *  @param name Optional. The name of the snapshot.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsPatch
  */
@@ -1250,13 +1250,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsList : GTLRPubsubQuery
 
-/** Maximum number of subscriptions to return. */
+/** Optional. Maximum number of subscriptions to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListSubscriptionsResponse`; indicates that
- *  this is a continuation of a prior `ListSubscriptions` call, and that the
- *  system should return the next page of data.
+ *  Optional. The value returned by the last `ListSubscriptionsResponse`;
+ *  indicates that this is a continuation of a prior `ListSubscriptions` call,
+ *  and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1745,13 +1745,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  */
 @interface GTLRPubsubQuery_ProjectsTopicsList : GTLRPubsubQuery
 
-/** Maximum number of topics to return. */
+/** Optional. Maximum number of topics to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListTopicsResponse`; indicates that this is
- *  a continuation of a prior `ListTopics` call, and that the system should
- *  return the next page of data.
+ *  Optional. The value returned by the last `ListTopicsResponse`; indicates
+ *  that this is a continuation of a prior `ListTopics` call, and that the
+ *  system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1912,13 +1912,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSnapshotsList : GTLRPubsubQuery
 
-/** Maximum number of snapshot names to return. */
+/** Optional. Maximum number of snapshot names to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListTopicSnapshotsResponse`; indicates that
- *  this is a continuation of a prior `ListTopicSnapshots` call, and that the
- *  system should return the next page of data.
+ *  Optional. The value returned by the last `ListTopicSnapshotsResponse`;
+ *  indicates that this is a continuation of a prior `ListTopicSnapshots` call,
+ *  and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1957,13 +1957,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSubscriptionsList : GTLRPubsubQuery
 
-/** Maximum number of subscription names to return. */
+/** Optional. Maximum number of subscription names to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListTopicSubscriptionsResponse`; indicates
- *  that this is a continuation of a prior `ListTopicSubscriptions` call, and
- *  that the system should return the next page of data.
+ *  Optional. The value returned by the last `ListTopicSubscriptionsResponse`;
+ *  indicates that this is a continuation of a prior `ListTopicSubscriptions`
+ *  call, and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

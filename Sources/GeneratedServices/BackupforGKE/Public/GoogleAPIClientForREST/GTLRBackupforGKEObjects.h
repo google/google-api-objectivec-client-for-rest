@@ -41,6 +41,7 @@
 @class GTLRBackupforGKE_NamespacedNames;
 @class GTLRBackupforGKE_Namespaces;
 @class GTLRBackupforGKE_Policy;
+@class GTLRBackupforGKE_ResourceFilter;
 @class GTLRBackupforGKE_Restore;
 @class GTLRBackupforGKE_Restore_Labels;
 @class GTLRBackupforGKE_RestoreConfig;
@@ -49,6 +50,8 @@
 @class GTLRBackupforGKE_RetentionPolicy;
 @class GTLRBackupforGKE_Schedule;
 @class GTLRBackupforGKE_SubstitutionRule;
+@class GTLRBackupforGKE_TransformationRule;
+@class GTLRBackupforGKE_TransformationRuleAction;
 @class GTLRBackupforGKE_VolumeBackup;
 @class GTLRBackupforGKE_VolumeRestore;
 
@@ -133,6 +136,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Backup_State_StateUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Backup_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupforGKE_BackupPlan.state
+
+/**
+ *  Waiting for cluster state to be RUNNING.
+ *
+ *  Value: "CLUSTER_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_ClusterPending;
+/**
+ *  The BackupPlan has been deactivated.
+ *
+ *  Value: "DEACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Deactivated;
+/**
+ *  The BackupPlan is in the process of being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Deleting;
+/**
+ *  BackupPlan creation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Failed;
+/**
+ *  The BackupPlan is in the process of being created.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Provisioning;
+/**
+ *  The BackupPlan has successfully been created and is ready for Backups.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready;
+/**
+ *  Default first value for Enums.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupforGKE_Restore.state
 
 /**
@@ -185,10 +234,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_Succeeded;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_ClusterResourceConflictPolicy_ClusterResourceConflictPolicyUnspecified;
 /**
- *  Delete the existing version before re-creating it from the Backup. Note that
- *  this is a dangerous option which could cause unintentional data loss if used
- *  inappropriately - for example, deleting a CRD will cause Kubernetes to
- *  delete all CRs of that type.
+ *  Delete the existing version before re-creating it from the Backup. This is a
+ *  dangerous option which could cause unintentional data loss if used
+ *  inappropriately. For example, deleting a CRD will cause Kubernetes to delete
+ *  all CRs of that type.
  *
  *  Value: "USE_BACKUP_VERSION"
  */
@@ -236,25 +285,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedRes
 // GTLRBackupforGKE_RestoreConfig.volumeDataRestorePolicy
 
 /**
- *  For each PVC to be restored, PVCs will be created without any particular
- *  action to restore data. In this case, the normal Kubernetes provisioning
- *  logic would kick in, and this would likely result in either dynamically
- *  provisioning blank PVs or binding to statically provisioned PVs.
+ *  For each PVC to be restored, create PVC without any particular action to
+ *  restore data. In this case, the normal Kubernetes provisioning logic would
+ *  kick in, and this would likely result in either dynamically provisioning
+ *  blank PVs or binding to statically provisioned PVs.
  *
  *  Value: "NO_VOLUME_DATA_RESTORATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_NoVolumeDataRestoration;
 /**
- *  For each PVC to be restored, will create a new underlying volume (and PV)
- *  from the corresponding VolumeBackup contained within the Backup.
+ *  For each PVC to be restored, create a new underlying volume and PV from the
+ *  corresponding VolumeBackup contained within the Backup.
  *
  *  Value: "RESTORE_VOLUME_DATA_FROM_BACKUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_RestoreVolumeDataFromBackup;
 /**
  *  For each PVC to be restored, attempt to reuse the original PV contained in
- *  the Backup (with its original underlying volume). Note that option is likely
- *  only usable when restoring a workload to its original cluster.
+ *  the Backup (with its original underlying volume). This option is likely only
+ *  usable when restoring a workload to its original cluster.
  *
  *  Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP"
  */
@@ -265,6 +314,96 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_VolumeDataRes
  *  Value: "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_VolumeDataRestorePolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_RestorePlan.state
+
+/**
+ *  Waiting for cluster state to be RUNNING.
+ *
+ *  Value: "CLUSTER_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestorePlan_State_ClusterPending;
+/**
+ *  The RestorePlan is in the process of being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestorePlan_State_Deleting;
+/**
+ *  RestorePlan creation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestorePlan_State_Failed;
+/**
+ *  The RestorePlan has successfully been created and is ready for Restores.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestorePlan_State_Ready;
+/**
+ *  Default first value for Enums.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestorePlan_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_TransformationRuleAction.op
+
+/**
+ *  The "add" operation performs one of the following functions, depending upon
+ *  what the target location references: 1. If the target location specifies an
+ *  array index, a new value is inserted into the array at the specified index.
+ *  2. If the target location specifies an object member that does not already
+ *  exist, a new member is added to the object. 3. If the target location
+ *  specifies an object member that does exist, that member's value is replaced.
+ *
+ *  Value: "ADD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_Add;
+/**
+ *  The "copy" operation copies the value at a specified location to the target
+ *  location.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_Copy;
+/**
+ *  The "move" operation removes the value at a specified location and adds it
+ *  to the target location.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_Move;
+/**
+ *  Unspecified operation
+ *
+ *  Value: "OP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_OpUnspecified;
+/**
+ *  The "remove" operation removes the value at the target location.
+ *
+ *  Value: "REMOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_Remove;
+/**
+ *  The "replace" operation replaces the value at the target location with a new
+ *  value. The operation object MUST contain a "value" member whose content
+ *  specifies the replacement value.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_Replace;
+/**
+ *  The "test" operation tests that a value at the target location is equal to a
+ *  specified value.
+ *
+ *  Value: "TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_TransformationRuleAction_Op_Test;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupforGKE_VolumeBackup.format
@@ -801,6 +940,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RetentionPolicy *retentionPolicy;
 
 /**
+ *  Output only. State of the BackupPlan. This State field reflects the various
+ *  stages a BackupPlan can be in during the Create operation. It will be set to
+ *  "DEACTIVATED" if the BackupPlan is deactivated on an Update
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_ClusterPending Waiting for
+ *        cluster state to be RUNNING. (Value: "CLUSTER_PENDING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_Deactivated The BackupPlan has
+ *        been deactivated. (Value: "DEACTIVATED")
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_Deleting The BackupPlan is in
+ *        the process of being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_Failed BackupPlan creation has
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_Provisioning The BackupPlan is
+ *        in the process of being created. (Value: "PROVISIONING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_Ready The BackupPlan has
+ *        successfully been created and is ready for Backups. (Value: "READY")
+ *    @arg @c kGTLRBackupforGKE_BackupPlan_State_StateUnspecified Default first
+ *        value for Enums. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Human-readable description of why BackupPlan is in the current
+ *  `state`
+ */
+@property(nonatomic, copy, nullable) NSString *stateReason;
+
+/**
  *  Output only. Server generated global unique identifier of
  *  [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format.
  */
@@ -941,6 +1109,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  PersistentVolume
  */
 @interface GTLRBackupforGKE_ClusterResourceRestoreScope : GTLRObject
+
+/**
+ *  If True, all valid cluster-scoped resources will be restored. Mutually
+ *  exclusive to any other field in the message.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allGroupKinds;
+
+/**
+ *  A list of cluster-scoped resource group kinds to NOT restore from the
+ *  backup. If specified, all valid cluster-scoped resources will be restored
+ *  except for those specified in the list. Mutually exclusive to any other
+ *  field in the message.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_GroupKind *> *excludedGroupKinds;
+
+/**
+ *  If True, no cluster-scoped resources will be restored. This has the same
+ *  restore scope as if the message is not defined. Mutually exclusive to any
+ *  other field in the message.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noGroupKinds;
 
 /**
  *  A list of cluster-scoped resource group kinds to restore from the backup. If
@@ -1635,6 +1828,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  ResourceFilter specifies matching criteria to limit the scope of a change to
+ *  a specific set of kubernetes resources that are selected for restoration
+ *  from a backup.
+ */
+@interface GTLRBackupforGKE_ResourceFilter : GTLRObject
+
+/**
+ *  (Filtering parameter) Any resource subject to transformation must belong to
+ *  one of the listed "types". If this field is not provided, no type filtering
+ *  will be performed (all resources of all types matching previous filtering
+ *  parameters will be candidates for transformation).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_GroupKind *> *groupKinds;
+
+/**
+ *  This is a [JSONPath]
+ *  (https://github.com/json-path/JsonPath/blob/master/README.md) expression
+ *  that matches specific fields of candidate resources and it operates as a
+ *  filtering parameter (resources that are not matched with this expression
+ *  will not be candidates for transformation).
+ */
+@property(nonatomic, copy, nullable) NSString *jsonPath;
+
+/**
+ *  (Filtering parameter) Any resource subject to transformation must be
+ *  contained within one of the listed Kubernetes Namespace in the Backup. If
+ *  this field is not provided, no namespace filtering will be performed (all
+ *  resources in all Namespaces, including all cluster-scoped resources, will be
+ *  candidates for transformation). To mix cluster-scoped and namespaced
+ *  resources in the same rule, use an empty string ("") as one of the target
+ *  namespaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
+
+@end
+
+
+/**
  *  Represents both a request to Restore some portion of a Backup into a target
  *  GKE cluster and a record of the restore operation itself. Next id: 18
  */
@@ -1802,9 +2033,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        restored. (Value: "CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED")
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_ClusterResourceConflictPolicy_UseBackupVersion
  *        Delete the existing version before re-creating it from the Backup.
- *        Note that this is a dangerous option which could cause unintentional
- *        data loss if used inappropriately - for example, deleting a CRD will
- *        cause Kubernetes to delete all CRs of that type. (Value:
+ *        This is a dangerous option which could cause unintentional data loss
+ *        if used inappropriately. For example, deleting a CRD will cause
+ *        Kubernetes to delete all CRs of that type. (Value:
  *        "USE_BACKUP_VERSION")
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_ClusterResourceConflictPolicy_UseExistingVersion
  *        Do not attempt to restore the conflicting resource. (Value:
@@ -1817,6 +2048,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  specifying it means NO cluster resource will be restored.
  */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_ClusterResourceRestoreScope *clusterResourceRestoreScope;
+
+/**
+ *  A list of selected namespaces excluded from restoration. All namespaces
+ *  except those in this list will be restored.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_Namespaces *excludedNamespaces;
 
 /**
  *  Defines the behavior for handling the situation where sets of namespaced
@@ -1847,6 +2084,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *namespacedResourceRestoreMode;
 
 /**
+ *  Do not restore any namespaced resources if set to "True". Specifying this
+ *  field to "False" is not allowed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noNamespaces;
+
+/**
  *  A list of selected ProtectedApplications to restore. The listed
  *  ProtectedApplications and all the resources to which they refer will be
  *  restored.
@@ -1869,26 +2114,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_SubstitutionRule *> *substitutionRules;
 
 /**
+ *  A list of transformation rules to be applied against Kubernetes resources as
+ *  they are selected for restoration from a Backup. Rules are executed in order
+ *  defined - this order matters, as changes made by a rule may impact the
+ *  filtering logic of subsequent rules. An empty list means no transformation
+ *  will occur.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_TransformationRule *> *transformationRules;
+
+/**
  *  Specifies the mechanism to be used to restore volume data. Default:
  *  VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED (will be treated as
  *  NO_VOLUME_DATA_RESTORATION).
  *
  *  Likely values:
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_NoVolumeDataRestoration
- *        For each PVC to be restored, PVCs will be created without any
- *        particular action to restore data. In this case, the normal Kubernetes
- *        provisioning logic would kick in, and this would likely result in
- *        either dynamically provisioning blank PVs or binding to statically
+ *        For each PVC to be restored, create PVC without any particular action
+ *        to restore data. In this case, the normal Kubernetes provisioning
+ *        logic would kick in, and this would likely result in either
+ *        dynamically provisioning blank PVs or binding to statically
  *        provisioned PVs. (Value: "NO_VOLUME_DATA_RESTORATION")
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_RestoreVolumeDataFromBackup
- *        For each PVC to be restored, will create a new underlying volume (and
- *        PV) from the corresponding VolumeBackup contained within the Backup.
+ *        For each PVC to be restored, create a new underlying volume and PV
+ *        from the corresponding VolumeBackup contained within the Backup.
  *        (Value: "RESTORE_VOLUME_DATA_FROM_BACKUP")
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_ReuseVolumeHandleFromBackup
  *        For each PVC to be restored, attempt to reuse the original PV
- *        contained in the Backup (with its original underlying volume). Note
- *        that option is likely only usable when restoring a workload to its
- *        original cluster. (Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP")
+ *        contained in the Backup (with its original underlying volume). This
+ *        option is likely only usable when restoring a workload to its original
+ *        cluster. (Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP")
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_VolumeDataRestorePolicy_VolumeDataRestorePolicyUnspecified
  *        Unspecified (illegal). (Value:
  *        "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED")
@@ -1952,6 +2206,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** Required. Configuration of Restores created via this RestorePlan. */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RestoreConfig *restoreConfig;
+
+/**
+ *  Output only. State of the RestorePlan. This State field reflects the various
+ *  stages a RestorePlan can be in during the Create operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_RestorePlan_State_ClusterPending Waiting for
+ *        cluster state to be RUNNING. (Value: "CLUSTER_PENDING")
+ *    @arg @c kGTLRBackupforGKE_RestorePlan_State_Deleting The RestorePlan is in
+ *        the process of being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupforGKE_RestorePlan_State_Failed RestorePlan creation
+ *        has failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupforGKE_RestorePlan_State_Ready The RestorePlan has
+ *        successfully been created and is ready for Restores. (Value: "READY")
+ *    @arg @c kGTLRBackupforGKE_RestorePlan_State_StateUnspecified Default first
+ *        value for Enums. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Human-readable description of why RestorePlan is in the current
+ *  `state`
+ */
+@property(nonatomic, copy, nullable) NSString *stateReason;
 
 /**
  *  Output only. Server generated global unique identifier of
@@ -2025,16 +2303,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Schedule defines scheduling parameters for automatically creating Backups
- *  via this BackupPlan.
+ *  Defines scheduling parameters for automatically creating Backups via this
+ *  BackupPlan.
  */
 @interface GTLRBackupforGKE_Schedule : GTLRObject
 
 /**
  *  A standard [cron](https://wikipedia.com/wiki/cron) string that defines a
- *  repeating schedule for creating Backups via this BackupPlan. If this is
- *  defined, then backup_retain_days must also be defined. Default (empty): no
- *  automatic backup creation will occur.
+ *  repeating schedule for creating Backups via this BackupPlan. This is
+ *  mutually exclusive with the rpo_config field since at most one schedule can
+ *  be defined for a BackupPlan. If this is defined, then backup_retain_days
+ *  must also be defined. Default (empty): no automatic backup creation will
+ *  occur.
  */
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
 
@@ -2155,6 +2435,99 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A transformation rule to be applied against Kubernetes resources as they are
+ *  selected for restoration from a Backup. A rule contains both filtering logic
+ *  (which resources are subject to transform) and transformation logic.
+ */
+@interface GTLRBackupforGKE_TransformationRule : GTLRObject
+
+/**
+ *  The description is a user specified string description of the transformation
+ *  rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. A list of transformation rule actions to take against candidate
+ *  resources. Actions are executed in order defined - this order matters, as
+ *  they could potentially interfere with each other and the first operation
+ *  could affect the outcome of the second operation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_TransformationRuleAction *> *fieldActions;
+
+/**
+ *  This field is used to specify a set of fields that should be used to
+ *  determine which resources in backup should be acted upon by the supplied
+ *  transformation rule actions, and this will ensure that only specific
+ *  resources are affected by transformation rule actions.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_ResourceFilter *resourceFilter;
+
+@end
+
+
+/**
+ *  TransformationRuleAction defines a TransformationRule action based on the
+ *  JSON Patch RFC (https://www.rfc-editor.org/rfc/rfc6902)
+ */
+@interface GTLRBackupforGKE_TransformationRuleAction : GTLRObject
+
+/**
+ *  A string containing a JSON Pointer value that references the location in the
+ *  target document to move the value from.
+ */
+@property(nonatomic, copy, nullable) NSString *fromPath;
+
+/**
+ *  Required. op specifies the operation to perform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_Add The "add"
+ *        operation performs one of the following functions, depending upon what
+ *        the target location references: 1. If the target location specifies an
+ *        array index, a new value is inserted into the array at the specified
+ *        index. 2. If the target location specifies an object member that does
+ *        not already exist, a new member is added to the object. 3. If the
+ *        target location specifies an object member that does exist, that
+ *        member's value is replaced. (Value: "ADD")
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_Copy The "copy"
+ *        operation copies the value at a specified location to the target
+ *        location. (Value: "COPY")
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_Move The "move"
+ *        operation removes the value at a specified location and adds it to the
+ *        target location. (Value: "MOVE")
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_OpUnspecified
+ *        Unspecified operation (Value: "OP_UNSPECIFIED")
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_Remove The "remove"
+ *        operation removes the value at the target location. (Value: "REMOVE")
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_Replace The
+ *        "replace" operation replaces the value at the target location with a
+ *        new value. The operation object MUST contain a "value" member whose
+ *        content specifies the replacement value. (Value: "REPLACE")
+ *    @arg @c kGTLRBackupforGKE_TransformationRuleAction_Op_Test The "test"
+ *        operation tests that a value at the target location is equal to a
+ *        specified value. (Value: "TEST")
+ */
+@property(nonatomic, copy, nullable) NSString *op;
+
+/**
+ *  A string containing a JSON-Pointer value that references a location within
+ *  the target document where the operation is performed.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  A string that specifies the desired value in string format to use for
+ *  transformation.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

@@ -1044,6 +1044,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Reencrypt CMEK instance with latest key version.
+ *
+ *  Method: sql.instances.reencrypt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesReencrypt : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Reencrypt CMEK instance with latest key version.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesReencryptRequest to include in
+ *    the query.
+ *  @param project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesReencrypt
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesReencryptRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Deletes all client certificates and generates a new server SSL certificate
  *  for the instance.
  *

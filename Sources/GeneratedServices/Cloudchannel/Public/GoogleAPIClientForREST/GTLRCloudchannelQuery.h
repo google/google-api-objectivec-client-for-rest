@@ -2271,7 +2271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Optional. Resource name of the new target Billing Account. Provide this
  *  Billing Account when setting up billing for a trial subscription. Format:
- *  accounts/{account_id}/billing_accounts/{billing_account_id}. This field is
+ *  accounts/{account_id}/billingAccounts/{billing_account_id}. This field is
  *  only relevant for multi-currency accounts. It should be left empty for
  *  single currency accounts.
  */
@@ -2292,7 +2292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Optional. Billing account that the result should be restricted to. Format:
- *  accounts/{account_id}/billing_accounts/{billing_account_id}.
+ *  accounts/{account_id}/billingAccounts/{billing_account_id}.
  */
 @property(nonatomic, copy, nullable) NSString *createEntitlementPurchaseBillingAccount;
 

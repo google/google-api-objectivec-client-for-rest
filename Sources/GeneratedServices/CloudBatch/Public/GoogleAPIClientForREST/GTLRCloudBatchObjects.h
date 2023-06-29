@@ -16,11 +16,19 @@
 
 @class GTLRCloudBatch_Accelerator;
 @class GTLRCloudBatch_ActionCondition;
+@class GTLRCloudBatch_AgentContainer;
+@class GTLRCloudBatch_AgentEnvironment;
+@class GTLRCloudBatch_AgentEnvironment_SecretVariables;
+@class GTLRCloudBatch_AgentEnvironment_Variables;
 @class GTLRCloudBatch_AgentInfo;
+@class GTLRCloudBatch_AgentKMSEnvMap;
 @class GTLRCloudBatch_AgentMetadata;
 @class GTLRCloudBatch_AgentMetadata_OsRelease;
+@class GTLRCloudBatch_AgentScript;
 @class GTLRCloudBatch_AgentTask;
 @class GTLRCloudBatch_AgentTaskInfo;
+@class GTLRCloudBatch_AgentTaskRunnable;
+@class GTLRCloudBatch_AgentTaskSpec;
 @class GTLRCloudBatch_AgentTimingInfo;
 @class GTLRCloudBatch_AllocationPolicy;
 @class GTLRCloudBatch_AllocationPolicy_Labels;
@@ -265,7 +273,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_Running;
  *  Value: "SCHEDULED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_Scheduled;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Job state unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_StateUnspecified;
 /**
  *  All Tasks in the Job have finished successfully.
@@ -355,7 +367,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_Running;
  *  Value: "SCHEDULED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_Scheduled;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Job state unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_StateUnspecified;
 /**
  *  All Tasks in the Job have finished successfully.
@@ -593,6 +609,89 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  Container runnable representation on the agent side.
+ */
+@interface GTLRCloudBatch_AgentContainer : GTLRObject
+
+/**
+ *  Overrides the `CMD` specified in the container. If there is an ENTRYPOINT
+ *  (either in the container image or with the entrypoint field below) then
+ *  commands are appended as arguments to the ENTRYPOINT.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *commands;
+
+/** Overrides the `ENTRYPOINT` specified in the container. */
+@property(nonatomic, copy, nullable) NSString *entrypoint;
+
+/** The URI to pull the container image from. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  Arbitrary additional options to include in the "docker run" command when
+ *  running this container, e.g. "--network host".
+ */
+@property(nonatomic, copy, nullable) NSString *options;
+
+/**
+ *  Volumes to mount (bind mount) from the host machine files or directories
+ *  into the container, formatted to match docker run's --volume option, e.g.
+ *  /foo:/bar, or /foo:/bar:ro
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *volumes;
+
+@end
+
+
+/**
+ *  AgentEnvironment is the Environment representation between Agent and CLH
+ *  communication. The environment is used in both task level and agent level.
+ */
+@interface GTLRCloudBatch_AgentEnvironment : GTLRObject
+
+/**
+ *  An encrypted JSON dictionary where the key/value pairs correspond to
+ *  environment variable names and their values.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentKMSEnvMap *encryptedVariables;
+
+/**
+ *  A map of environment variable names to Secret Manager secret names. The VM
+ *  will access the named secrets to set the value of each environment variable.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentEnvironment_SecretVariables *secretVariables;
+
+/** A map of environment variable names to values. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentEnvironment_Variables *variables;
+
+@end
+
+
+/**
+ *  A map of environment variable names to Secret Manager secret names. The VM
+ *  will access the named secrets to set the value of each environment variable.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBatch_AgentEnvironment_SecretVariables : GTLRObject
+@end
+
+
+/**
+ *  A map of environment variable names to values.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBatch_AgentEnvironment_Variables : GTLRObject
+@end
+
+
+/**
  *  VM Agent Info.
  */
 @interface GTLRCloudBatch_AgentInfo : GTLRObject
@@ -625,6 +724,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /** Task Info. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_AgentTaskInfo *> *tasks;
+
+@end
+
+
+/**
+ *  AgentKMSEnvMap contains the encrypted key/value pair to be used in the
+ *  environment on the Agent side.
+ */
+@interface GTLRCloudBatch_AgentKMSEnvMap : GTLRObject
+
+/** The value of the cipherText response from the `encrypt` method. */
+@property(nonatomic, copy, nullable) NSString *cipherText;
+
+/** The name of the KMS key that will be used to decrypt the cipher text. */
+@property(nonatomic, copy, nullable) NSString *keyName;
 
 @end
 
@@ -693,10 +807,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  Script runnable representation on the agent side.
+ */
+@interface GTLRCloudBatch_AgentScript : GTLRObject
+
+/**
+ *  Script file path on the host VM. To specify an interpreter, please add a
+ *  `#!`(also known as [shebang
+ *  line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of
+ *  the file.(For example, to execute the script using bash, `#!/bin/bash`
+ *  should be the first line of the file. To execute the script using`Python3`,
+ *  `#!/usr/bin/env python3` should be the first line of the file.) Otherwise,
+ *  the file will by default be excuted by `/bin/sh`.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Shell script text. To specify an interpreter, please add a `#!\\n` at the
+ *  beginning of the text.(For example, to execute the script using bash,
+ *  `#!/bin/bash\\n` should be added. To execute the script using`Python3`,
+ *  `#!/usr/bin/env python3\\n` should be added.) Otherwise, the script will by
+ *  default be excuted by `/bin/sh`.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  TODO(b/182501497) The message needs to be redefined when the Agent API
  *  server updates data in storage per the backend design.
  */
 @interface GTLRCloudBatch_AgentTask : GTLRObject
+
+/**
+ *  AgentTaskSpec is the taskSpec representation between Agent and CLH
+ *  communication. This field will replace the TaskSpec field above in future to
+ *  have a better separation between user-facaing API and internal API.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTaskSpec *agentTaskSpec;
 
 /**
  *  The intended state of the task.
@@ -720,7 +869,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @property(nonatomic, strong, nullable) NSNumber *reachedBarrier;
 
-/** Task Spec. */
+/**
+ *  Task Spec. This field will be replaced by agent_task_spec below in future.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskSpec *spec;
 
 /** Task status. */
@@ -771,6 +922,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  public TaskStatus into an agent specific one. Or add them below.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskStatus *taskStatus;
+
+@end
+
+
+/**
+ *  AgentTaskRunnable is the Runnable representation between Agent and CLH
+ *  communication.
+ */
+@interface GTLRCloudBatch_AgentTaskRunnable : GTLRObject
+
+/**
+ *  By default, after a Runnable fails, no further Runnable are executed. This
+ *  flag indicates that this Runnable must be run even if the Task has already
+ *  failed. This is useful for Runnables that copy output files off of the VM or
+ *  for debugging. The always_run flag does not override the Task's overall
+ *  max_run_duration. If the max_run_duration has expired then no further
+ *  Runnables will execute, not even always_run Runnables.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alwaysRun;
+
+/**
+ *  This flag allows a Runnable to continue running in the background while the
+ *  Task executes subsequent Runnables. This is useful to provide services to
+ *  other Runnables (or to provide debugging support tools like SSH servers).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *background;
+
+/** Container runnable. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentContainer *container;
+
+/**
+ *  Environment variables for this Runnable (overrides variables set for the
+ *  whole Task or TaskGroup).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentEnvironment *environment;
+
+/**
+ *  Normally, a non-zero exit status causes the Task to fail. This flag allows
+ *  execution of other Runnables to continue instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreExitStatus;
+
+/** Script runnable. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentScript *script;
+
+/** Timeout for this Runnable. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  AgentTaskSpec is the user's TaskSpec representation between Agent and CLH
+ *  communication.
+ */
+@interface GTLRCloudBatch_AgentTaskSpec : GTLRObject
+
+/** Environment variables to set before running the Task. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentEnvironment *environment;
+
+/**
+ *  Maximum duration the task should run. The task will be killed and marked as
+ *  FAILED if over this limit.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
+
+/** AgentTaskRunnable is runanbles that will be executed on the agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_AgentTaskRunnable *> *runnables;
 
 @end
 
@@ -997,7 +1222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  Batch customized image in short names. The following image values are
  *  supported for a boot disk: * "batch-debian": use Batch Debian images. *
  *  "batch-centos": use Batch CentOS images. * "batch-cos": use Batch
- *  Container-Optimized images.
+ *  Container-Optimized images. * "batch-hpc-centos": use Batch HPC CentOS
+ *  images.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -1345,8 +1571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        as soon as resource allocation is ready. The resource allocation may
  *        happen at a later time but with a high chance to succeed. (Value:
  *        "SCHEDULED")
- *    @arg @c kGTLRCloudBatch_JobStatus_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudBatch_JobStatus_State_StateUnspecified Job state
+ *        unspecified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudBatch_JobStatus_State_Succeeded All Tasks in the Job
  *        have finished successfully. (Value: "SUCCEEDED")
  */
@@ -1660,8 +1886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        run as soon as resource allocation is ready. The resource allocation
  *        may happen at a later time but with a high chance to succeed. (Value:
  *        "SCHEDULED")
- *    @arg @c kGTLRCloudBatch_Message_NewJobState_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudBatch_Message_NewJobState_StateUnspecified Job state
+ *        unspecified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudBatch_Message_NewJobState_Succeeded All Tasks in the Job
  *        have finished successfully. (Value: "SUCCEEDED")
  */

@@ -83,6 +83,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonRemorse;
 /**
+ *  Cancellation by a system.
+ *
+ *  Value: "CANCELLATION_REASON_SYSTEM_CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemCancel;
+/**
  *  Cancellation due to an unrecoverable system error.
  *
  *  Value: "CANCELLATION_REASON_SYSTEM_ERROR"
@@ -337,6 +343,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonRemorse;
 /**
+ *  Cancellation by a system.
+ *
+ *  Value: "CANCELLATION_REASON_SYSTEM_CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemCancel;
+/**
  *  Cancellation due to an unrecoverable system error.
  *
  *  Value: "CANCELLATION_REASON_SYSTEM_ERROR"
@@ -541,6 +553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Payment is past due. (Value: "CANCELLATION_REASON_PAST_DUE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonRemorse
  *        Buyer's remorse. (Value: "CANCELLATION_REASON_REMORSE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemCancel
+ *        Cancellation by a system. (Value: "CANCELLATION_REASON_SYSTEM_CANCEL")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemError
  *        Cancellation due to an unrecoverable system error. (Value:
  *        "CANCELLATION_REASON_SYSTEM_ERROR")
@@ -1255,6 +1269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Payment is past due. (Value: "CANCELLATION_REASON_PAST_DUE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonRemorse
  *        Buyer's remorse. (Value: "CANCELLATION_REASON_REMORSE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemCancel
+ *        Cancellation by a system. (Value: "CANCELLATION_REASON_SYSTEM_CANCEL")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemError
  *        Cancellation due to an unrecoverable system error. (Value:
  *        "CANCELLATION_REASON_SYSTEM_ERROR")

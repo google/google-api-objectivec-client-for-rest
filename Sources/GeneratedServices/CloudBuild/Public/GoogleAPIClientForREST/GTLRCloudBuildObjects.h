@@ -322,6 +322,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Hi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu8;
 /**
+ *  E2 machine with 1 CPU.
+ *
+ *  Value: "E2_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Medium;
+/**
  *  Highcpu machine with 32 CPUs.
  *
  *  Value: "N1_HIGHCPU_32"
@@ -1678,6 +1684,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *        machine with 32 CPUs. (Value: "E2_HIGHCPU_32")
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu8 Highcpu e2
  *        machine with 8 CPUs. (Value: "E2_HIGHCPU_8")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_E2Medium E2 machine with
+ *        1 CPU. (Value: "E2_MEDIUM")
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 Highcpu
  *        machine with 32 CPUs. (Value: "N1_HIGHCPU_32")
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 Highcpu

@@ -7370,6 +7370,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
+/**
+ *  Optional. Whether to include BigQuery Export setting.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeBigqueryExportSettings;
+
 @end
 
 
@@ -9517,6 +9524,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  of this query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType *> *sessionEntityTypes;
+
+/**
+ *  Optional. Sets Dialogflow session life time. By default, a Dialogflow
+ *  session remains active and its data is stored for 30 minutes after the last
+ *  request is sent for the session. This value should be no longer than 1 day.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionTtl;
 
 /**
  *  The time zone of this conversational query from the [time zone
@@ -14684,6 +14698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** SuggestDialogflowAssistsResponse if request is for DIALOGFLOW_ASSIST. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse *suggestDialogflowAssistsResponse;
+
+/** SuggestDialogflowAssistsResponse if request is for ENTITY_EXTRACTION. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse *suggestEntityExtractionResponse;
 
 /** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse *suggestFaqAnswersResponse;

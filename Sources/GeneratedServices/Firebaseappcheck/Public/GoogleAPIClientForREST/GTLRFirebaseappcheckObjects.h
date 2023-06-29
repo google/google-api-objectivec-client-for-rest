@@ -56,7 +56,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  App Check. App Check metrics can help you decide whether to enforce App
  *  Check on your Firebase services. If your app has not launched yet, you
  *  should enable enforcement immediately, since there are no outdated clients
- *  in use.
+ *  in use. Some services require certain conditions to be met before they will
+ *  work with App Check, such as requiring you to upgrade to a specific service
+ *  tier or requiring you to enable the service first. Until those requirements
+ *  are met for a service, this `ENFORCED` setting will have no effect and App
+ *  Check will not work with that service.
  *
  *  Value: "ENFORCED"
  */
@@ -74,7 +78,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Firebase App Check is not enforced for the service. App Check metrics are
  *  collected to help you decide when to turn on enforcement for the service.
  *  Though the service is not protected by App Check in this mode, other
- *  applicable protections, such as user authorization, are still enforced.
+ *  applicable protections, such as user authorization, are still enforced. Some
+ *  services require certain conditions to be met before they will work with App
+ *  Check, such as requiring you to upgrade to a specific service tier. Until
+ *  those requirements are met for a service, this `UNENFORCED` setting will
+ *  have no effect and App Check will not work with that service.
  *
  *  Value: "UNENFORCED"
  */
@@ -350,6 +358,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  */
 @property(nonatomic, copy, nullable) NSString *challenge;
 
+/**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
+
 @end
 
 
@@ -384,6 +401,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
+/**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
+
 @end
 
 
@@ -417,6 +443,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  */
 @property(nonatomic, copy, nullable) NSString *customToken;
 
+/**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
+
 @end
 
 
@@ -430,6 +465,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  previously created using CreateDebugToken.
  */
 @property(nonatomic, copy, nullable) NSString *debugToken;
+
+/**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
 
 @end
 
@@ -446,6 +490,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  */
 @property(nonatomic, copy, nullable) NSString *deviceToken;
 
+/**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
+
 @end
 
 
@@ -453,6 +506,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Request message for the ExchangePlayIntegrityToken method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangePlayIntegrityTokenRequest : GTLRObject
+
+/**
+ *  Forces a short-lived token with a 5 minute TTL. Useful when the client
+ *  wishes to impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
 
 /**
  *  Required. The [integrity verdict response token from Play
@@ -470,6 +532,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaEnterpriseTokenRequest : GTLRObject
 
 /**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
+
+/**
  *  Required. The reCAPTCHA token as returned by the [reCAPTCHA Enterprise
  *  JavaScript
  *  API](https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages).
@@ -483,6 +554,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Request message for the ExchangeRecaptchaV3Token method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest : GTLRObject
+
+/**
+ *  Forces a short lived token with a 5 minute TTL. Useful when the client
+ *  wishes to self impose stricter TTL requirements for this exchange. Default:
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitedUse;
 
 /**
  *  Required. The reCAPTCHA token as returned by the [reCAPTCHA v3 JavaScript
@@ -849,7 +929,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *        are enforcing App Check. App Check metrics can help you decide whether
  *        to enforce App Check on your Firebase services. If your app has not
  *        launched yet, you should enable enforcement immediately, since there
- *        are no outdated clients in use. (Value: "ENFORCED")
+ *        are no outdated clients in use. Some services require certain
+ *        conditions to be met before they will work with App Check, such as
+ *        requiring you to upgrade to a specific service tier or requiring you
+ *        to enable the service first. Until those requirements are met for a
+ *        service, this `ENFORCED` setting will have no effect and App Check
+ *        will not work with that service. (Value: "ENFORCED")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off
  *        Firebase App Check is not enforced for the service, nor are App Check
  *        metrics collected. Though the service is not protected by App Check in
@@ -861,7 +946,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *        are collected to help you decide when to turn on enforcement for the
  *        service. Though the service is not protected by App Check in this
  *        mode, other applicable protections, such as user authorization, are
- *        still enforced. (Value: "UNENFORCED")
+ *        still enforced. Some services require certain conditions to be met
+ *        before they will work with App Check, such as requiring you to upgrade
+ *        to a specific service tier. Until those requirements are met for a
+ *        service, this `UNENFORCED` setting will have no effect and App Check
+ *        will not work with that service. (Value: "UNENFORCED")
  */
 @property(nonatomic, copy, nullable) NSString *enforcementMode;
 

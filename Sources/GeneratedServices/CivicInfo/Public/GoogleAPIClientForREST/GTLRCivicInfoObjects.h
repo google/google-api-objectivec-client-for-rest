@@ -1122,7 +1122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
 
 /**
  *  The precincts that match this voter's address. Will only be returned for
- *  project IDs which have been whitelisted as "partner projects".
+ *  project IDs which have been allowlisted as "partner projects".
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Precinct *> *precincts;
 

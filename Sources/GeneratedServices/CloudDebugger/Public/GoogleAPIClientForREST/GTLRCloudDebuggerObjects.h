@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Debugger API (clouddebugger/v2)
+//   Cloud Debugger API (Deprecated) (clouddebugger/v2)
 // Description:
 //   Examines the call stack and variables of a running application without
-//   stopping or slowing it down.
+//   stopping or slowing it down. (Deprecated)
 // Documentation:
 //   https://cloud.google.com/debugger
 

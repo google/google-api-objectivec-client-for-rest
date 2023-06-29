@@ -138,6 +138,16 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_Sta
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Processing = @"PROCESSING";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Successful = @"SUCCESSFUL";
 
+// GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata.operationState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Successful = @"SUCCESSFUL";
+
 // GTLRFirestore_GoogleFirestoreAdminV1TtlConfig.state
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Active = @"ACTIVE";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Creating = @"CREATING";
@@ -983,6 +993,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Progress
 @dynamic completedWork, estimatedWork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata
+@dynamic backup, database, endTime, operationState, startTime;
 @end
 
 

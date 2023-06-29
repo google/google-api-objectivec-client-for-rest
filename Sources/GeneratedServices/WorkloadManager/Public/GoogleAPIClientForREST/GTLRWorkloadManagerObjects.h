@@ -279,7 +279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
- *  Message describing Evaluation object
+ *  LINT.IfChange Message describing Evaluation object
  */
 @interface GTLRWorkloadManager_Evaluation : GTLRObject
 
@@ -317,7 +317,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** Output only. [Output only] The updated rule ids if exist. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ruleVersions;
 
-/** crontab format schedule for scheduled evaluation, example: 0 * /3 * * * */
+/**
+ *  crontab format schedule for scheduled evaluation, currently only support the
+ *  following schedule: "0 * /1 * * *", "0 * /6 * * *", "0 * /12 * * *", "0 0 *
+ *  /1 * *", "0 0 * /7 * *",
+ */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
 /** Output only. [Output only] Update time stamp */
@@ -449,6 +453,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  A presentation of host resource usage where the workload runs.
  */
 @interface GTLRWorkloadManager_Insight : GTLRObject
+
+/** Required. The instance id where the insight is generated from */
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  The insights data for sap system discovery. This is a copy of SAP System
@@ -979,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
- *  The schema of SAP system discovery data.
+ *  LINT.IfChange The schema of SAP system discovery data.
  */
 @interface GTLRWorkloadManager_SapDiscovery : GTLRObject
 
@@ -1299,9 +1306,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 /** Required. The metrics data details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Insight *insight;
-
-/** Optional. The instance id where the insight is generated from */
-@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique

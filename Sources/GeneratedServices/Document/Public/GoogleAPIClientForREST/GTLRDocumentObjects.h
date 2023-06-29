@@ -196,6 +196,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
+@class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData;
 @class GTLRDocument_GoogleCloudDocumentaiV1Vertex;
 @class GTLRDocument_GoogleCloudLocationLocation;
@@ -1629,6 +1630,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Succeeded;
 
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions.trainingMethod
+
+/** Value: "MODEL_BASED" */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_ModelBased;
+/** Value: "TEMPLATE_BASED" */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TemplateBased;
+/** Value: "TRAINING_METHOD_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TrainingMethodUnspecified;
+
 /**
  *  Metadata of the auto-labeling documents operation.
  */
@@ -1919,7 +1930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId : GTLRObject
 
-/** A document id within user managed Cloud Storage. */
+/** A document id within user-managed Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId *gcsManagedDocId;
 
 /** Points to a specific revision of the document if set. */
@@ -1932,15 +1943,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Identifies a document uniquely within the scope of a dataset in user managed
- *  Cloud Storage option.
+ *  Identifies a document uniquely within the scope of a dataset in the
+ *  user-managed Cloud Storage option.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
 /** Id of the document (indexed) managed by Content Warehouse. */
 @property(nonatomic, copy, nullable) NSString *cwDocId;
 
-/** Required. The Cloud Storage uri where the actual document is stored. */
+/** Required. The Cloud Storage URI where the actual document is stored. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 @end
@@ -2614,8 +2625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *inputDocuments;
 
 /**
- *  Whether Human Review feature should be skipped for this request. Default to
- *  `false`.
+ *  Whether human review should be skipped for this request. Default to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2948,7 +2958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImage *image;
 
-/** Image Quality Scores. */
+/** Image quality scores. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores *imageQualityScores;
 
 /** Layout for the page. */
@@ -3235,7 +3245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Image Quality Scores for the page image.
+ *  Image quality scores for the page image.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores : GTLRObject
 
@@ -3259,7 +3269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Confidence of detected defect. Range `[0, 1]` where `1` indicates strong
- *  confidence of that the defect exists.
+ *  confidence that the defect exists.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3889,7 +3899,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** Unit for the font size. Follows CSS naming (`in`, `px`, `pt`, etc.). */
+/**
+ *  Unit for the font size. Follows CSS naming (such as `in`, `px`, and `pt`).
+ */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 @end
@@ -4482,7 +4494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImage *image;
 
-/** Image Quality Scores. */
+/** Image quality scores. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores *imageQualityScores;
 
 /** Layout for the page. */
@@ -4769,7 +4781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Image Quality Scores for the page image.
+ *  Image quality scores for the page image.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores : GTLRObject
 
@@ -4793,7 +4805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Confidence of detected defect. Range `[0, 1]` where `1` indicates strong
- *  confidence of that the defect exists.
+ *  confidence that the defect exists.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5423,7 +5435,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** Unit for the font size. Follows CSS naming (`in`, `px`, `pt`, etc.). */
+/**
+ *  Unit for the font size. Follows CSS naming (such as `in`, `px`, and `pt`).
+ */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 @end
@@ -6583,7 +6597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage *image;
 
-/** Image Quality Scores. */
+/** Image quality scores. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores *imageQualityScores;
 
 /** Layout for the page. */
@@ -6870,7 +6884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Image Quality Scores for the page image.
+ *  Image quality scores for the page image.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores : GTLRObject
 
@@ -6894,7 +6908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Confidence of detected defect. Range `[0, 1]` where `1` indicates strong
- *  confidence of that the defect exists.
+ *  confidence that the defect exists.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7486,12 +7500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  Name of the type. It must be unique within the schema file and cannot be a
  *  "Common Type". The following naming conventions are used: - Use
- *  `snake_casing` - Name matching is case-sensitive - Maximum 64 characters. -
- *  Must start with a letter. - Allowed characters: ASCII letters `[a-z0-9_-]`.
- *  (For backward compatibility internal infrastructure and tooling can handle
- *  any ascii character) - The `/` is sometimes used to denote a property of a
- *  type. For example `line_item/amount`. This convention is deprecated, but
- *  will still be honored for backward compatibility.
+ *  `snake_casing`. - Name matching is case-sensitive. - Maximum 64 characters.
+ *  - Must start with a letter. - Allowed characters: ASCII letters
+ *  `[a-z0-9_-]`. (For backward compatibility internal infrastructure and
+ *  tooling can handle any ascii character.) - The `/` is sometimes used to
+ *  denote a property of a type. For example `line_item/amount`. This convention
+ *  is deprecated, but will still be honored for backward compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7684,7 +7698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
-/** Unit for the font size. Follows CSS naming (`in`, `px`, `pt`, etc.). */
+/**
+ *  Unit for the font size. Follows CSS naming (such as `in`, `px`, and `pt`).
+ */
 @property(nonatomic, copy, nullable) NSString *unit;
 
 @end
@@ -8317,7 +8333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The [KMS key](https://cloud.google.com/security-key-management) used for
- *  encryption/decryption in CMEK scenarios.
+ *  encryption and decryption in CMEK scenarios.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -8465,8 +8481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo : GTLRObject
 
 /**
- *  The location id, refer to [regional and multi-regional
- *  support](/document-ai/docs/regions) for supported locations.
+ *  The location ID. For supported locations, refer to [regional and
+ *  multi-regional support](/document-ai/docs/regions).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -8475,10 +8491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  A processor version is an implementation of a processor. Each processor can
- *  have multiple versions, pre-trained by Google internally or uptrained by the
- *  customer. At a time, a processor can only have one default version version.
- *  So the processor's behavior (when processing documents) is defined by a
- *  default version
+ *  have multiple versions, pretrained by Google internally or uptrained by the
+ *  customer. A processor can only have one default version at a time. Its
+ *  document-processing behavior is defined by that version.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion : GTLRObject
 
@@ -8583,8 +8598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1RawDocument *rawDocument;
 
 /**
- *  Whether Human Review feature should be skipped for this request. Default to
- *  false.
+ *  Whether human review should be skipped for this request. Default to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8809,6 +8823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, copy, nullable) NSString *baseProcessorVersion;
 
+/** Options to control Custom Document Extraction (CDE) Processor. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions *customDocumentExtractionOptions;
+
 /** Optional. The schema the processor version will be trained with. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
@@ -8817,6 +8834,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** Required. The processor version to be created. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion *processorVersion;
+
+@end
+
+
+/**
+ *  Options to control the training of the Custom Document Extraction (CDE)
+ *  Processor.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions : GTLRObject
+
+/**
+ *  Training method to use for CDE training.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_ModelBased
+ *        Value "MODEL_BASED"
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TemplateBased
+ *        Value "TEMPLATE_BASED"
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TrainingMethodUnspecified
+ *        Value "TRAINING_METHOD_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *trainingMethod;
 
 @end
 
@@ -9145,7 +9184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
  *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS `rgba()` string in JavaScript. This reference page does not have
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't have
  *  information about the absolute color space that should be used to interpret
  *  the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default,
  *  applications should assume the sRGB color space. When color equality needs

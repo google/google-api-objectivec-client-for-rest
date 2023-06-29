@@ -1664,6 +1664,135 @@ NSString * const kGTLRTagManagerTypeVisitorRegion              = @"visitorRegion
 
 @end
 
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTagManager_Transformation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/transformations";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTagManager_Transformation class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.transformations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsDelete
+
+@dynamic path;
+
++ (instancetype)queryWithPath:(NSString *)path {
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.path = path;
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.transformations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsGet
+
+@dynamic path;
+
++ (instancetype)queryWithPath:(NSString *)path {
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_Transformation class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.transformations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsList
+
+@dynamic pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/transformations";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTagManager_ListTransformationsResponse class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.transformations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsRevert
+
+@dynamic fingerprint, path;
+
++ (instancetype)queryWithPath:(NSString *)path {
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsRevert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_RevertTransformationResponse class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.transformations.revert";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsUpdate
+
+@dynamic fingerprint, path;
+
++ (instancetype)queryWithObject:(GTLRTagManager_Transformation *)object
+                           path:(NSString *)path {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_Transformation class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.transformations.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate
 
 @dynamic parent;

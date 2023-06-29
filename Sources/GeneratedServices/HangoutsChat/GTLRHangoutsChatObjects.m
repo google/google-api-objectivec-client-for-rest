@@ -342,6 +342,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_AttachedGif
+//
+
+@implementation GTLRHangoutsChat_AttachedGif
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Attachment
 //
 
@@ -1174,14 +1184,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Message
-@dynamic actionResponse, annotations, argumentText, attachment, cards, cardsV2,
-         clientAssignedMessageId, createTime, deleteTime, deletionMetadata,
-         emojiReactionSummaries, fallbackText, lastUpdateTime, matchedUrl, name,
-         sender, slashCommand, space, text, thread, threadReply;
+@dynamic actionResponse, annotations, argumentText, attachedGifs, attachment,
+         cards, cardsV2, clientAssignedMessageId, createTime, deleteTime,
+         deletionMetadata, emojiReactionSummaries, fallbackText, lastUpdateTime,
+         matchedUrl, name, sender, slashCommand, space, text, thread,
+         threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"annotations" : [GTLRHangoutsChat_Annotation class],
+    @"attachedGifs" : [GTLRHangoutsChat_AttachedGif class],
     @"attachment" : [GTLRHangoutsChat_Attachment class],
     @"cards" : [GTLRHangoutsChat_Card class],
     @"cardsV2" : [GTLRHangoutsChat_CardWithId class],

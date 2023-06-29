@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Support API (cloudsupport/v2beta)
+//   Google Cloud Support API (cloudsupport/v2)
 // Description:
 //   Manages Google Cloud technical support cases for Customer Care support
 //   offerings.
@@ -22,7 +22,7 @@
 @dynamic pageSize, pageToken, query;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v2beta/caseClassifications:search";
+  NSString *pathURITemplate = @"v2/caseClassifications:search";
   GTLRCloudSupportQuery_CaseClassificationsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -40,7 +40,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/attachments";
+  NSString *pathURITemplate = @"v2/{+parent}/attachments";
   GTLRCloudSupportQuery_CasesAttachmentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -66,7 +66,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2beta/{+name}:close";
+  NSString *pathURITemplate = @"v2/{+name}:close";
   GTLRCloudSupportQuery_CasesClose *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -93,7 +93,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/comments";
+  NSString *pathURITemplate = @"v2/{+parent}/comments";
   GTLRCloudSupportQuery_CasesCommentsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -113,7 +113,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/comments";
+  NSString *pathURITemplate = @"v2/{+parent}/comments";
   GTLRCloudSupportQuery_CasesCommentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -139,7 +139,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/cases";
+  NSString *pathURITemplate = @"v2/{+parent}/cases";
   GTLRCloudSupportQuery_CasesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -166,7 +166,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2beta/{+name}:escalate";
+  NSString *pathURITemplate = @"v2/{+name}:escalate";
   GTLRCloudSupportQuery_CasesEscalate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -186,7 +186,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2beta/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRCloudSupportQuery_CasesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -205,7 +205,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/cases";
+  NSString *pathURITemplate = @"v2/{+parent}/cases";
   GTLRCloudSupportQuery_CasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -231,7 +231,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2beta/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRCloudSupportQuery_CasesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -247,14 +247,16 @@
 
 @implementation GTLRCloudSupportQuery_CasesSearch
 
-@dynamic pageSize, pageToken, query;
+@dynamic pageSize, pageToken, parent, query;
 
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v2beta/cases:search";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/cases:search";
   GTLRCloudSupportQuery_CasesSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:nil];
+                       pathParameterNames:pathParams];
+  query.parent = parent;
   query.expectedObjectClass = [GTLRCloudSupport_SearchCasesResponse class];
   query.loggingName = @"cloudsupport.cases.search";
   return query;
@@ -268,7 +270,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2beta/{+name}:download";
+  NSString *pathURITemplate = @"v2/{+name}:download";
   GTLRCloudSupportQuery_MediaDownload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -304,7 +306,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2beta/{+parent}/attachments";
+  NSString *pathURITemplate = @"v2/{+parent}/attachments";
   GTLRCloudSupportQuery_MediaUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

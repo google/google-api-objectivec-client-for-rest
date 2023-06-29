@@ -14,6 +14,25 @@
 
 @end
 
+@implementation GTLRGKEHubQuery_OrganizationsLocationsFleetsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/fleets";
+  GTLRGKEHubQuery_OrganizationsLocationsFleetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListFleetsResponse class];
+  query.loggingName = @"gkehub.organizations.locations.fleets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesCreate
 
 @dynamic featureId, parent, requestId;
@@ -197,6 +216,117 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRGKEHub_TestIamPermissionsResponse class];
   query.loggingName = @"gkehub.projects.locations.features.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFleetsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Fleet *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/fleets";
+  GTLRGKEHubQuery_ProjectsLocationsFleetsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.fleets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFleetsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsFleetsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.fleets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFleetsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsFleetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Fleet class];
+  query.loggingName = @"gkehub.projects.locations.fleets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFleetsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/fleets";
+  GTLRGKEHubQuery_ProjectsLocationsFleetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListFleetsResponse class];
+  query.loggingName = @"gkehub.projects.locations.fleets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFleetsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Fleet *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsFleetsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.fleets.patch";
   return query;
 }
 
@@ -749,6 +879,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRGKEHub_ListScopesResponse class];
   query.loggingName = @"gkehub.projects.locations.scopes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.patch";
   return query;
 }
 

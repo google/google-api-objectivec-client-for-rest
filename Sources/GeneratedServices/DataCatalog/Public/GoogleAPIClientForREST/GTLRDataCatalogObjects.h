@@ -456,8 +456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DatabaseSchema;
 /**
- *  Output only. Connection to a data source. For example, a BigQuery
- *  connection.
+ *  Connection to a data source. For example, a BigQuery connection.
  *
  *  Value: "DATA_SOURCE_CONNECTION"
  */
@@ -502,15 +501,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Look;
 /**
- *  Output only. The type of models. For more information, see [Supported models
- *  in BigQuery ML]
- *  (https://cloud.google.com/bigquery-ml/docs/introduction#supported_models_in).
+ *  The type of models. For more information, see [Supported models in BigQuery
+ *  ML](/bigquery/docs/bqml-introduction#supported_models).
  *
  *  Value: "MODEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model;
 /**
- *  Output only. Routine, for example, a BigQuery routine.
+ *  Routine, for example, a BigQuery routine.
  *
  *  Value: "ROUTINE"
  */
@@ -1750,9 +1748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec *sqlDatabaseSystemSpec;
 
 /**
- *  The type of the entry. Only used for entries with types listed in the
- *  `EntryType` enum. Currently, only `FILESET` enum value is allowed. All other
- *  entries created in Data Catalog must use the `user_specified_type`.
+ *  The type of the entry. For details, see [`EntryType`](#entrytype).
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster A
@@ -1765,8 +1761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DatabaseSchema
  *        Schema within a relational database. (Value: "DATABASE_SCHEMA")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataSourceConnection
- *        Output only. Connection to a data source. For example, a BigQuery
- *        connection. (Value: "DATA_SOURCE_CONNECTION")
+ *        Connection to a data source. For example, a BigQuery connection.
+ *        (Value: "DATA_SOURCE_CONNECTION")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream An
  *        entry type for streaming entries. For example, a Pub/Sub topic.
  *        (Value: "DATA_STREAM")
@@ -1785,13 +1781,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Look. For more information, see [Looker Look API]
  *        (https://developers.looker.com/api/explorer/4.0/methods/Look). (Value:
  *        "LOOK")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model Output
- *        only. The type of models. For more information, see [Supported models
- *        in BigQuery ML]
- *        (https://cloud.google.com/bigquery-ml/docs/introduction#supported_models_in).
- *        (Value: "MODEL")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Routine Output
- *        only. Routine, for example, a BigQuery routine. (Value: "ROUTINE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model The type
+ *        of models. For more information, see [Supported models in BigQuery
+ *        ML](/bigquery/docs/bqml-introduction#supported_models). (Value:
+ *        "MODEL")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Routine
+ *        Routine, for example, a BigQuery routine. (Value: "ROUTINE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service A
  *        service, for example, a Dataproc Metastore service. (Value: "SERVICE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table The
@@ -2731,15 +2726,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Specifies the order of results. Currently supported case-sensitive values
  *  are: * `relevance` that can only be descending * `last_modified_timestamp
  *  [asc|desc]` with descending (`desc`) as default * `default` that can only be
- *  descending If this parameter is omitted, it defaults to the descending
+ *  descending Search queries don't guarantee full recall. Results that match
+ *  your query might not be returned, even in subsequent result pages.
+ *  Additionally, returned (and not returned) results can vary if you repeat
+ *  search queries. If you are experiencing recall issues and you don't have to
+ *  fetch the results in any specific order, consider setting this parameter to
+ *  `default`. If this parameter is omitted, it defaults to the descending
  *  `relevance`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Number of results to return in a single search page. Can't be negative or 0,
- *  defaults to 10 in this case. The maximum number is 1000. If exceeded, throws
- *  an "invalid argument" exception.
+ *  Upper bound on the number of results you can get in a single response. Can't
+ *  be negative or 0, defaults to 10 in this case. The maximum number is 1000.
+ *  If exceeded, throws an "invalid argument" exception.
  *
  *  Uses NSNumber of intValue.
  */

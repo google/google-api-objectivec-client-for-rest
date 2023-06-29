@@ -4124,7 +4124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Optional. The Billing Account to look up Offers for. Format:
- *  accounts/{account_id}/billing_accounts/{billing_account_id}. This field is
+ *  accounts/{account_id}/billingAccounts/{billing_account_id}. This field is
  *  only relevant for multi-currency accounts. It should be left empty for
  *  single currency accounts.
  */

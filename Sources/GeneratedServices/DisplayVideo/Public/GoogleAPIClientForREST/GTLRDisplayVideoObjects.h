@@ -6551,12 +6551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_
 // GTLRDisplayVideo_FirstAndThirdPartyAudience.audienceType
 
 /**
- *  Audience was created based on campaign activity. **Warning:** This audience
- *  type will be deprecated on **May 20, 2023**. After this date, these
- *  audiences will not be able to be added to resource targeting. Read our
- *  [feature deprecation
- *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
- *  for more information.
+ *  Audience was created based on campaign activity.
  *
  *  Value: "ACTIVITY_BASED"
  */
@@ -6589,11 +6584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchUserId;
 /**
  *  Audience was created based on excluding the number of impressions they were
- *  served. **Warning:** This audience type will be deprecated on **May 20,
- *  2023**. After this date, these audiences will not be able to be added to
- *  resource targeting. Read our [feature deprecation
- *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
- *  for more information.
+ *  served.
  *
  *  Value: "FREQUENCY_CAP"
  */
@@ -7475,11 +7466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInMarket;
 /**
- *  Installed-Apps type Google audience. **Warning:** This audience type will be
- *  deprecated on **May 20, 2023**. After this date, these audiences will not be
- *  able to be added to resource targeting. Read our [feature deprecation
- *  announcement](/display-video/api/deprecations#features.google_audience_types)
- *  for more information.
+ *  Installed-Apps type Google audience.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS"
  */
@@ -7491,12 +7478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeLifeEvent;
 /**
- *  New-Mobile-Devices type Google audience. **Warning:** This audience type
- *  will be deprecated on **May 20, 2023**. After this date, these audiences
- *  will not be able to be added to resource targeting. Read our [feature
- *  deprecation
- *  announcement](/display-video/api/deprecations#features.google_audience_types)
- *  for more information.
+ *  New-Mobile-Devices type Google audience.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES"
  */
@@ -14350,12 +14332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  and third party audience group. Used for negative targeting. The COMPLEMENT
  *  of the UNION of this group and other excluded audience groups is used as an
  *  INTERSECTION to any positive audience targeting. All items are logically
- *  ‘OR’ of each other. **Warning:** `ACTIVITY_BASED` and `FREQUENCY_CAP`
- *  audience types will be deprecated on **May 20, 2023**. After this date,
- *  these audiences will not be able to be added to resource targeting. Read our
- *  [feature deprecation
- *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
- *  for more information.
+ *  ‘OR’ of each other.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *excludedFirstAndThirdPartyAudienceGroup;
 
@@ -14364,13 +14341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  negative targeting. The COMPLEMENT of the UNION of this group and other
  *  excluded audience groups is used as an INTERSECTION to any positive audience
  *  targeting. Only contains Affinity, In-market and Installed-apps type Google
- *  audiences. All items are logically ‘OR’ of each other. **Warning:**
- *  `GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS` and
- *  `GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES` audience types will be deprecated
- *  on **May 20, 2023**. After this date, these audiences will not be able to be
- *  added to resource targeting. Read our [feature deprecation
- *  announcement](/display-video/api/deprecations#features.google_audience_types)
- *  for more information.
+ *  audiences. All items are logically ‘OR’ of each other.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *excludedGoogleAudienceGroup;
 
@@ -14392,23 +14363,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  contains first and third party audience ids only. The relation between each
  *  first and third party audience group is INTERSECTION, and the result is
  *  UNION'ed with other audience groups. Repeated groups with same settings will
- *  be ignored. **Warning:** `ACTIVITY_BASED` and `FREQUENCY_CAP` audience types
- *  will be deprecated on **May 20, 2023**. After this date, these audiences
- *  will not be able to be added to resource targeting. Read our [feature
- *  deprecation
- *  announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
- *  for more information.
+ *  be ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *> *includedFirstAndThirdPartyAudienceGroups;
 
 /**
  *  The Google audience ids of the included Google audience group. Contains
- *  Google audience ids only. **Warning:** `GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS`
- *  and `GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES` audience types will be
- *  deprecated on **May 20, 2023**. After this date, these audiences will not be
- *  able to be added to resource targeting. Read our [feature deprecation
- *  announcement](/display-video/api/deprecations#features.google_audience_types)
- *  for more information.
+ *  Google audience ids only.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *includedGoogleAudienceGroup;
 
@@ -19806,12 +19767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased
- *        Audience was created based on campaign activity. **Warning:** This
- *        audience type will be deprecated on **May 20, 2023**. After this date,
- *        these audiences will not be able to be added to resource targeting.
- *        Read our [feature deprecation
- *        announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
- *        for more information. (Value: "ACTIVITY_BASED")
+ *        Audience was created based on campaign activity. (Value:
+ *        "ACTIVITY_BASED")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_AudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
  *        "AUDIENCE_TYPE_UNSPECIFIED")
@@ -19826,11 +19783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "CUSTOMER_MATCH_USER_ID")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap
  *        Audience was created based on excluding the number of impressions they
- *        were served. **Warning:** This audience type will be deprecated on
- *        **May 20, 2023**. After this date, these audiences will not be able to
- *        be added to resource targeting. Read our [feature deprecation
- *        announcement](/display-video/api/deprecations#features.first_and_third_party_audience_types)
- *        for more information. (Value: "FREQUENCY_CAP")
+ *        were served. (Value: "FREQUENCY_CAP")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_Licensed
  *        Subtype of third party audience type. (Value: "LICENSED")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_TagBased
@@ -20691,22 +20644,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        In-Market type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_IN_MARKET")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInstalledApps
- *        Installed-Apps type Google audience. **Warning:** This audience type
- *        will be deprecated on **May 20, 2023**. After this date, these
- *        audiences will not be able to be added to resource targeting. Read our
- *        [feature deprecation
- *        announcement](/display-video/api/deprecations#features.google_audience_types)
- *        for more information. (Value: "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS")
+ *        Installed-Apps type Google audience. (Value:
+ *        "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeLifeEvent
  *        Life-Event type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_LIFE_EVENT")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeNewMobileDevices
- *        New-Mobile-Devices type Google audience. **Warning:** This audience
- *        type will be deprecated on **May 20, 2023**. After this date, these
- *        audiences will not be able to be added to resource targeting. Read our
- *        [feature deprecation
- *        announcement](/display-video/api/deprecations#features.google_audience_types)
- *        for more information. (Value:
+ *        New-Mobile-Devices type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:

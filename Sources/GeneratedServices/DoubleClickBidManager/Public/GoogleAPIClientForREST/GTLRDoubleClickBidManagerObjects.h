@@ -168,10 +168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Ye
 // GTLRDoubleClickBidManager_Parameters.type
 
 /**
- *  Audience Composition report. **Warning:** This report type will be
- *  deprecated in Display & Video 360 on **June 8, 2023**. Once deprecated, you
- *  will no longer be able to create new or retrieve existing Query and Report
- *  resources of this type.
+ *  Audience Composition report.
  *
  *  Value: "AUDIENCE_COMPOSITION"
  */
@@ -709,18 +706,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 /**
  *  The type of the report. The type of the report will dictate what dimesions,
- *  filters, and metrics can be used. **Warning:** The `AUDIENCE_COMPOSITION`
- *  report type will be deprecated in Display & Video 360 on **June 8, 2023**.
- *  Once deprecated, you will no longer be able to create new or retrieve
- *  existing Query and Report resources of this type.
+ *  filters, and metrics can be used.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition
- *        Audience Composition report. **Warning:** This report type will be
- *        deprecated in Display & Video 360 on **June 8, 2023**. Once
- *        deprecated, you will no longer be able to create new or retrieve
- *        existing Query and Report resources of this type. (Value:
- *        "AUDIENCE_COMPOSITION")
+ *        Audience Composition report. (Value: "AUDIENCE_COMPOSITION")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Floodlight Floodlight
  *        report. (Value: "FLOODLIGHT")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_FullPath Full Path

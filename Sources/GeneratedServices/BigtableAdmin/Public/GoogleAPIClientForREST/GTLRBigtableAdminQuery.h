@@ -2204,6 +2204,130 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Gets the access control policy for a Table resource. Returns an empty policy
+ *  if the resource exists but does not have a policy set.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.views.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesViewsGetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Gets the access control policy for a Table resource. Returns an empty policy
+ *  if the resource exists but does not have a policy set.
+ *
+ *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on a Table resource. Replaces any existing
+ *  policy.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.views.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesViewsSetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Sets the access control policy on a Table resource. Replaces any existing
+ *  policy.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified table resource.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.views.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesViewsTestIamPermissions : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified table resource.
+ *
+ *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Returns permissions that the caller has on the specified instance resource.
  *
  *  Method: bigtableadmin.projects.instances.testIamPermissions

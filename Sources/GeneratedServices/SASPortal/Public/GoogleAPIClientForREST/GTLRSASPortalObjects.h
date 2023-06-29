@@ -16,6 +16,7 @@
 @class GTLRSASPortal_ChannelWithScore;
 @class GTLRSASPortal_Customer;
 @class GTLRSASPortal_Deployment;
+@class GTLRSASPortal_DeploymentAssociation;
 @class GTLRSASPortal_Device;
 @class GTLRSASPortal_DeviceAirInterface;
 @class GTLRSASPortal_DeviceConfig;
@@ -204,6 +205,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSASPortal_MigrateOrganizationMetadata.operationState
+
+/**
+ *  Done with errors.
+ *
+ *  Value: "OPERATION_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateFailed;
+/**
+ *  Pending (Not started).
+ *
+ *  Value: "OPERATION_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStatePending;
+/**
+ *  In-progress.
+ *
+ *  Value: "OPERATION_STATE_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateRunning;
+/**
+ *  Done successfully.
+ *
+ *  Value: "OPERATION_STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateSucceeded;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSASPortal_NrqzValidation.state
 
 /**
@@ -258,6 +293,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Response for [CheckHasProvisionedDeployment].
+ *  [spectrum.sas.portal.v1alpha1.Provisioning.CheckHasProvisionedDeployment].
+ */
+@interface GTLRSASPortal_CheckHasProvisionedDeploymentResponse : GTLRObject
+
+/**
+ *  Whether a SAS deployment for the authentication context exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasProvisionedDeployment;
 
 @end
 
@@ -324,6 +375,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  should be associated with one unique user ID.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sasUserIds;
+
+@end
+
+
+/**
+ *  Association between a gcp project and a SAS user id.
+ */
+@interface GTLRSASPortal_DeploymentAssociation : GTLRObject
+
+/** GCP project id of the associated project. */
+@property(nonatomic, copy, nullable) NSString *gcpProjectId;
+
+/** User id of the deployment. */
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -958,6 +1023,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Node *> *nodes;
+
+@end
+
+
+/**
+ *  Long-running operation metadata message returned by the MigrateOrganization.
+ */
+@interface GTLRSASPortal_MigrateOrganizationMetadata : GTLRObject
+
+/**
+ *  Output only. Current operation state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateFailed
+ *        Done with errors. (Value: "OPERATION_STATE_FAILED")
+ *    @arg @c kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStatePending
+ *        Pending (Not started). (Value: "OPERATION_STATE_PENDING")
+ *    @arg @c kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateRunning
+ *        In-progress. (Value: "OPERATION_STATE_RUNNING")
+ *    @arg @c kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateSucceeded
+ *        Done successfully. (Value: "OPERATION_STATE_SUCCEEDED")
+ *    @arg @c kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+@end
+
+
+/**
+ *  Request for [MigrateOrganization].
+ *  [spectrum.sas.portal.v1alpha1.Provisioning.MigrateOrganization]. GCP
+ *  Project, Organization Info, and caller's GAIA ID should be retrieved from
+ *  the RPC handler, and used to check authorization on SAS Portal organization
+ *  and to create GCP Projects.
+ */
+@interface GTLRSASPortal_MigrateOrganizationRequest : GTLRObject
+
+/**
+ *  Required. Id of the SAS organization to be migrated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationId;
+
+@end
+
+
+/**
+ *  Response for [MigrateOrganization].
+ *  [spectrum.sas.portal.v1alpha1.Provisioning.MigrateOrganization].
+ */
+@interface GTLRSASPortal_MigrateOrganizationResponse : GTLRObject
+
+/**
+ *  Optional. A list of deployment association that were created for the
+ *  migration, or current associations if they already exist.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_DeploymentAssociation *> *deploymentAssociation;
 
 @end
 

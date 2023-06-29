@@ -608,6 +608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDelete : GTLRDatabaseMigrationServiceQuery
 
+/**
+ *  Force delete the conversion workspace, even if there's a running migration
+ *  that is using the workspace.
+ */
+@property(nonatomic, assign) BOOL force;
+
 /** Required. Name of the conversion workspace resource to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 

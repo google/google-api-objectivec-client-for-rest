@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Support API (cloudsupport/v2beta)
+//   Google Cloud Support API (cloudsupport/v2)
 // Description:
 //   Manages Google Cloud technical support cases for Customer Care support
 //   offerings.
@@ -37,8 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieve valid classifications to be used when creating a support case. The
  *  classications are hierarchical, with each classification containing all
- *  levels of the hierarchy, separated by " > ". For example "Technical Issue >
- *  Compute > Compute Engine".
+ *  levels of the hierarchy, separated by `" > "`. For example `"Technical Issue
+ *  > Compute > Compute Engine"`. Classification IDs returned by
+ *  `caseClassifications.search` are guaranteed to be valid for at least 6
+ *  months. If a given classification is deactiveated, it will immediately stop
+ *  being returned. After 6 months, `case.create` requests using the
+ *  classification ID will fail.
  *
  *  Method: cloudsupport.caseClassifications.search
  *
@@ -68,8 +72,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieve valid classifications to be used when creating a support case. The
  *  classications are hierarchical, with each classification containing all
- *  levels of the hierarchy, separated by " > ". For example "Technical Issue >
- *  Compute > Compute Engine".
+ *  levels of the hierarchy, separated by `" > "`. For example `"Technical Issue
+ *  > Compute > Compute Engine"`. Classification IDs returned by
+ *  `caseClassifications.search` are guaranteed to be valid for at least 6
+ *  months. If a given classification is deactiveated, it will immediately stop
+ *  being returned. After 6 months, `case.create` requests using the
+ *  classification ID will fail.
  *
  *  @return GTLRCloudSupportQuery_CaseClassificationsSearch
  *
@@ -463,6 +471,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
+/** The fully qualified name of parent resource to search cases under. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
 /**
  *  An expression written in filter language. A query uses the following fields
  *  with the operators equals (`=`) and `AND`: - `organization`: An organization
@@ -493,13 +504,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Search cases using the specified query.
  *
+ *  @param parent The fully qualified name of parent resource to search cases
+ *    under.
+ *
  *  @return GTLRCloudSupportQuery_CasesSearch
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)query;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

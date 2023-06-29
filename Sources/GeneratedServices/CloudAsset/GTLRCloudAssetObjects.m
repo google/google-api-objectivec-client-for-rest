@@ -509,24 +509,6 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudAsset_DeniedAccess
-//
-
-@implementation GTLRCloudAsset_DeniedAccess
-@dynamic deniedAccessTuple, denyDetails;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"denyDetails" : [GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessDenyDetail class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudAsset_EffectiveIamPolicy
 //
 
@@ -791,66 +773,6 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess
-//
-
-@implementation GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess
-@dynamic permission, role;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccessTuple
-//
-
-@implementation GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccessTuple
-@dynamic access, identity, resource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessDenyDetail
-//
-
-@implementation GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessDenyDetail
-@dynamic accesses, denyRule, fullyDenied, identities, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"accesses" : [GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess class],
-    @"identities" : [GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity class],
-    @"resources" : [GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity
-//
-
-@implementation GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource
-//
-
-@implementation GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource
-@dynamic fullResourceName;
 @end
 
 
@@ -1123,28 +1045,6 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAsset_GoogleIamV2DenyRule
-//
-
-@implementation GTLRCloudAsset_GoogleIamV2DenyRule
-@dynamic denialCondition, deniedPermissions, deniedPrincipals,
-         exceptionPermissions, exceptionPrincipals;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"deniedPermissions" : [NSString class],
-    @"deniedPrincipals" : [NSString class],
-    @"exceptionPermissions" : [NSString class],
-    @"exceptionPrincipals" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1464,13 +1364,11 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_IamPolicyAnalysis
-@dynamic analysisQuery, analysisResults, deniedAccesses, fullyExplored,
-         nonCriticalErrors;
+@dynamic analysisQuery, analysisResults, fullyExplored, nonCriticalErrors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"analysisResults" : [GTLRCloudAsset_IamPolicyAnalysisResult class],
-    @"deniedAccesses" : [GTLRCloudAsset_DeniedAccess class],
     @"nonCriticalErrors" : [GTLRCloudAsset_IamPolicyAnalysisState class]
   };
   return map;
@@ -1744,8 +1642,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_Options
 @dynamic analyzeServiceAccountImpersonation, expandGroups, expandResources,
-         expandRoles, includeDenyPolicyAnalysis, outputGroupEdges,
-         outputResourceEdges;
+         expandRoles, outputGroupEdges, outputResourceEdges;
 @end
 
 

@@ -195,6 +195,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ChangeStreamConfig
+//
+
+@implementation GTLRBigtableAdmin_ChangeStreamConfig
+@dynamic retentionPeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_CheckConsistencyRequest
 //
 
@@ -797,7 +807,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ModifyColumnFamiliesRequest
-@dynamic modifications;
+@dynamic ignoreWarnings, modifications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1036,8 +1046,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Table
-@dynamic clusterStates, columnFamilies, deletionProtection, granularity, name,
-         restoreInfo, stats;
+@dynamic changeStreamConfig, clusterStates, columnFamilies, deletionProtection,
+         granularity, name, restoreInfo, stats;
 @end
 
 

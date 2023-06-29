@@ -2235,7 +2235,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Deletes an in-app product (i.e. a managed product or a subscription).
+ *  Deletes an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to delete subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  Method: androidpublisher.inappproducts.delete
  *
@@ -2254,7 +2257,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes an in-app product (i.e. a managed product or a subscription).
+ *  Deletes an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to delete subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
@@ -2268,6 +2274,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /**
  *  Gets an in-app product, which can be a managed product or a subscription.
+ *  This method should no longer be used to retrieve subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  Method: androidpublisher.inappproducts.get
  *
@@ -2286,6 +2295,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
  *  Gets an in-app product, which can be a managed product or a subscription.
+ *  This method should no longer be used to retrieve subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
@@ -2298,7 +2310,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Creates an in-app product (i.e. a managed product or a subscription).
+ *  Creates an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to create subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  Method: androidpublisher.inappproducts.insert
  *
@@ -2320,7 +2335,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Creates an in-app product (i.e. a managed product or a subscription).
+ *  Creates an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to create subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
@@ -2338,7 +2356,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  app has a large number of in-app products, the response may be paginated. In
  *  this case the response field `tokenPagination.nextPageToken` will be set and
  *  the caller should provide its value as a `token` request parameter to
- *  retrieve the next page.
+ *  retrieve the next page. This method should no longer be used to retrieve
+ *  subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  Method: androidpublisher.inappproducts.list
  *
@@ -2368,7 +2389,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  app has a large number of in-app products, the response may be paginated. In
  *  this case the response field `tokenPagination.nextPageToken` will be set and
  *  the caller should provide its value as a `token` request parameter to
- *  retrieve the next page.
+ *  retrieve the next page. This method should no longer be used to retrieve
+ *  subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  @param packageName Package name of the app.
  *
@@ -2379,7 +2403,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Patches an in-app product (i.e. a managed product or a subscription).
+ *  Patches an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to update subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  Method: androidpublisher.inappproducts.patch
  *
@@ -2404,7 +2431,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Patches an in-app product (i.e. a managed product or a subscription).
+ *  Patches an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to update subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
@@ -2420,7 +2450,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates an in-app product (i.e. a managed product or a subscription).
+ *  Updates an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to update subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  Method: androidpublisher.inappproducts.update
  *
@@ -2451,7 +2484,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Updates an in-app product (i.e. a managed product or a subscription).
+ *  Updates an in-app product (i.e. a managed product or a subscription). This
+ *  method should no longer be used to update subscriptions. See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.

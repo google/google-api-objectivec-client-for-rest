@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Support API (cloudsupport/v2beta)
+//   Google Cloud Support API (cloudsupport/v2)
 // Description:
 //   Manages Google Cloud technical support cases for Customer Care support
 //   offerings.

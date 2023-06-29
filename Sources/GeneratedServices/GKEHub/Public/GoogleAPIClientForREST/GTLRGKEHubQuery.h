@@ -32,6 +32,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns all fleets within an organization or a project that the caller has
+ *  access to.
+ *
+ *  Method: gkehub.organizations.locations.fleets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_OrganizationsLocationsFleetsList : GTLRGKEHubQuery
+
+/**
+ *  Optional. The maximum number of fleets to return. The service may return
+ *  fewer than this value. If unspecified, at most 200 fleets will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListFleets` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListFleets` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The organization or project to list for Fleets under, in the
+ *  format `organizations/ * /locations/ *` or `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListFleetsResponse.
+ *
+ *  Returns all fleets within an organization or a project that the caller has
+ *  access to.
+ *
+ *  @param parent Required. The organization or project to list for Fleets
+ *    under, in the format `organizations/ * /locations/ *` or `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRGKEHubQuery_OrganizationsLocationsFleetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Adds a new Feature.
  *
  *  Method: gkehub.projects.locations.features.create
@@ -407,6 +458,190 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGKEHub_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a fleet.
+ *
+ *  Method: gkehub.projects.locations.fleets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsFleetsCreate : GTLRGKEHubQuery
+
+/**
+ *  Required. The parent (project and location) where the Fleet will be created.
+ *  Specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Creates a fleet.
+ *
+ *  @param object The @c GTLRGKEHub_Fleet to include in the query.
+ *  @param parent Required. The parent (project and location) where the Fleet
+ *    will be created. Specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_Fleet *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Removes a Fleet. There must be no memberships remaining in the Fleet.
+ *
+ *  Method: gkehub.projects.locations.fleets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsFleetsDelete : GTLRGKEHubQuery
+
+/**
+ *  Required. The Fleet resource name in the format `projects/ * /locations/ *
+ *  /fleets/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Removes a Fleet. There must be no memberships remaining in the Fleet.
+ *
+ *  @param name Required. The Fleet resource name in the format `projects/ *
+ *    /locations/ * /fleets/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the details of a fleet.
+ *
+ *  Method: gkehub.projects.locations.fleets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsFleetsGet : GTLRGKEHubQuery
+
+/**
+ *  Required. The Fleet resource name in the format `projects/ * /locations/ *
+ *  /fleets/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Fleet.
+ *
+ *  Returns the details of a fleet.
+ *
+ *  @param name Required. The Fleet resource name in the format `projects/ *
+ *    /locations/ * /fleets/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns all fleets within an organization or a project that the caller has
+ *  access to.
+ *
+ *  Method: gkehub.projects.locations.fleets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsFleetsList : GTLRGKEHubQuery
+
+/**
+ *  Optional. The maximum number of fleets to return. The service may return
+ *  fewer than this value. If unspecified, at most 200 fleets will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListFleets` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListFleets` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The organization or project to list for Fleets under, in the
+ *  format `organizations/ * /locations/ *` or `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListFleetsResponse.
+ *
+ *  Returns all fleets within an organization or a project that the caller has
+ *  access to.
+ *
+ *  @param parent Required. The organization or project to list for Fleets
+ *    under, in the format `organizations/ * /locations/ *` or `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a fleet.
+ *
+ *  Method: gkehub.projects.locations.fleets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsFleetsPatch : GTLRGKEHubQuery
+
+/**
+ *  Output only. The full, unique resource name of this fleet in the format of
+ *  `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud
+ *  project can have at most one fleet resource, named "default".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fields to be updated;
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Updates a fleet.
+ *
+ *  @param object The @c GTLRGKEHub_Fleet to include in the query.
+ *  @param name Output only. The full, unique resource name of this fleet in the
+ *    format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each
+ *    Google Cloud project can have at most one fleet resource, named "default".
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_Fleet *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1497,6 +1732,45 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a scopes.
+ *
+ *  Method: gkehub.projects.locations.scopes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesPatch : GTLRGKEHubQuery
+
+/**
+ *  The resource name for the scope
+ *  `projects/{project}/locations/{location}/scopes/{scope}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Updates a scopes.
+ *
+ *  @param object The @c GTLRGKEHub_Scope to include in the query.
+ *  @param name The resource name for the scope
+ *    `projects/{project}/locations/{location}/scopes/{scope}`
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesPatch
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
+                           name:(NSString *)name;
 
 @end
 

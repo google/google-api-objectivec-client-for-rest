@@ -4,8 +4,8 @@
 // API:
 //   Organization Policy API (orgpolicy/v2)
 // Description:
-//   The Org Policy API allows users to configure governance rules on their GCP
-//   resources across the Cloud Resource Hierarchy.
+//   The Organization Policy API allows users to configure governance rules on
+//   their Google Cloud resources across the resource hierarchy.
 // Documentation:
 //   https://cloud.google.com/orgpolicy/docs/reference/rest/index.html
 

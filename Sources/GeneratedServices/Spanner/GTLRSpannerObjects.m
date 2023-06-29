@@ -466,6 +466,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_DdlStatementActionInfo
+//
+
+@implementation GTLRSpanner_DdlStatementActionInfo
+@dynamic action, entityNames, entityType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Delete
 //
 
@@ -1969,10 +1987,11 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_UpdateDatabaseDdlMetadata
-@dynamic commitTimestamps, database, progress, statements, throttled;
+@dynamic actions, commitTimestamps, database, progress, statements, throttled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRSpanner_DdlStatementActionInfo class],
     @"commitTimestamps" : [GTLRDateTime class],
     @"progress" : [GTLRSpanner_OperationProgress class],
     @"statements" : [NSString class]

@@ -19,6 +19,90 @@
 
 @end
 
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRBeyondCorpQuery_OrganizationsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_Empty class];
+  query.loggingName = @"beyondcorp.organizations.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_OrganizationsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_Empty class];
+  query.loggingName = @"beyondcorp.organizations.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_OrganizationsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.organizations.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRBeyondCorpQuery_OrganizationsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"beyondcorp.organizations.locations.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsCreate
 
 @dynamic appConnectionId, parent, requestId, validateOnly;

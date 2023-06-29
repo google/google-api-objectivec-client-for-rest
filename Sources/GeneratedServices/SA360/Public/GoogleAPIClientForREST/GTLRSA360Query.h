@@ -93,6 +93,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns resource names of customers directly accessible by the user
+ *  authenticating the call. List of thrown errors: [AuthenticationError]()
+ *  [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]()
+ *  [RequestError]()
+ *
+ *  Method: searchads360.customers.listAccessibleCustomers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSA360Doubleclicksearch
+ */
+@interface GTLRSA360Query_CustomersListAccessibleCustomers : GTLRSA360Query
+
+/**
+ *  Fetches a @c
+ *  GTLRSA360_GoogleAdsSearchads360V0ServicesListAccessibleCustomersResponse.
+ *
+ *  Returns resource names of customers directly accessible by the user
+ *  authenticating the call. List of thrown errors: [AuthenticationError]()
+ *  [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]()
+ *  [RequestError]()
+ *
+ *  @return GTLRSA360Query_CustomersListAccessibleCustomers
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Returns all rows that match the search query. List of thrown errors:
  *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
  *  [InternalError]() [QueryError]() [QuotaError]() [RequestError]()

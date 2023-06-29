@@ -601,6 +601,45 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Directly uploads a Go module. The returned Operation will complete once the
+ *  Go module is uploaded. Package, Version, and File resources are created
+ *  based on the uploaded Go module.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.goModules.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoModulesUpload : GTLRArtifactRegistryQuery
+
+/**
+ *  The resource name of the repository where the Go module will be uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadGoModuleMediaResponse.
+ *
+ *  Directly uploads a Go module. The returned Operation will complete once the
+ *  Go module is uploaded. Package, Version, and File resources are created
+ *  based on the uploaded Go module.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadGoModuleRequest to include
+ *    in the query.
+ *  @param parent The resource name of the repository where the Go module will
+ *    be uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoModulesUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGoModuleRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
  *  Imports GooGet artifacts. The returned Operation will complete once the
  *  resources are imported. Package, Version, and File resources are created
  *  based on the imported artifacts. Imported artifacts that conflict with

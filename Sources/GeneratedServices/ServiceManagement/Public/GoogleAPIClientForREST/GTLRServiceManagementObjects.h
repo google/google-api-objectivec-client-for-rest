@@ -2087,7 +2087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  documentation: summary: > The Google Calendar API gives access to most
  *  calendar features. pages: - name: Overview content: (== include
  *  google/foo/overview.md ==) - name: Tutorial content: (== include
- *  google/foo/tutorial.md ==) subpages; - name: Java content: (== include
+ *  google/foo/tutorial.md ==) subpages: - name: Java content: (== include
  *  google/foo/tutorial_java.md ==) rules: - selector:
  *  google.calendar.Calendar.Get description: > ... - selector:
  *  google.calendar.Calendar.Put description: > ... Documentation is provided in
@@ -2134,6 +2134,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  **NOTE:** All service configuration rules follow "last one wins" order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_DocumentationRule *> *rules;
+
+/**
+ *  Specifies section and content to override boilerplate content provided by
+ *  go/api-docgen. Currently overrides following sections: 1.
+ *  rest.service.client_libraries
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Page *> *sectionOverrides;
 
 /**
  *  Specifies the service root url if the default one (the service name from the

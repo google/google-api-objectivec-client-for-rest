@@ -219,7 +219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Reimaging;
 /**
  *  TPU node is being repaired and may be unusable. Details can be found in the
- *  `help_description` field.
+ *  'help_description' field.
  *
  *  Value: "REPAIRING"
  */
@@ -897,7 +897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *    @arg @c kGTLRTPU_Node_State_Reimaging TPU node is undergoing reimaging.
  *        (Value: "REIMAGING")
  *    @arg @c kGTLRTPU_Node_State_Repairing TPU node is being repaired and may
- *        be unusable. Details can be found in the `help_description` field.
+ *        be unusable. Details can be found in the 'help_description' field.
  *        (Value: "REPAIRING")
  *    @arg @c kGTLRTPU_Node_State_Restarting TPU node is restarting. (Value:
  *        "RESTARTING")

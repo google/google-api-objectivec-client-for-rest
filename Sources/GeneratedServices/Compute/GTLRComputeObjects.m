@@ -10964,15 +10964,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic advancedMachineFeatures, canIpForward, confidentialInstanceConfig,
          cpuPlatform, creationTimestamp, deletionProtection,
          descriptionProperty, disks, displayDevice, fingerprint,
-         guestAccelerators, hostname, identifier, keyRevocationActionType, kind,
-         labelFingerprint, labels, lastStartTimestamp, lastStopTimestamp,
-         lastSuspendedTimestamp, machineType, metadata, minCpuPlatform, name,
-         networkInterfaces, networkPerformanceConfig, params,
-         privateIpv6GoogleAccess, reservationAffinity, resourcePolicies,
-         resourceStatus, satisfiesPzs, scheduling, selfLink, serviceAccounts,
-         shieldedInstanceConfig, shieldedInstanceIntegrityPolicy,
-         sourceMachineImage, sourceMachineImageEncryptionKey, startRestricted,
-         status, statusMessage, tags, zoneProperty;
+         guestAccelerators, hostname, identifier, instanceEncryptionKey,
+         keyRevocationActionType, kind, labelFingerprint, labels,
+         lastStartTimestamp, lastStopTimestamp, lastSuspendedTimestamp,
+         machineType, metadata, minCpuPlatform, name, networkInterfaces,
+         networkPerformanceConfig, params, privateIpv6GoogleAccess,
+         reservationAffinity, resourcePolicies, resourceStatus, satisfiesPzs,
+         scheduling, selfLink, serviceAccounts, shieldedInstanceConfig,
+         shieldedInstanceIntegrityPolicy, sourceMachineImage,
+         sourceMachineImageEncryptionKey, startRestricted, status,
+         statusMessage, tags, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -18518,15 +18519,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RouterBgpPeer
 @dynamic advertisedGroups, advertisedIpRanges, advertisedRoutePriority,
-         advertiseMode, bfd, enable, enableIpv6, interfaceName, ipAddress,
-         ipv6NexthopAddress, managementType, md5AuthenticationKeyName, name,
-         peerAsn, peerIpAddress, peerIpv6NexthopAddress,
-         routerApplianceInstance;
+         advertiseMode, bfd, customLearnedIpRanges, customLearnedRoutePriority,
+         enable, enableIpv6, interfaceName, ipAddress, ipv6NexthopAddress,
+         managementType, md5AuthenticationKeyName, name, peerAsn, peerIpAddress,
+         peerIpv6NexthopAddress, routerApplianceInstance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"advertisedGroups" : [NSString class],
-    @"advertisedIpRanges" : [GTLRCompute_RouterAdvertisedIpRange class]
+    @"advertisedIpRanges" : [GTLRCompute_RouterAdvertisedIpRange class],
+    @"customLearnedIpRanges" : [GTLRCompute_RouterBgpPeerCustomLearnedIpRange class]
   };
   return map;
 }
@@ -18542,6 +18544,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_RouterBgpPeerBfd
 @dynamic minReceiveInterval, minTransmitInterval, multiplier,
          sessionInitializationMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterBgpPeerCustomLearnedIpRange
+//
+
+@implementation GTLRCompute_RouterBgpPeerCustomLearnedIpRange
+@dynamic range;
 @end
 
 

@@ -2,12 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud IoT API (cloudiot/v1)
-// Description:
-//   Registers and manages IoT (Internet of Things) devices that connect to the
-//   Google Cloud Platform.
+//   Blockchain Node Engine API (blockchainnodeengine/v1)
 // Documentation:
-//   https://cloud.google.com/iot
+//   https://cloud.google.com/blockchain-node-engine
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -23,40 +20,30 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
-/**
- *  Authorization scope: Register and manage devices in the Google Cloud IoT
- *  service
- *
- *  Value "https://www.googleapis.com/auth/cloudiot"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIot;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIotCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBlockchainNodeEngineCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudIotService
+//   GTLRBlockchainNodeEngineService
 //
 
 /**
- *  Service for executing Cloud IoT API queries.
- *
- *  Registers and manages IoT (Internet of Things) devices that connect to the
- *  Google Cloud Platform.
+ *  Service for executing Blockchain Node Engine API queries.
  */
-@interface GTLRCloudIotService : GTLRService
+@interface GTLRBlockchainNodeEngineService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudIotQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRBlockchainNodeEngineQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

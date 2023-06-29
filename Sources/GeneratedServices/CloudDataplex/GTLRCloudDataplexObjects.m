@@ -879,7 +879,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue
-@dynamic count, value;
+@dynamic count, ratio, value;
 @end
 
 
@@ -946,10 +946,15 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule
-@dynamic column, dimension, ignoreNull, nonNullExpectation, rangeExpectation,
-         regexExpectation, rowConditionExpectation, setExpectation,
-         statisticRangeExpectation, tableConditionExpectation, threshold,
-         uniquenessExpectation;
+@dynamic column, descriptionProperty, dimension, ignoreNull, name,
+         nonNullExpectation, rangeExpectation, regexExpectation,
+         rowConditionExpectation, setExpectation, statisticRangeExpectation,
+         tableConditionExpectation, threshold, uniquenessExpectation;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -1118,7 +1123,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs
-@dynamic rowFilterApplied, samplingPercent;
+@dynamic columnFilterApplied, rowFilterApplied, samplingPercent;
 @end
 
 

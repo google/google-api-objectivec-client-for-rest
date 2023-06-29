@@ -17,8 +17,11 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AsymmetricS
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_CryptoKeyPurposeUnspecified = @"CRYPTO_KEY_PURPOSE_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_EncryptDecrypt = @"ENCRYPT_DECRYPT";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_Mac = @"MAC";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_RawEncryptDecrypt = @"RAW_ENCRYPT_DECRYPT";
 
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion.algorithm
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Gcm = @"AES_128_GCM";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm = @"AES_256_GCM";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
@@ -70,6 +73,8 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_Pendin
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_PendingImport = @"PENDING_IMPORT";
 
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate.algorithm
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Gcm = @"AES_128_GCM";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm = @"AES_256_GCM";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";

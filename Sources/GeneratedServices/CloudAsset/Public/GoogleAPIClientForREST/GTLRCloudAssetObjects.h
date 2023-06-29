@@ -27,7 +27,6 @@
 @class GTLRCloudAsset_ConditionContext;
 @class GTLRCloudAsset_ConditionEvaluation;
 @class GTLRCloudAsset_Date;
-@class GTLRCloudAsset_DeniedAccess;
 @class GTLRCloudAsset_EffectiveIamPolicy;
 @class GTLRCloudAsset_Explanation;
 @class GTLRCloudAsset_Explanation_MatchedPermissions;
@@ -44,11 +43,6 @@
 @class GTLRCloudAsset_GoogleCloudAssetV1BooleanConstraint;
 @class GTLRCloudAsset_GoogleCloudAssetV1Constraint;
 @class GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint;
-@class GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess;
-@class GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccessTuple;
-@class GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessDenyDetail;
-@class GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity;
-@class GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource;
 @class GTLRCloudAsset_GoogleCloudAssetV1Edge;
 @class GTLRCloudAsset_GoogleCloudAssetV1GcsDestination;
 @class GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer;
@@ -68,7 +62,6 @@
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault;
-@class GTLRCloudAsset_GoogleIamV2DenyRule;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation;
@@ -1623,25 +1616,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  A denied access contains details about an access tuple that is blocked by
- *  IAM deny policies.
- */
-@interface GTLRCloudAsset_DeniedAccess : GTLRObject
-
-/**
- *  A denied access tuple that is either fully or partially denied by IAM deny
- *  rules. This access tuple should match at least one access tuple derived from
- *  IamPolicyAnalysisResult.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccessTuple *deniedAccessTuple;
-
-/** The details about how denied_access_tuple is denied. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessDenyDetail *> *denyDetails;
-
-@end
-
-
-/**
  *  The effective IAM policies on one resource.
  */
 @interface GTLRCloudAsset_EffectiveIamPolicy : GTLRObject
@@ -2345,116 +2319,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  An IAM role or permission under analysis.
- */
-@interface GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess : GTLRObject
-
-/**
- *  The IAM permission in [v1
- *  format](https://cloud.google.com/iam/docs/permissions-reference)
- */
-@property(nonatomic, copy, nullable) NSString *permission;
-
-/** The IAM role. */
-@property(nonatomic, copy, nullable) NSString *role;
-
-@end
-
-
-/**
- *  An access tuple contains a tuple of a resource, an identity and an access.
- */
-@interface GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccessTuple : GTLRObject
-
-/** One access from IamPolicyAnalysisResult.AccessControlList.accesses. */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess *access;
-
-/** One identity from IamPolicyAnalysisResult.IdentityList.identities. */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity *identity;
-
-/** One resource from IamPolicyAnalysisResult.AccessControlList.resources. */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource *resource;
-
-@end
-
-
-/**
- *  A deny detail that explains which IAM deny rule denies the
- *  denied_access_tuple.
- */
-@interface GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessDenyDetail : GTLRObject
-
-/**
- *  The denied accesses. If this deny_rule fully denies the denied_access_tuple,
- *  this field will be same as AccessTuple.access. Otherwise, this field can
- *  contain AccessTuple.access and its descendant accesses, such as a subset of
- *  IAM permissions contained in an IAM role.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessAccess *> *accesses;
-
-/** A deny rule in an IAM deny policy. */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIamV2DenyRule *denyRule;
-
-/**
- *  Whether the deny_rule fully denies all access granted by the
- *  denied_access_tuple. `True` means the deny rule fully blocks the access
- *  tuple. `False` means the deny rule partially blocks the access tuple."
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullyDenied;
-
-/**
- *  If this deny_rule fully denies the denied_access_tuple, this field will be
- *  same as AccessTuple.identity. Otherwise, this field can contain
- *  AccessTuple.identity and its descendant identities, such as a subset of
- *  users in a group.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity *> *identities;
-
-/**
- *  The resources that the identities are denied access to. If this deny_rule
- *  fully denies the denied_access_tuple, this field will be same as
- *  AccessTuple.resource. Otherwise, this field can contain AccessTuple.resource
- *  and its descendant resources.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource *> *resources;
-
-@end
-
-
-/**
- *  An identity under analysis.
- */
-@interface GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessIdentity : GTLRObject
-
-/**
- *  The identity of members, formatted as appear in an [IAM policy
- *  binding](https://cloud.google.com/iam/reference/rest/v1/Binding). For
- *  example, they might be formatted like the following: - user:foo\@google.com
- *  - group:group1\@google.com - serviceAccount:s1\@prj1.iam.gserviceaccount.com
- *  - projectOwner:some_project_id - domain:google.com - allUsers
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  A Google Cloud resource under analysis.
- */
-@interface GTLRCloudAsset_GoogleCloudAssetV1DeniedAccessResource : GTLRObject
-
-/**
- *  The [full resource
- *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- */
-@property(nonatomic, copy, nullable) NSString *fullResourceName;
-
-@end
-
-
-/**
  *  A directional edge.
  */
 @interface GTLRCloudAsset_GoogleCloudAssetV1Edge : GTLRObject
@@ -2901,7 +2765,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Represents a rule defined in an organization policy
+ *  This rule message is a customized version of the one defined in the
+ *  Organization Policy system. In addition to the fields defined in the
+ *  original organization policy, it contains additional field(s) under specific
+ *  circumstances to support analysis results.
  */
 @interface GTLRCloudAsset_GoogleCloudAssetV1Rule : GTLRObject
 
@@ -3193,88 +3060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  services activated.
  */
 @interface GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault : GTLRObject
-@end
-
-
-/**
- *  A deny rule in an IAM deny policy.
- */
-@interface GTLRCloudAsset_GoogleIamV2DenyRule : GTLRObject
-
-/**
- *  The condition that determines whether this deny rule applies to a request.
- *  If the condition expression evaluates to `true`, then the deny rule is
- *  applied; otherwise, the deny rule is not applied. Each deny rule is
- *  evaluated independently. If this deny rule does not apply to a request,
- *  other deny rules might still apply. The condition can use CEL functions that
- *  evaluate [resource
- *  tags](https://cloud.google.com/iam/help/conditions/resource-tags). Other
- *  functions and operators are not supported.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *denialCondition;
-
-/**
- *  The permissions that are explicitly denied by this rule. Each permission
- *  uses the format `{service_fqdn}/{resource}.{verb}`, where `{service_fqdn}`
- *  is the fully qualified domain name for the service. For example,
- *  `iam.googleapis.com/roles.list`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedPermissions;
-
-/**
- *  The identities that are prevented from using one or more permissions on
- *  Google Cloud resources. This field can contain the following values: *
- *  `principalSet://goog/public:all`: A special identifier that represents any
- *  principal that is on the internet, even if they do not have a Google Account
- *  or are not logged in. * `principal://goog/subject/{email_id}`: A specific
- *  Google Account. Includes Gmail, Cloud Identity, and Google Workspace user
- *  accounts. For example, `principal://goog/subject/alice\@example.com`. *
- *  `deleted:principal://goog/subject/{email_id}?uid={uid}`: A specific Google
- *  Account that was deleted recently. For example,
- *  `deleted:principal://goog/subject/alice\@example.com?uid=1234567890`. If the
- *  Google Account is recovered, this identifier reverts to the standard
- *  identifier for a Google Account. * `principalSet://goog/group/{group_id}`: A
- *  Google group. For example, `principalSet://goog/group/admins\@example.com`.
- *  * `deleted:principalSet://goog/group/{group_id}?uid={uid}`: A Google group
- *  that was deleted recently. For example,
- *  `deleted:principalSet://goog/group/admins\@example.com?uid=1234567890`. If
- *  the Google group is restored, this identifier reverts to the standard
- *  identifier for a Google group. *
- *  `principal://iam.googleapis.com/projects/-/serviceAccounts/{service_account_id}`:
- *  A Google Cloud service account. For example,
- *  `principal://iam.googleapis.com/projects/-/serviceAccounts/my-service-account\@iam.gserviceaccount.com`.
- *  *
- *  `deleted:principal://iam.googleapis.com/projects/-/serviceAccounts/{service_account_id}?uid={uid}`:
- *  A Google Cloud service account that was deleted recently. For example,
- *  `deleted:principal://iam.googleapis.com/projects/-/serviceAccounts/my-service-account\@iam.gserviceaccount.com?uid=1234567890`.
- *  If the service account is undeleted, this identifier reverts to the standard
- *  identifier for a service account. *
- *  `principalSet://goog/cloudIdentityCustomerId/{customer_id}`: All of the
- *  principals associated with the specified Google Workspace or Cloud Identity
- *  customer ID. For example,
- *  `principalSet://goog/cloudIdentityCustomerId/C01Abc35`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedPrincipals;
-
-/**
- *  Specifies the permissions that this rule excludes from the set of denied
- *  permissions given by `denied_permissions`. If a permission appears in
- *  `denied_permissions` _and_ in `exception_permissions` then it will _not_ be
- *  denied. The excluded permissions can be specified using the same syntax as
- *  `denied_permissions`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exceptionPermissions;
-
-/**
- *  The identities that are excluded from the deny rule, even if they are listed
- *  in the `denied_principals`. For example, you could add a Google group to the
- *  `denied_principals`, then exclude specific users who belong to that group.
- *  This field can contain the same values as the `denied_principals` field,
- *  excluding `principalSet://goog/public:all`, which represents all users on
- *  the internet.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exceptionPrincipals;
-
 @end
 
 
@@ -4023,14 +3808,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_IamPolicyAnalysisResult *> *analysisResults;
 
 /**
- *  A list of DeniedAccess, which contains all access tuples in the
- *  analysis_results that are denied by IAM deny policies. If no access tuples
- *  are denied, the list is empty. This is only populated when
- *  IamPolicyAnalysisQuery.Options.include_deny_policy_analysis is true.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_DeniedAccess *> *deniedAccesses;
-
-/**
  *  Represents whether all entries in the analysis_results have been fully
  *  explored to answer the query.
  *
@@ -4731,14 +4508,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expandRoles;
-
-/**
- *  Optional. If true, the response includes deny policy analysis results, and
- *  you can see which access tuples are denied. Default is false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *includeDenyPolicyAnalysis;
 
 /**
  *  Optional. If true, the result will output the relevant membership

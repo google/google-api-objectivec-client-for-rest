@@ -2369,8 +2369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /**
  *  User provided OnePlatform identifier that is used as part of the resource
  *  name. This must be unique among all GKE on-prem clusters within a project
- *  and location and will return a 409 if the cluster already exists. This value
- *  must be up to 40 characters and follow RFC-1123
+ *  and location and will return a 409 if the cluster already exists.
  *  (https://tools.ietf.org/html/rfc1123) format.
  */
 @property(nonatomic, copy, nullable) NSString *bareMetalAdminClusterId;
@@ -2401,19 +2400,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /**
  *  User provided OnePlatform identifier that is used as part of the resource
  *  name. This must be unique among all bare metal clusters within a project and
- *  location and will return a 409 if the cluster already exists. This value
- *  must be up to 40 characters and follow RFC-1123
+ *  location and will return a 409 if the cluster already exists.
  *  (https://tools.ietf.org/html/rfc1123) format.
  */
 @property(nonatomic, copy, nullable) NSString *bareMetalClusterId;
 
 /**
- *  The object name of the bare metal cluster custom resource on the associated
- *  admin cluster. This field is used to support conflicting resource names when
- *  enrolling existing clusters to the API. When not provided, this field will
- *  resolve to the bare_metal_cluster_id. Otherwise, it must match the object
- *  name of the bare metal cluster custom resource. It is not modifiable outside
- *  / beyond the enrollment operation.
+ *  Optional. The object name of the bare metal cluster custom resource on the
+ *  associated admin cluster. This field is used to support conflicting resource
+ *  names when enrolling existing clusters to the API. When not provided, this
+ *  field will resolve to the bare_metal_cluster_id. Otherwise, it must match
+ *  the object name of the bare metal cluster custom resource. It is not
+ *  modifiable outside / beyond the enrollment operation.
  */
 @property(nonatomic, copy, nullable) NSString *localName;
 
@@ -2428,8 +2426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /**
  *  User provided OnePlatform identifier that is used as part of the resource
- *  name. This value must be up to 40 characters and follow RFC-1123
- *  (https://tools.ietf.org/html/rfc1123) format.
+ *  name. (https://tools.ietf.org/html/rfc1123) format.
  */
 @property(nonatomic, copy, nullable) NSString *bareMetalNodePoolId;
 
@@ -2458,8 +2455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /**
  *  User provided OnePlatform identifier that is used as part of the resource
  *  name. This must be unique among all GKE on-prem clusters within a project
- *  and location and will return a 409 if the cluster already exists. This value
- *  must be up to 40 characters and follow RFC-1123
+ *  and location and will return a 409 if the cluster already exists.
  *  (https://tools.ietf.org/html/rfc1123) format.
  */
 @property(nonatomic, copy, nullable) NSString *vmwareAdminClusterId;
@@ -2481,12 +2477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, copy, nullable) NSString *adminClusterMembership;
 
 /**
- *  The object name of the VMware OnPremUserCluster custom resource on the
- *  associated admin cluster. This field is used to support conflicting resource
- *  names when enrolling existing clusters to the API. When not provided, this
- *  field will resolve to the vmware_cluster_id. Otherwise, it must match the
- *  object name of the VMware OnPremUserCluster custom resource. It is not
- *  modifiable outside / beyond the enrollment operation.
+ *  Optional. The object name of the VMware OnPremUserCluster custom resource on
+ *  the associated admin cluster. This field is used to support conflicting
+ *  resource names when enrolling existing clusters to the API. When not
+ *  provided, this field will resolve to the vmware_cluster_id. Otherwise, it
+ *  must match the object name of the VMware OnPremUserCluster custom resource.
+ *  It is not modifiable outside / beyond the enrollment operation.
  */
 @property(nonatomic, copy, nullable) NSString *localName;
 
@@ -2500,8 +2496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /**
  *  User provided OnePlatform identifier that is used as part of the resource
  *  name. This must be unique among all GKE on-prem clusters within a project
- *  and location and will return a 409 if the cluster already exists. This value
- *  must be up to 40 characters and follow RFC-1123
+ *  and location and will return a 409 if the cluster already exists.
  *  (https://tools.ietf.org/html/rfc1123) format.
  */
 @property(nonatomic, copy, nullable) NSString *vmwareClusterId;
@@ -4168,6 +4163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** The Vsphere datastore used by the control plane Node. */
 @property(nonatomic, copy, nullable) NSString *datastore;
 
+/** The Vsphere storage policy used by the control plane Node. */
+@property(nonatomic, copy, nullable) NSString *storagePolicyName;
+
 @end
 
 
@@ -4715,6 +4713,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** The name of the vCenter resource pool for the user cluster. */
 @property(nonatomic, copy, nullable) NSString *resourcePool;
 
+/** The name of the vCenter storage policy for the user cluster. */
+@property(nonatomic, copy, nullable) NSString *storagePolicyName;
+
 @end
 
 
@@ -4775,6 +4776,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** The name of the vCenter datastore. Inherited from the user cluster. */
 @property(nonatomic, copy, nullable) NSString *datastore;
+
+/**
+ *  The name of the vCenter storage policy. Inherited from the user cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *storagePolicyName;
 
 /** Tags to apply to VMs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_VmwareVsphereTag *> *tags;

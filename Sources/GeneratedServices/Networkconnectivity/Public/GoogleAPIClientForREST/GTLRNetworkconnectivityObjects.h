@@ -31,15 +31,21 @@
 @class GTLRNetworkconnectivity_InternalRange_Labels;
 @class GTLRNetworkconnectivity_LinkedInterconnectAttachments;
 @class GTLRNetworkconnectivity_LinkedRouterApplianceInstances;
+@class GTLRNetworkconnectivity_LinkedVpcNetwork;
 @class GTLRNetworkconnectivity_LinkedVpnTunnels;
 @class GTLRNetworkconnectivity_Location;
 @class GTLRNetworkconnectivity_Location_Labels;
 @class GTLRNetworkconnectivity_Location_Metadata;
+@class GTLRNetworkconnectivity_NextHopVpcNetwork;
 @class GTLRNetworkconnectivity_Policy;
 @class GTLRNetworkconnectivity_ProducerPscConfig;
 @class GTLRNetworkconnectivity_PscConfig;
 @class GTLRNetworkconnectivity_PscConnection;
+@class GTLRNetworkconnectivity_Route;
+@class GTLRNetworkconnectivity_Route_Labels;
 @class GTLRNetworkconnectivity_RouterApplianceInstance;
+@class GTLRNetworkconnectivity_RouteTable;
+@class GTLRNetworkconnectivity_RouteTable_Labels;
 @class GTLRNetworkconnectivity_RoutingVPC;
 @class GTLRNetworkconnectivity_ServiceClass;
 @class GTLRNetworkconnectivity_ServiceClass_Labels;
@@ -51,6 +57,11 @@
 @class GTLRNetworkconnectivity_ServiceConnectionToken_Labels;
 @class GTLRNetworkconnectivity_Spoke;
 @class GTLRNetworkconnectivity_Spoke_Labels;
+@class GTLRNetworkconnectivity_SpokeStateCount;
+@class GTLRNetworkconnectivity_SpokeStateReasonCount;
+@class GTLRNetworkconnectivity_SpokeSummary;
+@class GTLRNetworkconnectivity_SpokeTypeCount;
+@class GTLRNetworkconnectivity_StateReason;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -181,6 +192,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnectio
 // GTLRNetworkconnectivity_Hub.state
 
 /**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Accepting;
+/**
  *  The resource is active
  *
  *  Value: "ACTIVE"
@@ -198,6 +215,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Creating;
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting;
+/**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Rejecting;
 /**
  *  No state information available
  *
@@ -383,6 +419,148 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Route.state
+
+/**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Accepting;
+/**
+ *  The resource is active
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Active;
+/**
+ *  The resource's create operation is in progress.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Creating;
+/**
+ *  The resource's delete operation is in progress.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Deleting;
+/**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Rejecting;
+/**
+ *  No state information available
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_StateUnspecified;
+/**
+ *  The resource's update operation is in progress.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Route.type
+
+/**
+ *  No route type information specified
+ *
+ *  Value: "ROUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_Type_RouteTypeUnspecified;
+/**
+ *  The route leads to a destination within the primary address range of the VPC
+ *  network's subnet.
+ *
+ *  Value: "VPC_PRIMARY_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_Type_VpcPrimarySubnet;
+/**
+ *  The route leads to a destination within the secondary address range of the
+ *  VPC network's subnet.
+ *
+ *  Value: "VPC_SECONDARY_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_Type_VpcSecondarySubnet;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_RouteTable.state
+
+/**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Accepting;
+/**
+ *  The resource is active
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Active;
+/**
+ *  The resource's create operation is in progress.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Creating;
+/**
+ *  The resource's delete operation is in progress.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Deleting;
+/**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Rejecting;
+/**
+ *  No state information available
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_StateUnspecified;
+/**
+ *  The resource's update operation is in progress.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_ServiceConnectionMap.infrastructure
 
 /**
@@ -415,8 +593,48 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionPol
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionPolicy_Infrastructure_Psc;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Spoke.spokeType
+
+/**
+ *  Spokes associated with VLAN attachments.
+ *
+ *  Value: "INTERCONNECT_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_InterconnectAttachment;
+/**
+ *  Spokes associated with router appliance instances.
+ *
+ *  Value: "ROUTER_APPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_RouterAppliance;
+/**
+ *  Unspecified spoke type.
+ *
+ *  Value: "SPOKE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_SpokeTypeUnspecified;
+/**
+ *  Spokes associated with VPC networks.
+ *
+ *  Value: "VPC_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_VpcNetwork;
+/**
+ *  Spokes associated with VPN tunnels.
+ *
+ *  Value: "VPN_TUNNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_VpnTunnel;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Spoke.state
 
+/**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Accepting;
 /**
  *  The resource is active
  *
@@ -436,6 +654,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Creating
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting;
 /**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Rejecting;
+/**
  *  No state information available
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -447,6 +684,190 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_SpokeStateCount.state
+
+/**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Accepting;
+/**
+ *  The resource is active
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Active;
+/**
+ *  The resource's create operation is in progress.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Creating;
+/**
+ *  The resource's delete operation is in progress.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Deleting;
+/**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Rejecting;
+/**
+ *  No state information available
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_StateUnspecified;
+/**
+ *  The resource's update operation is in progress.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateCount_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_SpokeStateReasonCount.stateReasonCode
+
+/**
+ *  No information available.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_CodeUnspecified;
+/**
+ *  Network Connectivity Center encountered errors while accepting the spoke.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Failed;
+/**
+ *  The spoke has been deactivated internally.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Paused;
+/**
+ *  The proposed spoke is pending review.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_PendingReview;
+/**
+ *  The proposed spoke has been rejected by the hub administrator.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Rejected;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_SpokeTypeCount.spokeType
+
+/**
+ *  Spokes associated with VLAN attachments.
+ *
+ *  Value: "INTERCONNECT_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_InterconnectAttachment;
+/**
+ *  Spokes associated with router appliance instances.
+ *
+ *  Value: "ROUTER_APPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_RouterAppliance;
+/**
+ *  Unspecified spoke type.
+ *
+ *  Value: "SPOKE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_SpokeTypeUnspecified;
+/**
+ *  Spokes associated with VPC networks.
+ *
+ *  Value: "VPC_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_VpcNetwork;
+/**
+ *  Spokes associated with VPN tunnels.
+ *
+ *  Value: "VPN_TUNNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_VpnTunnel;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_StateReason.code
+
+/**
+ *  No information available.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_CodeUnspecified;
+/**
+ *  Network Connectivity Center encountered errors while accepting the spoke.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Failed;
+/**
+ *  The spoke has been deactivated internally.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Paused;
+/**
+ *  The proposed spoke is pending review.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_PendingReview;
+/**
+ *  The proposed spoke has been rejected by the hub administrator.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rejected;
+
+/**
+ *  The request for HubService.AcceptSpoke.
+ */
+@interface GTLRNetworkconnectivity_AcceptSpokeRequest : GTLRObject
+
+/**
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -962,6 +1383,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. The route tables that belong to this hub. They use the
+ *  following form:
+ *  `projects/{project_number}/locations/global/hubs/{hub_id}/routeTables/{route_table_id}`
+ *  This field is read-only. Network Connectivity Center automatically populates
+ *  it based on the route tables nested under the hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *routeTables;
+
+/**
  *  The VPC networks associated with this hub's spokes. This field is read-only.
  *  Network Connectivity Center automatically populates it based on the set of
  *  spokes attached to the hub.
@@ -969,15 +1399,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RoutingVPC *> *routingVpcs;
 
 /**
+ *  Output only. A summary of the spokes associated with a hub. The summary
+ *  includes a count of spokes according to type and according to state. If any
+ *  spokes are inactive, the summary also lists the reasons they are inactive,
+ *  including a count for each reason.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_SpokeSummary *spokeSummary;
+
+/**
  *  Output only. The current lifecycle state of this hub.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Accepting The resource's accept
+ *        operation is in progress. (Value: "ACCEPTING")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Active The resource is active
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Creating The resource's create
  *        operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Deleting The resource's delete
  *        operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Inactive The resource is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Obsolete The hub associated
+ *        with this spoke resource has been deleted. This state applies to spoke
+ *        resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Rejecting The resource's reject
+ *        operation is in progress. (Value: "REJECTING")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_StateUnspecified No state
  *        information available (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Updating The resource's update
@@ -1214,6 +1661,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
+ *  An existing VPC network.
+ */
+@interface GTLRNetworkconnectivity_LinkedVpcNetwork : GTLRObject
+
+/**
+ *  Optional. IP Ranges encompassing the subnets to be excluded from peering.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
+
+/** Required. The URI of the VPC network resource */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  A collection of Cloud VPN tunnel resources. These resources should be
  *  redundant HA VPN tunnels that all advertise the same prefixes to Google
  *  Cloud. Alternatively, in a passive/active configuration, all tunnels should
@@ -1235,6 +1698,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 /** Output only. The VPC network where these VPN tunnels are located. */
 @property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
+@end
+
+
+/**
+ *  The response for HubService.ListHubSpokes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "spokes" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkconnectivity_ListHubSpokesResponse : GTLRCollectionObject
+
+/**
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The requested spokes. The spoke fields can be partially populated based on
+ *  the `view` field in the request message.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Spoke *> *spokes;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1320,6 +1815,68 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 /** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for HubService.ListRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "routes" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkconnectivity_ListRoutesResponse : GTLRCollectionObject
+
+/**
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The requested routes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Route *> *routes;
+
+/** RouteTables that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for HubService.ListRouteTables method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "routeTables" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkconnectivity_ListRouteTablesResponse : GTLRCollectionObject
+
+/**
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The requested route tables.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RouteTable *> *routeTables;
+
+/** Hubs that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1548,6 +2105,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
+ *  GTLRNetworkconnectivity_NextHopVpcNetwork
+ */
+@interface GTLRNetworkconnectivity_NextHopVpcNetwork : GTLRObject
+
+/** The URI of the VPC network resource */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRNetworkconnectivity_OperationMetadata : GTLRObject
@@ -1696,7 +2264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 @interface GTLRNetworkconnectivity_PscConfig : GTLRObject
 
 /**
- *  Max number of PSC connections for this policy.
+ *  Optional. Max number of PSC connections for this policy.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1778,6 +2346,151 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
+ *  The request for HubService.RejectSpoke.
+ */
+@interface GTLRNetworkconnectivity_RejectSpokeRequest : GTLRObject
+
+/** Optional. Additional Details behind the rejection */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  A route defines a path from VM instances within a spoke to a specific
+ *  destination resource. Only VPC spokes have routes.
+ */
+@interface GTLRNetworkconnectivity_Route : GTLRObject
+
+/** Output only. The time the route was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  An optional description of the route.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The destination IP address range. */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/**
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Route_Labels *labels;
+
+/**
+ *  Output only. The location of the route. Uses the following form:
+ *  "projects/{project}/locations/{location}" Example:
+ *  projects/1234/locations/us-central1
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Immutable. The name of the route. Route names must be unique. They use the
+ *  following form:
+ *  `projects/{project_number}/locations/global/hubs/{hub}/routeTables/{route_table_id}/routes/{route_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Immutable. The destination VPC network for packets on this route. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_NextHopVpcNetwork *nextHopVpcNetwork;
+
+/**
+ *  Immutable. The spoke that this route leads to. Example:
+ *  projects/12345/locations/global/spokes/SPOKE
+ */
+@property(nonatomic, copy, nullable) NSString *spoke;
+
+/**
+ *  Output only. The current lifecycle state of the route.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Accepting The resource's
+ *        accept operation is in progress. (Value: "ACCEPTING")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Active The resource is active
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Creating The resource's
+ *        create operation is in progress. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Deleting The resource's
+ *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Inactive The resource is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Obsolete The hub associated
+ *        with this spoke resource has been deleted. This state applies to spoke
+ *        resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Rejecting The resource's
+ *        reject operation is in progress. (Value: "REJECTING")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_StateUnspecified No state
+ *        information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Route_State_Updating The resource's
+ *        update operation is in progress. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The route's type. Its type is determined by the properties of
+ *  its IP address range.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Route_Type_RouteTypeUnspecified No route
+ *        type information specified (Value: "ROUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Route_Type_VpcPrimarySubnet The route
+ *        leads to a destination within the primary address range of the VPC
+ *        network's subnet. (Value: "VPC_PRIMARY_SUBNET")
+ *    @arg @c kGTLRNetworkconnectivity_Route_Type_VpcSecondarySubnet The route
+ *        leads to a destination within the secondary address range of the VPC
+ *        network's subnet. (Value: "VPC_SECONDARY_SUBNET")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. The Google-generated UUID for the route. This value is unique
+ *  across all Network Connectivity Center route resources. If a route is
+ *  deleted and another with the same name is created, the new route is assigned
+ *  a different unique_id.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time the route was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_Route_Labels : GTLRObject
+@end
+
+
+/**
  *  A router appliance instance is a Compute Engine virtual machine (VM)
  *  instance that acts as a BGP speaker. A router appliance instance is
  *  specified by the URI of the VM and the internal IP address of one of the
@@ -1791,6 +2504,89 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 /** The URI of the VM. */
 @property(nonatomic, copy, nullable) NSString *virtualMachine;
 
+@end
+
+
+/**
+ *  GTLRNetworkconnectivity_RouteTable
+ */
+@interface GTLRNetworkconnectivity_RouteTable : GTLRObject
+
+/** Output only. The time the route table was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  An optional description of the route table.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RouteTable_Labels *labels;
+
+/**
+ *  Immutable. The name of the route table. Route Table names must be unique.
+ *  They use the following form:
+ *  `projects/{project_number}/locations/global/hubs/{hub}/routeTables/{route_table_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current lifecycle state of this route table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Accepting The resource's
+ *        accept operation is in progress. (Value: "ACCEPTING")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Active The resource is
+ *        active (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Creating The resource's
+ *        create operation is in progress. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Deleting The resource's
+ *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Inactive The resource is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Obsolete The hub
+ *        associated with this spoke resource has been deleted. This state
+ *        applies to spoke resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Rejecting The resource's
+ *        reject operation is in progress. (Value: "REJECTING")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_StateUnspecified No
+ *        state information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_RouteTable_State_Updating The resource's
+ *        update operation is in progress. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The Google-generated UUID for the route table. This value is
+ *  unique across all route table resources. If a route table is deleted and
+ *  another with the same name is created, the new route table is assigned a
+ *  different unique_id.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time the route table was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_RouteTable_Labels : GTLRObject
 @end
 
 
@@ -1818,7 +2614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
- *  The ServiceClass resource. Next id: 8
+ *  The ServiceClass resource. Next id: 9
  */
 @interface GTLRNetworkconnectivity_ServiceClass : GTLRObject
 
@@ -1831,6 +2627,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** User-defined labels. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ServiceClass_Labels *labels;
@@ -1872,7 +2675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
- *  The ServiceConnectionMap resource. Next id: 14
+ *  The ServiceConnectionMap resource. Next id: 15
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionMap : GTLRObject
 
@@ -1891,6 +2694,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. The infrastructure used for connections between
@@ -1953,7 +2763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
- *  The ServiceConnectionPolicy resource. Next id: 11
+ *  The ServiceConnectionPolicy resource. Next id: 12
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionPolicy : GTLRObject
 
@@ -1966,6 +2776,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. The type of underlying resources used to create the connection.
@@ -2035,7 +2852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
- *  The ServiceConnectionToken resource. Next id: 9
+ *  The ServiceConnectionToken resource. Next id: 10
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionToken : GTLRObject
 
@@ -2048,6 +2865,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Output only. The time to which this token is valid. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -2148,6 +2972,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 /** Router appliance instances that are associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedRouterApplianceInstances *linkedRouterApplianceInstances;
 
+/** Optional. VPC network that is associated with the spoke. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedVpcNetwork *linkedVpcNetwork;
+
 /** VPN tunnels that are associated with the spoke. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedVpnTunnels *linkedVpnTunnels;
 
@@ -2158,16 +2985,47 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. The reasons for current state of the spoke. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_StateReason *> *reasons;
+
+/**
+ *  Output only. The type of resource associated with the spoke.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_InterconnectAttachment
+ *        Spokes associated with VLAN attachments. (Value:
+ *        "INTERCONNECT_ATTACHMENT")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_RouterAppliance Spokes
+ *        associated with router appliance instances. (Value:
+ *        "ROUTER_APPLIANCE")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_SpokeTypeUnspecified
+ *        Unspecified spoke type. (Value: "SPOKE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_VpcNetwork Spokes
+ *        associated with VPC networks. (Value: "VPC_NETWORK")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_VpnTunnel Spokes
+ *        associated with VPN tunnels. (Value: "VPN_TUNNEL")
+ */
+@property(nonatomic, copy, nullable) NSString *spokeType;
+
 /**
  *  Output only. The current lifecycle state of this spoke.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Accepting The resource's
+ *        accept operation is in progress. (Value: "ACCEPTING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Active The resource is active
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Creating The resource's
  *        create operation is in progress. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Deleting The resource's
  *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Inactive The resource is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Obsolete The hub associated
+ *        with this spoke resource has been deleted. This state applies to spoke
+ *        resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Rejecting The resource's
+ *        reject operation is in progress. (Value: "REJECTING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_StateUnspecified No state
  *        information available (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Updating The resource's
@@ -2199,6 +3057,181 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *        fetch them all at once.
  */
 @interface GTLRNetworkconnectivity_Spoke_Labels : GTLRObject
+@end
+
+
+/**
+ *  The number of spokes that are in a particular state and associated with a
+ *  given hub.
+ */
+@interface GTLRNetworkconnectivity_SpokeStateCount : GTLRObject
+
+/**
+ *  Output only. The total number of spokes that are in this state and
+ *  associated with a given hub.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Output only. The state of the spokes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Accepting The
+ *        resource's accept operation is in progress. (Value: "ACCEPTING")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Active The resource
+ *        is active (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Creating The
+ *        resource's create operation is in progress. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Deleting The
+ *        resource's delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Inactive The
+ *        resource is inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Obsolete The hub
+ *        associated with this spoke resource has been deleted. This state
+ *        applies to spoke resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Rejecting The
+ *        resource's reject operation is in progress. (Value: "REJECTING")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_StateUnspecified No
+ *        state information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateCount_State_Updating The
+ *        resource's update operation is in progress. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The number of spokes in the hub that are inactive for this reason.
+ */
+@interface GTLRNetworkconnectivity_SpokeStateReasonCount : GTLRObject
+
+/**
+ *  Output only. The total number of spokes that are inactive for a particular
+ *  reason and associated with a given hub.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Output only. The reason that a spoke is inactive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_CodeUnspecified
+ *        No information available. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Failed
+ *        Network Connectivity Center encountered errors while accepting the
+ *        spoke. (Value: "FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Paused
+ *        The spoke has been deactivated internally. (Value: "PAUSED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_PendingReview
+ *        The proposed spoke is pending review. (Value: "PENDING_REVIEW")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeStateReasonCount_StateReasonCode_Rejected
+ *        The proposed spoke has been rejected by the hub administrator. (Value:
+ *        "REJECTED")
+ */
+@property(nonatomic, copy, nullable) NSString *stateReasonCode;
+
+@end
+
+
+/**
+ *  Summarizes information about the spokes associated with a hub. The summary
+ *  includes a count of spokes according to type and according to state. If any
+ *  spokes are inactive, the summary also lists the reasons they are inactive,
+ *  including a count for each reason.
+ */
+@interface GTLRNetworkconnectivity_SpokeSummary : GTLRObject
+
+/**
+ *  Output only. Counts the number of spokes that are in each state and
+ *  associated with a given hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_SpokeStateCount *> *spokeStateCounts;
+
+/**
+ *  Output only. Counts the number of spokes that are inactive for each possible
+ *  reason and associated with a given hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_SpokeStateReasonCount *> *spokeStateReasonCounts;
+
+/**
+ *  Output only. Counts the number of spokes of each type that are associated
+ *  with a specific hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_SpokeTypeCount *> *spokeTypeCounts;
+
+@end
+
+
+/**
+ *  The number of spokes of a given type that are associated with a specific
+ *  hub. The type indicates what kind of resource is associated with the spoke.
+ */
+@interface GTLRNetworkconnectivity_SpokeTypeCount : GTLRObject
+
+/**
+ *  Output only. The total number of spokes of this type that are associated
+ *  with the hub.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Output only. The type of the spokes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_InterconnectAttachment
+ *        Spokes associated with VLAN attachments. (Value:
+ *        "INTERCONNECT_ATTACHMENT")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_RouterAppliance
+ *        Spokes associated with router appliance instances. (Value:
+ *        "ROUTER_APPLIANCE")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_SpokeTypeUnspecified
+ *        Unspecified spoke type. (Value: "SPOKE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_VpcNetwork
+ *        Spokes associated with VPC networks. (Value: "VPC_NETWORK")
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_VpnTunnel Spokes
+ *        associated with VPN tunnels. (Value: "VPN_TUNNEL")
+ */
+@property(nonatomic, copy, nullable) NSString *spokeType;
+
+@end
+
+
+/**
+ *  The reason a spoke is inactive.
+ */
+@interface GTLRNetworkconnectivity_StateReason : GTLRObject
+
+/**
+ *  The code associated with this reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_CodeUnspecified No
+ *        information available. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_Failed Network
+ *        Connectivity Center encountered errors while accepting the spoke.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_Paused The spoke has
+ *        been deactivated internally. (Value: "PAUSED")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_PendingReview The
+ *        proposed spoke is pending review. (Value: "PENDING_REVIEW")
+ *    @arg @c kGTLRNetworkconnectivity_StateReason_Code_Rejected The proposed
+ *        spoke has been rejected by the hub administrator. (Value: "REJECTED")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** Human-readable details about this reason. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Additional information provided by the user in the RejectSpoke call. */
+@property(nonatomic, copy, nullable) NSString *userDetails;
+
 @end
 
 

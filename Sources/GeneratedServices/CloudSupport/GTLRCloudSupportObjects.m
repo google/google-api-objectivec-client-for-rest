@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Support API (cloudsupport/v2beta)
+//   Google Cloud Support API (cloudsupport/v2)
 // Description:
 //   Manages Google Cloud technical support cases for Customer Care support
 //   offerings.
@@ -21,14 +21,6 @@ NSString * const kGTLRCloudSupport_Case_Priority_P2            = @"P2";
 NSString * const kGTLRCloudSupport_Case_Priority_P3            = @"P3";
 NSString * const kGTLRCloudSupport_Case_Priority_P4            = @"P4";
 NSString * const kGTLRCloudSupport_Case_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
-
-// GTLRCloudSupport_Case.severity
-NSString * const kGTLRCloudSupport_Case_Severity_S0            = @"S0";
-NSString * const kGTLRCloudSupport_Case_Severity_S1            = @"S1";
-NSString * const kGTLRCloudSupport_Case_Severity_S2            = @"S2";
-NSString * const kGTLRCloudSupport_Case_Severity_S3            = @"S3";
-NSString * const kGTLRCloudSupport_Case_Severity_S4            = @"S4";
-NSString * const kGTLRCloudSupport_Case_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
 // GTLRCloudSupport_Case.state
 NSString * const kGTLRCloudSupport_Case_State_ActionRequired   = @"ACTION_REQUIRED";
@@ -115,7 +107,7 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 
 @implementation GTLRCloudSupport_Case
 @dynamic classification, contactEmail, createTime, creator, descriptionProperty,
-         displayName, escalated, languageCode, name, priority, severity, state,
+         displayName, escalated, languageCode, name, priority, state,
          subscriberEmailAddresses, testCase, timeZone, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

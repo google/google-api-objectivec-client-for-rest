@@ -1873,7 +1873,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareControlPlaneVsphereConfig
-@dynamic datastore;
+@dynamic datastore, storagePolicyName;
 @end
 
 
@@ -2141,7 +2141,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_VmwareVCenterConfig
 @dynamic address, caCertData, cluster, datacenter, datastore, folder,
-         resourcePool;
+         resourcePool, storagePolicyName;
 @end
 
 
@@ -2171,7 +2171,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareVsphereConfig
-@dynamic datastore, tags;
+@dynamic datastore, storagePolicyName, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -70,10 +70,30 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_P
  *  Value: "MAC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_Mac;
+/**
+ *  CryptoKeys with this purpose may be used with RawEncrypt and RawDecrypt.
+ *  This purpose is meant to be used for interoperable symmetric encryption and
+ *  does not support automatic CryptoKey rotation.
+ *
+ *  Value: "RAW_ENCRYPT_DECRYPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_RawEncryptDecrypt;
 
 // ----------------------------------------------------------------------------
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion.algorithm
 
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Gcm;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm;
 /**
  *  Not specified.
  *
@@ -380,6 +400,18 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 // ----------------------------------------------------------------------------
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate.algorithm
 
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Gcm;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm;
 /**
  *  Not specified.
  *
@@ -906,6 +938,11 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        (Value: "ENCRYPT_DECRYPT")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_Mac CryptoKeys
  *        with this purpose may be used with MacSign. (Value: "MAC")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_RawEncryptDecrypt
+ *        CryptoKeys with this purpose may be used with RawEncrypt and
+ *        RawDecrypt. This purpose is meant to be used for interoperable
+ *        symmetric encryption and does not support automatic CryptoKey
+ *        rotation. (Value: "RAW_ENCRYPT_DECRYPT")
  */
 @property(nonatomic, copy, nullable) NSString *purpose;
 
@@ -956,6 +993,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  supports.
  *
  *  Likely values:
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Gcm
+ *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
+ *        "AES_128_GCM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm
+ *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
+ *        "AES_256_GCM")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignP256Sha256
@@ -1224,6 +1267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  ENCRYPT_DECRYPT.
  *
  *  Likely values:
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Gcm
+ *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
+ *        "AES_128_GCM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm
+ *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
+ *        "AES_256_GCM")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256

@@ -864,8 +864,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Represents the date the usage occurred, based on PST time zone. The
- *  timestamp is in the [ISO 8601
+ *  Represents the date the usage occurred, based on UTC-8:00 (Pacific Standard
+ *  Time). The timestamp is in the [ISO 8601
  *  format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`.
  */
 @property(nonatomic, copy, nullable) NSString *date;
@@ -904,8 +904,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Report guide. For more information about the customer report's parameters,
  *  see the Customers Usage parameters reference guides.
  *
- *  @param date Represents the date the usage occurred, based on PST time zone.
- *    The timestamp is in the [ISO 8601
+ *  @param date Represents the date the usage occurred, based on UTC-8:00
+ *    (Pacific Standard Time). The timestamp is in the [ISO 8601
  *    format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`.
  *
  *  @return GTLRReportsQuery_CustomerUsageReportsGet
@@ -931,8 +931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Represents the date the usage occurred. The timestamp is in the ISO 8601
- *  format, yyyy-mm-dd. We recommend you use your account's time zone for this.
+ *  Represents the date the usage occurred, based on UTC-8:00 (Pacific Standard
+ *  Time). The timestamp is in the [ISO 8601
+ *  format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`.
  */
 @property(nonatomic, copy, nullable) NSString *date;
 
@@ -1024,9 +1025,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    all users, or any other value for an app-specific entity. For details on
  *    how to obtain the `entityKey` for a particular `entityType`, see the
  *    Entities Usage parameters reference guides.
- *  @param date Represents the date the usage occurred. The timestamp is in the
- *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
- *    for this.
+ *  @param date Represents the date the usage occurred, based on UTC-8:00
+ *    (Pacific Standard Time). The timestamp is in the [ISO 8601
+ *    format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`.
  *
  *  Likely values for @c entityType:
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
@@ -1057,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Represents the date the usage occurred, based on GMT-7:00 (Pacific Standard
+ *  Represents the date the usage occurred, based on UTC-8:00 (Pacific Standard
  *  Time). The timestamp is in the [ISO 8601
  *  format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`.
  */
@@ -1159,7 +1160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    address. Must not be a deleted user. For a deleted user, call `users.list`
  *    in Directory API with `showDeleted=true`, then use the returned `ID` as
  *    the `userKey`.
- *  @param date Represents the date the usage occurred, based on GMT-7:00
+ *  @param date Represents the date the usage occurred, based on UTC-8:00
  *    (Pacific Standard Time). The timestamp is in the [ISO 8601
  *    format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`.
  *

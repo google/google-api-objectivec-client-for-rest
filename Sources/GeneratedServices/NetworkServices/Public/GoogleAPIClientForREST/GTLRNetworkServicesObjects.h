@@ -652,10 +652,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
 /**
- *  Optional. Zero or one IPv4-address on which the Gateway will receive the
- *  traffic. When no address is provided, an IP from the subnetwork is allocated
- *  This field only applies to gateways of type 'SECURE_WEB_GATEWAY'. Gateways
- *  of type 'OPEN_MESH' listen on 0.0.0.0.
+ *  Optional. Zero or one IPv4 or IPv6 address on which the Gateway will receive
+ *  the traffic. When no address is provided, an IP from the subnetwork is
+ *  allocated This field only applies to gateways of type 'SECURE_WEB_GATEWAY'.
+ *  Gateways of type 'OPEN_MESH' listen on 0.0.0.0 for IPv4 and :: for IPv6.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
 
@@ -707,7 +707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  Required. One or more port numbers (1-65535), on which the Gateway will
  *  receive traffic. The proxy binds to the specified ports. Gateways of type
  *  'SECURE_WEB_GATEWAY' are limited to 1 port. Gateways of type 'OPEN_MESH'
- *  listen on 0.0.0.0 and support multiple ports.
+ *  listen on 0.0.0.0 for IPv4 and :: for IPv6 and support multiple ports.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2455,6 +2455,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  /locations/ * /namespaces/ * /services/ *
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Output only. The unique identifier of the Service Directory Service against
+ *  which the Service Binding resource is validated. This is populated when the
+ *  Service Binding resource is used in another resource (like Backend Service).
+ *  This is of the UUID4 format.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceId;
 
 /** Output only. The timestamp when the resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRNetworkconnectivityQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRNetworkconnectivityViewBasic             = @"BASIC";
+NSString * const kGTLRNetworkconnectivityViewDetailed          = @"DETAILED";
+NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRNetworkconnectivityQuery
 
 @dynamic fields;
@@ -219,6 +231,32 @@
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsListSpokes
+
+@dynamic filter, name, orderBy, pageSize, pageToken, spokeLocations, view;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spokeLocations" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:listSpokes";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsListSpokes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListHubSpokesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.listSpokes";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsPatch
 
 @dynamic name, requestId, updateMask;
@@ -241,6 +279,82 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.global.hubs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_RouteTable class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.routeTables.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/routeTables";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListRouteTablesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.routeTables.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_Route class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.routeTables.routes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/routes";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListRoutesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.routeTables.routes.list";
   return query;
 }
 
@@ -593,7 +707,11 @@
 
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesDelete
 
-@dynamic name, requestId;
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -781,7 +899,11 @@
 
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsDelete
 
-@dynamic name, requestId;
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -969,7 +1091,11 @@
 
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesDelete
 
-@dynamic name, requestId;
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1157,7 +1283,11 @@
 
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensDelete
 
-@dynamic name, requestId;
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1207,6 +1337,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRNetworkconnectivity_ListServiceConnectionTokensResponse class];
   query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionTokens.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptSpokeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accept";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.spokes.accept";
   return query;
 }
 
@@ -1341,6 +1498,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.spokes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectSpokeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:reject";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.spokes.reject";
   return query;
 }
 

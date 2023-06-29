@@ -209,7 +209,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest
-@dynamic artifact, assertion, challenge;
+@dynamic artifact, assertion, challenge, limitedUse;
 @end
 
 
@@ -219,7 +219,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest
-@dynamic attestationStatement, challenge, keyId;
+@dynamic attestationStatement, challenge, keyId, limitedUse;
 @end
 
 
@@ -239,7 +239,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeCustomTokenRequest
-@dynamic customToken;
+@dynamic customToken, limitedUse;
 @end
 
 
@@ -249,7 +249,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest
-@dynamic debugToken;
+@dynamic debugToken, limitedUse;
 @end
 
 
@@ -259,7 +259,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDeviceCheckTokenRequest
-@dynamic deviceToken;
+@dynamic deviceToken, limitedUse;
 @end
 
 
@@ -269,7 +269,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangePlayIntegrityTokenRequest
-@dynamic playIntegrityToken;
+@dynamic limitedUse, playIntegrityToken;
 @end
 
 
@@ -279,7 +279,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaEnterpriseTokenRequest
-@dynamic recaptchaEnterpriseToken;
+@dynamic limitedUse, recaptchaEnterpriseToken;
 @end
 
 
@@ -289,7 +289,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest
-@dynamic recaptchaV3Token;
+@dynamic limitedUse, recaptchaV3Token;
 @end
 
 

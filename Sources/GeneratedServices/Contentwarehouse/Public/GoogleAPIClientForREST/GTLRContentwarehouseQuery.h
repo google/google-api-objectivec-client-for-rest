@@ -825,6 +825,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get the project status.
+ *
+ *  Method: contentwarehouse.projects.locations.getStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContentwarehouseCloudPlatform
+ */
+@interface GTLRContentwarehouseQuery_ProjectsLocationsGetStatus : GTLRContentwarehouseQuery
+
+/**
+ *  Required. The location to be queried Format:
+ *  projects/{project_number}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRContentwarehouse_GoogleCloudContentwarehouseV1ProjectStatus.
+ *
+ *  Get the project status.
+ *
+ *  @param location Required. The location to be queried Format:
+ *    projects/{project_number}/locations/{location}.
+ *
+ *  @return GTLRContentwarehouseQuery_ProjectsLocationsGetStatus
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
+
+@end
+
+/**
  *  Provisions resources for given tenant project. Returns a long running
  *  operation.
  *

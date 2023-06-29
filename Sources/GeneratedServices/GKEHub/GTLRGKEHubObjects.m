@@ -89,6 +89,11 @@ NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Installed = @"INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled = @"NOT_INSTALLED";
 
+// GTLRGKEHub_ConfigManagementMembershipSpec.management
+NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic = @"MANAGEMENT_AUTOMATIC";
+NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual = @"MANAGEMENT_MANUAL";
+NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified = @"MANAGEMENT_UNSPECIFIED";
+
 // GTLRGKEHub_ConfigManagementOperatorState.deploymentState
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Error = @"ERROR";
@@ -129,6 +134,13 @@ NSString * const kGTLRGKEHub_FeatureState_Code_Error           = @"ERROR";
 NSString * const kGTLRGKEHub_FeatureState_Code_Ok              = @"OK";
 NSString * const kGTLRGKEHub_FeatureState_Code_Warning         = @"WARNING";
 
+// GTLRGKEHub_FleetLifecycleState.code
+NSString * const kGTLRGKEHub_FleetLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Creating = @"CREATING";
+NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Deleting = @"DELETING";
+NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Ready    = @"READY";
+NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Updating = @"UPDATING";
+
 // GTLRGKEHub_IdentityServiceMembershipState.state
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Error = @"ERROR";
@@ -155,6 +167,11 @@ NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_ClustertypeUnspecified = 
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Hybrid  = @"HYBRID";
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Standalone = @"STANDALONE";
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User    = @"USER";
+
+// GTLRGKEHub_Origin.type
+NSString * const kGTLRGKEHub_Origin_Type_Fleet           = @"FLEET";
+NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_Origin_Type_User            = @"USER";
 
 // GTLRGKEHub_ScopeLifecycleState.code
 NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -336,8 +353,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic allowVerticalScale, enabled, git, managed,
-         metricsGcpServiceAccountEmail, oci, preventDrift, sourceFormat;
+@dynamic allowVerticalScale, enabled, git, metricsGcpServiceAccountEmail, oci,
+         preventDrift, sourceFormat, stopSyncing;
 @end
 
 
@@ -491,21 +508,12 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGKEHub_ConfigManagementManaged
-//
-
-@implementation GTLRGKEHub_ConfigManagementManaged
-@dynamic enabled, stopSyncing;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRGKEHub_ConfigManagementMembershipSpec
 //
 
 @implementation GTLRGKEHub_ConfigManagementMembershipSpec
-@dynamic cluster, configSync, hierarchyController, policyController, version;
+@dynamic cluster, configSync, hierarchyController, management, policyController,
+         version;
 @end
 
 
@@ -556,7 +564,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 @implementation GTLRGKEHub_ConfigManagementPolicyController
 @dynamic auditIntervalSeconds, enabled, exemptableNamespaces, logDeniesEnabled,
          monitoring, mutationEnabled, referentialRulesEnabled,
-         templateLibraryInstalled;
+         templateLibraryInstalled, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -574,7 +582,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementPolicyControllerMigration
-@dynamic stage;
+@dynamic copyTime, stage;
 @end
 
 
@@ -806,6 +814,26 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_Fleet
+//
+
+@implementation GTLRGKEHub_Fleet
+@dynamic createTime, deleteTime, displayName, name, state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetLifecycleState
+//
+
+@implementation GTLRGKEHub_FleetLifecycleState
+@dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_FleetObservabilityFeatureSpec
 //
 
@@ -1020,6 +1048,28 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 + (NSString *)collectionItemsKey {
   return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ListFleetsResponse
+//
+
+@implementation GTLRGKEHub_ListFleetsResponse
+@dynamic fleets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fleets" : [GTLRGKEHub_Fleet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"fleets";
 }
 
 @end
@@ -1243,8 +1293,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureSpec
-@dynamic configmanagement, fleetInherited, fleetobservability, identityservice,
-         mesh;
+@dynamic configmanagement, fleetobservability, identityservice, mesh, origin;
 @end
 
 
@@ -1355,6 +1404,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 @implementation GTLRGKEHub_OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Origin
+//
+
+@implementation GTLRGKEHub_Origin
+@dynamic type;
 @end
 
 

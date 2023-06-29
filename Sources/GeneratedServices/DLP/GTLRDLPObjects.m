@@ -62,6 +62,45 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Ran
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified = @"SAMPLE_METHOD_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top = @"TOP";
 
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.columnType
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_ColumnDataTypeUnspecified = @"COLUMN_DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBignumeric = @"TYPE_BIGNUMERIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBool = @"TYPE_BOOL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBytes = @"TYPE_BYTES";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeDate = @"TYPE_DATE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeDatetime = @"TYPE_DATETIME";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeFloat64 = @"TYPE_FLOAT64";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeGeography = @"TYPE_GEOGRAPHY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeInt64 = @"TYPE_INT64";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeJson = @"TYPE_JSON";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeNumeric = @"TYPE_NUMERIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRecord = @"TYPE_RECORD";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeString = @"TYPE_STRING";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeTime = @"TYPE_TIME";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeTimestamp = @"TYPE_TIMESTAMP";
+
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.estimatedNullPercentage
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageHigh = @"NULL_PERCENTAGE_HIGH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLevelUnspecified = @"NULL_PERCENTAGE_LEVEL_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLow = @"NULL_PERCENTAGE_LOW";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageMedium = @"NULL_PERCENTAGE_MEDIUM";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageVeryLow = @"NULL_PERCENTAGE_VERY_LOW";
+
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.estimatedUniquenessScore
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreHigh = @"UNIQUENESS_SCORE_HIGH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreLevelUnspecified = @"UNIQUENESS_SCORE_LEVEL_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreLow = @"UNIQUENESS_SCORE_LOW";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreMedium = @"UNIQUENESS_SCORE_MEDIUM";
+
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.policyState
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_PolicyState_ColumnPolicyStateUnspecified = @"COLUMN_POLICY_STATE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_PolicyState_ColumnPolicyTagged = @"COLUMN_POLICY_TAGGED";
+
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.state
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_Done = @"DONE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_Running = @"RUNNING";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2Condition.operatorProperty
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_EqualTo = @"EQUAL_TO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_Exists = @"EXISTS";
@@ -705,6 +744,28 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile
+@dynamic column, columnInfoType, columnType, dataRiskLevel, datasetId,
+         datasetLocation, datasetProjectId, estimatedNullPercentage,
+         estimatedUniquenessScore, freeTextScore, name, otherMatches,
+         policyState, profileLastGenerated, profileStatus, sensitivityScore,
+         state, tableDataProfile, tableFullResource, tableId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"otherMatches" : [GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2Condition
 //
 
@@ -884,6 +945,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DataProfileAction
 @dynamic exportData, pubSubNotification;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DataProfileBigQueryRowSchema
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DataProfileBigQueryRowSchema
+@dynamic columnProfile, tableProfile;
 @end
 
 

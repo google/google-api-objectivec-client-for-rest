@@ -557,6 +557,25 @@
 
 @end
 
+@implementation GTLRContentwarehouseQuery_ProjectsLocationsGetStatus
+
+@dynamic location;
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:getStatus";
+  GTLRContentwarehouseQuery_ProjectsLocationsGetStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRContentwarehouse_GoogleCloudContentwarehouseV1ProjectStatus class];
+  query.loggingName = @"contentwarehouse.projects.locations.getStatus";
+  return query;
+}
+
+@end
+
 @implementation GTLRContentwarehouseQuery_ProjectsLocationsInitialize
 
 @dynamic location;
