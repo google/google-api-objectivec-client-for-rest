@@ -23,6 +23,38 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes `name`, `create_time`, `hub`, `unique_id`, `state`, `reasons`, and
+ *  `spoke_type`. This is the default value.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewBasic;
+/**
+ *  Includes all spoke fields except `labels`. You can use the `DETAILED` view
+ *  only when you set the `spoke_locations` field to `[global]`.
+ *
+ *  Value: "DETAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewDetailed;
+/**
+ *  The spoke view is unspecified. When the spoke view is unspecified, the API
+ *  returns the same fields as the `BASIC` view.
+ *
+ *  Value: "SPOKE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other networkconnectivity query classes.
  */
@@ -397,6 +429,79 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the Network Connectivity Center spokes associated with a specified hub
+ *  and location. The list includes both spokes that are attached to the hub and
+ *  spokes that have been proposed but not yet accepted.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.listSpokes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsListSpokes : GTLRNetworkconnectivityQuery
+
+/** An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The name of the hub. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Sort the results by name or create_time. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  A list of locations. Specify one of the following: `[global]`, a single
+ *  region (for example, `[us-central1]`), or a combination of values (for
+ *  example, `[global, us-central1, us-west1]`). If the spoke_locations field is
+ *  populated, the list of results includes only spokes in the specified
+ *  location. If the spoke_locations field is not populated, the list of results
+ *  includes spokes in all locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *spokeLocations;
+
+/**
+ *  The view of the spoke to return. The view you use determines which spoke
+ *  fields are included in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivityViewSpokeViewUnspecified The spoke view is
+ *        unspecified. When the spoke view is unspecified, the API returns the
+ *        same fields as the `BASIC` view. (Value: "SPOKE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivityViewBasic Includes `name`, `create_time`,
+ *        `hub`, `unique_id`, `state`, `reasons`, and `spoke_type`. This is the
+ *        default value. (Value: "BASIC")
+ *    @arg @c kGTLRNetworkconnectivityViewDetailed Includes all spoke fields
+ *        except `labels`. You can use the `DETAILED` view only when you set the
+ *        `spoke_locations` field to `[global]`. (Value: "DETAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListHubSpokesResponse.
+ *
+ *  Lists the Network Connectivity Center spokes associated with a specified hub
+ *  and location. The list includes both spokes that are attached to the hub and
+ *  spokes that have been proposed but not yet accepted.
+ *
+ *  @param name Required. The name of the hub.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsListSpokes
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the description and/or labels of a Network Connectivity Center hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.patch
@@ -452,6 +557,142 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_Hub *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details about a Network Connectivity Center route table.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesGet : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the route table resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_RouteTable.
+ *
+ *  Gets details about a Network Connectivity Center route table.
+ *
+ *  @param name Required. The name of the route table resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists route tables in a given project.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesList : GTLRNetworkconnectivityQuery
+
+/** An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListRouteTablesResponse.
+ *
+ *  Lists route tables in a given project.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details about the specified route.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.routes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesGet : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the route resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Route.
+ *
+ *  Gets details about the specified route.
+ *
+ *  @param name Required. The name of the route resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists routes in a given project.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.routes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesList : GTLRNetworkconnectivityQuery
+
+/** An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListRoutesResponse.
+ *
+ *  Lists routes in a given project.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRouteTablesRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1102,6 +1343,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesDelete : GTLRNetworkconnectivityQuery
 
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 /** Required. The name of the ServiceClass to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1458,6 +1706,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsDelete : GTLRNetworkconnectivityQuery
 
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 /** Required. The name of the ServiceConnectionMap to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1812,6 +2067,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesDelete : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Required. The name of the ServiceConnectionPolicy to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2169,6 +2431,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensDelete : GTLRNetworkconnectivityQuery
 
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 /** Required. The name of the ServiceConnectionToken to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2265,6 +2534,35 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Accepts a proposal to attach a Network Connectivity Center spoke to the hub.
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.accept
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the spoke to accept. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Accepts a proposal to attach a Network Connectivity Center spoke to the hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_AcceptSpokeRequest to include
+ *    in the query.
+ *  @param name Required. The name of the spoke to accept.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptSpokeRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2530,6 +2828,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_Spoke *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Does one of the following: * Rejects a proposal to attach a Network
+ *  Connectivity Center spoke to the hub. * Rejects and removes a previously
+ *  attached spoke from the hub.
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.reject
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the spoke to reject. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Does one of the following: * Rejects a proposal to attach a Network
+ *  Connectivity Center spoke to the hub. * Rejects and removes a previously
+ *  attached spoke from the hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_RejectSpokeRequest to include
+ *    in the query.
+ *  @param name Required. The name of the spoke to reject.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectSpokeRequest *)object
                            name:(NSString *)name;
 
 @end

@@ -55,6 +55,21 @@
 
 @end
 
+@implementation GTLRSA360Query_CustomersListAccessibleCustomers
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v0/customers:listAccessibleCustomers";
+  GTLRSA360Query_CustomersListAccessibleCustomers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V0ServicesListAccessibleCustomersResponse class];
+  query.loggingName = @"searchads360.customers.listAccessibleCustomers";
+  return query;
+}
+
+@end
+
 @implementation GTLRSA360Query_CustomersSearchAds360Search
 
 @dynamic customerId;

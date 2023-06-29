@@ -19,6 +19,7 @@
 @class GTLRHangoutsChat_ActionResponse;
 @class GTLRHangoutsChat_ActionStatus;
 @class GTLRHangoutsChat_Annotation;
+@class GTLRHangoutsChat_AttachedGif;
 @class GTLRHangoutsChat_Attachment;
 @class GTLRHangoutsChat_AttachmentDataRef;
 @class GTLRHangoutsChat_Button;
@@ -1571,6 +1572,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** The metadata of user mention. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_UserMentionMetadata *userMention;
+
+@end
+
+
+/**
+ *  A GIF image that's specified by a URL.
+ */
+@interface GTLRHangoutsChat_AttachedGif : GTLRObject
+
+/** Output only. The URL that hosts the GIF image. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -4157,6 +4169,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *argumentText;
 
+/** Output only. GIF images that are attached to the message. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_AttachedGif *> *attachedGifs;
+
 /** User-uploaded attachment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Attachment *> *attachment;
 
@@ -4193,7 +4208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  the custom name as the `clientAssignedMessageId` field, which you can
  *  reference while processing later operations, like updating or deleting the
  *  message. For example usage, see [Name a created
- *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ *  message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *clientAssignedMessageId;
 

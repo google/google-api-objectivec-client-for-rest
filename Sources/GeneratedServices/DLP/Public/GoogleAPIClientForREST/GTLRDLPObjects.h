@@ -40,6 +40,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2CloudStoragePath;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet;
 @class GTLRDLP_GooglePrivacyDlpV2Color;
+@class GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile;
 @class GTLRDLP_GooglePrivacyDlpV2Condition;
 @class GTLRDLP_GooglePrivacyDlpV2Conditions;
 @class GTLRDLP_GooglePrivacyDlpV2Container;
@@ -481,6 +482,200 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  *  Value: "TOP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.columnType
+
+/**
+ *  Invalid type.
+ *
+ *  Value: "COLUMN_DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_ColumnDataTypeUnspecified;
+/**
+ *  Decimal type.
+ *
+ *  Value: "TYPE_BIGNUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBignumeric;
+/**
+ *  Encoded as a boolean "false" or "true".
+ *
+ *  Value: "TYPE_BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBool;
+/**
+ *  Encoded as a base64 string per RFC 4648, section 4.
+ *
+ *  Value: "TYPE_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBytes;
+/**
+ *  Encoded as RFC 3339 full-date format string: 1985-04-12
+ *
+ *  Value: "TYPE_DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeDate;
+/**
+ *  Encoded as RFC 3339 full-date "T" partial-time: 1985-04-12T23:20:50.52
+ *
+ *  Value: "TYPE_DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeDatetime;
+/**
+ *  Encoded as a number, or string "NaN", "Infinity" or "-Infinity".
+ *
+ *  Value: "TYPE_FLOAT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeFloat64;
+/**
+ *  Encoded as WKT
+ *
+ *  Value: "TYPE_GEOGRAPHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeGeography;
+/**
+ *  Encoded as a string in decimal format.
+ *
+ *  Value: "TYPE_INT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeInt64;
+/**
+ *  Json type.
+ *
+ *  Value: "TYPE_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeJson;
+/**
+ *  Encoded as a decimal string.
+ *
+ *  Value: "TYPE_NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeNumeric;
+/**
+ *  Container of ordered fields, each with a type and field name.
+ *
+ *  Value: "TYPE_RECORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRecord;
+/**
+ *  Encoded as a string value.
+ *
+ *  Value: "TYPE_STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeString;
+/**
+ *  Encoded as RFC 3339 partial-time format string: 23:20:50.52
+ *
+ *  Value: "TYPE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeTime;
+/**
+ *  Encoded as an RFC 3339 timestamp with mandatory "Z" time zone string:
+ *  1985-04-12T23:20:50.52Z
+ *
+ *  Value: "TYPE_TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeTimestamp;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.estimatedNullPercentage
+
+/**
+ *  A lot of null entries.
+ *
+ *  Value: "NULL_PERCENTAGE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageHigh;
+/**
+ *  Unused.
+ *
+ *  Value: "NULL_PERCENTAGE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLevelUnspecified;
+/**
+ *  Some null entries.
+ *
+ *  Value: "NULL_PERCENTAGE_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLow;
+/** Value: "NULL_PERCENTAGE_MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageMedium;
+/**
+ *  Very few null entries.
+ *
+ *  Value: "NULL_PERCENTAGE_VERY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageVeryLow;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.estimatedUniquenessScore
+
+/**
+ *  High uniqueness, possibly a column of free text or unique identifiers.
+ *
+ *  Value: "UNIQUENESS_SCORE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreHigh;
+/**
+ *  Some columns do not have estimated uniqueness. Possible reasons include
+ *  having too few values.
+ *
+ *  Value: "UNIQUENESS_SCORE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreLevelUnspecified;
+/**
+ *  Low uniqueness, possibly a boolean, enum or similiarly typed column.
+ *
+ *  Value: "UNIQUENESS_SCORE_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreLow;
+/**
+ *  Medium uniqueness.
+ *
+ *  Value: "UNIQUENESS_SCORE_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreMedium;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.policyState
+
+/**
+ *  No policy tags.
+ *
+ *  Value: "COLUMN_POLICY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_PolicyState_ColumnPolicyStateUnspecified;
+/**
+ *  Column has policy tag applied.
+ *
+ *  Value: "COLUMN_POLICY_TAGGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_PolicyState_ColumnPolicyTagged;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile.state
+
+/**
+ *  The profile is no longer generating. If profile_status.status.code is 0, the
+ *  profile succeeded, otherwise, it failed.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_Done;
+/**
+ *  The profile is currently running. Once a profile has finished it will
+ *  transition to DONE.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_Running;
+/**
+ *  Unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Condition.operatorProperty
@@ -2782,6 +2977,181 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The profile for a scanned column within a table.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile : GTLRObject
+
+/** The name of the column. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  If it's been determined this column can be identified as a single type, this
+ *  will be set. Otherwise the column either has unidentifiable content or mixed
+ *  types.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary *columnInfoType;
+
+/**
+ *  The data type of a given column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_ColumnDataTypeUnspecified
+ *        Invalid type. (Value: "COLUMN_DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBignumeric
+ *        Decimal type. (Value: "TYPE_BIGNUMERIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBool
+ *        Encoded as a boolean "false" or "true". (Value: "TYPE_BOOL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeBytes
+ *        Encoded as a base64 string per RFC 4648, section 4. (Value:
+ *        "TYPE_BYTES")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeDate
+ *        Encoded as RFC 3339 full-date format string: 1985-04-12 (Value:
+ *        "TYPE_DATE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeDatetime
+ *        Encoded as RFC 3339 full-date "T" partial-time: 1985-04-12T23:20:50.52
+ *        (Value: "TYPE_DATETIME")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeFloat64
+ *        Encoded as a number, or string "NaN", "Infinity" or "-Infinity".
+ *        (Value: "TYPE_FLOAT64")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeGeography
+ *        Encoded as WKT (Value: "TYPE_GEOGRAPHY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeInt64
+ *        Encoded as a string in decimal format. (Value: "TYPE_INT64")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeJson
+ *        Json type. (Value: "TYPE_JSON")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeNumeric
+ *        Encoded as a decimal string. (Value: "TYPE_NUMERIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRecord
+ *        Container of ordered fields, each with a type and field name. (Value:
+ *        "TYPE_RECORD")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeString
+ *        Encoded as a string value. (Value: "TYPE_STRING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeTime
+ *        Encoded as RFC 3339 partial-time format string: 23:20:50.52 (Value:
+ *        "TYPE_TIME")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeTimestamp
+ *        Encoded as an RFC 3339 timestamp with mandatory "Z" time zone string:
+ *        1985-04-12T23:20:50.52Z (Value: "TYPE_TIMESTAMP")
+ */
+@property(nonatomic, copy, nullable) NSString *columnType;
+
+/** The data risk level for this column. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataRiskLevel *dataRiskLevel;
+
+/** The BigQuery dataset ID. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  The BigQuery location where the dataset's data is stored. See
+ *  https://cloud.google.com/bigquery/docs/locations for supported locations.
+ */
+@property(nonatomic, copy, nullable) NSString *datasetLocation;
+
+/** The Google Cloud project ID that owns the BigQuery dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetProjectId;
+
+/**
+ *  Approximate percentage of entries being null in the column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageHigh
+ *        A lot of null entries. (Value: "NULL_PERCENTAGE_HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLevelUnspecified
+ *        Unused. (Value: "NULL_PERCENTAGE_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLow
+ *        Some null entries. (Value: "NULL_PERCENTAGE_LOW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageMedium
+ *        Value "NULL_PERCENTAGE_MEDIUM"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageVeryLow
+ *        Very few null entries. (Value: "NULL_PERCENTAGE_VERY_LOW")
+ */
+@property(nonatomic, copy, nullable) NSString *estimatedNullPercentage;
+
+/**
+ *  Approximate uniqueness of the column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreHigh
+ *        High uniqueness, possibly a column of free text or unique identifiers.
+ *        (Value: "UNIQUENESS_SCORE_HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreLevelUnspecified
+ *        Some columns do not have estimated uniqueness. Possible reasons
+ *        include having too few values. (Value:
+ *        "UNIQUENESS_SCORE_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreLow
+ *        Low uniqueness, possibly a boolean, enum or similiarly typed column.
+ *        (Value: "UNIQUENESS_SCORE_LOW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedUniquenessScore_UniquenessScoreMedium
+ *        Medium uniqueness. (Value: "UNIQUENESS_SCORE_MEDIUM")
+ */
+@property(nonatomic, copy, nullable) NSString *estimatedUniquenessScore;
+
+/**
+ *  The likelihood that this column contains free-form text. A value close to 1
+ *  may indicate the column is likely to contain free-form or natural language
+ *  text. Range in 0-1.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeTextScore;
+
+/** The name of the profile. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Other types found within this column. List will be un-ordered. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary *> *otherMatches;
+
+/**
+ *  Indicates if a policy tag has been applied to the column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_PolicyState_ColumnPolicyStateUnspecified
+ *        No policy tags. (Value: "COLUMN_POLICY_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_PolicyState_ColumnPolicyTagged
+ *        Column has policy tag applied. (Value: "COLUMN_POLICY_TAGGED")
+ */
+@property(nonatomic, copy, nullable) NSString *policyState;
+
+/** The last time the profile was generated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *profileLastGenerated;
+
+/**
+ *  Success or error status from the most recent profile generation attempt. May
+ *  be empty if the profile is still being generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ProfileStatus *profileStatus;
+
+/** The sensitivity of this column. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/**
+ *  State of a profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_Done The
+ *        profile is no longer generating. If profile_status.status.code is 0,
+ *        the profile succeeded, otherwise, it failed. (Value: "DONE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_Running The
+ *        profile is currently running. Once a profile has finished it will
+ *        transition to DONE. (Value: "RUNNING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_State_StateUnspecified
+ *        Unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The resource name to the table data profile. */
+@property(nonatomic, copy, nullable) NSString *tableDataProfile;
+
+/** The resource name of the table this column is within. */
+@property(nonatomic, copy, nullable) NSString *tableFullResource;
+
+/** The BigQuery table ID. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
  *  The field type of `value` and `field` do not need to match to be considered
  *  equal, but not all comparisons are possible. EQUAL_TO and NOT_EQUAL_TO
  *  attempt to compare even with incompatible types, but all other comparisons
@@ -3367,6 +3737,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Publish a message into the Pub/Sub topic. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PubSubNotification *pubSubNotification;
+
+@end
+
+
+/**
+ *  The schema of data to be saved to the BigQuery when the `DataProfileAction`
+ *  is enabled.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileBigQueryRowSchema : GTLRObject
+
+/** Column data profile column */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile *columnProfile;
+
+/** Table data profile column */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableDataProfile *tableProfile;
 
 @end
 
@@ -6462,8 +6847,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2ProfileStatus : GTLRObject
 
 /**
- *  Profiling status code and optional message. status.code will be 0 (default
- *  value) for OK.
+ *  Profiling status code and optional message. The `status.code` value is 0
+ *  (default value) for OK.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *status;
 

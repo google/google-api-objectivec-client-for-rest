@@ -16,6 +16,7 @@
 
 NSString * const kGTLRAuthScopeHangoutsChatBot                 = @"https://www.googleapis.com/auth/chat.bot";
 NSString * const kGTLRAuthScopeHangoutsChatDelete              = @"https://www.googleapis.com/auth/chat.delete";
+NSString * const kGTLRAuthScopeHangoutsChatImport              = @"https://www.googleapis.com/auth/chat.import";
 NSString * const kGTLRAuthScopeHangoutsChatMemberships         = @"https://www.googleapis.com/auth/chat.memberships";
 NSString * const kGTLRAuthScopeHangoutsChatMembershipsApp      = @"https://www.googleapis.com/auth/chat.memberships.app";
 NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly = @"https://www.googleapis.com/auth/chat.memberships.readonly";

@@ -248,6 +248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
 /**
+ *  Go package format.
+ *
+ *  Value: "GO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Go;
+/**
  *  GooGet package format.
  *
  *  Value: "GOOGET"
@@ -630,6 +636,29 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GoModule represents a Go module.
+ */
+@interface GTLRArtifactRegistry_GoModule : GTLRObject
+
+/** Output only. The time when the Go module is created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The resource name of a Go module. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when the Go module is updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The version of the Go module. Must be a valid canonical version as defined
+ *  in https://go.dev/ref/mod#glos-canonical-version.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1756,6 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Go Go package format.
+ *        (Value: "GO")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Googet GooGet package
  *        format. (Value: "GOOGET")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Kfp Kubeflow Pipelines
@@ -2006,6 +2037,31 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** The Apt artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_AptArtifact *> *aptArtifacts;
 
+@end
+
+
+/**
+ *  The response to upload a Go module.
+ */
+@interface GTLRArtifactRegistry_UploadGoModuleMediaResponse : GTLRObject
+
+/** Operation to be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The operation metadata for uploading go modules.
+ */
+@interface GTLRArtifactRegistry_UploadGoModuleMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request to upload a Go module.
+ */
+@interface GTLRArtifactRegistry_UploadGoModuleRequest : GTLRObject
 @end
 
 

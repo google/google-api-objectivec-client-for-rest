@@ -716,6 +716,37 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesReencrypt
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesReencryptRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/reencrypt";
+  GTLRSQLAdminQuery_InstancesReencrypt *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.reencrypt";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesResetSslConfig
 
 @dynamic instance, project;

@@ -1014,10 +1014,6 @@ NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContact
 NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact = @"PLANNING_ORDER_CONTACT_BUYER_CONTACT";
 NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact = @"PLANNING_ORDER_CONTACT_SELLER_CONTACT";
 
-// GTLRDfareporting_OrderDocument.type
-NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeChangeOrder = @"PLANNING_ORDER_TYPE_CHANGE_ORDER";
-NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeInsertionOrder = @"PLANNING_ORDER_TYPE_INSERTION_ORDER";
-
 // GTLRDfareporting_PathFilter.pathMatchPosition
 NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Any = @"ANY";
 NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_First = @"FIRST";
@@ -4811,70 +4807,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @implementation GTLRDfareporting_OrderContact
 @dynamic contactInfo, contactName, contactTitle, contactType,
          signatureUserProfileId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_OrderDocument
-//
-
-@implementation GTLRDfareporting_OrderDocument
-@dynamic accountId, advertiserId, amendedOrderDocumentId,
-         approvedByUserProfileIds, cancelled, createdInfo, effectiveDate,
-         identifier, kind, lastSentRecipients, lastSentTime, orderId, projectId,
-         signedProperty, subaccountId, title, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"identifier" : @"id",
-    @"signedProperty" : @"signed"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"approvedByUserProfileIds" : [NSNumber class],
-    @"lastSentRecipients" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_OrderDocumentsListResponse
-//
-
-@implementation GTLRDfareporting_OrderDocumentsListResponse
-@dynamic kind, nextPageToken, orderDocuments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orderDocuments" : [GTLRDfareporting_OrderDocument class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"orderDocuments";
-}
-
 @end
 
 

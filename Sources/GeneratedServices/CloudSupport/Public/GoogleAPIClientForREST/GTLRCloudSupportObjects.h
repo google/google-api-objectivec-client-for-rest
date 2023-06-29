@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Support API (cloudsupport/v2beta)
+//   Google Cloud Support API (cloudsupport/v2)
 // Description:
 //   Manages Google Cloud technical support cases for Customer Care support
 //   offerings.
@@ -83,48 +83,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P4;
  *  Value: "PRIORITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_PriorityUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSupport_Case.severity
-
-/**
- *  Extreme impact on a production service. Service is hard down.
- *
- *  Value: "S0"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Severity_S0;
-/**
- *  Critical impact on a production service. Service is currently unusable.
- *
- *  Value: "S1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Severity_S1;
-/**
- *  Severe impact on a production service. Service is usable but greatly
- *  impaired.
- *
- *  Value: "S2"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Severity_S2;
-/**
- *  Medium impact on a production service. Service is available, but moderately
- *  impaired.
- *
- *  Value: "S3"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Severity_S3;
-/**
- *  General questions or minor issues. Production service is fully available.
- *
- *  Value: "S4"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Severity_S4;
-/**
- *  Severity is undefined or has not been set yet.
- *
- *  Value: "SEVERITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSupport_Case.state
@@ -540,25 +498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, copy, nullable) NSString *priority;
 
 /**
- *  REMOVED. The severity of this case. Use priority instead.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSupport_Case_Severity_S0 Extreme impact on a production
- *        service. Service is hard down. (Value: "S0")
- *    @arg @c kGTLRCloudSupport_Case_Severity_S1 Critical impact on a production
- *        service. Service is currently unusable. (Value: "S1")
- *    @arg @c kGTLRCloudSupport_Case_Severity_S2 Severe impact on a production
- *        service. Service is usable but greatly impaired. (Value: "S2")
- *    @arg @c kGTLRCloudSupport_Case_Severity_S3 Medium impact on a production
- *        service. Service is available, but moderately impaired. (Value: "S3")
- *    @arg @c kGTLRCloudSupport_Case_Severity_S4 General questions or minor
- *        issues. Production service is fully available. (Value: "S4")
- *    @arg @c kGTLRCloudSupport_Case_Severity_SeverityUnspecified Severity is
- *        undefined or has not been set yet. (Value: "SEVERITY_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *severity;
-
-/**
  *  Output only. The current status of the support case.
  *
  *  Likely values:
@@ -618,7 +557,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 /**
  *  The unique ID for a classification. Must be specified for case creation. To
  *  retrieve valid classification IDs for case creation, use
- *  `caseClassifications.search`.
+ *  `caseClassifications.search`. Classification IDs returned by
+ *  `caseClassifications.search` are guaranteed to be valid for at least 6
+ *  months. If a given classification is deactiveated, it will immediately stop
+ *  being returned. After 6 months, `case.create` requests using the
+ *  classification ID will fail.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

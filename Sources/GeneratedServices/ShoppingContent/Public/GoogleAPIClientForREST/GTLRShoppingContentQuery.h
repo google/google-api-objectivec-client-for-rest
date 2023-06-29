@@ -2244,41 +2244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Allows uploading one customer information entry. Adding a customer with
- *  loyalty data enables the customer to see personalized loyalty annotations on
- *  search. Uploading a previously existing customer will overwrite the old
- *  entry.
- *
- *  Method: content.customers.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_CustomersCreate : GTLRShoppingContentQuery
-
-/** Required. The ID of the account that owns the customer information. */
-@property(nonatomic, assign) long long merchantId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_Customer.
- *
- *  Allows uploading one customer information entry. Adding a customer with
- *  loyalty data enables the customer to see personalized loyalty annotations on
- *  search. Uploading a previously existing customer will overwrite the old
- *  entry.
- *
- *  @param object The @c GTLRShoppingContent_Customer to include in the query.
- *  @param merchantId Required. The ID of the account that owns the customer
- *    information.
- *
- *  @return GTLRShoppingContentQuery_CustomersCreate
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_Customer *)object
-                     merchantId:(long long)merchantId;
-
-@end
-
-/**
  *  Deletes, fetches, gets, inserts and updates multiple datafeeds in a single
  *  request.
  *

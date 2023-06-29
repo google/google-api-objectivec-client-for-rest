@@ -175,7 +175,9 @@ NSString * const kGTLRDataflow_NameAndKind_Kind_Sum          = @"SUM";
 
 // GTLRDataflow_ParameterMetadata.paramType
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_BigqueryTable = @"BIGQUERY_TABLE";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Boolean = @"BOOLEAN";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default = @"DEFAULT";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Enum = @"ENUM";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket = @"GCS_READ_BUCKET";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile = @"GCS_READ_FILE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder = @"GCS_READ_FOLDER";
@@ -1655,11 +1657,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ParameterMetadata
-@dynamic customMetadata, groupName, helpText, isOptional, label, name,
-         paramType, parentName, parentTriggerValues, regexes;
+@dynamic customMetadata, enumOptions, groupName, helpText, isOptional, label,
+         name, paramType, parentName, parentTriggerValues, regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"enumOptions" : [GTLRDataflow_ParameterMetadataEnumOption class],
     @"parentTriggerValues" : [NSString class],
     @"regexes" : [NSString class]
   };
@@ -1678,6 +1681,21 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ParameterMetadataEnumOption
+//
+
+@implementation GTLRDataflow_ParameterMetadataEnumOption
+@dynamic descriptionProperty, label, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

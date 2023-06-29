@@ -254,6 +254,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_L
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.machineType
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu32 = @"E2_HIGHCPU_32";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu8 = @"E2_HIGHCPU_8";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium = @"E2_MEDIUM";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";

@@ -64,7 +64,6 @@
 @class GTLRShoppingContent_ConversionSource;
 @class GTLRShoppingContent_Css;
 @class GTLRShoppingContent_CustomAttribute;
-@class GTLRShoppingContent_CustomerLoyaltyData;
 @class GTLRShoppingContent_CustomerReturnReason;
 @class GTLRShoppingContent_CutoffTime;
 @class GTLRShoppingContent_Datafeed;
@@ -184,6 +183,7 @@
 @class GTLRShoppingContent_PriceInsights;
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductAmount;
+@class GTLRShoppingContent_ProductCertification;
 @class GTLRShoppingContent_ProductCluster;
 @class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime;
 @class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime;
@@ -4404,34 +4404,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** The value of the attribute. */
 @property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  The object representing a customer to update data for. Includes a customer
- *  identifier (such as email address) and any associated metadata to add.
- *  LoyaltyData triggers adding customer data for the purpose of loyalty
- *  personalization.
- */
-@interface GTLRShoppingContent_Customer : GTLRObject
-
-/** The customer's email address. No extra string processing needed. */
-@property(nonatomic, copy, nullable) NSString *emailAddress;
-
-/** Loyalty data associated with the customer. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_CustomerLoyaltyData *loyaltyData;
-
-@end
-
-
-/**
- *  The loyalty data of the customer.
- */
-@interface GTLRShoppingContent_CustomerLoyaltyData : GTLRObject
-
-/** The tier information for the given user. Can be an empty string. */
-@property(nonatomic, copy, nullable) NSString *loyaltyTier;
 
 @end
 
@@ -10977,6 +10949,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *canonicalLink;
 
 /**
+ *  Product
+ *  [certification](https://support.google.com/merchants/answer/13528839),
+ *  introduced for EU energy efficiency labeling compliance using the [EU
+ *  EPREL](https://eprel.ec.europa.eu/screen/home) database.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductCertification *> *certifications;
+
+/**
  *  Required. The item's channel (online or local). Acceptable values are: -
  *  "`local`" - "`online`"
  */
@@ -11397,6 +11377,35 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Tax value. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
+
+@end
+
+
+/**
+ *  Product
+ *  [certification](https://support.google.com/merchants/answer/13528839),
+ *  introduced for EU energy efficiency labeling compliance using the [EU
+ *  EPREL](https://eprel.ec.europa.eu/screen/home) database.
+ */
+@interface GTLRShoppingContent_ProductCertification : GTLRObject
+
+/**
+ *  The certification authority, for example "European_Commission". Maximum
+ *  length is 2000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *certificationAuthority;
+
+/**
+ *  The certification code, for eaxample "123456". Maximum length is 2000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *certificationCode;
+
+/**
+ *  The name of the certification, for example "EPREL". Maximum length is 2000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *certificationName;
 
 @end
 
@@ -15106,6 +15115,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Time in hours and minutes in the local timezone when local delivery ends.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ServiceStoreConfigCutoffConfigLocalCutoffTime *localCutoffTime;
+
+/**
+ *  Merchants can opt-out of showing n+1 day local delivery when they have a
+ *  shipping service configured to n day local delivery. For example, if the
+ *  shipping service defines same-day delivery, and it's past the cut-off,
+ *  setting this field to `true` results in the calculated shipping service rate
+ *  returning `NO_DELIVERY_POST_CUTOFF`. In the same example, setting this field
+ *  to `false` results in the calculated shipping time being one day. This is
+ *  only for local delivery.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noDeliveryPostCutoff;
 
 /**
  *  Represents cutoff time as the number of hours before store closing. Mutually

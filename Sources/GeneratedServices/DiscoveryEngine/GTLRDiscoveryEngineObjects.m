@@ -258,6 +258,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeUserEventsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeUserEventsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeUserEventsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeUserEventsResponse
+@dynamic purgeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema
 //
 

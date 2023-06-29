@@ -25,6 +25,12 @@ NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDisk
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
 
+// GTLRMigrationCenterAPI_ComputeStorageDescriptor.type
+NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
+NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
+NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
+NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
 // GTLRMigrationCenterAPI_FitDescriptor.fitLevel
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_Fit = @"FIT";
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_FitLevelUnspecified = @"FIT_LEVEL_UNSPECIFIED";
@@ -100,6 +106,18 @@ NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDi
 NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
 NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
 
+// GTLRMigrationCenterAPI_SoleTenancyPreferences.commitmentPlan
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment1Year = @"COMMITMENT_1_YEAR";
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment3Year = @"COMMITMENT_3_YEAR";
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_OnDemand = @"ON_DEMAND";
+
+// GTLRMigrationCenterAPI_SoleTenancyPreferences.hostMaintenancePolicy
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyDefault = @"HOST_MAINTENANCE_POLICY_DEFAULT";
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyMigrateWithinNodeGroup = @"HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP";
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyRestartInPlace = @"HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE";
+NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyUnspecified = @"HOST_MAINTENANCE_POLICY_UNSPECIFIED";
+
 // GTLRMigrationCenterAPI_Source.state
 NSString * const kGTLRMigrationCenterAPI_Source_State_Active   = @"ACTIVE";
 NSString * const kGTLRMigrationCenterAPI_Source_State_Deleting = @"DELETING";
@@ -136,6 +154,12 @@ NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_SizingOptimiz
 NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_SizingOptimizationStrategy_SizingOptimizationStrategySameAsSource = @"SIZING_OPTIMIZATION_STRATEGY_SAME_AS_SOURCE";
 NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_SizingOptimizationStrategy_SizingOptimizationStrategyUnspecified = @"SIZING_OPTIMIZATION_STRATEGY_UNSPECIFIED";
 
+// GTLRMigrationCenterAPI_VirtualMachinePreferences.targetProduct
+NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductComputeEngine = @"COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE";
+NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductSoleTenancy = @"COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY";
+NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductUnspecified = @"COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductVmwareEngine = @"COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE";
+
 // GTLRMigrationCenterAPI_VmwareDiskConfig.backingType
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeFlatV1 = @"BACKING_TYPE_FLAT_V1";
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeFlatV2 = @"BACKING_TYPE_FLAT_V2";
@@ -146,6 +170,14 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeSesparseV1 = @"BACKING_TYPE_SESPARSE_V1";
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeSesparseV2 = @"BACKING_TYPE_SESPARSE_V2";
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeUnspecified = @"BACKING_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_VmwareEnginePreferences.commitmentPlan
+NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearMonthlyPayments = @"COMMITMENT_1_YEAR_MONTHLY_PAYMENTS";
+NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearUpfrontPayment = @"COMMITMENT_1_YEAR_UPFRONT_PAYMENT";
+NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearMonthlyPayments = @"COMMITMENT_3_YEAR_MONTHLY_PAYMENTS";
+NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearUpfrontPayment = @"COMMITMENT_3_YEAR_UPFRONT_PAYMENT";
+NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_OnDemand = @"ON_DEMAND";
 
 // ----------------------------------------------------------------------------
 //
@@ -580,7 +612,26 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 //
 
 @implementation GTLRMigrationCenterAPI_ComputeEngineShapeDescriptor
-@dynamic logicalCoreCount, machineType, memoryMb, physicalCoreCount, series;
+@dynamic logicalCoreCount, machineType, memoryMb, physicalCoreCount, series,
+         storage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storage" : [GTLRMigrationCenterAPI_ComputeStorageDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ComputeStorageDescriptor
+//
+
+@implementation GTLRMigrationCenterAPI_ComputeStorageDescriptor
+@dynamic sizeGb, type;
 @end
 
 
@@ -1924,7 +1975,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 @dynamic descriptionProperty, displayName, machineFinding, machinePreferences,
          monthlyCostCompute, monthlyCostNetworkEgress, monthlyCostOsLicense,
          monthlyCostOther, monthlyCostStorage, monthlyCostTotal,
-         preferredRegion, pricingTrack, topPriority;
+         preferredRegion, pricingTrack, soleTenantFinding, topPriority,
+         vmwareEngineFinding;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1994,11 +2046,79 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding
+//
+
+@implementation GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding
+@dynamic allocatedAssetCount, allocatedRegions, nodeAllocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allocatedRegions" : [NSString class],
+    @"nodeAllocations" : [GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation
+//
+
+@implementation GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation
+@dynamic allocatedAssetCount, node, nodeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_ReportSummaryUtilizationChartData
 //
 
 @implementation GTLRMigrationCenterAPI_ReportSummaryUtilizationChartData
 @dynamic free, used;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding
+//
+
+@implementation GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding
+@dynamic allocatedAssetCount, allocatedRegions, nodeAllocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allocatedRegions" : [NSString class],
+    @"nodeAllocations" : [GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ReportSummaryVMWareNode
+//
+
+@implementation GTLRMigrationCenterAPI_ReportSummaryVMWareNode
+@dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation
+//
+
+@implementation GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation
+@dynamic allocatedAssetCount, nodeCount, vmwareNode;
 @end
 
 
@@ -2109,6 +2229,34 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 
 @implementation GTLRMigrationCenterAPI_Settings
 @dynamic name, preferenceSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SoleTenancyPreferences
+//
+
+@implementation GTLRMigrationCenterAPI_SoleTenancyPreferences
+@dynamic commitmentPlan, cpuOvercommitRatio, hostMaintenancePolicy, nodeTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodeTypes" : [GTLRMigrationCenterAPI_SoleTenantNodeType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SoleTenantNodeType
+//
+
+@implementation GTLRMigrationCenterAPI_SoleTenantNodeType
+@dynamic nodeName;
 @end
 
 
@@ -2289,7 +2437,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 
 @implementation GTLRMigrationCenterAPI_VirtualMachinePreferences
 @dynamic commitmentPlan, computeEnginePreferences, regionPreferences,
-         sizingOptimizationStrategy;
+         sizingOptimizationStrategy, soleTenancyPreferences, targetProduct,
+         vmwareEnginePreferences;
 @end
 
 
@@ -2309,6 +2458,17 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 //
 
 @implementation GTLRMigrationCenterAPI_VmwareEngineMigrationTarget
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_VmwareEnginePreferences
+//
+
+@implementation GTLRMigrationCenterAPI_VmwareEnginePreferences
+@dynamic commitmentPlan, cpuOvercommitRatio, memoryOvercommitRatio,
+         storageDeduplicationCompressionRatio;
 @end
 
 

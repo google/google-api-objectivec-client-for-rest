@@ -31,7 +31,6 @@
 @class GTLREventarc_GoogleLongrunningOperation_Response;
 @class GTLREventarc_GoogleRpcStatus;
 @class GTLREventarc_GoogleRpcStatus_Details_Item;
-@class GTLREventarc_HttpEndpoint;
 @class GTLREventarc_Location;
 @class GTLREventarc_Location_Labels;
 @class GTLREventarc_Location_Metadata;
@@ -587,9 +586,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLREventarc_GKE *gke;
 
-/** An HTTP endpoint destination described by an URI. */
-@property(nonatomic, strong, nullable) GTLREventarc_HttpEndpoint *httpEndpoint;
-
 /**
  *  The resource name of the Workflow whose Executions are triggered by the
  *  events. The Workflow resource should be deployed in the same project as the
@@ -979,35 +975,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLREventarc_GoogleRpcStatus_Details_Item : GTLRObject
-@end
-
-
-/**
- *  Represents a HTTP endpoint destination.
- */
-@interface GTLREventarc_HttpEndpoint : GTLRObject
-
-/**
- *  Optional. Forwards DNS requests to the VPC specified by network config to
- *  resolve the HTTP endpoint. Default to false. If set to true, Eventarc will
- *  create a peering zone to the consumer VPC and forward DNS requests. See:
- *  https://cloud.google.com/dns/docs/zones/zones-overview#peering_zones Enable
- *  this if the URI uses an internal DNS name or a private Cloud DNS zone.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *forwardDnsRequests;
-
-/**
- *  Required. The URI of the HTTP enpdoint. The value must be a RFC2396 URI
- *  string. Examples: `http://10.10.10.8:80/route`,
- *  `http://svc.us-central1.p.local:8080/`. Only HTTP and HTTPS protocols are
- *  supported. The host can be either a static IP addressable from the VPC
- *  specified by the network config, or an internal DNS hostname of the service
- *  resolvable via Cloud DNS.
- */
-@property(nonatomic, copy, nullable) NSString *uri;
-
 @end
 
 

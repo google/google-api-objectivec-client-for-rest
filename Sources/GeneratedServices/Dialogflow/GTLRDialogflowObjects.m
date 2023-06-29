@@ -2599,7 +2599,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest
-@dynamic agentUri, dataFormat, environment;
+@dynamic agentUri, dataFormat, environment, includeBigqueryExportSettings;
 @end
 
 
@@ -3660,7 +3660,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters
 @dynamic analyzeQueryTextSentiment, channel, currentPage, disableWebhook,
          flowVersions, geoLocation, parameters, payload, sessionEntityTypes,
-         timeZone, webhookHeaders;
+         sessionTtl, timeZone, webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6135,7 +6135,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult
 @dynamic error, suggestArticlesResponse, suggestDialogflowAssistsResponse,
-         suggestFaqAnswersResponse, suggestSmartRepliesResponse;
+         suggestEntityExtractionResponse, suggestFaqAnswersResponse,
+         suggestSmartRepliesResponse;
 @end
 
 

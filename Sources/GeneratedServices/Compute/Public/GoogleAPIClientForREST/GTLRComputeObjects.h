@@ -601,6 +601,7 @@
 @class GTLRCompute_RouterBgp;
 @class GTLRCompute_RouterBgpPeer;
 @class GTLRCompute_RouterBgpPeerBfd;
+@class GTLRCompute_RouterBgpPeerCustomLearnedIpRange;
 @class GTLRCompute_RouterInterface;
 @class GTLRCompute_RouterList_Warning;
 @class GTLRCompute_RouterList_Warning_Data_Item;
@@ -10675,20 +10676,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_None;
 /**
- *  Updates applied in runtime, instances will not be disrupted.
+ *  Do not stop the instance.
  *
  *  Value: "REFRESH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh;
 /**
- *  Old instances will be deleted. New instances will be created from the target
- *  template.
+ *  (Default.) Replace the instance according to the replacement method option.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
 /**
- *  Every instance will be restarted.
+ *  Stop the instance and start it again.
  *
  *  Value: "RESTART"
  */
@@ -10704,20 +10704,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdate
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None;
 /**
- *  Updates applied in runtime, instances will not be disrupted.
+ *  Do not stop the instance.
  *
  *  Value: "REFRESH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh;
 /**
- *  Old instances will be deleted. New instances will be created from the target
- *  template.
+ *  (Default.) Replace the instance according to the replacement method option.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
 /**
- *  Every instance will be restarted.
+ *  Stop the instance and start it again.
  *
  *  Value: "RESTART"
  */
@@ -11118,20 +11117,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_None;
 /**
- *  Updates applied in runtime, instances will not be disrupted.
+ *  Do not stop the instance.
  *
  *  Value: "REFRESH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Refresh;
 /**
- *  Old instances will be deleted. New instances will be created from the target
- *  template.
+ *  (Default.) Replace the instance according to the replacement method option.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Replace;
 /**
- *  Every instance will be restarted.
+ *  Stop the instance and start it again.
  *
  *  Value: "RESTART"
  */
@@ -11147,20 +11145,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_None;
 /**
- *  Updates applied in runtime, instances will not be disrupted.
+ *  Do not stop the instance.
  *
  *  Value: "REFRESH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_Refresh;
 /**
- *  Old instances will be deleted. New instances will be created from the target
- *  template.
+ *  (Default.) Replace the instance according to the replacement method option.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_Replace;
 /**
- *  Every instance will be restarted.
+ *  Stop the instance and start it again.
  *
  *  Value: "RESTART"
  */
@@ -23637,20 +23634,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_None;
 /**
- *  Updates applied in runtime, instances will not be disrupted.
+ *  Do not stop the instance.
  *
  *  Value: "REFRESH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh;
 /**
- *  Old instances will be deleted. New instances will be created from the target
- *  template.
+ *  (Default.) Replace the instance according to the replacement method option.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
 /**
- *  Every instance will be restarted.
+ *  Stop the instance and start it again.
  *
  *  Value: "RESTART"
  */
@@ -23666,20 +23662,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApply
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None;
 /**
- *  Updates applied in runtime, instances will not be disrupted.
+ *  Do not stop the instance.
  *
  *  Value: "REFRESH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh;
 /**
- *  Old instances will be deleted. New instances will be created from the target
- *  template.
+ *  (Default.) Replace the instance according to the replacement method option.
  *
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
 /**
- *  Every instance will be restarted.
+ *  Stop the instance and start it again.
  *
  *  Value: "RESTART"
  */
@@ -37876,7 +37871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The IP version that will be used by this address. Valid options are IPV4 or
- *  IPV6. This can only be specified for a global address.
+ *  IPV6.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_IpVersion_Ipv4 Value "IPV4"
@@ -44149,7 +44144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The name of the encryption key that is stored in Google Cloud KMS. For
  *  example: "kmsKeyName": "projects/kms_project_id/locations/region/keyRings/
- *  key_region/cryptoKeys/key
+ *  key_region/cryptoKeys/key The fully-qualifed key name may be returned for
+ *  resource GET requests. For example: "kmsKeyName":
+ *  "projects/kms_project_id/locations/region/keyRings/
+ *  key_region/cryptoKeys/key /cryptoKeyVersions/1
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -52598,6 +52596,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
+ *  Encrypts suspended data for an instance with a customer-managed encryption
+ *  key. If you are creating a new instance, this field will encrypt the local
+ *  SSD and in-memory contents of the instance during the suspend operation. If
+ *  you do not provide an encryption key when creating the instance, then the
+ *  local SSD and in-memory contents will be encrypted using an automatically
+ *  generated key during the suspend operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *instanceEncryptionKey;
+
+/**
  *  KeyRevocationActionType of the instance. Supported options are "STOP" and
  *  "NONE". The default value is "NONE" if it is not specified.
  *
@@ -54314,44 +54322,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The minimal action that you want to perform on each instance during the
  *  update: - REPLACE: At minimum, delete the instance and create it again. -
  *  RESTART: Stop the instance and start it again. - REFRESH: Do not stop the
- *  instance. - NONE: Do not disrupt the instance at all. By default, the
- *  minimum action is NONE. If your update requires a more disruptive action
- *  than you set with this flag, the necessary action is performed to execute
- *  the update.
+ *  instance and limit disruption as much as possible. - NONE: Do not disrupt
+ *  the instance at all. By default, the minimum action is NONE. If your update
+ *  requires a more disruptive action than you set with this flag, the necessary
+ *  action is performed to execute the update.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_None
  *        Do not perform any action. (Value: "NONE")
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh
- *        Updates applied in runtime, instances will not be disrupted. (Value:
- *        "REFRESH")
+ *        Do not stop the instance. (Value: "REFRESH")
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace
- *        Old instances will be deleted. New instances will be created from the
- *        target template. (Value: "REPLACE")
+ *        (Default.) Replace the instance according to the replacement method
+ *        option. (Value: "REPLACE")
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart
- *        Every instance will be restarted. (Value: "RESTART")
+ *        Stop the instance and start it again. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *minimalAction;
 
 /**
  *  The most disruptive action that you want to perform on each instance during
  *  the update: - REPLACE: Delete the instance and create it again. - RESTART:
- *  Stop the instance and start it again. - REFRESH: Do not stop the instance. -
- *  NONE: Do not disrupt the instance at all. By default, the most disruptive
- *  allowed action is REPLACE. If your update requires a more disruptive action
- *  than you set with this flag, the update request will fail.
+ *  Stop the instance and start it again. - REFRESH: Do not stop the instance
+ *  and limit disruption as much as possible. - NONE: Do not disrupt the
+ *  instance at all. By default, the most disruptive allowed action is REPLACE.
+ *  If your update requires a more disruptive action than you set with this
+ *  flag, the update request will fail.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None
  *        Do not perform any action. (Value: "NONE")
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh
- *        Updates applied in runtime, instances will not be disrupted. (Value:
- *        "REFRESH")
+ *        Do not stop the instance. (Value: "REFRESH")
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace
- *        Old instances will be deleted. New instances will be created from the
- *        target template. (Value: "REPLACE")
+ *        (Default.) Replace the instance according to the replacement method
+ *        option. (Value: "REPLACE")
  *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart
- *        Every instance will be restarted. (Value: "RESTART")
+ *        Stop the instance and start it again. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
@@ -55042,36 +55049,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_None
  *        Do not perform any action. (Value: "NONE")
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Refresh
- *        Updates applied in runtime, instances will not be disrupted. (Value:
- *        "REFRESH")
+ *        Do not stop the instance. (Value: "REFRESH")
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Replace
- *        Old instances will be deleted. New instances will be created from the
- *        target template. (Value: "REPLACE")
+ *        (Default.) Replace the instance according to the replacement method
+ *        option. (Value: "REPLACE")
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Restart
- *        Every instance will be restarted. (Value: "RESTART")
+ *        Stop the instance and start it again. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *minimalAction;
 
 /**
  *  Most disruptive action that is allowed to be taken on an instance. You can
- *  specify either NONE to forbid any actions, REFRESH to allow actions that do
- *  not need instance restart, RESTART to allow actions that can be applied
- *  without instance replacing or REPLACE to allow all possible actions. If the
- *  Updater determines that the minimal update action needed is more disruptive
- *  than most disruptive allowed action you specify it will not perform the
- *  update at all.
+ *  specify either NONE to forbid any actions, REFRESH to avoid restarting the
+ *  VM and to limit disruption as much as possible. RESTART to allow actions
+ *  that can be applied without instance replacing or REPLACE to allow all
+ *  possible actions. If the Updater determines that the minimal update action
+ *  needed is more disruptive than most disruptive allowed action you specify it
+ *  will not perform the update at all.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_None
  *        Do not perform any action. (Value: "NONE")
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_Refresh
- *        Updates applied in runtime, instances will not be disrupted. (Value:
- *        "REFRESH")
+ *        Do not stop the instance. (Value: "REFRESH")
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_Replace
- *        Old instances will be deleted. New instances will be created from the
- *        target template. (Value: "REPLACE")
+ *        (Default.) Replace the instance according to the replacement method
+ *        option. (Value: "REPLACE")
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MostDisruptiveAllowedAction_Restart
- *        Every instance will be restarted. (Value: "RESTART")
+ *        Stop the instance and start it again. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
@@ -70143,7 +70148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The IPv4 address to be used for reverse DNS verification. */
+/** The address to be used for reverse DNS verification. */
 @property(nonatomic, copy, nullable) NSString *dnsVerificationIp;
 
 /**
@@ -70170,8 +70175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The IPv4 address range, in CIDR format, represented by this public
- *  advertised prefix.
+ *  The address range, in CIDR format, represented by this public advertised
+ *  prefix.
  */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
@@ -72452,44 +72457,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The minimal action that you want to perform on each instance during the
  *  update: - REPLACE: At minimum, delete the instance and create it again. -
  *  RESTART: Stop the instance and start it again. - REFRESH: Do not stop the
- *  instance. - NONE: Do not disrupt the instance at all. By default, the
- *  minimum action is NONE. If your update requires a more disruptive action
- *  than you set with this flag, the necessary action is performed to execute
- *  the update.
+ *  instance and limit disruption as much as possible. - NONE: Do not disrupt
+ *  the instance at all. By default, the minimum action is NONE. If your update
+ *  requires a more disruptive action than you set with this flag, the necessary
+ *  action is performed to execute the update.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_None
  *        Do not perform any action. (Value: "NONE")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh
- *        Updates applied in runtime, instances will not be disrupted. (Value:
- *        "REFRESH")
+ *        Do not stop the instance. (Value: "REFRESH")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace
- *        Old instances will be deleted. New instances will be created from the
- *        target template. (Value: "REPLACE")
+ *        (Default.) Replace the instance according to the replacement method
+ *        option. (Value: "REPLACE")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart
- *        Every instance will be restarted. (Value: "RESTART")
+ *        Stop the instance and start it again. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *minimalAction;
 
 /**
  *  The most disruptive action that you want to perform on each instance during
  *  the update: - REPLACE: Delete the instance and create it again. - RESTART:
- *  Stop the instance and start it again. - REFRESH: Do not stop the instance. -
- *  NONE: Do not disrupt the instance at all. By default, the most disruptive
- *  allowed action is REPLACE. If your update requires a more disruptive action
- *  than you set with this flag, the update request will fail.
+ *  Stop the instance and start it again. - REFRESH: Do not stop the instance
+ *  and limit disruption as much as possible. - NONE: Do not disrupt the
+ *  instance at all. By default, the most disruptive allowed action is REPLACE.
+ *  If your update requires a more disruptive action than you set with this
+ *  flag, the update request will fail.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None
  *        Do not perform any action. (Value: "NONE")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh
- *        Updates applied in runtime, instances will not be disrupted. (Value:
- *        "REFRESH")
+ *        Do not stop the instance. (Value: "REFRESH")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace
- *        Old instances will be deleted. New instances will be created from the
- *        target template. (Value: "REPLACE")
+ *        (Default.) Replace the instance according to the replacement method
+ *        option. (Value: "REPLACE")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart
- *        Every instance will be restarted. (Value: "RESTART")
+ *        Stop the instance and start it again. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
@@ -76050,6 +76054,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_RouterBgpPeerBfd *bfd;
 
 /**
+ *  A list of user-defined custom learned route IP address ranges for a BGP
+ *  session.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterBgpPeerCustomLearnedIpRange *> *customLearnedIpRanges;
+
+/**
+ *  The user-defined custom learned route priority for a BGP session. This value
+ *  is applied to all custom learned route ranges for the session. You can
+ *  choose a value from `0` to `65335`. If you don't provide a value, Google
+ *  Cloud assigns a priority of `100` to the ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customLearnedRoutePriority;
+
+/**
  *  The status of the BGP peer connection. If set to FALSE, any active session
  *  with the peer is terminated and all associated routing information is
  *  removed. If set to TRUE, the peer connection can be established with routing
@@ -76203,6 +76223,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "PASSIVE"
  */
 @property(nonatomic, copy, nullable) NSString *sessionInitializationMode;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterBgpPeerCustomLearnedIpRange
+ */
+@interface GTLRCompute_RouterBgpPeerCustomLearnedIpRange : GTLRObject
+
+/**
+ *  The custom learned route IP address range. Must be a valid CIDR-formatted
+ *  prefix. If an IP address is provided without a subnet mask, it is
+ *  interpreted as, for IPv4, a `/32` singular IP address range, and, for IPv6,
+ *  `/128`.
+ */
+@property(nonatomic, copy, nullable) NSString *range;
 
 @end
 

@@ -22,6 +22,7 @@
 @class GTLRBigtableAdmin_Backup;
 @class GTLRBigtableAdmin_BackupInfo;
 @class GTLRBigtableAdmin_Binding;
+@class GTLRBigtableAdmin_ChangeStreamConfig;
 @class GTLRBigtableAdmin_Cluster;
 @class GTLRBigtableAdmin_ClusterAutoscalingConfig;
 @class GTLRBigtableAdmin_ClusterConfig;
@@ -722,6 +723,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Change stream configuration.
+ */
+@interface GTLRBigtableAdmin_ChangeStreamConfig : GTLRObject
+
+/**
+ *  How long the change stream should be retained. Change stream data older than
+ *  the retention period will not be returned when reading the change stream
+ *  from the table. Values must be at least 1 day and at most 7 days, and will
+ *  be truncated to microsecond granularity.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retentionPeriod;
 
 @end
 
@@ -1853,7 +1870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  A resource that represents Google Cloud location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRBigtableAdmin_Location : GTLRObject
 
@@ -1953,6 +1970,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  google.bigtable.admin.v2.BigtableTableAdmin.ModifyColumnFamilies
  */
 @interface GTLRBigtableAdmin_ModifyColumnFamiliesRequest : GTLRObject
+
+/**
+ *  If true, ignore safety checks when modifying the column families.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreWarnings;
 
 /**
  *  Required. Modifications to be atomically applied to the specified table's
@@ -2451,6 +2475,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  is served using the resources of its parent cluster.
  */
 @interface GTLRBigtableAdmin_Table : GTLRObject
+
+/**
+ *  If specified, enable the change stream on this table. Otherwise, the change
+ *  stream is disabled and the change stream is not retained.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_ChangeStreamConfig *changeStreamConfig;
 
 /**
  *  Output only. Map from cluster ID to per-cluster table state. If it could not

@@ -2202,10 +2202,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  be set on a batch workload. Minimum value is 10 minutes; maximum value is 14
  *  days (see JSON representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). Defaults
- *  to 4 hours if not set. If both ttl and idle_ttl are specified, the
- *  conditions are treated as OR conditions: the workload will be terminated
- *  when it has been idle for idle_ttl or when ttl has been exceed, whichever
- *  occurs first.
+ *  to 4 hours if not set. If both ttl and idle_ttl are specified for an
+ *  interactive session, the conditions are treated as OR conditions: the
+ *  workload will be terminated when it has been idle for idle_ttl or when ttl
+ *  has been exceeded, whichever occurs first.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleTtl;
 
@@ -2241,8 +2241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  without waiting for ongoing work to finish. If ttl is not specified for a
  *  batch workload, the workload will be allowed to run until it exits naturally
  *  (or runs forever without exiting). If ttl is not specified for an
- *  interactive session, it defaults to 24h. Minimum value is 10 minutes;
- *  maximum value is 14 days (see JSON representation of Duration
+ *  interactive session, it defaults to 24h. If ttl is not specified for a batch
+ *  that uses 2.1+ runtime version, it defaults to 4h. Minimum value is 10
+ *  minutes; maximum value is 14 days (see JSON representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). If both
  *  ttl and idle_ttl are specified (for an interactive session), the conditions
  *  are treated as OR conditions: the workload will be terminated when it has
@@ -3708,7 +3709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ListBatchesResponse : GTLRCollectionObject
 
 /**
- *  The batches from the specified collection.
+ *  Output only. The batches from the specified collection.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

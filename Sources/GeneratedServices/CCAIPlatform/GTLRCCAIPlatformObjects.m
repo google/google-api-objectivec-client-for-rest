@@ -21,6 +21,7 @@ NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminatingFailed = 
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall = @"DEV_XSMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
@@ -30,6 +31,7 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardSmall = @
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = @"STANDARD_XLARGE";
 
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall = @"DEV_XSMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
@@ -50,6 +52,26 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_AuthenticationConfig
+//
+
+@implementation GTLRCCAIPlatform_AuthenticationConfig
+@dynamic basicAuthSetting, name, samlSetting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_BasicAuthConfig
+//
+
+@implementation GTLRCCAIPlatform_BasicAuthConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_CancelOperationRequest
 //
 
@@ -64,7 +86,7 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 @implementation GTLRCCAIPlatform_ContactCenter
 @dynamic adminUser, ccaipManagedUsers, createTime, customerDomainPrefix,
-         displayName, instanceConfig, labels, name, samlParams, state,
+         displayName, instanceConfig, kmsKey, labels, name, samlParams, state,
          updateTime, uris, userEmail;
 @end
 
@@ -107,6 +129,17 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 //
 
 @implementation GTLRCCAIPlatform_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_GoogleCloudCommonOperationMetadata
+//
+
+@implementation GTLRCCAIPlatform_GoogleCloudCommonOperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
 @end
 
 
@@ -282,6 +315,16 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 @implementation GTLRCCAIPlatform_Quota
 @dynamic contactCenterCountLimit, contactCenterCountSum,
          contactCenterInstanceSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_SamlConfig
+//
+
+@implementation GTLRCCAIPlatform_SamlConfig
+@dynamic cert, emailMapping, entityId, loginUri;
 @end
 
 

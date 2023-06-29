@@ -203,5 +203,5 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYP
 //
 
 @implementation GTLRWorkflowExecutions_TriggerPubsubExecutionRequest
-@dynamic GCPCloudEventsMode, message, subscription;
+@dynamic deliveryAttempt, GCPCloudEventsMode, message, subscription;
 @end

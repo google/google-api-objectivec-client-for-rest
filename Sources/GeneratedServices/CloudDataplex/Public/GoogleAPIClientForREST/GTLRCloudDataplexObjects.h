@@ -2805,10 +2805,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo *stringProfile;
 
 /**
- *  The list of top N non-null values and number of times they occur in the
- *  scanned data. N is 10 or equal to the number of distinct values in the
- *  field, whichever is smaller. Not available for complex non-groupable field
- *  type RECORD and fields with REPEATABLE mode.
+ *  The list of top N non-null values, frequency and ratio with which they occur
+ *  in the scanned data. N is 10 or equal to the number of distinct values in
+ *  the field, whichever is smaller. Not available for complex non-groupable
+ *  field type RECORD and fields with REPEATABLE mode.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue *> *topNValues;
 
@@ -2903,8 +2903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  50% of the data lies below this point. The third quartile (Q3) splits off
  *  the highest 25% of data from the lowest 75%. It is known as the upper or
  *  75th empirical quartile, as 75% of the data lies below this point. Here, the
- *  quartiles is provided as an ordered list of quartile values for the scanned
- *  data, occurring in order Q1, median, Q3.
+ *  quartiles is provided as an ordered list of approximate quartile values for
+ *  the scanned data, occurring in order Q1, median, Q3.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2961,6 +2961,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Ratio of the corresponding value in the field against the total number of
+ *  rows in the scanned data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratio;
 
 /** String value of a top N non-null value. */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -3078,6 +3086,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *column;
 
 /**
+ *  Optional. Description of the rule. The maximum length is 1,024 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  Required. The dimension a rule belongs to. Results are also aggregated at
  *  the dimension level. Supported dimensions are "COMPLETENESS", "ACCURACY",
  *  "CONSISTENCY", "VALIDITY", "UNIQUENESS", "INTEGRITY"
@@ -3087,56 +3102,68 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  Optional. Rows with null values will automatically fail a rule, unless
  *  ignore_null is true. In that case, such null rows are trivially considered
- *  passing.Only applicable to ColumnMap rules.
+ *  passing.This field is only valid for row-level type rules.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreNull;
 
-/** ColumnMap rule which evaluates whether each column value is null. */
+/**
+ *  Optional. A mutable name for the rule. The name must contain only letters
+ *  (a-z, A-Z), numbers (0-9), or hyphens (-). The maximum length is 63
+ *  characters. Must start with a letter. Must end with a number or a letter.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Row-level rule which evaluates whether each column value is null. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation *nonNullExpectation;
 
 /**
- *  ColumnMap rule which evaluates whether each column value lies between a
+ *  Row-level rule which evaluates whether each column value lies between a
  *  specified range.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation *rangeExpectation;
 
 /**
- *  ColumnMap rule which evaluates whether each column value matches a specified
+ *  Row-level rule which evaluates whether each column value matches a specified
  *  regex.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation *regexExpectation;
 
 /**
- *  Table rule which evaluates whether each row passes the specified condition.
+ *  Row-level rule which evaluates whether each row in a table passes the
+ *  specified condition.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation *rowConditionExpectation;
 
 /**
- *  ColumnMap rule which evaluates whether each column value is contained by a
+ *  Row-level rule which evaluates whether each column value is contained by a
  *  specified set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation *setExpectation;
 
 /**
- *  ColumnAggregate rule which evaluates whether the column aggregate statistic
- *  lies between a specified range.
+ *  Aggregate rule which evaluates whether the column aggregate statistic lies
+ *  between a specified range.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation *statisticRangeExpectation;
 
-/** Table rule which evaluates whether the provided expression is true. */
+/**
+ *  Aggregate rule which evaluates whether the provided expression is true for a
+ *  table.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation *tableConditionExpectation;
 
 /**
  *  Optional. The minimum ratio of passing_rows / total_rows required to pass
- *  this rule, with a range of 0.0, 1.0.0 indicates default value (i.e. 1.0).
+ *  this rule, with a range of 0.0, 1.0.0 indicates default value (i.e.
+ *  1.0).This field is only valid for row-level type rules.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *threshold;
 
-/** ColumnAggregate rule which evaluates whether the column has duplicates. */
+/** Aggregate rule which evaluates whether the column has duplicates. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation *uniquenessExpectation;
 
 @end
@@ -3205,19 +3232,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult : GTLRObject
 
 /**
- *  The number of rows a rule was evaluated against. This field is only valid
- *  for ColumnMap type rules.Evaluated count can be configured to either include
- *  all rows (default) - with null rows automatically failing rule evaluation,
- *  or exclude null rows from the evaluated_count, by setting ignore_nulls =
- *  true.
+ *  The number of rows a rule was evaluated against.This field is only valid for
+ *  row-level type rules.Evaluated count can be configured to either include all
+ *  rows (default) - with null rows automatically failing rule evaluation, or
+ *  exclude null rows from the evaluated_count, by setting ignore_nulls = true.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *evaluatedCount;
 
 /**
- *  The query to find rows that did not pass this rule. Only applies to
- *  ColumnMap and RowCondition rules.
+ *  The query to find rows that did not pass this rule.This field is only valid
+ *  for row-level type rules.
  */
 @property(nonatomic, copy, nullable) NSString *failingRowsQuery;
 
@@ -3236,16 +3262,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) NSNumber *passed;
 
 /**
- *  The number of rows which passed a rule evaluation. This field is only valid
- *  for ColumnMap type rules.
+ *  The number of rows which passed a rule evaluation.This field is only valid
+ *  for row-level type rules.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passedCount;
 
 /**
- *  The ratio of passed_count / evaluated_count. This field is only valid for
- *  ColumnMap type rules.
+ *  The ratio of passed_count / evaluated_count.This field is only valid for
+ *  row-level type rules.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -3599,6 +3625,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Applied configs for data profile type data scan job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs : GTLRObject
+
+/**
+ *  Boolean indicating whether a column filter was applied in the DataScan job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnFilterApplied;
 
 /**
  *  Boolean indicating whether a row filter was applied in the DataScan job.

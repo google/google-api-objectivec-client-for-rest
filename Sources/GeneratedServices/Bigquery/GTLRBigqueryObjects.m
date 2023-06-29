@@ -1200,7 +1200,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, avroOptions, bigtableOptions, compression, connectionId,
-         csvOptions, decimalTargetTypes, googleSheetsOptions,
+         csvOptions, decimalTargetTypes, fileSetSpecType, googleSheetsOptions,
          hivePartitioningOptions, ignoreUnknownValues, jsonOptions,
          maxBadRecords, metadataCacheMode, objectMetadata, parquetOptions,
          referenceFileSchemaUri, schema, sourceFormat, sourceUris;
@@ -1547,8 +1547,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          connectionProperties, createDisposition, createSession,
          decimalTargetTypes, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
-         hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
-         maxBadRecords, nullMarker, parquetOptions,
+         fileSetSpecType, hivePartitioningOptions, ignoreUnknownValues,
+         jsonExtension, maxBadRecords, nullMarker, parquetOptions,
          preserveAsciiControlCharacters, projectionFields, quote,
          rangePartitioning, referenceFileSchemaUri, schema, schemaInline,
          schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
@@ -3201,11 +3201,11 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          maxTimeSeriesLength, maxTreeDepth, minRelativeProgress, minSplitLoss,
          minTimeSeriesLength, minTreeChildWeight, modelUri, nonSeasonalOrder,
          numClusters, numFactors, numParallelTree, numTrials,
-         optimizationStrategy, preserveInputStructs, sampledShapleyNumPaths,
-         subsample, tfVersion, timeSeriesDataColumn, timeSeriesIdColumn,
-         timeSeriesIdColumns, timeSeriesLengthFraction,
-         timeSeriesTimestampColumn, treeMethod, trendSmoothingWindowSize,
-         userColumn, walsAlpha, warmStart, xgboostVersion;
+         optimizationStrategy, sampledShapleyNumPaths, subsample, tfVersion,
+         timeSeriesDataColumn, timeSeriesIdColumn, timeSeriesIdColumns,
+         timeSeriesLengthFraction, timeSeriesTimestampColumn, treeMethod,
+         trendSmoothingWindowSize, userColumn, walsAlpha, warmStart,
+         xgboostVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

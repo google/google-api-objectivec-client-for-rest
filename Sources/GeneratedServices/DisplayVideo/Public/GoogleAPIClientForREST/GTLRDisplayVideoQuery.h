@@ -2483,19 +2483,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The `budget.budget_segments.date_range.end_date` field must use
- *  the `LESS THAN (<)` operator. * The `updateTime` field must use the `GREATER
- *  THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All
- *  other fields must use the `EQUALS (=)` operator. Supported fields: *
- *  `campaignId` * `displayName` * `entityStatus` *
- *  `budget.budget_segments.date_range.end_date` (input in the form of
- *  `YYYY-MM-DD`) * **Deprecated. Not available after June 21, 2023** *
- *  `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples:
- *  * All insertion orders under a campaign: `campaignId="1234"` * All
- *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` insertion orders under an
- *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
- *  entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders with an update
- *  time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
+ *  {value}`. * The `updateTime` field must use the `GREATER THAN OR EQUAL TO
+ *  (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All other fields must use
+ *  the `EQUALS (=)` operator. Supported fields: * `campaignId` * `displayName`
+ *  * `entityStatus` * `updateTime` (input in ISO 8601 format, or
+ *  `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All insertion orders under a campaign:
+ *  `campaignId="1234"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`
+ *  insertion orders under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE"
+ *  OR entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders with an
+ *  update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
  *  `updateTime<="2020-11-04T18:54:47Z"` * All insertion orders with an update
  *  time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
  *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
@@ -4826,22 +4822,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  are made up of one or more restrictions. * Restrictions can be combined by
  *  `AND` or `OR` logical operators. A sequence of restrictions implicitly uses
  *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
- *  `flight.dateRange.endDate` field must use the `LESS THAN (<)` operator. *
- *  The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS
- *  THAN OR EQUAL TO (<=)` operators. * The `warningMessages` field must use the
- *  `HAS (:)` operator. * All other fields must use the `EQUALS (=)` operator.
- *  Supported fields: * `campaignId` * `displayName` * `entityStatus` *
- *  `flight.dateRange.endDate` (input formatted as `YYYY-MM-DD`) * **Deprecated.
- *  Not available after June 21, 2023** * `flight.triggerId` * **Deprecated. Not
- *  available after June 21, 2023** * `insertionOrderId` * `lineItemId` *
- *  `lineItemType` * `targetedChannelId` * **Deprecated. Not available after
- *  June 21, 2023** * `targetedNegativeKeywordListId` * **Deprecated. Not
- *  available after June 21, 2023** * `updateTime` (input in ISO 8601 format, or
- *  `YYYY-MM-DDTHH:MM:SSZ`) * `warningMessages` * **Deprecated. Not available
- *  after June 21, 2023** Examples: * All line items under an insertion order:
- *  `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
- *  `ENTITY_STATUS_PAUSED` and `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under
- *  an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS
+ *  THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS
+ *  (=)` operator. Supported fields: * `campaignId` * `displayName` *
+ *  `entityStatus` * `insertionOrderId` * `lineItemId` * `lineItemType` *
+ *  `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples:
+ *  * All line items under an insertion order: `insertionOrderId="1234"` * All
+ *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and
+ *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under an advertiser:
+ *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED") AND
  *  lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` * All line items with an
  *  update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601):
@@ -4856,8 +4845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Field by which to sort the list. Acceptable values are: * `displayName`
- *  (default) * `entityStatus` * `flight.dateRange.endDate` * **Deprecated. Not
- *  available after June 21, 2023** * `updateTime` The default sorting order is
+ *  (default) * `entityStatus` * `updateTime` The default sorting order is
  *  ascending. To specify descending order for a field, a suffix "desc" should
  *  be added to the field name. Example: `displayName desc`.
  */
@@ -12391,6 +12379,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
  */
 @interface GTLRDisplayVideoQuery_InventorySourcesGet : GTLRDisplayVideoQuery
+
+/**
+ *  Optional. The advertiser_id is optional, when it is provided, the advertiser
+ *  access is used.
+ */
+@property(nonatomic, assign) long long advertiserId;
 
 /** Required. The ID of the inventory source to fetch. */
 @property(nonatomic, assign) long long inventorySourceId;

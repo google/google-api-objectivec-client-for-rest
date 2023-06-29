@@ -486,6 +486,16 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 @interface GTLRWorkflowExecutions_TriggerPubsubExecutionRequest : GTLRObject
 
 /**
+ *  The number of attempts that have been made to deliver this message. This is
+ *  set by Pub/Sub for subscriptions that have the "dead letter" feature
+ *  enabled, and hence provided here for compatibility, but is ignored by
+ *  Workflows.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deliveryAttempt;
+
+/**
  *  Required. LINT: LEGACY_NAMES The query parameter value for
  *  __GCP_CloudEventsMode, set by the Eventarc service when configuring
  *  triggers.

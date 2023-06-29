@@ -13,6 +13,7 @@
 #endif
 
 @class GTLRCCAIPlatform_AdminUser;
+@class GTLRCCAIPlatform_BasicAuthConfig;
 @class GTLRCCAIPlatform_ContactCenter;
 @class GTLRCCAIPlatform_ContactCenter_Labels;
 @class GTLRCCAIPlatform_InstanceConfig;
@@ -23,6 +24,7 @@
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
 @class GTLRCCAIPlatform_Quota;
+@class GTLRCCAIPlatform_SamlConfig;
 @class GTLRCCAIPlatform_SAMLParams;
 @class GTLRCCAIPlatform_Status;
 @class GTLRCCAIPlatform_Status_Details_Item;
@@ -88,6 +90,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUn
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
 
 /**
+ *  Instance Size DEV_EXTRA_SMALL.
+ *
+ *  Value: "DEV_XSMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall;
+/**
  *  The default value. This value is used if the state is omitted.
  *
  *  Value: "INSTANCE_SIZE_UNSPECIFIED"
@@ -133,6 +141,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
 // ----------------------------------------------------------------------------
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
 
+/**
+ *  Instance Size DEV_EXTRA_SMALL.
+ *
+ *  Value: "DEV_XSMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall;
 /**
  *  The default value. This value is used if the state is omitted.
  *
@@ -191,6 +205,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
+ *  GTLRCCAIPlatform_AuthenticationConfig
+ */
+@interface GTLRCCAIPlatform_AuthenticationConfig : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_BasicAuthConfig *basicAuthSetting;
+
+/**
+ *  Name of authentication config. Format:
+ *  projects/{project}/locations/{location}/contactCenters/{contact_center}/authentication-config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_SamlConfig *samlSetting;
+
+@end
+
+
+/**
+ *  GTLRCCAIPlatform_BasicAuthConfig
+ */
+@interface GTLRCCAIPlatform_BasicAuthConfig : GTLRObject
+
+/**
+ *  enabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCCAIPlatform_CancelOperationRequest : GTLRObject
@@ -198,7 +245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  Message describing ContactCenter object Next ID: 14
+ *  Message describing ContactCenter object Next ID: 15
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -232,6 +279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  The configuration of this instance, it is currently immutable once created.
  */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_InstanceConfig *instanceConfig;
+
+/**
+ *  Immutable. The KMS key name to encrypt the user input (`ContactCenter`).
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /** Labels as key value pairs */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_ContactCenter_Labels *labels;
@@ -326,6 +378,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRCCAIPlatform_GoogleCloudCommonOperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
  *  Message storing the instance configuration.
  */
 @interface GTLRCCAIPlatform_InstanceConfig : GTLRObject
@@ -334,6 +424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  The instance size of this the instance configuration.
  *
  *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall Instance
+ *        Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
@@ -635,6 +727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Contact center instance type.
  *
  *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall
+ *        Instance Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
@@ -652,6 +746,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
  */
 @property(nonatomic, copy, nullable) NSString *contactCenterInstanceSize;
+
+@end
+
+
+/**
+ *  GTLRCCAIPlatform_SamlConfig
+ */
+@interface GTLRCCAIPlatform_SamlConfig : GTLRObject
+
+/** X.509 public certificate for IdP */
+@property(nonatomic, copy, nullable) NSString *cert;
+
+/** IdP field that maps to the user’s email address */
+@property(nonatomic, copy, nullable) NSString *emailMapping;
+
+/**
+ *  The entity ID for the identity provider. Example: https://[IDP
+ *  Domain]/saml/metadata
+ */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/** The sso login url. Example: https://[IDP Domain]/saml/sso/login */
+@property(nonatomic, copy, nullable) NSString *loginUri;
 
 @end
 

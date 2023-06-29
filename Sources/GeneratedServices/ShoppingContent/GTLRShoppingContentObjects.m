@@ -1496,26 +1496,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_Customer
-//
-
-@implementation GTLRShoppingContent_Customer
-@dynamic emailAddress, loyaltyData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_CustomerLoyaltyData
-//
-
-@implementation GTLRShoppingContent_CustomerLoyaltyData
-@dynamic loyaltyTier;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_CustomerReturnReason
 //
 
@@ -4801,23 +4781,23 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 @implementation GTLRShoppingContent_Product
 @dynamic additionalImageLinks, additionalSizeType, adsGrouping, adsLabels,
          adsRedirect, adult, ageGroup, availability, availabilityDate, brand,
-         canonicalLink, channel, cloudExportAdditionalProperties, color,
-         condition, contentLanguage, costOfGoodsSold, customAttributes,
-         customLabel0, customLabel1, customLabel2, customLabel3, customLabel4,
-         descriptionProperty, disclosureDate, displayAdsId, displayAdsLink,
-         displayAdsSimilarIds, displayAdsTitle, displayAdsValue,
-         energyEfficiencyClass, excludedDestinations, expirationDate,
-         externalSellerId, feedLabel, gender, googleProductCategory, gtin,
-         identifier, identifierExists, imageLink, includedDestinations,
-         installment, isBundle, itemGroupId, kind, lifestyleImageLinks, link,
-         linkTemplate, loyaltyPoints, material, maxEnergyEfficiencyClass,
-         maxHandlingTime, minEnergyEfficiencyClass, minHandlingTime, mobileLink,
-         mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
-         pickupMethod, pickupSla, price, productDetails, productHeight,
-         productHighlights, productLength, productTypes, productWeight,
-         productWidth, promotionIds, salePrice, salePriceEffectiveDate,
-         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
-         shippingLength, shippingWeight, shippingWidth,
+         canonicalLink, certifications, channel,
+         cloudExportAdditionalProperties, color, condition, contentLanguage,
+         costOfGoodsSold, customAttributes, customLabel0, customLabel1,
+         customLabel2, customLabel3, customLabel4, descriptionProperty,
+         disclosureDate, displayAdsId, displayAdsLink, displayAdsSimilarIds,
+         displayAdsTitle, displayAdsValue, energyEfficiencyClass,
+         excludedDestinations, expirationDate, externalSellerId, feedLabel,
+         gender, googleProductCategory, gtin, identifier, identifierExists,
+         imageLink, includedDestinations, installment, isBundle, itemGroupId,
+         kind, lifestyleImageLinks, link, linkTemplate, loyaltyPoints, material,
+         maxEnergyEfficiencyClass, maxHandlingTime, minEnergyEfficiencyClass,
+         minHandlingTime, mobileLink, mobileLinkTemplate, mpn, multipack,
+         offerId, pattern, pause, pickupMethod, pickupSla, price,
+         productDetails, productHeight, productHighlights, productLength,
+         productTypes, productWeight, productWidth, promotionIds, salePrice,
+         salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
+         shippingLabel, shippingLength, shippingWeight, shippingWidth,
          shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
          subscriptionCost, targetCountry, taxCategory, taxes, title,
          transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
@@ -4834,6 +4814,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   NSDictionary<NSString *, Class> *map = @{
     @"additionalImageLinks" : [NSString class],
     @"adsLabels" : [NSString class],
+    @"certifications" : [GTLRShoppingContent_ProductCertification class],
     @"cloudExportAdditionalProperties" : [GTLRShoppingContent_CloudExportAdditionalProperties class],
     @"customAttributes" : [GTLRShoppingContent_CustomAttribute class],
     @"displayAdsSimilarIds" : [NSString class],
@@ -4868,6 +4849,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ProductAmount
 @dynamic priceAmount, remittedTaxAmount, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductCertification
+//
+
+@implementation GTLRShoppingContent_ProductCertification
+@dynamic certificationAuthority, certificationCode, certificationName;
 @end
 
 
@@ -6470,7 +6461,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ServiceStoreConfigCutoffConfig
-@dynamic localCutoffTime, storeCloseOffsetHours;
+@dynamic localCutoffTime, noDeliveryPostCutoff, storeCloseOffsetHours;
 @end
 
 

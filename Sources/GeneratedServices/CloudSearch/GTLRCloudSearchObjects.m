@@ -15,19 +15,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudSearch_AclFixRequest.role
-NSString * const kGTLRCloudSearch_AclFixRequest_Role_Commenter = @"COMMENTER";
-NSString * const kGTLRCloudSearch_AclFixRequest_Role_Reader    = @"READER";
-NSString * const kGTLRCloudSearch_AclFixRequest_Role_Unknown   = @"UNKNOWN";
-NSString * const kGTLRCloudSearch_AclFixRequest_Role_Writer    = @"WRITER";
-
-// GTLRCloudSearch_AclFixStatus.fixability
-NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_AclFixerError = @"ACL_FIXER_ERROR";
-NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_AlreadyAccessible = @"ALREADY_ACCESSIBLE";
-NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_CanFix = @"CAN_FIX";
-NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_CannotFix = @"CANNOT_FIX";
-NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_Unknown = @"UNKNOWN";
-
 // GTLRCloudSearch_AclInfo.scope
 NSString * const kGTLRCloudSearch_AclInfo_Scope_DasherDomain   = @"DASHER_DOMAIN";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_DasherDomainWithLink = @"DASHER_DOMAIN_WITH_LINK";
@@ -36,586 +23,38 @@ NSString * const kGTLRCloudSearch_AclInfo_Scope_Public         = @"PUBLIC";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_PublicWithLink = @"PUBLIC_WITH_LINK";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_TeamDrive      = @"TEAM_DRIVE";
 
-// GTLRCloudSearch_AddonComposeUiActionMarkup.type
-NSString * const kGTLRCloudSearch_AddonComposeUiActionMarkup_Type_Dismiss = @"DISMISS";
-NSString * const kGTLRCloudSearch_AddonComposeUiActionMarkup_Type_Unspecified = @"UNSPECIFIED";
-
-// GTLRCloudSearch_AffectedMembership.priorMembershipRole
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleInvitee = @"ROLE_INVITEE";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleMember = @"ROLE_MEMBER";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleNone = @"ROLE_NONE";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleOwner = @"ROLE_OWNER";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleUnknown = @"ROLE_UNKNOWN";
-
-// GTLRCloudSearch_AffectedMembership.priorMembershipState
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberFailed = @"MEMBER_FAILED";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberInvited = @"MEMBER_INVITED";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberJoined = @"MEMBER_JOINED";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
-NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
-
-// GTLRCloudSearch_AffectedMembership.targetMembershipRole
-NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleInvitee = @"ROLE_INVITEE";
-NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleMember = @"ROLE_MEMBER";
-NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleNone = @"ROLE_NONE";
-NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleOwner = @"ROLE_OWNER";
-NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleUnknown = @"ROLE_UNKNOWN";
-
-// GTLRCloudSearch_Annotation.chipRenderType
-NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_ChipRenderTypeUnspecified = @"CHIP_RENDER_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_DoNotRender = @"DO_NOT_RENDER";
-NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_Render = @"RENDER";
-NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_RenderIfPossible = @"RENDER_IF_POSSIBLE";
-
-// GTLRCloudSearch_Annotation.inlineRenderFormat
-NSString * const kGTLRCloudSearch_Annotation_InlineRenderFormat_InlineRenderFormatUnspecified = @"INLINE_RENDER_FORMAT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_Annotation_InlineRenderFormat_SmartChip = @"SMART_CHIP";
-
-// GTLRCloudSearch_Annotation.type
-NSString * const kGTLRCloudSearch_Annotation_Type_BabelPlaceholder = @"BABEL_PLACEHOLDER";
-NSString * const kGTLRCloudSearch_Annotation_Type_CardCapability = @"CARD_CAPABILITY";
-NSString * const kGTLRCloudSearch_Annotation_Type_ConsentedAppUnfurl = @"CONSENTED_APP_UNFURL";
-NSString * const kGTLRCloudSearch_Annotation_Type_CustomEmoji  = @"CUSTOM_EMOJI";
-NSString * const kGTLRCloudSearch_Annotation_Type_DataLossPrevention = @"DATA_LOSS_PREVENTION";
-NSString * const kGTLRCloudSearch_Annotation_Type_DriveDoc     = @"DRIVE_DOC";
-NSString * const kGTLRCloudSearch_Annotation_Type_DriveFile    = @"DRIVE_FILE";
-NSString * const kGTLRCloudSearch_Annotation_Type_DriveForm    = @"DRIVE_FORM";
-NSString * const kGTLRCloudSearch_Annotation_Type_DriveSheet   = @"DRIVE_SHEET";
-NSString * const kGTLRCloudSearch_Annotation_Type_DriveSlide   = @"DRIVE_SLIDE";
-NSString * const kGTLRCloudSearch_Annotation_Type_FormatData   = @"FORMAT_DATA";
-NSString * const kGTLRCloudSearch_Annotation_Type_GroupRetentionSettingsUpdated = @"GROUP_RETENTION_SETTINGS_UPDATED";
-NSString * const kGTLRCloudSearch_Annotation_Type_GsuiteIntegration = @"GSUITE_INTEGRATION";
-NSString * const kGTLRCloudSearch_Annotation_Type_Image        = @"IMAGE";
-NSString * const kGTLRCloudSearch_Annotation_Type_IncomingWebhookChanged = @"INCOMING_WEBHOOK_CHANGED";
-NSString * const kGTLRCloudSearch_Annotation_Type_IntegrationConfigUpdated = @"INTEGRATION_CONFIG_UPDATED";
-NSString * const kGTLRCloudSearch_Annotation_Type_Invitation   = @"INVITATION";
-NSString * const kGTLRCloudSearch_Annotation_Type_MembershipChanged = @"MEMBERSHIP_CHANGED";
-NSString * const kGTLRCloudSearch_Annotation_Type_Pdf          = @"PDF";
-NSString * const kGTLRCloudSearch_Annotation_Type_ReadReceiptsSettingsUpdated = @"READ_RECEIPTS_SETTINGS_UPDATED";
-NSString * const kGTLRCloudSearch_Annotation_Type_RequiredMessageFeaturesMetadata = @"REQUIRED_MESSAGE_FEATURES_METADATA";
-NSString * const kGTLRCloudSearch_Annotation_Type_RoomUpdated  = @"ROOM_UPDATED";
-NSString * const kGTLRCloudSearch_Annotation_Type_SlashCommand = @"SLASH_COMMAND";
-NSString * const kGTLRCloudSearch_Annotation_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_Annotation_Type_UploadMetadata = @"UPLOAD_METADATA";
-NSString * const kGTLRCloudSearch_Annotation_Type_Url          = @"URL";
-NSString * const kGTLRCloudSearch_Annotation_Type_UserMention  = @"USER_MENTION";
-NSString * const kGTLRCloudSearch_Annotation_Type_Video        = @"VIDEO";
-NSString * const kGTLRCloudSearch_Annotation_Type_VideoCall    = @"VIDEO_CALL";
-
-// GTLRCloudSearch_AppId.appType
-NSString * const kGTLRCloudSearch_AppId_AppType_App            = @"APP";
-NSString * const kGTLRCloudSearch_AppId_AppType_AppTypeUnspecified = @"APP_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppId_AppType_GsuiteApp      = @"GSUITE_APP";
-NSString * const kGTLRCloudSearch_AppId_AppType_IncomingWebhook = @"INCOMING_WEBHOOK";
-
-// GTLRCloudSearch_AppId.gsuiteAppType
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp = @"ACTIVITY_FEED_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp = @"ASSISTIVE_SUGGESTION_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp = @"CALENDAR_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ChatInMeetApp = @"CHAT_IN_MEET_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp = @"CONTACTS_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp  = @"DOCS_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp = @"DRIVE_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified = @"GSUITE_APP_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp  = @"MEET_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp = @"SHEETS_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ShortcutApp = @"SHORTCUT_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp = @"SLIDES_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp = @"TASKS_APP";
-
-// GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo.updaterCountDisplayType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_ExactCount = @"EXACT_COUNT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_NonzeroCount = @"NONZERO_COUNT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_UpdaterCountDisplayTypeUnspecified = @"UPDATER_COUNT_DISPLAY_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext.thumbsFeedback
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_Down = @"DOWN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_NoneSelected = @"NONE_SELECTED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_ThumbsFeedbackUnspecified = @"THUMBS_FEEDBACK_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_Up = @"UP";
-
-// GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip.feedbackChipType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_CorrectFile = @"CORRECT_FILE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_CorrectTrigger = @"CORRECT_TRIGGER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_Disruptive = @"DISRUPTIVE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_FeedbackChipTypeUnspecified = @"FEEDBACK_CHIP_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_Other = @"OTHER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_WrongFile = @"WRONG_FILE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_WrongTrigger = @"WRONG_TRIGGER";
-
-// GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip.state
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_State_FeedbackChipStateUnspecified = @"FEEDBACK_CHIP_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_State_Selected = @"SELECTED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_State_Unselected = @"UNSELECTED";
-
-// GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.dlpScanOutcome
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureRuleFetchFailed = @"SCAN_FAILURE_RULE_FETCH_FAILED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType = @"SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
-
-// GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.experiment
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_Experiment_KronosFastFormat = @"KRONOS_FAST_FORMAT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_Experiment_UnknownExperiment = @"UNKNOWN_EXPERIMENT";
-
-// GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.virusScanResult
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_Clean = @"CLEAN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_Error = @"ERROR";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_Infected = @"INFECTED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_PolicyViolation = @"POLICY_VIOLATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_UnknownVirusScanResult = @"UNKNOWN_VIRUS_SCAN_RESULT";
-
-// GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData.callStatus
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallEnded = @"CALL_ENDED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallMissed = @"CALL_MISSED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStarted = @"CALL_STARTED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStatusUnspecified = @"CALL_STATUS_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge.nudgeType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_FollowUp = @"FOLLOW_UP";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_Reply = @"REPLY";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_Undefined = @"UNDEFINED";
-
-// GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply.replyType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply_ReplyType_Follower = @"FOLLOWER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply_ReplyType_Root = @"ROOT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply_ReplyType_Unspecified = @"UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention_Type_All = @"ALL";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention_Type_Direct = @"DIRECT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo.attributeCheckerGroupType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ActivityFeed = @"ACTIVITY_FEED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_AttributeCheckerGroupTypeUnspecified = @"ATTRIBUTE_CHECKER_GROUP_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_FlatRoom = @"FLAT_ROOM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ImmutableMembershipGroupDm = @"IMMUTABLE_MEMBERSHIP_GROUP_DM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ImmutableMembershipHumanDm = @"IMMUTABLE_MEMBERSHIP_HUMAN_DM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneBotDm = @"ONE_TO_ONE_BOT_DM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneHumanDm = @"ONE_TO_ONE_HUMAN_DM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_Shortcut = @"SHORTCUT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ThreadedRoom = @"THREADED_ROOM";
-
-// GTLRCloudSearch_AppsDynamiteSharedContentReportType.systemViolation
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ConfidentialInformation = @"CONFIDENTIAL_INFORMATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Discrimination = @"DISCRIMINATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ExplicitContent = @"EXPLICIT_CONTENT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Fraud = @"FRAUD";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Harassment = @"HARASSMENT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_IllegalActivities = @"ILLEGAL_ACTIVITIES";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Malware = @"MALWARE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Other = @"OTHER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_SensitiveInformation = @"SENSITIVE_INFORMATION";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Spam = @"SPAM";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ViolationUnspecified = @"VIOLATION_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedCustomEmoji.state
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiDeleted = @"EMOJI_DELETED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiEnabled = @"EMOJI_ENABLED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiHidden = @"EMOJI_HIDDEN";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiStateUnspecified = @"EMOJI_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiSystemDisabled = @"EMOJI_SYSTEM_DISABLED";
-
-// GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata.dlpStatus
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpDisabled = @"DLP_DISABLED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledNoRuleFetch = @"DLP_ENABLED_NO_RULE_FETCH";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledRulesFetchedAndEvaluated = @"DLP_ENABLED_RULES_FETCHED_AND_EVALUATED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledRulesFetchedNoApplicableRules = @"DLP_ENABLED_RULES_FETCHED_NO_APPLICABLE_RULES";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledRulesFetchedNoRules = @"DLP_ENABLED_RULES_FETCHED_NO_RULES";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledScanFailed = @"DLP_ENABLED_SCAN_FAILED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledScanTimeout = @"DLP_ENABLED_SCAN_TIMEOUT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpStatusUnknown = @"DLP_STATUS_UNKNOWN";
-
-// GTLRCloudSearch_AppsDynamiteSharedGroupVisibility.state
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Private = @"PRIVATE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Public = @"PUBLIC";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_AppsDynamiteSharedJustification.actionType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Commented = @"COMMENTED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_CommentResolved = @"COMMENT_RESOLVED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Created = @"CREATED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Edited = @"EDITED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Presented = @"PRESENTED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Sent = @"SENT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Shared = @"SHARED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Viewed = @"VIEWED";
-
-// GTLRCloudSearch_AppsDynamiteSharedMeetMetadata.meetingType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_Call = @"CALL";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_Huddle = @"HUDDLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMeetMetadata_MeetingType_MeetingTypeUnspecified = @"MEETING_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedMessageInfo.messageType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_InlineReply = @"INLINE_REPLY";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload.type
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_PayloadTypeUnspecified = @"PAYLOAD_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_Tasks = @"TASKS";
-
-// GTLRCloudSearch_AppsDynamiteSharedRetentionSettings.state
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_EphemeralOneDay = @"EPHEMERAL_ONE_DAY";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_Permanent = @"PERMANENT";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_UnknownRetentionState = @"UNKNOWN_RETENTION_STATE";
-
-// GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount.membershipState
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberFailed = @"MEMBER_FAILED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberInvited = @"MEMBER_INVITED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberJoined = @"MEMBER_JOINED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
-
-// GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount.memberType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_HumanUser = @"HUMAN_USER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_MemberTypeUnspecified = @"MEMBER_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_RosterMember = @"ROSTER_MEMBER";
-
-// GTLRCloudSearch_AppsDynamiteSharedSpaceInfo.userMembershipState
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberFailed = @"MEMBER_FAILED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberInvited = @"MEMBER_INVITED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberJoined = @"MEMBER_JOINED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
-
-// GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription.descriptionType
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_DescriptionTypeUnspecified = @"DESCRIPTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_KeywordMatch = @"KEYWORD_MATCH";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription_DescriptionType_Snippet = @"SNIPPET";
-
-// GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error = @"ERROR";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_GoLiveSuccess = @"GO_LIVE_SUCCESS";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_NotApplicable = @"NOT_APPLICABLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Success = @"SUCCESS";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_ThumbnailSuccess = @"THUMBNAIL_SUCCESS";
-NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus = @"UNKNOWN_STATUS";
-
-// GTLRCloudSearch_AppsDynamiteStorageAction.interaction
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_InteractionUnspecified = @"INTERACTION_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_Interaction_OpenDialog = @"OPEN_DIALOG";
-
-// GTLRCloudSearch_AppsDynamiteStorageAction.loadIndicator
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_None = @"NONE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageAction_LoadIndicator_Spinner = @"SPINNER";
-
-// GTLRCloudSearch_AppsDynamiteStorageBorderStyle.type
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_BorderTypeUnspecified = @"BORDER_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_NoBorder = @"NO_BORDER";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageBorderStyle_Type_Stroke = @"STROKE";
-
-// GTLRCloudSearch_AppsDynamiteStorageCardCardHeader.imageType
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageCardCardHeader_ImageType_Square = @"SQUARE";
-
-// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalAlignment_Start = @"START";
-
-// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.horizontalSizeStyle
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillAvailableSpace = @"FILL_AVAILABLE_SPACE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_FillMinimumSpace = @"FILL_MINIMUM_SPACE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified = @"HORIZONTAL_SIZE_STYLE_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteStorageColumnsColumn.verticalAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Bottom = @"BOTTOM";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_Top = @"TOP";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified = @"VERTICAL_ALIGNMENT_UNSPECIFIED";
-
-// GTLRCloudSearch_AppsDynamiteStorageDateTimePicker.type
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_DateOnly = @"DATE_ONLY";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageDateTimePicker_Type_TimeOnly = @"TIME_ONLY";
-
-// GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl.controlType
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_CheckBox = @"CHECK_BOX";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Checkbox = @"CHECKBOX";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl_ControlType_Switch = @"SWITCH";
-
-// GTLRCloudSearch_AppsDynamiteStorageGridGridItem.layout
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_GridItemLayoutUnspecified = @"GRID_ITEM_LAYOUT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextAbove = @"TEXT_ABOVE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_Layout_TextBelow = @"TEXT_BELOW";
-
-// GTLRCloudSearch_AppsDynamiteStorageGridGridItem.textAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageGridGridItem_TextAlignment_Start = @"START";
-
-// GTLRCloudSearch_AppsDynamiteStorageIcon.imageType
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageIcon_ImageType_Square = @"SQUARE";
-
-// GTLRCloudSearch_AppsDynamiteStorageImageCropStyle.type
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_ImageCropTypeUnspecified = @"IMAGE_CROP_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageImageCropStyle_Type_Square = @"SQUARE";
-
-// GTLRCloudSearch_AppsDynamiteStorageOpenLink.onClose
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Nothing = @"NOTHING";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OnClose_Reload = @"RELOAD";
-
-// GTLRCloudSearch_AppsDynamiteStorageOpenLink.openAs
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_FullSize = @"FULL_SIZE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageOpenLink_OpenAs_Overlay = @"OVERLAY";
-
-// GTLRCloudSearch_AppsDynamiteStorageSelectionInput.type
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_CheckBox = @"CHECK_BOX";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Dropdown = @"DROPDOWN";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_MultiSelect = @"MULTI_SELECT";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_RadioButton = @"RADIO_BUTTON";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageSelectionInput_Type_Switch = @"SWITCH";
-
-// GTLRCloudSearch_AppsDynamiteStorageTextInput.type
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_MultipleLine = @"MULTIPLE_LINE";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageTextInput_Type_SingleLine = @"SINGLE_LINE";
-
-// GTLRCloudSearch_AppsDynamiteStorageWidget.horizontalAlignment
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_AppsDynamiteStorageWidget_HorizontalAlignment_Start = @"START";
-
-// GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup.features
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_Toll = @"TOLL";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_TollFree = @"TOLL_FREE";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_UnknownFeature = @"UNKNOWN_FEATURE";
-
-// GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup.type
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_More = @"MORE";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Phone = @"PHONE";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Sip = @"SIP";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Unknown = @"UNKNOWN";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Video = @"VIDEO";
-
-// GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError.type
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Authentication = @"AUTHENTICATION";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_ConferenceSolutionForbidden = @"CONFERENCE_SOLUTION_FORBIDDEN";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Permanent = @"PERMANENT";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_PermissionDenied = @"PERMISSION_DENIED";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Temporary = @"TEMPORARY";
-NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_BorderStyle.type
-NSString * const kGTLRCloudSearch_BorderStyle_Type_BorderTypeNotSet = @"BORDER_TYPE_NOT_SET";
-NSString * const kGTLRCloudSearch_BorderStyle_Type_NoBorder    = @"NO_BORDER";
-NSString * const kGTLRCloudSearch_BorderStyle_Type_Stroke      = @"STROKE";
-
-// GTLRCloudSearch_BotInfo.appAllowlistStatus
-NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AllAppsDisabledByAdmin = @"ALL_APPS_DISABLED_BY_ADMIN";
-NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_Allowed = @"ALLOWED";
-NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AppNotAllowlistedByAdmin = @"APP_NOT_ALLOWLISTED_BY_ADMIN";
-NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_UnspecifiedStatus = @"UNSPECIFIED_STATUS";
-
-// GTLRCloudSearch_BotInfo.status
-NSString * const kGTLRCloudSearch_BotInfo_Status_DisabledByDeveloper = @"DISABLED_BY_DEVELOPER";
-NSString * const kGTLRCloudSearch_BotInfo_Status_Enabled       = @"ENABLED";
-NSString * const kGTLRCloudSearch_BotInfo_Status_UnknownStatus = @"UNKNOWN_STATUS";
-
-// GTLRCloudSearch_BotInfo.supportedUses
-NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToDm = @"CAN_ADD_TO_DM";
-NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToHumanDm = @"CAN_ADD_TO_HUMAN_DM";
-NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToRoom = @"CAN_ADD_TO_ROOM";
-NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_BotInfo.uninstallCapability
-NSString * const kGTLRCloudSearch_BotInfo_UninstallCapability_AlwaysAllowed = @"ALWAYS_ALLOWED";
-NSString * const kGTLRCloudSearch_BotInfo_UninstallCapability_NeverAllowed = @"NEVER_ALLOWED";
-NSString * const kGTLRCloudSearch_BotInfo_UninstallCapability_UnspecifiedUninstallCapability = @"UNSPECIFIED_UNINSTALL_CAPABILITY";
-
-// GTLRCloudSearch_BotResponse.requiredAction
-NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_Authentication = @"AUTHENTICATION";
-NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_Configuration = @"CONFIGURATION";
-NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_UnknownSetupType = @"UNKNOWN_SETUP_TYPE";
-
-// GTLRCloudSearch_BotResponse.responseType
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_AppSuggestion = @"APP_SUGGESTION";
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_DisabledByAdmin = @"DISABLED_BY_ADMIN";
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_DisabledByDeveloper = @"DISABLED_BY_DEVELOPER";
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_Error = @"ERROR";
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_Private = @"PRIVATE";
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_SetupRequired = @"SETUP_REQUIRED";
-NSString * const kGTLRCloudSearch_BotResponse_ResponseType_UnknownResponseType = @"UNKNOWN_RESPONSE_TYPE";
-
-// GTLRCloudSearch_BroadcastAccess.accessPolicy
-NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_BroadcastingAccessPolicyUnspecified = @"BROADCASTING_ACCESS_POLICY_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Organization = @"ORGANIZATION";
-NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Public = @"PUBLIC";
-
-// GTLRCloudSearch_CallInfo.availableAccessTypes
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeClosed = @"ACCESS_TYPE_CLOSED";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAccessTypes_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_CallInfo.availableAnnotationToolTypes
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolClearAll = @"ANNOTATION_TOOL_CLEAR_ALL";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolLine = @"ANNOTATION_TOOL_LINE";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolMagicEraser = @"ANNOTATION_TOOL_MAGIC_ERASER";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolPen = @"ANNOTATION_TOOL_PEN";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolShape = @"ANNOTATION_TOOL_SHAPE";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolTextBox = @"ANNOTATION_TOOL_TEXT_BOX";
-NSString * const kGTLRCloudSearch_CallInfo_AvailableAnnotationToolTypes_AnnotationToolTypeUnspecified = @"ANNOTATION_TOOL_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_CallSettings.accessType
-NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeClosed = @"ACCESS_TYPE_CLOSED";
-NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
-NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
-NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
-NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_Card.displayStyle
-NSString * const kGTLRCloudSearch_Card_DisplayStyle_DisplayStyleUnspecified = @"DISPLAY_STYLE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_Card_DisplayStyle_Peek       = @"PEEK";
-NSString * const kGTLRCloudSearch_Card_DisplayStyle_Replace    = @"REPLACE";
-
-// GTLRCloudSearch_CardCapabilityMetadata.requiredCapabilities
-NSString * const kGTLRCloudSearch_CardCapabilityMetadata_RequiredCapabilities_SupportsBaseCards = @"SUPPORTS_BASE_CARDS";
-NSString * const kGTLRCloudSearch_CardCapabilityMetadata_RequiredCapabilities_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_CardHeader.imageStyle
-NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Circle = @"CIRCLE";
-NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
-NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Rectangle43 = @"RECTANGLE_4_3";
-NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_RectangleCustom = @"RECTANGLE_CUSTOM";
-NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Square = @"SQUARE";
-
-// GTLRCloudSearch_ChatContentExtension.eventOtrStatus
-NSString * const kGTLRCloudSearch_ChatContentExtension_EventOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
-NSString * const kGTLRCloudSearch_ChatContentExtension_EventOtrStatus_OnTheRecord = @"ON_THE_RECORD";
-
-// GTLRCloudSearch_CoActivity.coActivityApp
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppGqueues = @"CO_ACTIVITY_APP_GQUEUES";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHappyAardvark = @"CO_ACTIVITY_APP_HAPPY_AARDVARK";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHeadsup = @"CO_ACTIVITY_APP_HEADSUP";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppKahoot = @"CO_ACTIVITY_APP_KAHOOT";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSamsungNotes = @"CO_ACTIVITY_APP_SAMSUNG_NOTES";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSpotify = @"CO_ACTIVITY_APP_SPOTIFY";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppUno = @"CO_ACTIVITY_APP_UNO";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppUnspecified = @"CO_ACTIVITY_APP_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMain = @"CO_ACTIVITY_APP_YOU_TUBE_MAIN";
-NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMusic = @"CO_ACTIVITY_APP_YOU_TUBE_MUSIC";
+// GTLRCloudSearch_BackgroundColoredText.backgroundColor
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_Blue = @"BLUE";
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_Green = @"GREEN";
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_Grey = @"GREY";
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_Orange = @"ORANGE";
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_UnknownColor = @"UNKNOWN_COLOR";
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_White = @"WHITE";
+NSString * const kGTLRCloudSearch_BackgroundColoredText_BackgroundColor_Yellow = @"YELLOW";
 
 // GTLRCloudSearch_CompositeFilter.logicOperator
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_And = @"AND";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not = @"NOT";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Or = @"OR";
 
-// GTLRCloudSearch_DateTimePicker.type
-NSString * const kGTLRCloudSearch_DateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
-NSString * const kGTLRCloudSearch_DateTimePicker_Type_DateOnly = @"DATE_ONLY";
-NSString * const kGTLRCloudSearch_DateTimePicker_Type_TimeOnly = @"TIME_ONLY";
-NSString * const kGTLRCloudSearch_DateTimePicker_Type_UnspecifiedType = @"UNSPECIFIED_TYPE";
+// GTLRCloudSearch_Context.app
+NSString * const kGTLRCloudSearch_Context_App_Moma       = @"MOMA";
+NSString * const kGTLRCloudSearch_Context_App_Topaz      = @"TOPAZ";
+NSString * const kGTLRCloudSearch_Context_App_UnknownApp = @"UNKNOWN_APP";
 
-// GTLRCloudSearch_DeliveryMedium.mediumType
-NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_BabelMedium = @"BABEL_MEDIUM";
-NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_GoogleVoiceMedium = @"GOOGLE_VOICE_MEDIUM";
-NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_LocalSmsMedium = @"LOCAL_SMS_MEDIUM";
-NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_UnknownMedium = @"UNKNOWN_MEDIUM";
+// GTLRCloudSearch_Context.surface
+NSString * const kGTLRCloudSearch_Context_Surface_Android      = @"ANDROID";
+NSString * const kGTLRCloudSearch_Context_Surface_Any          = @"ANY";
+NSString * const kGTLRCloudSearch_Context_Surface_Desktop      = @"DESKTOP";
+NSString * const kGTLRCloudSearch_Context_Surface_Ios          = @"IOS";
+NSString * const kGTLRCloudSearch_Context_Surface_Mobile       = @"MOBILE";
+NSString * const kGTLRCloudSearch_Context_Surface_UnknownSurface = @"UNKNOWN_SURFACE";
 
-// GTLRCloudSearch_DlpAction.actionType
-NSString * const kGTLRCloudSearch_DlpAction_ActionType_AuditOnly = @"AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_DlpAction_ActionType_Block   = @"BLOCK";
-NSString * const kGTLRCloudSearch_DlpAction_ActionType_NoAction = @"NO_ACTION";
-NSString * const kGTLRCloudSearch_DlpAction_ActionType_Warn    = @"WARN";
-
-// GTLRCloudSearch_DlpMessageScanRecord.scanOutcome
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureRuleFetchFailed = @"SCAN_FAILURE_RULE_FETCH_FAILED";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType = @"SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
-NSString * const kGTLRCloudSearch_DlpMessageScanRecord_ScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
-
-// GTLRCloudSearch_DlpScanSummary.scanOutcome
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureRuleFetchFailed = @"SCAN_FAILURE_RULE_FETCH_FAILED";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRules = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedUnsupportedFileType = @"SCAN_RULE_EVALUATION_SKIPPED_UNSUPPORTED_FILE_TYPE";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageSentDuringSpaceMigration = @"SCAN_SKIPPED_MESSAGE_SENT_DURING_SPACE_MIGRATION";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
-
-// GTLRCloudSearch_DlpScanSummary.scanTrigger
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanTrigger_AttachmentUploaded = @"ATTACHMENT_UPLOADED";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanTrigger_MessageSent = @"MESSAGE_SENT";
-NSString * const kGTLRCloudSearch_DlpScanSummary_ScanTrigger_UnknownTriggerType = @"UNKNOWN_TRIGGER_TYPE";
+// GTLRCloudSearch_Context.type
+NSString * const kGTLRCloudSearch_Context_Type_AnswerCard      = @"ANSWER_CARD";
+NSString * const kGTLRCloudSearch_Context_Type_HomepageCard    = @"HOMEPAGE_CARD";
+NSString * const kGTLRCloudSearch_Context_Type_RhsCard         = @"RHS_CARD";
+NSString * const kGTLRCloudSearch_Context_Type_UnknownCardType = @"UNKNOWN_CARD_TYPE";
 
 // GTLRCloudSearch_DriveFollowUpRestrict.type
 NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupActionItems = @"FOLLOWUP_ACTION_ITEMS";
@@ -626,20 +65,6 @@ NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_Unspecified = @"UNS
 NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Starred = @"STARRED";
 NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Trashed = @"TRASHED";
 NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Unspecified = @"UNSPECIFIED";
-
-// GTLRCloudSearch_DriveMetadata.driveAction
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_AddAnotherShortcut = @"ADD_ANOTHER_SHORTCUT";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_AddShortcut = @"ADD_SHORTCUT";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_AddToDrive = @"ADD_TO_DRIVE";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_DriveActionUnspecified = @"DRIVE_ACTION_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_Organize = @"ORGANIZE";
-
-// GTLRCloudSearch_DriveMetadata.driveState
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_DriveStateUnspecified = @"DRIVE_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_InMyDrive = @"IN_MY_DRIVE";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_InTeamDrive = @"IN_TEAM_DRIVE";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_NotInDrive = @"NOT_IN_DRIVE";
-NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_SharedInDrive = @"SHARED_IN_DRIVE";
 
 // GTLRCloudSearch_DriveMimeTypeRestrict.type
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Archive = @"ARCHIVE";
@@ -666,538 +91,266 @@ NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Today = @"TODAY";
 NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Yesterday = @"YESTERDAY";
 
-// GTLRCloudSearch_EmbedClientItem.type
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AboutPage = @"ABOUT_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AccountingService = @"ACCOUNTING_SERVICE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ActionV2 = @"ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AddActionV2 = @"ADD_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AdministrativeArea = @"ADMINISTRATIVE_AREA";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AdultEntertainment = @"ADULT_ENTERTAINMENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AggregateRating = @"AGGREGATE_RATING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AggregateRatingV2 = @"AGGREGATE_RATING_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Airport = @"AIRPORT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AmusementPark = @"AMUSEMENT_PARK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AnimalShelter = @"ANIMAL_SHELTER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ApartmentComplex = @"APARTMENT_COMPLEX";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AppInvite = @"APP_INVITE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Aquarium = @"AQUARIUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ArtGallery = @"ART_GALLERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Article = @"ARTICLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ArticleV2 = @"ARTICLE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AssessActionV2 = @"ASSESS_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Attorney = @"ATTORNEY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AudioObject = @"AUDIO_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AudioObjectV2 = @"AUDIO_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoBodyShop = @"AUTO_BODY_SHOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoDealer = @"AUTO_DEALER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutomatedTeller = @"AUTOMATED_TELLER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutomotiveBusiness = @"AUTOMOTIVE_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoPartsStore = @"AUTO_PARTS_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoRental = @"AUTO_RENTAL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoRepair = @"AUTO_REPAIR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoWash = @"AUTO_WASH";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Bakery  = @"BAKERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BankOrCreditUnion = @"BANK_OR_CREDIT_UNION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BarOrPub = @"BAR_OR_PUB";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BasicInteractionV2 = @"BASIC_INTERACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Beach   = @"BEACH";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BeautySalon = @"BEAUTY_SALON";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BedAndBreakfast = @"BED_AND_BREAKFAST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BikeStore = @"BIKE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Blog    = @"BLOG";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BlogPosting = @"BLOG_POSTING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BlogPostingV2 = @"BLOG_POSTING_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BlogV2  = @"BLOG_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BodyOfWater = @"BODY_OF_WATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Book    = @"BOOK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BookFormatType = @"BOOK_FORMAT_TYPE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BookStore = @"BOOK_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BookV2  = @"BOOK_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BowlingAlley = @"BOWLING_ALLEY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Brewery = @"BREWERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BuddhistTemple = @"BUDDHIST_TEMPLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BusinessEvent = @"BUSINESS_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BusStation = @"BUS_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BusStop = @"BUS_STOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BuyActionV2 = @"BUY_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CafeOrCoffeeShop = @"CAFE_OR_COFFEE_SHOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Campground = @"CAMPGROUND";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Canal   = @"CANAL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CarouselFrame = @"CAROUSEL_FRAME";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Casino  = @"CASINO";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CatholicChurch = @"CATHOLIC_CHURCH";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Cemetery = @"CEMETERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Checkin = @"CHECKIN";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CheckInActionV2 = @"CHECK_IN_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CheckinV2 = @"CHECKIN_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CheckoutPage = @"CHECKOUT_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ChildCare = @"CHILD_CARE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ChildrensEvent = @"CHILDRENS_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Church  = @"CHURCH";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_City    = @"CITY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CityHall = @"CITY_HALL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CivicStructure = @"CIVIC_STRUCTURE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ClothingStore = @"CLOTHING_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CollectionPage = @"COLLECTION_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CollegeOrUniversity = @"COLLEGE_OR_UNIVERSITY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CollexionV2 = @"COLLEXION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ComedyClub = @"COMEDY_CLUB";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ComedyEvent = @"COMEDY_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Comment = @"COMMENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CommentActionV2 = @"COMMENT_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CommentV2 = @"COMMENT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CommunicateActionV2 = @"COMMUNICATE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ComputerStore = @"COMPUTER_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ConsumeActionV2 = @"CONSUME_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ContactPage = @"CONTACT_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ContactPoint = @"CONTACT_POINT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Continent = @"CONTINENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ConvenienceStore = @"CONVENIENCE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Corporation = @"CORPORATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Country = @"COUNTRY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Courthouse = @"COURTHOUSE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CreateActionV2 = @"CREATE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CreativeWork = @"CREATIVE_WORK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CreativeWorkV2 = @"CREATIVE_WORK_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Crematorium = @"CREMATORIUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DanceEvent = @"DANCE_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Date    = @"DATE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DaySpa  = @"DAY_SPA";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DefenceEstablishment = @"DEFENCE_ESTABLISHMENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Dentist = @"DENTIST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DepartmentStore = @"DEPARTMENT_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DeprecatedTourObject = @"DEPRECATED_TOUR_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DeprecatedTourObjectV2 = @"DEPRECATED_TOUR_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DiscoverActionV2 = @"DISCOVER_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Distance = @"DISTANCE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DocumentObject = @"DOCUMENT_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DocumentObjectV2 = @"DOCUMENT_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DrawingObject = @"DRAWING_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DrawingObjectV2 = @"DRAWING_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DriveObjectCollection = @"DRIVE_OBJECT_COLLECTION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DriveObjectV2 = @"DRIVE_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DryCleaningOrLaundry = @"DRY_CLEANING_OR_LAUNDRY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Duration = @"DURATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DynamiteAttachmentMetadata = @"DYNAMITE_ATTACHMENT_METADATA";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DynamiteMessageMetadata = @"DYNAMITE_MESSAGE_METADATA";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EducationalOrganization = @"EDUCATIONAL_ORGANIZATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EducationEvent = @"EDUCATION_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Electrician = @"ELECTRICIAN";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ElectronicsStore = @"ELECTRONICS_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ElementarySchool = @"ELEMENTARY_SCHOOL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Embassy = @"EMBASSY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EmergencyService = @"EMERGENCY_SERVICE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Emotishare = @"EMOTISHARE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EmotishareV2 = @"EMOTISHARE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EmploymentAgengy = @"EMPLOYMENT_AGENGY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Energy  = @"ENERGY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EntertainmentBusiness = @"ENTERTAINMENT_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EntryPointV2 = @"ENTRY_POINT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Enumeration = @"ENUMERATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Event   = @"EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EventTimeV2 = @"EVENT_TIME_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EventV2 = @"EVENT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EventVenue = @"EVENT_VENUE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ExampleObject = @"EXAMPLE_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ExerciseGym = @"EXERCISE_GYM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FastFoodRestaurant = @"FAST_FOOD_RESTAURANT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Festival = @"FESTIVAL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FileObject = @"FILE_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FileObjectV2 = @"FILE_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FinancialQuote = @"FINANCIAL_QUOTE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FinancialQuoteV2 = @"FINANCIAL_QUOTE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FinancialService = @"FINANCIAL_SERVICE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FindActionV2 = @"FIND_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FireStation = @"FIRE_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Florist = @"FLORIST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FoodEstablishment = @"FOOD_ESTABLISHMENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FoodEvent = @"FOOD_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FormObject = @"FORM_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FormObjectV2 = @"FORM_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FurnitureStore = @"FURNITURE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GardenStore = @"GARDEN_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GasStation = @"GAS_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GatedResidenceCommunity = @"GATED_RESIDENCE_COMMUNITY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeneralContractor = @"GENERAL_CONTRACTOR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeoCoordinates = @"GEO_COORDINATES";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeoCoordinatesV2 = @"GEO_COORDINATES_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeoShape = @"GEO_SHAPE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GolfCourse = @"GOLF_COURSE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleChart = @"GOOGLE_CHART";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleOfferV2 = @"GOOGLE_OFFER_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GooglePhotoRecipe = @"GOOGLE_PHOTO_RECIPE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleUserPhotoAlbum = @"GOOGLE_USER_PHOTO_ALBUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleUserPhotoV2 = @"GOOGLE_USER_PHOTO_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GovernmentBuilding = @"GOVERNMENT_BUILDING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GovernmentOffice = @"GOVERNMENT_OFFICE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GovernmentOrganization = @"GOVERNMENT_ORGANIZATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GroceryStore = @"GROCERY_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HairSalon = @"HAIR_SALON";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hangout = @"HANGOUT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutBroadcast = @"HANGOUT_BROADCAST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutChatMessage = @"HANGOUT_CHAT_MESSAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutConsumer = @"HANGOUT_CONSUMER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutQuote = @"HANGOUT_QUOTE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutV2 = @"HANGOUT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HardwareStore = @"HARDWARE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HealthAndBeautyBusiness = @"HEALTH_AND_BEAUTY_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HealthClub = @"HEALTH_CLUB";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HighSchool = @"HIGH_SCHOOL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HinduTemple = @"HINDU_TEMPLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HoaPlusEventV2 = @"HOA_PLUS_EVENT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HobbyShop = @"HOBBY_SHOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HomeAndConstructionBusiness = @"HOME_AND_CONSTRUCTION_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HomeGoodsStore = @"HOME_GOODS_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hospital = @"HOSPITAL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hostel  = @"HOSTEL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hotel   = @"HOTEL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HousePainter = @"HOUSE_PAINTER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HvacBusiness = @"HVAC_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_IceCreamShop = @"ICE_CREAM_SHOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ImageGallery = @"IMAGE_GALLERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ImageObject = @"IMAGE_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ImageObjectV2 = @"IMAGE_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InsuranceAgency = @"INSURANCE_AGENCY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Intangible = @"INTANGIBLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InteractActionV2 = @"INTERACT_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InteractionV2 = @"INTERACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InternetCafe = @"INTERNET_CAFE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ItemAvailability = @"ITEM_AVAILABILITY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ItemList = @"ITEM_LIST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ItemPage = @"ITEM_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_JewelryStore = @"JEWELRY_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_JobPosting = @"JOB_POSTING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LakeBodyOfWater = @"LAKE_BODY_OF_WATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Landform = @"LANDFORM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LandmarksOrHistoricalBuildings = @"LANDMARKS_OR_HISTORICAL_BUILDINGS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Language = @"LANGUAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LegislativeBuilding = @"LEGISLATIVE_BUILDING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Library = @"LIBRARY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LiquorStore = @"LIQUOR_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ListenActionV2 = @"LISTEN_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LiteraryEvent = @"LITERARY_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalBusiness = @"LOCAL_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalBusinessV2 = @"LOCAL_BUSINESS_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalPlusPhotoAlbum = @"LOCAL_PLUS_PHOTO_ALBUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalPlusPhotoAlbumV2 = @"LOCAL_PLUS_PHOTO_ALBUM_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Locksmith = @"LOCKSMITH";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LodgingBusiness = @"LODGING_BUSINESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Magazine = @"MAGAZINE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MagazineV2 = @"MAGAZINE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Map     = @"MAP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Mass    = @"MASS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MediaObject = @"MEDIA_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MediaObjectV2 = @"MEDIA_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MedicalClinic = @"MEDICAL_CLINIC";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MedicalOrganization = @"MEDICAL_ORGANIZATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MensClothingStore = @"MENS_CLOTHING_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MiddleSchool = @"MIDDLE_SCHOOL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MobileApplication = @"MOBILE_APPLICATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MobileApplicationV2 = @"MOBILE_APPLICATION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MobilePhoneStore = @"MOBILE_PHONE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Mosque  = @"MOSQUE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Motel   = @"MOTEL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MotorcycleDealer = @"MOTORCYCLE_DEALER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MotorcycleRepair = @"MOTORCYCLE_REPAIR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Mountain = @"MOUNTAIN";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Movie   = @"MOVIE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovieRentalStore = @"MOVIE_RENTAL_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovieTheater = @"MOVIE_THEATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovieV2 = @"MOVIE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovingCompany = @"MOVING_COMPANY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Museum  = @"MUSEUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicAlbum = @"MUSIC_ALBUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicAlbumV2 = @"MUSIC_ALBUM_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicEvent = @"MUSIC_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicGroup = @"MUSIC_GROUP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicGroupV2 = @"MUSIC_GROUP_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicPlaylist = @"MUSIC_PLAYLIST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicPlaylistV2 = @"MUSIC_PLAYLIST_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicRecording = @"MUSIC_RECORDING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicRecordingV2 = @"MUSIC_RECORDING_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicStore = @"MUSIC_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicVenue = @"MUSIC_VENUE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicVideoObject = @"MUSIC_VIDEO_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NailSalon = @"NAIL_SALON";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NewsArticle = @"NEWS_ARTICLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NewsArticleV2 = @"NEWS_ARTICLE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NewsMediaOrganization = @"NEWS_MEDIA_ORGANIZATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NightClub = @"NIGHT_CLUB";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Notary  = @"NOTARY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NutritionInformation = @"NUTRITION_INFORMATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OceanBodyOfWater = @"OCEAN_BODY_OF_WATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Offer   = @"OFFER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OfferItemCondition = @"OFFER_ITEM_CONDITION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OfferV2 = @"OFFER_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OfficeEquipmentStore = @"OFFICE_EQUIPMENT_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Optician = @"OPTICIAN";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Organization = @"ORGANIZATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OrganizationV2 = @"ORGANIZATION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OrganizeActionV2 = @"ORGANIZE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OutletStore = @"OUTLET_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Painting = @"PAINTING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Park    = @"PARK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ParkingFacility = @"PARKING_FACILITY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PawnShop = @"PAWN_SHOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PerformingArtsTheater = @"PERFORMING_ARTS_THEATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PerformingGroup = @"PERFORMING_GROUP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Person  = @"PERSON";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PersonV2 = @"PERSON_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PetStore = @"PET_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Pharmacy = @"PHARMACY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Photograph = @"PHOTOGRAPH";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Physician = @"PHYSICIAN";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Place   = @"PLACE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceOfWorship = @"PLACE_OF_WORSHIP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceReview = @"PLACE_REVIEW";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceReviewV2 = @"PLACE_REVIEW_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceV2 = @"PLACE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlanActionV2 = @"PLAN_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Playground = @"PLAYGROUND";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicAlbum = @"PLAY_MUSIC_ALBUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicAlbumV2 = @"PLAY_MUSIC_ALBUM_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicTrack = @"PLAY_MUSIC_TRACK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicTrackV2 = @"PLAY_MUSIC_TRACK_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayObjectV2 = @"PLAY_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Plumber = @"PLUMBER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusAudioV2 = @"PLUS_AUDIO_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusEvent = @"PLUS_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusEventV2 = @"PLUS_EVENT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusMediaCollectionV2 = @"PLUS_MEDIA_COLLECTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusMediaObjectV2 = @"PLUS_MEDIA_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPage = @"PLUS_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPageV2 = @"PLUS_PAGE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhoto = @"PLUS_PHOTO";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoAlbum = @"PLUS_PHOTO_ALBUM";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoAlbumV2 = @"PLUS_PHOTO_ALBUM_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoCollectionV2 = @"PLUS_PHOTO_COLLECTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotosAddedToCollection = @"PLUS_PHOTOS_ADDED_TO_COLLECTION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotosAddedToCollectionV2 = @"PLUS_PHOTOS_ADDED_TO_COLLECTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoV2 = @"PLUS_PHOTO_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPost = @"PLUS_POST";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPostV2 = @"PLUS_POST_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusReshareV2 = @"PLUS_RESHARE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusSoftwareApplicationV2 = @"PLUS_SOFTWARE_APPLICATION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PoliceStation = @"POLICE_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PollOptionV2 = @"POLL_OPTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PollV2  = @"POLL_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Pond    = @"POND";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PostalAddress = @"POSTAL_ADDRESS";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PostalAddressV2 = @"POSTAL_ADDRESS_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PostOffice = @"POST_OFFICE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Preschool = @"PRESCHOOL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PresentationObject = @"PRESENTATION_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PresentationObjectV2 = @"PRESENTATION_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Product = @"PRODUCT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProductReview = @"PRODUCT_REVIEW";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProductReviewV2 = @"PRODUCT_REVIEW_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProfessionalService = @"PROFESSIONAL_SERVICE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProfilePage = @"PROFILE_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PublicSwimmingPool = @"PUBLIC_SWIMMING_POOL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Quantity = @"QUANTITY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RadioStation = @"RADIO_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Rating  = @"RATING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RatingV2 = @"RATING_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReactActionV2 = @"REACT_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RealEstateAgent = @"REAL_ESTATE_AGENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Recipe  = @"RECIPE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RecommendedPeople = @"RECOMMENDED_PEOPLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RecyclingCenter = @"RECYCLING_CENTER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Reservation = @"RESERVATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReservationV2 = @"RESERVATION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReserveActionV2 = @"RESERVE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Reservoir = @"RESERVOIR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Residence = @"RESIDENCE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Restaurant = @"RESTAURANT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Review  = @"REVIEW";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReviewActionV2 = @"REVIEW_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReviewV2 = @"REVIEW_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RiverBodyOfWater = @"RIVER_BODY_OF_WATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RoofingContractor = @"ROOFING_CONTRACTOR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RVPark  = @"R_V_PARK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SaleEvent = @"SALE_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ScholarlyArticle = @"SCHOLARLY_ARTICLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_School  = @"SCHOOL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Sculpture = @"SCULPTURE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SeaBodyOfWater = @"SEA_BODY_OF_WATER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SearchResultsPage = @"SEARCH_RESULTS_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SelfStorage = @"SELF_STORAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ShoeStore = @"SHOE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ShoppingCenter = @"SHOPPING_CENTER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SingleFamilyResidence = @"SINGLE_FAMILY_RESIDENCE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SiteNavigationElement = @"SITE_NAVIGATION_ELEMENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SkiResort = @"SKI_RESORT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SocialEvent = @"SOCIAL_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SoftwareApplication = @"SOFTWARE_APPLICATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SoftwareApplicationV2 = @"SOFTWARE_APPLICATION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportingGoodsStore = @"SPORTING_GOODS_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportsActivityLocation = @"SPORTS_ACTIVITY_LOCATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportsClub = @"SPORTS_CLUB";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportsEvent = @"SPORTS_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SpreadsheetObject = @"SPREADSHEET_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SpreadsheetObjectV2 = @"SPREADSHEET_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Square  = @"SQUARE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SquareInvite = @"SQUARE_INVITE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SquareInviteV2 = @"SQUARE_INVITE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SquareV2 = @"SQUARE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StadiumOrArena = @"STADIUM_OR_ARENA";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_State   = @"STATE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StickerV2 = @"STICKER_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Store   = @"STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StoryV2 = @"STORY_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StructuredValue = @"STRUCTURED_VALUE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SubwayStation = @"SUBWAY_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Synagogue = @"SYNAGOGUE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Table   = @"TABLE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TattooParlor = @"TATTOO_PARLOR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TaxiStand = @"TAXI_STAND";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TelevisionStation = @"TELEVISION_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TennisComplex = @"TENNIS_COMPLEX";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TheaterEvent = @"THEATER_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Thing   = @"THING";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ThingV2 = @"THING_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TireShop = @"TIRE_SHOP";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TouristAttraction = @"TOURIST_ATTRACTION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TouristInformationCenter = @"TOURIST_INFORMATION_CENTER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ToyStore = @"TOY_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TradeActionV2 = @"TRADE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TrainStation = @"TRAIN_STATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TravelAgency = @"TRAVEL_AGENCY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TravelEvent = @"TRAVEL_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvEpisode = @"TV_EPISODE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvEpisodeV2 = @"TV_EPISODE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvSeason = @"TV_SEASON";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvSeries = @"TV_SERIES";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvSeriesV2 = @"TV_SERIES_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Unknown = @"UNKNOWN";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_UpdateActionV2 = @"UPDATE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_UserInteraction = @"USER_INTERACTION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_UserPlusOnes = @"USER_PLUS_ONES";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VeterinaryCare = @"VETERINARY_CARE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoGallery = @"VIDEO_GALLERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoGalleryV2 = @"VIDEO_GALLERY_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoObject = @"VIDEO_OBJECT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoObjectV2 = @"VIDEO_OBJECT_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ViewActionV2 = @"VIEW_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VisualArtsEvent = @"VISUAL_ARTS_EVENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Volcano = @"VOLCANO";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WantActionV2 = @"WANT_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Waterfall = @"WATERFALL";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebApplication = @"WEB_APPLICATION";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebPage = @"WEB_PAGE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebPageElement = @"WEB_PAGE_ELEMENT";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebPageV2 = @"WEB_PAGE_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WholesaleStore = @"WHOLESALE_STORE";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Winery  = @"WINERY";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpAdBlock = @"WP_AD_BLOCK";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpFooter = @"WP_FOOTER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpHeader = @"WP_HEADER";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpSidebar = @"WP_SIDEBAR";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WriteActionV2 = @"WRITE_ACTION_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_YoutubeChannelV2 = @"YOUTUBE_CHANNEL_V2";
-NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Zoo     = @"ZOO";
+// GTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber.type
+NSString * const kGTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber_Type_Mobile = @"MOBILE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber_Type_Office = @"OFFICE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber_Type_Other = @"OTHER";
+NSString * const kGTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber_Type_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry.chronology
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_AllDay = @"ALL_DAY";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_Future = @"FUTURE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_NearFuture = @"NEAR_FUTURE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_Past = @"PAST";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_Present = @"PRESENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_RecentlyPast = @"RECENTLY_PAST";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_Chronology_Stale = @"STALE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry.currentUserAttendingStatus
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_CurrentUserAttendingStatus_Awaiting = @"AWAITING";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_CurrentUserAttendingStatus_Maybe = @"MAYBE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_CurrentUserAttendingStatus_No = @"NO";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry_CurrentUserAttendingStatus_Yes = @"YES";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProtoContext.eventsRestrict
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProtoContext_EventsRestrict_NextMeeting = @"NEXT_MEETING";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProtoContext_EventsRestrict_None = @"NONE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList.type
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonAddress = @"PERSON_ADDRESS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonBirthday = @"PERSON_BIRTHDAY";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonDepartment = @"PERSON_DEPARTMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonDeskLocation = @"PERSON_DESK_LOCATION";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonEmail = @"PERSON_EMAIL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonJobTitle = @"PERSON_JOB_TITLE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_PersonPhone = @"PERSON_PHONE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList_Type_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory.category
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory_Category_Calendar = @"CALENDAR";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory_Category_Document = @"DOCUMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory_Category_People = @"PEOPLE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory_Category_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto.cardType
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Agenda = @"AGENDA";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_AgendaGroup = @"AGENDA_GROUP";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Changelists = @"CHANGELISTS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ConflictingMeetings = @"CONFLICTING_MEETINGS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CreateNotesForMeeting = @"CREATE_NOTES_FOR_MEETING";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CreateNotesForMeetingRequest = @"CREATE_NOTES_FOR_MEETING_REQUEST";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CustomerNews = @"CUSTOMER_NEWS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DiscoverPeople = @"DISCOVER_PEOPLE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DocumentListAnswerCard = @"DOCUMENT_LIST_ANSWER_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DomainTrendingDocs = @"DOMAIN_TRENDING_DOCS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_FindMeetingTime = @"FIND_MEETING_TIME";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_GenericAnswerCard = @"GENERIC_ANSWER_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_GetAndKeepAhead = @"GET_AND_KEEP_AHEAD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Homepage = @"HOMEPAGE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_HomepageV3 = @"HOMEPAGE_V3";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Meetings = @"MEETINGS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_NextMeeting = @"NEXT_MEETING";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_PeopleSearchPromotionCard = @"PEOPLE_SEARCH_PROMOTION_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_PersonalizedDocs = @"PERSONALIZED_DOCS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_PersonAnswerCard = @"PERSON_ANSWER_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_PersonKnowledgeCard = @"PERSON_KNOWLEDGE_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_RelatedPeopleAnswerCard = @"RELATED_PEOPLE_ANSWER_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ShareMeetingDocs = @"SHARE_MEETING_DOCS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_SuggestedQueryAnswerCard = @"SUGGESTED_QUERY_ANSWER_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Summary = @"SUMMARY";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_TeamTrendingDocs = @"TEAM_TRENDING_DOCS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ThirdPartyAnswerCard = @"THIRD_PARTY_ANSWER_CARD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_TrendingDocs = @"TRENDING_DOCS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_UnknownType = @"UNKNOWN_TYPE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_UpcomingTrip = @"UPCOMING_TRIP";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_WorkInProgress = @"WORK_IN_PROGRESS";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCardMetadata.cardCategory
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_CardCategory_Answer = @"ANSWER";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_CardCategory_Default = @"DEFAULT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_CardCategory_Homepage = @"HOMEPAGE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_CardCategory_Knowledge = @"KNOWLEDGE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCardMetadata.chronology
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_Chronology_Future = @"FUTURE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_Chronology_NearFuture = @"NEAR_FUTURE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_Chronology_Past = @"PAST";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_Chronology_Present = @"PRESENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_Chronology_RecentlyPast = @"RECENTLY_PAST";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_Chronology_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCardMetadata.renderMode
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_RenderMode_Collapsed = @"COLLAPSED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_RenderMode_Expanded = @"EXPANDED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCardMetadata_RenderMode_UnknownRender = @"UNKNOWN_RENDER";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument.accessType
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_AccessType_Allowed = @"ALLOWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_AccessType_NotAllowed = @"NOT_ALLOWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_AccessType_UnknownAccess = @"UNKNOWN_ACCESS";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument.provenance
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Provenance_CalendarAssistAttachment = @"CALENDAR_ASSIST_ATTACHMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Provenance_CalendarAttachment = @"CALENDAR_ATTACHMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Provenance_CalendarDescription = @"CALENDAR_DESCRIPTION";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Provenance_Mined = @"MINED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Provenance_UnknownProvenance = @"UNKNOWN_PROVENANCE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument.reason
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_EventAttachment = @"EVENT_ATTACHMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_EventDescription = @"EVENT_DESCRIPTION";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_EventMetadataAttachment = @"EVENT_METADATA_ATTACHMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_FrequentlyEdited = @"FREQUENTLY_EDITED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_FrequentlyViewed = @"FREQUENTLY_VIEWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_MinedDocument = @"MINED_DOCUMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_NewComments = @"NEW_COMMENTS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_NewMentions = @"NEW_MENTIONS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_NewShares = @"NEW_SHARES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_NewUpdates = @"NEW_UPDATES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_TrendingInCollaborators = @"TRENDING_IN_COLLABORATORS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_TrendingInDomain = @"TRENDING_IN_DOMAIN";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument.type
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Audio = @"AUDIO";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_BinaryBlob = @"BINARY_BLOB";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Document = @"DOCUMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Drawing = @"DRAWING";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Folder = @"FOLDER";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Form = @"FORM";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_FusionTable = @"FUSION_TABLE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Groups = @"GROUPS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Hangout = @"HANGOUT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Image = @"IMAGE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_LinkBitLy = @"LINK_BIT_LY";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_LinkGmail = @"LINK_GMAIL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_LinkGo = @"LINK_GO";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_LinkGooGl = @"LINK_GOO_GL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_LinkMailto = @"LINK_MAILTO";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_LinkUrl = @"LINK_URL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_MsExcel = @"MS_EXCEL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_MsOutlook = @"MS_OUTLOOK";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_MsPowerpoint = @"MS_POWERPOINT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_MsWord = @"MS_WORD";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_News = @"NEWS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Pdf = @"PDF";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Presentation = @"PRESENTATION";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Sites = @"SITES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Spreadsheet = @"SPREADSHEET";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_Video = @"VIDEO";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_VideoLive = @"VIDEO_LIVE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Type_VideoYoutube = @"VIDEO_YOUTUBE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata.scope
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_DasherDomain = @"DASHER_DOMAIN";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_DasherDomainWithLink = @"DASHER_DOMAIN_WITH_LINK";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_Limited = @"LIMITED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_Public = @"PUBLIC";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_PublicWithLink = @"PUBLIC_WITH_LINK";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_TeamDrive = @"TEAM_DRIVE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata_Scope_UnknownDocumentScope = @"UNKNOWN_DOCUMENT_SCOPE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification.reason
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_EventAttachment = @"EVENT_ATTACHMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_EventDescription = @"EVENT_DESCRIPTION";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_EventMetadataAttachment = @"EVENT_METADATA_ATTACHMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_FrequentlyEdited = @"FREQUENTLY_EDITED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_FrequentlyViewed = @"FREQUENTLY_VIEWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_MinedDocument = @"MINED_DOCUMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_NewComments = @"NEW_COMMENTS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_NewMentions = @"NEW_MENTIONS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_NewShares = @"NEW_SHARES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_NewUpdates = @"NEW_UPDATES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_TrendingInCollaborators = @"TRENDING_IN_COLLABORATORS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_TrendingInDomain = @"TRENDING_IN_DOMAIN";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification_Reason_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup.groupType
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup_GroupType_All = @"ALL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup_GroupType_UnknownType = @"UNKNOWN_TYPE";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList.listType
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList_ListType_Edits = @"EDITS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList_ListType_Mentions = @"MENTIONS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList_ListType_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList_ListType_Shares = @"SHARES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList_ListType_UnknownListType = @"UNKNOWN_LIST_TYPE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList_ListType_Views = @"VIEWS";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry.category
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Actionable = @"ACTIONABLE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Edited = @"EDITED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_MentionNotViewed = @"MENTION_NOT_VIEWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_MentionReplied = @"MENTION_REPLIED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_MentionViewed = @"MENTION_VIEWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Replied = @"REPLIED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_SharedAndViewed = @"SHARED_AND_VIEWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_SharedNotViewed = @"SHARED_NOT_VIEWED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_UnknownDocument = @"UNKNOWN_DOCUMENT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Viewed = @"VIEWED";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardError.reason
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardError_Reason_None = @"NONE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardError_Reason_NotOwner = @"NOT_OWNER";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardError_Reason_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardRequest.canCreateFor
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardRequest_CanCreateFor_AllAttendees = @"ALL_ATTENDEES";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardRequest_CanCreateFor_Myself = @"MYSELF";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardRequest_CanCreateFor_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard.responseStatus
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard_ResponseStatus_MissingData = @"MISSING_DATA";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard_ResponseStatus_MissingPerson = @"MISSING_PERSON";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard_ResponseStatus_Success = @"SUCCESS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard_ResponseStatus_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard.relationType
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_RelationType_DirectReports = @"DIRECT_REPORTS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_RelationType_Manager = @"MANAGER";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_RelationType_Peers = @"PEERS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_RelationType_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard.responseStatus
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_ResponseStatus_MissingData = @"MISSING_DATA";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_ResponseStatus_MissingPerson = @"MISSING_PERSON";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_ResponseStatus_Success = @"SUCCESS";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard_ResponseStatus_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickPerson.affinityLevel
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AffinityLevel_High = @"HIGH";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AffinityLevel_Low = @"LOW";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AffinityLevel_Medium = @"MEDIUM";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AffinityLevel_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickPerson.attendingStatus
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AttendingStatus_Awaiting = @"AWAITING";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AttendingStatus_Maybe = @"MAYBE";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AttendingStatus_No = @"NO";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPerson_AttendingStatus_Yes = @"YES";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople.relation
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople_Relation_DirectReport = @"DIRECT_REPORT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople_Relation_Manager = @"MANAGER";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople_Relation_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickRankingParams.priority
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Priority_BestEffort = @"BEST_EFFORT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Priority_Critical = @"CRITICAL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Priority_High = @"HIGH";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Priority_Important = @"IMPORTANT";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Priority_Normal = @"NORMAL";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Priority_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_EnterpriseTopazSidekickRankingParams.type
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Type_Fixed = @"FIXED";
+NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickRankingParams_Type_Flexible = @"FLEXIBLE";
 
 // GTLRCloudSearch_EnumPropertyOptions.orderedRanking
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending = @"ASCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending = @"DESCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder = @"NO_ORDER";
-
-// GTLRCloudSearch_FormAction.loadIndicator
-NSString * const kGTLRCloudSearch_FormAction_LoadIndicator_None = @"NONE";
-NSString * const kGTLRCloudSearch_FormAction_LoadIndicator_Spinner = @"SPINNER";
-
-// GTLRCloudSearch_FormatMetadata.formatType
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Bold = @"BOLD";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_BulletedList = @"BULLETED_LIST";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_BulletedListItem = @"BULLETED_LIST_ITEM";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_ClientHidden = @"CLIENT_HIDDEN";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_FontColor = @"FONT_COLOR";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Hidden = @"HIDDEN";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Italic = @"ITALIC";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Monospace = @"MONOSPACE";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_MonospaceBlock = @"MONOSPACE_BLOCK";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_SourceCode = @"SOURCE_CODE";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Strike = @"STRIKE";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Underline = @"UNDERLINE";
-
-// GTLRCloudSearch_Formatting.style
-NSString * const kGTLRCloudSearch_Formatting_Style_Heading1    = @"HEADING_1";
-NSString * const kGTLRCloudSearch_Formatting_Style_Heading2    = @"HEADING_2";
-NSString * const kGTLRCloudSearch_Formatting_Style_Heading3    = @"HEADING_3";
-NSString * const kGTLRCloudSearch_Formatting_Style_Heading4    = @"HEADING_4";
-NSString * const kGTLRCloudSearch_Formatting_Style_UnknownStyle = @"UNKNOWN_STYLE";
-
-// GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader.imageStyle
-NSString * const kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_Avatar = @"AVATAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_Image = @"IMAGE";
-NSString * const kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_ImageStyleUnspecified = @"IMAGE_STYLE_UNSPECIFIED";
-
-// GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton.icon
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Airplane = @"AIRPLANE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Bookmark = @"BOOKMARK";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Bus = @"BUS";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Car = @"CAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Clock = @"CLOCK";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Description = @"DESCRIPTION";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Dollar = @"DOLLAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Email = @"EMAIL";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_EventPerformer = @"EVENT_PERFORMER";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_EventSeat = @"EVENT_SEAT";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Hotel = @"HOTEL";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_IconUnspecified = @"ICON_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Invite = @"INVITE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_MapPin = @"MAP_PIN";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Membership = @"MEMBERSHIP";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Offer = @"OFFER";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Person = @"PERSON";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Phone = @"PHONE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_RestaurantIcon = @"RESTAURANT_ICON";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_ShoppingCart = @"SHOPPING_CART";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Star = @"STAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Store = @"STORE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Ticket = @"TICKET";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Train = @"TRAIN";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_VideoCamera = @"VIDEO_CAMERA";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_VideoPlay = @"VIDEO_PLAY";
-
-// GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue.icon
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Airplane = @"AIRPLANE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Bookmark = @"BOOKMARK";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Bus = @"BUS";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Car = @"CAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Clock = @"CLOCK";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Description = @"DESCRIPTION";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Dollar = @"DOLLAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Email = @"EMAIL";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_EventPerformer = @"EVENT_PERFORMER";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_EventSeat = @"EVENT_SEAT";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Hotel = @"HOTEL";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_IconUnspecified = @"ICON_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Invite = @"INVITE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_MapPin = @"MAP_PIN";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Membership = @"MEMBERSHIP";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Offer = @"OFFER";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Person = @"PERSON";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Phone = @"PHONE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_RestaurantIcon = @"RESTAURANT_ICON";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_ShoppingCart = @"SHOPPING_CART";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Star = @"STAR";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Store = @"STORE";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Ticket = @"TICKET";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Train = @"TRAIN";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_VideoCamera = @"VIDEO_CAMERA";
-NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_VideoPlay = @"VIDEO_PLAY";
 
 // GTLRCloudSearch_GoogleDocsMetadata.documentType
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_BinaryBlob = @"BINARY_BLOB";
@@ -1218,354 +371,10 @@ NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Spreadsheet = 
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Video = @"VIDEO";
 
-// GTLRCloudSearch_GridItem.layout
-NSString * const kGTLRCloudSearch_GridItem_Layout_NotSet    = @"NOT_SET";
-NSString * const kGTLRCloudSearch_GridItem_Layout_TextAbove = @"TEXT_ABOVE";
-NSString * const kGTLRCloudSearch_GridItem_Layout_TextBelow = @"TEXT_BELOW";
-
-// GTLRCloudSearch_GridItem.textAlignment
-NSString * const kGTLRCloudSearch_GridItem_TextAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_GridItem_TextAlignment_End   = @"END";
-NSString * const kGTLRCloudSearch_GridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_GridItem_TextAlignment_Start = @"START";
-
-// GTLRCloudSearch_GroupLinkSharingModificationEvent.newStatus
-NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_LinkSharingOff = @"LINK_SHARING_OFF";
-NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_LinkSharingOn = @"LINK_SHARING_ON";
-NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_NotAvailable = @"NOT_AVAILABLE";
-NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_UnknownLinkSharingStatus = @"UNKNOWN_LINK_SHARING_STATUS";
-
-// GTLRCloudSearch_GsuiteIntegrationMetadata.clientType
-NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_ActivityFeedService = @"ACTIVITY_FEED_SERVICE";
-NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_Assistant = @"ASSISTANT";
-NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_CalendarEvent = @"CALENDAR_EVENT";
-NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_Meet = @"MEET";
-NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_Tasks = @"TASKS";
-NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_UnknownClientType = @"UNKNOWN_CLIENT_TYPE";
-
-// GTLRCloudSearch_HangoutEvent.mediaType
-NSString * const kGTLRCloudSearch_HangoutEvent_MediaType_AudioOnly = @"AUDIO_ONLY";
-NSString * const kGTLRCloudSearch_HangoutEvent_MediaType_AudioVideo = @"AUDIO_VIDEO";
-NSString * const kGTLRCloudSearch_HangoutEvent_MediaType_PushToTalk = @"PUSH_TO_TALK";
-
-// GTLRCloudSearch_HangoutEvent.type
-NSString * const kGTLRCloudSearch_HangoutEvent_Type_EndHangout = @"END_HANGOUT";
-NSString * const kGTLRCloudSearch_HangoutEvent_Type_HangoutComingSoon = @"HANGOUT_COMING_SOON";
-NSString * const kGTLRCloudSearch_HangoutEvent_Type_JoinHangout = @"JOIN_HANGOUT";
-NSString * const kGTLRCloudSearch_HangoutEvent_Type_LeaveHangout = @"LEAVE_HANGOUT";
-NSString * const kGTLRCloudSearch_HangoutEvent_Type_OngoingHangout = @"ONGOING_HANGOUT";
-NSString * const kGTLRCloudSearch_HangoutEvent_Type_StartHangout = @"START_HANGOUT";
-
-// GTLRCloudSearch_HangoutVideoEventMetadata.hangoutVideoType
-NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_UnknownHangoutVideoEventType = @"UNKNOWN_HANGOUT_VIDEO_EVENT_TYPE";
-NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_VideoEnd = @"VIDEO_END";
-NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_VideoStart = @"VIDEO_START";
-
-// GTLRCloudSearch_HistoryRecord.type
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_AttributeRemoved = @"ATTRIBUTE_REMOVED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_AttributeSet = @"ATTRIBUTE_SET";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_FilterCreated = @"FILTER_CREATED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_FilterDeleted = @"FILTER_DELETED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_ImapUidsReassign = @"IMAP_UIDS_REASSIGN";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_Internal  = @"INTERNAL";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelAdded = @"LABEL_ADDED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelCreated = @"LABEL_CREATED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelDeleted = @"LABEL_DELETED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelRemoved = @"LABEL_REMOVED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelRenamed = @"LABEL_RENAMED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_LabelUpdated = @"LABEL_UPDATED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_MessageAdded = @"MESSAGE_ADDED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_MessageDeleted = @"MESSAGE_DELETED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_PrefDeleted = @"PREF_DELETED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_PrefWritten = @"PREF_WRITTEN";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_ThreadKeySet = @"THREAD_KEY_SET";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_TopicStateUpdated = @"TOPIC_STATE_UPDATED";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_TxnDebugInfo = @"TXN_DEBUG_INFO";
-NSString * const kGTLRCloudSearch_HistoryRecord_Type_Unknown   = @"UNKNOWN";
-
-// GTLRCloudSearch_IconImage.icon
-NSString * const kGTLRCloudSearch_IconImage_Icon_Airplane      = @"AIRPLANE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Bookmark      = @"BOOKMARK";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Bus           = @"BUS";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Car           = @"CAR";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Clock         = @"CLOCK";
-NSString * const kGTLRCloudSearch_IconImage_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Description   = @"DESCRIPTION";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Dollar        = @"DOLLAR";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Edit          = @"EDIT";
-NSString * const kGTLRCloudSearch_IconImage_Icon_EditNote      = @"EDIT_NOTE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Email         = @"EMAIL";
-NSString * const kGTLRCloudSearch_IconImage_Icon_EventPerformer = @"EVENT_PERFORMER";
-NSString * const kGTLRCloudSearch_IconImage_Icon_EventSeat     = @"EVENT_SEAT";
-NSString * const kGTLRCloudSearch_IconImage_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
-NSString * const kGTLRCloudSearch_IconImage_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Hotel         = @"HOTEL";
-NSString * const kGTLRCloudSearch_IconImage_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Invite        = @"INVITE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_MapPin        = @"MAP_PIN";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Membership    = @"MEMBERSHIP";
-NSString * const kGTLRCloudSearch_IconImage_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_None          = @"NONE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Offer         = @"OFFER";
-NSString * const kGTLRCloudSearch_IconImage_Icon_OpenInNew     = @"OPEN_IN_NEW";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Person        = @"PERSON";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Phone         = @"PHONE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_RestaurantIcon = @"RESTAURANT_ICON";
-NSString * const kGTLRCloudSearch_IconImage_Icon_ShoppingCart  = @"SHOPPING_CART";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Star          = @"STAR";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Store         = @"STORE";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Ticket        = @"TICKET";
-NSString * const kGTLRCloudSearch_IconImage_Icon_Train         = @"TRAIN";
-NSString * const kGTLRCloudSearch_IconImage_Icon_VideoCamera   = @"VIDEO_CAMERA";
-NSString * const kGTLRCloudSearch_IconImage_Icon_VideoPlay     = @"VIDEO_PLAY";
-
-// GTLRCloudSearch_IconImage.imageStyle
-NSString * const kGTLRCloudSearch_IconImage_ImageStyle_Circle  = @"CIRCLE";
-NSString * const kGTLRCloudSearch_IconImage_ImageStyle_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
-NSString * const kGTLRCloudSearch_IconImage_ImageStyle_Rectangle43 = @"RECTANGLE_4_3";
-NSString * const kGTLRCloudSearch_IconImage_ImageStyle_RectangleCustom = @"RECTANGLE_CUSTOM";
-NSString * const kGTLRCloudSearch_IconImage_ImageStyle_Square  = @"SQUARE";
-
-// GTLRCloudSearch_ImageButton.icon
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Airplane    = @"AIRPLANE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Bookmark    = @"BOOKMARK";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Bus         = @"BUS";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Car         = @"CAR";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Clock       = @"CLOCK";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Description = @"DESCRIPTION";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Dollar      = @"DOLLAR";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Edit        = @"EDIT";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_EditNote    = @"EDIT_NOTE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Email       = @"EMAIL";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_EventPerformer = @"EVENT_PERFORMER";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_EventSeat   = @"EVENT_SEAT";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Hotel       = @"HOTEL";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Invite      = @"INVITE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_MapPin      = @"MAP_PIN";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Membership  = @"MEMBERSHIP";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_None        = @"NONE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Offer       = @"OFFER";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_OpenInNew   = @"OPEN_IN_NEW";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Person      = @"PERSON";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Phone       = @"PHONE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_RestaurantIcon = @"RESTAURANT_ICON";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_ShoppingCart = @"SHOPPING_CART";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Star        = @"STAR";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Store       = @"STORE";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Ticket      = @"TICKET";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_Train       = @"TRAIN";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_VideoCamera = @"VIDEO_CAMERA";
-NSString * const kGTLRCloudSearch_ImageButton_Icon_VideoPlay   = @"VIDEO_PLAY";
-
-// GTLRCloudSearch_ImageCropStyle.type
-NSString * const kGTLRCloudSearch_ImageCropStyle_Type_Circle   = @"CIRCLE";
-NSString * const kGTLRCloudSearch_ImageCropStyle_Type_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
-NSString * const kGTLRCloudSearch_ImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
-NSString * const kGTLRCloudSearch_ImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
-NSString * const kGTLRCloudSearch_ImageCropStyle_Type_Square   = @"SQUARE";
-
-// GTLRCloudSearch_ImageKeyValue.icon
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Airplane  = @"AIRPLANE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Bookmark  = @"BOOKMARK";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Bus       = @"BUS";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Car       = @"CAR";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Clock     = @"CLOCK";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Description = @"DESCRIPTION";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Dollar    = @"DOLLAR";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Edit      = @"EDIT";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_EditNote  = @"EDIT_NOTE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Email     = @"EMAIL";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_EventPerformer = @"EVENT_PERFORMER";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_EventSeat = @"EVENT_SEAT";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Hotel     = @"HOTEL";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Invite    = @"INVITE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_MapPin    = @"MAP_PIN";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Membership = @"MEMBERSHIP";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_None      = @"NONE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Offer     = @"OFFER";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_OpenInNew = @"OPEN_IN_NEW";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Person    = @"PERSON";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Phone     = @"PHONE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_RestaurantIcon = @"RESTAURANT_ICON";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_ShoppingCart = @"SHOPPING_CART";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Star      = @"STAR";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Store     = @"STORE";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Ticket    = @"TICKET";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Train     = @"TRAIN";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_VideoCamera = @"VIDEO_CAMERA";
-NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_VideoPlay = @"VIDEO_PLAY";
-
-// GTLRCloudSearch_ImapSessionContext.app
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AdsenseApp = @"ADSENSE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AdwordsApp = @"ADWORDS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AlloApp = @"ALLO_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AndroidBrowser = @"ANDROID_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AndroidDeviceManagerApp = @"ANDROID_DEVICE_MANAGER_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AndroidEmailApp = @"ANDROID_EMAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AppleNativeApp = @"APPLE_NATIVE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_ArtsAndCultureApp = @"ARTS_AND_CULTURE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_AssistantApp = @"ASSISTANT_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_BattlestarApp = @"BATTLESTAR_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_BisApp = @"BIS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_BoxerApp = @"BOXER_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_CalendarApp = @"CALENDAR_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_Chrome = @"CHROME";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_ChromeSyncApp = @"CHROME_SYNC_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_ChromeWebviewApp = @"CHROME_WEBVIEW_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_ClassroomApp = @"CLASSROOM_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_CocCocBrowser = @"COC_COC_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DatallyApp = @"DATALLY_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DeprecatedIosMailApp = @"DEPRECATED_IOS_MAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DeprecatedMacOsxMailApp = @"DEPRECATED_MAC_OSX_MAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DocsApp = @"DOCS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DriveApp = @"DRIVE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DriveSyncApp = @"DRIVE_SYNC_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_DuoApp = @"DUO_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_EarthApp = @"EARTH_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_Edge  = @"EDGE";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_ExpressApp = @"EXPRESS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_FamilyLinkApp = @"FAMILY_LINK_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_FilesGoApp = @"FILES_GO_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_Firefox = @"FIREFOX";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GboardApp = @"GBOARD_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GmailApp = @"GMAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GmailInboxApp = @"GMAIL_INBOX_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GmmApp = @"GMM_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GoogleAnalyticsApp = @"GOOGLE_ANALYTICS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GoogleGoApp = @"GOOGLE_GO_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GoogleMyBusinessApp = @"GOOGLE_MY_BUSINESS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GooglePayApp = @"GOOGLE_PAY_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_GsaApp = @"GSA_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_HangoutsApp = @"HANGOUTS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_HangoutsMeetApp = @"HANGOUTS_MEET_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_HeadlessChrome = @"HEADLESS_CHROME";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_HomeApp = @"HOME_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_JamboardApp = @"JAMBOARD_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_KeepApp = @"KEEP_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_LimilabsMailDll = @"LIMILABS_MAIL_DLL";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_LogdogApp = @"LOGDOG_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_MaxBrowserAppValue = @"MAX_BROWSER_APP_VALUE";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_MotoEmailApp = @"MOTO_EMAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_Msie  = @"MSIE";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_MsieCompatibility = @"MSIE_COMPATIBILITY";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_NewsApp = @"NEWS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_Opera = @"OPERA";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_OpinionRewardsApp = @"OPINION_REWARDS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_OtherApp = @"OTHER_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_OtherBrowser = @"OTHER_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_OutlookMailApp = @"OUTLOOK_MAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PhotosApp = @"PHOTOS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayApp = @"PLAY_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayBooksApp = @"PLAY_BOOKS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayGamesApp = @"PLAY_GAMES_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayMoviesApp = @"PLAY_MOVIES_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayMusicApp = @"PLAY_MUSIC_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlayNewsstandApp = @"PLAY_NEWSSTAND_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PlusApp = @"PLUS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_PokemonGoApp = @"POKEMON_GO_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_Safari = @"SAFARI";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SafariWebviewApp = @"SAFARI_WEBVIEW_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SamsungBrowser = @"SAMSUNG_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SamsungMailApp = @"SAMSUNG_MAIL_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SheetsApp = @"SHEETS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SilkBrowser = @"SILK_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SlidesApp = @"SLIDES_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_SmartLockApp = @"SMART_LOCK_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_StadiaApp = @"STADIA_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_StreetViewApp = @"STREET_VIEW_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_TezApp = @"TEZ_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_TranslateApp = @"TRANSLATE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_TripsApp = @"TRIPS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_UcBrowser = @"UC_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_VoiceApp = @"VOICE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_WalletApp = @"WALLET_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_WazeApp = @"WAZE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_WearApp = @"WEAR_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_WhatsAppInDriveApp = @"WHATS_APP_IN_DRIVE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_WifiApp = @"WIFI_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YandexBrowser = @"YANDEX_BROWSER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeApp = @"YOUTUBE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeCaptureApp = @"YOUTUBE_CAPTURE_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeCreatorApp = @"YOUTUBE_CREATOR_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeGamingApp = @"YOUTUBE_GAMING_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeGoApp = @"YOUTUBE_GO_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeKidsApp = @"YOUTUBE_KIDS_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeMusicApp = @"YOUTUBE_MUSIC_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeTvApp = @"YOUTUBE_TV_APP";
-NSString * const kGTLRCloudSearch_ImapSessionContext_App_YoutubeVrApp = @"YOUTUBE_VR_APP";
-
-// GTLRCloudSearch_ImapSessionContext.deviceType
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Car = @"CAR";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_ConnectedHomeOther = @"CONNECTED_HOME_OTHER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_GameConsole = @"GAME_CONSOLE";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Glass = @"GLASS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_MediaPlayer = @"MEDIA_PLAYER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Mobile = @"MOBILE";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Pc = @"PC";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_PortableMediaPlayer = @"PORTABLE_MEDIA_PLAYER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_SmartDisplay = @"SMART_DISPLAY";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_SmartSpeaker = @"SMART_SPEAKER";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Tablet = @"TABLET";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Tv = @"TV";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Unknown = @"UNKNOWN";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_VrHeadset = @"VR_HEADSET";
-NSString * const kGTLRCloudSearch_ImapSessionContext_DeviceType_Wearable = @"WEARABLE";
-
-// GTLRCloudSearch_ImapSessionContext.os
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_AndroidOs = @"ANDROID_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_AndroidThingsOs = @"ANDROID_THINGS_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_AppleTvOs = @"APPLE_TV_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_BlackberryOs = @"BLACKBERRY_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_CastOs = @"CAST_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_ChromeOs = @"CHROME_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_FireOs = @"FIRE_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_IosOs  = @"IOS_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_KaiOs  = @"KAI_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_LinuxOs = @"LINUX_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_MacOs  = @"MAC_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_MaxMobileOsValue = @"MAX_MOBILE_OS_VALUE";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_PlaystationOs = @"PLAYSTATION_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_StadiaOs = @"STADIA_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_TizenOs = @"TIZEN_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_UnknownOs = @"UNKNOWN_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_WindowsOs = @"WINDOWS_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_WinPhoneOs = @"WIN_PHONE_OS";
-NSString * const kGTLRCloudSearch_ImapSessionContext_Os_XboxOs = @"XBOX_OS";
-
-// GTLRCloudSearch_IncomingWebhookChangedMetadata.type
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Added = @"ADDED";
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Removed = @"REMOVED";
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Unspecified = @"UNSPECIFIED";
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Updated = @"UPDATED";
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_UpdatedAvatar = @"UPDATED_AVATAR";
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_UpdatedName = @"UPDATED_NAME";
-NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_UpdatedNameAndAvatar = @"UPDATED_NAME_AND_AVATAR";
-
 // GTLRCloudSearch_IndexItemRequest.mode
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous = @"ASYNCHRONOUS";
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous = @"SYNCHRONOUS";
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified = @"UNSPECIFIED";
-
-// GTLRCloudSearch_InsertContent.contentType
-NSString * const kGTLRCloudSearch_InsertContent_ContentType_ImmutableHtml = @"IMMUTABLE_HTML";
-NSString * const kGTLRCloudSearch_InsertContent_ContentType_MutableHtml = @"MUTABLE_HTML";
-NSString * const kGTLRCloudSearch_InsertContent_ContentType_Text = @"TEXT";
-NSString * const kGTLRCloudSearch_InsertContent_ContentType_UnspecifiedContentType = @"UNSPECIFIED_CONTENT_TYPE";
-
-// GTLRCloudSearch_InsertContent.mimeType
-NSString * const kGTLRCloudSearch_InsertContent_MimeType_Html  = @"HTML";
-NSString * const kGTLRCloudSearch_InsertContent_MimeType_PlainText = @"PLAIN_TEXT";
-NSString * const kGTLRCloudSearch_InsertContent_MimeType_UnspecifiedEmailMimeType = @"UNSPECIFIED_EMAIL_MIME_TYPE";
 
 // GTLRCloudSearch_IntegerPropertyOptions.orderedRanking
 NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Ascending = @"ASCENDING";
@@ -1609,178 +418,11 @@ NSString * const kGTLRCloudSearch_ItemStatus_Code_Error        = @"ERROR";
 NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified     = @"MODIFIED";
 NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem      = @"NEW_ITEM";
 
-// GTLRCloudSearch_KeyValue.icon
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Airplane       = @"AIRPLANE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Bookmark       = @"BOOKMARK";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Bus            = @"BUS";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Car            = @"CAR";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Clock          = @"CLOCK";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Description    = @"DESCRIPTION";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Dollar         = @"DOLLAR";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Edit           = @"EDIT";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_EditNote       = @"EDIT_NOTE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Email          = @"EMAIL";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_EventPerformer = @"EVENT_PERFORMER";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_EventSeat      = @"EVENT_SEAT";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_FlightArrival  = @"FLIGHT_ARRIVAL";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Hotel          = @"HOTEL";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_HotelRoomType  = @"HOTEL_ROOM_TYPE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Invite         = @"INVITE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_MapPin         = @"MAP_PIN";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Membership     = @"MEMBERSHIP";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_None           = @"NONE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Offer          = @"OFFER";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_OpenInNew      = @"OPEN_IN_NEW";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Person         = @"PERSON";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Phone          = @"PHONE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_RestaurantIcon = @"RESTAURANT_ICON";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_ShoppingCart   = @"SHOPPING_CART";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Star           = @"STAR";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Store          = @"STORE";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Ticket         = @"TICKET";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_Train          = @"TRAIN";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_VideoCamera    = @"VIDEO_CAMERA";
-NSString * const kGTLRCloudSearch_KeyValue_Icon_VideoPlay      = @"VIDEO_PLAY";
-
-// GTLRCloudSearch_KeyValue.imageStyle
-NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_Circle   = @"CIRCLE";
-NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
-NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_Rectangle43 = @"RECTANGLE_4_3";
-NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_RectangleCustom = @"RECTANGLE_CUSTOM";
-NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_Square   = @"SQUARE";
-
-// GTLRCloudSearch_LinkData.attachmentRenderHint
-NSString * const kGTLRCloudSearch_LinkData_AttachmentRenderHint_AttachmentRenderHintAfter = @"ATTACHMENT_RENDER_HINT_AFTER";
-NSString * const kGTLRCloudSearch_LinkData_AttachmentRenderHint_AttachmentRenderHintInterleaved = @"ATTACHMENT_RENDER_HINT_INTERLEAVED";
-NSString * const kGTLRCloudSearch_LinkData_AttachmentRenderHint_AttachmentRenderHintUnknown = @"ATTACHMENT_RENDER_HINT_UNKNOWN";
-
-// GTLRCloudSearch_LinkData.linkType
-NSString * const kGTLRCloudSearch_LinkData_LinkType_SelfLink   = @"SELF_LINK";
-NSString * const kGTLRCloudSearch_LinkData_LinkType_UnknownLinkType = @"UNKNOWN_LINK_TYPE";
-
-// GTLRCloudSearch_MeetingSpace.acceptedNumberClass
-NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_HighCost = @"HIGH_COST";
-NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_Legacy = @"LEGACY";
-NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_LowCost = @"LOW_COST";
-NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_NumberClassUnspecified = @"NUMBER_CLASS_UNSPECIFIED";
-
-// GTLRCloudSearch_MembershipChangedMetadata.initiatorType
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeAdmin = @"INITIATOR_TYPE_ADMIN";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeEndUser = @"INITIATOR_TYPE_END_USER";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeUnspecified = @"INITIATOR_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_MembershipChangedMetadata.type
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Added = @"ADDED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_BotAdded = @"BOT_ADDED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_BotRemoved = @"BOT_REMOVED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_HumanMembershipDisplayDisabled = @"HUMAN_MEMBERSHIP_DISPLAY_DISABLED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Invited = @"INVITED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Joined = @"JOINED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_KickedDueToOtrConflict = @"KICKED_DUE_TO_OTR_CONFLICT";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Left = @"LEFT";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Removed = @"REMOVED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleTargetAudienceUpdated = @"ROLE_TARGET_AUDIENCE_UPDATED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleUpdated = @"ROLE_UPDATED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_SpaceLimitExceeded = @"SPACE_LIMIT_EXCEEDED";
-NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_MembershipChangeEvent.leaveReason
-NSString * const kGTLRCloudSearch_MembershipChangeEvent_LeaveReason_ForceHistoryPolicyChange = @"FORCE_HISTORY_POLICY_CHANGE";
-NSString * const kGTLRCloudSearch_MembershipChangeEvent_LeaveReason_LeaveReasonUnknown = @"LEAVE_REASON_UNKNOWN";
-NSString * const kGTLRCloudSearch_MembershipChangeEvent_LeaveReason_UserInitiated = @"USER_INITIATED";
-
-// GTLRCloudSearch_MembershipChangeEvent.type
-NSString * const kGTLRCloudSearch_MembershipChangeEvent_Type_Join = @"JOIN";
-NSString * const kGTLRCloudSearch_MembershipChangeEvent_Type_Leave = @"LEAVE";
-
-// GTLRCloudSearch_Message.deletableBy
-NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionCreator = @"PERMISSION_CREATOR";
-NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionMember = @"PERMISSION_MEMBER";
-NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionNoOne = @"PERMISSION_NO_ONE";
-NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
-
-// GTLRCloudSearch_Message.editableBy
-NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionCreator = @"PERMISSION_CREATOR";
-NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionMember = @"PERMISSION_MEMBER";
-NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionNoOne = @"PERMISSION_NO_ONE";
-NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
-
-// GTLRCloudSearch_Message.messageOrigin
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabel = @"ORIGIN_BABEL";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelDualWrite = @"ORIGIN_BABEL_DUAL_WRITE";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelDualWriteRetry = @"ORIGIN_BABEL_DUAL_WRITE_RETRY";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelInteropLive = @"ORIGIN_BABEL_INTEROP_LIVE";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelInteropRetry = @"ORIGIN_BABEL_INTEROP_RETRY";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBackfillFromGmailArchive = @"ORIGIN_BACKFILL_FROM_GMAIL_ARCHIVE";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBackfillFromPapyrus = @"ORIGIN_BACKFILL_FROM_PAPYRUS";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginDynamite = @"ORIGIN_DYNAMITE";
-NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginNotSet = @"ORIGIN_NOT_SET";
-
-// GTLRCloudSearch_Message.messageState
-NSString * const kGTLRCloudSearch_Message_MessageState_Private = @"PRIVATE";
-NSString * const kGTLRCloudSearch_Message_MessageState_Public  = @"PUBLIC";
-
-// GTLRCloudSearch_Message.quotedByState
-NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateHasBeenQuoted = @"QUOTED_BY_STATE_HAS_BEEN_QUOTED";
-NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateHasNotBeenQuoted = @"QUOTED_BY_STATE_HAS_NOT_BEEN_QUOTED";
-NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateUnspecified = @"QUOTED_BY_STATE_UNSPECIFIED";
-
-// GTLRCloudSearch_Message.richTextFormattingType
-NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotations = @"FORMAT_ANNOTATIONS";
-NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotationsIgnored = @"FORMAT_ANNOTATIONS_IGNORED";
-NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_FormatAnnotationsIgnoredWithMarkdown = @"FORMAT_ANNOTATIONS_IGNORED_WITH_MARKDOWN";
-NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_Markdown = @"MARKDOWN";
-NSString * const kGTLRCloudSearch_Message_RichTextFormattingType_None = @"NONE";
-
-// GTLRCloudSearch_MessageInfo.authorUserType
-NSString * const kGTLRCloudSearch_MessageInfo_AuthorUserType_Bot = @"BOT";
-NSString * const kGTLRCloudSearch_MessageInfo_AuthorUserType_Human = @"HUMAN";
-
-// GTLRCloudSearch_MessageInfo.searcherMembershipState
-NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberFailed = @"MEMBER_FAILED";
-NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberInvited = @"MEMBER_INVITED";
-NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberJoined = @"MEMBER_JOINED";
-NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
-NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
-
-// GTLRCloudSearch_OpenLink.loadIndicator
-NSString * const kGTLRCloudSearch_OpenLink_LoadIndicator_None  = @"NONE";
-NSString * const kGTLRCloudSearch_OpenLink_LoadIndicator_Spinner = @"SPINNER";
-
-// GTLRCloudSearch_OpenLink.onClose
-NSString * const kGTLRCloudSearch_OpenLink_OnClose_Nothing     = @"NOTHING";
-NSString * const kGTLRCloudSearch_OpenLink_OnClose_ReloadAddOn = @"RELOAD_ADD_ON";
-
-// GTLRCloudSearch_OpenLink.openAs
-NSString * const kGTLRCloudSearch_OpenLink_OpenAs_FullSize = @"FULL_SIZE";
-NSString * const kGTLRCloudSearch_OpenLink_OpenAs_Overlay  = @"OVERLAY";
-
-// GTLRCloudSearch_OtrChatMessageEvent.messageOtrStatus
-NSString * const kGTLRCloudSearch_OtrChatMessageEvent_MessageOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
-NSString * const kGTLRCloudSearch_OtrChatMessageEvent_MessageOtrStatus_OnTheRecord = @"ON_THE_RECORD";
-
-// GTLRCloudSearch_OtrModificationEvent.newOtrStatus
-NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
-NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrStatus_OnTheRecord = @"ON_THE_RECORD";
-
-// GTLRCloudSearch_OtrModificationEvent.newOtrToggle
-NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrToggle_Disabled = @"DISABLED";
-NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrToggle_Enabled = @"ENABLED";
-
-// GTLRCloudSearch_OtrModificationEvent.oldOtrStatus
-NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
-NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrStatus_OnTheRecord = @"ON_THE_RECORD";
-
-// GTLRCloudSearch_OtrModificationEvent.oldOtrToggle
-NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrToggle_Disabled = @"DISABLED";
-NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrToggle_Enabled = @"ENABLED";
-
-// GTLRCloudSearch_PackagingServiceClient.type
-NSString * const kGTLRCloudSearch_PackagingServiceClient_Type_Android = @"ANDROID";
-NSString * const kGTLRCloudSearch_PackagingServiceClient_Type_Ios = @"IOS";
+// GTLRCloudSearch_PersonCore.availabilityStatus
+NSString * const kGTLRCloudSearch_PersonCore_AvailabilityStatus_Available = @"AVAILABLE";
+NSString * const kGTLRCloudSearch_PersonCore_AvailabilityStatus_OutOfOffice = @"OUT_OF_OFFICE";
+NSString * const kGTLRCloudSearch_PersonCore_AvailabilityStatus_OutsideWorkingHours = @"OUTSIDE_WORKING_HOURS";
+NSString * const kGTLRCloudSearch_PersonCore_AvailabilityStatus_Unknown = @"UNKNOWN";
 
 // GTLRCloudSearch_PhoneNumber.type
 NSString * const kGTLRCloudSearch_PhoneNumber_Type_Mobile = @"MOBILE";
@@ -1793,36 +435,6 @@ NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_CodeUnspecified =
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Error = @"ERROR";
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Modified = @"MODIFIED";
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_NewItem = @"NEW_ITEM";
-
-// GTLRCloudSearch_PrincipalProto.scope
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_AllAuthenticatedUsers = @"ALL_AUTHENTICATED_USERS";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_CapTokenHolder = @"CAP_TOKEN_HOLDER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Chat    = @"CHAT";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Circle  = @"CIRCLE";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_CloudPrincipal = @"CLOUD_PRINCIPAL";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_ContactGroup = @"CONTACT_GROUP";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_EmailOwner = @"EMAIL_OWNER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Event   = @"EVENT";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_GaiaGroup = @"GAIA_GROUP";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_GaiaUser = @"GAIA_USER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Host    = @"HOST";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Invalid = @"INVALID";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_LdapGroup = @"LDAP_GROUP";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_LdapUser = @"LDAP_USER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_MdbGroup = @"MDB_GROUP";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_MdbUser = @"MDB_USER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_OauthConsumer = @"OAUTH_CONSUMER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_PostiniUser = @"POSTINI_USER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_RbacRole = @"RBAC_ROLE";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_RbacSubject = @"RBAC_SUBJECT";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_ResourceRole = @"RESOURCE_ROLE";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_SigningKeyPossessor = @"SIGNING_KEY_POSSESSOR";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_SimpleSecretHolder = @"SIMPLE_SECRET_HOLDER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_SocialGraphNode = @"SOCIAL_GRAPH_NODE";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Square  = @"SQUARE";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_UnusedZwiebackSession = @"UNUSED_ZWIEBACK_SESSION";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_YoutubeUser = @"YOUTUBE_USER";
-NSString * const kGTLRCloudSearch_PrincipalProto_Scope_ZwiebackSession = @"ZWIEBACK_SESSION";
 
 // GTLRCloudSearch_ProcessingError.code
 NSString * const kGTLRCloudSearch_ProcessingError_Code_AclCycle = @"ACL_CYCLE";
@@ -1859,42 +471,6 @@ NSString * const kGTLRCloudSearch_QueryOperator_Type_Text      = @"TEXT";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown   = @"UNKNOWN";
 
-// GTLRCloudSearch_QuotedMessageMetadata.botAttachmentState
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAttachmentStateHasBotAttachment = @"BOT_ATTACHMENT_STATE_HAS_BOT_ATTACHMENT";
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAttachmentStateNoBotAttachment = @"BOT_ATTACHMENT_STATE_NO_BOT_ATTACHMENT";
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAttachmentStateUnspecified = @"BOT_ATTACHMENT_STATE_UNSPECIFIED";
-
-// GTLRCloudSearch_QuotedMessageMetadata.messageState
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateActive = @"MESSAGE_STATE_ACTIVE";
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateDeleted = @"MESSAGE_STATE_DELETED";
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateOtrEdited = @"MESSAGE_STATE_OTR_EDITED";
-NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateUnspecified = @"MESSAGE_STATE_UNSPECIFIED";
-
-// GTLRCloudSearch_RecordingEvent.type
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_ActiveAboutToStopTooLong = @"ACTIVE_ABOUT_TO_STOP_TOO_LONG";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_CancelledByUser = @"CANCELLED_BY_USER";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_CancelledInitializationFailed = @"CANCELLED_INITIALIZATION_FAILED";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_CancelledInitiatorLeft = @"CANCELLED_INITIATOR_LEFT";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_RecordingEventUnspecified = @"RECORDING_EVENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_StartedByUser = @"STARTED_BY_USER";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedAllDevicesLeft = @"STOPPED_ALL_DEVICES_LEFT";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedByUser = @"STOPPED_BY_USER";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedInternalFailures = @"STOPPED_INTERNAL_FAILURES";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedTooLong = @"STOPPED_TOO_LONG";
-NSString * const kGTLRCloudSearch_RecordingEvent_Type_UserAction = @"USER_ACTION";
-
-// GTLRCloudSearch_RecordingInfo.recordingApplicationType
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Broadcast = @"BROADCAST";
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_GliveStream = @"GLIVE_STREAM";
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Recording = @"RECORDING";
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_RecordingApplicationTypeUnspecified = @"RECORDING_APPLICATION_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_RecordingInfo.recordingStatus
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingInactive = @"RECORDING_INACTIVE";
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingStarted = @"RECORDING_STARTED";
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingStarting = @"RECORDING_STARTING";
-NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingUnspecified = @"RECORDING_UNSPECIFIED";
-
 // GTLRCloudSearch_RepositoryError.type
 NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthenticationError = @"AUTHENTICATION_ERROR";
 NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthorizationError = @"AUTHORIZATION_ERROR";
@@ -1907,79 +483,12 @@ NSString * const kGTLRCloudSearch_RepositoryError_Type_ServerError = @"SERVER_ER
 NSString * const kGTLRCloudSearch_RepositoryError_Type_ServiceUnavailable = @"SERVICE_UNAVAILABLE";
 NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown = @"UNKNOWN";
 
-// GTLRCloudSearch_RequiredMessageFeaturesMetadata.requiredFeatures
-NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureCustomHyperlink = @"REQUIRED_FEATURE_CUSTOM_HYPERLINK";
-NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureDriveSmartChip = @"REQUIRED_FEATURE_DRIVE_SMART_CHIP";
-NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureLegacyTopicStart = @"REQUIRED_FEATURE_LEGACY_TOPIC_START";
-NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting = @"REQUIRED_FEATURE_MESSAGE_QUOTING";
-NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureTombstonesInDmsAndUfrs = @"REQUIRED_FEATURE_TOMBSTONES_IN_DMS_AND_UFRS";
-NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureUnspecified = @"REQUIRED_FEATURE_UNSPECIFIED";
-
 // GTLRCloudSearch_RetrievalImportance.importance
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Default = @"DEFAULT";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_High = @"HIGH";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Highest = @"HIGHEST";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low = @"LOW";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_None = @"NONE";
-
-// GTLRCloudSearch_RoomUpdatedMetadata.initiatorType
-NSString * const kGTLRCloudSearch_RoomUpdatedMetadata_InitiatorType_InitiatorTypeAdmin = @"INITIATOR_TYPE_ADMIN";
-NSString * const kGTLRCloudSearch_RoomUpdatedMetadata_InitiatorType_InitiatorTypeEndUser = @"INITIATOR_TYPE_END_USER";
-NSString * const kGTLRCloudSearch_RoomUpdatedMetadata_InitiatorType_InitiatorTypeUnspecified = @"INITIATOR_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_Roster.rosterState
-NSString * const kGTLRCloudSearch_Roster_RosterState_RosterActive = @"ROSTER_ACTIVE";
-NSString * const kGTLRCloudSearch_Roster_RosterState_RosterDeleted = @"ROSTER_DELETED";
-NSString * const kGTLRCloudSearch_Roster_RosterState_RosterStateUnknown = @"ROSTER_STATE_UNKNOWN";
-
-// GTLRCloudSearch_Segment.type
-NSString * const kGTLRCloudSearch_Segment_Type_AllUserMention = @"ALL_USER_MENTION";
-NSString * const kGTLRCloudSearch_Segment_Type_Hashtag        = @"HASHTAG";
-NSString * const kGTLRCloudSearch_Segment_Type_LineBreak      = @"LINE_BREAK";
-NSString * const kGTLRCloudSearch_Segment_Type_Link           = @"LINK";
-NSString * const kGTLRCloudSearch_Segment_Type_SearchLink     = @"SEARCH_LINK";
-NSString * const kGTLRCloudSearch_Segment_Type_Text           = @"TEXT";
-NSString * const kGTLRCloudSearch_Segment_Type_UserMention    = @"USER_MENTION";
-
-// GTLRCloudSearch_SelectionControl.type
-NSString * const kGTLRCloudSearch_SelectionControl_Type_CheckBox = @"CHECK_BOX";
-NSString * const kGTLRCloudSearch_SelectionControl_Type_Dropdown = @"DROPDOWN";
-NSString * const kGTLRCloudSearch_SelectionControl_Type_RadioButton = @"RADIO_BUTTON";
-NSString * const kGTLRCloudSearch_SelectionControl_Type_Switch = @"SWITCH";
-
-// GTLRCloudSearch_SessionEvent.type
-NSString * const kGTLRCloudSearch_SessionEvent_Type_ActiveAboutToStopTooLong = @"ACTIVE_ABOUT_TO_STOP_TOO_LONG";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_CancelledByUser = @"CANCELLED_BY_USER";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_CancelledInitializationFailed = @"CANCELLED_INITIALIZATION_FAILED";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_CancelledInitiatorLeft = @"CANCELLED_INITIATOR_LEFT";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_EventUnspecified = @"EVENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_StartedByUser = @"STARTED_BY_USER";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedAllDevicesLeft = @"STOPPED_ALL_DEVICES_LEFT";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedByUser = @"STOPPED_BY_USER";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedInternalFailures = @"STOPPED_INTERNAL_FAILURES";
-NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedTooLong = @"STOPPED_TOO_LONG";
-
-// GTLRCloudSearch_SessionStateInfo.sessionState
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_Active = @"ACTIVE";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_SessionStateUnspecified = @"SESSION_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_Starting = @"STARTING";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_Stopped = @"STOPPED";
-
-// GTLRCloudSearch_SessionStateInfo.sessionStopReason
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_SessionStopReasonUnspecified = @"SESSION_STOP_REASON_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedAllDevicesLeft = @"STOPPED_ALL_DEVICES_LEFT";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedInitializationFailed = @"STOPPED_INITIALIZATION_FAILED";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedInternalFailures = @"STOPPED_INTERNAL_FAILURES";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedTooLong = @"STOPPED_TOO_LONG";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedYouTubeLiveEventEnded = @"STOPPED_YOU_TUBE_LIVE_EVENT_ENDED";
-NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_UserAction = @"USER_ACTION";
-
-// GTLRCloudSearch_Settings.accessType
-NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeClosed = @"ACCESS_TYPE_CLOSED";
-NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeOpen = @"ACCESS_TYPE_OPEN";
-NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeRestricted = @"ACCESS_TYPE_RESTRICTED";
-NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeTrusted = @"ACCESS_TYPE_TRUSTED";
-NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
 
 // GTLRCloudSearch_ShareScope.scope
 NSString * const kGTLRCloudSearch_ShareScope_Scope_DasherDomain = @"DASHER_DOMAIN";
@@ -1988,20 +497,6 @@ NSString * const kGTLRCloudSearch_ShareScope_Scope_Limited     = @"LIMITED";
 NSString * const kGTLRCloudSearch_ShareScope_Scope_Private     = @"PRIVATE";
 NSString * const kGTLRCloudSearch_ShareScope_Scope_Public      = @"PUBLIC";
 NSString * const kGTLRCloudSearch_ShareScope_Scope_Unknown     = @"UNKNOWN";
-
-// GTLRCloudSearch_SimpleSecretLabelProto.type
-NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_AuthKey = @"AUTH_KEY";
-NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_CapToken = @"CAP_TOKEN";
-NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_GenericSecret = @"GENERIC_SECRET";
-NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_Invalid = @"INVALID";
-NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_Invite = @"INVITE";
-NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_Reke = @"REKE";
-
-// GTLRCloudSearch_SlashCommandMetadata.type
-NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_Add = @"ADD";
-NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_FailedToAdd = @"FAILED_TO_ADD";
-NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_Invoke = @"INVOKE";
-NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudSearch_SortOptions.sortOrder
 NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Ascending = @"ASCENDING";
@@ -2018,11 +513,6 @@ NSString * const kGTLRCloudSearch_Source_PredefinedSource_None = @"NONE";
 NSString * const kGTLRCloudSearch_Source_PredefinedSource_Person = @"PERSON";
 NSString * const kGTLRCloudSearch_Source_PredefinedSource_QueryHistory = @"QUERY_HISTORY";
 
-// GTLRCloudSearch_SourceMessageInfo.messageType
-NSString * const kGTLRCloudSearch_SourceMessageInfo_MessageType_InlineReply = @"INLINE_REPLY";
-NSString * const kGTLRCloudSearch_SourceMessageInfo_MessageType_RootMessage = @"ROOT_MESSAGE";
-NSString * const kGTLRCloudSearch_SourceMessageInfo_MessageType_SourceMessageTypeUndefined = @"SOURCE_MESSAGE_TYPE_UNDEFINED";
-
 // GTLRCloudSearch_SourceScoringConfig.sourceImportance
 NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Default = @"DEFAULT";
 NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_High = @"HIGH";
@@ -2033,93 +523,6 @@ NSString * const kGTLRCloudSearch_SpellResult_SuggestionType_NonEmptyResultsSpel
 NSString * const kGTLRCloudSearch_SpellResult_SuggestionType_SuggestionTypeUnspecified = @"SUGGESTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_SpellResult_SuggestionType_ZeroResultsFullPageReplacement = @"ZERO_RESULTS_FULL_PAGE_REPLACEMENT";
 
-// GTLRCloudSearch_StreamingSessionInfo.applicationType
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Broadcast = @"BROADCAST";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_GliveStream = @"GLIVE_STREAM";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Recording = @"RECORDING";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_RecordingApplicationTypeUnspecified = @"RECORDING_APPLICATION_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_StreamingSessionInfo.status
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_Inactive = @"INACTIVE";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_Live = @"LIVE";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_Starting = @"STARTING";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
-
-// GTLRCloudSearch_StreamingSessionInfo.viewerAccessPolicy
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ViewerAccessPolicy_BroadcastingAccessPolicyUnspecified = @"BROADCASTING_ACCESS_POLICY_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ViewerAccessPolicy_Organization = @"ORGANIZATION";
-NSString * const kGTLRCloudSearch_StreamingSessionInfo_ViewerAccessPolicy_Public = @"PUBLIC";
-
-// GTLRCloudSearch_SwitchWidget.controlType
-NSString * const kGTLRCloudSearch_SwitchWidget_ControlType_Checkbox = @"CHECKBOX";
-NSString * const kGTLRCloudSearch_SwitchWidget_ControlType_Switch = @"SWITCH";
-NSString * const kGTLRCloudSearch_SwitchWidget_ControlType_Unspecified = @"UNSPECIFIED";
-
-// GTLRCloudSearch_TextButton.style
-NSString * const kGTLRCloudSearch_TextButton_Style_Filled      = @"FILLED";
-NSString * const kGTLRCloudSearch_TextButton_Style_Text        = @"TEXT";
-NSString * const kGTLRCloudSearch_TextButton_Style_Unspecified = @"UNSPECIFIED";
-
-// GTLRCloudSearch_TextField.type
-NSString * const kGTLRCloudSearch_TextField_Type_MultipleLine = @"MULTIPLE_LINE";
-NSString * const kGTLRCloudSearch_TextField_Type_SingleLine   = @"SINGLE_LINE";
-
-// GTLRCloudSearch_TombstoneMetadata.tombstoneType
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_Admin = @"ADMIN";
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_AppMessageExpiry = @"APP_MESSAGE_EXPIRY";
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_Creator = @"CREATOR";
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_CreatorViaApp = @"CREATOR_VIA_APP";
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_RoomOwner = @"ROOM_OWNER";
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_RoomOwnerViaApp = @"ROOM_OWNER_VIA_APP";
-NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_TombstoneUnspecified = @"TOMBSTONE_UNSPECIFIED";
-
-// GTLRCloudSearch_Trigger.dispatcher
-NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherCoproc = @"DISPATCHER_COPROC";
-NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherCs = @"DISPATCHER_CS";
-NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherJobsettedPrimary = @"DISPATCHER_JOBSETTED_PRIMARY";
-NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherStratus = @"DISPATCHER_STRATUS";
-NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherStubbyDispatcher = @"DISPATCHER_STUBBY_DISPATCHER";
-NSString * const kGTLRCloudSearch_Trigger_Dispatcher_DispatcherTasksServer = @"DISPATCHER_TASKS_SERVER";
-
-// GTLRCloudSearch_TriggerAction.action
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionAccountInitialization = @"ACTION_ACCOUNT_INITIALIZATION";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionAutoSaveDraftExpunge = @"ACTION_AUTO_SAVE_DRAFT_EXPUNGE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionCaribouDataRetention = @"ACTION_CARIBOU_DATA_RETENTION";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionCaribouDataRetentionDiff = @"ACTION_CARIBOU_DATA_RETENTION_DIFF";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionCreateNewTrigger = @"ACTION_CREATE_NEW_TRIGGER";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionDelete = @"ACTION_DELETE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionEverclearExpunge = @"ACTION_EVERCLEAR_EXPUNGE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionGroupsQueryRetention = @"ACTION_GROUPS_QUERY_RETENTION";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionHistoryCleanup = @"ACTION_HISTORY_CLEANUP";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeCs = @"ACTION_INVOKE_CS";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeDebugLog = @"ACTION_INVOKE_DEBUG_LOG";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeGroups = @"ACTION_INVOKE_GROUPS";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeJobsettedPrimary = @"ACTION_INVOKE_JOBSETTED_PRIMARY";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeObserver = @"ACTION_INVOKE_OBSERVER";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeObserverWipeout = @"ACTION_INVOKE_OBSERVER_WIPEOUT";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokePublisher = @"ACTION_INVOKE_PUBLISHER";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSatelliteBackup = @"ACTION_INVOKE_SATELLITE_BACKUP";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSatelliteImageProcessing = @"ACTION_INVOKE_SATELLITE_IMAGE_PROCESSING";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeSmimeCertificateIssuer = @"ACTION_INVOKE_SMIME_CERTIFICATE_ISSUER";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeStratus = @"ACTION_INVOKE_STRATUS";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeStubbyDispatcher = @"ACTION_INVOKE_STUBBY_DISPATCHER";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionInvokeTasksServer = @"ACTION_INVOKE_TASKS_SERVER";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionItemBulkRelabel = @"ACTION_ITEM_BULK_RELABEL";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionMessageExpunge = @"ACTION_MESSAGE_EXPUNGE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionMessageUndelete = @"ACTION_MESSAGE_UNDELETE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionNone = @"ACTION_NONE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPdhBackfill = @"ACTION_PDH_BACKFILL";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPdhExpunge = @"ACTION_PDH_EXPUNGE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPdhPushNotificationBackfill = @"ACTION_PDH_PUSH_NOTIFICATION_BACKFILL";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPreferenceCleanup = @"ACTION_PREFERENCE_CLEANUP";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionPushHistoryToPdh = @"ACTION_PUSH_HISTORY_TO_PDH";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionQueryRetention = @"ACTION_QUERY_RETENTION";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionRelevancyScoreBackfill = @"ACTION_RELEVANCY_SCORE_BACKFILL";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionRetentionPolicyUpdate = @"ACTION_RETENTION_POLICY_UPDATE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionServiceRemovedMessageExpunge = @"ACTION_SERVICE_REMOVED_MESSAGE_EXPUNGE";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionUpdateIceboxModel = @"ACTION_UPDATE_ICEBOX_MODEL";
-NSString * const kGTLRCloudSearch_TriggerAction_Action_ActionVaultEndUserAccess = @"ACTION_VAULT_END_USER_ACCESS";
-
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceMisconfigured = @"IDENTITY_SOURCE_MISCONFIGURED";
@@ -2127,151 +530,6 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_Identity
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound = @"NOT_FOUND";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound = @"TOO_MANY_MAPPINGS_FOUND";
-
-// GTLRCloudSearch_UpdateBody.type
-NSString * const kGTLRCloudSearch_UpdateBody_Type_InPlaceInsert = @"IN_PLACE_INSERT";
-NSString * const kGTLRCloudSearch_UpdateBody_Type_InsertAtEnd  = @"INSERT_AT_END";
-NSString * const kGTLRCloudSearch_UpdateBody_Type_InsertAtStart = @"INSERT_AT_START";
-NSString * const kGTLRCloudSearch_UpdateBody_Type_Replace      = @"REPLACE";
-NSString * const kGTLRCloudSearch_UpdateBody_Type_UnspecifiedActionType = @"UNSPECIFIED_ACTION_TYPE";
-
-// GTLRCloudSearch_UploadMetadata.clonedDriveAction
-NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_AddAnotherShortcut = @"ADD_ANOTHER_SHORTCUT";
-NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_AddShortcut = @"ADD_SHORTCUT";
-NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_AddToDrive = @"ADD_TO_DRIVE";
-NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_DriveActionUnspecified = @"DRIVE_ACTION_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_Organize = @"ORGANIZE";
-
-// GTLRCloudSearch_UploadMetadata.virusScanResult
-NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Clean = @"CLEAN";
-NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Error = @"ERROR";
-NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Infected = @"INFECTED";
-NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_PolicyViolation = @"POLICY_VIOLATION";
-NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_UnknownVirusScanResult = @"UNKNOWN_VIRUS_SCAN_RESULT";
-
-// GTLRCloudSearch_UrlMetadata.urlSource
-NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_AutoDetectedPlainText = @"AUTO_DETECTED_PLAIN_TEXT";
-NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_RichText = @"RICH_TEXT";
-NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation = @"SERVER_SUPPLIED_POLICY_VIOLATION";
-NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UrlSourceUnknown = @"URL_SOURCE_UNKNOWN";
-
-// GTLRCloudSearch_User.userAccountState
-NSString * const kGTLRCloudSearch_User_UserAccountState_Deleted = @"DELETED";
-NSString * const kGTLRCloudSearch_User_UserAccountState_Disabled = @"DISABLED";
-NSString * const kGTLRCloudSearch_User_UserAccountState_Enabled = @"ENABLED";
-NSString * const kGTLRCloudSearch_User_UserAccountState_TemporaryUnavailable = @"TEMPORARY_UNAVAILABLE";
-NSString * const kGTLRCloudSearch_User_UserAccountState_UnknownUserAccountState = @"UNKNOWN_USER_ACCOUNT_STATE";
-
-// GTLRCloudSearch_User.userProfileVisibility
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_DeletedUser = @"DELETED_USER";
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_Failure = @"FAILURE";
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_FullProfile = @"FULL_PROFILE";
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_InviteeEmail = @"INVITEE_EMAIL";
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_PrimaryMail = @"PRIMARY_MAIL";
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_UnknownUser = @"UNKNOWN_USER";
-NSString * const kGTLRCloudSearch_User_UserProfileVisibility_UnknownUserProfileVisibility = @"UNKNOWN_USER_PROFILE_VISIBILITY";
-
-// GTLRCloudSearch_UserId.type
-NSString * const kGTLRCloudSearch_UserId_Type_Bot   = @"BOT";
-NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
-
-// GTLRCloudSearch_UserInfo.updaterCountDisplayType
-NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_ExactCount = @"EXACT_COUNT";
-NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NoDisplayCount = @"NO_DISPLAY_COUNT";
-NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NonzeroCount = @"NONZERO_COUNT";
-NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_UpdaterCountDisplayTypeUnspecified = @"UPDATER_COUNT_DISPLAY_TYPE_UNSPECIFIED";
-
-// GTLRCloudSearch_UserMentionMetadata.type
-NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_FailedToAdd = @"FAILED_TO_ADD";
-NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Invite = @"INVITE";
-NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Mention = @"MENTION";
-NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_MentionAll = @"MENTION_ALL";
-NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite = @"UNINVITE";
-
-// GTLRCloudSearch_UserMentionMetadata.userMentionError
-NSString * const kGTLRCloudSearch_UserMentionMetadata_UserMentionError_MembershipLimitExceeded = @"MEMBERSHIP_LIMIT_EXCEEDED";
-NSString * const kGTLRCloudSearch_UserMentionMetadata_UserMentionError_UserMentionErrorUnspecified = @"USER_MENTION_ERROR_UNSPECIFIED";
-
-// GTLRCloudSearch_VoicePhoneNumberI18nData.validationResult
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_InvalidCountryCode = @"INVALID_COUNTRY_CODE";
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_InvalidLength = @"INVALID_LENGTH";
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_IsPossible = @"IS_POSSIBLE";
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_IsPossibleLocalOnly = @"IS_POSSIBLE_LOCAL_ONLY";
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_TooLong = @"TOO_LONG";
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_TooShort = @"TOO_SHORT";
-NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_WidgetMarkup.horizontalAlignment
-NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Center = @"CENTER";
-NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_End = @"END";
-NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"START";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AbuseReportingConfig
-//
-
-@implementation GTLRCloudSearch_AbuseReportingConfig
-@dynamic recordingAllowed, writtenUgcAllowed;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AckInfo
-//
-
-@implementation GTLRCloudSearch_AckInfo
-@dynamic unackedDeviceCount, unackedDeviceIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"unackedDeviceIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AclFixRequest
-//
-
-@implementation GTLRCloudSearch_AclFixRequest
-@dynamic recipientEmails, role, shouldFix;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"recipientEmails" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AclFixStatus
-//
-
-@implementation GTLRCloudSearch_AclFixStatus
-@dynamic fixability, fixableEmailAddress, outOfDomainWarningEmailAddress;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fixableEmailAddress" : [NSString class],
-    @"outOfDomainWarningEmailAddress" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -2285,1608 +543,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_ActionParameter
+//   GTLRCloudSearch_Action
 //
 
-@implementation GTLRCloudSearch_ActionParameter
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AddonComposeUiActionMarkup
-//
-
-@implementation GTLRCloudSearch_AddonComposeUiActionMarkup
-@dynamic type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AddOnFrameStartingState
-//
-
-@implementation GTLRCloudSearch_AddOnFrameStartingState
-@dynamic additionalData, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AddOnStartingState
-//
-
-@implementation GTLRCloudSearch_AddOnStartingState
-@dynamic addOnFrameStartingStates;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AddOnStartingState_AddOnFrameStartingStates
-//
-
-@implementation GTLRCloudSearch_AddOnStartingState_AddOnFrameStartingStates
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudSearch_AddOnFrameStartingState class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AffectedMembership
-//
-
-@implementation GTLRCloudSearch_AffectedMembership
-@dynamic affectedMember, priorMembershipRole, priorMembershipState,
-         targetMembershipRole;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AllAuthenticatedUsersProto
-//
-
-@implementation GTLRCloudSearch_AllAuthenticatedUsersProto
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Annotation
-//
-
-@implementation GTLRCloudSearch_Annotation
-@dynamic babelPlaceholderMetadata, cardCapabilityMetadata, chipRenderType,
-         componentSearchInfo, consentedAppUnfurlMetadata, customEmojiMetadata,
-         dataLossPreventionMetadata, driveMetadata, formatMetadata,
-         groupRetentionSettingsUpdated, gsuiteIntegrationMetadata,
-         incomingWebhookChangedMetadata, inlineRenderFormat,
-         integrationConfigUpdated, interactionData, length, localId,
-         membershipChanged, readReceiptsSettingsMetadata,
-         requiredMessageFeaturesMetadata, roomUpdated, serverInvalidated,
-         slashCommandMetadata, startIndex, type, uniqueId, uploadMetadata,
-         urlMetadata, userMentionMetadata, videoCallMetadata, youtubeMetadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AnnotationInfo
-//
-
-@implementation GTLRCloudSearch_AnnotationInfo
-@dynamic coannotatorDeviceIds, isActive;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"coannotatorDeviceIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppId
-//
-
-@implementation GTLRCloudSearch_AppId
-@dynamic appType, gsuiteAppType, identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData
-@dynamic activityFeedMessageCreateTime, activityFeedMessageId, chatItem,
-         sharedUserInfo, userInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo
-@dynamic updaterCountDisplayType, updaterCountToShow, updaterToShow;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAppProfile
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAppProfile
-@dynamic avatarEmoji, avatarUrl, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantAnnotationData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantAnnotationData
-@dynamic suggestion, unfulfillable;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantDebugContext
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantDebugContext
-@dynamic query;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext
-@dynamic feedbackChips, thumbsFeedback;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"feedbackChips" : [GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip
-@dynamic feedbackChipType, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantSessionContext
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantSessionContext
-@dynamic contextualSessionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantSuggestion
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantSuggestion
-@dynamic debugContext, feedbackContext, findDocumentSuggestion,
-         serializedSuggestions, sessionContext;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAssistantUnfulfillableRequest
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantUnfulfillableRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedAvatarInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedAvatarInfo
-@dynamic emoji;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata
-@dynamic blobPath, contentName, contentSize, contentType, dlpScanOutcome,
-         dlpScanSummary, experiment, groupId, isClientSideTranscodedVideo,
-         migratedFromHangoutsMetadata, originalDimension, quoteReplyMessageId,
-         sha256, uploadIp, uploadTimestampUsec, videoId, videoThumbnailBlobId,
-         virusScanResult;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"experiment" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadata
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadata
-@dynamic photoId, updateTimestampUsec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadataPhotoId
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadataMigratedFromHangoutsMetadataPhotoId
-@dynamic photoId, userId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationData
-@dynamic calendarEvent, eventCreation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEvent
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEvent
-@dynamic endTime, eventId, startTime, title;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEventTime
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEventTime
-@dynamic allDay, timed;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataEventCreation
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataEventCreation
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData
-@dynamic callEndedTimestamp, callMetadata, callStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCallMetadata
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCallMetadata
-@dynamic meetMetadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion
-@dynamic actionId, suggestionMessageId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItem
-@dynamic activityInfo, groupInfo, messageInfo;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"activityInfo" : [GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo
-@dynamic feedItemNudge, feedItemReactions, feedItemThreadReply,
-         feedItemUserMention;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge
-@dynamic nudgeType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemReactions
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemReactions
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply
-@dynamic replyType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention
-@dynamic type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo
-@dynamic attributeCheckerGroupType, groupName, groupReadTimeUsec,
-         inlineThreadingEnabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedContentReportType
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedContentReportType
-@dynamic systemViolation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedCustomEmoji
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedCustomEmoji
-@dynamic blobId, contentType, createTimeMicros, creatorUserId, deleteTimeMicros,
-         ephemeralUrl, ownerCustomerId, readToken, shortcode, state,
-         updateTimeMicros, uuid;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedDimension
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDimension
-@dynamic height, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata
-@dynamic dlpStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedDocument
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedDocument
-@dynamic fileId, justification, lastModifiedTime, mimeType, title, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedEmoji
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedEmoji
-@dynamic customEmoji, unicode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedFindDocumentSuggestion
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedFindDocumentSuggestion
-@dynamic documentSuggestions, showActionButtons;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"documentSuggestions" : [GTLRCloudSearch_AppsDynamiteSharedDocument class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedGroupDetails
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedGroupDetails
-@dynamic descriptionProperty, guidelines;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedGroupVisibility
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedGroupVisibility
-@dynamic state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedJustification
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedJustification
-@dynamic actionTime, actionType, documentOwner, topics;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"topics" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedJustificationPerson
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedJustificationPerson
-@dynamic isRecipient, user;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedMeetMetadata
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedMeetMetadata
-@dynamic meetingCode, meetingType, meetingUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedMessageComponentSearchInfo
-@dynamic matchedSearch, titleTextWithDescription;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedMessageInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedMessageInfo
-@dynamic messageId, messageType, topicReadTimeUsec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload
-@dynamic projectNumber, tasksMessageIntegrationPayload, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedMessageSearchInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedMessageSearchInfo
-@dynamic matchedSegmentsInTextBody;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"matchedSegmentsInTextBody" : [GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOrganizationInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOrganizationInfo
-@dynamic consumerInfo, customerInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoConsumerInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoConsumerInfo
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoCustomerInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoCustomerInfo
-@dynamic customerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedOriginAppSuggestion
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedOriginAppSuggestion
-@dynamic appId, cardClickSuggestion;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedPhoneNumber
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedPhoneNumber
-@dynamic type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedReaction
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedReaction
-@dynamic count, createTimestamp, currentUserParticipated, emoji;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedRetentionSettings
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedRetentionSettings
-@dynamic expiryTimestamp, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount
-@dynamic membershipCount, membershipState, memberType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts
-@dynamic value;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"value" : [GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedSpaceInfo
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedSpaceInfo
-@dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, inviterEmail,
-         isExternal, name, numMembers, segmentedMembershipCounts,
-         userMembershipState;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationData
-@dynamic assigneeChange, completionChange, creation, deletionChange, taskId,
-         taskProperties, userDefinedMessage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataAssigneeChange
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataAssigneeChange
-@dynamic oldAssignee;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCompletionChange
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCompletionChange
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCreation
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCreation
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataDeletionChange
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataDeletionChange
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataTaskProperties
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataTaskProperties
-@dynamic assignee, completed, deleted, descriptionProperty, startDate,
-         startTime, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataUserDefinedMessage
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataUserDefinedMessage
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTasksMessageIntegrationPayload
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTasksMessageIntegrationPayload
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTextSegment
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTextSegment
-@dynamic length, startIndex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription
-@dynamic descriptionType, textSegment;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"textSegment" : [GTLRCloudSearch_AppsDynamiteSharedTextSegment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedTextWithDescription
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedTextWithDescription
-@dynamic textBody, textSegmentsWithDescription;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"textSegmentsWithDescription" : [GTLRCloudSearch_AppsDynamiteSharedTextSegmentsWithDescription class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship
-@dynamic hasBlockedRequester, isBlockedByRequester;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteSharedVideoReference
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteSharedVideoReference
-@dynamic format, status;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"format" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageAction
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageAction
-@dynamic function, interaction, loadIndicator, parameters, persistValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRCloudSearch_AppsDynamiteStorageActionActionParameter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageActionActionParameter
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageActionActionParameter
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageBorderStyle
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageBorderStyle
-@dynamic cornerRadius, strokeColor, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageButton
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageButton
-@dynamic altText, color, disabled, icon, onClick, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageButtonList
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageButtonList
-@dynamic buttons;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"buttons" : [GTLRCloudSearch_AppsDynamiteStorageButton class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageCard
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageCard
-@dynamic cardActions, header, name, sections;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cardActions" : [GTLRCloudSearch_AppsDynamiteStorageCardCardAction class],
-    @"sections" : [GTLRCloudSearch_AppsDynamiteStorageCardSection class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageCardCardAction
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageCardCardAction
-@dynamic actionLabel, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageCardCardHeader
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageCardCardHeader
-@dynamic imageAltText, imageType, imageUrl, subtitle, title;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageCardSection
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageCardSection
-@dynamic collapsible, header, uncollapsibleWidgetsCount, widgets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"widgets" : [GTLRCloudSearch_AppsDynamiteStorageWidget class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageColumns
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageColumns
-@dynamic columnItems;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"columnItems" : [GTLRCloudSearch_AppsDynamiteStorageColumnsColumn class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageColumnsColumn
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageColumnsColumn
-@dynamic horizontalAlignment, horizontalSizeStyle, verticalAlignment, widgets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"widgets" : [GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageColumnsColumnWidgets
-@dynamic buttonList, dateTimePicker, decoratedText, image, selectionInput,
-         textInput, textParagraph;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageDateTimePicker
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageDateTimePicker
-@dynamic label, name, onChangeAction, timezoneOffsetDate, type, valueMsEpoch;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageDecoratedText
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageDecoratedText
-@dynamic bottomLabel, button, endIcon, icon, onClick, startIcon, switchControl,
-         text, topLabel, wrapText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageDecoratedTextSwitchControl
-@dynamic controlType, name, onChangeAction, selected, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageDivider
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageDivider
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageGrid
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageGrid
-@dynamic borderStyle, columnCount, items, onClick, title;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AppsDynamiteStorageGridGridItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageGridGridItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageGridGridItem
-@dynamic identifier, image, layout, subtitle, textAlignment, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageIcon
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageIcon
-@dynamic altText, iconUrl, imageType, knownIcon, materialIcon;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageImage
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageImage
-@dynamic altText, imageUrl, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageImageComponent
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageImageComponent
-@dynamic altText, borderStyle, cropStyle, imageUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageImageCropStyle
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageImageCropStyle
-@dynamic aspectRatio, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageMaterialIcon
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageMaterialIcon
-@dynamic fill, grade, name, weight;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageOnClick
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageOnClick
-@dynamic action, hostAppAction, openDynamicLinkAction, openLink;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageOpenLink
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLink
-@dynamic appUri, onClose, openAs, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUri
-@dynamic androidIntent, companionUri, iosUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntent
-@dynamic extraData, intentAction;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraData" : [GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageOpenLinkAppUriIntentExtraData
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageSelectionInput
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageSelectionInput
-@dynamic items, label, name, onChangeAction, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageSelectionInputSelectionItem
-@dynamic selected, text, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageSuggestions
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageSuggestions
-@dynamic items;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageSuggestionsSuggestionItem
-@dynamic text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageTextInput
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageTextInput
-@dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
-         onChangeAction, type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageTextParagraph
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageTextParagraph
-@dynamic text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteStorageWidget
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteStorageWidget
-@dynamic buttonList, columns, dateTimePicker, decoratedText, divider, grid,
-         horizontalAlignment, image, selectionInput, textInput, textParagraph;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action
-@dynamic confirm, name, style, text, type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1ActionConfirm
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1ActionConfirm
-@dynamic dismissText, okText, text, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"dismissText" : @"dismiss_text",
-    @"okText" : @"ok_text"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Attachment
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Attachment
-@dynamic actions, attachmentType, authorIcon, authorLink, authorName,
-         callbackId, color, fallback, fields, footer, footerIcon, imageUrl,
-         mrkdwnIn, pretext, text, thumbUrl, title, titleLink, ts;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"attachmentType" : @"attachment_type",
-    @"authorIcon" : @"author_icon",
-    @"authorLink" : @"author_link",
-    @"authorName" : @"author_name",
-    @"callbackId" : @"callback_id",
-    @"footerIcon" : @"footer_icon",
-    @"imageUrl" : @"image_url",
-    @"mrkdwnIn" : @"mrkdwn_in",
-    @"thumbUrl" : @"thumb_url",
-    @"titleLink" : @"title_link"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action class],
-    @"fields" : [GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field class],
-    @"mrkdwn_in" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field
-//
-
-@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field
-@dynamic shortProperty, title, value;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"shortProperty" : @"short" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkup
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkup
-@dynamic addonAttachments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"addonAttachments" : [GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment
-@dynamic iconUrl, mimeType, resourceUrl, title;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkup
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkup
-@dynamic conferenceId, conferenceSolutionId, entryPoints, error, note,
-         parameters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entryPoints" : [GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup class],
-    @"parameters" : [GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupParameter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup
-@dynamic accessCode, features, label, meetingCode, passcode, password, pin,
-         regionCode, type, uri;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"features" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError
-@dynamic authenticationUrl, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupParameter
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupParameter
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup
-@dynamic addAttendeeEmails;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"addAttendeeEmails" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup
-//
-
-@implementation GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup
-@dynamic conferenceData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Attachment
-//
-
-@implementation GTLRCloudSearch_Attachment
-@dynamic addOnData, appId, attachmentId, cardAddOnData, componentSearchInfo,
-         deprecatedAddOnData, slackData, slackDataImageUrlHeight;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Attribute
-//
-
-@implementation GTLRCloudSearch_Attribute
-@dynamic name, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AttributeRemoved
-//
-
-@implementation GTLRCloudSearch_AttributeRemoved
-@dynamic attributeId, messageKeys;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Attributes
-//
-
-@implementation GTLRCloudSearch_Attributes
-@dynamic attribute;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attribute" : [GTLRCloudSearch_Attribute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AttributeSet
-//
-
-@implementation GTLRCloudSearch_AttributeSet
-@dynamic attributeId, attributeValue, messageKeys;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudSearch_Action
+@dynamic title, url;
 @end
 
 
@@ -3902,65 +563,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AuthorizedItemId
+//   GTLRCloudSearch_BackgroundColoredText
 //
 
-@implementation GTLRCloudSearch_AuthorizedItemId
-@dynamic identifier, resourceKey;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AutoComplete
-//
-
-@implementation GTLRCloudSearch_AutoComplete
-@dynamic items;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_AutoCompleteItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_AutoCompleteItem
-//
-
-@implementation GTLRCloudSearch_AutoCompleteItem
-@dynamic text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BabelMessageProps
-//
-
-@implementation GTLRCloudSearch_BabelMessageProps
-@dynamic clientGeneratedId, contentExtension, deliveryMedium, eventId,
-         messageContent, wasUpdatedByBackfill;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BabelPlaceholderMetadata
-//
-
-@implementation GTLRCloudSearch_BabelPlaceholderMetadata
-@dynamic deleteMetadata, editMetadata, hangoutVideoMetadata;
+@implementation GTLRCloudSearch_BackgroundColoredText
+@dynamic backgroundColor, text;
 @end
 
 
@@ -3986,454 +593,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_BorderStyle
-//
-
-@implementation GTLRCloudSearch_BorderStyle
-@dynamic cornerRadius, strokeColor, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BotInfo
-//
-
-@implementation GTLRCloudSearch_BotInfo
-@dynamic appAllowlistStatus, appId, botAvatarUrl, botName, descriptionProperty,
-         developerName, marketPlaceBannerUrl, status, supportedUses,
-         supportHomeScreen, supportUrls, uninstallCapability;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"supportedUses" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BotResponse
-//
-
-@implementation GTLRCloudSearch_BotResponse
-@dynamic botId, requiredAction, responseType, setupUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BroadcastAccess
-//
-
-@implementation GTLRCloudSearch_BroadcastAccess
-@dynamic accessPolicy, viewUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BroadcastSessionInfo
-//
-
-@implementation GTLRCloudSearch_BroadcastSessionInfo
-@dynamic broadcastSessionId, broadcastStats, ingestionId, sessionStateInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_BroadcastStats
-//
-
-@implementation GTLRCloudSearch_BroadcastStats
-@dynamic estimatedViewerCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Button
-//
-
-@implementation GTLRCloudSearch_Button
-@dynamic imageButton, textButton;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CalendarClientActionMarkup
-//
-
-@implementation GTLRCloudSearch_CalendarClientActionMarkup
-@dynamic addAttachmentsActionMarkup, editAttendeesActionMarkup,
-         editConferenceDataActionMarkup;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CallInfo
-//
-
-@implementation GTLRCloudSearch_CallInfo
-@dynamic abuseReportingConfig, artifactOwner, attachedDocuments,
-         availableAccessTypes, availableAnnotationToolTypes, availableReactions,
-         broadcastSessionInfo, calendarEventId, coActivity, collaboration,
-         cseInfo, maxJoinedDevices, organizationName, paygateInfo, presenter,
-         recordingInfo, recordingSessionInfo, settings, streamingSessions,
-         transcriptionSessionInfo, viewerCount, youTubeBroadcastSessionInfos;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attachedDocuments" : [GTLRCloudSearch_DocumentInfo class],
-    @"availableAccessTypes" : [NSString class],
-    @"availableAnnotationToolTypes" : [NSString class],
-    @"availableReactions" : [GTLRCloudSearch_ReactionInfo class],
-    @"streamingSessions" : [GTLRCloudSearch_StreamingSessionInfo class],
-    @"youTubeBroadcastSessionInfos" : [GTLRCloudSearch_YouTubeBroadcastSessionInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CallSettings
-//
-
-@implementation GTLRCloudSearch_CallSettings
-@dynamic accessLock, accessType, allowJoiningBeforeHost,
-         attendanceReportEnabled, audioLock, chatLock, coActivityLock,
-         cseEnabled, moderationEnabled, presentLock, reactionsLock, videoLock;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CapTokenHolderProto
-//
-
-@implementation GTLRCloudSearch_CapTokenHolderProto
-@dynamic tokenHmacSha1Prefix;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Card
-//
-
-@implementation GTLRCloudSearch_Card
-@dynamic cardActions, displayStyle, fixedFooter, header, name, peekCardHeader,
-         sections;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cardActions" : [GTLRCloudSearch_CardAction class],
-    @"sections" : [GTLRCloudSearch_Section class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CardAction
-//
-
-@implementation GTLRCloudSearch_CardAction
-@dynamic actionLabel, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CardCapabilityMetadata
-//
-
-@implementation GTLRCloudSearch_CardCapabilityMetadata
-@dynamic requiredCapabilities;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requiredCapabilities" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CardHeader
-//
-
-@implementation GTLRCloudSearch_CardHeader
-@dynamic imageAltText, imageStyle, imageUrl, subtitle, title;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CaribouAttributeValue
-//
-
-@implementation GTLRCloudSearch_CaribouAttributeValue
-@dynamic booleanValue, intValue, longValue, rawByteValue, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatClientActionMarkup
-//
-
-@implementation GTLRCloudSearch_ChatClientActionMarkup
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadata
-@dynamic attachmentMetadata, botMessageMetadata, calendarEventMetadata,
-         deleteMetadata, editMetadata, spaceUrl, tasksMetadata,
-         videoCallMetadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataAttachmentMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataAttachmentMetadata
-@dynamic filename;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataBotMessageMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataBotMessageMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataCalendarEventMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataCalendarEventMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataDeleteMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataDeleteMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataEditMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataEditMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataTasksMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataTasksMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataVideoCallMetadata
-//
-
-@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataVideoCallMetadata
-@dynamic meetingUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatConserverMessageContent
-//
-
-@implementation GTLRCloudSearch_ChatConserverMessageContent
-@dynamic attachment, segment;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attachment" : [GTLRCloudSearch_SocialCommonAttachmentAttachment class],
-    @"segment" : [GTLRCloudSearch_Segment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatContentExtension
-//
-
-@implementation GTLRCloudSearch_ChatContentExtension
-@dynamic annotation, dynamitePlaceholderMetadata, eventOtrStatus,
-         groupLinkSharingModificationEvent, hangoutEvent, inviteAcceptedEvent,
-         membershipChangeEvent, otrChatMessageEvent, otrModificationEvent,
-         renameEvent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotation" : [GTLRCloudSearch_EventAnnotation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ChatProto
-//
-
-@implementation GTLRCloudSearch_ChatProto
-@dynamic chatId, memberType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_CheckAccessResponse
 //
 
 @implementation GTLRCloudSearch_CheckAccessResponse
 @dynamic hasAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CircleProto
-//
-
-@implementation GTLRCloudSearch_CircleProto
-@dynamic circleId, ownerGaiaId, requiredConsistencyTimestampUsec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ClientContext
-//
-
-@implementation GTLRCloudSearch_ClientContext
-@dynamic clientOperationId, clientType, sessionContext, userIp;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CloudPrincipalProto
-//
-
-@implementation GTLRCloudSearch_CloudPrincipalProto
-@dynamic identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ClusterInfo
-//
-
-@implementation GTLRCloudSearch_ClusterInfo
-@dynamic clusterId, throttled;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clusterId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CoActivity
-//
-
-@implementation GTLRCloudSearch_CoActivity
-@dynamic activityTitle, addOnId, addOnStartingState, coActivityApp,
-         initiatorDeviceId, presentationDeviceId, projectNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Collaboration
-//
-
-@implementation GTLRCloudSearch_Collaboration
-@dynamic attachmentId, initiator, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Color
-//
-
-@implementation GTLRCloudSearch_Color
-@dynamic alpha, blue, green, red;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CommunalLabelTag
-//
-
-@implementation GTLRCloudSearch_CommunalLabelTag
-@dynamic creatorUserId, labelId;
 @end
 
 
@@ -4457,52 +621,48 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_ConsentedAppUnfurlMetadata
+//   GTLRCloudSearch_Content
 //
 
-@implementation GTLRCloudSearch_ConsentedAppUnfurlMetadata
-@dynamic clientSpecifiedAppId;
+@implementation GTLRCloudSearch_Content
+@dynamic actions, descriptionProperty, subtitle, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRCloudSearch_Action class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_ContactGroupProto
+//   GTLRCloudSearch_Context
 //
 
-@implementation GTLRCloudSearch_ContactGroupProto
-@dynamic groupId, ownerGaiaId, requiredConsistencyTimestampUsec;
-@end
+@implementation GTLRCloudSearch_Context
+@dynamic app, dayOfWeek, endDateSec, endDayOffsetSec, locale, location, query,
+         startDateSec, startDayOffsetSec, surface, type;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"app" : [NSString class],
+    @"dayOfWeek" : [NSNumber class],
+    @"locale" : [NSString class],
+    @"location" : [NSString class],
+    @"query" : [NSString class],
+    @"surface" : [NSString class],
+    @"type" : [NSString class]
+  };
+  return map;
+}
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ContentReport
-//
-
-@implementation GTLRCloudSearch_ContentReport
-@dynamic reportCreateTimestamp, reporterUserId, reportJustification, reportType,
-         revisionCreateTimestamp;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ContentReportJustification
-//
-
-@implementation GTLRCloudSearch_ContentReportJustification
-@dynamic userJustification;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ContentReportSummary
-//
-
-@implementation GTLRCloudSearch_ContentReportSummary
-@dynamic numberReports, numberReportsAllRevisions;
 @end
 
 
@@ -4521,54 +681,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ContextualAddOnMarkup
-//
-
-@implementation GTLRCloudSearch_ContextualAddOnMarkup
-@dynamic cards, toolbar;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cards" : [GTLRCloudSearch_Card class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CseInfo
-//
-
-@implementation GTLRCloudSearch_CseInfo
-@dynamic cseDomain, wrappedKey;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CustomEmojiMetadata
-//
-
-@implementation GTLRCloudSearch_CustomEmojiMetadata
-@dynamic customEmoji;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CustomerId
-//
-
-@implementation GTLRCloudSearch_CustomerId
-@dynamic customerId;
 @end
 
 
@@ -4646,26 +758,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @implementation GTLRCloudSearch_CustomerUserStats
 @dynamic date, oneDayActiveUsersCount, sevenDaysActiveUsersCount,
          thirtyDaysActiveUsersCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_CustomFunctionReturnValueMarkup
-//
-
-@implementation GTLRCloudSearch_CustomFunctionReturnValueMarkup
-@dynamic errorMessage, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DataLossPreventionMetadata
-//
-
-@implementation GTLRCloudSearch_DataLossPreventionMetadata
-@dynamic dlpMessageScanRecord, dlpScanSummary, warnAcknowledged;
 @end
 
 
@@ -4759,16 +851,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_DateTimePicker
-//
-
-@implementation GTLRCloudSearch_DateTimePicker
-@dynamic label, name, onChange, timezoneOffsetDate, type, valueMsEpoch;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_DateValues
 //
 
@@ -4797,33 +879,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_DeepLinkData
-//
-
-@implementation GTLRCloudSearch_DeepLinkData
-@dynamic appId, client, deepLinkId, url;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"client" : [GTLRCloudSearch_PackagingServiceClient class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DeleteMetadata
-//
-
-@implementation GTLRCloudSearch_DeleteMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_DeleteQueueItemsRequest
 //
 
@@ -4834,81 +889,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_DeliveryMedium
-//
-
-@implementation GTLRCloudSearch_DeliveryMedium
-@dynamic mediumType, selfPhone;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_DisplayedProperty
 //
 
 @implementation GTLRCloudSearch_DisplayedProperty
 @dynamic propertyName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Divider
-//
-
-@implementation GTLRCloudSearch_Divider
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DlpAction
-//
-
-@implementation GTLRCloudSearch_DlpAction
-@dynamic actionType, unsafeHtmlMessageBody;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DlpMessageScanRecord
-//
-
-@implementation GTLRCloudSearch_DlpMessageScanRecord
-@dynamic attachmentScanSummary, dlpAction, messageScanSummary, scanOutcome;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DlpScanSummary
-//
-
-@implementation GTLRCloudSearch_DlpScanSummary
-@dynamic dlpAction, scanId, scanNotApplicableForContext, scanOutcome,
-         scanTrigger;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DmId
-//
-
-@implementation GTLRCloudSearch_DmId
-@dynamic dmId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DocumentInfo
-//
-
-@implementation GTLRCloudSearch_DocumentInfo
-@dynamic whiteboardInfo;
 @end
 
 
@@ -4952,16 +937,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_DriveClientActionMarkup
-//
-
-@implementation GTLRCloudSearch_DriveClientActionMarkup
-@dynamic requestFileScope;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_DriveFollowUpRestrict
 //
 
@@ -4977,26 +952,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_DriveLocationRestrict
 @dynamic type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DriveMetadata
-//
-
-@implementation GTLRCloudSearch_DriveMetadata
-@dynamic aclFixRequest, aclFixStatus, canEdit, canShare, canView, driveAction,
-         driveState, embedUrl, encryptedDocId, encryptedResourceKey,
-         externalMimetype, identifier, isDownloadRestricted, isOwner,
-         legacyUploadMetadata, mimetype, organizationDisplayName,
-         shortcutAuthorizedItemId, shouldNotRender, thumbnailHeight,
-         thumbnailUrl, thumbnailWidth, title, urlFragment, wrappedResourceKey;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
 @end
 
 
@@ -5022,57 +977,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_DynamiteMessagesScoringInfo
-//
-
-@implementation GTLRCloudSearch_DynamiteMessagesScoringInfo
-@dynamic commonContactCount, commonCountToContactListCountRatio,
-         commonCountToMembershipCountRatio, creatorGaiaId,
-         creatorInSearcherContactList, crowdingMultiplier, dasContactCount,
-         finalScore, freshnessScore, joinedSpaceAffinityScore,
-         lastReadTimestampAgeInDays, messageAgeInDays,
-         messageSenderAffinityScore, spaceId, spaceMembershipCount,
-         topicalityScore, unjoinedSpaceAffinityScore;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DynamiteSpacesScoringInfo
-//
-
-@implementation GTLRCloudSearch_DynamiteSpacesScoringInfo
-@dynamic affinityScore, commonContactCountAffinityScore,
-         contactsIntersectionCount, finalScore, freshnessScore,
-         joinedSpacesAffinityScore, lastMessagePostedTimestampSecs,
-         lastReadTimestampSecs, memberCountScore, memberMetadataCount,
-         messageScore, numAucContacts, smallContactListAffinityScore,
-         smallUnjoinedSpacesAffinityScore, spaceAgeInDays,
-         spaceCreationTimestampSecs, topicalityScore;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_EditMetadata
-//
-
-@implementation GTLRCloudSearch_EditMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_EditorClientActionMarkup
-//
-
-@implementation GTLRCloudSearch_EditorClientActionMarkup
-@dynamic requestFileScopeForActiveDocument;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_EmailAddress
 //
 
@@ -5083,34 +987,659 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_EmailOwnerProto
+//   GTLRCloudSearch_EnterpriseTopazFrontendTeamsLink
 //
 
-@implementation GTLRCloudSearch_EmailOwnerProto
-@dynamic email;
+@implementation GTLRCloudSearch_EnterpriseTopazFrontendTeamsLink
+@dynamic type, url;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_EmbedClientItem
+//   GTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber
 //
 
-@implementation GTLRCloudSearch_EmbedClientItem
-@dynamic canonicalId, deepLinkData, identifier, provenance, renderId, signature,
-         transientData, type;
+@implementation GTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber
+@dynamic phoneNumber, phoneUrl, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry
+@dynamic agendaItemUrl, chronology, creator, currentUserAttendingStatus,
+         descriptionProperty, document, endDate, endTime, endTimeMs, eventId,
+         guestsCanInviteOthers, guestsCanModify, guestsCanSeeGuests, hangoutId,
+         hangoutUrl, invitee, isAllDay, lastModificationTimeMs, location,
+         notifyToUser, otherAttendeesExcluded, requesterIsOwner,
+         showFullEventDetailsToUse, startDate, startTime, startTimeMs, timeZone,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"type" : [NSString class]
+    @"document" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument class],
+    @"invitee" : [GTLRCloudSearch_EnterpriseTopazSidekickPerson class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProto
+@dynamic agendaItem, context, currentAgendaItem;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agendaItem" : [GTLRCloudSearch_EnterpriseTopazSidekickAgendaItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProtoContext
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAgendaGroupCardProtoContext
+@dynamic context, date, eventsRestrict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAgendaItem
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAgendaItem
+@dynamic conflictedGroup, gapBefore, meeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList
+@dynamic labeledAnswer, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labeledAnswer" : [GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerListLabeledAnswer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerListLabeledAnswer
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerListLabeledAnswer
+@dynamic answer, label;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryAnswerCard
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryAnswerCard
+@dynamic suggestedQueryCategory;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestedQueryCategory" : [GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryCategory
+@dynamic category, isEnabled, query;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"query" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto
+@dynamic agendaGroupCardProto, cardMetadata, cardType, conflictingMeetingsCard,
+         documentListCard, documentsWithMentions, findMeetingTimeCard,
+         genericAnswerCard, getAndKeepAheadCard, meeting, meetingNotesCard,
+         meetingNotesCardRequest, peopleDisambiguationCard, peoplePromotionCard,
+         personalizedDocsCard, personAnswerCard, personProfileCard,
+         relatedPeopleAnswerCard, sharedDocuments, shareMeetingDocsCard,
+         suggestedQueryAnswerCard, thirdPartyAnswerCard,
+         workInProgressCardProto;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCardMetadata
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCardMetadata
+@dynamic cardCategory, cardId, chronology, debugInfo, nlpMetadata,
+         rankingParams, renderMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCommonDebugInfo
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCommonDebugInfo
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument
+@dynamic accessType, debugInfo, documentId, driveDocumentMetadata, genericUrl,
+         justification, mimeType, provenance, reason, snippet, thumbnailUrl,
+         title, type, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentDriveDocumentMetadata
+@dynamic documentId, isPrivate, lastCommentTimeMs, lastEditTimeMs,
+         lastModificationTimeMillis, lastUpdatedTimeMs, lastViewTimeMs, owner,
+         scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCommonDocumentJustification
+@dynamic justification, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCommonPerson
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCommonPerson
+@dynamic birthday, cellPhone, department, deskLocation, deskPhone, displayName,
+         email, familyName, fullAddress, gaiaId, givenName, jobTitle, manager,
+         obfuscatedId, photoUrl, streetAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickCommonPersonBirthday
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickCommonPersonBirthday
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickConflictingEventsCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickConflictingEventsCardProto
+@dynamic conflictingEvent, mainEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conflictingEvent" : [GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup
+@dynamic groupType, personalizedDocument;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"personalizedDocument" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList
+@dynamic documents, helpMessage, listType, listTypeDescription, responseMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documents" : [GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry
+@dynamic category, document, rationale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickFindMeetingTimeCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickFindMeetingTimeCardProto
+@dynamic commonAvailableTimeSlots, invitees, requester, scheduledMeeting,
+         skippedInvitees, timeBoundaries, timezoneId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commonAvailableTimeSlots" : [GTLRCloudSearch_EnterpriseTopazSidekickTimeSlot class],
+    @"invitees" : [GTLRCloudSearch_EnterpriseTopazSidekickPerson class],
+    @"skippedInvitees" : [GTLRCloudSearch_EnterpriseTopazSidekickPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickGap
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickGap
+@dynamic displayRemainingTime, endTime, endTimeMs, remainingTime, startTime,
+         startTimeMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickGenericAnswerCard
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickGenericAnswerCard
+@dynamic answer, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickGetAndKeepAheadCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickGetAndKeepAheadCardProto
+@dynamic declinedEvents, mentionedDocuments, sharedDocuments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickGetAndKeepAheadCardProtoDeclinedEvents
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickGetAndKeepAheadCardProtoDeclinedEvents
+@dynamic events;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardError
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardError
+@dynamic descriptionProperty, event, reason;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardProto
+@dynamic event, fileId, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardRequest
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardRequest
+@dynamic canCreateFor, error, event;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"canCreateFor" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickNlpMetadata
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickNlpMetadata
+@dynamic confidence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerDisambiguationInfo
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerDisambiguationInfo
+@dynamic disambiguation, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disambiguation" : [GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerDisambiguationInfoDisambiguationPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerDisambiguationInfoDisambiguationPerson
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerDisambiguationInfoDisambiguationPerson
+@dynamic person, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPeopleAnswerCardHeader
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPeopleAnswerCardHeader
+@dynamic title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard
+@dynamic answer, answerText, disambiguationInfo, header, responseStatus,
+         statusMessage, subject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"answer" : [GTLRCloudSearch_SafeHtmlProto class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard
+@dynamic disambiguationInfo, header, relatedPeople, relationType,
+         responseStatus, statusMessage, subject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relatedPeople" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPeopleDisambiguationCard
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPeopleDisambiguationCard
+@dynamic person;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"person" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPerson
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPerson
+@dynamic affinityLevel, attendingStatus, email, gaiaId, isGroup, name,
+         obfuscatedGaiaId, photoUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPersonalizedDocsCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPersonalizedDocsCardProto
+@dynamic documentGroup;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documentGroup" : [GTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCard
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCard
+@dynamic relatedPeople, subject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relatedPeople" : [GTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickPersonProfileCardRelatedPeople
+@dynamic relatedPerson, relation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relatedPerson" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickRankingParams
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickRankingParams
+@dynamic endTimeMs, priority, score, spanMs, startTimeMs, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickRecentDocumentsCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickRecentDocumentsCardProto
+@dynamic document;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"document" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickScheduledMeeting
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickScheduledMeeting
+@dynamic meetingLocation, meetingTime, meetingTitle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickShareMeetingDocsCardProto
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickShareMeetingDocsCardProto
+@dynamic document, event;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"document" : [GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EnterpriseTopazSidekickTimeSlot
+//
+
+@implementation GTLRCloudSearch_EnterpriseTopazSidekickTimeSlot
+@dynamic endTimeDay, endTimeHourAndMinute, endTimeInMillis, startTimeDay,
+         startTimeHourAndMinute, startTimeInMillis;
 @end
 
 
@@ -5200,26 +1729,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_EventAnnotation
-//
-
-@implementation GTLRCloudSearch_EventAnnotation
-@dynamic type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_EventProto
-//
-
-@implementation GTLRCloudSearch_EventProto
-@dynamic eventId, memberType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_FacetBucket
 //
 
@@ -5284,24 +1793,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_FilterCreated
-//
-
-@implementation GTLRCloudSearch_FilterCreated
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FilterDeleted
-//
-
-@implementation GTLRCloudSearch_FilterDeleted
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_FilterOptions
 //
 
@@ -5312,198 +1803,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_FilterUpdate
-//
-
-@implementation GTLRCloudSearch_FilterUpdate
-@dynamic filterCreated, filterDeleted, filterId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FixedFooter
-//
-
-@implementation GTLRCloudSearch_FixedFooter
-@dynamic buttons, primaryButton, secondaryButton;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"buttons" : [GTLRCloudSearch_Button class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Folder
-//
-
-@implementation GTLRCloudSearch_Folder
-@dynamic identifier, message;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"message" : [GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FolderAttribute
-//
-
-@implementation GTLRCloudSearch_FolderAttribute
-@dynamic folder;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"folder" : [GTLRCloudSearch_Folder class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FormAction
-//
-
-@implementation GTLRCloudSearch_FormAction
-@dynamic actionMethodName, loadIndicator, parameters, persistValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRCloudSearch_ActionParameter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FormatMetadata
-//
-
-@implementation GTLRCloudSearch_FormatMetadata
-@dynamic fontColor, formatType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Formatting
-//
-
-@implementation GTLRCloudSearch_Formatting
-@dynamic bold, highlight, italics, strikethrough, style, underline;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_FreshnessOptions
 //
 
 @implementation GTLRCloudSearch_FreshnessOptions
 @dynamic freshnessDuration, freshnessProperty;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FuseboxItem
-//
-
-@implementation GTLRCloudSearch_FuseboxItem
-@dynamic attributes, creationTimeMicroseconds, history, itemKey, labels,
-         lastModificationTimeUs, lockerReferences, matchInfo, parts, readTs,
-         references, snippet, threadKey, threadLocator, triggers, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FuseboxItemThreadMatchInfo
-//
-
-@implementation GTLRCloudSearch_FuseboxItemThreadMatchInfo
-@dynamic clusterId, lastMatchingItemId, lastMatchingItemKey, matchingItemKey,
-         rank;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"matchingItemKey" : [GTLRCloudSearch_MultiKey class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_FuseboxPrefUpdatePreState
-//
-
-@implementation GTLRCloudSearch_FuseboxPrefUpdatePreState
-@dynamic value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GaiaGroupProto
-//
-
-@implementation GTLRCloudSearch_GaiaGroupProto
-@dynamic groupId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GaiaUserProto
-//
-
-@implementation GTLRCloudSearch_GaiaUserProto
-@dynamic userId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GatewayAccess
-//
-
-@implementation GTLRCloudSearch_GatewayAccess
-@dynamic enabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GatewaySipAccess
-//
-
-@implementation GTLRCloudSearch_GatewaySipAccess
-@dynamic sipAccessCode, uri;
 @end
 
 
@@ -5671,219 +1975,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_GmailClientActionMarkup
-//
-
-@implementation GTLRCloudSearch_GmailClientActionMarkup
-@dynamic addonComposeUiActionMarkup, openCreatedDraftActionMarkup, taskAction,
-         updateDraftActionMarkup;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup
-@dynamic cards;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cards" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard
-@dynamic cardActions, header, name, sections;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cardActions" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction class],
-    @"sections" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction
-@dynamic actionLabel, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader
-@dynamic imageStyle, imageUrl, subtitle, title;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection
-@dynamic header, widgets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"widgets" : [GTLRCloudSearch_GoogleChatV1WidgetMarkup class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkup
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkup
-@dynamic buttons, image, keyValue, textParagraph;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"buttons" : [GTLRCloudSearch_GoogleChatV1WidgetMarkupButton class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupButton
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupButton
-@dynamic imageButton, textButton;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupFormAction
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupFormAction
-@dynamic actionMethodName, parameters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"parameters" : [GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupImage
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupImage
-@dynamic aspectRatio, imageUrl, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton
-@dynamic icon, iconUrl, name, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue
-@dynamic bottomLabel, button, content, contentMultiline, icon, iconUrl, onClick,
-         topLabel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick
-@dynamic action, openLink;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupOpenLink
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupOpenLink
-@dynamic url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupTextButton
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupTextButton
-@dynamic onClick, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GoogleChatV1WidgetMarkupTextParagraph
-//
-
-@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupTextParagraph
-@dynamic text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_GoogleDocsMetadata
 //
 
@@ -5906,191 +1997,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_Grid
-//
-
-@implementation GTLRCloudSearch_Grid
-@dynamic borderStyle, items, numColumns, onClick, title;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_GridItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GridItem
-//
-
-@implementation GTLRCloudSearch_GridItem
-@dynamic identifierProperty, image, layout, subtitle, textAlignment, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifierProperty" : @"identifier" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GroupDetailsUpdatedMetadata
-//
-
-@implementation GTLRCloudSearch_GroupDetailsUpdatedMetadata
-@dynamic newGroupDetails, prevGroupDetails;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GroupId
-//
-
-@implementation GTLRCloudSearch_GroupId
-@dynamic dmId, spaceId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GroupLinkSharingModificationEvent
-//
-
-@implementation GTLRCloudSearch_GroupLinkSharingModificationEvent
-@dynamic newStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GroupRetentionSettingsUpdatedMetaData
-//
-
-@implementation GTLRCloudSearch_GroupRetentionSettingsUpdatedMetaData
-@dynamic initiator, retentionSettings;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_GsuiteIntegrationMetadata
-//
-
-@implementation GTLRCloudSearch_GsuiteIntegrationMetadata
-@dynamic activityFeedData, assistantData, calendarEventData, callData,
-         clientType, indexableTexts, tasksData;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"indexableTexts" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_GSuitePrincipal
 //
 
 @implementation GTLRCloudSearch_GSuitePrincipal
 @dynamic gsuiteDomain, gsuiteGroupEmail, gsuiteUserEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_HangoutEvent
-//
-
-@implementation GTLRCloudSearch_HangoutEvent
-@dynamic hangoutDurationSecs, mediaType, participantId, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"participantId" : [GTLRCloudSearch_StoredParticipantId class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_HangoutVideoEventMetadata
-//
-
-@implementation GTLRCloudSearch_HangoutVideoEventMetadata
-@dynamic hangoutVideoType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_HashtagData
-//
-
-@implementation GTLRCloudSearch_HashtagData
-@dynamic searchText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_History
-//
-
-@implementation GTLRCloudSearch_History
-@dynamic record;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"record" : [GTLRCloudSearch_HistoryRecord class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_HistoryRecord
-//
-
-@implementation GTLRCloudSearch_HistoryRecord
-@dynamic clientContext, filterUpdate, imapUpdate, labelUpdate, prefUpdate,
-         recordId, threadUpdate, transactionContext, txnDebugInfo, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_HostAppActionMarkup
-//
-
-@implementation GTLRCloudSearch_HostAppActionMarkup
-@dynamic calendarAction, chatAction, driveAction, editorAction, gmailAction,
-         sheetsAction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_HostProto
-//
-
-@implementation GTLRCloudSearch_HostProto
-@dynamic hostName, hostOwner;
 @end
 
 
@@ -6134,150 +2045,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_IconImage
-//
-
-@implementation GTLRCloudSearch_IconImage
-@dynamic altText, icon, iconUrl, imageStyle;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_Id
 //
 
 @implementation GTLRCloudSearch_Id
 @dynamic creatorUserId, localId, nameSpace;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Image
-//
-
-@implementation GTLRCloudSearch_Image
-@dynamic altText, aspectRatio, imageUrl, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImageButton
-//
-
-@implementation GTLRCloudSearch_ImageButton
-@dynamic icon, iconUrl, name, onClick;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImageComponent
-//
-
-@implementation GTLRCloudSearch_ImageComponent
-@dynamic altText, borderStyle, cropStyle, imageUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImageCropStyle
-//
-
-@implementation GTLRCloudSearch_ImageCropStyle
-@dynamic aspectRatio, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImageKeyValue
-//
-
-@implementation GTLRCloudSearch_ImageKeyValue
-@dynamic icon, iconUrl, onClick, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImapSessionContext
-//
-
-@implementation GTLRCloudSearch_ImapSessionContext
-@dynamic app, deviceType, guidFingerprint, os, osVersion, possiblyTrimmedModel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImapSyncDelete
-//
-
-@implementation GTLRCloudSearch_ImapSyncDelete
-@dynamic mappings, msgId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage
-//
-
-@implementation GTLRCloudSearch_ImapsyncFolderAttributeFolderMessage
-@dynamic flags, uid;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImapsyncFolderAttributeFolderMessageFlags
-//
-
-@implementation GTLRCloudSearch_ImapsyncFolderAttributeFolderMessageFlags
-@dynamic flagged, seen;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImapUidsReassign
-//
-
-@implementation GTLRCloudSearch_ImapUidsReassign
-@dynamic labelId, messageId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messageId" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ImapUpdate
-//
-
-@implementation GTLRCloudSearch_ImapUpdate
-@dynamic imapUidsReassign;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_IncomingWebhookChangedMetadata
-//
-
-@implementation GTLRCloudSearch_IncomingWebhookChangedMetadata
-@dynamic incomingWebhookName, initiatorId, initiatorProfile,
-         obfuscatedIncomingWebhookId, oldIncomingWebhookName, type;
 @end
 
 
@@ -6307,16 +2079,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_InitializeCustomerRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_InsertContent
-//
-
-@implementation GTLRCloudSearch_InsertContent
-@dynamic content, contentType, mimeType;
 @end
 
 
@@ -6379,77 +2141,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_IntegrationConfigMutation
-//
-
-@implementation GTLRCloudSearch_IntegrationConfigMutation
-@dynamic addApp, addPinnedItem, removeApp, removePinnedItem;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_IntegrationConfigUpdatedMetadata
-//
-
-@implementation GTLRCloudSearch_IntegrationConfigUpdatedMetadata
-@dynamic initiatorId, mutations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"mutations" : [GTLRCloudSearch_IntegrationConfigMutation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_Interaction
 //
 
 @implementation GTLRCloudSearch_Interaction
 @dynamic interactionTime, principal, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_InteractionData
-//
-
-@implementation GTLRCloudSearch_InteractionData
-@dynamic url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_InviteAcceptedEvent
-//
-
-@implementation GTLRCloudSearch_InviteAcceptedEvent
-@dynamic participantId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"participantId" : [GTLRCloudSearch_StoredParticipantId class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_InviteeInfo
-//
-
-@implementation GTLRCloudSearch_InviteeInfo
-@dynamic email, userId;
 @end
 
 
@@ -6537,15 +2233,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_ItemParts
-//
-
-@implementation GTLRCloudSearch_ItemParts
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_ItemStatus
 //
 
@@ -6575,213 +2262,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
   return @{ @"hashProperty" : @"hash" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ItemThread
-//
-
-@implementation GTLRCloudSearch_ItemThread
-@dynamic clusterInfo, item, lastItemId, matchInfo, snippet, threadKey,
-         threadLocator, topicState, version;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"item" : [GTLRCloudSearch_FuseboxItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_JobsettedServerSpec
-//
-
-@implementation GTLRCloudSearch_JobsettedServerSpec
-@dynamic portName, serverName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_KeyValue
-//
-
-@implementation GTLRCloudSearch_KeyValue
-@dynamic bottomLabel, button, content, contentMultiline, endIcon, icon,
-         iconAltText, iconUrl, imageStyle, onClick, startIcon, switchWidget,
-         topLabel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelAdded
-//
-
-@implementation GTLRCloudSearch_LabelAdded
-@dynamic labelId, labelName, messageKeys, syncId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelCreated
-//
-
-@implementation GTLRCloudSearch_LabelCreated
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelDeleted
-//
-
-@implementation GTLRCloudSearch_LabelDeleted
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelRemoved
-//
-
-@implementation GTLRCloudSearch_LabelRemoved
-@dynamic labelId, labelName, messageKeys, syncId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelRenamed
-//
-
-@implementation GTLRCloudSearch_LabelRenamed
-@dynamic oldCanonicalName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Labels
-//
-
-@implementation GTLRCloudSearch_Labels
-@dynamic displayName, identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"displayName" : [NSString class],
-    @"id" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelUpdate
-//
-
-@implementation GTLRCloudSearch_LabelUpdate
-@dynamic canonicalName, labelCreated, labelDeleted, labelId, labelRenamed,
-         labelUpdated, syncId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LabelUpdated
-//
-
-@implementation GTLRCloudSearch_LabelUpdated
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LanguageConfig
-//
-
-@implementation GTLRCloudSearch_LanguageConfig
-@dynamic spokenLanguages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"spokenLanguages" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LdapGroupProto
-//
-
-@implementation GTLRCloudSearch_LdapGroupProto
-@dynamic groupName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LdapUserProto
-//
-
-@implementation GTLRCloudSearch_LdapUserProto
-@dynamic userName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LegacyUploadMetadata
-//
-
-@implementation GTLRCloudSearch_LegacyUploadMetadata
-@dynamic legacyUniqueId, uploadMetadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_LinkData
-//
-
-@implementation GTLRCloudSearch_LinkData
-@dynamic attachment, attachmentRenderHint, displayUrl, linkTarget, linkType,
-         title;
 @end
 
 
@@ -6933,19 +2413,33 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_MatchInfo
+//   GTLRCloudSearch_MapInfo
 //
 
-@implementation GTLRCloudSearch_MatchInfo
-@dynamic matchingImageReferenceKey;
+@implementation GTLRCloudSearch_MapInfo
+@dynamic lat, locationUrl, longProperty, mapTile, zoom;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"longProperty" : @"long" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"matchingImageReferenceKey" : [NSString class]
+    @"mapTile" : [GTLRCloudSearch_MapTile class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MapTile
+//
+
+@implementation GTLRCloudSearch_MapTile
+@dynamic imageUrl, tileX, tileY;
 @end
 
 
@@ -6961,291 +2455,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_MdbGroupProto
-//
-
-@implementation GTLRCloudSearch_MdbGroupProto
-@dynamic groupName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MdbUserProto
-//
-
-@implementation GTLRCloudSearch_MdbUserProto
-@dynamic gaiaId, userName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_Media
 //
 
 @implementation GTLRCloudSearch_Media
 @dynamic resourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MeetingSpace
-//
-
-@implementation GTLRCloudSearch_MeetingSpace
-@dynamic acceptedNumberClass, broadcastAccess, callInfo, gatewayAccess,
-         gatewaySipAccess, meetingAlias, meetingCode, meetingSpaceId,
-         meetingUrl, moreJoinUrl, phoneAccess, settings, universalPhoneAccess;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"acceptedNumberClass" : [NSString class],
-    @"gatewaySipAccess" : [GTLRCloudSearch_GatewaySipAccess class],
-    @"phoneAccess" : [GTLRCloudSearch_PhoneAccess class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Member
-//
-
-@implementation GTLRCloudSearch_Member
-@dynamic roster, user;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MemberId
-//
-
-@implementation GTLRCloudSearch_MemberId
-@dynamic rosterId, userId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MembershipChangedMetadata
-//
-
-@implementation GTLRCloudSearch_MembershipChangedMetadata
-@dynamic affectedMemberProfiles, affectedMembers, affectedMemberships,
-         initiator, initiatorProfile, initiatorType, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"affectedMemberProfiles" : [GTLRCloudSearch_Member class],
-    @"affectedMembers" : [GTLRCloudSearch_MemberId class],
-    @"affectedMemberships" : [GTLRCloudSearch_AffectedMembership class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MembershipChangeEvent
-//
-
-@implementation GTLRCloudSearch_MembershipChangeEvent
-@dynamic leaveReason, participantId, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"participantId" : [GTLRCloudSearch_StoredParticipantId class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Menu
-//
-
-@implementation GTLRCloudSearch_Menu
-@dynamic items, label, name, onChange;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_MenuItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MenuItem
-//
-
-@implementation GTLRCloudSearch_MenuItem
-@dynamic selected, text, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Message
-//
-
-@implementation GTLRCloudSearch_Message
-@dynamic annotations, appProfile, attachments, attributes, botResponses,
-         communalLabels, contentReportSummary, createTime, creatorId,
-         deletableBy, deletedByVault, deleteTime, deleteTimeForRequester,
-         dlpScanSummary, editableBy, fallbackText, identifier, isContentPurged,
-         isInlineReply, lastEditTime, lastUpdateTime, localId,
-         messageIntegrationPayload, messageOrigin, messageReference,
-         messageSearchInfo, messageState, numberOfUnicodeEmojis,
-         originAppSuggestions, personalLabels, privateMessageInfos,
-         privateMessageViewer, props, quotedByState, quotedMessageMetadata,
-         reactions, reports, retentionSettings, richTextFormattingType,
-         secondaryMessageKey, textBody, tombstoneMetadata, updaterId,
-         uploadMetadata;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotations" : [GTLRCloudSearch_Annotation class],
-    @"attachments" : [GTLRCloudSearch_Attachment class],
-    @"botResponses" : [GTLRCloudSearch_BotResponse class],
-    @"communalLabels" : [GTLRCloudSearch_CommunalLabelTag class],
-    @"originAppSuggestions" : [GTLRCloudSearch_AppsDynamiteSharedOriginAppSuggestion class],
-    @"personalLabels" : [GTLRCloudSearch_PersonalLabelTag class],
-    @"privateMessageInfos" : [GTLRCloudSearch_PrivateMessageInfo class],
-    @"reactions" : [GTLRCloudSearch_AppsDynamiteSharedReaction class],
-    @"reports" : [GTLRCloudSearch_ContentReport class],
-    @"uploadMetadata" : [GTLRCloudSearch_UploadMetadata class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageAdded
-//
-
-@implementation GTLRCloudSearch_MessageAdded
-@dynamic attributeIds, labelIds, messageKey, syncIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attributeIds" : [NSString class],
-    @"labelIds" : [NSString class],
-    @"syncIds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageAttributes
-//
-
-@implementation GTLRCloudSearch_MessageAttributes
-@dynamic isTombstone;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageDeleted
-//
-
-@implementation GTLRCloudSearch_MessageDeleted
-@dynamic imapSyncMappings, messageKeys, wonderCardMappings;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"imapSyncMappings" : [GTLRCloudSearch_ImapSyncDelete class],
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class],
-    @"wonderCardMappings" : [GTLRCloudSearch_WonderCardDelete class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageId
-//
-
-@implementation GTLRCloudSearch_MessageId
-@dynamic messageId, parentId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageInfo
-//
-
-@implementation GTLRCloudSearch_MessageInfo
-@dynamic authorUserType, message, searcherMembershipState;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageParentId
-//
-
-@implementation GTLRCloudSearch_MessageParentId
-@dynamic topicId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageProps
-//
-
-@implementation GTLRCloudSearch_MessageProps
-@dynamic babelProps;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageReference
-//
-
-@implementation GTLRCloudSearch_MessageReference
-@dynamic sourceInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_MessageSet
-//
-
-@implementation GTLRCloudSearch_MessageSet
 @end
 
 
@@ -7288,16 +2502,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_MultiKey
-//
-
-@implementation GTLRCloudSearch_MultiKey
-@dynamic clientAssignedPermId, serverId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_Name
 //
 
@@ -7314,16 +2518,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @implementation GTLRCloudSearch_NamedProperty
 @dynamic booleanValue, dateValues, doubleValues, enumValues, htmlValues,
          integerValues, name, objectValues, textValues, timestampValues;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_OAuthConsumerProto
-//
-
-@implementation GTLRCloudSearch_OAuthConsumerProto
-@dynamic domain;
 @end
 
 
@@ -7419,36 +2613,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_OnClick
-//
-
-@implementation GTLRCloudSearch_OnClick
-@dynamic action, link, openLink, openLinkAction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_OpenCreatedDraftActionMarkup
-//
-
-@implementation GTLRCloudSearch_OpenCreatedDraftActionMarkup
-@dynamic draftId, draftStorageId, draftThreadId, draftThreadServerPermId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_OpenLink
-//
-
-@implementation GTLRCloudSearch_OpenLink
-@dynamic loadIndicator, onClose, openAs, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_Operation
 //
 
@@ -7487,52 +2651,19 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_OsVersion
+//   GTLRCloudSearch_PeoplePromotionCard
 //
 
-@implementation GTLRCloudSearch_OsVersion
-@dynamic majorVersion, minorVersion, tertiaryVersion;
-@end
+@implementation GTLRCloudSearch_PeoplePromotionCard
+@dynamic people;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"people" : [GTLRCloudSearch_PersonCore class]
+  };
+  return map;
+}
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_OtrChatMessageEvent
-//
-
-@implementation GTLRCloudSearch_OtrChatMessageEvent
-@dynamic expirationTimestampUsec, kansasRowId, kansasVersionInfo,
-         messageOtrStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_OtrModificationEvent
-//
-
-@implementation GTLRCloudSearch_OtrModificationEvent
-@dynamic newOtrStatus, newOtrToggle, oldOtrStatus, oldOtrToggle;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PackagingServiceClient
-//
-
-@implementation GTLRCloudSearch_PackagingServiceClient
-@dynamic androidPackageName, iosAppStoreId, iosBundleId, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PaygateInfo
-//
-
-@implementation GTLRCloudSearch_PaygateInfo
-@dynamic callEndingSoonWarningTime, callEndingTime, showUpgradePromos;
 @end
 
 
@@ -7569,21 +2700,48 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_PersonalLabelTag
+//   GTLRCloudSearch_PersonCore
 //
 
-@implementation GTLRCloudSearch_PersonalLabelTag
-@dynamic labelId;
+@implementation GTLRCloudSearch_PersonCore
+@dynamic addressMeAs, admins, adminTo, availabilityStatus, birthday,
+         calendarUrl, chatUrl, costCenter, department, directReports,
+         dottedLineManagers, dottedLineReports, emails, employeeId, fingerprint,
+         ftePermille, geoLocation, gmailUrl, jobTitle, keywords, keywordTypes,
+         links, location, managers, mission, name, officeLocation, personId,
+         phoneNumbers, photoUrl, postalAddress, totalDirectReportsCount,
+         totalDlrCount, totalFteCount, username, waldoComeBackTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"admins" : [GTLRCloudSearch_PersonCore class],
+    @"adminTo" : [GTLRCloudSearch_PersonCore class],
+    @"directReports" : [GTLRCloudSearch_PersonCore class],
+    @"dottedLineManagers" : [GTLRCloudSearch_PersonCore class],
+    @"dottedLineReports" : [GTLRCloudSearch_PersonCore class],
+    @"emails" : [NSString class],
+    @"keywordTypes" : [NSString class],
+    @"links" : [GTLRCloudSearch_EnterpriseTopazFrontendTeamsLink class],
+    @"managers" : [GTLRCloudSearch_PersonCore class],
+    @"phoneNumbers" : [GTLRCloudSearch_EnterpriseTopazFrontendTeamsPersonCorePhoneNumber class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_PhoneAccess
+//   GTLRCloudSearch_PersonCore_Keywords
 //
 
-@implementation GTLRCloudSearch_PhoneAccess
-@dynamic formattedPhoneNumber, languageCode, phoneNumber, pin, regionCode;
+@implementation GTLRCloudSearch_PersonCore_Keywords
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -7604,16 +2762,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_Photo
 @dynamic url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PinnedItemId
-//
-
-@implementation GTLRCloudSearch_PinnedItemId
-@dynamic driveId;
 @end
 
 
@@ -7655,134 +2803,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_PossiblyTrimmedModel
-//
-
-@implementation GTLRCloudSearch_PossiblyTrimmedModel
-@dynamic isTrimmed, model;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PostiniUserProto
-//
-
-@implementation GTLRCloudSearch_PostiniUserProto
-@dynamic postiniUserId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PrefDeleted
-//
-
-@implementation GTLRCloudSearch_PrefDeleted
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PrefUpdate
-//
-
-@implementation GTLRCloudSearch_PrefUpdate
-@dynamic name, prefDeleted, prefWritten, preState;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PrefWritten
-//
-
-@implementation GTLRCloudSearch_PrefWritten
-@dynamic value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Presenter
-//
-
-@implementation GTLRCloudSearch_Presenter
-@dynamic annotationInfo, byDeviceId, copresenterDeviceIds, presenterDeviceId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"copresenterDeviceIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PreState
-//
-
-@implementation GTLRCloudSearch_PreState
-@dynamic labelIds, messageKey, syncIds, threadKey;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"labelIds" : [NSString class],
-    @"syncIds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_Principal
 //
 
 @implementation GTLRCloudSearch_Principal
 @dynamic groupResourceName, gsuitePrincipal, userResourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PrincipalProto
-//
-
-@implementation GTLRCloudSearch_PrincipalProto
-@dynamic allAuthenticatedUsers, capTokenHolder, chat, circle, cloudPrincipal,
-         contactGroup, emailOwner, event, gaiaGroup, gaiaUser, host, ldapGroup,
-         ldapUser, mdbGroup, mdbUser, oauthConsumer, postiniUser, rbacRole,
-         rbacSubject, resourceRole, scope, signingKeyPossessor,
-         simpleSecretHolder, socialGraphNode, square, youtubeUser,
-         zwiebackSession;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_PrivateMessageInfo
-//
-
-@implementation GTLRCloudSearch_PrivateMessageInfo
-@dynamic annotations, attachments, contextualAddOnMarkup,
-         gsuiteIntegrationMetadata, text, userId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotations" : [GTLRCloudSearch_Annotation class],
-    @"attachments" : [GTLRCloudSearch_Attachment class],
-    @"contextualAddOnMarkup" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup class],
-    @"gsuiteIntegrationMetadata" : [GTLRCloudSearch_GsuiteIntegrationMetadata class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -7825,25 +2850,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_PropertyDisplayOptions
 @dynamic displayLabel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Provenance
-//
-
-@implementation GTLRCloudSearch_Provenance
-@dynamic annotationBlob, canonicalUrl, inputUrl, itemtype,
-         retrievedTimestampMsec, retrievedUrl;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"itemtype" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -7978,152 +2984,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_QuotedMessageMetadata
-//
-
-@implementation GTLRCloudSearch_QuotedMessageMetadata
-@dynamic annotations, appProfile, botAttachmentState, createTimeMicros,
-         creatorId, lastEditTimeMicros, lastUpdateTimeWhenQuotedMicros,
-         messageId, messageState, retentionSettings, textBody, updaterId,
-         uploadMetadata;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotations" : [GTLRCloudSearch_Annotation class],
-    @"uploadMetadata" : [GTLRCloudSearch_UploadMetadata class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Rank
-//
-
-@implementation GTLRCloudSearch_Rank
-@dynamic primary, secondary;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RbacRoleProto
-//
-
-@implementation GTLRCloudSearch_RbacRoleProto
-@dynamic name, objectId, rbacNamespace, rbacRoleName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RbacSubjectProto
-//
-
-@implementation GTLRCloudSearch_RbacSubjectProto
-@dynamic username;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ReactionInfo
-//
-
-@implementation GTLRCloudSearch_ReactionInfo
-@dynamic emoji;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ReadReceiptsSettingsUpdatedMetadata
-//
-
-@implementation GTLRCloudSearch_ReadReceiptsSettingsUpdatedMetadata
-@dynamic readReceiptsEnabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Recipient
-//
-
-@implementation GTLRCloudSearch_Recipient
-@dynamic email;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RecordingEvent
-//
-
-@implementation GTLRCloudSearch_RecordingEvent
-@dynamic deviceId, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RecordingInfo
-//
-
-@implementation GTLRCloudSearch_RecordingInfo
-@dynamic latestRecordingEvent, ownerDisplayName, producerDeviceId,
-         recordingApplicationType, recordingId, recordingStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RecordingSessionInfo
-//
-
-@implementation GTLRCloudSearch_RecordingSessionInfo
-@dynamic ownerEmail, recordingSessionId, sessionStateInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Reference
-//
-
-@implementation GTLRCloudSearch_Reference
-@dynamic blobId, contentType, hashProperty, key, name, size;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"hashProperty" : @"hash" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_References
-//
-
-@implementation GTLRCloudSearch_References
-@dynamic references;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"references" : [GTLRCloudSearch_Reference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_RemoveActivityRequest
 //
 
@@ -8143,40 +3003,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_RenameEvent
-//
-
-@implementation GTLRCloudSearch_RenameEvent
-@dynamic newName, originalName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_RepositoryError
 //
 
 @implementation GTLRCloudSearch_RepositoryError
 @dynamic errorMessage, httpStatusCode, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RequestFileScope
-//
-
-@implementation GTLRCloudSearch_RequestFileScope
-@dynamic itemId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RequestFileScopeForActiveDocument
-//
-
-@implementation GTLRCloudSearch_RequestFileScopeForActiveDocument
 @end
 
 
@@ -8192,39 +3023,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_RequiredMessageFeaturesMetadata
-//
-
-@implementation GTLRCloudSearch_RequiredMessageFeaturesMetadata
-@dynamic requiredFeatures;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requiredFeatures" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_ResetSearchApplicationRequest
 //
 
 @implementation GTLRCloudSearch_ResetSearchApplicationRequest
 @dynamic debugOptions;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ResourceRoleProto
-//
-
-@implementation GTLRCloudSearch_ResourceRoleProto
-@dynamic applicationId, objectId, objectPart, roleId;
 @end
 
 
@@ -8335,63 +3138,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_RoomRenameMetadata
+//   GTLRCloudSearch_SafeHtmlProto
 //
 
-@implementation GTLRCloudSearch_RoomRenameMetadata
-@dynamic newName, prevName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RoomUpdatedMetadata
-//
-
-@implementation GTLRCloudSearch_RoomUpdatedMetadata
-@dynamic groupDetailsMetadata, groupLinkSharingEnabled, initiator,
-         initiatorType, name, renameMetadata, visibility;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Roster
-//
-
-@implementation GTLRCloudSearch_Roster
-@dynamic avatarUrl, identifier, isMembershipVisibleToCaller, membershipCount,
-         name, rosterGaiaKey, rosterState, segmentedMembershipCounts;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RosterId
-//
-
-@implementation GTLRCloudSearch_RosterId
-@dynamic identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_RpcOptions
-//
-
-@implementation GTLRCloudSearch_RpcOptions
-@dynamic requestExtensions;
+@implementation GTLRCloudSearch_SafeHtmlProto
+@dynamic privateDoNotAccessOrElseSafeHtmlWrappedValue;
 @end
 
 
@@ -8527,16 +3278,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_SearchLinkData
-//
-
-@implementation GTLRCloudSearch_SearchLinkData
-@dynamic kgEntityConfidence, mid, queryBroadnessScore;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_SearchQualityMetadata
 //
 
@@ -8609,174 +3350,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_Section
-//
-
-@implementation GTLRCloudSearch_Section
-@dynamic collapsable, descriptionProperty, numUncollapsableWidgets, widgets;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"widgets" : [GTLRCloudSearch_WidgetMarkup class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Segment
-//
-
-@implementation GTLRCloudSearch_Segment
-@dynamic formatting, hashtagData, linkData, searchLinkData, text, type,
-         userMentionData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SelectionControl
-//
-
-@implementation GTLRCloudSearch_SelectionControl
-@dynamic items, label, name, onChange, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudSearch_SelectionItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SelectionItem
-//
-
-@implementation GTLRCloudSearch_SelectionItem
-@dynamic selected, text, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SessionContext
-//
-
-@implementation GTLRCloudSearch_SessionContext
-@dynamic authTime, delegateUserId, dusi, imapSessionContext, oauthLoginId,
-         oauthProjectId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SessionEvent
-//
-
-@implementation GTLRCloudSearch_SessionEvent
-@dynamic deviceId, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SessionStateInfo
-//
-
-@implementation GTLRCloudSearch_SessionStateInfo
-@dynamic ackInfo, languageConfig, lastActorDeviceId, maxEndTime, sessionState,
-         sessionStopReason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Settings
-//
-
-@implementation GTLRCloudSearch_Settings
-@dynamic accessLock, accessType, allowJoiningBeforeHost,
-         attendanceReportEnabled, chatLock, coActivityLock,
-         cohostArtifactSharingEnabled, cseEnabled, defaultAsViewer,
-         moderationEnabled, presentLock, reactionsLock;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_ShareScope
 //
 
 @implementation GTLRCloudSearch_ShareScope
 @dynamic domain, scope;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SheetsClientActionMarkup
-//
-
-@implementation GTLRCloudSearch_SheetsClientActionMarkup
-@dynamic customFunctionReturnValueMarkup;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SigningKeyPossessorProto
-//
-
-@implementation GTLRCloudSearch_SigningKeyPossessorProto
-@dynamic keymasterKeyType, serializedVerificationKey,
-         serializedVerificationKeyset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SimpleSecretHolderProto
-//
-
-@implementation GTLRCloudSearch_SimpleSecretHolderProto
-@dynamic label;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SimpleSecretLabelProto
-//
-
-@implementation GTLRCloudSearch_SimpleSecretLabelProto
-@dynamic capabilityId, genericLabel, inviteId, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SlashCommandMetadata
-//
-
-@implementation GTLRCloudSearch_SlashCommandMetadata
-@dynamic argumentsHint, commandId, commandName, identifier, triggersDialog,
-         type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
 @end
 
 
@@ -8795,31 +3373,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SocialCommonAttachmentAttachment
-//
-
-@implementation GTLRCloudSearch_SocialCommonAttachmentAttachment
-@dynamic embedItem, identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SocialGraphNodeProto
-//
-
-@implementation GTLRCloudSearch_SocialGraphNodeProto
-@dynamic sgnDomain, sgnPk;
 @end
 
 
@@ -8865,16 +3418,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_SourceMessageInfo
-//
-
-@implementation GTLRCloudSearch_SourceMessageInfo
-@dynamic messageId, messageType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_SourceResultCount
 //
 
@@ -8895,31 +3438,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_SpaceId
-//
-
-@implementation GTLRCloudSearch_SpaceId
-@dynamic spaceId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_SpellResult
 //
 
 @implementation GTLRCloudSearch_SpellResult
-@dynamic suggestedQuery, suggestionType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SquareProto
-//
-
-@implementation GTLRCloudSearch_SquareProto
-@dynamic memberType, squareId;
+@dynamic suggestedQuery, suggestedQueryHtml, suggestionType;
 @end
 
 
@@ -8962,37 +3485,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_StoredParticipantId
-//
-
-@implementation GTLRCloudSearch_StoredParticipantId
-@dynamic gaiaId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_StreamingSessionInfo
-//
-
-@implementation GTLRCloudSearch_StreamingSessionInfo
-@dynamic applicationType, latestSessionEvent, ownerDisplayName, sessionId,
-         status, trainingEnabled, viewerAccessPolicy, viewerStats;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_StreamViewerStats
-//
-
-@implementation GTLRCloudSearch_StreamViewerStats
-@dynamic estimatedViewerCount;
 @end
 
 
@@ -9072,83 +3564,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_SupportUrls
-//
-
-@implementation GTLRCloudSearch_SupportUrls
-@dynamic adminConfigUrl, deletionPolicyUrl, gwmUrl, privacyPolicyUrl, setupUrl,
-         supportUrl, tosUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_SwitchWidget
-//
-
-@implementation GTLRCloudSearch_SwitchWidget
-@dynamic controlType, name, onChange, selected, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TaskActionMarkup
-//
-
-@implementation GTLRCloudSearch_TaskActionMarkup
-@dynamic reloadTasks;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TextButton
-//
-
-@implementation GTLRCloudSearch_TextButton
-@dynamic altText, backgroundColor, disabled, onClick, style, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TextField
-//
-
-@implementation GTLRCloudSearch_TextField
-@dynamic autoComplete, autoCompleteCallback, autoCompleteMultipleSelections,
-         hintText, label, maxLines, name, onChange, type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TextKeyValue
-//
-
-@implementation GTLRCloudSearch_TextKeyValue
-@dynamic key, onClick, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_TextOperatorOptions
 //
 
 @implementation GTLRCloudSearch_TextOperatorOptions
 @dynamic exactMatchWithOperator, operatorName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TextParagraph
-//
-
-@implementation GTLRCloudSearch_TextParagraph
-@dynamic text;
 @end
 
 
@@ -9182,39 +3602,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_ThreadKeySet
+//   GTLRCloudSearch_ThirdPartyGenericCard
 //
 
-@implementation GTLRCloudSearch_ThreadKeySet
-@dynamic messageKeys, newThreadKey;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messageKeys" : [GTLRCloudSearch_MultiKey class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ThreadUpdate
-//
-
-@implementation GTLRCloudSearch_ThreadUpdate
-@dynamic attributeRemoved, attributeSet, labelAdded, labelRemoved,
-         lastHistoryRecordId, messageAdded, messageDeleted, originalThreadKey,
-         preState, threadKey, threadKeySet, threadLocator, topicStateUpdate;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"preState" : [GTLRCloudSearch_PreState class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudSearch_ThirdPartyGenericCard
+@dynamic cardId, category, content, context, isDismissible, priority;
 @end
 
 
@@ -9258,183 +3650,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_TombstoneMetadata
-//
-
-@implementation GTLRCloudSearch_TombstoneMetadata
-@dynamic tombstoneType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Toolbar
-//
-
-@implementation GTLRCloudSearch_Toolbar
-@dynamic color, iconUrl, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TopicId
-//
-
-@implementation GTLRCloudSearch_TopicId
-@dynamic groupId, topicId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TopicState
-//
-
-@implementation GTLRCloudSearch_TopicState
-@dynamic labelIdMessageCount, numConstituents;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TopicState_LabelIdMessageCount
-//
-
-@implementation GTLRCloudSearch_TopicState_LabelIdMessageCount
-
-+ (Class)classForAdditionalProperties {
-  return [NSNumber class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TopicStateUpdate
-//
-
-@implementation GTLRCloudSearch_TopicStateUpdate
-@dynamic topicState;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TransactionContext
-//
-
-@implementation GTLRCloudSearch_TransactionContext
-@dynamic endingRecordId, startingRecordId, writeTimestampUs;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TransactionDebugInfo
-//
-
-@implementation GTLRCloudSearch_TransactionDebugInfo
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TranscriptionSessionInfo
-//
-
-@implementation GTLRCloudSearch_TranscriptionSessionInfo
-@dynamic sessionStateInfo, transcriptionSessionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TransientData
-//
-
-@implementation GTLRCloudSearch_TransientData
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Trigger
-//
-
-@implementation GTLRCloudSearch_Trigger
-@dynamic actionType, batchTimeUs, dispatcher, dispatchId, fireTimeUs,
-         jobsettedServerSpec, key, rpcOptions, sliceFireTimeUs, triggerAction,
-         triggerKey;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TriggerAction
-//
-
-@implementation GTLRCloudSearch_TriggerAction
-@dynamic action, data, dataInt;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TriggerKey
-//
-
-@implementation GTLRCloudSearch_TriggerKey
-@dynamic instanceId, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_Triggers
-//
-
-@implementation GTLRCloudSearch_Triggers
-@dynamic triggers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"triggers" : [GTLRCloudSearch_Trigger class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_TrustedResourceUrlProto
-//
-
-@implementation GTLRCloudSearch_TrustedResourceUrlProto
-@dynamic privateDoNotAccessOrElseTrustedResourceUrlWrappedValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_TypeInfo
 //
 
 @implementation GTLRCloudSearch_TypeInfo
 @dynamic videoInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UniversalPhoneAccess
-//
-
-@implementation GTLRCloudSearch_UniversalPhoneAccess
-@dynamic pin, pstnInfoUrl;
 @end
 
 
@@ -9460,76 +3680,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_UpdateBccRecipients
-//
-
-@implementation GTLRCloudSearch_UpdateBccRecipients
-@dynamic bccRecipients;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bccRecipients" : [GTLRCloudSearch_Recipient class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UpdateBody
-//
-
-@implementation GTLRCloudSearch_UpdateBody
-@dynamic insertContents, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"insertContents" : [GTLRCloudSearch_InsertContent class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UpdateCcRecipients
-//
-
-@implementation GTLRCloudSearch_UpdateCcRecipients
-@dynamic ccRecipients;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ccRecipients" : [GTLRCloudSearch_Recipient class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_UpdateDataSourceRequest
 //
 
 @implementation GTLRCloudSearch_UpdateDataSourceRequest
 @dynamic debugOptions, source, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UpdateDraftActionMarkup
-//
-
-@implementation GTLRCloudSearch_UpdateDraftActionMarkup
-@dynamic updateBccRecipients, updateBody, updateCcRecipients, updateSubject,
-         updateToRecipients;
 @end
 
 
@@ -9545,34 +3700,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_UpdateSubject
-//
-
-@implementation GTLRCloudSearch_UpdateSubject
-@dynamic subject;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UpdateToRecipients
-//
-
-@implementation GTLRCloudSearch_UpdateToRecipients
-@dynamic toRecipients;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"toRecipients" : [GTLRCloudSearch_Recipient class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_UploadItemRef
 //
 
@@ -9583,123 +3710,11 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_UploadMetadata
-//
-
-@implementation GTLRCloudSearch_UploadMetadata
-@dynamic attachmentToken, backendUploadMetadata, clonedAuthorizedItemId,
-         clonedDriveAction, clonedDriveId, contentName, contentType,
-         dlpMetricsMetadata, internalOnlyComponentSearchInfo,
-         latestVirusScanTimestamp, localId, originalDimension, videoReference,
-         virusScanResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UrlMetadata
-//
-
-@implementation GTLRCloudSearch_UrlMetadata
-@dynamic domain, gwsUrl, gwsUrlExpirationTimestamp, imageHeight, imageUrl,
-         imageWidth, intImageHeight, intImageWidth, mimeType, redirectUrl,
-         shouldNotRender, snippet, title, url, urlSource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_User
-//
-
-@implementation GTLRCloudSearch_User
-@dynamic avatarUrl, blockRelationship, botInfo, deleted, email, firstName,
-         gender, identifier, isAnonymous, lastName, name, organizationInfo,
-         phoneNumber, userAccountState, userProfileVisibility;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"phoneNumber" : [GTLRCloudSearch_AppsDynamiteSharedPhoneNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_UserActivity
 //
 
 @implementation GTLRCloudSearch_UserActivity
 @dynamic queryActivity;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UserDisplayInfo
-//
-
-@implementation GTLRCloudSearch_UserDisplayInfo
-@dynamic avatarUrl, displayName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UserId
-//
-
-@implementation GTLRCloudSearch_UserId
-@dynamic actingUserId, identifier, originAppId, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UserInfo
-//
-
-@implementation GTLRCloudSearch_UserInfo
-@dynamic driveNotificationAvatarUrl, updaterCountDisplayType,
-         updaterCountToShow, updaterToShowEmail, updaterToShowGaiaId,
-         updaterToShowName, updaterToShowUserId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UserMentionData
-//
-
-@implementation GTLRCloudSearch_UserMentionData
-@dynamic email, user, userGaiaId, userId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_UserMentionMetadata
-//
-
-@implementation GTLRCloudSearch_UserMentionMetadata
-@dynamic displayName, gender, identifier, inviteeInfo, type, userMentionError;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
 @end
 
 
@@ -9726,16 +3741,6 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_VideoCallMetadata
-//
-
-@implementation GTLRCloudSearch_VideoCallMetadata
-@dynamic meetingSpace, shouldNotRender, wasCreatedInCurrentGroup;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_VideoInfo
 //
 
@@ -9746,183 +3751,9 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_VoicePhoneNumber
-//
-
-@implementation GTLRCloudSearch_VoicePhoneNumber
-@dynamic e164, i18nData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_VoicePhoneNumberI18nData
-//
-
-@implementation GTLRCloudSearch_VoicePhoneNumberI18nData
-@dynamic countryCode, internationalNumber, isValid, nationalNumber, regionCode,
-         validationResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_VPCSettings
 //
 
 @implementation GTLRCloudSearch_VPCSettings
 @dynamic project;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_WhiteboardInfo
-//
-
-@implementation GTLRCloudSearch_WhiteboardInfo
-@dynamic identifier, title, uri;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_WidgetMarkup
-//
-
-@implementation GTLRCloudSearch_WidgetMarkup
-@dynamic buttons, dateTimePicker, divider, grid, horizontalAlignment, image,
-         imageKeyValue, keyValue, menu, selectionControl, textField,
-         textKeyValue, textParagraph;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"buttons" : [GTLRCloudSearch_Button class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_WonderCardDelete
-//
-
-@implementation GTLRCloudSearch_WonderCardDelete
-@dynamic messageMappings, msgId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_WonderCardDelete_MessageMappings
-//
-
-@implementation GTLRCloudSearch_WonderCardDelete_MessageMappings
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudSearch_WonderMessageMapping class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_WonderMessageMapping
-//
-
-@implementation GTLRCloudSearch_WonderMessageMapping
-@dynamic wonderCardMessageId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"wonderCardMessageId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_WrappedResourceKey
-//
-
-@implementation GTLRCloudSearch_WrappedResourceKey
-@dynamic resourceKey;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_YouTubeBroadcastSessionInfo
-//
-
-@implementation GTLRCloudSearch_YouTubeBroadcastSessionInfo
-@dynamic broadcastStats, sessionStateInfo, youTubeBroadcastSessionId,
-         youTubeLiveBroadcastEvent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_YouTubeBroadcastStats
-//
-
-@implementation GTLRCloudSearch_YouTubeBroadcastStats
-@dynamic estimatedViewerCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_YouTubeLiveBroadcastEvent
-//
-
-@implementation GTLRCloudSearch_YouTubeLiveBroadcastEvent
-@dynamic brandAccountGaiaId, broadcastId, channelId, viewUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_YoutubeMetadata
-//
-
-@implementation GTLRCloudSearch_YoutubeMetadata
-@dynamic identifier, shouldNotRender, startTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_YoutubeUserProto
-//
-
-@implementation GTLRCloudSearch_YoutubeUserProto
-@dynamic youtubeUserId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_ZwiebackSessionProto
-//
-
-@implementation GTLRCloudSearch_ZwiebackSessionProto
-@dynamic zwiebackSessionId;
 @end

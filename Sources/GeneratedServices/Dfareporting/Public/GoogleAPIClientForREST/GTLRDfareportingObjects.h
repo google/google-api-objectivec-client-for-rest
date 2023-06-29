@@ -127,7 +127,6 @@
 @class GTLRDfareporting_OptimizationActivity;
 @class GTLRDfareporting_Order;
 @class GTLRDfareporting_OrderContact;
-@class GTLRDfareporting_OrderDocument;
 @class GTLRDfareporting_PathFilter;
 @class GTLRDfareporting_PathReportCompatibleFields;
 @class GTLRDfareporting_PathReportDimensionValue;
@@ -210,9 +209,17 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Account.accountProfile
 
-/** Value: "ACCOUNT_PROFILE_BASIC" */
+/**
+ *  Basic profile has fewer features and lower CPM.
+ *
+ *  Value: "ACCOUNT_PROFILE_BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_AccountProfile_AccountProfileBasic;
-/** Value: "ACCOUNT_PROFILE_STANDARD" */
+/**
+ *  Standard profile as a higher CPM and all the features.
+ *
+ *  Value: "ACCOUNT_PROFILE_STANDARD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_AccountProfile_AccountProfileStandard;
 
 // ----------------------------------------------------------------------------
@@ -258,9 +265,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_Acti
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountPermission.accountProfiles
 
-/** Value: "ACCOUNT_PROFILE_BASIC" */
+/**
+ *  Basic profile has fewer features and lower CPM.
+ *
+ *  Value: "ACCOUNT_PROFILE_BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_AccountProfiles_AccountProfileBasic;
-/** Value: "ACCOUNT_PROFILE_STANDARD" */
+/**
+ *  Standard profile as a higher CPM and all the features.
+ *
+ *  Value: "ACCOUNT_PROFILE_STANDARD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_AccountProfiles_AccountProfileStandard;
 
 // ----------------------------------------------------------------------------
@@ -274,31 +289,68 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_Level_Use
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountUserProfile.traffickerType
 
-/** Value: "EXTERNAL_TRAFFICKER" */
+/**
+ *  External profile who is a trafficker.
+ *
+ *  Value: "EXTERNAL_TRAFFICKER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_ExternalTrafficker;
-/** Value: "INTERNAL_NON_TRAFFICKER" */
+/**
+ *  Internal profile, but is not a trafficker.
+ *
+ *  Value: "INTERNAL_NON_TRAFFICKER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalNonTrafficker;
-/** Value: "INTERNAL_TRAFFICKER" */
+/**
+ *  Internal profile who is a trafficker.
+ *
+ *  Value: "INTERNAL_TRAFFICKER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalTrafficker;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountUserProfile.userAccessType
 
-/** Value: "INTERNAL_ADMINISTRATOR" */
+/**
+ *  Internal administrator having super user access to only a specific set of
+ *  networks.
+ *
+ *  Value: "INTERNAL_ADMINISTRATOR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_InternalAdministrator;
-/** Value: "NORMAL_USER" */
+/**
+ *  Normal user managed by the customer.
+ *
+ *  Value: "NORMAL_USER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_NormalUser;
-/** Value: "READ_ONLY_SUPER_USER" */
+/**
+ *  A super-user without permission to mutate any data.
+ *
+ *  Value: "READ_ONLY_SUPER_USER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_ReadOnlySuperUser;
-/** Value: "SUPER_USER" */
+/**
+ *  Super user managed by internal support teams.
+ *
+ *  Value: "SUPER_USER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_SuperUser;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Ad.compatibility
 
-/** Value: "APP" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_App;
-/** Value: "APP_INTERSTITIAL" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_Display;
@@ -326,9 +378,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingTracking;
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AdSlot.compatibility
 
-/** Value: "APP" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_App;
-/** Value: "APP_INTERSTITIAL" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_Display;
@@ -350,9 +410,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_Pl
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Advertiser.status
 
-/** Value: "APPROVED" */
+/**
+ *  Approved (ads can deliver)
+ *
+ *  Value: "APPROVED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_Approved;
-/** Value: "ON_HOLD" */
+/**
+ *  On-hold (all ads are stopped)
+ *
+ *  Value: "ON_HOLD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_OnHold;
 
 // ----------------------------------------------------------------------------
@@ -470,27 +538,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_Permis
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.artworkType
 
-/** Value: "ARTWORK_TYPE_FLASH" */
+/**
+ *  The creative is a Flash creative.
+ *
+ *  Value: "ARTWORK_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeFlash;
-/** Value: "ARTWORK_TYPE_HTML5" */
+/**
+ *  The creative is HTML5.
+ *
+ *  Value: "ARTWORK_TYPE_HTML5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeHtml5;
-/** Value: "ARTWORK_TYPE_IMAGE" */
+/**
+ *  The creative is Image.
+ *
+ *  Value: "ARTWORK_TYPE_IMAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeImage;
-/** Value: "ARTWORK_TYPE_MIXED" */
+/**
+ *  The creative is HTML5 if available, Flash otherwise.
+ *
+ *  Value: "ARTWORK_TYPE_MIXED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.authoringSource
 
-/** Value: "CREATIVE_AUTHORING_SOURCE_ACS" */
+/**
+ *  ACS-UI used to author the creative.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_ACS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs;
-/** Value: "CREATIVE_AUTHORING_SOURCE_DBM" */
+/**
+ *  DBM-UI used to author the creative.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_DBM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm;
-/** Value: "CREATIVE_AUTHORING_SOURCE_DCM" */
+/**
+ *  DCM-UI or external API used to author the creative.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_DCM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm;
-/** Value: "CREATIVE_AUTHORING_SOURCE_GWD" */
+/**
+ *  Google Web Designer used to author the creative.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_GWD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd;
-/** Value: "CREATIVE_AUTHORING_SOURCE_STUDIO" */
+/**
+ *  Studio-UI used to author the creative.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_STUDIO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio;
 
 // ----------------------------------------------------------------------------
@@ -610,7 +714,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeature
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeWeek;
 /** Value: "LOCAL_STORAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_LocalStorage;
-/** Value: "POST_MESSAGE" */
+/**
+ *  POST_MESSAGE always required due to html5 implementation.
+ *
+ *  Value: "POST_MESSAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_PostMessage;
 /** Value: "SESSION_STORAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SessionStorage;
@@ -640,9 +748,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeature
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.compatibility
 
-/** Value: "APP" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_App;
-/** Value: "APP_INTERSTITIAL" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_Display;
@@ -722,25 +838,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_Ali
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.artworkType
 
-/** Value: "ARTWORK_TYPE_FLASH" */
+/**
+ *  The creative is a Flash creative.
+ *
+ *  Value: "ARTWORK_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeFlash;
-/** Value: "ARTWORK_TYPE_HTML5" */
+/**
+ *  The creative is HTML5.
+ *
+ *  Value: "ARTWORK_TYPE_HTML5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeHtml5;
-/** Value: "ARTWORK_TYPE_IMAGE" */
+/**
+ *  The creative is Image.
+ *
+ *  Value: "ARTWORK_TYPE_IMAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeImage;
-/** Value: "ARTWORK_TYPE_MIXED" */
+/**
+ *  The creative is HTML5 if available, Flash otherwise.
+ *
+ *  Value: "ARTWORK_TYPE_MIXED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeMixed;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.childAssetType
 
-/** Value: "CHILD_ASSET_TYPE_DATA" */
+/**
+ *  rest of the supported file types .txt, .xml etc.
+ *
+ *  Value: "CHILD_ASSET_TYPE_DATA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeData;
-/** Value: "CHILD_ASSET_TYPE_FLASH" */
+/**
+ *  swf files
+ *
+ *  Value: "CHILD_ASSET_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeFlash;
-/** Value: "CHILD_ASSET_TYPE_IMAGE" */
+/**
+ *  image files
+ *
+ *  Value: "CHILD_ASSET_TYPE_IMAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeImage;
-/** Value: "CHILD_ASSET_TYPE_VIDEO" */
+/**
+ *  flv and any other video files types
+ *
+ *  Value: "CHILD_ASSET_TYPE_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeVideo;
 
 // ----------------------------------------------------------------------------
@@ -852,7 +1000,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatu
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeWeek;
 /** Value: "LOCAL_STORAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_LocalStorage;
-/** Value: "POST_MESSAGE" */
+/**
+ *  POST_MESSAGE always required due to html5 implementation.
+ *
+ *  Value: "POST_MESSAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_PostMessage;
 /** Value: "SESSION_STORAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SessionStorage;
@@ -882,35 +1034,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatu
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.displayType
 
-/** Value: "ASSET_DISPLAY_TYPE_BACKDROP" */
+/**
+ *  Backdrop (skin) asset.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_BACKDROP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeBackdrop;
-/** Value: "ASSET_DISPLAY_TYPE_EXPANDING" */
+/**
+ *  Asset changes size.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_EXPANDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeExpanding;
-/** Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH" */
+/**
+ *  Not applicable for HTML5.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlash;
-/** Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH_EXPANDING" */
+/**
+ *  Not applicable for HTML5.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH_EXPANDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlashExpanding;
-/** Value: "ASSET_DISPLAY_TYPE_FLOATING" */
+/**
+ *  Asset exists at a self described location on the page.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_FLOATING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFloating;
-/** Value: "ASSET_DISPLAY_TYPE_INPAGE" */
+/**
+ *  Asset exists in a box and stays within the box.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_INPAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeInpage;
-/** Value: "ASSET_DISPLAY_TYPE_OVERLAY" */
+/**
+ *  Special display type for IM clients.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_OVERLAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeOverlay;
-/** Value: "ASSET_DISPLAY_TYPE_PEEL_DOWN" */
+/**
+ *  Asset sits on the top right and expands.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_PEEL_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypePeelDown;
-/** Value: "ASSET_DISPLAY_TYPE_VPAID_LINEAR" */
+/**
+ *  VPAID linear asset.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_VPAID_LINEAR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidLinear;
-/** Value: "ASSET_DISPLAY_TYPE_VPAID_NON_LINEAR" */
+/**
+ *  VPAID non linear asset.
+ *
+ *  Value: "ASSET_DISPLAY_TYPE_VPAID_NON_LINEAR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidNonLinear;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.durationType
 
-/** Value: "ASSET_DURATION_TYPE_AUTO" */
+/**
+ *  Asset is displayed for the single run of the time line.
+ *
+ *  Value: "ASSET_DURATION_TYPE_AUTO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeAuto;
-/** Value: "ASSET_DURATION_TYPE_CUSTOM" */
+/**
+ *  User entered duration value in seconds.
+ *
+ *  Value: "ASSET_DURATION_TYPE_CUSTOM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeCustom;
-/** Value: "ASSET_DURATION_TYPE_NONE" */
+/**
+ *  Asset is displayed indefinitely and it loops on the timeline.
+ *
+ *  Value: "ASSET_DURATION_TYPE_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeNone;
 
 // ----------------------------------------------------------------------------
@@ -926,21 +1130,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_S
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.positionLeftUnit
 
-/** Value: "OFFSET_UNIT_PERCENT" */
+/**
+ *  Percent offset for center asset (rather than top and left).
+ *
+ *  Value: "OFFSET_UNIT_PERCENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPercent;
-/** Value: "OFFSET_UNIT_PIXEL" */
+/**
+ *  Pixels on a screen.
+ *
+ *  Value: "OFFSET_UNIT_PIXEL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixel;
-/** Value: "OFFSET_UNIT_PIXEL_FROM_CENTER" */
+/**
+ *  Pixel offset for center of asset from center of browser window.
+ *
+ *  Value: "OFFSET_UNIT_PIXEL_FROM_CENTER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixelFromCenter;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.positionTopUnit
 
-/** Value: "OFFSET_UNIT_PERCENT" */
+/**
+ *  Percent offset for center asset (rather than top and left).
+ *
+ *  Value: "OFFSET_UNIT_PERCENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPercent;
-/** Value: "OFFSET_UNIT_PIXEL" */
+/**
+ *  Pixels on a screen.
+ *
+ *  Value: "OFFSET_UNIT_PIXEL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixel;
-/** Value: "OFFSET_UNIT_PIXEL_FROM_CENTER" */
+/**
+ *  Pixel offset for center of asset from center of browser window.
+ *
+ *  Value: "OFFSET_UNIT_PIXEL_FROM_CENTER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixelFromCenter;
 
 // ----------------------------------------------------------------------------
@@ -970,19 +1198,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Transcod
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.startTimeType
 
-/** Value: "ASSET_START_TIME_TYPE_CUSTOM" */
+/**
+ *  Asset is automatically displayed after a fixed period of time.
+ *
+ *  Value: "ASSET_START_TIME_TYPE_CUSTOM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeCustom;
-/** Value: "ASSET_START_TIME_TYPE_NONE" */
+/**
+ *  Asset is not automatically displayed.
+ *
+ *  Value: "ASSET_START_TIME_TYPE_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeNone;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.windowMode
 
-/** Value: "OPAQUE" */
+/**
+ *  Allows overlapping of Html and SWF content.
+ *
+ *  Value: "OPAQUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Opaque;
-/** Value: "TRANSPARENT" */
+/**
+ *  Used for non-square borders. Allows overlapping of Html and SWF content.
+ *
+ *  Value: "TRANSPARENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Transparent;
-/** Value: "WINDOW" */
+/**
+ *  Default
+ *
+ *  Value: "WINDOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Window;
 
 // ----------------------------------------------------------------------------
@@ -1110,7 +1358,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Detec
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeWeek;
 /** Value: "LOCAL_STORAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_LocalStorage;
-/** Value: "POST_MESSAGE" */
+/**
+ *  POST_MESSAGE always required due to html5 implementation.
+ *
+ *  Value: "POST_MESSAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_PostMessage;
 /** Value: "SESSION_STORAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SessionStorage;
@@ -1140,57 +1392,169 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Detec
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAssetMetadata.warnedValidationRules
 
-/** Value: "ADMOB_REFERENCED" */
+/**
+ *  Reference to INAPP ADMOB feature.
+ *
+ *  Value: "ADMOB_REFERENCED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AdmobReferenced;
-/** Value: "ASSET_FORMAT_UNSUPPORTED_DCM" */
+/**
+ *  Asset ad format is unsupported in DCM.
+ *
+ *  Value: "ASSET_FORMAT_UNSUPPORTED_DCM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AssetFormatUnsupportedDcm;
-/** Value: "ASSET_INVALID" */
+/**
+ *  Asset is not valid and could not be processed.
+ *
+ *  Value: "ASSET_INVALID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AssetInvalid;
-/** Value: "CLICK_TAG_HARD_CODED" */
+/**
+ *  Whether the asset has hard coded click tag url(s).
+ *
+ *  Value: "CLICK_TAG_HARD_CODED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagHardCoded;
-/** Value: "CLICK_TAG_IN_GWD" */
+/**
+ *  Click tag defined in GWD asset. GWD-published creatives should use exit
+ *  events instead of defining var clickTag. Defined var clickTags are a symptom
+ *  of an unsupported workflow, and an error should be thrown.
+ *
+ *  Value: "CLICK_TAG_IN_GWD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInGwd;
-/** Value: "CLICK_TAG_IN_RICH_MEDIA" */
+/**
+ *  Click tag defined in rich media asset. Rich media creatives should use exit
+ *  events instead of defining var clickTag. Defined var clickTags are a symptom
+ *  of an unsupported workflow, and an error should be thrown.
+ *
+ *  Value: "CLICK_TAG_IN_RICH_MEDIA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInRichMedia;
-/** Value: "CLICK_TAG_INVALID" */
+/**
+ *  Click tag invalid (failed url validation).
+ *
+ *  Value: "CLICK_TAG_INVALID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInvalid;
-/** Value: "CLICK_TAG_MISSING" */
+/**
+ *  No click tag detected.
+ *
+ *  Value: "CLICK_TAG_MISSING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagMissing;
-/** Value: "CLICK_TAG_MORE_THAN_ONE" */
+/**
+ *  More than one click tag detected.
+ *
+ *  Value: "CLICK_TAG_MORE_THAN_ONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagMoreThanOne;
-/** Value: "CLICK_TAG_NON_TOP_LEVEL" */
+/**
+ *  Click tag initialization detected but not at the top level of the primary
+ *  html file.
+ *
+ *  Value: "CLICK_TAG_NON_TOP_LEVEL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagNonTopLevel;
-/** Value: "COMPONENT_UNSUPPORTED_DCM" */
+/**
+ *  Component is unsupported in DCM.
+ *
+ *  Value: "COMPONENT_UNSUPPORTED_DCM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ComponentUnsupportedDcm;
-/** Value: "ENABLER_UNSUPPORTED_METHOD_DCM" */
+/**
+ *  Unsupported Enabler methods in DCM.
+ *
+ *  Value: "ENABLER_UNSUPPORTED_METHOD_DCM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_EnablerUnsupportedMethodDcm;
-/** Value: "EXTERNAL_FILE_REFERENCED" */
+/**
+ *  Reference to a third-party resource. Problematic because the volume of ad
+ *  serving could bring down unprepared web servers due to high load. e.g.
+ *  http://www.zibble.net/smiles.gif
+ *
+ *  Value: "EXTERNAL_FILE_REFERENCED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ExternalFileReferenced;
-/** Value: "FILE_DETAIL_EMPTY" */
+/**
+ *  File detail empty.
+ *
+ *  Value: "FILE_DETAIL_EMPTY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_FileDetailEmpty;
-/** Value: "FILE_TYPE_INVALID" */
+/**
+ *  Invalid file type referenced.
+ *
+ *  Value: "FILE_TYPE_INVALID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_FileTypeInvalid;
-/** Value: "GWD_PROPERTIES_INVALID" */
+/**
+ *  GWD properties are invalid.
+ *
+ *  Value: "GWD_PROPERTIES_INVALID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_GwdPropertiesInvalid;
-/** Value: "HTML5_FEATURE_UNSUPPORTED" */
+/**
+ *  Html5 feature is unsupported.
+ *
+ *  Value: "HTML5_FEATURE_UNSUPPORTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_Html5FeatureUnsupported;
-/** Value: "LINKED_FILE_NOT_FOUND" */
+/**
+ *  A relative file was linked to that wasn't included in zip. e.g.
+ *  images/missing_file.gif
+ *
+ *  Value: "LINKED_FILE_NOT_FOUND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_LinkedFileNotFound;
-/** Value: "MAX_FLASH_VERSION_11" */
+/**
+ *  Max flash version at 11.
+ *
+ *  Value: "MAX_FLASH_VERSION_11"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MaxFlashVersion11;
-/** Value: "MISSING_ENABLER_REFERENCE" */
+/**
+ *  Rich media primary asset is missing the Enabler reference.
+ *
+ *  Value: "MISSING_ENABLER_REFERENCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MissingEnablerReference;
-/** Value: "MRAID_REFERENCED" */
+/**
+ *  Reference to INAPP MRAID feature.
+ *
+ *  Value: "MRAID_REFERENCED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MraidReferenced;
-/** Value: "NOT_SSL_COMPLIANT" */
+/**
+ *  Whether the asset uses secure urls or not.
+ *
+ *  Value: "NOT_SSL_COMPLIANT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_NotSslCompliant;
-/** Value: "ORPHANED_ASSET" */
+/**
+ *  Orphaned asset not referenced.
+ *
+ *  Value: "ORPHANED_ASSET"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_OrphanedAsset;
-/** Value: "PRIMARY_HTML_MISSING" */
+/**
+ *  Primary html file missing.
+ *
+ *  Value: "PRIMARY_HTML_MISSING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_PrimaryHtmlMissing;
-/** Value: "SVG_INVALID" */
+/**
+ *  Whether an SVG block could not be parsed.
+ *
+ *  Value: "SVG_INVALID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_SvgInvalid;
-/** Value: "ZIP_INVALID" */
+/**
+ *  Invalid zip passed in (could not extract from zip
+ *
+ *  Value: "ZIP_INVALID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ZipInvalid;
 
 // ----------------------------------------------------------------------------
@@ -1206,27 +1570,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_Adverti
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeCustomEvent.artworkType
 
-/** Value: "ARTWORK_TYPE_FLASH" */
+/**
+ *  The creative is a Flash creative.
+ *
+ *  Value: "ARTWORK_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeFlash;
-/** Value: "ARTWORK_TYPE_HTML5" */
+/**
+ *  The creative is HTML5.
+ *
+ *  Value: "ARTWORK_TYPE_HTML5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeHtml5;
-/** Value: "ARTWORK_TYPE_IMAGE" */
+/**
+ *  The creative is Image.
+ *
+ *  Value: "ARTWORK_TYPE_IMAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeImage;
-/** Value: "ARTWORK_TYPE_MIXED" */
+/**
+ *  The creative is HTML5 if available, Flash otherwise.
+ *
+ *  Value: "ARTWORK_TYPE_MIXED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeMixed;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeCustomEvent.targetType
 
-/** Value: "TARGET_BLANK" */
+/**
+ *  New tab
+ *
+ *  Value: "TARGET_BLANK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetBlank;
-/** Value: "TARGET_PARENT" */
+/**
+ *  Parent frame
+ *
+ *  Value: "TARGET_PARENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetParent;
-/** Value: "TARGET_POPUP" */
+/**
+ *  New window with properties specified in window_properties
+ *
+ *  Value: "TARGET_POPUP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetPopup;
-/** Value: "TARGET_SELF" */
+/**
+ *  Same frame
+ *
+ *  Value: "TARGET_SELF"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetSelf;
-/** Value: "TARGET_TOP" */
+/**
+ *  Current tab
+ *
+ *  Value: "TARGET_TOP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetTop;
 
 // ----------------------------------------------------------------------------
@@ -1254,21 +1654,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfigu
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeRotation.type
 
-/** Value: "CREATIVE_ROTATION_TYPE_RANDOM" */
+/**
+ *  The weights are calculated according to the ad's
+ *  CreativeRoationWeightStrategy.
+ *
+ *  Value: "CREATIVE_ROTATION_TYPE_RANDOM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeRandom;
-/** Value: "CREATIVE_ROTATION_TYPE_SEQUENTIAL" */
+/**
+ *  The weights of each creative in the rotation should be sequential starting
+ *  at 1. The user may adjust the order.
+ *
+ *  Value: "CREATIVE_ROTATION_TYPE_SEQUENTIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeSequential;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeRotation.weightCalculationStrategy
 
-/** Value: "WEIGHT_STRATEGY_CUSTOM" */
+/**
+ *  The creative weights can be any user provided positive integer.
+ *
+ *  Value: "WEIGHT_STRATEGY_CUSTOM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyCustom;
-/** Value: "WEIGHT_STRATEGY_EQUAL" */
+/**
+ *  The creative weights should all be equal to 1. This is the default value for
+ *  all ads with a rotation type of Random.
+ *
+ *  Value: "WEIGHT_STRATEGY_EQUAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyEqual;
-/** Value: "WEIGHT_STRATEGY_HIGHEST_CTR" */
+/**
+ *  The weights will be automatically calculated giving preference to the
+ *  creative that has the highest CTR. The CTR for campaigns that are optimized
+ *  for clicks = clicks/impressions. The CTR for campaigns that are optimized
+ *  for view-through or click through is sum(activities + floodlight
+ *  weight)/impressions.
+ *
+ *  Value: "WEIGHT_STRATEGY_HIGHEST_CTR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyHighestCtr;
-/** Value: "WEIGHT_STRATEGY_OPTIMIZED" */
+/**
+ *  The creative weights will be automatically calculated using a formula that
+ *  could not possibly be explained in these comments. The value will be within
+ *  some predetermined range (probably 0 - 1,000,000).
+ *
+ *  Value: "WEIGHT_STRATEGY_OPTIMIZED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized;
 
 // ----------------------------------------------------------------------------
@@ -1644,9 +2077,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSo
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.siteFilterType
 
-/** Value: "ALLOWLIST" */
+/**
+ *  The event tag should only ever fire on specified sites.
+ *
+ *  Value: "ALLOWLIST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Allowlist;
-/** Value: "BLOCKLIST" */
+/**
+ *  The event tag should fire on all sites EXCEPT the specified sites.
+ *
+ *  Value: "BLOCKLIST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Blocklist;
 
 // ----------------------------------------------------------------------------
@@ -1660,11 +2101,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Status_Enabled;
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.type
 
-/** Value: "CLICK_THROUGH_EVENT_TAG" */
+/**
+ *  A third-party URL for click tracking that redirects to the landing page.
+ *
+ *  Value: "CLICK_THROUGH_EVENT_TAG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ClickThroughEventTag;
-/** Value: "IMPRESSION_IMAGE_EVENT_TAG" */
+/**
+ *  A third-party pixel for impression tracking.
+ *
+ *  Value: "IMPRESSION_IMAGE_EVENT_TAG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag;
-/** Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG" */
+/**
+ *  A third-party JavaScript URL for impression tracking.
+ *
+ *  Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag;
 
 // ----------------------------------------------------------------------------
@@ -1706,15 +2159,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBus
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.countingMethod
 
-/** Value: "ITEMS_SOLD_COUNTING" */
+/**
+ *  Count each conversion, plus the total number of items sold and the total
+ *  revenue for these sales.
+ *
+ *  Value: "ITEMS_SOLD_COUNTING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_ItemsSoldCounting;
-/** Value: "SESSION_COUNTING" */
+/**
+ *  Count one conversion per user per session. Session length is set by the site
+ *  where the Spotlight tag is deployed.
+ *
+ *  Value: "SESSION_COUNTING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_SessionCounting;
-/** Value: "STANDARD_COUNTING" */
+/**
+ *  Count every conversion.
+ *
+ *  Value: "STANDARD_COUNTING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_StandardCounting;
-/** Value: "TRANSACTIONS_COUNTING" */
+/**
+ *  Count all conversions, plus the total number of sales that take place and
+ *  the total revenue for these transactions.
+ *
+ *  Value: "TRANSACTIONS_COUNTING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_TransactionsCounting;
-/** Value: "UNIQUE_COUNTING" */
+/**
+ *  Count the first conversion for each unique user during each 24-hour day,
+ *  from midnight to midnight, Eastern Time.
+ *
+ *  Value: "UNIQUE_COUNTING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_UniqueCounting;
 
 // ----------------------------------------------------------------------------
@@ -1988,9 +2465,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_Nat
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FsCommand.positionOption
 
-/** Value: "CENTERED" */
+/**
+ *  Center of the window Corresponds to "center" in UI
+ *
+ *  Value: "CENTERED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_Centered;
-/** Value: "DISTANCE_FROM_TOP_LEFT_CORNER" */
+/**
+ *  user-defined distance from top left-hand corner of the window Corresponds to
+ *  "top-left" in UI
+ *
+ *  Value: "DISTANCE_FROM_TOP_LEFT_CORNER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner;
 
 // ----------------------------------------------------------------------------
@@ -2042,21 +2528,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_Ref
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerAdvertiserLink.linkStatus
 
-/** Value: "MEASUREMENT_PARTNER_LINKED" */
+/**
+ *  Linked successfully
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinked;
-/** Value: "MEASUREMENT_PARTNER_LINK_FAILURE" */
+/**
+ *  Linking failure.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_FAILURE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkFailure;
-/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT" */
+/**
+ *  Link opt-out by user.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOut;
-/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING" */
+/**
+ *  Link opt-out pending sync.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOutPending;
-/** Value: "MEASUREMENT_PARTNER_LINK_PENDING" */
+/**
+ *  Link pending for wrapping.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkPending;
-/** Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING" */
+/**
+ *  Link wrap answer pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkWrappingPending;
-/** Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING" */
+/**
+ *  Mode change pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerModeChangePending;
-/** Value: "MEASUREMENT_PARTNER_UNLINKED" */
+/**
+ *  Unlinked.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked;
 
 // ----------------------------------------------------------------------------
@@ -2072,21 +2590,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertise
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerCampaignLink.linkStatus
 
-/** Value: "MEASUREMENT_PARTNER_LINKED" */
+/**
+ *  Linked successfully
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinked;
-/** Value: "MEASUREMENT_PARTNER_LINK_FAILURE" */
+/**
+ *  Linking failure.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_FAILURE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkFailure;
-/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT" */
+/**
+ *  Link opt-out by user.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOut;
-/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING" */
+/**
+ *  Link opt-out pending sync.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOutPending;
-/** Value: "MEASUREMENT_PARTNER_LINK_PENDING" */
+/**
+ *  Link pending for wrapping.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkPending;
-/** Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING" */
+/**
+ *  Link wrap answer pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkWrappingPending;
-/** Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING" */
+/**
+ *  Mode change pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerModeChangePending;
-/** Value: "MEASUREMENT_PARTNER_UNLINKED" */
+/**
+ *  Unlinked.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked;
 
 // ----------------------------------------------------------------------------
@@ -2102,21 +2652,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignL
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerWrappingData.linkStatus
 
-/** Value: "MEASUREMENT_PARTNER_LINKED" */
+/**
+ *  Linked successfully
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinked;
-/** Value: "MEASUREMENT_PARTNER_LINK_FAILURE" */
+/**
+ *  Linking failure.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_FAILURE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkFailure;
-/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT" */
+/**
+ *  Link opt-out by user.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOut;
-/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING" */
+/**
+ *  Link opt-out pending sync.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOutPending;
-/** Value: "MEASUREMENT_PARTNER_LINK_PENDING" */
+/**
+ *  Link pending for wrapping.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkPending;
-/** Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING" */
+/**
+ *  Link wrap answer pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkWrappingPending;
-/** Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING" */
+/**
+ *  Mode change pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerModeChangePending;
-/** Value: "MEASUREMENT_PARTNER_UNLINKED" */
+/**
+ *  Unlinked.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked;
 
 // ----------------------------------------------------------------------------
@@ -2190,11 +2772,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_XboxApp
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ObjectFilter.status
 
-/** Value: "ALL" */
+/**
+ *  Profile has access to all objects.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_All;
-/** Value: "ASSIGNED" */
+/**
+ *  Profile has access to only specific objects.
+ *
+ *  Value: "ASSIGNED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_Assigned;
-/** Value: "NONE" */
+/**
+ *  Profile has access to none of the objects.
+ *
+ *  Value: "NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_None;
 
 // ----------------------------------------------------------------------------
@@ -2206,14 +2800,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_Pl
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact;
 /** Value: "PLANNING_ORDER_CONTACT_SELLER_CONTACT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_OrderDocument.type
-
-/** Value: "PLANNING_ORDER_TYPE_CHANGE_ORDER" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeChangeOrder;
-/** Value: "PLANNING_ORDER_TYPE_INSERTION_ORDER" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeInsertionOrder;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PathFilter.pathMatchPosition
@@ -2256,9 +2842,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_ActiveStatus_Plac
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.compatibility
 
-/** Value: "APP" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_App;
-/** Value: "APP_INTERSTITIAL" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_Display;
@@ -2280,17 +2874,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_PaymentSource_Pla
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.status
 
-/** Value: "ACKNOWLEDGE_ACCEPTANCE" */
+/**
+ *  Advertisers has accepted acceptance of placement ad serving fee. This will
+ *  suppress future notification on DDMM UI
+ *
+ *  Value: "ACKNOWLEDGE_ACCEPTANCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_AcknowledgeAcceptance;
-/** Value: "ACKNOWLEDGE_REJECTION" */
+/**
+ *  Advertisers has accepted rejection of placement ad serving fee. This will
+ *  suppress future notification on DDMM UI
+ *
+ *  Value: "ACKNOWLEDGE_REJECTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_AcknowledgeRejection;
-/** Value: "DRAFT" */
+/**
+ *  Advertisers is still working on placement not yet ready for Publisher
+ *  review; default status for pub-paid placements
+ *
+ *  Value: "DRAFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_Draft;
-/** Value: "PAYMENT_ACCEPTED" */
+/**
+ *  Placement Ad Serving fee is accepted by publisher
+ *
+ *  Value: "PAYMENT_ACCEPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PaymentAccepted;
-/** Value: "PAYMENT_REJECTED" */
+/**
+ *  Placement Ad Serving fee is rejected by publisher
+ *
+ *  Value: "PAYMENT_REJECTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PaymentRejected;
-/** Value: "PENDING_REVIEW" */
+/**
+ *  Placement is not yet reviewed by publisher.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PendingReview;
 
 // ----------------------------------------------------------------------------
@@ -2342,7 +2963,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_Placem
 
 /** Value: "BOTH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Both;
-/** Value: "DEFAULT" */
+/**
+ *  DEFAULT means Google chooses which adapter, if any, to serve.
+ *
+ *  Value: "DEFAULT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Default;
 /** Value: "FLASH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Flash;
@@ -2366,17 +2991,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PlacementGroup.placementGroupType
 
-/** Value: "PLACEMENT_PACKAGE" */
+/**
+ *  A simple group of site-placements (tags). Basically acts as a single pricing
+ *  point for a group of tags.
+ *
+ *  Value: "PLACEMENT_PACKAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementPackage;
-/** Value: "PLACEMENT_ROADBLOCK" */
+/**
+ *  A group of site-placements (tags) that not only acts as a single pricing
+ *  point but also assumes that all the tags in it will be served at the same
+ *  time. This kind of group requires one of its assigned site-placements to be
+ *  marked as primary for reporting purposes.
+ *
+ *  Value: "PLACEMENT_ROADBLOCK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementRoadblock;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PopupWindowProperties.positionType
 
-/** Value: "CENTER" */
+/**
+ *  window positioning at center.
+ *
+ *  Value: "CENTER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Center;
-/** Value: "COORDINATES" */
+/**
+ *  window positioning by upper left corner coordinates.
+ *
+ *  Value: "COORDINATES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Coordinates;
 
 // ----------------------------------------------------------------------------
@@ -2392,9 +3037,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_Plannin
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Pricing.groupType
 
-/** Value: "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE" */
+/**
+ *  A placement package represents "package pricing": Pricing and flight
+ *  information is defined on the package, not on its child placements. The
+ *  placements in a package do not need to be on the same page.
+ *
+ *  Value: "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypePackage;
-/** Value: "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK" */
+/**
+ *  A roadblock represents a set of placements that are all the same page. One
+ *  of the child placements is designated as the "primary" placement for
+ *  reporting purposes.
+ *
+ *  Value: "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypeRoadblock;
 
 // ----------------------------------------------------------------------------
@@ -2480,27 +3137,71 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Recipient_DeliveryType_Link
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_RemarketingList.listSource
 
-/** Value: "REMARKETING_LIST_SOURCE_ADX" */
+/**
+ *  ADX
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_ADX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceAdx;
-/** Value: "REMARKETING_LIST_SOURCE_DBM" */
+/**
+ *  DoubleClick Bid Manager
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DBM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDbm;
-/** Value: "REMARKETING_LIST_SOURCE_DFA" */
+/**
+ *  DoubleClick Campaign Manager
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DFA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfa;
-/** Value: "REMARKETING_LIST_SOURCE_DFP" */
+/**
+ *  DFP
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DFP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfp;
-/** Value: "REMARKETING_LIST_SOURCE_DMP" */
+/**
+ *  DoubleClick Audience Center
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DMP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDmp;
-/** Value: "REMARKETING_LIST_SOURCE_GA" */
+/**
+ *  Google Analytics Premium
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_GA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGa;
-/** Value: "REMARKETING_LIST_SOURCE_GPLUS" */
+/**
+ *  G+
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_GPLUS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGplus;
-/** Value: "REMARKETING_LIST_SOURCE_OTHER" */
+/**
+ *  covers sources not supported in DCM other than those listed below
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_OTHER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceOther;
-/** Value: "REMARKETING_LIST_SOURCE_PLAY_STORE" */
+/**
+ *  Playstore
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_PLAY_STORE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourcePlayStore;
-/** Value: "REMARKETING_LIST_SOURCE_XFP" */
+/**
+ *  XFP
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_XFP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceXfp;
-/** Value: "REMARKETING_LIST_SOURCE_YOUTUBE" */
+/**
+ *  Youtube
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_YOUTUBE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceYoutube;
 
 // ----------------------------------------------------------------------------
@@ -2588,7 +3289,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteContact_ContactType_Tra
 
 /** Value: "BOTH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both;
-/** Value: "DEFAULT" */
+/**
+ *  DEFAULT means Google chooses which adapter, if any, to serve.
+ *
+ *  Value: "DEFAULT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Default;
 /** Value: "FLASH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Flash;
@@ -2660,89 +3365,247 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTag
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TagSetting.keywordOption
 
-/** Value: "GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD" */
+/**
+ *  Results in unique tag generation for each relevant keyword during tag
+ *  export. For example, an ad with three keywords will generate three tags with
+ *  each tag having its kw= parameter filled in with the relevant keyword
+ *  values.
+ *
+ *  Value: "GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_GenerateSeparateTagForEachKeyword;
-/** Value: "IGNORE" */
+/**
+ *  Creates DART ad tags that do not have a placeholder for keywords and creates
+ *  a list of keywords separately from the DART ad tags. Use this option if the
+ *  site uses a keyword referrer or is a site that uses DART for Publishers.
+ *
+ *  Value: "IGNORE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_Ignore;
-/** Value: "PLACEHOLDER_WITH_LIST_OF_KEYWORDS" */
+/**
+ *  Creates DART ad tags with a placeholder, such as kw=[keyword] and a list of
+ *  keywords. The site trafficker must replace [keyword] with the keywords
+ *  targeted by an ad.
+ *
+ *  Value: "PLACEHOLDER_WITH_LIST_OF_KEYWORDS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_PlaceholderWithListOfKeywords;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TargetableRemarketingList.listSource
 
-/** Value: "REMARKETING_LIST_SOURCE_ADX" */
+/**
+ *  ADX
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_ADX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceAdx;
-/** Value: "REMARKETING_LIST_SOURCE_DBM" */
+/**
+ *  DoubleClick Bid Manager
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DBM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDbm;
-/** Value: "REMARKETING_LIST_SOURCE_DFA" */
+/**
+ *  DoubleClick Campaign Manager
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DFA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfa;
-/** Value: "REMARKETING_LIST_SOURCE_DFP" */
+/**
+ *  DFP
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DFP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfp;
-/** Value: "REMARKETING_LIST_SOURCE_DMP" */
+/**
+ *  DoubleClick Audience Center
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_DMP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDmp;
-/** Value: "REMARKETING_LIST_SOURCE_GA" */
+/**
+ *  Google Analytics Premium
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_GA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGa;
-/** Value: "REMARKETING_LIST_SOURCE_GPLUS" */
+/**
+ *  G+
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_GPLUS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGplus;
-/** Value: "REMARKETING_LIST_SOURCE_OTHER" */
+/**
+ *  covers sources not supported in DCM other than those listed below
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_OTHER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceOther;
-/** Value: "REMARKETING_LIST_SOURCE_PLAY_STORE" */
+/**
+ *  Playstore
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_PLAY_STORE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourcePlayStore;
-/** Value: "REMARKETING_LIST_SOURCE_XFP" */
+/**
+ *  XFP
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_XFP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceXfp;
-/** Value: "REMARKETING_LIST_SOURCE_YOUTUBE" */
+/**
+ *  Youtube
+ *
+ *  Value: "REMARKETING_LIST_SOURCE_YOUTUBE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceYoutube;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TargetWindow.targetWindowOption
 
-/** Value: "CURRENT_WINDOW" */
+/**
+ *  Use the current window to display the backup image Corresponds to "_top" in
+ *  html
+ *
+ *  Value: "CURRENT_WINDOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_CurrentWindow;
-/** Value: "CUSTOM" */
+/**
+ *  User-defined HTML used to display the backup image Corresponds to "other"
+ *
+ *  Value: "CUSTOM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_Custom;
-/** Value: "NEW_WINDOW" */
+/**
+ *  Open up a new window to display the backup image Corresponds to "_blank" in
+ *  html
+ *
+ *  Value: "NEW_WINDOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_NewWindow;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ThirdPartyTrackingUrl.thirdPartyUrlType
 
-/** Value: "CLICK_TRACKING" */
+/**
+ *  Used to track user clicks on the video.
+ *
+ *  Value: "CLICK_TRACKING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_ClickTracking;
-/** Value: "IMPRESSION" */
+/**
+ *  Used to count impressions of the ad after video buffering is complete.
+ *
+ *  Value: "IMPRESSION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Impression;
-/** Value: "RICH_MEDIA_BACKUP_IMPRESSION" */
+/**
+ *  Used by Studio RichMediaCreative, maps to its
+ *  thirdPartyBackupImageImpressionsUrl
+ *
+ *  Value: "RICH_MEDIA_BACKUP_IMPRESSION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaBackupImpression;
-/** Value: "RICH_MEDIA_IMPRESSION" */
+/**
+ *  Used by Studio RichMediaCreative, maps to its thirdPartyImpressionsUrl
+ *
+ *  Value: "RICH_MEDIA_IMPRESSION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaImpression;
-/** Value: "RICH_MEDIA_RM_IMPRESSION" */
+/**
+ *  Used by Studio RichMediaCreative, maps to its
+ *  thirdPartyRichMediaImpressionsUrl
+ *
+ *  Value: "RICH_MEDIA_RM_IMPRESSION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaRmImpression;
-/** Value: "SURVEY" */
+/**
+ *  Used for DFA6 compatibility, this is deprecating in favor of event tags.
+ *
+ *  Value: "SURVEY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Survey;
-/** Value: "VIDEO_COMPLETE" */
+/**
+ *  Used to track the number of times the video plays to the end.
+ *
+ *  Value: "VIDEO_COMPLETE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoComplete;
-/** Value: "VIDEO_CUSTOM" */
+/**
+ *  Used to track the number of times a user performs a custom click, such as
+ *  clicking on a video hot spot.
+ *
+ *  Value: "VIDEO_CUSTOM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoCustom;
-/** Value: "VIDEO_FIRST_QUARTILE" */
+/**
+ *  Used to track the number of times the video plays to 25% of its length.
+ *
+ *  Value: "VIDEO_FIRST_QUARTILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFirstQuartile;
-/** Value: "VIDEO_FULLSCREEN" */
+/**
+ *  Used to track the number of times a user expands the video to full-screen
+ *  size.
+ *
+ *  Value: "VIDEO_FULLSCREEN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFullscreen;
-/** Value: "VIDEO_MIDPOINT" */
+/**
+ *  Used to track the number of times the video plays to 50% of its length.
+ *
+ *  Value: "VIDEO_MIDPOINT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMidpoint;
-/** Value: "VIDEO_MUTE" */
+/**
+ *  Used to track the number of times a user mutes the video.
+ *
+ *  Value: "VIDEO_MUTE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMute;
-/** Value: "VIDEO_PAUSE" */
+/**
+ *  Used to track the number of times a user pauses the video.
+ *
+ *  Value: "VIDEO_PAUSE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoPause;
-/** Value: "VIDEO_PROGRESS" */
+/**
+ *  Used to track the number of times the video plays to an offset determined by
+ *  the user.
+ *
+ *  Value: "VIDEO_PROGRESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoProgress;
-/** Value: "VIDEO_REWIND" */
+/**
+ *  Used to track the number of times a user replays the video.
+ *
+ *  Value: "VIDEO_REWIND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoRewind;
-/** Value: "VIDEO_SKIP" */
+/**
+ *  Used to track the number of times the video was skipped.
+ *
+ *  Value: "VIDEO_SKIP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoSkip;
-/** Value: "VIDEO_START" */
+/**
+ *  Used to track the number of times a user starts a video.
+ *
+ *  Value: "VIDEO_START"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStart;
-/** Value: "VIDEO_STOP" */
+/**
+ *  Used to track the number of times a user stops the video.
+ *
+ *  Value: "VIDEO_STOP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStop;
-/** Value: "VIDEO_THIRD_QUARTILE" */
+/**
+ *  Used to track the number of times the video plays to 75% of its length.
+ *
+ *  Value: "VIDEO_THIRD_QUARTILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile;
 
 // ----------------------------------------------------------------------------
@@ -2972,17 +3835,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfigur
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UserRolePermission.availability
 
-/** Value: "ACCOUNT_ALWAYS" */
+/**
+ *  Always available to accounts.
+ *
+ *  Value: "ACCOUNT_ALWAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_AccountAlways;
-/** Value: "ACCOUNT_BY_DEFAULT" */
+/**
+ *  Available by default to accounts only.
+ *
+ *  Value: "ACCOUNT_BY_DEFAULT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_AccountByDefault;
-/** Value: "NOT_AVAILABLE_BY_DEFAULT" */
+/**
+ *  Not available by default.
+ *
+ *  Value: "NOT_AVAILABLE_BY_DEFAULT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_NotAvailableByDefault;
-/** Value: "SUBACCOUNT_AND_ACCOUNT_ALWAYS" */
+/**
+ *  Always available to both accounts and subaccounts.
+ *
+ *  Value: "SUBACCOUNT_AND_ACCOUNT_ALWAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountAlways;
-/** Value: "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT" */
+/**
+ *  Available by default to both accounts and subaccounts.
+ *
+ *  Value: "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault;
-/** Value: "USER_PROFILE_ONLY" */
+/**
+ *  Available for user profile permissions only.
+ *
+ *  Value: "USER_PROFILE_ONLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly;
 
 // ----------------------------------------------------------------------------
@@ -3035,10 +3922,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Profile for this account. This is a read-only field that can be left blank.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Account_AccountProfile_AccountProfileBasic Value
- *        "ACCOUNT_PROFILE_BASIC"
+ *    @arg @c kGTLRDfareporting_Account_AccountProfile_AccountProfileBasic Basic
+ *        profile has fewer features and lower CPM. (Value:
+ *        "ACCOUNT_PROFILE_BASIC")
  *    @arg @c kGTLRDfareporting_Account_AccountProfile_AccountProfileStandard
- *        Value "ACCOUNT_PROFILE_STANDARD"
+ *        Standard profile as a higher CPM and all the features. (Value:
+ *        "ACCOUNT_PROFILE_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *accountProfile;
 
@@ -3339,7 +4228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#accountPermissionGroupsListResponse".
+ *  "dfareporting#accountPermissionGroupGroupsListResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3482,11 +4371,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_AccountUserProfile_TraffickerType_ExternalTrafficker
- *        Value "EXTERNAL_TRAFFICKER"
+ *        External profile who is a trafficker. (Value: "EXTERNAL_TRAFFICKER")
  *    @arg @c kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalNonTrafficker
- *        Value "INTERNAL_NON_TRAFFICKER"
+ *        Internal profile, but is not a trafficker. (Value:
+ *        "INTERNAL_NON_TRAFFICKER")
  *    @arg @c kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalTrafficker
- *        Value "INTERNAL_TRAFFICKER"
+ *        Internal profile who is a trafficker. (Value: "INTERNAL_TRAFFICKER")
  */
 @property(nonatomic, copy, nullable) NSString *traffickerType;
 
@@ -3496,13 +4386,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_AccountUserProfile_UserAccessType_InternalAdministrator
- *        Value "INTERNAL_ADMINISTRATOR"
+ *        Internal administrator having super user access to only a specific set
+ *        of networks. (Value: "INTERNAL_ADMINISTRATOR")
  *    @arg @c kGTLRDfareporting_AccountUserProfile_UserAccessType_NormalUser
- *        Value "NORMAL_USER"
+ *        Normal user managed by the customer. (Value: "NORMAL_USER")
  *    @arg @c kGTLRDfareporting_AccountUserProfile_UserAccessType_ReadOnlySuperUser
- *        Value "READ_ONLY_SUPER_USER"
+ *        A super-user without permission to mutate any data. (Value:
+ *        "READ_ONLY_SUPER_USER")
  *    @arg @c kGTLRDfareporting_AccountUserProfile_UserAccessType_SuperUser
- *        Value "SUPER_USER"
+ *        Super user managed by internal support teams. (Value: "SUPER_USER")
  */
 @property(nonatomic, copy, nullable) NSString *userAccessType;
 
@@ -3655,9 +4547,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  developed with the VAST standard.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Ad_Compatibility_App Value "APP"
- *    @arg @c kGTLRDfareporting_Ad_Compatibility_AppInterstitial Value
- *        "APP_INTERSTITIAL"
+ *    @arg @c kGTLRDfareporting_Ad_Compatibility_App Deprecated enum value. No
+ *        longer supported. (Value: "APP")
+ *    @arg @c kGTLRDfareporting_Ad_Compatibility_AppInterstitial Deprecated enum
+ *        value. No longer supported. (Value: "APP_INTERSTITIAL")
  *    @arg @c kGTLRDfareporting_Ad_Compatibility_Display Value "DISPLAY"
  *    @arg @c kGTLRDfareporting_Ad_Compatibility_DisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
@@ -3913,9 +4806,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  developed with the VAST standard.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_App Value "APP"
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial Value
- *        "APP_INTERSTITIAL"
+ *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_App Deprecated enum value.
+ *        No longer supported. (Value: "APP")
+ *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial Deprecated
+ *        enum value. No longer supported. (Value: "APP_INTERSTITIAL")
  *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_Display Value "DISPLAY"
  *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
@@ -4077,8 +4971,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Status of this advertiser.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Advertiser_Status_Approved Value "APPROVED"
- *    @arg @c kGTLRDfareporting_Advertiser_Status_OnHold Value "ON_HOLD"
+ *    @arg @c kGTLRDfareporting_Advertiser_Status_Approved Approved (ads can
+ *        deliver) (Value: "APPROVED")
+ *    @arg @c kGTLRDfareporting_Advertiser_Status_OnHold On-hold (all ads are
+ *        stopped) (Value: "ON_HOLD")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -5537,7 +6433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Organizes placements according to the contents of their associated webpages.
+ *  GTLRDfareporting_ContentCategory
  */
 @interface GTLRDfareporting_ContentCategory : GTLRObject
 
@@ -5699,7 +6595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *ordinal;
 
 /**
- *  The quantity of the conversion.
+ *  The quantity of the conversion. This is a required field.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5728,7 +6624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserIdentifier *> *userIdentifiers;
 
 /**
- *  The value of the conversion.
+ *  The value of the conversion. This is a required field.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5987,8 +6883,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<NSString *> *adTagKeys;
 
 /**
- *  Advertiser ID of this creative. This is a required field. Applicable to all
- *  creative types.
+ *  Required. Advertiser ID of this creative. This is a required field.
+ *  Applicable to all creative types.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6015,14 +6911,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  to the following creative types: all RICH_MEDIA, and all VPAID.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeFlash Value
- *        "ARTWORK_TYPE_FLASH"
- *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeHtml5 Value
- *        "ARTWORK_TYPE_HTML5"
- *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeImage Value
- *        "ARTWORK_TYPE_IMAGE"
- *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed Value
- *        "ARTWORK_TYPE_MIXED"
+ *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeFlash The
+ *        creative is a Flash creative. (Value: "ARTWORK_TYPE_FLASH")
+ *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeHtml5 The
+ *        creative is HTML5. (Value: "ARTWORK_TYPE_HTML5")
+ *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeImage The
+ *        creative is Image. (Value: "ARTWORK_TYPE_IMAGE")
+ *    @arg @c kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed The
+ *        creative is HTML5 if available, Flash otherwise. (Value:
+ *        "ARTWORK_TYPE_MIXED")
  */
 @property(nonatomic, copy, nullable) NSString *artworkType;
 
@@ -6032,15 +6929,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs
- *        Value "CREATIVE_AUTHORING_SOURCE_ACS"
+ *        ACS-UI used to author the creative. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_ACS")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm
- *        Value "CREATIVE_AUTHORING_SOURCE_DBM"
+ *        DBM-UI used to author the creative. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_DBM")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm
- *        Value "CREATIVE_AUTHORING_SOURCE_DCM"
+ *        DCM-UI or external API used to author the creative. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_DCM")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd
- *        Value "CREATIVE_AUTHORING_SOURCE_GWD"
+ *        Google Web Designer used to author the creative. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_GWD")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio
- *        Value "CREATIVE_AUTHORING_SOURCE_STUDIO"
+ *        Studio-UI used to author the creative. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_STUDIO")
  */
 @property(nonatomic, copy, nullable) NSString *authoringSource;
 
@@ -6292,8 +7194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *mediaDuration;
 
 /**
- *  Name of the creative. This is a required field and must be less than 256
- *  characters long. Applicable to all creative types.
+ *  Required. Name of the creative. This must be less than 256 characters long.
+ *  Applicable to all creative types.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6471,10 +7373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *totalFileSize;
 
 /**
- *  Type of this creative. This is a required field. Applicable to all creative
- *  types. *Note:* FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for
- *  existing creatives. New creatives should use DISPLAY as a replacement for
- *  these types.
+ *  Required. Type of this creative. Applicable to all creative types. *Note:*
+ *  FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for existing creatives.
+ *  New creatives should use DISPLAY as a replacement for these types.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Creative_Type_BrandSafeDefaultInstreamVideo
@@ -6599,14 +7500,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  to the following creative types: all RICH_MEDIA.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeFlash Value
- *        "ARTWORK_TYPE_FLASH"
- *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeHtml5 Value
- *        "ARTWORK_TYPE_HTML5"
- *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeImage Value
- *        "ARTWORK_TYPE_IMAGE"
- *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeMixed Value
- *        "ARTWORK_TYPE_MIXED"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeFlash The
+ *        creative is a Flash creative. (Value: "ARTWORK_TYPE_FLASH")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeHtml5 The
+ *        creative is HTML5. (Value: "ARTWORK_TYPE_HTML5")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeImage The
+ *        creative is Image. (Value: "ARTWORK_TYPE_IMAGE")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeMixed The
+ *        creative is HTML5 if available, Flash otherwise. (Value:
+ *        "ARTWORK_TYPE_MIXED")
  */
 @property(nonatomic, copy, nullable) NSString *artworkType;
 
@@ -6654,13 +7556,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeData
- *        Value "CHILD_ASSET_TYPE_DATA"
+ *        rest of the supported file types .txt, .xml etc. (Value:
+ *        "CHILD_ASSET_TYPE_DATA")
  *    @arg @c kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeFlash
- *        Value "CHILD_ASSET_TYPE_FLASH"
+ *        swf files (Value: "CHILD_ASSET_TYPE_FLASH")
  *    @arg @c kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeImage
- *        Value "CHILD_ASSET_TYPE_IMAGE"
+ *        image files (Value: "CHILD_ASSET_TYPE_IMAGE")
  *    @arg @c kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeVideo
- *        Value "CHILD_ASSET_TYPE_VIDEO"
+ *        flv and any other video files types (Value: "CHILD_ASSET_TYPE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *childAssetType;
 
@@ -6707,25 +7610,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeBackdrop
- *        Value "ASSET_DISPLAY_TYPE_BACKDROP"
+ *        Backdrop (skin) asset. (Value: "ASSET_DISPLAY_TYPE_BACKDROP")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeExpanding
- *        Value "ASSET_DISPLAY_TYPE_EXPANDING"
+ *        Asset changes size. (Value: "ASSET_DISPLAY_TYPE_EXPANDING")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlash
- *        Value "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH"
+ *        Not applicable for HTML5. (Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlashExpanding
- *        Value "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH_EXPANDING"
+ *        Not applicable for HTML5. (Value:
+ *        "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH_EXPANDING")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFloating
- *        Value "ASSET_DISPLAY_TYPE_FLOATING"
+ *        Asset exists at a self described location on the page. (Value:
+ *        "ASSET_DISPLAY_TYPE_FLOATING")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeInpage
- *        Value "ASSET_DISPLAY_TYPE_INPAGE"
+ *        Asset exists in a box and stays within the box. (Value:
+ *        "ASSET_DISPLAY_TYPE_INPAGE")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeOverlay
- *        Value "ASSET_DISPLAY_TYPE_OVERLAY"
+ *        Special display type for IM clients. (Value:
+ *        "ASSET_DISPLAY_TYPE_OVERLAY")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypePeelDown
- *        Value "ASSET_DISPLAY_TYPE_PEEL_DOWN"
+ *        Asset sits on the top right and expands. (Value:
+ *        "ASSET_DISPLAY_TYPE_PEEL_DOWN")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidLinear
- *        Value "ASSET_DISPLAY_TYPE_VPAID_LINEAR"
+ *        VPAID linear asset. (Value: "ASSET_DISPLAY_TYPE_VPAID_LINEAR")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidNonLinear
- *        Value "ASSET_DISPLAY_TYPE_VPAID_NON_LINEAR"
+ *        VPAID non linear asset. (Value: "ASSET_DISPLAY_TYPE_VPAID_NON_LINEAR")
  */
 @property(nonatomic, copy, nullable) NSString *displayType;
 
@@ -6744,11 +7652,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeAuto
- *        Value "ASSET_DURATION_TYPE_AUTO"
+ *        Asset is displayed for the single run of the time line. (Value:
+ *        "ASSET_DURATION_TYPE_AUTO")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeCustom
- *        Value "ASSET_DURATION_TYPE_CUSTOM"
+ *        User entered duration value in seconds. (Value:
+ *        "ASSET_DURATION_TYPE_CUSTOM")
  *    @arg @c kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeNone
- *        Value "ASSET_DURATION_TYPE_NONE"
+ *        Asset is displayed indefinitely and it loops on the timeline. (Value:
+ *        "ASSET_DURATION_TYPE_NONE")
  */
 @property(nonatomic, copy, nullable) NSString *durationType;
 
@@ -6889,11 +7800,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPercent
- *        Value "OFFSET_UNIT_PERCENT"
+ *        Percent offset for center asset (rather than top and left). (Value:
+ *        "OFFSET_UNIT_PERCENT")
  *    @arg @c kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixel
- *        Value "OFFSET_UNIT_PIXEL"
+ *        Pixels on a screen. (Value: "OFFSET_UNIT_PIXEL")
  *    @arg @c kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixelFromCenter
- *        Value "OFFSET_UNIT_PIXEL_FROM_CENTER"
+ *        Pixel offset for center of asset from center of browser window.
+ *        (Value: "OFFSET_UNIT_PIXEL_FROM_CENTER")
  */
 @property(nonatomic, copy, nullable) NSString *positionLeftUnit;
 
@@ -6904,11 +7817,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPercent
- *        Value "OFFSET_UNIT_PERCENT"
+ *        Percent offset for center asset (rather than top and left). (Value:
+ *        "OFFSET_UNIT_PERCENT")
  *    @arg @c kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixel
- *        Value "OFFSET_UNIT_PIXEL"
+ *        Pixels on a screen. (Value: "OFFSET_UNIT_PIXEL")
  *    @arg @c kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixelFromCenter
- *        Value "OFFSET_UNIT_PIXEL_FROM_CENTER"
+ *        Pixel offset for center of asset from center of browser window.
+ *        (Value: "OFFSET_UNIT_PIXEL_FROM_CENTER")
  */
 @property(nonatomic, copy, nullable) NSString *positionTopUnit;
 
@@ -7012,9 +7927,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeCustom
- *        Value "ASSET_START_TIME_TYPE_CUSTOM"
+ *        Asset is automatically displayed after a fixed period of time. (Value:
+ *        "ASSET_START_TIME_TYPE_CUSTOM")
  *    @arg @c kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeNone
- *        Value "ASSET_START_TIME_TYPE_NONE"
+ *        Asset is not automatically displayed. (Value:
+ *        "ASSET_START_TIME_TYPE_NONE")
  */
 @property(nonatomic, copy, nullable) NSString *startTimeType;
 
@@ -7046,10 +7963,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  RICH_MEDIA_DISPLAY_BANNER, and RICH_MEDIA_INPAGE_FLOATING.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_CreativeAsset_WindowMode_Opaque Value "OPAQUE"
- *    @arg @c kGTLRDfareporting_CreativeAsset_WindowMode_Transparent Value
- *        "TRANSPARENT"
- *    @arg @c kGTLRDfareporting_CreativeAsset_WindowMode_Window Value "WINDOW"
+ *    @arg @c kGTLRDfareporting_CreativeAsset_WindowMode_Opaque Allows
+ *        overlapping of Html and SWF content. (Value: "OPAQUE")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_WindowMode_Transparent Used for
+ *        non-square borders. Allows overlapping of Html and SWF content.
+ *        (Value: "TRANSPARENT")
+ *    @arg @c kGTLRDfareporting_CreativeAsset_WindowMode_Window Default (Value:
+ *        "WINDOW")
  */
 @property(nonatomic, copy, nullable) NSString *windowMode;
 
@@ -7387,13 +8307,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeFlash
- *        Value "ARTWORK_TYPE_FLASH"
+ *        The creative is a Flash creative. (Value: "ARTWORK_TYPE_FLASH")
  *    @arg @c kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeHtml5
- *        Value "ARTWORK_TYPE_HTML5"
+ *        The creative is HTML5. (Value: "ARTWORK_TYPE_HTML5")
  *    @arg @c kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeImage
- *        Value "ARTWORK_TYPE_IMAGE"
+ *        The creative is Image. (Value: "ARTWORK_TYPE_IMAGE")
  *    @arg @c kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeMixed
- *        Value "ARTWORK_TYPE_MIXED"
+ *        The creative is HTML5 if available, Flash otherwise. (Value:
+ *        "ARTWORK_TYPE_MIXED")
  */
 @property(nonatomic, copy, nullable) NSString *artworkType;
 
@@ -7423,16 +8344,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Target type used by the event.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetBlank Value
- *        "TARGET_BLANK"
+ *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetBlank New
+ *        tab (Value: "TARGET_BLANK")
  *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetParent
- *        Value "TARGET_PARENT"
- *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetPopup Value
- *        "TARGET_POPUP"
- *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetSelf Value
- *        "TARGET_SELF"
- *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetTop Value
- *        "TARGET_TOP"
+ *        Parent frame (Value: "TARGET_PARENT")
+ *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetPopup New
+ *        window with properties specified in window_properties (Value:
+ *        "TARGET_POPUP")
+ *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetSelf Same
+ *        frame (Value: "TARGET_SELF")
+ *    @arg @c kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetTop Current
+ *        tab (Value: "TARGET_TOP")
  */
 @property(nonatomic, copy, nullable) NSString *targetType;
 
@@ -7806,9 +8728,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeRandom
- *        Value "CREATIVE_ROTATION_TYPE_RANDOM"
+ *        The weights are calculated according to the ad's
+ *        CreativeRoationWeightStrategy. (Value:
+ *        "CREATIVE_ROTATION_TYPE_RANDOM")
  *    @arg @c kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeSequential
- *        Value "CREATIVE_ROTATION_TYPE_SEQUENTIAL"
+ *        The weights of each creative in the rotation should be sequential
+ *        starting at 1. The user may adjust the order. (Value:
+ *        "CREATIVE_ROTATION_TYPE_SEQUENTIAL")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7817,13 +8743,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyCustom
- *        Value "WEIGHT_STRATEGY_CUSTOM"
+ *        The creative weights can be any user provided positive integer.
+ *        (Value: "WEIGHT_STRATEGY_CUSTOM")
  *    @arg @c kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyEqual
- *        Value "WEIGHT_STRATEGY_EQUAL"
+ *        The creative weights should all be equal to 1. This is the default
+ *        value for all ads with a rotation type of Random. (Value:
+ *        "WEIGHT_STRATEGY_EQUAL")
  *    @arg @c kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyHighestCtr
- *        Value "WEIGHT_STRATEGY_HIGHEST_CTR"
+ *        The weights will be automatically calculated giving preference to the
+ *        creative that has the highest CTR. The CTR for campaigns that are
+ *        optimized for clicks = clicks/impressions. The CTR for campaigns that
+ *        are optimized for view-through or click through is sum(activities +
+ *        floodlight weight)/impressions. (Value: "WEIGHT_STRATEGY_HIGHEST_CTR")
  *    @arg @c kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized
- *        Value "WEIGHT_STRATEGY_OPTIMIZED"
+ *        The creative weights will be automatically calculated using a formula
+ *        that could not possibly be explained in these comments. The value will
+ *        be within some predetermined range (probably 0 - 1,000,000). (Value:
+ *        "WEIGHT_STRATEGY_OPTIMIZED")
  */
 @property(nonatomic, copy, nullable) NSString *weightCalculationStrategy;
 
@@ -8886,10 +9822,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  tag will be applied to all sites.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Allowlist Value
- *        "ALLOWLIST"
- *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Blocklist Value
- *        "BLOCKLIST"
+ *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Allowlist The event tag
+ *        should only ever fire on specified sites. (Value: "ALLOWLIST")
+ *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Blocklist The event tag
+ *        should fire on all sites EXCEPT the specified sites. (Value:
+ *        "BLOCKLIST")
  */
 @property(nonatomic, copy, nullable) NSString *siteFilterType;
 
@@ -8932,12 +9869,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  impression or click tracking. This is a required field.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_EventTag_Type_ClickThroughEventTag Value
- *        "CLICK_THROUGH_EVENT_TAG"
- *    @arg @c kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag Value
- *        "IMPRESSION_IMAGE_EVENT_TAG"
- *    @arg @c kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag Value
- *        "IMPRESSION_JAVASCRIPT_EVENT_TAG"
+ *    @arg @c kGTLRDfareporting_EventTag_Type_ClickThroughEventTag A third-party
+ *        URL for click tracking that redirects to the landing page. (Value:
+ *        "CLICK_THROUGH_EVENT_TAG")
+ *    @arg @c kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag A
+ *        third-party pixel for impression tracking. (Value:
+ *        "IMPRESSION_IMAGE_EVENT_TAG")
+ *    @arg @c kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag A
+ *        third-party JavaScript URL for impression tracking. (Value:
+ *        "IMPRESSION_JAVASCRIPT_EVENT_TAG")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -9282,15 +10222,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_FloodlightActivity_CountingMethod_ItemsSoldCounting
- *        Value "ITEMS_SOLD_COUNTING"
+ *        Count each conversion, plus the total number of items sold and the
+ *        total revenue for these sales. (Value: "ITEMS_SOLD_COUNTING")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_CountingMethod_SessionCounting
- *        Value "SESSION_COUNTING"
+ *        Count one conversion per user per session. Session length is set by
+ *        the site where the Spotlight tag is deployed. (Value:
+ *        "SESSION_COUNTING")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_CountingMethod_StandardCounting
- *        Value "STANDARD_COUNTING"
+ *        Count every conversion. (Value: "STANDARD_COUNTING")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_CountingMethod_TransactionsCounting
- *        Value "TRANSACTIONS_COUNTING"
+ *        Count all conversions, plus the total number of sales that take place
+ *        and the total revenue for these transactions. (Value:
+ *        "TRANSACTIONS_COUNTING")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_CountingMethod_UniqueCounting
- *        Value "UNIQUE_COUNTING"
+ *        Count the first conversion for each unique user during each 24-hour
+ *        day, from midnight to midnight, Eastern Time. (Value:
+ *        "UNIQUE_COUNTING")
  */
 @property(nonatomic, copy, nullable) NSString *countingMethod;
 
@@ -9722,8 +10669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *exposureToConversionEnabled;
 
 /**
- *  Day that will be counted as the first day of the week in reports. This is a
- *  required field.
+ *  firstDayOfWeek
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_FloodlightConfiguration_FirstDayOfWeek_Monday
@@ -9894,10 +10840,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Position in the browser where the window will open.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_FsCommand_PositionOption_Centered Value
- *        "CENTERED"
+ *    @arg @c kGTLRDfareporting_FsCommand_PositionOption_Centered Center of the
+ *        window Corresponds to "center" in UI (Value: "CENTERED")
  *    @arg @c kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner
- *        Value "DISTANCE_FROM_TOP_LEFT_CORNER"
+ *        user-defined distance from top left-hand corner of the window
+ *        Corresponds to "top-left" in UI (Value:
+ *        "DISTANCE_FROM_TOP_LEFT_CORNER")
  */
 @property(nonatomic, copy, nullable) NSString *positionOption;
 
@@ -10596,25 +11544,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_MeasurementPartnerAdvertiserLink : GTLRObject
 
 /**
- *  .
+ *  Status of the partner link.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinked
- *        Value "MEASUREMENT_PARTNER_LINKED"
+ *        Linked successfully (Value: "MEASUREMENT_PARTNER_LINKED")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkFailure
- *        Value "MEASUREMENT_PARTNER_LINK_FAILURE"
+ *        Linking failure. (Value: "MEASUREMENT_PARTNER_LINK_FAILURE")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOut
- *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ *        Link opt-out by user. (Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOutPending
- *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ *        Link opt-out pending sync. (Value:
+ *        "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkPending
- *        Value "MEASUREMENT_PARTNER_LINK_PENDING"
+ *        Link pending for wrapping. (Value: "MEASUREMENT_PARTNER_LINK_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkWrappingPending
- *        Value "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ *        Link wrap answer pending. (Value:
+ *        "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerModeChangePending
- *        Value "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ *        Mode change pending. (Value:
+ *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked
- *        Value "MEASUREMENT_PARTNER_UNLINKED"
+ *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -10631,7 +11582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, copy, nullable) NSString *measurementPartner;
 
-/** . */
+/** partner Advertiser Id. */
 @property(nonatomic, copy, nullable) NSString *partnerAdvertiserId;
 
 @end
@@ -10647,21 +11598,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinked
- *        Value "MEASUREMENT_PARTNER_LINKED"
+ *        Linked successfully (Value: "MEASUREMENT_PARTNER_LINKED")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkFailure
- *        Value "MEASUREMENT_PARTNER_LINK_FAILURE"
+ *        Linking failure. (Value: "MEASUREMENT_PARTNER_LINK_FAILURE")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOut
- *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ *        Link opt-out by user. (Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOutPending
- *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ *        Link opt-out pending sync. (Value:
+ *        "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkPending
- *        Value "MEASUREMENT_PARTNER_LINK_PENDING"
+ *        Link pending for wrapping. (Value: "MEASUREMENT_PARTNER_LINK_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkWrappingPending
- *        Value "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ *        Link wrap answer pending. (Value:
+ *        "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerModeChangePending
- *        Value "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ *        Mode change pending. (Value:
+ *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked
- *        Value "MEASUREMENT_PARTNER_UNLINKED"
+ *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -10697,21 +11651,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinked
- *        Value "MEASUREMENT_PARTNER_LINKED"
+ *        Linked successfully (Value: "MEASUREMENT_PARTNER_LINKED")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkFailure
- *        Value "MEASUREMENT_PARTNER_LINK_FAILURE"
+ *        Linking failure. (Value: "MEASUREMENT_PARTNER_LINK_FAILURE")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOut
- *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ *        Link opt-out by user. (Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOutPending
- *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ *        Link opt-out pending sync. (Value:
+ *        "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkPending
- *        Value "MEASUREMENT_PARTNER_LINK_PENDING"
+ *        Link pending for wrapping. (Value: "MEASUREMENT_PARTNER_LINK_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkWrappingPending
- *        Value "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ *        Link wrap answer pending. (Value:
+ *        "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerModeChangePending
- *        Value "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ *        Mode change pending. (Value:
+ *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked
- *        Value "MEASUREMENT_PARTNER_UNLINKED"
+ *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -10777,7 +11734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** The kind of resource this is, in this case dfareporting#metric. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The metric name, e.g. dfa:impressions */
+/** The metric name, e.g. impressions */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -11046,9 +12003,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  access to the objects with IDs in the objectIds list.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_ObjectFilter_Status_All Value "ALL"
- *    @arg @c kGTLRDfareporting_ObjectFilter_Status_Assigned Value "ASSIGNED"
- *    @arg @c kGTLRDfareporting_ObjectFilter_Status_None Value "NONE"
+ *    @arg @c kGTLRDfareporting_ObjectFilter_Status_All Profile has access to
+ *        all objects. (Value: "ALL")
+ *    @arg @c kGTLRDfareporting_ObjectFilter_Status_Assigned Profile has access
+ *        to only specific objects. (Value: "ASSIGNED")
+ *    @arg @c kGTLRDfareporting_ObjectFilter_Status_None Profile has access to
+ *        none of the objects. (Value: "NONE")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -11429,155 +12389,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Contains properties of a Planning order document.
- */
-@interface GTLRDfareporting_OrderDocument : GTLRObject
-
-/**
- *  Account ID of this order document.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *accountId;
-
-/**
- *  Advertiser ID of this order document.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *advertiserId;
-
-/**
- *  The amended order document ID of this order document. An order document can
- *  be created by optionally amending another order document so that the change
- *  history can be preserved.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *amendedOrderDocumentId;
-
-/**
- *  IDs of users who have approved this order document.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *approvedByUserProfileIds;
-
-/**
- *  Whether this order document is cancelled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelled;
-
-/** Information about the creation of this order document. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createdInfo;
-
-/**
- *  effectiveDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *effectiveDate;
-
-/**
- *  ID of this order document.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#orderDocument".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** List of email addresses that received the last sent document. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *lastSentRecipients;
-
-@property(nonatomic, strong, nullable) GTLRDateTime *lastSentTime;
-
-/**
- *  ID of the order from which this order document is created.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *orderId;
-
-/**
- *  Project ID of this order document.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *projectId;
-
-/**
- *  Whether this order document has been signed.
- *
- *  Remapped to 'signedProperty' to avoid language reserved word 'signed'.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *signedProperty;
-
-/**
- *  Subaccount ID of this order document.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *subaccountId;
-
-/** Title of this order document. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/**
- *  Type of this order document
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeChangeOrder
- *        Value "PLANNING_ORDER_TYPE_CHANGE_ORDER"
- *    @arg @c kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeInsertionOrder
- *        Value "PLANNING_ORDER_TYPE_INSERTION_ORDER"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Order document List Response
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "orderDocuments" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRDfareporting_OrderDocumentsListResponse : GTLRCollectionObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#orderDocumentsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Pagination token to be used for the next list operation. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Order document collection
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_OrderDocument *> *orderDocuments;
-
-@end
-
-
-/**
  *  Order List Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11840,9 +12651,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  the VAST standard. This field is required on insertion.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Placement_Compatibility_App Value "APP"
- *    @arg @c kGTLRDfareporting_Placement_Compatibility_AppInterstitial Value
- *        "APP_INTERSTITIAL"
+ *    @arg @c kGTLRDfareporting_Placement_Compatibility_App Deprecated enum
+ *        value. No longer supported. (Value: "APP")
+ *    @arg @c kGTLRDfareporting_Placement_Compatibility_AppInterstitial
+ *        Deprecated enum value. No longer supported. (Value:
+ *        "APP_INTERSTITIAL")
  *    @arg @c kGTLRDfareporting_Placement_Compatibility_Display Value "DISPLAY"
  *    @arg @c kGTLRDfareporting_Placement_Compatibility_DisplayInterstitial
  *        Value "DISPLAY_INTERSTITIAL"
@@ -12017,17 +12830,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Third-party placement status.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Placement_Status_AcknowledgeAcceptance Value
- *        "ACKNOWLEDGE_ACCEPTANCE"
- *    @arg @c kGTLRDfareporting_Placement_Status_AcknowledgeRejection Value
- *        "ACKNOWLEDGE_REJECTION"
- *    @arg @c kGTLRDfareporting_Placement_Status_Draft Value "DRAFT"
- *    @arg @c kGTLRDfareporting_Placement_Status_PaymentAccepted Value
- *        "PAYMENT_ACCEPTED"
- *    @arg @c kGTLRDfareporting_Placement_Status_PaymentRejected Value
- *        "PAYMENT_REJECTED"
- *    @arg @c kGTLRDfareporting_Placement_Status_PendingReview Value
- *        "PENDING_REVIEW"
+ *    @arg @c kGTLRDfareporting_Placement_Status_AcknowledgeAcceptance
+ *        Advertisers has accepted acceptance of placement ad serving fee. This
+ *        will suppress future notification on DDMM UI (Value:
+ *        "ACKNOWLEDGE_ACCEPTANCE")
+ *    @arg @c kGTLRDfareporting_Placement_Status_AcknowledgeRejection
+ *        Advertisers has accepted rejection of placement ad serving fee. This
+ *        will suppress future notification on DDMM UI (Value:
+ *        "ACKNOWLEDGE_REJECTION")
+ *    @arg @c kGTLRDfareporting_Placement_Status_Draft Advertisers is still
+ *        working on placement not yet ready for Publisher review; default
+ *        status for pub-paid placements (Value: "DRAFT")
+ *    @arg @c kGTLRDfareporting_Placement_Status_PaymentAccepted Placement Ad
+ *        Serving fee is accepted by publisher (Value: "PAYMENT_ACCEPTED")
+ *    @arg @c kGTLRDfareporting_Placement_Status_PaymentRejected Placement Ad
+ *        Serving fee is rejected by publisher (Value: "PAYMENT_REJECTED")
+ *    @arg @c kGTLRDfareporting_Placement_Status_PendingReview Placement is not
+ *        yet reviewed by publisher. (Value: "PENDING_REVIEW")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -12084,8 +12903,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Both Value "BOTH"
- *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Default Value
- *        "DEFAULT"
+ *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Default DEFAULT
+ *        means Google chooses which adapter, if any, to serve. (Value:
+ *        "DEFAULT")
  *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Flash Value "FLASH"
  *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Html5 Value "HTML5"
  */
@@ -12282,9 +13102,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementPackage
- *        Value "PLACEMENT_PACKAGE"
+ *        A simple group of site-placements (tags). Basically acts as a single
+ *        pricing point for a group of tags. (Value: "PLACEMENT_PACKAGE")
  *    @arg @c kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementRoadblock
- *        Value "PLACEMENT_ROADBLOCK"
+ *        A group of site-placements (tags) that not only acts as a single
+ *        pricing point but also assumes that all the tags in it will be served
+ *        at the same time. This kind of group requires one of its assigned
+ *        site-placements to be marked as primary for reporting purposes.
+ *        (Value: "PLACEMENT_ROADBLOCK")
  */
 @property(nonatomic, copy, nullable) NSString *placementGroupType;
 
@@ -12570,10 +13395,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Popup window position either centered or at specific coordinate.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_PopupWindowProperties_PositionType_Center Value
- *        "CENTER"
+ *    @arg @c kGTLRDfareporting_PopupWindowProperties_PositionType_Center window
+ *        positioning at center. (Value: "CENTER")
  *    @arg @c kGTLRDfareporting_PopupWindowProperties_PositionType_Coordinates
- *        Value "COORDINATES"
+ *        window positioning by upper left corner coordinates. (Value:
+ *        "COORDINATES")
  */
 @property(nonatomic, copy, nullable) NSString *positionType;
 
@@ -12670,7 +13496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Pricing Information
+ *  GTLRDfareporting_Pricing
  */
 @interface GTLRDfareporting_Pricing : GTLRObject
 
@@ -12712,9 +13538,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypePackage
- *        Value "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE"
+ *        A placement package represents "package pricing": Pricing and flight
+ *        information is defined on the package, not on its child placements.
+ *        The placements in a package do not need to be on the same page.
+ *        (Value: "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE")
  *    @arg @c kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypeRoadblock
- *        Value "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK"
+ *        A roadblock represents a set of placements that are all the same page.
+ *        One of the child placements is designated as the "primary" placement
+ *        for reporting purposes. (Value:
+ *        "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK")
  */
 @property(nonatomic, copy, nullable) NSString *groupType;
 
@@ -12847,7 +13679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *pricingComment;
 
 /**
- *  Rate or cost of this pricing period in nanos (i.e., multipled by
+ *  Rate or cost of this pricing period in nanos (i.e., multiplied by
  *  1000000000). Acceptable values are 0 to 1000000000000000000, inclusive.
  *
  *  Uses NSNumber of longLongValue.
@@ -13273,27 +14105,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceAdx
- *        Value "REMARKETING_LIST_SOURCE_ADX"
+ *        ADX (Value: "REMARKETING_LIST_SOURCE_ADX")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDbm
- *        Value "REMARKETING_LIST_SOURCE_DBM"
+ *        DoubleClick Bid Manager (Value: "REMARKETING_LIST_SOURCE_DBM")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfa
- *        Value "REMARKETING_LIST_SOURCE_DFA"
+ *        DoubleClick Campaign Manager (Value: "REMARKETING_LIST_SOURCE_DFA")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfp
- *        Value "REMARKETING_LIST_SOURCE_DFP"
+ *        DFP (Value: "REMARKETING_LIST_SOURCE_DFP")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDmp
- *        Value "REMARKETING_LIST_SOURCE_DMP"
+ *        DoubleClick Audience Center (Value: "REMARKETING_LIST_SOURCE_DMP")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGa
- *        Value "REMARKETING_LIST_SOURCE_GA"
+ *        Google Analytics Premium (Value: "REMARKETING_LIST_SOURCE_GA")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGplus
- *        Value "REMARKETING_LIST_SOURCE_GPLUS"
+ *        G+ (Value: "REMARKETING_LIST_SOURCE_GPLUS")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceOther
- *        Value "REMARKETING_LIST_SOURCE_OTHER"
+ *        covers sources not supported in DCM other than those listed below
+ *        (Value: "REMARKETING_LIST_SOURCE_OTHER")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourcePlayStore
- *        Value "REMARKETING_LIST_SOURCE_PLAY_STORE"
+ *        Playstore (Value: "REMARKETING_LIST_SOURCE_PLAY_STORE")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceXfp
- *        Value "REMARKETING_LIST_SOURCE_XFP"
+ *        XFP (Value: "REMARKETING_LIST_SOURCE_XFP")
  *    @arg @c kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceYoutube
- *        Value "REMARKETING_LIST_SOURCE_YOUTUBE"
+ *        Youtube (Value: "REMARKETING_LIST_SOURCE_YOUTUBE")
  */
 @property(nonatomic, copy, nullable) NSString *listSource;
 
@@ -14381,7 +15214,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *    @arg @c kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both
  *        Value "BOTH"
  *    @arg @c kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Default
- *        Value "DEFAULT"
+ *        DEFAULT means Google chooses which adapter, if any, to serve. (Value:
+ *        "DEFAULT")
  *    @arg @c kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Flash
  *        Value "FLASH"
  *    @arg @c kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Html5
@@ -14852,10 +15686,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_TagSetting_KeywordOption_GenerateSeparateTagForEachKeyword
- *        Value "GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD"
- *    @arg @c kGTLRDfareporting_TagSetting_KeywordOption_Ignore Value "IGNORE"
+ *        Results in unique tag generation for each relevant keyword during tag
+ *        export. For example, an ad with three keywords will generate three
+ *        tags with each tag having its kw= parameter filled in with the
+ *        relevant keyword values. (Value:
+ *        "GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD")
+ *    @arg @c kGTLRDfareporting_TagSetting_KeywordOption_Ignore Creates DART ad
+ *        tags that do not have a placeholder for keywords and creates a list of
+ *        keywords separately from the DART ad tags. Use this option if the site
+ *        uses a keyword referrer or is a site that uses DART for Publishers.
+ *        (Value: "IGNORE")
  *    @arg @c kGTLRDfareporting_TagSetting_KeywordOption_PlaceholderWithListOfKeywords
- *        Value "PLACEHOLDER_WITH_LIST_OF_KEYWORDS"
+ *        Creates DART ad tags with a placeholder, such as kw=[keyword] and a
+ *        list of keywords. The site trafficker must replace [keyword] with the
+ *        keywords targeted by an ad. (Value:
+ *        "PLACEHOLDER_WITH_LIST_OF_KEYWORDS")
  */
 @property(nonatomic, copy, nullable) NSString *keywordOption;
 
@@ -14888,7 +15733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Contains properties of a targetable remarketing list. Remarketing enables
  *  you to create lists of users who have performed specific actions on a site,
  *  then target ads to members of those lists. This resource is a read-only view
- *  of a remarketing list to be used to faciliate targeting ads to specific
+ *  of a remarketing list to be used to facilitate targeting ads to specific
  *  lists. Remarketing lists that are owned by your advertisers and those that
  *  are shared to your advertisers or account are accessible via this resource.
  *  To manage remarketing lists that are owned by your advertisers, use the
@@ -14964,27 +15809,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceAdx
- *        Value "REMARKETING_LIST_SOURCE_ADX"
+ *        ADX (Value: "REMARKETING_LIST_SOURCE_ADX")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDbm
- *        Value "REMARKETING_LIST_SOURCE_DBM"
+ *        DoubleClick Bid Manager (Value: "REMARKETING_LIST_SOURCE_DBM")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfa
- *        Value "REMARKETING_LIST_SOURCE_DFA"
+ *        DoubleClick Campaign Manager (Value: "REMARKETING_LIST_SOURCE_DFA")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfp
- *        Value "REMARKETING_LIST_SOURCE_DFP"
+ *        DFP (Value: "REMARKETING_LIST_SOURCE_DFP")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDmp
- *        Value "REMARKETING_LIST_SOURCE_DMP"
+ *        DoubleClick Audience Center (Value: "REMARKETING_LIST_SOURCE_DMP")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGa
- *        Value "REMARKETING_LIST_SOURCE_GA"
+ *        Google Analytics Premium (Value: "REMARKETING_LIST_SOURCE_GA")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGplus
- *        Value "REMARKETING_LIST_SOURCE_GPLUS"
+ *        G+ (Value: "REMARKETING_LIST_SOURCE_GPLUS")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceOther
- *        Value "REMARKETING_LIST_SOURCE_OTHER"
+ *        covers sources not supported in DCM other than those listed below
+ *        (Value: "REMARKETING_LIST_SOURCE_OTHER")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourcePlayStore
- *        Value "REMARKETING_LIST_SOURCE_PLAY_STORE"
+ *        Playstore (Value: "REMARKETING_LIST_SOURCE_PLAY_STORE")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceXfp
- *        Value "REMARKETING_LIST_SOURCE_XFP"
+ *        XFP (Value: "REMARKETING_LIST_SOURCE_XFP")
  *    @arg @c kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceYoutube
- *        Value "REMARKETING_LIST_SOURCE_YOUTUBE"
+ *        Youtube (Value: "REMARKETING_LIST_SOURCE_YOUTUBE")
  */
 @property(nonatomic, copy, nullable) NSString *listSource;
 
@@ -15157,11 +16003,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_TargetWindow_TargetWindowOption_CurrentWindow
- *        Value "CURRENT_WINDOW"
- *    @arg @c kGTLRDfareporting_TargetWindow_TargetWindowOption_Custom Value
- *        "CUSTOM"
- *    @arg @c kGTLRDfareporting_TargetWindow_TargetWindowOption_NewWindow Value
- *        "NEW_WINDOW"
+ *        Use the current window to display the backup image Corresponds to
+ *        "_top" in html (Value: "CURRENT_WINDOW")
+ *    @arg @c kGTLRDfareporting_TargetWindow_TargetWindowOption_Custom
+ *        User-defined HTML used to display the backup image Corresponds to
+ *        "other" (Value: "CUSTOM")
+ *    @arg @c kGTLRDfareporting_TargetWindow_TargetWindowOption_NewWindow Open
+ *        up a new window to display the backup image Corresponds to "_blank" in
+ *        html (Value: "NEW_WINDOW")
  */
 @property(nonatomic, copy, nullable) NSString *targetWindowOption;
 
@@ -15251,43 +16100,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_ClickTracking
- *        Value "CLICK_TRACKING"
+ *        Used to track user clicks on the video. (Value: "CLICK_TRACKING")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Impression
- *        Value "IMPRESSION"
+ *        Used to count impressions of the ad after video buffering is complete.
+ *        (Value: "IMPRESSION")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaBackupImpression
- *        Value "RICH_MEDIA_BACKUP_IMPRESSION"
+ *        Used by Studio RichMediaCreative, maps to its
+ *        thirdPartyBackupImageImpressionsUrl (Value:
+ *        "RICH_MEDIA_BACKUP_IMPRESSION")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaImpression
- *        Value "RICH_MEDIA_IMPRESSION"
+ *        Used by Studio RichMediaCreative, maps to its thirdPartyImpressionsUrl
+ *        (Value: "RICH_MEDIA_IMPRESSION")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaRmImpression
- *        Value "RICH_MEDIA_RM_IMPRESSION"
+ *        Used by Studio RichMediaCreative, maps to its
+ *        thirdPartyRichMediaImpressionsUrl (Value: "RICH_MEDIA_RM_IMPRESSION")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Survey
- *        Value "SURVEY"
+ *        Used for DFA6 compatibility, this is deprecating in favor of event
+ *        tags. (Value: "SURVEY")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoComplete
- *        Value "VIDEO_COMPLETE"
+ *        Used to track the number of times the video plays to the end. (Value:
+ *        "VIDEO_COMPLETE")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoCustom
- *        Value "VIDEO_CUSTOM"
+ *        Used to track the number of times a user performs a custom click, such
+ *        as clicking on a video hot spot. (Value: "VIDEO_CUSTOM")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFirstQuartile
- *        Value "VIDEO_FIRST_QUARTILE"
+ *        Used to track the number of times the video plays to 25% of its
+ *        length. (Value: "VIDEO_FIRST_QUARTILE")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFullscreen
- *        Value "VIDEO_FULLSCREEN"
+ *        Used to track the number of times a user expands the video to
+ *        full-screen size. (Value: "VIDEO_FULLSCREEN")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMidpoint
- *        Value "VIDEO_MIDPOINT"
+ *        Used to track the number of times the video plays to 50% of its
+ *        length. (Value: "VIDEO_MIDPOINT")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMute
- *        Value "VIDEO_MUTE"
+ *        Used to track the number of times a user mutes the video. (Value:
+ *        "VIDEO_MUTE")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoPause
- *        Value "VIDEO_PAUSE"
+ *        Used to track the number of times a user pauses the video. (Value:
+ *        "VIDEO_PAUSE")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoProgress
- *        Value "VIDEO_PROGRESS"
+ *        Used to track the number of times the video plays to an offset
+ *        determined by the user. (Value: "VIDEO_PROGRESS")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoRewind
- *        Value "VIDEO_REWIND"
+ *        Used to track the number of times a user replays the video. (Value:
+ *        "VIDEO_REWIND")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoSkip
- *        Value "VIDEO_SKIP"
+ *        Used to track the number of times the video was skipped. (Value:
+ *        "VIDEO_SKIP")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStart
- *        Value "VIDEO_START"
+ *        Used to track the number of times a user starts a video. (Value:
+ *        "VIDEO_START")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStop
- *        Value "VIDEO_STOP"
+ *        Used to track the number of times a user stops the video. (Value:
+ *        "VIDEO_STOP")
  *    @arg @c kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile
- *        Value "VIDEO_THIRD_QUARTILE"
+ *        Used to track the number of times the video plays to 75% of its
+ *        length. (Value: "VIDEO_THIRD_QUARTILE")
  */
 @property(nonatomic, copy, nullable) NSString *thirdPartyUrlType;
 
@@ -15757,17 +16625,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_AccountAlways
- *        Value "ACCOUNT_ALWAYS"
+ *        Always available to accounts. (Value: "ACCOUNT_ALWAYS")
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_AccountByDefault
- *        Value "ACCOUNT_BY_DEFAULT"
+ *        Available by default to accounts only. (Value: "ACCOUNT_BY_DEFAULT")
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_NotAvailableByDefault
- *        Value "NOT_AVAILABLE_BY_DEFAULT"
+ *        Not available by default. (Value: "NOT_AVAILABLE_BY_DEFAULT")
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountAlways
- *        Value "SUBACCOUNT_AND_ACCOUNT_ALWAYS"
+ *        Always available to both accounts and subaccounts. (Value:
+ *        "SUBACCOUNT_AND_ACCOUNT_ALWAYS")
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault
- *        Value "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT"
+ *        Available by default to both accounts and subaccounts. (Value:
+ *        "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT")
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly
- *        Value "USER_PROFILE_ONLY"
+ *        Available for user profile permissions only. (Value:
+ *        "USER_PROFILE_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *availability;
 

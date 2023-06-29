@@ -327,7 +327,7 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDelete
 
-@dynamic name, requestId;
+@dynamic force, name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

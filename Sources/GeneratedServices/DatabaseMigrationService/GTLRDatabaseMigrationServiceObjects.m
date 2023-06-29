@@ -59,6 +59,11 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_PdH
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_SqlDataDiskTypeUnspecified = @"SQL_DATA_DISK_TYPE_UNSPECIFIED";
 
+// GTLRDatabaseMigrationService_CloudSqlSettings.edition
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
+
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Alloydb = @"ALLOYDB";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora = @"AURORA";
@@ -413,8 +418,9 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 @implementation GTLRDatabaseMigrationService_CloudSqlSettings
 @dynamic activationPolicy, autoStorageIncrease, availabilityType, cmekKeyName,
          collation, databaseFlags, databaseVersion, dataDiskSizeGb,
-         dataDiskType, ipConfig, rootPassword, rootPasswordSet, secondaryZone,
-         sourceId, storageAutoResizeLimit, tier, userLabels, zoneProperty;
+         dataDiskType, edition, ipConfig, rootPassword, rootPasswordSet,
+         secondaryZone, sourceId, storageAutoResizeLimit, tier, userLabels,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

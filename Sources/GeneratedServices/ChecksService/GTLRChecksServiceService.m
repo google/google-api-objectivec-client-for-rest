@@ -2,31 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v2alpha1)
+//   Checks API (checks/v1alpha)
 // Description:
-//   Uploads, processes, queries, and searches Genomics data in the cloud.
+//   The Checks API contains powerful and easy-to-use privacy and compliance
+//   APIs that interact with the Checks product and its underlying technology.
 // Documentation:
-//   https://cloud.google.com/genomics
+//   https://developers.google.com/checks
 
-#import <GoogleAPIClientForREST/GTLRGenomics.h>
-
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
-NSString * const kGTLRAuthScopeGenomics              = @"https://www.googleapis.com/auth/genomics";
-NSString * const kGTLRAuthScopeGenomicsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+#import <GoogleAPIClientForREST/GTLRChecksService.h>
 
 // ----------------------------------------------------------------------------
-//   GTLRGenomicsService
+// Authorization scope
+
+NSString * const kGTLRAuthScopeChecksServiceXapiZoo = @"https://www.googleapis.com/auth/xapi.zoo";
+
+// ----------------------------------------------------------------------------
+//   GTLRChecksServiceService
 //
 
-@implementation GTLRGenomicsService
+@implementation GTLRChecksServiceService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://genomics.googleapis.com/";
+    self.rootURLString = @"https://checks.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

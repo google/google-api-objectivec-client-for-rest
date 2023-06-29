@@ -82,9 +82,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingActiveStatusPlacementStatusU
 // ----------------------------------------------------------------------------
 // compatibilities
 
-/** Value: "APP" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesApp;
-/** Value: "APP_INTERSTITIAL" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesAppInterstitial;
 /** Value: "DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplay;
@@ -98,9 +106,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamVideo
 // ----------------------------------------------------------------------------
 // compatibility
 
-/** Value: "APP" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityApp;
-/** Value: "APP_INTERSTITIAL" */
+/**
+ *  Deprecated enum value. No longer supported.
+ *
+ *  Value: "APP_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityAppInterstitial;
 /** Value: "DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplay;
@@ -140,11 +156,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesXboxAppStore;
 // ----------------------------------------------------------------------------
 // eventTagTypes
 
-/** Value: "CLICK_THROUGH_EVENT_TAG" */
+/**
+ *  A third-party URL for click tracking that redirects to the landing page.
+ *
+ *  Value: "CLICK_THROUGH_EVENT_TAG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingEventTagTypesClickThroughEventTag;
-/** Value: "IMPRESSION_IMAGE_EVENT_TAG" */
+/**
+ *  A third-party pixel for impression tracking.
+ *
+ *  Value: "IMPRESSION_IMAGE_EVENT_TAG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingEventTagTypesImpressionImageEventTag;
-/** Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG" */
+/**
+ *  A third-party JavaScript URL for impression tracking.
+ *
+ *  Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingEventTagTypesImpressionJavascriptEventTag;
 
 // ----------------------------------------------------------------------------
@@ -252,9 +280,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingPaymentSourcePlacementPublis
 // ----------------------------------------------------------------------------
 // placementGroupType
 
-/** Value: "PLACEMENT_PACKAGE" */
+/**
+ *  A simple group of site-placements (tags). Basically acts as a single pricing
+ *  point for a group of tags.
+ *
+ *  Value: "PLACEMENT_PACKAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingPlacementGroupTypePlacementPackage;
-/** Value: "PLACEMENT_ROADBLOCK" */
+/**
+ *  A group of site-placements (tags) that not only acts as a single pricing
+ *  point but also assumes that all the tags in it will be served at the same
+ *  time. This kind of group requires one of its assigned site-placements to be
+ *  marked as primary for reporting purposes.
+ *
+ *  Value: "PLACEMENT_ROADBLOCK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingPlacementGroupTypePlacementRoadblock;
 
 // ----------------------------------------------------------------------------
@@ -302,9 +342,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortFieldValue;
 // ----------------------------------------------------------------------------
 // sortOrder
 
-/** Value: "ASCENDING" */
+/**
+ *  Ascending order.
+ *
+ *  Value: "ASCENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortOrderAscending;
-/** Value: "DESCENDING" */
+/**
+ *  Descending order.
+ *
+ *  Value: "DESCENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortOrderDescending;
 
 // ----------------------------------------------------------------------------
@@ -312,11 +360,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortOrderDescending;
 
 /** Value: "ACTIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusActive;
-/** Value: "APPROVED" */
+/**
+ *  Approved (ads can deliver)
+ *
+ *  Value: "APPROVED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusApproved;
 /** Value: "ARCHIVED" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusArchived;
-/** Value: "ON_HOLD" */
+/**
+ *  On-hold (all ads are stopped)
+ *
+ *  Value: "ON_HOLD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusOnHold;
 /** Value: "UNDER_REVIEW" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusUnderReview;
@@ -670,8 +726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -707,8 +762,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -744,7 +801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_AccountsPatch : GTLRDfareportingQuery
 
 /**
- *  Account ID.
+ *  Required. Account ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -760,7 +817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Account to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Account ID.
+ *  @param identifier Required. Account ID.
  *
  *  @return GTLRDfareportingQuery_AccountsPatch
  */
@@ -886,8 +943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -924,8 +980,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -957,8 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing account user profile. This method supports patch
- *  semantics.
+ *  Updates an existing user role. This method supports patch semantics.
  *
  *  Method: dfareporting.accountUserProfiles.patch
  *
@@ -968,7 +1025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_AccountUserProfilesPatch : GTLRDfareportingQuery
 
 /**
- *  AccountUserProfile ID.
+ *  Required. AccountUserProfile ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -980,13 +1037,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_AccountUserProfile.
  *
- *  Updates an existing account user profile. This method supports patch
- *  semantics.
+ *  Updates an existing user role. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_AccountUserProfile to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier AccountUserProfile ID.
+ *  @param identifier Required. AccountUserProfile ID.
  *
  *  @return GTLRDfareportingQuery_AccountUserProfilesPatch
  */
@@ -1133,9 +1189,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingCompatibilityDisplay Value "DISPLAY"
  *    @arg @c kGTLRDfareportingCompatibilityDisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
- *    @arg @c kGTLRDfareportingCompatibilityApp Value "APP"
- *    @arg @c kGTLRDfareportingCompatibilityAppInterstitial Value
- *        "APP_INTERSTITIAL"
+ *    @arg @c kGTLRDfareportingCompatibilityApp Deprecated enum value. No longer
+ *        supported. (Value: "APP")
+ *    @arg @c kGTLRDfareportingCompatibilityAppInterstitial Deprecated enum
+ *        value. No longer supported. (Value: "APP_INTERSTITIAL")
  *    @arg @c kGTLRDfareportingCompatibilityInStreamVideo Value
  *        "IN_STREAM_VIDEO"
  *    @arg @c kGTLRDfareportingCompatibilityInStreamAudio Value
@@ -1181,8 +1238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1243,8 +1299,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -1291,7 +1349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing ad. This method supports patch semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  Method: dfareporting.ads.patch
  *
@@ -1301,7 +1359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_AdsPatch : GTLRDfareportingQuery
 
 /**
- *  Ad ID.
+ *  Required. RemarketingList ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1313,11 +1371,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_Ad.
  *
- *  Updates an existing ad. This method supports patch semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Ad to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Ad ID.
+ *  @param identifier Required. RemarketingList ID.
  *
  *  @return GTLRDfareportingQuery_AdsPatch
  */
@@ -1476,8 +1534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1514,8 +1571,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -1551,7 +1610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_AdvertiserGroupsPatch : GTLRDfareportingQuery
 
 /**
- *  AdvertiserGroup ID.
+ *  Required. Advertiser Group ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1568,7 +1627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_AdvertiserGroup to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier AdvertiserGroup ID.
+ *  @param identifier Required. Advertiser Group ID.
  *
  *  @return GTLRDfareportingQuery_AdvertiserGroupsPatch
  */
@@ -1630,8 +1689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1765,8 +1823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1803,8 +1860,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -1832,8 +1891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing advertiser landing page. This method supports patch
- *  semantics.
+ *  Updates an existing advertiser. This method supports patch semantics.
  *
  *  Method: dfareporting.advertiserLandingPages.patch
  *
@@ -1843,7 +1901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_AdvertiserLandingPagesPatch : GTLRDfareportingQuery
 
 /**
- *  LandingPage ID.
+ *  Required. Landing Page ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1855,12 +1913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_LandingPage.
  *
- *  Updates an existing advertiser landing page. This method supports patch
- *  semantics.
+ *  Updates an existing advertiser. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier LandingPage ID.
+ *  @param identifier Required. Landing Page ID.
  *
  *  @return GTLRDfareportingQuery_AdvertiserLandingPagesPatch
  */
@@ -1999,8 +2056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -2043,8 +2099,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -2055,8 +2113,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only advertisers with the specified status.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingStatusApproved Value "APPROVED"
- *    @arg @c kGTLRDfareportingStatusOnHold Value "ON_HOLD"
+ *    @arg @c kGTLRDfareportingStatusApproved Approved (ads can deliver) (Value:
+ *        "APPROVED")
+ *    @arg @c kGTLRDfareportingStatusOnHold On-hold (all ads are stopped)
+ *        (Value: "ON_HOLD")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2092,7 +2152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_AdvertisersPatch : GTLRDfareportingQuery
 
 /**
- *  Advertiser ID.
+ *  Required. Advertiser ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2108,7 +2168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Advertiser to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Advertiser ID.
+ *  @param identifier Required. Advertiser ID.
  *
  *  @return GTLRDfareportingQuery_AdvertisersPatch
  */
@@ -2278,8 +2338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -2321,8 +2380,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -2506,8 +2567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -2521,8 +2581,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -2663,8 +2725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -2703,8 +2764,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -2733,7 +2796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing campaign. This method supports patch semantics.
+ *  Updates an existing creative. This method supports patch semantics.
  *
  *  Method: dfareporting.campaigns.patch
  *
@@ -2743,7 +2806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_CampaignsPatch : GTLRDfareportingQuery
 
 /**
- *  Campaign ID.
+ *  Required. Campaign ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2755,11 +2818,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_Campaign.
  *
- *  Updates an existing campaign. This method supports patch semantics.
+ *  Updates an existing creative. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Campaign ID.
+ *  @param identifier Required. Campaign ID.
  *
  *  @return GTLRDfareportingQuery_CampaignsPatch
  */
@@ -2887,8 +2950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -3256,8 +3318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -3294,8 +3355,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -3331,7 +3394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_ContentCategoriesPatch : GTLRDfareportingQuery
 
 /**
- *  ContentCategory ID.
+ *  Required. ContentCategory ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3348,7 +3411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_ContentCategory to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier ContentCategory ID.
+ *  @param identifier Required. ContentCategory ID.
  *
  *  @return GTLRDfareportingQuery_ContentCategoriesPatch
  */
@@ -3667,8 +3730,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -3705,8 +3767,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -3935,8 +3999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -3968,8 +4031,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -4156,11 +4221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserIds;
 
-/**
- *  Select only creative groups that belong to this subgroup.
- *
- *  @note The documented range is 1..2.
- */
+/** Select only creative groups that belong to this subgroup. */
 @property(nonatomic, assign) NSInteger groupNumber;
 
 /**
@@ -4173,8 +4234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -4211,8 +4271,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -4248,7 +4310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_CreativeGroupsPatch : GTLRDfareportingQuery
 
 /**
- *  CreativeGroup ID.
+ *  Required. Creative Group ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4264,7 +4326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_CreativeGroup to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier CreativeGroup ID.
+ *  @param identifier Required. Creative Group ID.
  *
  *  @return GTLRDfareportingQuery_CreativeGroupsPatch
  */
@@ -4418,8 +4480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -4469,8 +4530,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -4555,7 +4618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_CreativesPatch : GTLRDfareportingQuery
 
 /**
- *  Creative ID.
+ *  Required. Creative ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4571,7 +4634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Creative to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Creative ID.
+ *  @param identifier Required. Creative ID.
  *
  *  @return GTLRDfareportingQuery_CreativesPatch
  */
@@ -4622,8 +4685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 100 (from the
- *        range 0..100).
+ *  @note If not set, the documented server-side default will be 100.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -4764,8 +4826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -4802,8 +4863,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -4839,9 +4902,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_DynamicTargetingKeysDelete : GTLRDfareportingQuery
 
 /**
- *  Name of this dynamic targeting key. This is a required field. Must be less
- *  than 256 characters long and cannot contain commas. All characters are
- *  converted to lowercase.
+ *  Required. Name of this dynamic targeting key. This is a required field. Must
+ *  be less than 256 characters long and cannot contain commas. All characters
+ *  are converted to lowercase.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4851,7 +4914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, assign) long long objectId;
 
 /**
- *  Type of the object of this dynamic targeting key. This is a required field.
+ *  Required. Type of the object of this dynamic targeting key. This is a
+ *  required field.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiser Value
@@ -4875,11 +4939,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param profileId User profile ID associated with this request.
  *  @param objectId ID of the object of this dynamic targeting key. This is a
  *    required field.
- *  @param name Name of this dynamic targeting key. This is a required field.
- *    Must be less than 256 characters long and cannot contain commas. All
- *    characters are converted to lowercase.
- *  @param objectType Type of the object of this dynamic targeting key. This is
- *    a required field.
+ *  @param name Required. Name of this dynamic targeting key. This is a required
+ *    field. Must be less than 256 characters long and cannot contain commas.
+ *    All characters are converted to lowercase.
+ *  @param objectType Required. Type of the object of this dynamic targeting
+ *    key. This is a required field.
  *
  *  Likely values for @c objectType:
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiser Value
@@ -5127,12 +5191,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  click tracking.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingEventTagTypesImpressionImageEventTag Value
- *        "IMPRESSION_IMAGE_EVENT_TAG"
- *    @arg @c kGTLRDfareportingEventTagTypesImpressionJavascriptEventTag Value
- *        "IMPRESSION_JAVASCRIPT_EVENT_TAG"
- *    @arg @c kGTLRDfareportingEventTagTypesClickThroughEventTag Value
- *        "CLICK_THROUGH_EVENT_TAG"
+ *    @arg @c kGTLRDfareportingEventTagTypesImpressionImageEventTag A
+ *        third-party pixel for impression tracking. (Value:
+ *        "IMPRESSION_IMAGE_EVENT_TAG")
+ *    @arg @c kGTLRDfareportingEventTagTypesImpressionJavascriptEventTag A
+ *        third-party JavaScript URL for impression tracking. (Value:
+ *        "IMPRESSION_JAVASCRIPT_EVENT_TAG")
+ *    @arg @c kGTLRDfareportingEventTagTypesClickThroughEventTag A third-party
+ *        URL for click tracking that redirects to the landing page. (Value:
+ *        "CLICK_THROUGH_EVENT_TAG")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eventTagTypes;
 
@@ -5172,8 +5239,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -5204,7 +5273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_EventTagsPatch : GTLRDfareportingQuery
 
 /**
- *  EventTag ID.
+ *  Required. EventTag ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5220,7 +5289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_EventTag to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier EventTag ID.
+ *  @param identifier Required. EventTag ID.
  *
  *  @return GTLRDfareportingQuery_EventTagsPatch
  */
@@ -5318,8 +5387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 10 (from the
- *        range 0..10).
+ *  @note If not set, the documented server-side default will be 10.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -5584,8 +5652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -5623,8 +5690,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -5653,8 +5722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing floodlight activity. This method supports patch
- *  semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  Method: dfareporting.floodlightActivities.patch
  *
@@ -5664,7 +5732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_FloodlightActivitiesPatch : GTLRDfareportingQuery
 
 /**
- *  FloodlightActivity ID.
+ *  Required. EventTag ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5676,13 +5744,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightActivity.
  *
- *  Updates an existing floodlight activity. This method supports patch
- *  semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightActivity to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier FloodlightActivity ID.
+ *  @param identifier Required. EventTag ID.
  *
  *  @return GTLRDfareportingQuery_FloodlightActivitiesPatch
  */
@@ -5821,8 +5888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -5860,8 +5926,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -5897,8 +5965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing floodlight activity group. This method supports patch
- *  semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  Method: dfareporting.floodlightActivityGroups.patch
  *
@@ -5908,7 +5975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_FloodlightActivityGroupsPatch : GTLRDfareportingQuery
 
 /**
- *  FloodlightActivityGroup ID.
+ *  Required. EventTag ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5920,13 +5987,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightActivityGroup.
  *
- *  Updates an existing floodlight activity group. This method supports patch
- *  semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightActivityGroup to include in
  *    the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier FloodlightActivityGroup ID.
+ *  @param identifier Required. EventTag ID.
  *
  *  @return GTLRDfareportingQuery_FloodlightActivityGroupsPatch
  */
@@ -6035,8 +6101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing floodlight configuration. This method supports patch
- *  semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  Method: dfareporting.floodlightConfigurations.patch
  *
@@ -6046,7 +6111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_FloodlightConfigurationsPatch : GTLRDfareportingQuery
 
 /**
- *  FloodlightConfiguration ID.
+ *  Required. EventTag ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -6058,13 +6123,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightConfiguration.
  *
- *  Updates an existing floodlight configuration. This method supports patch
- *  semantics.
+ *  Updates an existing event tag. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightConfiguration to include in
  *    the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier FloodlightConfiguration ID.
+ *  @param identifier Required. EventTag ID.
  *
  *  @return GTLRDfareportingQuery_FloodlightConfigurationsPatch
  */
@@ -6167,8 +6231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -6211,8 +6274,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -6378,8 +6443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -6596,155 +6660,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Gets one order document by ID.
- *
- *  Method: dfareporting.orderDocuments.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_OrderDocumentsGet : GTLRDfareportingQuery
-
-/**
- *  Order document ID.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, assign) long long identifier;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/** Project ID for order documents. */
-@property(nonatomic, assign) long long projectId;
-
-/**
- *  Fetches a @c GTLRDfareporting_OrderDocument.
- *
- *  Gets one order document by ID.
- *
- *  @param profileId User profile ID associated with this request.
- *  @param projectId Project ID for order documents.
- *  @param identifier Order document ID.
- *
- *  @return GTLRDfareportingQuery_OrderDocumentsGet
- */
-+ (instancetype)queryWithProfileId:(long long)profileId
-                         projectId:(long long)projectId
-                        identifier:(long long)identifier;
-
-@end
-
-/**
- *  Retrieves a list of order documents, possibly filtered. This method supports
- *  paging.
- *
- *  Method: dfareporting.orderDocuments.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDfatrafficking
- */
-@interface GTLRDfareportingQuery_OrderDocumentsList : GTLRDfareportingQuery
-
-/**
- *  Select only order documents that have been approved by at least one user.
- */
-@property(nonatomic, assign) BOOL approved;
-
-/**
- *  Select only order documents with these IDs.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ids;
-
-/**
- *  Maximum number of results to return.
- *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
- */
-@property(nonatomic, assign) NSInteger maxResults;
-
-/**
- *  Select only order documents for specified orders.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *orderId;
-
-/** Value of the nextPageToken from the previous result page. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/** Project ID for order documents. */
-@property(nonatomic, assign) long long projectId;
-
-/**
- *  Allows searching for order documents by name or ID. Wildcards (*) are
- *  allowed. For example, "orderdocument*2015" will return order documents with
- *  names like "orderdocument June 2015", "orderdocument April 2015", or simply
- *  "orderdocument 2015". Most of the searches also add wildcards implicitly at
- *  the start and the end of the search string. For example, a search string of
- *  "orderdocument" will match order documents with name "my orderdocument",
- *  "orderdocument 2015", or simply "orderdocument".
- */
-@property(nonatomic, copy, nullable) NSString *searchString;
-
-/**
- *  Select only order documents that are associated with these sites.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *siteId;
-
-/**
- *  Field by which to sort the list.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareportingSortFieldId Value "ID"
- *    @arg @c kGTLRDfareportingSortFieldName Value "NAME"
- *
- *  @note If not set, the documented server-side default will be
- *        kGTLRDfareportingSortFieldId.
- */
-@property(nonatomic, copy, nullable) NSString *sortField;
-
-/**
- *  Order of sorted results.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
- *
- *  @note If not set, the documented server-side default will be
- *        kGTLRDfareportingSortOrderAscending.
- */
-@property(nonatomic, copy, nullable) NSString *sortOrder;
-
-/**
- *  Fetches a @c GTLRDfareporting_OrderDocumentsListResponse.
- *
- *  Retrieves a list of order documents, possibly filtered. This method supports
- *  paging.
- *
- *  @param profileId User profile ID associated with this request.
- *  @param projectId Project ID for order documents.
- *
- *  @return GTLRDfareportingQuery_OrderDocumentsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProfileId:(long long)profileId
-                         projectId:(long long)projectId;
-
-@end
-
-/**
  *  Gets one order by ID.
  *
  *  Method: dfareporting.orders.get
@@ -6804,8 +6719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -6851,8 +6765,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -7015,8 +6931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 800 (from the
- *        range 0..800).
+ *  @note If not set, the documented server-side default will be 800.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -7050,10 +6965,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  as primary for reporting.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingPlacementGroupTypePlacementPackage Value
- *        "PLACEMENT_PACKAGE"
- *    @arg @c kGTLRDfareportingPlacementGroupTypePlacementRoadblock Value
- *        "PLACEMENT_ROADBLOCK"
+ *    @arg @c kGTLRDfareportingPlacementGroupTypePlacementPackage A simple group
+ *        of site-placements (tags). Basically acts as a single pricing point
+ *        for a group of tags. (Value: "PLACEMENT_PACKAGE")
+ *    @arg @c kGTLRDfareportingPlacementGroupTypePlacementRoadblock A group of
+ *        site-placements (tags) that not only acts as a single pricing point
+ *        but also assumes that all the tags in it will be served at the same
+ *        time. This kind of group requires one of its assigned site-placements
+ *        to be marked as primary for reporting purposes. (Value:
+ *        "PLACEMENT_ROADBLOCK")
  */
 @property(nonatomic, copy, nullable) NSString *placementGroupType;
 
@@ -7121,8 +7041,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -7158,7 +7080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_PlacementGroupsPatch : GTLRDfareportingQuery
 
 /**
- *  PlacementGroup ID.
+ *  Required. Placement ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7175,7 +7097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_PlacementGroup to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier PlacementGroup ID.
+ *  @param identifier Required. Placement ID.
  *
  *  @return GTLRDfareportingQuery_PlacementGroupsPatch
  */
@@ -7416,9 +7338,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingCompatibilitiesDisplay Value "DISPLAY"
  *    @arg @c kGTLRDfareportingCompatibilitiesDisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
- *    @arg @c kGTLRDfareportingCompatibilitiesApp Value "APP"
- *    @arg @c kGTLRDfareportingCompatibilitiesAppInterstitial Value
- *        "APP_INTERSTITIAL"
+ *    @arg @c kGTLRDfareportingCompatibilitiesApp Deprecated enum value. No
+ *        longer supported. (Value: "APP")
+ *    @arg @c kGTLRDfareportingCompatibilitiesAppInterstitial Deprecated enum
+ *        value. No longer supported. (Value: "APP_INTERSTITIAL")
  *    @arg @c kGTLRDfareportingCompatibilitiesInStreamVideo Value
  *        "IN_STREAM_VIDEO"
  *    @arg @c kGTLRDfareportingCompatibilitiesInStreamAudio Value
@@ -7463,8 +7386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -7570,8 +7492,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -7607,7 +7531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_PlacementsPatch : GTLRDfareportingQuery
 
 /**
- *  Placement ID.
+ *  Required. Placement ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7623,7 +7547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Placement to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Placement ID.
+ *  @param identifier Required. Placement ID.
  *
  *  @return GTLRDfareportingQuery_PlacementsPatch
  */
@@ -7754,8 +7678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -7792,8 +7715,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -7830,7 +7755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_PlacementStrategiesPatch : GTLRDfareportingQuery
 
 /**
- *  PlacementStrategy ID.
+ *  Required. PlacementStrategy ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7848,7 +7773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_PlacementStrategy to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier PlacementStrategy ID.
+ *  @param identifier Required. PlacementStrategy ID.
  *
  *  @return GTLRDfareportingQuery_PlacementStrategiesPatch
  */
@@ -8096,8 +8021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -8133,8 +8057,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -8252,7 +8178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing remarketing list share. This method supports patch
+ *  Updates an existing RemarketingListShare. This method supports patch
  *  semantics.
  *
  *  Method: dfareporting.remarketingListShares.patch
@@ -8263,7 +8189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_RemarketingListSharesPatch : GTLRDfareportingQuery
 
 /**
- *  RemarketingList ID.
+ *  Required. RemarketingList ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8275,13 +8201,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingListShare.
  *
- *  Updates an existing remarketing list share. This method supports patch
+ *  Updates an existing RemarketingListShare. This method supports patch
  *  semantics.
  *
  *  @param object The @c GTLRDfareporting_RemarketingListShare to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier RemarketingList ID.
+ *  @param identifier Required. RemarketingList ID.
  *
  *  @return GTLRDfareportingQuery_RemarketingListSharesPatch
  */
@@ -8363,7 +8289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** Select only active or only inactive remarketing lists. */
 @property(nonatomic, assign) BOOL active;
 
-/** Select only remarketing lists owned by this advertiser. */
+/** Required. Select only remarketing lists owned by this advertiser. */
 @property(nonatomic, assign) long long advertiserId;
 
 /** Select only remarketing lists that have this floodlight activity ID. */
@@ -8372,8 +8298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -8410,8 +8335,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -8425,7 +8352,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  supports paging.
  *
  *  @param profileId User profile ID associated with this request.
- *  @param advertiserId Select only remarketing lists owned by this advertiser.
+ *  @param advertiserId Required. Select only remarketing lists owned by this
+ *    advertiser.
  *
  *  @return GTLRDfareportingQuery_RemarketingListsList
  *
@@ -8439,7 +8367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing remarketing list. This method supports patch semantics.
+ *  Updates an existing RemarketingList. This method supports patch semantics.
  *
  *  Method: dfareporting.remarketingLists.patch
  *
@@ -8449,7 +8377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_RemarketingListsPatch : GTLRDfareportingQuery
 
 /**
- *  RemarketingList ID.
+ *  Required. RemarketingList ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8461,12 +8389,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingList.
  *
- *  Updates an existing remarketing list. This method supports patch semantics.
+ *  Updates an existing RemarketingList. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_RemarketingList to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier RemarketingList ID.
+ *  @param identifier Required. RemarketingList ID.
  *
  *  @return GTLRDfareportingQuery_RemarketingListsPatch
  */
@@ -8636,8 +8564,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 10 (from the
- *        range 0..10).
+ *  @note If not set, the documented server-side default will be 10.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -8768,8 +8695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 10 (from the
- *        range 0..10).
+ *  @note If not set, the documented server-side default will be 10.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -9059,8 +8985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -9096,8 +9021,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -9138,7 +9065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_SitesPatch : GTLRDfareportingQuery
 
 /**
- *  Site ID.
+ *  Required. Site ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9154,7 +9081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Site to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Site ID.
+ *  @param identifier Required. Site ID.
  *
  *  @return GTLRDfareportingQuery_SitesPatch
  */
@@ -9268,11 +9195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 @interface GTLRDfareportingQuery_SizesList : GTLRDfareportingQuery
 
-/**
- *  Select only sizes with this height.
- *
- *  @note The documented range is 0..32767.
- */
+/** Select only sizes with this height. */
 @property(nonatomic, assign) NSInteger height;
 
 /** Select only IAB standard sizes. */
@@ -9288,11 +9211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
 
-/**
- *  Select only sizes with this width.
- *
- *  @note The documented range is 0..32767.
- */
+/** Select only sizes with this width. */
 @property(nonatomic, assign) NSInteger width;
 
 /**
@@ -9394,8 +9313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -9432,8 +9350,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -9468,7 +9388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_SubaccountsPatch : GTLRDfareportingQuery
 
 /**
- *  Subaccount ID.
+ *  Required. Subaccount ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9484,7 +9404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Subaccount to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Subaccount ID.
+ *  @param identifier Required. Subaccount ID.
  *
  *  @return GTLRDfareportingQuery_SubaccountsPatch
  */
@@ -9572,15 +9492,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, assign) BOOL active;
 
 /**
- *  Select only targetable remarketing lists targetable by these advertisers.
+ *  Required. Select only targetable remarketing lists targetable by these
+ *  advertisers.
  */
 @property(nonatomic, assign) long long advertiserId;
 
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -9617,8 +9537,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -9632,8 +9554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  method supports paging.
  *
  *  @param profileId User profile ID associated with this request.
- *  @param advertiserId Select only targetable remarketing lists targetable by
- *    these advertisers.
+ *  @param advertiserId Required. Select only targetable remarketing lists
+ *    targetable by these advertisers.
  *
  *  @return GTLRDfareportingQuery_TargetableRemarketingListsList
  *
@@ -9734,8 +9656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -9771,8 +9692,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -9809,7 +9732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_TargetingTemplatesPatch : GTLRDfareportingQuery
 
 /**
- *  TargetingTemplate ID.
+ *  Required. RemarketingList ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9827,7 +9750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_TargetingTemplate to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier TargetingTemplate ID.
+ *  @param identifier Required. RemarketingList ID.
  *
  *  @return GTLRDfareportingQuery_TargetingTemplatesPatch
  */
@@ -10172,8 +10095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 1000 (from the
- *        range 0..1000).
+ *  @note If not set, the documented server-side default will be 1000.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -10209,8 +10131,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderAscending.
@@ -10249,7 +10173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_UserRolesPatch : GTLRDfareportingQuery
 
 /**
- *  UserRole ID.
+ *  Required. UserRole ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -10265,7 +10189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_UserRole to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier UserRole ID.
+ *  @param identifier Required. UserRole ID.
  *
  *  @return GTLRDfareportingQuery_UserRolesPatch
  */

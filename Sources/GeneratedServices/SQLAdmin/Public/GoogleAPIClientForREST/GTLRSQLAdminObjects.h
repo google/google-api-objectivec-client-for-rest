@@ -19,6 +19,7 @@
 @class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_BackupConfiguration;
 @class GTLRSQLAdmin_BackupContext;
+@class GTLRSQLAdmin_BackupReencryptionConfig;
 @class GTLRSQLAdmin_BackupRetentionSettings;
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
@@ -112,6 +113,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachab
  *  Value: "SQL_API_WARNING_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BackupReencryptionConfig.backupType
+
+/**
+ *  Reencrypt automatic backups
+ *
+ *  Value: "AUTOMATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_Automated;
+/**
+ *  Unknown backup type, will be defaulted to AUTOMATIC backup type
+ *
+ *  Value: "BACKUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_BackupTypeUnspecified;
+/**
+ *  Reencrypt on-demand backups
+ *
+ *  Value: "ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_OnDemand;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRetentionSettings.retentionUnit
@@ -468,6 +491,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "SQLSERVER_2019_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web;
+/**
+ *  The database version is SQL Server 2022 Enterprise.
+ *
+ *  Value: "SQLSERVER_2022_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Enterprise;
+/**
+ *  The database version is SQL Server 2022 Express.
+ *
+ *  Value: "SQLSERVER_2022_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Express;
+/**
+ *  The database version is SQL Server 2022 Standard.
+ *
+ *  Value: "SQLSERVER_2022_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Standard;
+/**
+ *  The database version is SQL Server 2022 Web.
+ *
+ *  Value: "SQLSERVER_2022_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.backendType
@@ -698,6 +745,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "SQLSERVER_2019_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web;
+/**
+ *  The database version is SQL Server 2022 Enterprise.
+ *
+ *  Value: "SQLSERVER_2022_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Enterprise;
+/**
+ *  The database version is SQL Server 2022 Express.
+ *
+ *  Value: "SQLSERVER_2022_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Express;
+/**
+ *  The database version is SQL Server 2022 Standard.
+ *
+ *  Value: "SQLSERVER_2022_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Standard;
+/**
+ *  The database version is SQL Server 2022 Web.
+ *
+ *  Value: "SQLSERVER_2022_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.instanceType
@@ -847,7 +918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileT
 // GTLRSQLAdmin_ExportContext_BakExportOptions.bakType
 
 /**
- *  default type to meet enum requirement, will be set to FULL if not set
+ *  default type.
  *
  *  Value: "BAK_TYPE_UNSPECIFIED"
  */
@@ -1066,6 +1137,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Sta
  *  Value: "SQLSERVER_2019_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Web;
+/**
+ *  The database version is SQL Server 2022 Enterprise.
+ *
+ *  Value: "SQLSERVER_2022_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Enterprise;
+/**
+ *  The database version is SQL Server 2022 Express.
+ *
+ *  Value: "SQLSERVER_2022_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Express;
+/**
+ *  The database version is SQL Server 2022 Standard.
+ *
+ *  Value: "SQLSERVER_2022_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Standard;
+/**
+ *  The database version is SQL Server 2022 Web.
+ *
+ *  Value: "SQLSERVER_2022_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.type
@@ -1148,7 +1243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileT
 // GTLRSQLAdmin_ImportContext_BakImportOptions.bakType
 
 /**
- *  default type to meet enum requirement, will be set to FULL if not set
+ *  default type.
  *
  *  Value: "BAK_TYPE_UNSPECIFIED"
  */
@@ -1425,6 +1520,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StartRe
  *  Value: "STOP_REPLICA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica;
+/**
+ *  Switches over to replica instance from primary.
+ *
+ *  Value: "SWITCHOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Switchover;
 /**
  *  Truncates a general or slow log table in MySQL.
  *
@@ -2160,6 +2261,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Backup Reencryption Config
+ */
+@interface GTLRSQLAdmin_BackupReencryptionConfig : GTLRObject
+
+/**
+ *  Backup re-encryption limit
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupLimit;
+
+/**
+ *  Type of backups users want to re-encrypt.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_Automated
+ *        Reencrypt automatic backups (Value: "AUTOMATED")
+ *    @arg @c kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_BackupTypeUnspecified
+ *        Unknown backup type, will be defaulted to AUTOMATIC backup type
+ *        (Value: "BACKUP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_OnDemand
+ *        Reencrypt on-demand backups (Value: "ON_DEMAND")
+ */
+@property(nonatomic, copy, nullable) NSString *backupType;
+
+@end
+
+
+/**
  *  We currently only support backup retention by specifying the number of
  *  backups we will retain.
  */
@@ -2552,8 +2682,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "SQLSERVER_2019_STANDARD")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web The
  *        database version is SQL Server 2019 Web. (Value: "SQLSERVER_2019_WEB")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Enterprise
+ *        The database version is SQL Server 2022 Enterprise. (Value:
+ *        "SQLSERVER_2022_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Express
+ *        The database version is SQL Server 2022 Express. (Value:
+ *        "SQLSERVER_2022_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Standard
+ *        The database version is SQL Server 2022 Standard. (Value:
+ *        "SQLSERVER_2022_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web The
+ *        database version is SQL Server 2022 Web. (Value: "SQLSERVER_2022_WEB")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/** The dns name of the instance. */
+@property(nonatomic, copy, nullable) NSString *dnsName;
 
 /** The assigned IP addresses for the instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
@@ -2787,6 +2931,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web
  *        The database version is SQL Server 2019 Web. (Value:
  *        "SQLSERVER_2019_WEB")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Enterprise
+ *        The database version is SQL Server 2022 Enterprise. (Value:
+ *        "SQLSERVER_2022_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Express
+ *        The database version is SQL Server 2022 Express. (Value:
+ *        "SQLSERVER_2022_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Standard
+ *        The database version is SQL Server 2022 Standard. (Value:
+ *        "SQLSERVER_2022_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web
+ *        The database version is SQL Server 2022 Web. (Value:
+ *        "SQLSERVER_2022_WEB")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -3247,8 +3403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_BakTypeUnspecified
- *        default type to meet enum requirement, will be set to FULL if not set
- *        (Value: "BAK_TYPE_UNSPECIFIED")
+ *        default type. (Value: "BAK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Diff
  *        Differential backup. (Value: "DIFF")
  *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Full Full
@@ -3257,17 +3412,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *bakType;
 
 /**
- *  Whether or not the export will be exeucted with COPY_ONLY, SQL Server only
- *  deprecated as the behavior should default to copy_only = true use
- *  differential_base instead
+ *  Deprecated: copy_only is deprecated. Use differential_base instead
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *copyOnly NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Whether or not the backup can be use as differential base only non copy only
- *  backup can be served as differential base
+ *  Whether or not the backup can be used as a differential base copy_only
+ *  backup can not be served as differential base
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3599,8 +3752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_BakTypeUnspecified
- *        default type to meet enum requirement, will be set to FULL if not set
- *        (Value: "BAK_TYPE_UNSPECIFIED")
+ *        default type. (Value: "BAK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Diff
  *        Differential backup. (Value: "DIFF")
  *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full Full
@@ -3873,6 +4025,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#instancesListServerCas`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Database Instance reencrypt request.
+ */
+@interface GTLRSQLAdmin_InstancesReencryptRequest : GTLRObject
+
+/** Configuration specific to backup re-encryption */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupReencryptionConfig *backupReencryptionConfig;
 
 @end
 
@@ -4328,6 +4491,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_StopReplica Stops
  *        replication on a Cloud SQL read replica instance. (Value:
  *        "STOP_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Switchover Switches over to
+ *        replica instance from primary. (Value: "SWITCHOVER")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_TruncateLog Truncates a
  *        general or slow log table in MySQL. (Value: "TRUNCATE_LOG")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Update Updates the settings

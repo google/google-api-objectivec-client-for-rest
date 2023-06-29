@@ -24,6 +24,7 @@
 @class GTLRSpanner_CopyBackupEncryptionConfig;
 @class GTLRSpanner_Database;
 @class GTLRSpanner_DatabaseRole;
+@class GTLRSpanner_DdlStatementActionInfo;
 @class GTLRSpanner_Delete;
 @class GTLRSpanner_DerivedMetric;
 @class GTLRSpanner_DiagnosticMessage;
@@ -1759,6 +1760,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  the `CREATE ROLE` DDL statement.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Action information extracted from a DDL statement. This proto is used to
+ *  display the brief info of the DDL statement for the operation
+ *  UpdateDatabaseDdl.
+ */
+@interface GTLRSpanner_DdlStatementActionInfo : GTLRObject
+
+/**
+ *  The action for the DDL statement, e.g. CREATE, ALTER, DROP, GRANT, etc. This
+ *  field is a non-empty string.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  The entity name(s) being operated on the DDL statement. E.g. 1. For
+ *  statement "CREATE TABLE t1(...)", `entity_names` = ["t1"]. 2. For statement
+ *  "GRANT ROLE r1, r2 ...", `entity_names` = ["r1", "r2"]. 3. For statement
+ *  "ANALYZE", `entity_names` = [].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityNames;
+
+/**
+ *  The entity type for the DDL statement, e.g. TABLE, INDEX, VIEW, etc. This
+ *  field can be empty string for some DDL statement, e.g. for statement
+ *  "ANALYZE", `entity_type` = "".
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
 
 @end
 
@@ -5374,6 +5406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_UpdateDatabaseDdlMetadata : GTLRObject
 
 /**
+ *  The brief action info for the DDL statements. `actions[i]` is the brief info
+ *  for `statements[i]`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_DdlStatementActionInfo *> *actions;
+
+/**
  *  Reports the commit timestamps of all statements that have succeeded so far,
  *  where `commit_timestamps[i]` is the commit timestamp for the statement
  *  `statements[i]`.
@@ -5384,12 +5422,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
- *  The progress of the UpdateDatabaseDdl operations. Currently, only index
- *  creation statements will have a continuously updating progress. For
- *  non-index creation statements, `progress[i]` will have start time and end
- *  time populated with commit timestamp of operation, as well as a progress of
- *  100% once the operation has completed. `progress[i]` is the operation
- *  progress for `statements[i]`.
+ *  The progress of the UpdateDatabaseDdl operations. All DDL statements will
+ *  have continuously updating progress, and `progress[i]` is the operation
+ *  progress for `statements[i]`. Also, `progress[i]` will have start time and
+ *  end time populated with commit timestamp of operation, as well as a progress
+ *  of 100% once the operation has completed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_OperationProgress *> *progress;
 

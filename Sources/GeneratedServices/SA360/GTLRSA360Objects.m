@@ -90,6 +90,22 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMetrics_InteractionEven
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMetrics_InteractionEventTypes_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMetrics_InteractionEventTypes_VideoView = @"VIDEO_VIEW";
 
+// GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset.appStore
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_AppleAppStore = @"APPLE_APP_STORE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_GoogleAppStore = @"GOOGLE_APP_STORE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.adNetworkType
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Content = @"CONTENT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Mixed = @"MIXED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Search = @"SEARCH";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_SearchPartners = @"SEARCH_PARTNERS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_YoutubeSearch = @"YOUTUBE_SEARCH";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_YoutubeWatch = @"YOUTUBE_WATCH";
+
 // GTLRSA360_GoogleAdsSearchads360V0CommonSegments.conversionActionCategory
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ConversionActionCategory_AddToCart = @"ADD_TO_CART";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ConversionActionCategory_BeginCheckout = @"BEGIN_CHECKOUT";
@@ -206,6 +222,12 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_Authorization
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_UserPermissionDenied = @"USER_PERMISSION_DENIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.customColumnError
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotAvailable = @"CUSTOM_COLUMN_NOT_AVAILABLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotFound = @"CUSTOM_COLUMN_NOT_FOUND";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_Unspecified = @"UNSPECIFIED";
 
 // GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.dateError
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_DateError_DateRangeMinimumAndMaximumDatesBothNull = @"DATE_RANGE_MINIMUM_AND_MAXIMUM_DATES_BOTH_NULL";
@@ -536,6 +558,54 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Typ
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_YoutubeChannel = @"YOUTUBE_CHANNEL";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_YoutubeVideo = @"YOUTUBE_VIDEO";
 
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset.engineStatus
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Disabled = @"DISABLED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Removed = @"REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Serving = @"SERVING";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_ServingLimited = @"SERVING_LIMITED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset.status
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Archived = @"ARCHIVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Enabled = @"ENABLED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_PendingSystemGenerated = @"PENDING_SYSTEM_GENERATED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Removed = @"REMOVED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset.type
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_BookOnGoogle = @"BOOK_ON_GOOGLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Call = @"CALL";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Callout = @"CALLOUT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_CallToAction = @"CALL_TO_ACTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DiscoveryCarouselCard = @"DISCOVERY_CAROUSEL_CARD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicCustom = @"DYNAMIC_CUSTOM";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicEducation = @"DYNAMIC_EDUCATION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicFlights = @"DYNAMIC_FLIGHTS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicHotelsAndRentals = @"DYNAMIC_HOTELS_AND_RENTALS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicJobs = @"DYNAMIC_JOBS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicLocal = @"DYNAMIC_LOCAL";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicRealEstate = @"DYNAMIC_REAL_ESTATE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicTravel = @"DYNAMIC_TRAVEL";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_HotelCallout = @"HOTEL_CALLOUT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_HotelProperty = @"HOTEL_PROPERTY";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Image = @"IMAGE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_LeadForm = @"LEAD_FORM";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Location = @"LOCATION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_MediaBundle = @"MEDIA_BUNDLE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_MobileApp = @"MOBILE_APP";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_PageFeed = @"PAGE_FEED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Price = @"PRICE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Promotion = @"PROMOTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Sitelink = @"SITELINK";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_StructuredSnippet = @"STRUCTURED_SNIPPET";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Text = @"TEXT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_YoutubeVideo = @"YOUTUBE_VIDEO";
+
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy.status
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy_Status_Enabled = @"ENABLED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy_Status_Removed = @"REMOVED";
@@ -833,6 +903,8 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Typ
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_FirebaseIosInAppPurchase = @"FIREBASE_IOS_IN_APP_PURCHASE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_FloodlightAction = @"FLOODLIGHT_ACTION";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_FloodlightTransaction = @"FLOODLIGHT_TRANSACTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleAnalytics4Custom = @"GOOGLE_ANALYTICS_4_CUSTOM";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleAnalytics4Purchase = @"GOOGLE_ANALYTICS_4_PURCHASE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleHosted = @"GOOGLE_HOSTED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GooglePlayDownload = @"GOOGLE_PLAY_DOWNLOAD";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GooglePlayInAppPurchase = @"GOOGLE_PLAY_IN_APP_PURCHASE";
@@ -852,6 +924,8 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Typ
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_ThirdPartyAppAnalyticsIosCustom = @"THIRD_PARTY_APP_ANALYTICS_IOS_CUSTOM";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_ThirdPartyAppAnalyticsIosFirstOpen = @"THIRD_PARTY_APP_ANALYTICS_IOS_FIRST_OPEN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_ThirdPartyAppAnalyticsIosInAppPurchase = @"THIRD_PARTY_APP_ANALYTICS_IOS_IN_APP_PURCHASE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UniversalAnalyticsGoal = @"UNIVERSAL_ANALYTICS_GOAL";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UniversalAnalyticsTransaction = @"UNIVERSAL_ANALYTICS_TRANSACTION";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UploadCalls = @"UPLOAD_CALLS";
@@ -1211,6 +1285,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset
+@dynamic appId, appStore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0CommonPercentCpc
 //
 
@@ -1286,8 +1370,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0CommonSegments
-@dynamic conversionAction, conversionActionCategory, conversionActionName, date,
-         dayOfWeek, device, keyword, month, quarter, week, year;
+@dynamic adNetworkType, conversionAction, conversionActionCategory,
+         conversionActionName, date, dayOfWeek, device, keyword, month, quarter,
+         week, year;
 @end
 
 
@@ -1452,9 +1537,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode
-@dynamic authenticationError, authorizationError, dateError, dateRangeError,
-         distinctError, headerError, internalError, queryError, quotaError,
-         requestError, sizeLimitError;
+@dynamic authenticationError, authorizationError, customColumnError, dateError,
+         dateRangeError, distinctError, headerError, internalError, queryError,
+         quotaError, requestError, sizeLimitError;
 @end
 
 
@@ -1691,6 +1776,44 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView
 @dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset
+@dynamic creationTime, engineStatus, finalUrls, identifier, lastModifiedTime,
+         mobileAppAsset, resourceName, status, trackingUrlTemplate, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"finalUrls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet
+@dynamic identifier, resourceName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -2164,6 +2287,24 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ServicesListAccessibleCustomersResponse
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesListAccessibleCustomersResponse
+@dynamic resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ServicesListCustomColumnsResponse
 //
 
@@ -2188,7 +2329,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 @implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row
 @dynamic adGroup, adGroupAd, adGroupAdLabel, adGroupAudienceView,
          adGroupBidModifier, adGroupCriterion, adGroupCriterionLabel,
-         adGroupLabel, ageRangeView, biddingStrategy, campaign,
+         adGroupLabel, ageRangeView, asset, assetSet, biddingStrategy, campaign,
          campaignAudienceView, campaignBudget, campaignCriterion, campaignLabel,
          conversionAction, customColumns, customer, customerClient,
          customerManagerLink, dynamicSearchAdsSearchTermView, genderView,

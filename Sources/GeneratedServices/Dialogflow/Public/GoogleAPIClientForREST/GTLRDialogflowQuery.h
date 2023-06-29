@@ -4186,7 +4186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Fetches a list of results for a given test case.
+ *  Fetches the list of run results for the given test case. A maximum of 100
+ *  results are kept for each test case.
  *
  *  Method: dialogflow.projects.locations.agents.testCases.results.list
  *
@@ -4232,7 +4233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c
  *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListTestCaseResultsResponse.
  *
- *  Fetches a list of results for a given test case.
+ *  Fetches the list of run results for the given test case. A maximum of 100
+ *  results are kept for each test case.
  *
  *  @param parent Required. The test case to list results for. Format:
  *    `projects//locations//agents// testCases/`. Specify a `-` as a wildcard

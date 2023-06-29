@@ -3244,6 +3244,212 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
 @end
 
 /**
+ *  Creates a GTM Transformation.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.transformations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsCreate : GTLRTagManagerQuery
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Transformation.
+ *
+ *  Creates a GTM Transformation.
+ *
+ *  @param object The @c GTLRTagManager_Transformation to include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Transformation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Transformation.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.transformations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsDelete : GTLRTagManagerQuery
+
+/**
+ *  GTM Transformation's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Transformation.
+ *
+ *  @param path GTM Transformation's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Transformation.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.transformations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsGet : GTLRTagManagerQuery
+
+/**
+ *  GTM Transformation's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Transformation.
+ *
+ *  Gets a GTM Transformation.
+ *
+ *  @param path GTM Transformation's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all GTM Transformations of a GTM container workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.transformations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsList : GTLRTagManagerQuery
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListTransformationsResponse.
+ *
+ *  Lists all GTM Transformations of a GTM container workspace.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reverts changes to a GTM Transformation in a GTM Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.transformations.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsRevert : GTLRTagManagerQuery
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  transformation in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Transformation's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertTransformationResponse.
+ *
+ *  Reverts changes to a GTM Transformation in a GTM Workspace.
+ *
+ *  @param path GTM Transformation's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Transformation.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.transformations.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsUpdate : GTLRTagManagerQuery
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  transformation in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Transformation's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Transformation.
+ *
+ *  Updates a GTM Transformation.
+ *
+ *  @param object The @c GTLRTagManager_Transformation to include in the query.
+ *  @param path GTM Transformation's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/transformations/{transformation_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTransformationsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Transformation *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
  *  Creates a GTM Trigger.
  *
  *  Method: tagmanager.accounts.containers.workspaces.triggers.create

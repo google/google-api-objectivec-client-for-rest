@@ -18,6 +18,11 @@ NSString * const kGTLRSQLAdmin_ApiWarning_Code_MaxResultsExceedsLimit = @"MAX_RE
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable = @"REGION_UNREACHABLE";
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified = @"SQL_API_WARNING_CODE_UNSPECIFIED";
 
+// GTLRSQLAdmin_BackupReencryptionConfig.backupType
+NSString * const kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_Automated = @"AUTOMATED";
+NSString * const kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_BackupTypeUnspecified = @"BACKUP_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_BackupReencryptionConfig_BackupType_OnDemand = @"ON_DEMAND";
+
 // GTLRSQLAdmin_BackupRetentionSettings.retentionUnit
 NSString * const kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_Count = @"COUNT";
 NSString * const kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_RetentionUnitUnspecified = @"RETENTION_UNIT_UNSPECIFIED";
@@ -84,6 +89,10 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Ente
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Enterprise = @"SQLSERVER_2022_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
 
 // GTLRSQLAdmin_DatabaseInstance.backendType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External = @"EXTERNAL";
@@ -125,6 +134,10 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Ent
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Enterprise = @"SQLSERVER_2022_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
 
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
@@ -194,6 +207,10 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Enterprise = @"SQLSER
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Enterprise = @"SQLSERVER_2022_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
 
 // GTLRSQLAdmin_Flag.type
 NSString * const kGTLRSQLAdmin_Flag_Type_Boolean               = @"BOOLEAN";
@@ -263,6 +280,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecifi
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StartExternalSync = @"START_EXTERNAL_SYNC";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StartReplica = @"START_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica = @"STOP_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Switchover = @"SWITCHOVER";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_TruncateLog = @"TRUNCATE_LOG";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Update  = @"UPDATE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase = @"UPDATE_DATABASE";
@@ -459,6 +477,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_BackupReencryptionConfig
+//
+
+@implementation GTLRSQLAdmin_BackupReencryptionConfig
+@dynamic backupLimit, backupType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_BackupRetentionSettings
 //
 
@@ -567,7 +595,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ConnectSettings
-@dynamic backendType, databaseVersion, ipAddresses, kind, region, serverCaCert;
+@dynamic backendType, databaseVersion, dnsName, ipAddresses, kind, region,
+         serverCaCert;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1140,6 +1169,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstancesReencryptRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesReencryptRequest
+@dynamic backupReencryptionConfig;
 @end
 
 

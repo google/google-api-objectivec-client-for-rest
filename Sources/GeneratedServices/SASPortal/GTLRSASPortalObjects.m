@@ -61,6 +61,13 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAgl = @"
 NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAmsl = @"HEIGHT_TYPE_AMSL";
 NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecified = @"HEIGHT_TYPE_UNSPECIFIED";
 
+// GTLRSASPortal_MigrateOrganizationMetadata.operationState
+NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStatePending = @"OPERATION_STATE_PENDING";
+NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateRunning = @"OPERATION_STATE_RUNNING";
+NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
+NSString * const kGTLRSASPortal_MigrateOrganizationMetadata_OperationState_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+
 // GTLRSASPortal_NrqzValidation.state
 NSString * const kGTLRSASPortal_NrqzValidation_State_Draft     = @"DRAFT";
 NSString * const kGTLRSASPortal_NrqzValidation_State_Final     = @"FINAL";
@@ -91,6 +98,16 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 @implementation GTLRSASPortal_ChannelWithScore
 @dynamic frequencyRange, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_CheckHasProvisionedDeploymentResponse
+//
+
+@implementation GTLRSASPortal_CheckHasProvisionedDeploymentResponse
+@dynamic hasProvisionedDeployment;
 @end
 
 
@@ -138,6 +155,16 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_DeploymentAssociation
+//
+
+@implementation GTLRSASPortal_DeploymentAssociation
+@dynamic gcpProjectId, userId;
 @end
 
 
@@ -388,6 +415,44 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 + (NSString *)collectionItemsKey {
   return @"nodes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_MigrateOrganizationMetadata
+//
+
+@implementation GTLRSASPortal_MigrateOrganizationMetadata
+@dynamic operationState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_MigrateOrganizationRequest
+//
+
+@implementation GTLRSASPortal_MigrateOrganizationRequest
+@dynamic organizationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_MigrateOrganizationResponse
+//
+
+@implementation GTLRSASPortal_MigrateOrganizationResponse
+@dynamic deploymentAssociation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentAssociation" : [GTLRSASPortal_DeploymentAssociation class]
+  };
+  return map;
 }
 
 @end

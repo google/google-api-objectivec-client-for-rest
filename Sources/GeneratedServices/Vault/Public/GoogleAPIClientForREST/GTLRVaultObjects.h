@@ -845,8 +845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /**
  *  The name of the Cloud Storage bucket for the export file. You can use this
- *  value in the [Cloud Storage JSON or XML
- *  APIs](https://cloud.google.com/storage/docs/apis), but not to list the
+ *  value in the Cloud Storage [JSON
+ *  API](https://cloud.google.com/storage/docs/json_api) or [XML
+ *  API](https://cloud.google.com/storage/docs/xml-api), but not to list the
  *  bucket contents. Instead, you can [get individual export
  *  files](https://cloud.google.com/storage/docs/json_api/v1/objects/get) by
  *  object name.
@@ -858,8 +859,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /**
  *  The name of the Cloud Storage object for the export file. You can use this
- *  value in the [Cloud Storage JSON or XML
- *  APIs](https://cloud.google.com/storage/docs/apis).
+ *  value in the Cloud Storage [JSON
+ *  API](https://cloud.google.com/storage/docs/json_api) or [XML
+ *  API](https://cloud.google.com/storage/docs/xml-api).
  */
 @property(nonatomic, copy, nullable) NSString *objectName;
 

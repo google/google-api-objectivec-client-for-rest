@@ -137,6 +137,63 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_AgentContainer
+//
+
+@implementation GTLRCloudBatch_AgentContainer
+@dynamic commands, entrypoint, imageUri, options, volumes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commands" : [NSString class],
+    @"volumes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentEnvironment
+//
+
+@implementation GTLRCloudBatch_AgentEnvironment
+@dynamic encryptedVariables, secretVariables, variables;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentEnvironment_SecretVariables
+//
+
+@implementation GTLRCloudBatch_AgentEnvironment_SecretVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentEnvironment_Variables
+//
+
+@implementation GTLRCloudBatch_AgentEnvironment_Variables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_AgentInfo
 //
 
@@ -150,6 +207,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentKMSEnvMap
+//
+
+@implementation GTLRCloudBatch_AgentKMSEnvMap
+@dynamic cipherText, keyName;
 @end
 
 
@@ -185,11 +252,22 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_AgentScript
+//
+
+@implementation GTLRCloudBatch_AgentScript
+@dynamic path, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_AgentTask
 //
 
 @implementation GTLRCloudBatch_AgentTask
-@dynamic intendedState, reachedBarrier, spec, status, task, taskSource;
+@dynamic agentTaskSpec, intendedState, reachedBarrier, spec, status, task,
+         taskSource;
 @end
 
 
@@ -200,6 +278,35 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_AgentTaskInfo
 @dynamic runnable, taskId, taskStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentTaskRunnable
+//
+
+@implementation GTLRCloudBatch_AgentTaskRunnable
+@dynamic alwaysRun, background, container, environment, ignoreExitStatus,
+         script, timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentTaskSpec
+//
+
+@implementation GTLRCloudBatch_AgentTaskSpec
+@dynamic environment, maxRunDuration, runnables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"runnables" : [GTLRCloudBatch_AgentTaskRunnable class]
+  };
+  return map;
+}
+
 @end
 
 

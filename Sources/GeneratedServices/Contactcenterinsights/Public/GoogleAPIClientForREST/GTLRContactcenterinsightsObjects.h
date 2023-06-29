@@ -447,6 +447,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel.modelType
+
+/**
+ *  Unspecified model type.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_ModelTypeUnspecified;
+/**
+ *  Type V1.
+ *
+ *  Value: "TYPE_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_TypeV1;
+/**
+ *  Type V2.
+ *
+ *  Value: "TYPE_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_TypeV2;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel.state
 
 /**
@@ -771,6 +793,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel.modelType
+
+/**
+ *  Unspecified model type.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_ModelTypeUnspecified;
+/**
+ *  Type V1.
+ *
+ *  Value: "TYPE_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_TypeV1;
+/**
+ *  Type V2.
+ *
+ *  Value: "TYPE_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_TypeV2;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel.state
@@ -2532,6 +2576,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *issueCount;
 
+/** Language of the model. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Type of the model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_ModelTypeUnspecified
+ *        Unspecified model type. (Value: "MODEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_TypeV1
+ *        Type V1. (Value: "TYPE_V1")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_ModelType_TypeV2
+ *        Type V2. (Value: "TYPE_V2")
+ */
+@property(nonatomic, copy, nullable) NSString *modelType;
+
 /**
  *  Immutable. The resource name of the issue model. Format:
  *  projects/{project}/locations/{location}/issueModels/{issue_model}
@@ -2717,7 +2777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /**
  *  The fully-qualified DLP inspect template resource name. Format:
- *  `projects/{project}/inspectTemplates/{template}`
+ *  `projects/{project}/locations/{location}/inspectTemplates/{template}`
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplate;
 
@@ -4810,6 +4870,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *issueCount;
 
+/** Language of the model. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Type of the model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_ModelTypeUnspecified
+ *        Unspecified model type. (Value: "MODEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_TypeV1
+ *        Type V1. (Value: "TYPE_V1")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_ModelType_TypeV2
+ *        Type V2. (Value: "TYPE_V2")
+ */
+@property(nonatomic, copy, nullable) NSString *modelType;
+
 /**
  *  Immutable. The resource name of the issue model. Format:
  *  projects/{project}/locations/{location}/issueModels/{issue_model}
@@ -5281,7 +5357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /**
  *  The fully-qualified DLP inspect template resource name. Format:
- *  `projects/{project}/inspectTemplates/{template}`
+ *  `projects/{project}/locations/{location}/inspectTemplates/{template}`
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplate;
 

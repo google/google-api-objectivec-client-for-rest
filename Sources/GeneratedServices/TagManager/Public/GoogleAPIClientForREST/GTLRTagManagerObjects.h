@@ -40,6 +40,7 @@
 @class GTLRTagManager_Tag;
 @class GTLRTagManager_TagConsentSetting;
 @class GTLRTagManager_TeardownTag;
+@class GTLRTagManager_Transformation;
 @class GTLRTagManager_Trigger;
 @class GTLRTagManager_UserPermission;
 @class GTLRTagManager_Variable;
@@ -1212,6 +1213,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, strong, nullable) NSNumber *supportTemplates;
 
 /**
+ *  Whether this Container supports transformations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportTransformations;
+
+/**
  *  Whether this Container supports triggers.
  *
  *  Uses NSNumber of boolValue.
@@ -1327,6 +1335,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** Auto generated link to the tag manager UI */
 @property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/** The transformations in the container that this version was taken from. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Transformation *> *transformation;
 
 /** The triggers in the container that this version was taken from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Trigger *> *trigger;
@@ -1567,6 +1578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** The tag being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Tag *tag;
+
+/** The transformation being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Transformation *transformation;
 
 /** The trigger being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Trigger *trigger;
@@ -2111,6 +2125,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  GTLRTagManager_ListTransformationsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "transformation" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTagManager_ListTransformationsResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM Transformations of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Transformation *> *transformation;
+
+@end
+
+
+/**
  *  List triggers response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2459,6 +2497,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  The result of reverting a transformation in a workspace.
+ */
+@interface GTLRTagManager_RevertTransformationResponse : GTLRObject
+
+/**
+ *  Transformation as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no transformation is present, that
+ *  means the transformation was deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Transformation *transformation;
+
+@end
+
+
+/**
  *  The result of reverting a trigger in a workspace.
  */
 @interface GTLRTagManager_RevertTriggerResponse : GTLRObject
@@ -2801,6 +2854,69 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** The name of the teardown tag. */
 @property(nonatomic, copy, nullable) NSString *tagName;
+
+@end
+
+
+/**
+ *  Represents a Google Tag Manager Transformation.
+ */
+@interface GTLRTagManager_Transformation : GTLRObject
+
+/** GTM Account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** GTM Container ID. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/**
+ *  The fingerprint of the GTM Transformation as computed at storage time. This
+ *  value is recomputed whenever the transformation is modified.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  Transformation display name. \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.update
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  User notes on how to apply this transformation in the container. \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.update
+ */
+@property(nonatomic, copy, nullable) NSString *notes;
+
+/**
+ *  The transformation's parameters. \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.update
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+
+/** Parent folder id. */
+@property(nonatomic, copy, nullable) NSString *parentFolderId;
+
+/** GTM transformation's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/** The Transformation ID uniquely identifies the GTM transformation. */
+@property(nonatomic, copy, nullable) NSString *transformationId;
+
+/**
+ *  Transformation type. \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.update
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** GTM Workspace ID. */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
 
 @end
 

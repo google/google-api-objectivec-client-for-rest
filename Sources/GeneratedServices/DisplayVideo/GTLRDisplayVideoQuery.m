@@ -3241,7 +3241,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 
 @implementation GTLRDisplayVideoQuery_InventorySourcesGet
 
-@dynamic inventorySourceId, partnerId;
+@dynamic advertiserId, inventorySourceId, partnerId;
 
 + (instancetype)queryWithInventorySourceId:(long long)inventorySourceId {
   NSArray *pathParams = @[ @"inventorySourceId" ];

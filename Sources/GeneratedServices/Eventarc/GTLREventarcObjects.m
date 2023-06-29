@@ -135,7 +135,7 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 //
 
 @implementation GTLREventarc_Destination
-@dynamic cloudFunction, cloudRun, gke, httpEndpoint, workflow;
+@dynamic cloudFunction, cloudRun, gke, workflow;
 @end
 
 
@@ -338,16 +338,6 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLREventarc_HttpEndpoint
-//
-
-@implementation GTLREventarc_HttpEndpoint
-@dynamic forwardDnsRequests, uri;
 @end
 
 

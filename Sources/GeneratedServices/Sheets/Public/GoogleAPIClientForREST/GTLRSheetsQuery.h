@@ -118,8 +118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionSerial
 // responseValueRenderOption
 
 /**
- *  Values will be calculated & formatted in the reply according to the cell's
- *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  Values will be calculated & formatted in the response according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale, not the
  *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
  *  and formatted as currency, then `A2` would return `"$1.23"`.
  *
@@ -129,7 +129,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormatted
 /**
  *  Values will not be calculated. The reply will include the formulas. For
  *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
- *  A2 would return `"=A1"`.
+ *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
+ *  values. This lets you perform arithmetic on them in formulas. For more
+ *  information on interpreting date and time values, see [About date & time
+ *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -172,8 +175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionUserEntered;
 // valueRenderOption
 
 /**
- *  Values will be calculated & formatted in the reply according to the cell's
- *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  Values will be calculated & formatted in the response according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale, not the
  *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
  *  and formatted as currency, then `A2` would return `"$1.23"`.
  *
@@ -183,7 +186,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormattedValue;
 /**
  *  Values will not be calculated. The reply will include the formulas. For
  *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
- *  A2 would return `"=A1"`.
+ *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
+ *  values. This lets you perform arithmetic on them in formulas. For more
+ *  information on interpreting date and time values, see [About date & time
+ *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -598,7 +604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be
- *        calculated & formatted in the reply according to the cell's
+ *        calculated & formatted in the response according to the cell's
  *        formatting. Formatting is based on the spreadsheet's locale, not the
  *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
  *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
@@ -610,7 +616,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Values will not be
  *        calculated. The reply will include the formulas. For example, if `A1`
  *        is `1.23` and `A2` is `=A1` and formatted as currency, then A2 would
- *        return `"=A1"`. (Value: "FORMULA")
+ *        return `"=A1"`. Sheets treats date and time values as decimal values.
+ *        This lets you perform arithmetic on them in formulas. For more
+ *        information on interpreting date and time values, see [About date &
+ *        time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
 
@@ -807,7 +818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Values will be
- *        calculated & formatted in the reply according to the cell's
+ *        calculated & formatted in the response according to the cell's
  *        formatting. Formatting is based on the spreadsheet's locale, not the
  *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
  *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
@@ -819,7 +830,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsValueRenderOptionFormula Values will not be calculated.
  *        The reply will include the formulas. For example, if `A1` is `1.23`
  *        and `A2` is `=A1` and formatted as currency, then A2 would return
- *        `"=A1"`. (Value: "FORMULA")
+ *        `"=A1"`. Sheets treats date and time values as decimal values. This
+ *        lets you perform arithmetic on them in formulas. For more information
+ *        on interpreting date and time values, see [About date & time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *valueRenderOption;
 
@@ -1053,7 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Values will be
- *        calculated & formatted in the reply according to the cell's
+ *        calculated & formatted in the response according to the cell's
  *        formatting. Formatting is based on the spreadsheet's locale, not the
  *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
  *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
@@ -1065,7 +1080,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsValueRenderOptionFormula Values will not be calculated.
  *        The reply will include the formulas. For example, if `A1` is `1.23`
  *        and `A2` is `=A1` and formatted as currency, then A2 would return
- *        `"=A1"`. (Value: "FORMULA")
+ *        `"=A1"`. Sheets treats date and time values as decimal values. This
+ *        lets you perform arithmetic on them in formulas. For more information
+ *        on interpreting date and time values, see [About date & time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *valueRenderOption;
 
@@ -1143,7 +1162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be
- *        calculated & formatted in the reply according to the cell's
+ *        calculated & formatted in the response according to the cell's
  *        formatting. Formatting is based on the spreadsheet's locale, not the
  *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
  *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
@@ -1155,7 +1174,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Values will not be
  *        calculated. The reply will include the formulas. For example, if `A1`
  *        is `1.23` and `A2` is `=A1` and formatted as currency, then A2 would
- *        return `"=A1"`. (Value: "FORMULA")
+ *        return `"=A1"`. Sheets treats date and time values as decimal values.
+ *        This lets you perform arithmetic on them in formulas. For more
+ *        information on interpreting date and time values, see [About date &
+ *        time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
 

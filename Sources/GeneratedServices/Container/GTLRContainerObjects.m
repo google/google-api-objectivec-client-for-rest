@@ -54,6 +54,10 @@ NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced =
 NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization = @"OPTIMIZE_UTILIZATION";
 NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified = @"PROFILE_UNSPECIFIED";
 
+// GTLRContainer_ClusterNetworkPerformanceConfig.totalEgressBandwidthTier
+NSString * const kGTLRContainer_ClusterNetworkPerformanceConfig_TotalEgressBandwidthTier_Tier1 = @"TIER_1";
+NSString * const kGTLRContainer_ClusterNetworkPerformanceConfig_TotalEgressBandwidthTier_TierUnspecified = @"TIER_UNSPECIFIED";
+
 // GTLRContainer_ClusterUpdate.desiredDatapathProvider
 NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified = @"DATAPATH_PROVIDER_UNSPECIFIED";
@@ -77,6 +81,7 @@ NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
 
 // GTLRContainer_DNSConfig.clusterDns
 NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns  = @"CLOUD_DNS";
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_KubeDns   = @"KUBE_DNS";
 NSString * const kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault = @"PLATFORM_DEFAULT";
 NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
 
@@ -344,10 +349,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AdditionalPodRangesConfig
-@dynamic podRangeNames;
+@dynamic podRangeInfo, podRangeNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"podRangeInfo" : [GTLRContainer_RangeInfo class],
     @"podRangeNames" : [NSString class]
   };
   return map;
@@ -364,8 +370,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_AddonsConfig
 @dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
          gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
-         gkeBackupAgentConfig, horizontalPodAutoscaling, httpLoadBalancing,
-         kubernetesDashboard, networkPolicyConfig;
+         gcsFuseCsiDriverConfig, gkeBackupAgentConfig, horizontalPodAutoscaling,
+         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
 @end
 
 
@@ -428,9 +434,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AutoprovisioningNodePoolDefaults
-@dynamic bootDiskKmsKey, diskSizeGb, diskType, imageType, management,
-         minCpuPlatform, oauthScopes, serviceAccount, shieldedInstanceConfig,
-         upgradeSettings;
+@dynamic bootDiskKmsKey, diskSizeGb, diskType, imageType,
+         insecureKubeletReadonlyPortEnabled, management, minCpuPlatform,
+         oauthScopes, serviceAccount, shieldedInstanceConfig, upgradeSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -664,6 +670,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_ClusterNetworkPerformanceConfig
+//
+
+@implementation GTLRContainer_ClusterNetworkPerformanceConfig
+@dynamic totalEgressBandwidthTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_ClusterUpdate
 //
 
@@ -680,9 +696,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredL4ilbSubsettingConfig, desiredLocations, desiredLoggingConfig,
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMeshCertificates, desiredMonitoringConfig,
-         desiredMonitoringService, desiredNodePoolAutoConfigNetworkTags,
-         desiredNodePoolAutoscaling, desiredNodePoolId,
-         desiredNodePoolLoggingConfig, desiredNodeVersion,
+         desiredMonitoringService, desiredNetworkPerformanceConfig,
+         desiredNodePoolAutoConfigNetworkTags, desiredNodePoolAutoscaling,
+         desiredNodePoolId, desiredNodePoolLoggingConfig, desiredNodeVersion,
          desiredNotificationConfig, desiredPrivateClusterConfig,
          desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
          desiredResourceUsageExportConfig, desiredSecurityPostureConfig,
@@ -948,6 +964,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_GcsFuseCsiDriverConfig
+//
+
+@implementation GTLRContainer_GcsFuseCsiDriverConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_GetJSONWebKeysResponse
 //
 
@@ -1097,9 +1123,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_IPAllocationPolicy
 @dynamic additionalPodRangesConfig, clusterIpv4Cidr, clusterIpv4CidrBlock,
-         clusterSecondaryRangeName, createSubnetwork, ipv6AccessType,
-         nodeIpv4Cidr, nodeIpv4CidrBlock, podCidrOverprovisionConfig,
-         servicesIpv4Cidr, servicesIpv4CidrBlock, servicesIpv6CidrBlock,
+         clusterSecondaryRangeName, createSubnetwork,
+         defaultPodIpv4RangeUtilization, ipv6AccessType, nodeIpv4Cidr,
+         nodeIpv4CidrBlock, podCidrOverprovisionConfig, servicesIpv4Cidr,
+         servicesIpv4CidrBlock, servicesIpv6CidrBlock,
          servicesSecondaryRangeName, stackType, subnetIpv6CidrBlock,
          subnetworkName, tpuIpv4CidrBlock, useIpAliases, useRoutes;
 @end
@@ -1453,7 +1480,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic datapathProvider, defaultSnatStatus, dnsConfig,
          enableFqdnNetworkPolicy, enableIntraNodeVisibility,
          enableL4ilbSubsetting, gatewayApiConfig, network,
-         privateIpv6GoogleAccess, serviceExternalIpsConfig, subnetwork;
+         networkPerformanceConfig, privateIpv6GoogleAccess,
+         serviceExternalIpsConfig, subnetwork;
 @end
 
 
@@ -1614,7 +1642,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeKubeletConfig
-@dynamic cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy, podPidsLimit;
+@dynamic cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy,
+         insecureKubeletReadonlyPortEnabled, podPidsLimit;
 @end
 
 
@@ -1659,7 +1688,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeNetworkConfig
 @dynamic createPodRange, enablePrivateNodes, networkPerformanceConfig,
-         podCidrOverprovisionConfig, podIpv4CidrBlock, podRange;
+         podCidrOverprovisionConfig, podIpv4CidrBlock, podIpv4RangeUtilization,
+         podRange;
 @end
 
 
@@ -1863,6 +1893,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PubSub
 @dynamic enabled, filter, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RangeInfo
+//
+
+@implementation GTLRContainer_RangeInfo
+@dynamic rangeName, utilization;
 @end
 
 

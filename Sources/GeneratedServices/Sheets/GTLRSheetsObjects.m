@@ -130,6 +130,7 @@ NSString * const kGTLRSheets_BooleanCondition_Type_DateNotBetween = @"DATE_NOT_B
 NSString * const kGTLRSheets_BooleanCondition_Type_DateNotEq   = @"DATE_NOT_EQ";
 NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAfter = @"DATE_ON_OR_AFTER";
 NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrBefore = @"DATE_ON_OR_BEFORE";
+NSString * const kGTLRSheets_BooleanCondition_Type_FilterExpression = @"FILTER_EXPRESSION";
 NSString * const kGTLRSheets_BooleanCondition_Type_NotBlank    = @"NOT_BLANK";
 NSString * const kGTLRSheets_BooleanCondition_Type_NumberBetween = @"NUMBER_BETWEEN";
 NSString * const kGTLRSheets_BooleanCondition_Type_NumberEq    = @"NUMBER_EQ";

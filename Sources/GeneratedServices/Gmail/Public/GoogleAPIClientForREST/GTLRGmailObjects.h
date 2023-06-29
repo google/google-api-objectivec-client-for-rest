@@ -403,6 +403,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Exc
  */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 
+// ----------------------------------------------------------------------------
+// GTLRGmail_WatchRequest.labelFilterBehavior
+
+/**
+ *  Get push notifications for all message changes except those relating to
+ *  labelIds specified.
+ *
+ *  Value: "exclude"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Exclude;
+/**
+ *  Only get push notifications for message changes relating to labelIds
+ *  specified.
+ *
+ *  Value: "include"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include;
+
 /**
  *  Auto-forwarding settings for an account.
  */
@@ -1948,7 +1966,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 @interface GTLRGmail_WatchRequest : GTLRObject
 
 /**
- *  Filtering behavior of labelIds list specified.
+ *  Filtering behavior of `labelIds list` specified. This field is deprecated
+ *  because it caused incorrect behavior in some cases; use
+ *  `label_filter_behavior` instead.
  *
  *  Likely values:
  *    @arg @c kGTLRGmail_WatchRequest_LabelFilterAction_Exclude Get push
@@ -1959,6 +1979,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
  *        (Value: "include")
  */
 @property(nonatomic, copy, nullable) NSString *labelFilterAction;
+
+/**
+ *  Filtering behavior of `labelIds list` specified. This field replaces
+ *  `label_filter_action`; if set, `label_filter_action` is ignored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGmail_WatchRequest_LabelFilterBehavior_Exclude Get push
+ *        notifications for all message changes except those relating to
+ *        labelIds specified. (Value: "exclude")
+ *    @arg @c kGTLRGmail_WatchRequest_LabelFilterBehavior_Include Only get push
+ *        notifications for message changes relating to labelIds specified.
+ *        (Value: "include")
+ */
+@property(nonatomic, copy, nullable) NSString *labelFilterBehavior;
 
 /**
  *  List of label_ids to restrict notifications about. By default, if

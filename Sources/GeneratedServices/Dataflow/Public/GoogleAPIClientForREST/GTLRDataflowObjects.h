@@ -99,6 +99,7 @@
 @class GTLRDataflow_Parameter;
 @class GTLRDataflow_ParameterMetadata;
 @class GTLRDataflow_ParameterMetadata_CustomMetadata;
+@class GTLRDataflow_ParameterMetadataEnumOption;
 @class GTLRDataflow_ParDoInstruction;
 @class GTLRDataflow_ParDoInstruction_UserFn;
 @class GTLRDataflow_PartialGroupByKeyInstruction;
@@ -1140,11 +1141,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_BigqueryTable;
 /**
+ *  The parameter specifies a boolean input.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Boolean;
+/**
  *  Default input type.
  *
  *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default;
+/**
+ *  The parameter specifies an enum input.
+ *
+ *  Value: "ENUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Enum;
 /**
  *  The parameter specifies a Cloud Storage Bucket to read from.
  *
@@ -4902,6 +4915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Optional. Additional metadata for describing this parameter. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ParameterMetadata_CustomMetadata *customMetadata;
 
+/** Optional. The options shown when ENUM ParameterType is specified. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParameterMetadataEnumOption *> *enumOptions;
+
 /**
  *  Optional. Specifies a group name for this parameter to be rendered under.
  *  Group header text will be rendered exactly as specified in this field. Only
@@ -4931,8 +4947,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Likely values:
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_BigqueryTable The
  *        parameter specifies a BigQuery table. (Value: "BIGQUERY_TABLE")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Boolean The parameter
+ *        specifies a boolean input. (Value: "BOOLEAN")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Default Default input
  *        type. (Value: "DEFAULT")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Enum The parameter
+ *        specifies an enum input. (Value: "ENUM")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket The
  *        parameter specifies a Cloud Storage Bucket to read from. (Value:
  *        "GCS_READ_BUCKET")
@@ -5006,6 +5026,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        fetch them all at once.
  */
 @interface GTLRDataflow_ParameterMetadata_CustomMetadata : GTLRObject
+@end
+
+
+/**
+ *  ParameterMetadataEnumOption specifies the option shown in the enum form.
+ */
+@interface GTLRDataflow_ParameterMetadataEnumOption : GTLRObject
+
+/**
+ *  Optional. The description to display for the enum option.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. The label to display for the enum option. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** Required. The value of the enum option. */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 

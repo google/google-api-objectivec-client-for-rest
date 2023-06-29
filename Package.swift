@@ -174,6 +174,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_BinaryAuthorization"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_BlockchainNodeEngine",
+            targets: ["GoogleAPIClientForREST_BlockchainNodeEngine"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Blogger",
             targets: ["GoogleAPIClientForREST_Blogger"]
         ),
@@ -200,6 +204,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CertificateManager",
             targets: ["GoogleAPIClientForREST_CertificateManager"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_ChecksService",
+            targets: ["GoogleAPIClientForREST_ChecksService"]
         ),
         .library(
             name: "GoogleAPIClientForREST_ChromeManagement",
@@ -288,10 +296,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudIdentity",
             targets: ["GoogleAPIClientForREST_CloudIdentity"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_CloudIot",
-            targets: ["GoogleAPIClientForREST_CloudIot"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudKMS",
@@ -622,10 +626,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_GamesManagement"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Genomics",
-            targets: ["GoogleAPIClientForREST_Genomics"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_GKEHub",
             targets: ["GoogleAPIClientForREST_GKEHub"]
         ),
@@ -728,10 +728,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_MyBusinessAccountManagement",
             targets: ["GoogleAPIClientForREST_MyBusinessAccountManagement"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_MyBusinessBusinessCalls",
-            targets: ["GoogleAPIClientForREST_MyBusinessBusinessCalls"]
         ),
         .library(
             name: "GoogleAPIClientForREST_MyBusinessBusinessInformation",
@@ -1337,6 +1333,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_BlockchainNodeEngine",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/BlockchainNodeEngine",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Blogger",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Blogger",
@@ -1376,6 +1378,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CertificateManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CertificateManager",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ChecksService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/ChecksService",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1508,12 +1516,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudIdentity",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudIdentity",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_CloudIot",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/CloudIot",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2009,12 +2011,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_Genomics",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/Genomics",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_GKEHub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/GKEHub",
@@ -2168,12 +2164,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_MyBusinessAccountManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/MyBusinessAccountManagement",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_MyBusinessBusinessCalls",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/MyBusinessBusinessCalls",
             publicHeadersPath: "Public"
         ),
         .target(

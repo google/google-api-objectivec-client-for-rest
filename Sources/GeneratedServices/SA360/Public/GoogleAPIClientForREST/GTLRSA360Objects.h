@@ -33,6 +33,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonMaximizeConversions;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonMaximizeConversionValue;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonMetrics;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonPercentCpc;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonRealTimeBiddingSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedDynamicSearchAdInfo;
@@ -71,6 +72,8 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAudienceView;
@@ -498,6 +501,86 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMetri
  *  Value: "VIDEO_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMetrics_InteractionEventTypes_VideoView;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset.appStore
+
+/**
+ *  Mobile app vendor for Apple app store.
+ *
+ *  Value: "APPLE_APP_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_AppleAppStore;
+/**
+ *  Mobile app vendor for Google app store.
+ *
+ *  Value: "GOOGLE_APP_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_GoogleAppStore;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.adNetworkType
+
+/**
+ *  Display Network.
+ *
+ *  Value: "CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Content;
+/**
+ *  Cross-network.
+ *
+ *  Value: "MIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Mixed;
+/**
+ *  Google search.
+ *
+ *  Value: "SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Search;
+/**
+ *  Search partners.
+ *
+ *  Value: "SEARCH_PARTNERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_SearchPartners;
+/**
+ *  The value is unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Unspecified;
+/**
+ *  YouTube Search.
+ *
+ *  Value: "YOUTUBE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_YoutubeSearch;
+/**
+ *  YouTube Videos
+ *
+ *  Value: "YOUTUBE_WATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_YoutubeWatch;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonSegments.conversionActionCategory
@@ -1154,6 +1237,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsError
  *  Value: "USER_PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthorizationError_UserPermissionDenied;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.customColumnError
+
+/**
+ *  The custom column is not available.
+ *
+ *  Value: "CUSTOM_COLUMN_NOT_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotAvailable;
+/**
+ *  The custom column has not been found.
+ *
+ *  Value: "CUSTOM_COLUMN_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotFound;
+/**
+ *  The received error code is not known in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_Unknown;
+/**
+ *  Enum unspecified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode.dateError
@@ -3009,6 +3120,271 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_YoutubeVideo;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset.engineStatus
+
+/**
+ *  The asset is inactive (pending).
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Disabled;
+/**
+ *  The asset is disapproved (not eligible).
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Disapproved;
+/**
+ *  The asset has been removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Removed;
+/**
+ *  The asset is active.
+ *
+ *  Value: "SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Serving;
+/**
+ *  The asset is active limited.
+ *
+ *  Value: "SERVING_LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_ServingLimited;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset.status
+
+/**
+ *  The asset is archived.
+ *
+ *  Value: "ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Archived;
+/**
+ *  The asset is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Enabled;
+/**
+ *  The asset is system generated pending user review.
+ *
+ *  Value: "PENDING_SYSTEM_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_PendingSystemGenerated;
+/**
+ *  The asset is removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Removed;
+/**
+ *  The received value is not known in this version. This is a response-only
+ *  value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Unknown;
+/**
+ *  The status has not been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset.type
+
+/**
+ *  Book on Google asset.
+ *
+ *  Value: "BOOK_ON_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_BookOnGoogle;
+/**
+ *  Call asset.
+ *
+ *  Value: "CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Call;
+/**
+ *  Callout asset.
+ *
+ *  Value: "CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Callout;
+/**
+ *  Call to action asset.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_CallToAction;
+/**
+ *  Discovery Carousel Card asset.
+ *
+ *  Value: "DISCOVERY_CAROUSEL_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DiscoveryCarouselCard;
+/**
+ *  Dynamic custom asset.
+ *
+ *  Value: "DYNAMIC_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicCustom;
+/**
+ *  Dynamic Education asset.
+ *
+ *  Value: "DYNAMIC_EDUCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicEducation;
+/**
+ *  Dynamic flights asset.
+ *
+ *  Value: "DYNAMIC_FLIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicFlights;
+/**
+ *  Dynamic hotels and rentals asset.
+ *
+ *  Value: "DYNAMIC_HOTELS_AND_RENTALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicHotelsAndRentals;
+/**
+ *  Dynamic jobs asset.
+ *
+ *  Value: "DYNAMIC_JOBS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicJobs;
+/**
+ *  Dynamic local asset.
+ *
+ *  Value: "DYNAMIC_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicLocal;
+/**
+ *  Dynamic real estate asset.
+ *
+ *  Value: "DYNAMIC_REAL_ESTATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicRealEstate;
+/**
+ *  Dynamic travel asset.
+ *
+ *  Value: "DYNAMIC_TRAVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicTravel;
+/**
+ *  Hotel callout asset.
+ *
+ *  Value: "HOTEL_CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_HotelCallout;
+/**
+ *  Hotel property asset.
+ *
+ *  Value: "HOTEL_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_HotelProperty;
+/**
+ *  Image asset.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Image;
+/**
+ *  Lead form asset.
+ *
+ *  Value: "LEAD_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_LeadForm;
+/**
+ *  Location asset.
+ *
+ *  Value: "LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Location;
+/**
+ *  Media bundle asset.
+ *
+ *  Value: "MEDIA_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_MediaBundle;
+/**
+ *  Mobile app asset.
+ *
+ *  Value: "MOBILE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_MobileApp;
+/**
+ *  Page Feed asset.
+ *
+ *  Value: "PAGE_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_PageFeed;
+/**
+ *  Price asset.
+ *
+ *  Value: "PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Price;
+/**
+ *  Promotion asset.
+ *
+ *  Value: "PROMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Promotion;
+/**
+ *  Sitelink asset.
+ *
+ *  Value: "SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Sitelink;
+/**
+ *  Structured Snippet asset.
+ *
+ *  Value: "STRUCTURED_SNIPPET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_StructuredSnippet;
+/**
+ *  Text asset.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Text;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Unspecified;
+/**
+ *  YouTube video asset.
+ *
+ *  Value: "YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_YoutubeVideo;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy.status
 
 /**
@@ -4744,6 +5120,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_FloodlightTransaction;
 /**
+ *  Conversions that come from linked Google Analytics 4 custom event
+ *  conversions.
+ *
+ *  Value: "GOOGLE_ANALYTICS_4_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleAnalytics4Custom;
+/**
+ *  Conversions that come from linked Google Analytics 4 purchase conversions.
+ *
+ *  Value: "GOOGLE_ANALYTICS_4_PURCHASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleAnalytics4Purchase;
+/**
  *  Conversions that track local actions from Google's products and services
  *  after interacting with an ad. Read only.
  *
@@ -4872,6 +5261,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  *  Value: "THIRD_PARTY_APP_ANALYTICS_IOS_IN_APP_PURCHASE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_ThirdPartyAppAnalyticsIosInAppPurchase;
+/**
+ *  Conversions that come from linked Universal Analytics goals.
+ *
+ *  Value: "UNIVERSAL_ANALYTICS_GOAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UniversalAnalyticsGoal;
+/**
+ *  Conversions that come from linked Universal Analytics transactions.
+ *
+ *  Value: "UNIVERSAL_ANALYTICS_TRANSACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UniversalAnalyticsTransaction;
 /**
  *  Used for return value only. Represents value unknown in this version.
  *
@@ -6599,6 +7000,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  An asset representing a mobile app.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset : GTLRObject
+
+/**
+ *  Required. A string that uniquely identifies a mobile application. It should
+ *  just contain the platform native id, like "com.android.ebay" for Android or
+ *  "12345689" for iOS.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  Required. The application store that distributes this specific app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_AppleAppStore
+ *        Mobile app vendor for Apple app store. (Value: "APPLE_APP_STORE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_GoogleAppStore
+ *        Mobile app vendor for Google app store. (Value: "GOOGLE_APP_STORE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appStore;
+
+@end
+
+
+/**
  *  A bidding strategy where bids are a fraction of the advertised price for
  *  some good or service.
  */
@@ -6761,6 +7193,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Segment only fields.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0CommonSegments : GTLRObject
+
+/**
+ *  Ad network type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Content
+ *        Display Network. (Value: "CONTENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Mixed
+ *        Cross-network. (Value: "MIXED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Search
+ *        Google search. (Value: "SEARCH")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_SearchPartners
+ *        Search partners. (Value: "SEARCH_PARTNERS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Unknown
+ *        The value is unknown in this version. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_YoutubeSearch
+ *        YouTube Search. (Value: "YOUTUBE_SEARCH")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdNetworkType_YoutubeWatch
+ *        YouTube Videos (Value: "YOUTUBE_WATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *adNetworkType;
 
 /** Resource name of the conversion action. */
 @property(nonatomic, copy, nullable) NSString *conversionAction;
@@ -7449,6 +7904,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        (Value: "USER_PERMISSION_DENIED")
  */
 @property(nonatomic, copy, nullable) NSString *authorizationError;
+
+/**
+ *  The reasons for the custom column error
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotAvailable
+ *        The custom column is not available. (Value:
+ *        "CUSTOM_COLUMN_NOT_AVAILABLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_CustomColumnNotFound
+ *        The custom column has not been found. (Value:
+ *        "CUSTOM_COLUMN_NOT_FOUND")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_Unknown
+ *        The received error code is not known in this version. (Value:
+ *        "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_CustomColumnError_Unspecified
+ *        Enum unspecified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *customColumnError;
 
 /**
  *  The reasons for the date error
@@ -8893,6 +9366,187 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Output only. The resource name of the age range view. Age range view
  *  resource names have the form:
  *  `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Asset is a part of an ad which can be shared across multiple ads. It can be
+ *  an image (ImageAsset), a video (YoutubeVideoAsset), etc. Assets are
+ *  immutable and cannot be removed. To stop an asset from serving, remove the
+ *  asset from the entity that is using it.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset : GTLRObject
+
+/**
+ *  Output only. The timestamp when this asset was created. The timestamp is in
+ *  the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *creationTime;
+
+/**
+ *  Output only. The Engine Status for an asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Disabled
+ *        The asset is inactive (pending). (Value: "DISABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Disapproved
+ *        The asset is disapproved (not eligible). (Value: "DISAPPROVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Removed
+ *        The asset has been removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Serving
+ *        The asset is active. (Value: "SERVING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_ServingLimited
+ *        The asset is active limited. (Value: "SERVING_LIMITED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_EngineStatus_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *engineStatus;
+
+/** A list of possible final URLs after all cross domain redirects. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalUrls;
+
+/**
+ *  Output only. The ID of the asset.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Output only. The datetime when this asset was last modified. The datetime is
+ *  in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *lastModifiedTime;
+
+/** A mobile app asset. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset *mobileAppAsset;
+
+/**
+ *  Immutable. The resource name of the asset. Asset resource names have the
+ *  form: `customers/{customer_id}/assets/{asset_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. The status of the asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Archived
+ *        The asset is archived. (Value: "ARCHIVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Enabled
+ *        The asset is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_PendingSystemGenerated
+ *        The asset is system generated pending user review. (Value:
+ *        "PENDING_SYSTEM_GENERATED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Removed
+ *        The asset is removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Unknown
+ *        The received value is not known in this version. This is a
+ *        response-only value. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Status_Unspecified
+ *        The status has not been specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** URL template for constructing a tracking URL. */
+@property(nonatomic, copy, nullable) NSString *trackingUrlTemplate;
+
+/**
+ *  Output only. Type of the asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_BookOnGoogle
+ *        Book on Google asset. (Value: "BOOK_ON_GOOGLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Call Call
+ *        asset. (Value: "CALL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Callout
+ *        Callout asset. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_CallToAction
+ *        Call to action asset. (Value: "CALL_TO_ACTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DiscoveryCarouselCard
+ *        Discovery Carousel Card asset. (Value: "DISCOVERY_CAROUSEL_CARD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicCustom
+ *        Dynamic custom asset. (Value: "DYNAMIC_CUSTOM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicEducation
+ *        Dynamic Education asset. (Value: "DYNAMIC_EDUCATION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicFlights
+ *        Dynamic flights asset. (Value: "DYNAMIC_FLIGHTS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicHotelsAndRentals
+ *        Dynamic hotels and rentals asset. (Value:
+ *        "DYNAMIC_HOTELS_AND_RENTALS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicJobs
+ *        Dynamic jobs asset. (Value: "DYNAMIC_JOBS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicLocal
+ *        Dynamic local asset. (Value: "DYNAMIC_LOCAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicRealEstate
+ *        Dynamic real estate asset. (Value: "DYNAMIC_REAL_ESTATE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_DynamicTravel
+ *        Dynamic travel asset. (Value: "DYNAMIC_TRAVEL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_HotelCallout
+ *        Hotel callout asset. (Value: "HOTEL_CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_HotelProperty
+ *        Hotel property asset. (Value: "HOTEL_PROPERTY")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Image Image
+ *        asset. (Value: "IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_LeadForm
+ *        Lead form asset. (Value: "LEAD_FORM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Location
+ *        Location asset. (Value: "LOCATION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_MediaBundle
+ *        Media bundle asset. (Value: "MEDIA_BUNDLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_MobileApp
+ *        Mobile app asset. (Value: "MOBILE_APP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_PageFeed
+ *        Page Feed asset. (Value: "PAGE_FEED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Price Price
+ *        asset. (Value: "PRICE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Promotion
+ *        Promotion asset. (Value: "PROMOTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Sitelink
+ *        Sitelink asset. (Value: "SITELINK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_StructuredSnippet
+ *        Structured Snippet asset. (Value: "STRUCTURED_SNIPPET")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Text Text
+ *        asset. (Value: "TEXT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Unknown Used
+ *        for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_YoutubeVideo
+ *        YouTube video asset. (Value: "YOUTUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An asset set representing a collection of assets. Use AssetSetAsset to link
+ *  an asset to the asset set.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet : GTLRObject
+
+/**
+ *  Output only. The ID of the asset set.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Immutable. The resource name of the asset set. Asset set resource names have
+ *  the form: `customers/{customer_id}/assetSets/{asset_set_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -10393,6 +11047,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Floodlight activity that tracks the number of sales made or the number
  *        of items purchased. Can also capture the total value of each sale.
  *        Read only. (Value: "FLOODLIGHT_TRANSACTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleAnalytics4Custom
+ *        Conversions that come from linked Google Analytics 4 custom event
+ *        conversions. (Value: "GOOGLE_ANALYTICS_4_CUSTOM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleAnalytics4Purchase
+ *        Conversions that come from linked Google Analytics 4 purchase
+ *        conversions. (Value: "GOOGLE_ANALYTICS_4_PURCHASE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_GoogleHosted
  *        Conversions that track local actions from Google's products and
  *        services after interacting with an ad. Read only. (Value:
@@ -10458,6 +11118,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_ThirdPartyAppAnalyticsIosInAppPurchase
  *        iOS app in app purchase conversions tracked through Third Party App
  *        Analytics. (Value: "THIRD_PARTY_APP_ANALYTICS_IOS_IN_APP_PURCHASE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UniversalAnalyticsGoal
+ *        Conversions that come from linked Universal Analytics goals. (Value:
+ *        "UNIVERSAL_ANALYTICS_GOAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_UniversalAnalyticsTransaction
+ *        Conversions that come from linked Universal Analytics transactions.
+ *        (Value: "UNIVERSAL_ANALYTICS_TRANSACTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Type_Unknown
  *        Used for return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -11534,6 +12200,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Response message for CustomerService.ListAccessibleCustomers.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ServicesListAccessibleCustomersResponse : GTLRObject
+
+/**
+ *  Resource name of customers directly accessible by the user authenticating
+ *  the call.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+@end
+
+
+/**
  *  Response message for fetching all custom columns associated with a customer.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ServicesListCustomColumnsResponse : GTLRObject
@@ -11575,6 +12255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The age range view referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView *ageRangeView;
+
+/** The asset referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset *asset;
+
+/** The asset set referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet *assetSet;
 
 /** The bidding strategy referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy *biddingStrategy;

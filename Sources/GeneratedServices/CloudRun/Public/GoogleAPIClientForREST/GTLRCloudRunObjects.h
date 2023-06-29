@@ -1246,7 +1246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  'Quantity' k8s type:
  *  https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/quantity/.
  *  The default is nil which means that the limit is undefined. More info:
- *  http://kubernetes.io/docs/user-guide/volumes#emptydir +optional
+ *  https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
  */
 @property(nonatomic, copy, nullable) NSString *sizeLimit;
 
@@ -3625,7 +3625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *connector;
 
 /**
- *  Traffic VPC egress settings.
+ *  Traffic VPC egress settings. If not provided, it defaults to
+ *  PRIVATE_RANGES_ONLY.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_AllTraffic All

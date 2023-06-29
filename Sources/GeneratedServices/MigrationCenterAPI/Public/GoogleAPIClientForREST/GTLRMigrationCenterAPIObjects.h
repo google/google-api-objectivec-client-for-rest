@@ -41,6 +41,7 @@
 @class GTLRMigrationCenterAPI_ComputeEngineMigrationTarget;
 @class GTLRMigrationCenterAPI_ComputeEnginePreferences;
 @class GTLRMigrationCenterAPI_ComputeEngineShapeDescriptor;
+@class GTLRMigrationCenterAPI_ComputeStorageDescriptor;
 @class GTLRMigrationCenterAPI_CpuUsageSample;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregation;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationCPU;
@@ -123,7 +124,12 @@
 @class GTLRMigrationCenterAPI_ReportSummaryHistogramChartDataBucket;
 @class GTLRMigrationCenterAPI_ReportSummaryMachineFinding;
 @class GTLRMigrationCenterAPI_ReportSummaryMachineSeriesAllocation;
+@class GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding;
+@class GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation;
 @class GTLRMigrationCenterAPI_ReportSummaryUtilizationChartData;
+@class GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding;
+@class GTLRMigrationCenterAPI_ReportSummaryVMWareNode;
+@class GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation;
 @class GTLRMigrationCenterAPI_RunningProcess;
 @class GTLRMigrationCenterAPI_RunningProcess_Attributes;
 @class GTLRMigrationCenterAPI_RunningProcessList;
@@ -131,6 +137,8 @@
 @class GTLRMigrationCenterAPI_RunningServiceList;
 @class GTLRMigrationCenterAPI_RuntimeNetworkInfo;
 @class GTLRMigrationCenterAPI_Selinux;
+@class GTLRMigrationCenterAPI_SoleTenancyPreferences;
+@class GTLRMigrationCenterAPI_SoleTenantNodeType;
 @class GTLRMigrationCenterAPI_Source;
 @class GTLRMigrationCenterAPI_Status;
 @class GTLRMigrationCenterAPI_Status_Details_Item;
@@ -146,6 +154,7 @@
 @class GTLRMigrationCenterAPI_VirtualMachinePreferences;
 @class GTLRMigrationCenterAPI_VmwareDiskConfig;
 @class GTLRMigrationCenterAPI_VmwareEngineMigrationTarget;
+@class GTLRMigrationCenterAPI_VmwareEnginePreferences;
 @class GTLRMigrationCenterAPI_VmwarePlatformDetails;
 
 // Generated comments include content from the discovery document; avoid them
@@ -209,6 +218,35 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferen
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_ComputeStorageDescriptor.type
+
+/**
+ *  Balanced Persistent Disk.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeBalanced;
+/**
+ *  SSD Persistent Disk.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_SSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd;
+/**
+ *  Standard HDD Persistent Disk.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard;
+/**
+ *  Unspecified (default value). Selecting this value allows the system to use
+ *  any disk type according to reported usage. This a good value to start with.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_FitDescriptor.fitLevel
@@ -561,6 +599,62 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineF
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_SoleTenancyPreferences.commitmentPlan
+
+/**
+ *  1 year commitment.
+ *
+ *  Value: "COMMITMENT_1_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment1Year;
+/**
+ *  3 years commitment.
+ *
+ *  Value: "COMMITMENT_3_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment3Year;
+/**
+ *  Unspecified commitment plan.
+ *
+ *  Value: "COMMITMENT_PLAN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_CommitmentPlanUnspecified;
+/**
+ *  No commitment plan (on-demand usage).
+ *
+ *  Value: "ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_OnDemand;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_SoleTenancyPreferences.hostMaintenancePolicy
+
+/**
+ *  Default host maintenance policy.
+ *
+ *  Value: "HOST_MAINTENANCE_POLICY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyDefault;
+/**
+ *  Migrate within node group host maintenance policy.
+ *
+ *  Value: "HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyMigrateWithinNodeGroup;
+/**
+ *  Restart in place host maintenance policy.
+ *
+ *  Value: "HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyRestartInPlace;
+/**
+ *  Unspecified host maintenance policy.
+ *
+ *  Value: "HOST_MAINTENANCE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_Source.state
 
 /**
@@ -729,6 +823,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePrefere
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_SizingOptimizationStrategy_SizingOptimizationStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_VirtualMachinePreferences.targetProduct
+
+/**
+ *  Prefer to migrate to Google Cloud Compute Engine.
+ *
+ *  Value: "COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductComputeEngine;
+/**
+ *  Prefer to migrate to Google Cloud Sole Tenant Nodes.
+ *
+ *  Value: "COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductSoleTenancy;
+/**
+ *  Unspecified (default value).
+ *
+ *  Value: "COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductUnspecified;
+/**
+ *  Prefer to migrate to Google Cloud VMware Engine.
+ *
+ *  Value: "COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductVmwareEngine;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_VmwareDiskConfig.backingType
 
 /**
@@ -785,6 +907,46 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  *  Value: "BACKING_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_VmwareEnginePreferences.commitmentPlan
+
+/**
+ *  1 year commitment (monthly payments).
+ *
+ *  Value: "COMMITMENT_1_YEAR_MONTHLY_PAYMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearMonthlyPayments;
+/**
+ *  1 year commitment (upfront payment).
+ *
+ *  Value: "COMMITMENT_1_YEAR_UPFRONT_PAYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearUpfrontPayment;
+/**
+ *  3 year commitment (monthly payments).
+ *
+ *  Value: "COMMITMENT_3_YEAR_MONTHLY_PAYMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearMonthlyPayments;
+/**
+ *  3 years commitment (upfront payment).
+ *
+ *  Value: "COMMITMENT_3_YEAR_UPFRONT_PAYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearUpfrontPayment;
+/**
+ *  Unspecified commitment plan.
+ *
+ *  Value: "COMMITMENT_PLAN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_CommitmentPlanUnspecified;
+/**
+ *  No commitment plan (on-demand usage).
+ *
+ *  Value: "ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_OnDemand;
 
 /**
  *  A request to add assets to a group.
@@ -1106,7 +1268,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetFrame_Labels *labels;
 
-/** Asset performance data samples. */
+/**
+ *  Asset performance data samples. Samples that are older than 40 days are
+ *  ignored.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_PerformanceSample *> *performanceSamples;
 
 /** The time the data was reported. */
@@ -1375,6 +1540,41 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 /** Compute Engine machine series. */
 @property(nonatomic, copy, nullable) NSString *series;
+
+/** Compute Engine storage. Never empty. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ComputeStorageDescriptor *> *storage;
+
+@end
+
+
+/**
+ *  Compute Engine storage option descriptor.
+ */
+@interface GTLRMigrationCenterAPI_ComputeStorageDescriptor : GTLRObject
+
+/**
+ *  Disk size in GiB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/**
+ *  Disk type backing the storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeBalanced
+ *        Balanced Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_BALANCED")
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd
+ *        SSD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_SSD")
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard
+ *        Standard HDD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_STANDARD")
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified
+ *        Unspecified (default value). Selecting this value allows the system to
+ *        use any disk type according to reported usage. This a good value to
+ *        start with. (Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3219,7 +3419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 /** Network usage sample. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkUsageSample *network;
 
-/** Time the sample was collected. */
+/** Required. Time the sample was collected. */
 @property(nonatomic, strong, nullable) GTLRDateTime *sampleTime;
 
 @end
@@ -3643,8 +3843,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 /** Text describing the pricing track specified for this Preference Set */
 @property(nonatomic, copy, nullable) NSString *pricingTrack;
 
+/** A set of findings that applies to Stole-Tenant machines in the input. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding *soleTenantFinding;
+
 /** Text describing the business priority specified for this Preference Set */
 @property(nonatomic, copy, nullable) NSString *topPriority;
+
+/** A set of findings that applies to VMWare machines in the input. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding *vmwareEngineFinding;
 
 @end
 
@@ -3742,6 +3948,52 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 
 /**
+ *  A set of findings that applies to assets destined for Sole-Tenant nodes.
+ */
+@interface GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding : GTLRObject
+
+/**
+ *  Count of assets which are allocated
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedAssetCount;
+
+/** Set of regions in which the assets are allocated */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedRegions;
+
+/** Set of per-nodetype allocation records */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation *> *nodeAllocations;
+
+@end
+
+
+/**
+ *  Represents the assets allocated to a specific Sole-Tenant node type.
+ */
+@interface GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation : GTLRObject
+
+/**
+ *  Count of assets allocated to these nodes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedAssetCount;
+
+/** Sole Tenant node type, e.g. "m3-node-128-3904" */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SoleTenantNodeType *node;
+
+/**
+ *  Count of this node type to be provisioned
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+@end
+
+
+/**
  *  Utilization Chart is a specific type of visualization which displays a
  *  metric classified into "Used" and "Free" buckets.
  */
@@ -3760,6 +4012,67 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *used;
+
+@end
+
+
+/**
+ *  A set of findings that applies to assets destined for VMWare Engine.
+ */
+@interface GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding : GTLRObject
+
+/**
+ *  Count of assets which are allocated
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedAssetCount;
+
+/** Set of regions in which the assets were allocated */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedRegions;
+
+/** Set of per-nodetype allocation records */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation *> *nodeAllocations;
+
+@end
+
+
+/**
+ *  A VMWare Engine Node
+ */
+@interface GTLRMigrationCenterAPI_ReportSummaryVMWareNode : GTLRObject
+
+/**
+ *  Code to identify VMware Engine node series, e.g. "ve1-standard-72". Based on
+ *  the displayName of
+ *  cloud.google.com/vmware-engine/docs/reference/rest/v1/projects.locations.nodeTypes
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
+ *  Represents assets allocated to a specific VMWare Node type.
+ */
+@interface GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation : GTLRObject
+
+/**
+ *  Count of assets allocated to these nodes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedAssetCount;
+
+/**
+ *  Count of this node type to be provisioned
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/** VMWare node type, e.g. "ve1-standard-72" */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryVMWareNode *vmwareNode;
 
 @end
 
@@ -3926,6 +4239,77 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
 
 /** The preference set used by default for a project. */
 @property(nonatomic, copy, nullable) NSString *preferenceSet;
+
+@end
+
+
+/**
+ *  Preferences concerning Sole Tenancy nodes and VMs.
+ */
+@interface GTLRMigrationCenterAPI_SoleTenancyPreferences : GTLRObject
+
+/**
+ *  Commitment plan to consider when calculating costs for virtual machine
+ *  insights and recommendations. If you are unsure which value to set, a 3 year
+ *  commitment plan is often a good value to start with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment1Year
+ *        1 year commitment. (Value: "COMMITMENT_1_YEAR")
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment3Year
+ *        3 years commitment. (Value: "COMMITMENT_3_YEAR")
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_CommitmentPlanUnspecified
+ *        Unspecified commitment plan. (Value: "COMMITMENT_PLAN_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_OnDemand
+ *        No commitment plan (on-demand usage). (Value: "ON_DEMAND")
+ */
+@property(nonatomic, copy, nullable) NSString *commitmentPlan;
+
+/**
+ *  CPU overcommit ratio. Acceptable values are between 1.0 and 2.0 inclusive.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuOvercommitRatio;
+
+/**
+ *  Sole Tenancy nodes maintenance policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyDefault
+ *        Default host maintenance policy. (Value:
+ *        "HOST_MAINTENANCE_POLICY_DEFAULT")
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyMigrateWithinNodeGroup
+ *        Migrate within node group host maintenance policy. (Value:
+ *        "HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP")
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyRestartInPlace
+ *        Restart in place host maintenance policy. (Value:
+ *        "HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE")
+ *    @arg @c kGTLRMigrationCenterAPI_SoleTenancyPreferences_HostMaintenancePolicy_HostMaintenancePolicyUnspecified
+ *        Unspecified host maintenance policy. (Value:
+ *        "HOST_MAINTENANCE_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hostMaintenancePolicy;
+
+/**
+ *  A list of sole tenant node types. An empty list means that all possible node
+ *  types will be considered.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_SoleTenantNodeType *> *nodeTypes;
+
+@end
+
+
+/**
+ *  A Sole Tenant node type.
+ */
+@interface GTLRMigrationCenterAPI_SoleTenantNodeType : GTLRObject
+
+/**
+ *  Name of the Sole Tenant node. Consult
+ *  https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes
+ */
+@property(nonatomic, copy, nullable) NSString *nodeName;
 
 @end
 
@@ -4438,6 +4822,35 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  */
 @property(nonatomic, copy, nullable) NSString *sizingOptimizationStrategy;
 
+/** Preferences concerning Sole Tenant nodes and virtual machines. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SoleTenancyPreferences *soleTenancyPreferences;
+
+/**
+ *  Target product for assets using this preference set. Specify either target
+ *  product or business goal, but not both.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductComputeEngine
+ *        Prefer to migrate to Google Cloud Compute Engine. (Value:
+ *        "COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE")
+ *    @arg @c kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductSoleTenancy
+ *        Prefer to migrate to Google Cloud Sole Tenant Nodes. (Value:
+ *        "COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY")
+ *    @arg @c kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductUnspecified
+ *        Unspecified (default value). (Value:
+ *        "COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_VirtualMachinePreferences_TargetProduct_ComputeMigrationTargetProductVmwareEngine
+ *        Prefer to migrate to Google Cloud VMware Engine. (Value:
+ *        "COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE")
+ */
+@property(nonatomic, copy, nullable) NSString *targetProduct;
+
+/**
+ *  Preferences concerning insights and recommendations for Google Cloud VMware
+ *  Engine.
+ */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VmwareEnginePreferences *vmwareEnginePreferences;
+
 @end
 
 
@@ -4493,6 +4906,68 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  *  VMWare engine migration target.
  */
 @interface GTLRMigrationCenterAPI_VmwareEngineMigrationTarget : GTLRObject
+@end
+
+
+/**
+ *  The user preferences relating to Google Cloud VMware Engine target platform.
+ */
+@interface GTLRMigrationCenterAPI_VmwareEnginePreferences : GTLRObject
+
+/**
+ *  Commitment plan to consider when calculating costs for virtual machine
+ *  insights and recommendations. If you are unsure which value to set, a 3 year
+ *  commitment plan is often a good value to start with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearMonthlyPayments
+ *        1 year commitment (monthly payments). (Value:
+ *        "COMMITMENT_1_YEAR_MONTHLY_PAYMENTS")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearUpfrontPayment
+ *        1 year commitment (upfront payment). (Value:
+ *        "COMMITMENT_1_YEAR_UPFRONT_PAYMENT")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearMonthlyPayments
+ *        3 year commitment (monthly payments). (Value:
+ *        "COMMITMENT_3_YEAR_MONTHLY_PAYMENTS")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment3YearUpfrontPayment
+ *        3 years commitment (upfront payment). (Value:
+ *        "COMMITMENT_3_YEAR_UPFRONT_PAYMENT")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_CommitmentPlanUnspecified
+ *        Unspecified commitment plan. (Value: "COMMITMENT_PLAN_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_OnDemand
+ *        No commitment plan (on-demand usage). (Value: "ON_DEMAND")
+ */
+@property(nonatomic, copy, nullable) NSString *commitmentPlan;
+
+/**
+ *  CPU overcommit ratio. Acceptable values are between 1.0 and 8.0, with 0.1
+ *  increment.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuOvercommitRatio;
+
+/**
+ *  Memory overcommit ratio. Acceptable values are 1.0, 1.25, 1.5, 1.75 and 2.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryOvercommitRatio;
+
+/**
+ *  The Deduplication and Compression ratio is based on the logical (Used
+ *  Before) space required to store data before applying deduplication and
+ *  compression, in relation to the physical (Used After) space required after
+ *  applying deduplication and compression. Specifically, the ratio is the Used
+ *  Before space divided by the Used After space. For example, if the Used
+ *  Before space is 3 GB, but the physical Used After space is 1 GB, the
+ *  deduplication and compression ratio is 3x. Acceptable values are between 1.0
+ *  and 4.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageDeduplicationCompressionRatio;
+
 @end
 
 

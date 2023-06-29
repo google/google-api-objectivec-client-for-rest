@@ -170,7 +170,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_Insight
-@dynamic sapDiscovery, sapValidation, sentTime, sqlserverValidation;
+@dynamic instanceId, sapDiscovery, sapValidation, sentTime, sqlserverValidation;
 @end
 
 
@@ -716,7 +716,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_WriteInsightRequest
-@dynamic insight, instanceId, requestId;
+@dynamic insight, requestId;
 @end
 
 

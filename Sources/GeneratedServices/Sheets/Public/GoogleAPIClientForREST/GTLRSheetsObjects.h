@@ -606,8 +606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
 // GTLRSheets_BatchGetValuesByDataFilterRequest.valueRenderOption
 
 /**
- *  Values will be calculated & formatted in the reply according to the cell's
- *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  Values will be calculated & formatted in the response according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale, not the
  *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
  *  and formatted as currency, then `A2` would return `"$1.23"`.
  *
@@ -617,7 +617,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
 /**
  *  Values will not be calculated. The reply will include the formulas. For
  *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
- *  A2 would return `"=A1"`.
+ *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
+ *  values. This lets you perform arithmetic on them in formulas. For more
+ *  information on interpreting date and time values, see [About date & time
+ *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -659,8 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequ
 // GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseValueRenderOption
 
 /**
- *  Values will be calculated & formatted in the reply according to the cell's
- *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  Values will be calculated & formatted in the response according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale, not the
  *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
  *  and formatted as currency, then `A2` would return `"$1.23"`.
  *
@@ -670,7 +673,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequ
 /**
  *  Values will not be calculated. The reply will include the formulas. For
  *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
- *  A2 would return `"=A1"`.
+ *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
+ *  values. This lets you perform arithmetic on them in formulas. For more
+ *  information on interpreting date and time values, see [About date & time
+ *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -737,8 +743,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_Response
 // GTLRSheets_BatchUpdateValuesRequest.responseValueRenderOption
 
 /**
- *  Values will be calculated & formatted in the reply according to the cell's
- *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  Values will be calculated & formatted in the response according to the
+ *  cell's formatting. Formatting is based on the spreadsheet's locale, not the
  *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
  *  and formatted as currency, then `A2` would return `"$1.23"`.
  *
@@ -748,7 +754,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_Response
 /**
  *  Values will not be calculated. The reply will include the formulas. For
  *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
- *  A2 would return `"=A1"`.
+ *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
+ *  values. This lets you perform arithmetic on them in formulas. For more
+ *  information on interpreting date and time values, see [About date & time
+ *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -896,6 +905,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAft
  *  Value: "DATE_ON_OR_BEFORE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrBefore;
+/**
+ *  The cell's value must follow the pattern specified. Requires a single
+ *  ConditionValue.
+ *
+ *  Value: "FILTER_EXPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_FilterExpression;
 /**
  *  The cell's value must not be empty. Supported by conditional formatting and
  *  filters. Requires no ConditionValues.
@@ -4506,7 +4522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue
- *        Values will be calculated & formatted in the reply according to the
+ *        Values will be calculated & formatted in the response according to the
  *        cell's formatting. Formatting is based on the spreadsheet's locale,
  *        not the requesting user's locale. For example, if `A1` is `1.23` and
  *        `A2` is `=A1` and formatted as currency, then `A2` would return
@@ -4514,7 +4530,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_Formula
  *        Values will not be calculated. The reply will include the formulas.
  *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
- *        currency, then A2 would return `"=A1"`. (Value: "FORMULA")
+ *        currency, then A2 would return `"=A1"`. Sheets treats date and time
+ *        values as decimal values. This lets you perform arithmetic on them in
+ *        formulas. For more information on interpreting date and time values,
+ *        see [About date & time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
  *        example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
@@ -4672,7 +4693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue
- *        Values will be calculated & formatted in the reply according to the
+ *        Values will be calculated & formatted in the response according to the
  *        cell's formatting. Formatting is based on the spreadsheet's locale,
  *        not the requesting user's locale. For example, if `A1` is `1.23` and
  *        `A2` is `=A1` and formatted as currency, then `A2` would return
@@ -4680,7 +4701,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_Formula
  *        Values will not be calculated. The reply will include the formulas.
  *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
- *        currency, then A2 would return `"=A1"`. (Value: "FORMULA")
+ *        currency, then A2 would return `"=A1"`. Sheets treats date and time
+ *        values as decimal values. This lets you perform arithmetic on them in
+ *        formulas. For more information on interpreting date and time values,
+ *        see [About date & time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
  *        example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
@@ -4803,7 +4829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_FormattedValue
- *        Values will be calculated & formatted in the reply according to the
+ *        Values will be calculated & formatted in the response according to the
  *        cell's formatting. Formatting is based on the spreadsheet's locale,
  *        not the requesting user's locale. For example, if `A1` is `1.23` and
  *        `A2` is `=A1` and formatted as currency, then `A2` would return
@@ -4811,7 +4837,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_Formula
  *        Values will not be calculated. The reply will include the formulas.
  *        For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
- *        currency, then A2 would return `"=A1"`. (Value: "FORMULA")
+ *        currency, then A2 would return `"=A1"`. Sheets treats date and time
+ *        values as decimal values. This lets you perform arithmetic on them in
+ *        formulas. For more information on interpreting date and time values,
+ *        see [About date & time
+ *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
  *        example, if `A1` is `1.23` and `A2` is `=A1` and formatted as
@@ -5007,6 +5038,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        must be on or before the date of the condition's value. Supported by
  *        data validation. Requires a single ConditionValue that may be a
  *        relative date. (Value: "DATE_ON_OR_BEFORE")
+ *    @arg @c kGTLRSheets_BooleanCondition_Type_FilterExpression The cell's
+ *        value must follow the pattern specified. Requires a single
+ *        ConditionValue. (Value: "FILTER_EXPRESSION")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_NotBlank The cell's value must
  *        not be empty. Supported by conditional formatting and filters.
  *        Requires no ConditionValues. (Value: "NOT_BLANK")
@@ -6010,7 +6044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
  *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS `rgba()` string in JavaScript. This reference page does not have
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't have
  *  information about the absolute color space that should be used to interpret
  *  the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default,
  *  applications should assume the sRGB color space. When color equality needs
@@ -9847,7 +9881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** Randomizes the order of the rows in a range. */
 @property(nonatomic, strong, nullable) GTLRSheets_RandomizeRangeRequest *randomizeRange;
 
-/** Refreshs one or multiple data sources and associated dbobjects. */
+/** Refreshes one or multiple data sources and associated dbobjects. */
 @property(nonatomic, strong, nullable) GTLRSheets_RefreshDataSourceRequest *refreshDataSource;
 
 /** Repeats a single cell across a range. */

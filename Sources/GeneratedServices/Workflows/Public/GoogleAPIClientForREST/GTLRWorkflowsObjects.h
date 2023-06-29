@@ -26,6 +26,7 @@
 @class GTLRWorkflows_Status_Details_Item;
 @class GTLRWorkflows_Workflow;
 @class GTLRWorkflows_Workflow_Labels;
+@class GTLRWorkflows_Workflow_UserEnvVars;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -537,6 +538,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 /** Output only. The timestamp for when the workflow was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Optional. User-defined environment variables associated with this workflow
+ *  revision. This map has a maximum length of 20. Each string can take up to
+ *  40KiB. Keys cannot be empty strings and cannot start with “GOOGLE” or
+ *  “WORKFLOWS".
+ */
+@property(nonatomic, strong, nullable) GTLRWorkflows_Workflow_UserEnvVars *userEnvVars;
+
 @end
 
 
@@ -552,6 +561,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *        fetch them all at once.
  */
 @interface GTLRWorkflows_Workflow_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. User-defined environment variables associated with this workflow
+ *  revision. This map has a maximum length of 20. Each string can take up to
+ *  40KiB. Keys cannot be empty strings and cannot start with “GOOGLE” or
+ *  “WORKFLOWS".
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkflows_Workflow_UserEnvVars : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

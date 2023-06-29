@@ -286,6 +286,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions.trainingMethod
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_ModelBased = @"MODEL_BASED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TemplateBased = @"TEMPLATE_BASED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TrainingMethodUnspecified = @"TRAINING_METHOD_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadata
@@ -3919,7 +3924,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest
-@dynamic baseProcessorVersion, documentSchema, inputData, processorVersion;
+@dynamic baseProcessorVersion, customDocumentExtractionOptions, documentSchema,
+         inputData, processorVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions
+@dynamic trainingMethod;
 @end
 
 

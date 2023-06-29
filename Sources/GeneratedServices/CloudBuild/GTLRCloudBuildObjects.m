@@ -57,6 +57,7 @@ NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn = @"ST
 // GTLRCloudBuild_BuildOptions.machineType
 NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu32 = @"E2_HIGHCPU_32";
 NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu8 = @"E2_HIGHCPU_8";
+NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Medium = @"E2_MEDIUM";
 NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
 NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
 NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";

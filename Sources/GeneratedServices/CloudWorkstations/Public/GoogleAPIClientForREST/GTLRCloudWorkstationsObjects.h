@@ -324,7 +324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  images](https://cloud.google.com/workstations/docs/custom-container-images).
  *  If using a private image, the `host.gceInstance.serviceAccount` field must
  *  be specified in the workstation configuration and must have permission to
- *  pull the specified image. Otherwise, the image must be publicly accessible.s
+ *  pull the specified image. Otherwise, the image must be publicly accessible.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -479,6 +479,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disablePublicIpAddresses;
+
+/**
+ *  Whether to enable nested virtualization on instances.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
 /**
  *  The type of machine to use for VM instances—for example, `e2-standard-4`.
@@ -1531,9 +1538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. Whether this resource is in degraded mode, in which case it may
- *  require user action to restore full functionality. Details can be found in
- *  the `conditions` field.
+ *  Output only. Whether this resource is degraded, in which case it may require
+ *  user action to restore full functionality. See also the `conditions` field.
  *
  *  Uses NSNumber of boolValue.
  */

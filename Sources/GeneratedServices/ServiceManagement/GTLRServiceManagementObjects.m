@@ -667,12 +667,14 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, serviceRootUrl, summary;
+@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
+         serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"pages" : [GTLRServiceManagement_Page class],
-    @"rules" : [GTLRServiceManagement_DocumentationRule class]
+    @"rules" : [GTLRServiceManagement_DocumentationRule class],
+    @"sectionOverrides" : [GTLRServiceManagement_Page class]
   };
   return map;
 }

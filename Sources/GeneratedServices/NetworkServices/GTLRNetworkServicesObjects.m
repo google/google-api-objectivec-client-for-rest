@@ -1072,7 +1072,8 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_ServiceBinding
-@dynamic createTime, descriptionProperty, labels, name, service, updateTime;
+@dynamic createTime, descriptionProperty, labels, name, service, serviceId,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

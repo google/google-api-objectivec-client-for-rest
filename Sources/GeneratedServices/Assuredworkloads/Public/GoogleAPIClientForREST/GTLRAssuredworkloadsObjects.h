@@ -119,6 +119,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4;
 /**
+ *  Information protection as per DoD IL5 requirements.
+ *
+ *  Value: "IL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5;
+/**
  *  Assured Workloads for Israel
  *
  *  Value: "ISR_REGIONS"
@@ -318,6 +324,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4;
+/**
+ *  Information protection as per DoD IL5 requirements.
+ *
+ *  Value: "IL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5;
 /**
  *  Assured Workloads for Israel
  *
@@ -620,7 +632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
 /**
- *  Request for acknowledging the violation Next Id: 4
+ *  Request for acknowledging the violation Next Id: 5
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest : GTLRObject
 
@@ -692,6 +704,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5
+ *        Information protection as per DoD IL5 requirements. (Value: "IL5")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions
  *        Assured Workloads for Israel (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport
@@ -894,12 +908,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *nonCompliantOrgPolicy;
 
-/**
- *  Output only. Immutable. The org-policy-constraint that was incorrectly
- *  changed, which resulted in this violation.
- */
-@property(nonatomic, copy, nullable) NSString *orgPolicyConstraint;
-
 /** Output only. Compliance violation remediation */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation *remediation;
 
@@ -1072,6 +1080,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5
+ *        Information protection as per DoD IL5 requirements. (Value: "IL5")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions
  *        Assured Workloads for Israel (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport
@@ -1246,14 +1256,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus : GTLRObject
 
 /**
- *  Count of active Violations which are acknowledged in the Workload.
+ *  Number of current orgPolicy violations which are acknowledged.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *acknowledgedViolationCount;
 
 /**
- *  Count of active Violations which haven't been acknowledged.
+ *  Number of current orgPolicy violations which are not acknowledged.
  *
  *  Uses NSNumber of intValue.
  */

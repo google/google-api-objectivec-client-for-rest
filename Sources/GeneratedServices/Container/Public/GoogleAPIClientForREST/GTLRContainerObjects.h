@@ -35,6 +35,7 @@
 @class GTLRContainer_Cluster;
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterAutoscaling;
+@class GTLRContainer_ClusterNetworkPerformanceConfig;
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
@@ -53,6 +54,7 @@
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
+@class GTLRContainer_GcsFuseCsiDriverConfig;
 @class GTLRContainer_GkeBackupAgentConfig;
 @class GTLRContainer_GPUDriverInstallationConfig;
 @class GTLRContainer_GPUSharingConfig;
@@ -116,6 +118,7 @@
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
 @class GTLRContainer_PubSub;
+@class GTLRContainer_RangeInfo;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
@@ -361,6 +364,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_Autoscaling
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterNetworkPerformanceConfig.totalEgressBandwidthTier
+
+/**
+ *  Higher bandwidth, actual values based on VM size.
+ *
+ *  Value: "TIER_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterNetworkPerformanceConfig_TotalEgressBandwidthTier_Tier1;
+/**
+ *  Default value
+ *
+ *  Value: "TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterNetworkPerformanceConfig_TotalEgressBandwidthTier_TierUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ClusterUpdate.desiredDatapathProvider
 
 /**
@@ -467,6 +486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unkno
  *  Value: "CLOUD_DNS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns;
+/**
+ *  Use KubeDNS for DNS resolution
+ *
+ *  Value: "KUBE_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_KubeDns;
 /**
  *  Use GKE default DNS provider(kube-dns) for DNS resolution.
  *
@@ -1838,6 +1863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_AdditionalPodRangesConfig : GTLRObject
 
+/** Output only. [Output only] Information for additional pod range. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_RangeInfo *> *podRangeInfo;
+
 /**
  *  Name for pod secondary ipv4 range which has the actual range defined ahead.
  */
@@ -1872,6 +1900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration for the GCP Filestore CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcpFilestoreCsiDriverConfig *gcpFilestoreCsiDriverConfig;
+
+/** Configuration for the Cloud Storage Fuse CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcsFuseCsiDriverConfig *gcsFuseCsiDriverConfig;
 
 /** Configuration for the Backup for GKE agent addon. */
 @property(nonatomic, strong, nullable) GTLRContainer_GkeBackupAgentConfig *gkeBackupAgentConfig;
@@ -2047,6 +2078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
+
+/**
+ *  Enable or disable Kubelet read only port.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insecureKubeletReadonlyPortEnabled;
 
 /** Specifies the node management options for NAP created node-pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
@@ -2839,6 +2877,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration of network bandwidth tiers
+ */
+@interface GTLRContainer_ClusterNetworkPerformanceConfig : GTLRObject
+
+/**
+ *  Specifies the total network bandwidth tier for NodePools in the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterNetworkPerformanceConfig_TotalEgressBandwidthTier_Tier1
+ *        Higher bandwidth, actual values based on VM size. (Value: "TIER_1")
+ *    @arg @c kGTLRContainer_ClusterNetworkPerformanceConfig_TotalEgressBandwidthTier_TierUnspecified
+ *        Default value (Value: "TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *totalEgressBandwidthTier;
+
+@end
+
+
+/**
  *  ClusterUpdate describes an update to the cluster. Exactly one update can be
  *  applied to a cluster with each request, so at most one field can be
  *  provided.
@@ -2995,6 +3052,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  versions.
  */
 @property(nonatomic, copy, nullable) NSString *desiredMonitoringService;
+
+/** The desired network performance config. */
+@property(nonatomic, strong, nullable) GTLRContainer_ClusterNetworkPerformanceConfig *desiredNetworkPerformanceConfig;
 
 /**
  *  The desired network tags that apply to all auto-provisioned node pools in
@@ -3393,6 +3453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Likely values:
  *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_CloudDns Use CloudDNS for DNS
  *        resolution. (Value: "CLOUD_DNS")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_KubeDns Use KubeDNS for DNS
+ *        resolution (Value: "KUBE_DNS")
  *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault Use GKE
  *        default DNS provider(kube-dns) for DNS resolution. (Value:
  *        "PLATFORM_DEFAULT")
@@ -3572,6 +3634,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Whether the GCP Filestore CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration for the Cloud Storage Fuse CSI driver.
+ */
+@interface GTLRContainer_GcsFuseCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the Cloud Storage Fuse CSI driver is enabled for this cluster.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3851,6 +3928,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createSubnetwork;
+
+/**
+ *  Output only. [Output only] The utilization of the cluster default IPv4 range
+ *  for pod. The ratio is Usage/[Total number of IPs in the secondary range],
+ *  Usage=numNodes*numZones*podIPsPerNode.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultPodIpv4RangeUtilization;
 
 /**
  *  The ipv6 access type (internal or external) when create_subnetwork is true
@@ -4601,6 +4687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
+/** Network bandwidth tier configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ClusterNetworkPerformanceConfig *networkPerformanceConfig;
+
 /**
  *  The desired state of IPv6 connectivity to Google Services. By default, no
  *  private IPv6 access to or from Google Services (all access will be via IPv4)
@@ -5083,6 +5172,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *cpuManagerPolicy;
 
 /**
+ *  Enable or disable Kubelet read only port.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insecureKubeletReadonlyPortEnabled;
+
+/**
  *  Set the Pod PID limits. See
  *  https://kubernetes.io/docs/concepts/policy/pid-limiting/#pod-pid-limits
  *  Controls the maximum number of processes allowed to run in a pod. The value
@@ -5201,6 +5297,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  cannot be changed after the node pool has been created.
  */
 @property(nonatomic, copy, nullable) NSString *podIpv4CidrBlock;
+
+/**
+ *  Output only. [Output only] The utilization of the IPv4 range for pod. The
+ *  ratio is Usage/[Total number of IPs in the secondary range],
+ *  Usage=numNodes*numZones*podIPsPerNode.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *podIpv4RangeUtilization;
 
 /**
  *  The ID of the secondary range for pod IPs. If `create_pod_range` is true,
@@ -5896,6 +6001,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  RangeInfo contains the range name and the range utilization by this cluster.
+ */
+@interface GTLRContainer_RangeInfo : GTLRObject
+
+/** Output only. [Output only] Name of a range. */
+@property(nonatomic, copy, nullable) NSString *rangeName;
+
+/**
+ *  Output only. [Output only] The utilization of the range.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *utilization;
 
 @end
 
